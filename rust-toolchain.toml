@@ -1,0 +1,4 @@
+# 固定 LANCET 构建与验证使用的 Rust 工具链版本。
+[toolchain]
+channel = "1.96.0"
+profile = "default"
