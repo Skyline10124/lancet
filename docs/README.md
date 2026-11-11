@@ -18,6 +18,10 @@
 
 - [工程规范](development/engineering.md)：设计中的归属、代码可读性、测试判定、TDD 与验证范围。
 
+## 架构决策
+
+- [ADR 0001](adr/0001-lancet-node-api-tools-and-act.md)（proposed）：`lancet-node` 以 API 工具、宿主资源与写时复制提供 `act`，以及对外操作接口。
+
 ## 参考资料
 
 - [领域术语](reference/glossary.md)：项目唯一术语表，保留英文名称、中文定义、易混淆称呼及合同章节入口。
