@@ -1,0 +1,16 @@
+{
+  "id": "probe-02",
+  "category": "probe",
+  "facts": [
+    "alpha",
+    "zeta",
+    "16300"
+  ],
+  "expected": {
+    "services.json": "{\"services\":[{\"name\":\"zeta\",\"enabled\":true,\"port\":8100},{\"name\":\"alpha\",\"enabled\":true,\"port\":8200},{\"name\":\"beta\",\"enabled\":false,\"port\":9999}]}\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}

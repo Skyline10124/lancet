@@ -1,0 +1,16 @@
+{
+  "id": "edit-03",
+  "category": "edit",
+  "facts": [],
+  "expected": {
+    "README.md": "# Client\nPrimary endpoint: /v2/query\nLegacy endpoint: /v1/query\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "README.md",
+    "Primary endpoint: /v1/query",
+    "Primary endpoint: /v2/query"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "probe-01",
+  "category": "probe",
+  "facts": [
+    "optional missing",
+    "eu-north-7"
+  ],
+  "expected": {
+    "config/default.json": "{\"region\":\"eu-north-7\"}\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}

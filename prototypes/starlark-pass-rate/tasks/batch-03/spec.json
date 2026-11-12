@@ -1,0 +1,19 @@
+{
+  "id": "batch-03",
+  "category": "batch",
+  "facts": [],
+  "expected": {
+    "src/a.txt": "fast_path\ncall fast_path\nkeep stable\n",
+    "src/nested/b.txt": "use fast_path\nreturn fast_path\nfast_path\n",
+    "docs/history.txt": "Historical name: slow_path\n",
+    "src/untouched.txt": "stable marker\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "src/",
+    "slow_path",
+    "fast_path"
+  ]
+}

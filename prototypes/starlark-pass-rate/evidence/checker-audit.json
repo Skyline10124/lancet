@@ -1,0 +1,86 @@
+[
+  {
+    "run_id": "deepseek-A-read-03-r1",
+    "frozen_passed": false,
+    "reasons": [
+      "行数未与文件对应: a.txt",
+      "行数未与文件对应: b.txt"
+    ],
+    "wc_evidence": [
+      {
+        "call": 3,
+        "value": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    ]
+  },
+  {
+    "run_id": "deepseek-A-read-03-r3",
+    "frozen_passed": false,
+    "reasons": [
+      "行数未与文件对应: a.txt",
+      "行数未与文件对应: b.txt"
+    ],
+    "wc_evidence": [
+      {
+        "call": 2,
+        "value": "3 data/a.txt\n 4 data/b.txt\n 7 total"
+      }
+    ]
+  },
+  {
+    "run_id": "deepseek-B-read-03-r1",
+    "frozen_passed": false,
+    "reasons": [
+      "行数未与文件对应: a.txt",
+      "行数未与文件对应: b.txt"
+    ],
+    "wc_evidence": [
+      {
+        "call": 3,
+        "value": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    ]
+  },
+  {
+    "run_id": "deepseek-B-read-03-r3",
+    "frozen_passed": false,
+    "reasons": [
+      "行数未与文件对应: a.txt",
+      "行数未与文件对应: b.txt"
+    ],
+    "wc_evidence": [
+      {
+        "call": 3,
+        "value": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    ]
+  },
+  {
+    "run_id": "minimax-A-read-03-r1",
+    "frozen_passed": false,
+    "reasons": [
+      "行数未与文件对应: a.txt",
+      "行数未与文件对应: b.txt"
+    ],
+    "wc_evidence": [
+      {
+        "call": 3,
+        "value": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    ]
+  },
+  {
+    "run_id": "minimax-B-read-03-r3",
+    "frozen_passed": false,
+    "reasons": [
+      "行数未与文件对应: a.txt",
+      "行数未与文件对应: b.txt"
+    ],
+    "wc_evidence": [
+      {
+        "call": 4,
+        "value": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    ]
+  }
+]

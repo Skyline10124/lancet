@@ -1,0 +1,15 @@
+[package]
+name = "act-sim"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+starlark = "=0.14.2"
+starlark_derive = "=0.14.2"
+allocative = "0.3"
+anyhow = "1"
+serde_json = "1"
+regex = "1"
+globset = "0.4"
+tempfile = "3"
+similar = "2"

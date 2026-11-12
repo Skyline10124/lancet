@@ -1,0 +1,119 @@
+[
+  {
+    "run_id": "minimax-A-probe-03-r1",
+    "call": 1,
+    "script": "listing = repo.list(\".\")\nlogs = repo.list(\"logs\")\nfile_info = env.run([\"ls\", \"-la\", \"logs/large.log\"])\nreturn {\"listing\": listing, \"logs\": logs, \"file_info\": {\"code\": file_info.code, \"stdout\": file_info.stdout, \"stderr\": file_info.stderr}}\n",
+    "recorded": {
+      "file_info": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "-rw-r--r--. 1 gcp-vegas gcp-vegas 198094 Nov 12 09:48 logs/large.log\n"
+      },
+      "listing": [
+        "logs/"
+      ],
+      "logs": [
+        "large.log"
+      ]
+    },
+    "replayed": {
+      "file_info": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "-rw-r--r--. 1 gcp-vegas gcp-vegas 198094 Nov 12 09:50 logs/large.log\n"
+      },
+      "listing": [
+        "logs/"
+      ],
+      "logs": [
+        "large.log"
+      ]
+    }
+  },
+  {
+    "run_id": "minimax-A-probe-03-r2",
+    "call": 1,
+    "script": "res = env.run([\"ls\", \"-la\", \"logs/\"])\nreturn {\"stdout\": res.stdout, \"stderr\": res.stderr, \"code\": res.code}\n",
+    "recorded": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 196\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas     23 Nov 12 09:40 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas     18 Nov 12 09:40 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 198094 Nov 12 09:40 large.log\n"
+    },
+    "replayed": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 196\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas     23 Nov 12 09:50 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas     18 Nov 12 09:50 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 198094 Nov 12 09:50 large.log\n"
+    }
+  },
+  {
+    "run_id": "minimax-A-probe-03-r3",
+    "call": 1,
+    "script": "result = env.run([\"ls\", \"-la\"])\nlisting = result.stdout\nfiles = repo.list(\"logs\")\nreturn {\"ls\": listing, \"logs_dir\": files}\n",
+    "recorded": {
+      "logs_dir": [
+        "large.log"
+      ],
+      "ls": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 09:30 .\ndrwxrwxrwt. 47 root      root      4096 Nov 12 09:30 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 09:30 logs\n"
+    },
+    "replayed": {
+      "logs_dir": [
+        "large.log"
+      ],
+      "ls": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 09:50 .\ndrwxrwxrwt. 44 root      root      4096 Nov 12 09:50 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 09:50 logs\n"
+    }
+  },
+  {
+    "run_id": "minimax-A-read-02-r2",
+    "call": 1,
+    "script": "result = env.run([\"ls\", \"-la\", \"logs/\"])\nreturn result.stdout",
+    "recorded": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 25 Nov 12 09:37 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 09:37 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 62 Nov 12 09:37 service.log\n",
+    "replayed": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 25 Nov 12 09:50 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 09:50 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 62 Nov 12 09:50 service.log\n"
+  },
+  {
+    "run_id": "minimax-A-test-02-r1",
+    "call": 4,
+    "script": "res = env.run([\"ls\", \"-la\"], check=False)\nres2 = env.run([\"ls\", \"-la\", \"src\"], check=False)\nres3 = repo.search(\"cache\")\nlib = repo.read(\"src/lib.rs\")\nreturn {\"ls\": res.stdout, \"ls_src\": res2.stdout, \"search\": [str(h) for h in res3], \"lib\": lib, \"lib_len\": len(lib)}",
+    "recorded": {
+      "lib": "pub fn value() -> i32 { 1 }\n",
+      "lib_len": 28,
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 09:37 .\ndrwxrwxrwt. 47 root      root      4096 Nov 12 09:37 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 09:37 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 09:37 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 09:37 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 09:37 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 09:37 lib.rs\n",
+      "search": []
+    },
+    "replayed": {
+      "lib": "pub fn value() -> i32 { 1 }\n",
+      "lib_len": 28,
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 09:50 .\ndrwxrwxrwt. 44 root      root      4096 Nov 12 09:50 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 09:50 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 09:50 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 09:50 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 09:50 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 09:50 lib.rs\n",
+      "search": []
+    }
+  },
+  {
+    "run_id": "minimax-B-probe-03-r2",
+    "call": 2,
+    "script": "res = env.run([\"ls\", \"-la\", \"logs\"], check=False)\nresult({\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr})",
+    "recorded": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 196\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas     23 Nov 12 09:36 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas     18 Nov 12 09:36 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 198094 Nov 12 09:36 large.log\n"
+    },
+    "replayed": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 196\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas     23 Nov 12 09:50 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas     18 Nov 12 09:50 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 198094 Nov 12 09:50 large.log\n"
+    }
+  },
+  {
+    "run_id": "minimax-B-rollback-03-r2",
+    "call": 3,
+    "script": "r = env.run([\"ls\", \"-la\"], check=False)\nr2 = env.run([\"ls\", \"-la\", \"src\"], check=False)\nresult({\"ls\": r.stdout + r.stderr, \"ls_src\": r2.stdout + r2.stderr})",
+    "recorded": {
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 09:41 .\ndrwxrwxrwt. 47 root      root      4096 Nov 12 09:41 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 09:41 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 09:41 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 09:41 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 09:41 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 09:41 retry.rs\n"
+    },
+    "replayed": {
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 09:50 .\ndrwxrwxrwt. 44 root      root      4096 Nov 12 09:50 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 09:50 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 09:50 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 09:50 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 09:50 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 09:50 retry.rs\n"
+    }
+  }
+]

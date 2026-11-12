@@ -1,0 +1,12 @@
+[
+  {
+    "argv": [
+      "cargo",
+      "test",
+      "--lib"
+    ],
+    "code": 101,
+    "stdout": "\nrunning 4 tests\ntest smoke::ok ... ok\ntest codec::roundtrip ... FAILED\ntest codec::truncated_frame ... FAILED\n\nfailures:\n---- codec::roundtrip stdout ----\nthread 'codec::roundtrip' panicked: checksum mismatch\n---- codec::truncated_frame stdout ----\nthread 'codec::truncated_frame' panicked: checksum mismatch\n\nfailures:\n    codec::roundtrip\n    codec::truncated_frame\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
+    "stderr": "error: test failed\n"
+  }
+]

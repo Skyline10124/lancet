@@ -1,0 +1,6 @@
+[
+  {
+    "command": "python3 -m pip --version; python3 -m pip install --user tiktoken",
+    "error": "/usr/bin/python3: No module named pip"
+  }
+]

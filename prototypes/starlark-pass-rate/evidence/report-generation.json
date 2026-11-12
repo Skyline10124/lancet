@@ -1,0 +1,34 @@
+[
+  {
+    "model": "deepseek-flash",
+    "mode": "A",
+    "n": 72,
+    "completed": 57,
+    "first": 7,
+    "acts": 231
+  },
+  {
+    "model": "deepseek-flash",
+    "mode": "B",
+    "n": 72,
+    "completed": 60,
+    "first": 12,
+    "acts": 232
+  },
+  {
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "A",
+    "n": 48,
+    "completed": 27,
+    "first": 8,
+    "acts": 175
+  },
+  {
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "B",
+    "n": 52,
+    "completed": 25,
+    "first": 8,
+    "acts": 192
+  }
+]

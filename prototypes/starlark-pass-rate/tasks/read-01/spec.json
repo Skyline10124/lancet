@@ -1,0 +1,21 @@
+{
+  "id": "read-01",
+  "category": "read",
+  "facts": [
+    "src/a.rs",
+    "2",
+    "TODO cache_limit",
+    "src/b.rs",
+    "3",
+    "TODO retry_jitter"
+  ],
+  "expected": {
+    "src/a.rs": "fn main() {}\n// TODO cache_limit\n",
+    "src/b.rs": "// ready\n// note\n// TODO retry_jitter\n",
+    "notes.txt": "TODO outside scope\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}

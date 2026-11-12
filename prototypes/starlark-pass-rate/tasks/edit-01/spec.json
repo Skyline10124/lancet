@@ -1,0 +1,16 @@
+{
+  "id": "edit-01",
+  "category": "edit",
+  "facts": [],
+  "expected": {
+    "config.json": "{\n  \"timeout_ms\": 800,\n  \"retries\": 3\n}\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "config.json",
+    "500",
+    "800"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "test-04",
+  "category": "test",
+  "facts": [
+    "codec::roundtrip",
+    "codec::truncated_frame",
+    "checksum mismatch"
+  ],
+  "expected": {
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+    "src/lib.rs": "pub fn value() -> i32 { 1 }\n"
+  },
+  "command": [
+    "cargo",
+    "test",
+    "--lib"
+  ],
+  "failures": [
+    "codec::roundtrip",
+    "codec::truncated_frame"
+  ],
+  "reason": "checksum mismatch",
+  "replacement": null
+}

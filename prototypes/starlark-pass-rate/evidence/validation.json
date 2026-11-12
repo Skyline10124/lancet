@@ -1,0 +1,12 @@
+{
+  "runs": 288,
+  "calls": 892,
+  "grid_complete": true,
+  "frozen_files": 151,
+  "replay_state_or_check_mismatches": 0,
+  "replay_value_differences": 7,
+  "status_counts": {
+    "complete": 244,
+    "api_error": 44
+  }
+}

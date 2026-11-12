@@ -1,0 +1,24 @@
+{
+  "id": "test-03",
+  "category": "test",
+  "facts": [
+    "net::retry_budget",
+    "net::deadline",
+    "deadline exceeded after 50ms"
+  ],
+  "expected": {
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+    "src/lib.rs": "pub fn value() -> i32 { 1 }\n"
+  },
+  "command": [
+    "cargo",
+    "test",
+    "--workspace"
+  ],
+  "failures": [
+    "net::retry_budget",
+    "net::deadline"
+  ],
+  "reason": "deadline exceeded after 50ms",
+  "replacement": null
+}

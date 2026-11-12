@@ -1,0 +1,19 @@
+{
+  "id": "batch-01",
+  "category": "batch",
+  "facts": [],
+  "expected": {
+    "src/a.txt": "NewClient\ncall NewClient\nkeep stable\n",
+    "src/nested/b.txt": "use NewClient\nreturn NewClient\nNewClient\n",
+    "docs/history.txt": "Historical name: OldClient\n",
+    "src/untouched.txt": "stable marker\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "src/",
+    "OldClient",
+    "NewClient"
+  ]
+}

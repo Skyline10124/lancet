@@ -1,0 +1,23 @@
+{
+  "id": "test-01",
+  "category": "test",
+  "facts": [
+    "parser::empty_input",
+    "parser::bad_utf8",
+    "invalid token at offset 3"
+  ],
+  "expected": {
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+    "src/lib.rs": "pub fn value() -> i32 { 1 }\n"
+  },
+  "command": [
+    "cargo",
+    "test"
+  ],
+  "failures": [
+    "parser::empty_input",
+    "parser::bad_utf8"
+  ],
+  "reason": "invalid token at offset 3",
+  "replacement": null
+}

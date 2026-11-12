@@ -1,0 +1,25 @@
+{
+  "id": "rollback-04",
+  "category": "rollback",
+  "facts": [
+    "codec::compatibility",
+    "legacy frame rejected"
+  ],
+  "expected": {
+    "src/codec.rs": "pub const VERSION: u8 = 1;\n",
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+  },
+  "command": [
+    "cargo",
+    "test"
+  ],
+  "failures": [
+    "codec::compatibility"
+  ],
+  "reason": "legacy frame rejected",
+  "replacement": [
+    "src/codec.rs",
+    "= 1;",
+    "= 2;"
+  ]
+}

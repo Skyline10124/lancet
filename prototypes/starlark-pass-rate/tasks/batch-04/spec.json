@@ -1,0 +1,19 @@
+{
+  "id": "batch-04",
+  "category": "batch",
+  "facts": [],
+  "expected": {
+    "src/a.txt": "V2_TAG\ncall V2_TAG\nkeep stable\n",
+    "src/nested/b.txt": "use V2_TAG\nreturn V2_TAG\nV2_TAG\n",
+    "docs/history.txt": "Historical name: V1_TAG\n",
+    "src/untouched.txt": "stable marker\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "src/",
+    "V1_TAG",
+    "V2_TAG"
+  ]
+}

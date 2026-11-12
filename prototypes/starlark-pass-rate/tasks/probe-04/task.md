@@ -1,0 +1,1 @@
+Read deploy.json and check whether overrides.json exists. Report a JSON object containing the sorted names of prod targets, their total replicas, and whether overrides.json is present. Do not change files.

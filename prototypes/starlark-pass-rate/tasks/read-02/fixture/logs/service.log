@@ -1,0 +1,5 @@
+boot
+request id=R71
+ALERT queue stalled
+worker id=W09
+healthy

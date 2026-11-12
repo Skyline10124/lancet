@@ -1,0 +1,19 @@
+{
+  "id": "batch-02",
+  "category": "batch",
+  "facts": [],
+  "expected": {
+    "src/a.txt": "modern_flag\ncall modern_flag\nkeep stable\n",
+    "src/nested/b.txt": "use modern_flag\nreturn modern_flag\nmodern_flag\n",
+    "docs/history.txt": "Historical name: legacy_flag\n",
+    "src/untouched.txt": "stable marker\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "src/",
+    "legacy_flag",
+    "modern_flag"
+  ]
+}

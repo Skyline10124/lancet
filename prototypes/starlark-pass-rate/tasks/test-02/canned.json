@@ -1,0 +1,12 @@
+[
+  {
+    "argv": [
+      "cargo",
+      "test",
+      "--offline"
+    ],
+    "code": 101,
+    "stdout": "\nrunning 4 tests\ntest smoke::ok ... ok\ntest cache::expiry ... FAILED\ntest cache::eviction ... FAILED\n\nfailures:\n---- cache::expiry stdout ----\nthread 'cache::expiry' panicked: expected size 2, got 3\n---- cache::eviction stdout ----\nthread 'cache::eviction' panicked: expected size 2, got 3\n\nfailures:\n    cache::expiry\n    cache::eviction\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
+    "stderr": "error: test failed\n"
+  }
+]

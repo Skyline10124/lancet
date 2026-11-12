@@ -1,0 +1,25 @@
+{
+  "id": "rollback-03",
+  "category": "rollback",
+  "facts": [
+    "retry::deadline",
+    "request deadline exceeded"
+  ],
+  "expected": {
+    "src/retry.rs": "pub const RETRIES: u32 = 2;\n",
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+  },
+  "command": [
+    "cargo",
+    "test"
+  ],
+  "failures": [
+    "retry::deadline"
+  ],
+  "reason": "request deadline exceeded",
+  "replacement": [
+    "src/retry.rs",
+    "= 2;",
+    "= 3;"
+  ]
+}

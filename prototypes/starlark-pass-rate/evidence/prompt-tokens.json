@@ -1,0 +1,33 @@
+{
+  "source": "首次 API 响应 usage.prompt_tokens；包括系统提示、任务和完整工具 schema",
+  "groups": [
+    {
+      "model": "deepseek-flash",
+      "mode": "A",
+      "samples": 72,
+      "min_prompt_tokens": 1741,
+      "max_prompt_tokens": 1775
+    },
+    {
+      "model": "deepseek-flash",
+      "mode": "B",
+      "samples": 72,
+      "min_prompt_tokens": 1766,
+      "max_prompt_tokens": 1800
+    },
+    {
+      "model": "MiniMax-M3.1-Flash",
+      "mode": "A",
+      "samples": 62,
+      "min_prompt_tokens": 1808,
+      "max_prompt_tokens": 1909
+    },
+    {
+      "model": "MiniMax-M3.1-Flash",
+      "mode": "B",
+      "samples": 66,
+      "min_prompt_tokens": 1833,
+      "max_prompt_tokens": 1934
+    }
+  ]
+}

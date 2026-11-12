@@ -1,0 +1,20 @@
+{
+  "id": "read-03",
+  "category": "read",
+  "facts": [
+    "a.txt",
+    "3",
+    "b.txt",
+    "4",
+    "7"
+  ],
+  "expected": {
+    "data/a.txt": "alpha\n\nbeta\n",
+    "data/b.txt": "one\ntwo\nthree\nfour\n",
+    "data/ignore.md": "ignore\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}

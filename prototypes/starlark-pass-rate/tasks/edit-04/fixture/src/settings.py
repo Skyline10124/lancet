@@ -1,0 +1,3 @@
+PORT = 8080
+HEALTH_PORT = 8081
+LABEL = "gateway"

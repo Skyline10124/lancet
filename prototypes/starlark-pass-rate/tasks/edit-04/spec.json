@@ -1,0 +1,16 @@
+{
+  "id": "edit-04",
+  "category": "edit",
+  "facts": [],
+  "expected": {
+    "src/settings.py": "PORT = 9090\nHEALTH_PORT = 8081\nLABEL = \"gateway\"\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "src/settings.py",
+    "PORT = 8080",
+    "PORT = 9090"
+  ]
+}

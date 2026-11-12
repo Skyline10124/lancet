@@ -1,0 +1,16 @@
+{
+  "id": "edit-02",
+  "category": "edit",
+  "facts": [],
+  "expected": {
+    "src/options.rs": "pub const STRICT: bool = true;\npub const TRACE: bool = false;\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": [
+    "src/options.rs",
+    "STRICT: bool = false",
+    "STRICT: bool = true"
+  ]
+}

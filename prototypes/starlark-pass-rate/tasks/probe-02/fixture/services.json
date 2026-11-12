@@ -1,0 +1,1 @@
+{"services":[{"name":"zeta","enabled":true,"port":8100},{"name":"alpha","enabled":true,"port":8200},{"name":"beta","enabled":false,"port":9999}]}

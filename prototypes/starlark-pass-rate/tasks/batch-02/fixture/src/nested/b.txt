@@ -1,0 +1,3 @@
+use legacy_flag
+return legacy_flag
+legacy_flag

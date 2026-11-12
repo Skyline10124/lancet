@@ -1,0 +1,8 @@
+{"done": 1, "total": 8, "run_id": "deepseek-A-read-02-r1", "status": "complete", "passed": true, "acts": 1}
+{"done": 2, "total": 8, "run_id": "deepseek-B-read-02-r1", "status": "complete", "passed": true, "acts": 2}
+{"done": 3, "total": 8, "run_id": "minimax-A-rollback-01-r1", "status": "complete", "passed": false, "acts": 4}
+{"done": 4, "total": 8, "run_id": "deepseek-A-rollback-01-r1", "status": "complete", "passed": false, "acts": 4}
+{"done": 5, "total": 8, "run_id": "minimax-B-rollback-01-r1", "status": "complete", "passed": false, "acts": 4}
+{"done": 6, "total": 8, "run_id": "minimax-A-read-02-r1", "status": "complete", "passed": true, "acts": 4}
+{"done": 7, "total": 8, "run_id": "minimax-B-read-02-r1", "status": "complete", "passed": false, "acts": 4}
+{"done": 8, "total": 8, "run_id": "deepseek-B-rollback-01-r1", "status": "complete", "passed": true, "acts": 4}

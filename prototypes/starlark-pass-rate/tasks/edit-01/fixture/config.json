@@ -1,0 +1,4 @@
+{
+  "timeout_ms": 500,
+  "retries": 3
+}

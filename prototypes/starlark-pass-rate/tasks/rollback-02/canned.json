@@ -1,0 +1,11 @@
+[
+  {
+    "argv": [
+      "cargo",
+      "test"
+    ],
+    "code": 101,
+    "stdout": "\nrunning 4 tests\ntest smoke::ok ... ok\ntest cache::memory_budget ... FAILED\n\nfailures:\n---- cache::memory_budget stdout ----\nthread 'cache::memory_budget' panicked: allocation budget exceeded\n\nfailures:\n    cache::memory_budget\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n",
+    "stderr": "error: test failed\n"
+  }
+]

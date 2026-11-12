@@ -1,0 +1,15 @@
+{
+  "source_sha256": "77812686a1eccad966082827e1b6a0b344b40f2a7e47507a4e75ab8b345b76f4",
+  "fixes": [
+    {
+      "old": "| recursion | Not allowed. A function may not call itself. |",
+      "new": "| recursion | Allowed in this interpreter. |",
+      "probe": "recursion"
+    },
+    {
+      "old": "| `print(x)` | Allowed, but the output is not shown to you. Return what you need. |",
+      "new": "| `print(x)` | Not available in this environment. Return what you need. |",
+      "probe": "print"
+    }
+  ]
+}

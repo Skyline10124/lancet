@@ -1,0 +1,25 @@
+{
+  "id": "rollback-01",
+  "category": "rollback",
+  "facts": [
+    "limits::overflow",
+    "expected rejection at 5"
+  ],
+  "expected": {
+    "src/limits.rs": "pub const LIMIT: u32 = 4;\n",
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+  },
+  "command": [
+    "cargo",
+    "test"
+  ],
+  "failures": [
+    "limits::overflow"
+  ],
+  "reason": "expected rejection at 5",
+  "replacement": [
+    "src/limits.rs",
+    "= 4;",
+    "= 8;"
+  ]
+}

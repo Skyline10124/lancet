@@ -1,0 +1,21 @@
+{
+  "id": "read-04",
+  "category": "read",
+  "facts": [
+    "src/a.py",
+    "1",
+    "Mira",
+    "src/sub/b.py",
+    "2",
+    "Noah"
+  ],
+  "expected": {
+    "src/a.py": "# FIXME owner=Mira: retry\nx = 1\n",
+    "src/sub/b.py": "x = 2\n# FIXME owner=Noah: cache\n",
+    "docs/note.md": "FIXME owner=Zed\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}

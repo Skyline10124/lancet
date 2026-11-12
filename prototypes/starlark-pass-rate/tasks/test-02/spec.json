@@ -1,0 +1,24 @@
+{
+  "id": "test-02",
+  "category": "test",
+  "facts": [
+    "cache::expiry",
+    "cache::eviction",
+    "expected size 2, got 3"
+  ],
+  "expected": {
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+    "src/lib.rs": "pub fn value() -> i32 { 1 }\n"
+  },
+  "command": [
+    "cargo",
+    "test",
+    "--offline"
+  ],
+  "failures": [
+    "cache::expiry",
+    "cache::eviction"
+  ],
+  "reason": "expected size 2, got 3",
+  "replacement": null
+}

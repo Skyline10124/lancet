@@ -1,0 +1,3 @@
+legacy_flag
+call legacy_flag
+keep stable

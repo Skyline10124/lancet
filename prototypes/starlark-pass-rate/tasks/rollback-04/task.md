@@ -1,0 +1,1 @@
+Change the value 1 to 2 in src/codec.rs, then run cargo test. If any test fails, do not keep your change; report which tests failed and why. If all tests pass, keep the change and report the test summary.

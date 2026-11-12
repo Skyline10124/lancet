@@ -1,0 +1,25 @@
+{
+  "id": "rollback-02",
+  "category": "rollback",
+  "facts": [
+    "cache::memory_budget",
+    "allocation budget exceeded"
+  ],
+  "expected": {
+    "src/cache.rs": "pub const CAPACITY: usize = 16;\n",
+    "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+  },
+  "command": [
+    "cargo",
+    "test"
+  ],
+  "failures": [
+    "cache::memory_budget"
+  ],
+  "reason": "allocation budget exceeded",
+  "replacement": [
+    "src/cache.rs",
+    "= 16;",
+    "= 32;"
+  ]
+}

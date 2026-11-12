@@ -1,0 +1,16 @@
+{
+  "id": "read-02",
+  "category": "read",
+  "facts": [
+    "request id=R71",
+    "ALERT queue stalled",
+    "worker id=W09"
+  ],
+  "expected": {
+    "logs/service.log": "boot\nrequest id=R71\nALERT queue stalled\nworker id=W09\nhealthy\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}

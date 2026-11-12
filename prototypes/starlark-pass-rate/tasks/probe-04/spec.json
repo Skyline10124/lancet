@@ -1,0 +1,18 @@
+{
+  "id": "probe-04",
+  "category": "probe",
+  "facts": [
+    "east",
+    "west",
+    "5",
+    "true"
+  ],
+  "expected": {
+    "deploy.json": "{\"targets\":[{\"name\":\"west\",\"env\":\"prod\",\"replicas\":3},{\"name\":\"dev\",\"env\":\"test\",\"replicas\":9},{\"name\":\"east\",\"env\":\"prod\",\"replicas\":2}]}\n",
+    "overrides.json": "{}\n"
+  },
+  "command": null,
+  "failures": [],
+  "reason": null,
+  "replacement": null
+}
