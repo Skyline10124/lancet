@@ -16,7 +16,7 @@ status: proposed
 
 | 约束 | 出处 |
 | --- | --- |
-| 节点实现 `hello`、`describe`、`execute`、`cancel`、`receipt`、`revert` 六个操作，遵守持久零重放、目录摘要冻结、五种结局、`output_limit` 载荷上限与后态核对求逆规则 | [ADR 0001 第 3–5 节](0001-lancet-protocol.md#3-六个协议操作) |
+| 节点实现 `hello`、`describe`、`execute`、`cancel`、`receipt`、`revert` 六个操作，遵守持久零重放、目录摘要冻结、五种结局、`output_limit` 载荷上限与后态核对求逆规则 | [ADR 0001 第 3–6 节](0001-lancet-protocol.md#3-六个协议操作) |
 | 只支持 Linux 主机 | [项目介绍](../../README.md#环境要求与验证) |
 
 ### 已核实的事实
@@ -34,7 +34,7 @@ status: proposed
 | `bubblewrap` 可从系统软件源取得，当前未安装 | Rocky 10.2 的 baseos 源提供 0.10.0 |
 | `starlark-rust` 能编译为 `wasm32-wasip2` 组件 | `starlark` 0.14.2 编译通过，产物 6.5 MB；组件只导入 WASI 的时钟、标准流、环境与随机数接口，不导入文件系统与套接字 |
 | Starlark 组件能在 `wasmtime` 中运行，预编译后启动开销小 | `wasmtime` 49.0.5 命令行运行含函数与列表推导的脚本，结果与原生一致；每次现编译时整个进程耗时 1152 ms，预编译后约 12 ms，原生进程约 6 ms（均含进程启动） |
-| `starlark` 0.14.2 语法与标准库边界 | `Dialect::Standard` 默认关闭顶层语句，开启 `enable_top_level_stmt: true` 后支持顶层 `if`、`for` 与提前 `return`；语言无 `while`、递归与 `try / except`，宿主函数返回 `Err` 时调用栈干净退栈；内置 `LibraryExtension::Json`（`json.decode` / `json.encode`），无内置正则模块；实验性 `enable_f_strings` 仅支持裸标识符插值 |
+| `starlark` 0.14.2 语法与标准库边界 | `Dialect::Standard` 默认关闭顶层语句，开启 `enable_top_level_stmt: true` 后支持顶层 `if` 与 `for`；顶层 `return` 仍是语法错误（“`return` cannot be used outside of a `def` function”）；语言无 `while` 与 `try / except`，允许递归；宿主函数返回 `Err` 时调用栈干净退栈；内置 `LibraryExtension::Json`（`json.decode` / `json.encode`），无内置正则模块；未加入 `print` 时脚本中没有 `print`；实验性 `enable_f_strings` 仅支持裸标识符插值。顶层 `return`、递归与 `print` 由实验 1 的语言探针核实（`exp/act-prototypes` 分支 `prototypes/starlark-pass-rate/REPORT.md`） |
 
 ### 尚未核实
 
@@ -67,30 +67,25 @@ status: proposed
 
 | 概念 | 规则 |
 | --- | --- |
-| API 工具 | 节点内部唯一的工具定义单元。每个 API 工具有一份声明：签名、`effect` 类别与 `scope` 类型。`describe` 中的 `environment_summary`、沙箱句柄分发与回执明细均由这份声明推出 |
-| 脚本 | 模型传给 `act` 的一段 Starlark，只做编排：持有授权句柄，调用 API 工具，对内存结果做纯计算筛选与组合，最后 `return` 需要进入模型上下文的数据。脚本自身没有 `effect`，也不是工具 |
+| API 工具 | 节点内部唯一的工具定义单元。每个 API 工具有一份声明：签名，以及以句柄参数表示的 effect 与 co-effect 模板（见 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-effectco-effect回执与-residue)）。`describe` 中的 `environment_summary`、受理检查、沙箱句柄分发、`seam` 边集与回执明细均由这份声明推出 |
+| 脚本 | 模型传给 `act` 的一段 Starlark，只做编排：持有授权句柄，调用 API 工具，对内存结果做纯计算筛选与组合，最后把需要进入模型上下文的数据交回。脚本自身不产生、也不声明 effect 与 co-effect，不是工具 |
 | `act` | `lancet-node` 对模型可见的唯一工具，输入为脚本字符串。它本身不带任何固有能力 |
 
-除 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-副作用回执与-residue) 定义的 `effect` 与 `residue` 外，节点内部引入两个授权分析术语：
+effect、co-effect、句柄、`residue` 与 `seam` 的定义见 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-effectco-effect回执与-residue)。本节点的句柄种类就是本 ADR 第 4 节的三类宿主资源：目录、执行环境、网络出口。
 
-| 术语 | 含义 |
-| --- | --- |
-| `scope` | 一次 API 调用的副作用被限定的范围。`scope` 类型是一种宿主资源，`scope` 实例是该资源的一个句柄，持有句柄即获得授权 |
-| `seam` | 两个 `scope` 的接缝：一次调用产生的副作用，不经额外授权就成为另一个 `scope` 内可被消费的代码或外发材料 |
+首批 API 工具（`d` 为目录句柄，`e` 为执行环境句柄，`n` 为网络出口句柄；`mounts(e)` 为 `e` 挂载的目录及其模式）：
 
-首批 API 工具：
-
-| API 工具 | `effect` | `scope` 类型 | 说明 |
+| API 工具 | effect 模板 | co-effect 模板 | 说明 |
 | --- | --- | --- | --- |
-| `fs.read`、`fs.list`、`fs.search` | `Read` | 目录 | 读取文件、列举目录、按正则与路径模式搜索 |
-| `fs.status`、`fs.diff` | `Read` | 目录 | 查看当前 `overlay` 草稿相对于工作目录基线的增删改列表与 unified diff |
-| `fs.write`、`fs.edit`、`fs.reset` | `Write` | 目录 | 整文件写入、唯一精确匹配替换、将指定路径撤回工作目录基线状态 |
-| `proc.run`、`proc.pipe` | `Exec` | 执行环境 | 以参数数组运行单个进程，或用内核 `pipe()` 串联多阶段参数数组（均不经过 `/bin/sh`） |
-| `http.fetch` | `Emit` | 网络出口 | 经授权出口发起 HTTP 请求 |
+| `fs.read`、`fs.list`、`fs.search` | 无 | `Uses<d, Read>` | 读取文件、列举目录、按正则与路径模式搜索 |
+| `fs.status`、`fs.diff` | 无 | `Uses<d, Read>` | 查看当前 `overlay` 草稿相对于工作目录基线的增删改列表与 unified diff |
+| `fs.write`、`fs.edit`、`fs.reset` | `Write<d>` | `Uses<d, ReadWrite>` | 整文件写入、唯一精确匹配替换、将指定路径撤回工作目录基线状态 |
+| `proc.run`、`proc.pipe` | `Exec<e>`，以及派生的 `Write<d>`（`d` 以可写方式挂载）与 `Emit<n>`（`e` 持有出口） | `Uses<e>` 与 `mounts(e)` | 以参数数组运行单个进程，或用内核 `pipe()` 串联多阶段参数数组（均不经过 `/bin/sh`） |
+| `http.fetch` | `Emit<n>` | `Uses<n>` | 经授权出口发起 HTTP 请求 |
 
 ### 3. Starlark 编排、正交过滤与快速失败
 
-解释器固定采用 Starlark（开启 `enable_top_level_stmt = true` 支持顶层 `if`、`for` 与提前 `return`），在保持确定性、有限步终止与无隐式副作用的前提下，按下列规则补齐脚本顺滑度与防错语义：
+解释器固定采用 Starlark（开启 `enable_top_level_stmt = true` 支持顶层 `if` 与 `for`；脚本交回结果的方式见[待裁决](#待裁决)，下文示意沿用 `return`），在保持确定性、有限步终止、脚本自身不产生 effect 的前提下，按下列规则补齐脚本顺滑度与防错语义：
 
 - **句柄方法绑定**：节点按配置向脚本全局环境注入授权句柄，并在句柄对象上直接绑定对应方法（例如 `lancet.read(...)` 等价转发给 `fs.read(lancet, ...)`，`env.run(...)` 等价转发给 `proc.run(env, ...)`），省去重复传递句柄样板。
 - **纯计算正交过滤与两级体积上限**：
@@ -139,11 +134,11 @@ return {
 
 规则：**原生能力一律以宿主资源的形式进入，API 工具只通过句柄使用。** 宿主资源是一个小的封闭集合，由节点实现。
 
-| 宿主资源（`scope` 类型） | 句柄代表什么 | 实现 |
+| 宿主资源（句柄种类） | 句柄代表什么 | 实现 |
 | --- | --- | --- |
 | 目录 | 一个工作目录及其读写级别 | 节点实现的目录资源，在这一层过滤配置中的 `hidden` 路径 |
 | 执行环境 | 一组挂载、资源上限与网络出口 | `bubblewrap`：只挂载句柄列出的目录，网络命名空间为空，到期终止整个 PID 命名空间 |
-| 网络出口 | 允许访问的主机清单 | 节点内的放行代理 |
+| 网络出口 | 允许访问的主机与 HTTP 方法清单 | 节点内的放行代理 |
 
 - **API 工具与解释器都是 WASM 组件**，在 `wasmtime` 中运行。API 工具组件实例化时只得到本次调用授权的句柄，没有交给它的资源无从引用。
 - **解释器组件不持有任何宿主资源**，只导入调用节点子工具分发的接口。
@@ -180,11 +175,40 @@ hidden = [".env"]                # 排除：脚本不可见也不可写
 name = "lattice"
 path = "/home/dev/lattice"
 access = "read"
+
+[[env]]
+name = "dev"
+mounts = [{ dir = "lancet", access = "write" }, { dir = "lattice", access = "read" }]
+egress = "crates"
+
+[[egress]]
+name = "crates"
+hosts = ["index.crates.io", "static.crates.io"]
+methods = ["GET"]
+
+# 每条推出的 seam 都须写明策略，缺一条节点即拒绝启动（见第 7 节）
+[[seam]]
+from = "lancet"
+to = "dev"
+direction = "integrity"          # lancet 上的写入会在 dev 中被执行
+policy = "allow"
+
+[[seam]]
+from = "lancet"
+to = "crates"
+direction = "confidentiality"    # lancet 的可读内容可经 crates 外发
+policy = "allow"
+
+[[seam]]
+from = "lattice"
+to = "crates"
+direction = "confidentiality"
+policy = "allow"
 ```
 
-### 6. 文件副作用经写时复制提交与文件级求逆
+### 6. 文件写入经写时复制提交与文件级求逆
 
-一次 `act` 的全部工作目录写入先落在 `overlay` 的上层，脚本正常返回时统一提交。文件副作用只有这一条路径，`fs.write`、`fs.edit`、`fs.reset` 与 `proc.*` 共用。
+一次 `act` 的全部工作目录写入先落在 `overlay` 的上层，脚本正常返回时统一提交。目录上的 `Write` 只有这一条路径，`fs.write`、`fs.edit`、`fs.reset` 与 `proc.*` 共用。
 
 ```mermaid
 sequenceDiagram
@@ -231,41 +255,84 @@ act 结束时:
         if 提交完成:               Succeeded { content, receipt_summary }
         elif 存在外部写者冲突:      丢弃上层 -> Failed(Conflict)
     elif return 值超出 output_limit: 丢弃上层 -> Failed(OutputLimitExceeded)
+    elif 子调用被 seam 闸口拒绝:     丢弃上层 -> Failed(SeamBlocked)
     elif 脚本 fail 或子调用报错:     丢弃上层 -> Failed(ScriptOrToolError)
     elif 调用方 cancel 或连接断开:  丢弃上层 -> Cancelled
     elif remaining_ms 耗尽:        丢弃上层 -> Deadline
 ```
 
-- 丢弃上层后，工作目录中的文件副作用未发生；脚本运行期间已发出的网络请求与环境目录缓存写入按实情记入回执的 `residue`。
-- **文件级求逆实现**：`lancet-node` 按 [ADR 0001 第 5 节](0001-lancet-protocol.md#5-求逆revert与会话-rewind-的配合) 处理 `revert` 时，对逆序遍历到的每次调用逐文件核对当前文件内容与回执记录的写后摘要：一致则用状态目录中的 reflink 前态原子替换恢复（`Restored`），不一致则保持不动并报告 `Conflict`；匹配 `regenerable` 的文件变更、环境目录缓存写入与已发生的联网报告 `Irreversible(residue)`。
+- 丢弃上层后，工作目录上的 `Write` 未发生；脚本运行期间已发出的网络请求与环境目录缓存写入按实情记入回执的 `residue`。
+- **文件级求逆实现**：`lancet-node` 按 [ADR 0001 第 5 节](0001-lancet-protocol.md#5-求逆revert与会话-rewind-的配合) 处理 `revert` 时，对逆序遍历到的每次调用逐文件施加 `Write` 的逆：前提是当前文件内容等于回执记录的写后摘要，满足则把文件原子替换为前态（`Restored`），不满足则保持不动并报告 `Conflict`。前态以 reflink 保存在节点状态目录，是这个逆所需的材料。匹配 `regenerable` 的文件变更、环境目录缓存写入与已发生的联网没有保留逆，报告 `Irreversible(residue)`。
 
-### 7. `scope`、`effect`、`residue` 与 `seam` 在节点内的读取方
+### 7. effect、co-effect、`residue` 与 `seam` 在工具基座中的读取方
 
-声明只有在有一方读取它并据此作决定时才保留。
+这套模型只用于工具基座：API 工具声明、分发层与配置加载。脚本不标注、不感知 effect 与 co-effect。声明只有在有一方读取它并据此作决定时才保留。
 
-| 概念 | 节点或外部读取方 | 据此作的决定 |
+| 概念 | 读取方 | 据此作的决定 |
 | --- | --- | --- |
-| `scope` | `lancet-node` | 实例化 API 工具组件时注入哪些句柄；回执记录副作用落在哪个目录、环境或出口 |
-| `effect` | `lancet-node` | 核对目录句柄的 `read` / `write` 级别是否满足调用；中断丢弃 `overlay` 后判定还剩哪些副作用 |
-| `residue` | `lancet-node` 的 `revert`、协调层与用户 | 判定哪些文件可恢复前态，如实报告不可还原项 |
-| `seam` | `lancet-node`（及后续审批准入） | 加载配置时识别跨 `scope` 的隐式权限升级并写入日志与 `environment_summary` |
+| API 工具的 effect 与 co-effect 模板 | 分发层 | 用本次调用实际传入的句柄实例化 κ，核对其中句柄与模式均已授予；回执记录实际发生的 ε，并核对它不越出模板，越出即为节点缺陷，本次 `act` 以 `Failed` 结束 |
+| 同上 | 配置加载 | 推出 `seam` 边集与 `environment_summary` 的句柄条目 |
+| `residue` | `revert`、协调层与用户 | 哪些项可施加逆，如实报告不可还原项 |
+| `seam` | 分发层（完整性闸口）、配置加载（机密性闸口）；审批上线后加上准入 | 放行并记录跨越，或拒绝 |
 
-`lancet-node` 中各类副作用到协议 `residue`（见 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-副作用回执与-residue)）的映射：
+`lancet-node` 中各类 effect 到协议 `residue`（见 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-effectco-effect回执与-residue)）的映射：
 
-| 具体副作用 | 协议 `residue` 取值 |
+| effect 项 | 协议 `residue` 取值 |
 | --- | --- |
-| `fs.read` / `list` / `search` / `status` / `diff`，或被丢弃的 `overlay` 草稿 | `None` |
-| 已提交到工作目录且留有 reflink 前态的非 `regenerable` 文件变更 | `None`（可经 `revert` 核对后态还原） |
+| 已提交到工作目录且留有 reflink 前态的非 `regenerable` 文件变更 | `None`（可施加逆） |
 | 已提交到工作目录、匹配 `regenerable` 的文件变更 | `Regenerable` |
 | 执行环境缓存目录中的写入 | `InternalState` |
 | `http.fetch` 或原生子进程经节点代理发出的网络请求 | `External`（记录目标主机与方法） |
 
-已识别的两类 `seam`：
+只读 API 工具没有 effect，被丢弃的 `overlay` 草稿在 `act` 结束后不存在，二者都不产生回执中的 effect 条目。
 
-| `seam` | 例子 |
-| --- | --- |
-| 可写的工作目录同时挂载进执行环境 | 一次可撤销的 `fs.write` 修改了 `build.rs` 或测试代码，紧接着的 `proc.run` 使其带着执行环境的全部权限运行 |
-| 目录读权限与网络出口同时授予同一脚本 | `fs.read` 读到的工作区内容可在同一段脚本内经 `http.fetch` 或代理发出 |
+#### `seam` 边集与闸口
+
+节点加载配置时由句柄关系推出边集：
+
+```text
+for 每个执行环境 e, for 每个以可写方式挂载进 e 的目录 d:
+    integrity        d ⇒ e     # d 上的 Write 成为 e 中 Exec 的上下文
+for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环境挂载）:
+    confidentiality  d ⇒ n     # 经 Uses<d> 读到的内容可经 n 上的 Emit 外发
+```
+
+- **机密性边不限于同一次 `act`。** 第一次 `act` 读到的内容交回模型后，模型可以把它写进下一次 `act` 的 `http.fetch`。中转的是脚本加模型，所以只要授权组合里同时有可读目录和网络出口，就成立一条边。
+- **每条边必须在配置中写明策略**（见第 5 节示例），缺失时节点拒绝启动。边集与策略写入 `environment_summary`。
+
+| 方向 | 闸口位置 | 允许的策略 | 规则 |
+| --- | --- | --- | --- |
+| 完整性 | 运行时：分发层受理 `proc.run` / `proc.pipe` 时 | `Allow`、`Deny` | 见下方伪代码 |
+| 机密性 | 加载配置时 | 只能是 `Allow` | 节点追踪不了数据在脚本、模型与原生进程中的流动，运行时无从判定。写成 `Allow` 即显式确认这个授权组合；不接受这个组合时，须撤掉可读目录或网络出口之一 |
+
+完整性闸口按 API 调用粒度判定，未提交的 `overlay` 草稿写入同样计入。闸口状态持久保存在节点状态目录，跨 `act` 有效：
+
+```text
+节点为每个被调用写过的路径 p 记 crossed_digest(p)，首次被写时取写前内容的摘要
+p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_digest(p)
+
+分发 proc.run / proc.pipe(e) 时:
+    for 每个以可写方式挂载进 e 的目录 d:
+        U[d] = d 中的未过闸路径
+        if U[d] 非空 且 边 d ⇒ e 为 Deny: 本次子调用以 SeamBlocked 失败，不放行任何一条
+    放行；对每个非空的 U[d]:
+        回执记一条跨越 { seam: d ⇒ e, count: |U[d]| }
+        对 U[d] 中每个 p: crossed_digest(p) ← digest(p)
+```
+
+- **求逆无需特殊处理。** `revert` 把文件写回前态后，若前态摘要等于 `crossed_digest`，该路径自然回到已过闸状态。
+- **反方向的流动已被覆盖。** `http.fetch` 拿回的内容写进目录 `d`，就是 `d` 上的 `Write`，之后经边 `d ⇒ e` 的完整性闸口处理。
+
+机密性方向的外发控制：
+
+| 层 | 手段 | 读取方与决定 |
+| --- | --- | --- |
+| 出口清单 | 网络出口句柄限定主机与 HTTP 方法 | 代理逐个请求放行或拒绝 |
+| 组合确认 | 机密性边须在配置中显式写为 `Allow` | 配置加载：未写则拒绝启动 |
+| 回执 | 每次外发记 `External { host, method }` | 调用方核对，用户事后审计 |
+| 审批 | `Emit` 前询问用户 | 准入，审批上线后 |
+
+已接受的残余风险：被允许的主机本身能接收任意数据（如 issue、gist，或塞进 `GET` 查询串的内容）时，出口清单拦不住。`execute` 交回调用方的 `content` 离开节点后流向何处，由调用方负责，不在本节点范围内。
 
 ## 待裁决
 
@@ -274,7 +341,11 @@ act 结束时:
 | 第 1 节的能力清单是否完整，例如长时间运行的后台守护进程与交互式输入 | 先按四类实施 |
 | 整次 `act` 共享同一组 `overlay`、结束时统一提交 | 采用；代价是脚本运行中的写入在提交前对节点外不可见 |
 | API 工具是随节点发布的封闭集合，还是各自独立构建的扩展单元 | 第一个版本作为随节点发布的封闭集合 |
-| `seam` 在第一个版本里的处置 | 节点加载配置时列出授权组合产生的 `seam`，写入日志与 `describe` 的 `environment_summary`；审批上线后由准入读取 |
+| 完整性闸口计入哪些写入 | 第一个版本计入全部写入，含 `regenerable` 与 `proc.*` 派生的写入；是否按路径规则收窄，按实施后的跨越记录裁决 |
+| 完整性边的询问策略 | 审批上线后增加 `Ask`，由准入读取 `environment_summary` 中的边与策略 |
+| 脚本交回结果的方式 | 顶层 `return` 不是 `starlark` 的原生能力。实验 1 比较了两种：A 允许顶层 `return`（由节点实现）；B 调用 `result(value)`、`return` 只用于 `def` 内。任务完成率 deepseek-flash A 79% / B 83%，MiniMax-M3.1-Flash A 56% / B 48%。按重跑数据裁决 |
+| 是否提供 `print` | 当前全局环境没有 `print`；实验 1 中出现过模型调用 `print`。按重跑数据裁决 |
+| 是否在 `environment_summary` 之外向模型提供随调用变化的工作区概览（如文件树） | 若提供，作为不进 `catalog_digest` 的独立字段 `workspace_overview`；按实验 1 重跑中“上下文给出文件树”一组的数据裁决 |
 | `hidden` 规则在执行环境内怎样生效；整目录挂载后，原生子进程能看到 `fs.*` 过滤掉的路径 | 待设计（例如在 `bubblewrap` 内对匹配路径做空文件/空目录遮蔽挂载） |
 | `revert` 是否进入第一批实现 | 接口按 [ADR 0001](0001-lancet-protocol.md) 定稿，前态从第一个版本开始留存；`revert` 执行逻辑排在 `execute` 闭环之后 |
 
@@ -284,11 +355,12 @@ act 结束时:
 
 | 概念 | 状态持有者 | 规则执行者 | 只使用结果的组件 |
 | --- | --- | --- | --- |
-| 工作区组成、授权、路径规则与网络白名单 | 节点配置文件 | `lancet-node`（启动校验、实例化组件、挂载与代理放行） | 调用方、Starlark 脚本 |
-| API 工具声明 | 随节点发布的静态声明 | `lancet-node`（生成 `act` 说明、`catalog_digest` 与句柄绑定） | 模型、调用方 |
-| 脚本控制流与纯计算过滤结果 | Starlark 解释器组件线性内存 | Starlark 解释器组件 | `lancet-node`（接收最终 `return` 值） |
+| 工作区组成、授权、路径规则、网络出口清单与 `seam` 策略 | 节点配置文件 | `lancet-node`（启动校验、推出 `seam` 边集、实例化组件、挂载与代理放行） | 调用方、Starlark 脚本 |
+| API 工具声明（签名、effect 与 co-effect 模板） | 随节点发布的静态声明 | `lancet-node`（生成 `act` 说明、`environment_summary`、`catalog_digest`，受理检查与句柄绑定） | 模型、调用方 |
+| 脚本控制流与纯计算过滤结果 | Starlark 解释器组件线性内存 | Starlark 解释器组件 | `lancet-node`（接收脚本交回的结果） |
 | 单次 `act` 未提交的文件草稿 | 该次调用各可写目录的 `overlay` 上层 | `lancet-node`（`status`/`diff`/`reset` 查询，结束时提交或丢弃） | 脚本 |
 | reflink 前态文件与提交日志 | 节点状态目录 | `lancet-node`（提交落盘、崩溃恢复与 `revert` 还原） | 调用方 |
+| 完整性闸口状态（各路径的 `crossed_digest`） | 节点状态目录 | `lancet-node` 分发层 | 调用方（经回执中的跨越记录） |
 
 ## 否决的方案
 
@@ -298,7 +370,10 @@ act 结束时:
 | 在各个 API 工具参数上分别添加 `grep`、`head`、`tail` 等过滤选项 | 违反单一职责并在工具间重复定义；未专门加过滤参数的工具（如 `http.fetch`）返回中等体积文本时仍无从在沙箱内筛选 |
 | 为模型提供跨轮次的解释器栈内挂起断点（`pause / resume`），或在每次 `fs.edit` 落盘前强制暂停确认 | 模型在读到文件内容前无法预写断点下半段的具体修改逻辑，“先读入上下文、推理后再改”天然拆成两次 `act` 即可；已有 reflink 前态与 `revert` 兜底时，每次编辑强制暂停只会成倍增加推理轮次 |
 | `proc.run` 接受 shell 命令字符串以换取管道简写 | 引入命令注入、多层引号转义错误与宿主 shell 环境差异；解释器内的链式正则过滤与参数数组形式的 `proc.pipe` 已覆盖筛选需求 |
-| 脚本进程单独设沙箱，API 降为节点内置宿主函数 | 出现两套定义；API 声明的 `effect` 与 `scope` 只剩文档意义 |
+| 脚本进程单独设沙箱，API 降为节点内置宿主函数 | 出现两套定义；API 声明的 effect 与 co-effect 模板只剩文档意义 |
+| 在 Starlark 中标注 effect，或运行前静态推出脚本的 effect | 句柄作为值在脚本中传递，静态分析只能近似；模型也不会写标注；分发层在每次 API 调用时已拿到精确值 |
+| 以污点追踪在运行时拦截机密性方向的外发 | 经长度、正则与分支的隐式流动追踪不住；数据经模型上下文中转时彻底断链，只会造成已拦住的错觉 |
+| 机密性边只在同一次 `act` 内成立 | 模型可以把上一次 `act` 读到的内容写进下一次 `act` 的外发请求 |
 | 以 Landlock 与 seccomp 的进程沙箱作为统一边界 | 授权是套在进程上的路径规则而非句柄，无法在已授权目录下精细排除 `hidden` 子路径 |
 | 第一个版本只做只读 API、不含进程执行或完全断网 | 缺少完成真实软件工程任务所需的基础能力 |
 | 进程执行时整体放开宿主网络 | 出口不受白名单约束，也无法按连接记入回执 `residue` |
@@ -324,7 +399,7 @@ act 结束时:
 
 | 文档 | 处理 |
 | --- | --- |
-| [领域术语表](../reference/glossary.md) | 本 ADR 与 [ADR 0001](0001-lancet-protocol.md) 接受后写入：工作区、工作目录、环境目录、API 工具、宿主资源、`scope`、`seam`、前态 |
+| [领域术语表](../reference/glossary.md) | 本 ADR 与 [ADR 0001](0001-lancet-protocol.md) 接受后写入：工作区、工作目录、环境目录、API 工具、宿主资源、工具基座、闸口、前态 |
 | `docs/architecture/` | 随实施建立架构合同：`act` 与 Starlark 编排、宿主资源与沙箱、写时复制提交与求逆、节点配置 |
 | [项目介绍](../../README.md) | 随第一个业务 crate 更新当前状态 |
 
