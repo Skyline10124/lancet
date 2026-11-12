@@ -1,0 +1,77 @@
+FFFFFFFFF
+======================================================================
+FAIL: test_read03_nested_and_wrong_associations (test_v2.V2.test_read03_nested_and_wrong_associations) (value={'counts': {'data/a.txt': {'lines': 3}, 'data/b.txt': {'count': 4}}, 'total': 7})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 44, in test_read03_nested_and_wrong_associations
+    self.assertEqual(evaluate(task, files_at(task/'fixture'), calls)['passed'], expected)
+AssertionError: False != True
+
+======================================================================
+FAIL: test_read03_nested_and_wrong_associations (test_v2.V2.test_read03_nested_and_wrong_associations) (value={'files': [{'path': 'data/a.txt', 'lines': 3}, {'path': 'data/b.txt', 'lines': 4}], 'total': 7})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 44, in test_read03_nested_and_wrong_associations
+    self.assertEqual(evaluate(task, files_at(task/'fixture'), calls)['passed'], expected)
+AssertionError: False != True
+
+======================================================================
+FAIL: test_read03_nested_and_wrong_associations (test_v2.V2.test_read03_nested_and_wrong_associations) (value='3 data/a.txt\n4 data/b.txt\n7 total\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 44, in test_read03_nested_and_wrong_associations
+    self.assertEqual(evaluate(task, files_at(task/'fixture'), calls)['passed'], expected)
+AssertionError: False != True
+
+======================================================================
+FAIL: test_read03_six_v1_false_negatives (test_v2.V2.test_read03_six_v1_false_negatives) (run_id='deepseek-A-read-03-r1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 30, in test_read03_six_v1_false_negatives
+    self.assertTrue(evaluate(task, files_at(task/'fixture'), calls)['passed'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_read03_six_v1_false_negatives (test_v2.V2.test_read03_six_v1_false_negatives) (run_id='deepseek-A-read-03-r3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 30, in test_read03_six_v1_false_negatives
+    self.assertTrue(evaluate(task, files_at(task/'fixture'), calls)['passed'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_read03_six_v1_false_negatives (test_v2.V2.test_read03_six_v1_false_negatives) (run_id='deepseek-B-read-03-r1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 30, in test_read03_six_v1_false_negatives
+    self.assertTrue(evaluate(task, files_at(task/'fixture'), calls)['passed'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_read03_six_v1_false_negatives (test_v2.V2.test_read03_six_v1_false_negatives) (run_id='deepseek-B-read-03-r3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 30, in test_read03_six_v1_false_negatives
+    self.assertTrue(evaluate(task, files_at(task/'fixture'), calls)['passed'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_read03_six_v1_false_negatives (test_v2.V2.test_read03_six_v1_false_negatives) (run_id='minimax-A-read-03-r1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 30, in test_read03_six_v1_false_negatives
+    self.assertTrue(evaluate(task, files_at(task/'fixture'), calls)['passed'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_read03_six_v1_false_negatives (test_v2.V2.test_read03_six_v1_false_negatives) (run_id='minimax-B-read-03-r3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tests/test_v2.py", line 30, in test_read03_six_v1_false_negatives
+    self.assertTrue(evaluate(task, files_at(task/'fixture'), calls)['passed'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.012s
+
+FAILED (failures=9)

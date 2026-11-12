@@ -1,0 +1,70 @@
+A while False False error: Parse error: cannot use reserved keyword `while`
+A try False False error: Parse error: cannot use reserved keyword `try`
+A raise False False error: Parse error: cannot use reserved keyword `raise`
+A import False False error: Parse error: cannot use reserved keyword `import`
+A class False False error: Parse error: cannot use reserved keyword `class`
+A with False False error: Parse error: cannot use reserved keyword `with`
+A yield False False error: Parse error: cannot use reserved keyword `yield`
+A global False False error: Parse error: cannot use reserved keyword `global`
+A assert False False error: Parse error: cannot use reserved keyword `assert`
+A f-string False False error: Your Starlark dialect must enable f-strings to use them
+A is None False False error: Parse error: cannot use reserved keyword `is`
+A string iteration True False Traceback (most recent call last):
+A string elems True True ['a', 'b']
+A chained comparison False False error: Parse error: unexpected symbol '<', expected end of expression (comparisons are not associative in Starlark)
+A recursion True True 0
+A set True False error: Variable `set` not found, did you mean `int`?
+A print True False error: Variable `print` not found, did you mean `int`?
+A def True True 3
+A lambda True True 3
+A list comprehension True True [2, 4]
+A dict comprehension True True {'1': 2, '2': 4}
+A if elif else True True 2
+A for break continue True True [0, 2]
+A len True True 2
+A sorted True True [1, 2, 3]
+A enumerate True True [[0, 'a'], [1, 'b']]
+A zip True True [[1, 3], [2, 4]]
+A min True True 1
+A max True True 3
+A any True True True
+A all True True False
+A format True True x:2
+A percent format True True x: 2
+A string methods True True ['x', ['a', 'b'], ['a', 'b'], 'cb', True, True, 'a-b']
+A json True True {'x': [1, True, None]}
+B while False False error: Parse error: cannot use reserved keyword `while`
+B try False False error: Parse error: cannot use reserved keyword `try`
+B raise False False error: Parse error: cannot use reserved keyword `raise`
+B import False False error: Parse error: cannot use reserved keyword `import`
+B class False False error: Parse error: cannot use reserved keyword `class`
+B with False False error: Parse error: cannot use reserved keyword `with`
+B yield False False error: Parse error: cannot use reserved keyword `yield`
+B global False False error: Parse error: cannot use reserved keyword `global`
+B assert False False error: Parse error: cannot use reserved keyword `assert`
+B f-string False False error: Your Starlark dialect must enable f-strings to use them
+B is None False False error: Parse error: cannot use reserved keyword `is`
+B string iteration True False error: Operation `(iter)` not supported on type `string`
+B string elems True True ['a', 'b']
+B chained comparison False False error: Parse error: unexpected symbol '<', expected end of expression (comparisons are not associative in Starlark)
+B recursion True True 0
+B set True False error: Variable `set` not found, did you mean `int`?
+B print True False error: Variable `print` not found, did you mean `int`?
+B def True True 3
+B lambda True True 3
+B list comprehension True True [2, 4]
+B dict comprehension True True {'1': 2, '2': 4}
+B if elif else True True 2
+B for break continue True True [0, 2]
+B len True True 2
+B sorted True True [1, 2, 3]
+B enumerate True True [[0, 'a'], [1, 'b']]
+B zip True True [[1, 3], [2, 4]]
+B min True True 1
+B max True True 3
+B any True True True
+B all True True False
+B format True True x:2
+B percent format True True x: 2
+B string methods True True ['x', ['a', 'b'], ['a', 'b'], 'cb', True, True, 'a-b']
+B json True True {'x': [1, True, None]}

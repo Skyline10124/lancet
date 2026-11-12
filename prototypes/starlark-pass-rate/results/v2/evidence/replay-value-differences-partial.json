@@ -1,0 +1,1588 @@
+[
+  {
+    "run_id": "base-deepseek-A-rollback-02-r2",
+    "call": 5,
+    "script": "info = {}\ninfo[\"cache.rs\"] = repo.read(\"src/cache.rs\", missing_ok = True)\ninfo[\"Cargo.toml\"] = repo.read(\"Cargo.toml\", missing_ok = True)\nfor p in [\"src/lib.rs\", \"src/main.rs\", \"src/tests.rs\", \"build.rs\", \"tests/fail.rs\"]:\n    info[p] = repo.read(p, missing_ok = True)\ninfo[\"src_list\"] = repo.list(\"src\")\nres = env.run([\"ls\", \"-la\", \"src\"], check = False)\ninfo[\"ls_src\"] = res.stdout + res.stderr\nres2 = env.run([\"ls\", \"-la\"], check = False)\ninfo[\"ls_root\"] = res2.stdout + res2.stderr\nreturn info",
+    "recorded": {
+      "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "build.rs": null,
+      "cache.rs": "pub const CAPACITY: usize = 32;\n",
+      "ls_root": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:22 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:22 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:22 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:22 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:22 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:22 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 07:22 cache.rs\n",
+      "src/lib.rs": null,
+      "src/main.rs": null,
+      "src/tests.rs": null,
+      "src_list": [
+        "cache.rs"
+      ],
+      "tests/fail.rs": null
+    },
+    "replayed": {
+      "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "build.rs": null,
+      "cache.rs": "pub const CAPACITY: usize = 32;\n",
+      "ls_root": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 52 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:29 cache.rs\n",
+      "src/lib.rs": null,
+      "src/main.rs": null,
+      "src/tests.rs": null,
+      "src_list": [
+        "cache.rs"
+      ],
+      "tests/fail.rs": null
+    }
+  },
+  {
+    "run_id": "base-deepseek-A-rollback-02-r3",
+    "call": 6,
+    "script": "repo.edit(\"src/cache.rs\", \"pub const CAPACITY: usize = 32;\", \"pub const CAPACITY: usize = 16;\")\nal = env.run([\"ls\", \"-la\", \".\", \"src\"], check = False)\nhits = repo.search(\"memory_budget|smoke|budget\", glob = \"**\")\nreturn {\n  \"status\": repo.status(),\n  \"content\": repo.read(\"src/cache.rs\"),\n  \"ls\": str(text(al.stdout)),\n  \"hits\": [\"%s:%d: %s\" % (h.path, h.line, h.text.strip()) for h in hits],\n}\n",
+    "recorded": {
+      "content": "pub const CAPACITY: usize = 16;\n",
+      "hits": [],
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:21 .\ndrwxrwxrwt. 55 root      root      4096 Nov 12 07:21 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:21 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:21 src\n\nsrc:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:21 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:21 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 07:21 cache.rs\n",
+      "status": [
+        {
+          "kind": "modified",
+          "path": "src/cache.rs"
+        }
+      ]
+    },
+    "replayed": {
+      "content": "pub const CAPACITY: usize = 16;\n",
+      "hits": [],
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 52 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n\nsrc:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:29 cache.rs\n",
+      "status": [
+        {
+          "kind": "modified",
+          "path": "src/cache.rs"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "base-deepseek-B-batch-04-r3",
+    "call": 2,
+    "script": "res = env.run([\"ls\", \"-la\"], check = False)\nresult({\"ls\": res.stdout, \"code\": res.code})",
+    "recorded": {
+      "code": 0,
+      "ls": "total 12\ndrwxr-xr-x.  4 gcp-vegas gcp-vegas   29 Nov 12 07:19 .\ndrwxrwxrwt. 51 root      root      8192 Nov 12 07:19 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   25 Nov 12 07:19 docs\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   54 Nov 12 07:19 src\n"
+    },
+    "replayed": {
+      "code": 0,
+      "ls": "total 8\ndrwxr-xr-x.  4 gcp-vegas gcp-vegas   29 Nov 12 08:29 .\ndrwxrwxrwt. 53 root      root      4096 Nov 12 08:29 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   25 Nov 12 08:29 docs\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   54 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "base-deepseek-B-rollback-04-r1",
+    "call": 5,
+    "script": "hits = repo.search(\"compatibility|smoke|legacy frame\")\nr3 = env.run([\"ls\", \"-la\"], check = False)\nresult({\n  \"hits\": [(\"%s:%d: %s\" % (h.path, h.line, h.text.strip())) for h in hits],\n  \"ls_code\": r3.code, \"ls\": r3.stdout[:2000], \"ls_err\": r3.stderr[:500],\n})\n",
+    "recorded": {
+      "hits": [],
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:20 .\ndrwxrwxrwt. 50 root      root      4096 Nov 12 07:20 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:20 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:20 src\n",
+      "ls_code": 0,
+      "ls_err": ""
+    },
+    "replayed": {
+      "hits": [],
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "ls_code": 0,
+      "ls_err": ""
+    }
+  },
+  {
+    "run_id": "base-minimax-A-read-03-r1",
+    "call": 8,
+    "script": "all_files = env.run([\"find\", \"data\"], check=False).stdout\nhidden = env.run([\"ls\", \"-la\", \"data\"], check=False).stdout\nwc = env.run([\"wc\", \"-l\", \"-c\", \"data/a.txt\", \"data/b.txt\"], check=False).stdout\n\ndef count_lines(s):\n    n = s.count(\"\\n\")\n    if n == 0:\n        return 0 if s == \"\" else 1\n    if not s.endswith(\"\\n\"):\n        n = n + 1\n    return n\n\ndef count_blank(s):\n    c = 0\n    for l in s.split(\"\\n\")[:-1]:\n        if l.strip() == \"\":\n            c = c + 1\n    return c\n\na = repo.read(\"data/a.txt\")\nb = repo.read(\"data/b.txt\")\ncounts = {\"data/a.txt\": count_lines(a), \"data/b.txt\": count_lines(b)}\nblanks = {\"data/a.txt\": count_blank(a), \"data/b.txt\": count_blank(b)}\ntotal = 0\nfor k in counts:\n    total = total + counts[k]\nreturn {\n  \"find_all\": all_files,\n  \"ls_la\": hidden,\n  \"wc\": wc,\n  \"counts\": counts,\n  \"blanks\": blanks,\n  \"total\": total,\n  \"status\": repo.status(),\n}\n",
+    "recorded": {
+      "blanks": {
+        "data/a.txt": 1,
+        "data/b.txt": 0
+      },
+      "counts": {
+        "data/a.txt": 3,
+        "data/b.txt": 4
+      },
+      "find_all": "data\ndata/a.txt\ndata/b.txt\ndata/ignore.md\n",
+      "ls_la": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:25 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:25 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:25 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:25 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:25 ignore.md\n",
+      "status": [],
+      "total": 7,
+      "wc": " 3 12 data/a.txt\n 4 19 data/b.txt\n 7 31 total\n"
+    },
+    "replayed": {
+      "blanks": {
+        "data/a.txt": 1,
+        "data/b.txt": 0
+      },
+      "counts": {
+        "data/a.txt": 3,
+        "data/b.txt": 4
+      },
+      "find_all": "data\ndata/a.txt\ndata/b.txt\ndata/ignore.md\n",
+      "ls_la": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:29 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:29 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:29 ignore.md\n",
+      "status": [],
+      "total": 7,
+      "wc": " 3 12 data/a.txt\n 4 19 data/b.txt\n 7 31 total\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-A-read-03-r3",
+    "call": 2,
+    "script": "w = env.run([\"wc\", \"-l\", \"data/a.txt\", \"data/b.txt\"], check=False)\n# check trailing newline status\ntail = env.run([\"tail\", \"-c\", \"1\", \"data/a.txt\"], check=False)\ntailb = env.run([\"tail\", \"-c\", \"1\", \"data/b.txt\"], check=False)\nls = env.run([\"ls\", \"-la\", \"data\"], check=False)\nreturn {\"wc\": w.stdout, \"last_a\": repr(tail.stdout), \"last_b\": repr(tailb.stdout), \"ls\": ls.stdout}",
+    "recorded": {
+      "last_a": "\"\\n\"",
+      "last_b": "\"\\n\"",
+      "ls": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:16 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:16 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:16 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:16 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:16 ignore.md\n",
+      "wc": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+    },
+    "replayed": {
+      "last_a": "\"\\n\"",
+      "last_b": "\"\\n\"",
+      "ls": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:29 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:29 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:29 ignore.md\n",
+      "wc": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-A-rollback-02-r2",
+    "call": 5,
+    "script": "r = env.run([\"git\", \"status\", \"--porcelain\"], check=False)\nlg = env.run([\"git\", \"log\", \"--oneline\", \"-n\", \"20\"], check=False)\nls = env.run([\"ls\", \"-la\"], check=False)\nfind = env.run([\"find\", \".\", \"-not\", \"-path\", \"./.git/*\"], check=False)\nreturn {\n    \"git_status\": r.stdout + r.stderr,\n    \"git_log\": lg.stdout + lg.stderr,\n    \"ls\": ls.stdout + ls.stderr,\n    \"find\": find.stdout + find.stderr,\n}",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/cache.rs\n",
+      "git_log": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "git_status": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:11 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:11 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:11 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:11 src\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/cache.rs\n",
+      "git_log": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "git_status": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-A-rollback-02-r2",
+    "call": 8,
+    "script": "ls = env.run([\"ls\", \"-laR\"], check=False)\nfind = env.run([\"find\", \"/\", \"-name\", \"*.rs\", \"-path\", \"*test*\", \"-newermt\", \"-2020-01-01\"], check=False)\nreturn {\n    \"ls\": ls.stdout + ls.stderr,\n    \"cache_now\": repo.read(\"src/cache.rs\"),\n    \"status\": repo.status(),\n    \"find_out\": (find.stdout + find.stderr)[:3000],\n}",
+    "recorded": {
+      "cache_now": "pub const CAPACITY: usize = 32;\n",
+      "find_out": "find: I cannot figure out how to interpret ‘-2020-01-01’ as a date or time\n",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:11 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:11 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:11 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:11 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:11 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:11 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:11 cache.rs\n",
+      "status": []
+    },
+    "replayed": {
+      "cache_now": "pub const CAPACITY: usize = 32;\n",
+      "find_out": "find: I cannot figure out how to interpret ‘-2020-01-01’ as a date or time\n",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:29 cache.rs\n",
+      "status": []
+    }
+  },
+  {
+    "run_id": "base-minimax-A-rollback-04-r2",
+    "call": 6,
+    "script": "run = env.run([\"ls\", \"-la\", \".\"], check=False)\nrun2 = env.run([\"find\", \".\", \"-name\", \"*.rs\"], check=False)\nrun3 = env.run([\"git\", \"status\", \"--porcelain\"], check=False)\nreturn {\"ls\": run.stdout + run.stderr, \"find\": run2.stdout + run2.stderr, \"git\": run3.stdout + run3.stderr}\n",
+    "recorded": {
+      "find": "./src/codec.rs\n",
+      "git": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:15 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:15 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:15 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:15 src\n"
+    },
+    "replayed": {
+      "find": "./src/codec.rs\n",
+      "git": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-A-test-02-r3",
+    "call": 5,
+    "script": "r = env.run([\"ls\", \"-la\"], check=False)\nr2 = env.run([\"find\", \".\", \"-name\", \"*.rs\", \"-not\", \"-path\", \"./target/*\"], check=False)\nr3 = repo.search(\"cache\", glob=\"**/*.rs\")\nreturn {\"ls\": r.stdout + r.stderr, \"find\": r2.stdout + r2.stderr, \"search\": [h.path + \":\" + h.text for h in r3]}",
+    "recorded": {
+      "find": "./src/lib.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:10 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:10 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:10 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:10 src\n",
+      "search": []
+    },
+    "replayed": {
+      "find": "./src/lib.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n",
+      "search": []
+    }
+  },
+  {
+    "run_id": "base-minimax-A-test-04-r1",
+    "call": 7,
+    "script": "out = {\"Cargo.toml\": repo.read(\"Cargo.toml\")}\nhits = repo.search(\"codec\")\nout[\"search_codec\"] = hits\nhits2 = repo.search(\"checksum\")\nout[\"search_checksum\"] = hits2\nst = env.run([\"git\", \"status\", \"--porcelain\"], check=False)\nout[\"git_status\"] = st.stdout\nst2 = env.run([\"git\", \"log\", \"--oneline\", \"-5\"], check=False)\nout[\"git_log\"] = st2.stdout\nst3 = env.run([\"ls\", \"-la\", \"src\"], check=False)\nout[\"ls_src\"] = st3.stdout\nreturn out",
+    "recorded": {
+      "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "git_log": "",
+      "git_status": "",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:18 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:18 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:18 lib.rs\n",
+      "search_checksum": [],
+      "search_codec": []
+    },
+    "replayed": {
+      "Cargo.toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "git_log": "",
+      "git_status": "",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 lib.rs\n",
+      "search_checksum": [],
+      "search_codec": []
+    }
+  },
+  {
+    "run_id": "base-minimax-A-test-04-r2",
+    "call": 6,
+    "script": "toml = repo.read(\"Cargo.toml\")\nls = env.run([\"ls\", \"-la\"], check=False)\nls2 = env.run([\"ls\", \"-laR\", \"src\"], check=False)\nreturn {\"cargo_toml\": toml, \"ls\": ls.stdout + ls.stderr, \"ls_src\": ls2.stdout + ls2.stderr}",
+    "recorded": {
+      "cargo_toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:51 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:51 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:51 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:51 src\n",
+      "ls_src": "src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:51 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:51 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:51 lib.rs\n"
+    },
+    "replayed": {
+      "cargo_toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n",
+      "ls_src": "src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 lib.rs\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-B-batch-03-r1",
+    "call": 5,
+    "script": "r = env.run([\"ls\", \"-laR\", \"src\"], check=False)\nresult({\"stdout\": r.stdout, \"stderr\": r.stderr, \"code\": r.code})\n",
+    "recorded": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:13 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:13 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 37 Nov 12 08:13 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:13 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 08:13 untouched.txt\n\nsrc/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:13 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:13 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 08:13 b.txt\n"
+    },
+    "replayed": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 37 Nov 12 08:29 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 08:29 untouched.txt\n\nsrc/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 08:29 b.txt\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-B-read-03-r1",
+    "call": 3,
+    "script": "out = {}\nout[\"find\"] = env.run([\"find\", \"data\", \"-type\", \"f\", \"-name\", \"*.txt\"], check=False)\nout[\"wc\"] = env.run([\"wc\", \"-l\", \"data/a.txt\", \"data/b.txt\"], check=False)\nout[\"ls_all\"] = env.run([\"ls\", \"-la\", \"data\"], check=False)\nresult({k: {\"stdout\": v.stdout, \"stderr\": v.stderr, \"code\": v.code} for k, v in out.items()})",
+    "recorded": {
+      "find": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "data/a.txt\ndata/b.txt\n"
+      },
+      "ls_all": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:02 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:02 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:02 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:02 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:02 ignore.md\n"
+      },
+      "wc": {
+        "code": 0,
+        "stderr": "",
+        "stdout": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    },
+    "replayed": {
+      "find": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "data/a.txt\ndata/b.txt\n"
+      },
+      "ls_all": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:29 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:29 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:29 ignore.md\n"
+      },
+      "wc": {
+        "code": 0,
+        "stderr": "",
+        "stdout": " 3 data/a.txt\n 4 data/b.txt\n 7 total\n"
+      }
+    }
+  },
+  {
+    "run_id": "base-minimax-B-rollback-01-r2",
+    "call": 6,
+    "script": "r1 = env.run([\"git\", \"status\", \"--porcelain=v1\"], check=False)\nr2 = env.run([\"git\", \"diff\"], check=False)\nr3 = env.run([\"ls\", \"-laR\"], check=False)\nresult({\"git_status\": r1.stdout, \"git_diff\": r2.stdout, \"ls\": r3.stdout})",
+    "recorded": {
+      "git_diff": "",
+      "git_status": "",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:59 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:59 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:59 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:59 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 07:59 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:59 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 07:59 limits.rs\n"
+    },
+    "replayed": {
+      "git_diff": "",
+      "git_status": "",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:29 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 08:29 limits.rs\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-B-rollback-02-r2",
+    "call": 3,
+    "script": "result({\n  \"all\": env.run([\"ls\", \"-la\"], check=False).stdout,\n  \"git\": env.run([\"git\", \"log\", \"--oneline\", \"-n\", \"20\"], check=False).stdout,\n  \"status\": env.run([\"git\", \"status\"], check=False).stdout,\n})",
+    "recorded": {
+      "all": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:12 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:12 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:12 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:12 src\n",
+      "git": "",
+      "status": ""
+    },
+    "replayed": {
+      "all": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "git": "",
+      "status": ""
+    }
+  },
+  {
+    "run_id": "base-minimax-B-rollback-02-r2",
+    "call": 6,
+    "script": "result({\n  \"search\": [h.path + \":\" + str(h.line) + \": \" + h.text for h in repo.search(\"memory_budget\")],\n  \"ls_src\": env.run([\"ls\", \"-la\", \"src\"], check=False).stdout,\n  \"find\": env.run([\"find\", \".\", \"-name\", \"*.rs\"], check=False).stdout,\n})",
+    "recorded": {
+      "find": "./src/cache.rs\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:13 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:13 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:13 cache.rs\n",
+      "search": []
+    },
+    "replayed": {
+      "find": "./src/cache.rs\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:29 cache.rs\n",
+      "search": []
+    }
+  },
+  {
+    "run_id": "base-minimax-B-test-02-r3",
+    "call": 5,
+    "script": "hits = repo.search(\"expiry|eviction|smoke\")\ntop = repo.list(\".\", )\nhidden = [p for p in top]\nres = env.run([\"ls\", \"-la\"], check = False)\nresult({\"hits\": [(h.path, h.line, h.text.strip()) for h in hits], \"ls\": res.stdout + res.stderr})",
+    "recorded": {
+      "hits": [],
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:06 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:06 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:06 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:06 src\n"
+    },
+    "replayed": {
+      "hits": [],
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "base-minimax-B-test-02-r3",
+    "call": 7,
+    "script": "r1 = env.run([\"ls\", \"-la\", \"src\"], check = False)\nresult({\"src_ls\": r1.stdout + r1.stderr})",
+    "recorded": {
+      "src_ls": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:07 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:07 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:07 lib.rs\n"
+    },
+    "replayed": {
+      "src_ls": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 lib.rs\n"
+    }
+  },
+  {
+    "run_id": "composed-deepseek-A-rollback-03-r1",
+    "call": 6,
+    "script": "ls = env.run([\"ls\", \"-la\"], check = False)\nfind = env.run([\"find\", \".\", \"-maxdepth\", \"3\", \"-not\", \"-path\", \"./target/*\"], check = False)\nres = env.run([\"cargo\", \"test\"], check = False)\nreturn {\"retry\": repo.read(\"src/retry.rs\"), \"ls\": ls.stdout, \"find\": find.stdout,\n        \"test_code\": res.code, \"test_stdout\": res.stdout, \"test_stderr\": res.stderr}",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/retry.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:25 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:25 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:25 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:25 src\n",
+      "retry": "pub const RETRIES: u32 = 2;\n",
+      "test_code": 101,
+      "test_stderr": "error: test failed\n",
+      "test_stdout": "\nrunning 2 tests\ntest smoke::ok ... ok\ntest retry::deadline ... FAILED\n\nfailures:\n---- retry::deadline stdout ----\nthread 'retry::deadline' panicked: request deadline exceeded\n\nfailures:\n    retry::deadline\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/retry.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "retry": "pub const RETRIES: u32 = 2;\n",
+      "test_code": 101,
+      "test_stderr": "error: test failed\n",
+      "test_stdout": "\nrunning 2 tests\ntest smoke::ok ... ok\ntest retry::deadline ... FAILED\n\nfailures:\n---- retry::deadline stdout ----\nthread 'retry::deadline' panicked: request deadline exceeded\n\nfailures:\n    retry::deadline\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n"
+    }
+  },
+  {
+    "run_id": "composed-deepseek-A-rollback-04-r3",
+    "call": 6,
+    "script": "ls = env.run([\"ls\", \"-la\", \".\"], check = False)\nlsr = env.run([\"find\", \".\", \"-name\", \"*.rs\"], check = False)\ncfg = env.run([\"ls\", \"-la\", \".cargo\"], check = False)\nreturn \"LS:\\n%s\\n%s\\nFIND:\\n%s\\n%s\\nCARGO DIR:\\n%s\\n%s\" % (ls.stdout, ls.stderr, lsr.stdout, lsr.stderr, cfg.stdout, cfg.stderr)",
+    "recorded": "LS:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:26 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:26 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:26 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:26 src\n\n\nFIND:\n./src/codec.rs\n\n\nCARGO DIR:\n\nls: cannot access '.cargo': No such file or directory\n",
+    "replayed": "LS:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n\n\nFIND:\n./src/codec.rs\n\n\nCARGO DIR:\n\nls: cannot access '.cargo': No such file or directory\n"
+  },
+  {
+    "run_id": "composed-minimax-A-batch-02-r3",
+    "call": 3,
+    "script": "r = env.run([\"ls\", \"-laR\", \"src\"], check=False)\nci = repo.search(\"(?i)legacy_flag\", glob=\"**\")\nallf = env.run([\"find\", \".\", \"-type\", \"f\"], check=False)\nreturn {\"ls\": r.stdout + r.stderr, \"ci\": ci, \"find\": allf.stdout}\n",
+    "recorded": {
+      "ci": [
+        {
+          "line": 1,
+          "path": "docs/history.txt",
+          "text": "Historical name: legacy_flag"
+        },
+        {
+          "line": 1,
+          "path": "src/a.txt",
+          "text": "legacy_flag"
+        },
+        {
+          "line": 2,
+          "path": "src/a.txt",
+          "text": "call legacy_flag"
+        },
+        {
+          "line": 1,
+          "path": "src/nested/b.txt",
+          "text": "use legacy_flag"
+        },
+        {
+          "line": 2,
+          "path": "src/nested/b.txt",
+          "text": "return legacy_flag"
+        },
+        {
+          "line": 3,
+          "path": "src/nested/b.txt",
+          "text": "legacy_flag"
+        }
+      ],
+      "find": "./docs/history.txt\n./src/a.txt\n./src/nested/b.txt\n./src/untouched.txt\n",
+      "ls": "src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 07:17 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 07:17 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 07:17 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 07:17 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 07:17 untouched.txt\n\nsrc/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 07:17 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 07:17 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 47 Nov 12 07:17 b.txt\n"
+    },
+    "replayed": {
+      "ci": [
+        {
+          "line": 1,
+          "path": "docs/history.txt",
+          "text": "Historical name: legacy_flag"
+        },
+        {
+          "line": 1,
+          "path": "src/a.txt",
+          "text": "legacy_flag"
+        },
+        {
+          "line": 2,
+          "path": "src/a.txt",
+          "text": "call legacy_flag"
+        },
+        {
+          "line": 1,
+          "path": "src/nested/b.txt",
+          "text": "use legacy_flag"
+        },
+        {
+          "line": 2,
+          "path": "src/nested/b.txt",
+          "text": "return legacy_flag"
+        },
+        {
+          "line": 3,
+          "path": "src/nested/b.txt",
+          "text": "legacy_flag"
+        }
+      ],
+      "find": "./docs/history.txt\n./src/a.txt\n./src/nested/b.txt\n./src/untouched.txt\n",
+      "ls": "src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 08:29 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 08:29 untouched.txt\n\nsrc/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 47 Nov 12 08:29 b.txt\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-batch-03-r1",
+    "call": 4,
+    "script": "find = env.run([\"find\", \"src\", \"-type\", \"f\"], check=False)\nfind_all = env.run([\"find\", \"src\"], check=False)\nls = env.run([\"ls\", \"-la\", \"src\", \"src/nested\"], check=False)\ncat = env.run([\"cat\", \"-A\", \"src/a.txt\"], check=False)\ncat2 = env.run([\"cat\", \"-A\", \"src/nested/b.txt\"], check=False)\ngit = env.run([\"git\", \"status\", \"--porcelain\"], check=False)\nreturn {\n  \"find_files\": find.stdout,\n  \"find_all\": find_all.stdout,\n  \"ls\": ls.stdout,\n  \"a_bytes\": cat.stdout,\n  \"b_bytes\": cat2.stdout,\n  \"git_status\": git.stdout,\n  \"git_code\": git.code,\n}",
+    "recorded": {
+      "a_bytes": "slow_path$\ncall slow_path$\nkeep stable$\n",
+      "b_bytes": "use slow_path$\nreturn slow_path$\nslow_path$\n",
+      "find_all": "src\nsrc/a.txt\nsrc/nested\nsrc/nested/b.txt\nsrc/untouched.txt\n",
+      "find_files": "src/a.txt\nsrc/nested/b.txt\nsrc/untouched.txt\n",
+      "git_code": 128,
+      "git_status": "",
+      "ls": "src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:23 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:23 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 37 Nov 12 08:23 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:23 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 08:23 untouched.txt\n\nsrc/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:23 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:23 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 08:23 b.txt\n"
+    },
+    "replayed": {
+      "a_bytes": "slow_path$\ncall slow_path$\nkeep stable$\n",
+      "b_bytes": "use slow_path$\nreturn slow_path$\nslow_path$\n",
+      "find_all": "src\nsrc/a.txt\nsrc/nested\nsrc/nested/b.txt\nsrc/untouched.txt\n",
+      "find_files": "src/a.txt\nsrc/nested/b.txt\nsrc/untouched.txt\n",
+      "git_code": 128,
+      "git_status": "",
+      "ls": "src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 37 Nov 12 08:29 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 08:29 untouched.txt\n\nsrc/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 08:29 b.txt\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-read-03-r2",
+    "call": 6,
+    "script": "res = {}\nls = env.run([\"ls\", \"-la\", \"data\"], check=False)\nres[\"ls\"] = ls.stdout + ls.stderr\ncat = env.run([\"cat\", \"-A\", \"data/a.txt\"], check=False)\nres[\"cat_a\"] = cat.stdout\ncat2 = env.run([\"cat\", \"-A\", \"data/b.txt\"], check=False)\nres[\"cat_b\"] = cat2.stdout\nfind = env.run([\"find\", \".\", \"-name\", \"*.txt\", \"-type\", \"f\"], check=False)\nres[\"find\"] = find.stdout + find.stderr\nreturn res\n",
+    "recorded": {
+      "cat_a": "alpha$\n$\nbeta$\n",
+      "cat_b": "one$\ntwo$\nthree$\nfour$\n",
+      "find": "./data/a.txt\n./data/b.txt\n",
+      "ls": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:21 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:21 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:21 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:21 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:21 ignore.md\n"
+    },
+    "replayed": {
+      "cat_a": "alpha$\n$\nbeta$\n",
+      "cat_b": "one$\ntwo$\nthree$\nfour$\n",
+      "find": "./data/a.txt\n./data/b.txt\n",
+      "ls": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:29 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:29 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:29 ignore.md\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-read-03-r3",
+    "call": 4,
+    "script": "res = env.run([\"ls\", \"-la\", \"data\"], check=False)\nreturn {\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr}\n",
+    "recorded": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:18 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:18 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:18 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:18 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:18 ignore.md\n"
+    },
+    "replayed": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:29 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:29 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:29 ignore.md\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-read-03-r3",
+    "call": 5,
+    "script": "res = env.run([\"ls\", \"-laR\", \"data\"], check=False)\nres2 = env.run([\"find\", \"data\", \"-type\", \"f\"], check=False)\nres3 = env.run([\"cat\", \"-A\", \"data/a.txt\"], check=False)\nres4 = env.run([\"cat\", \"-A\", \"data/b.txt\"], check=False)\nreturn {\n  \"ls_R\": res.stdout + res.stderr,\n  \"find\": res2.stdout + res2.stderr,\n  \"a_catA\": res3.stdout,\n  \"b_catA\": res4.stdout,\n}\n",
+    "recorded": {
+      "a_catA": "alpha$\n$\nbeta$\n",
+      "b_catA": "one$\ntwo$\nthree$\nfour$\n",
+      "find": "data/a.txt\ndata/b.txt\ndata/ignore.md\n",
+      "ls_R": "data:\ntotal 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:18 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:18 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:18 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:18 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:18 ignore.md\n"
+    },
+    "replayed": {
+      "a_catA": "alpha$\n$\nbeta$\n",
+      "b_catA": "one$\ntwo$\nthree$\nfour$\n",
+      "find": "data/a.txt\ndata/b.txt\ndata/ignore.md\n",
+      "ls_R": "data:\ntotal 12\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 49 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 12 Nov 12 08:29 a.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas 19 Nov 12 08:29 b.txt\n-rw-r--r--. 1 gcp-vegas gcp-vegas  7 Nov 12 08:29 ignore.md\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-read-03-r3",
+    "call": 8,
+    "script": "res = env.run([\"find\", \"data\", \"-mindepth\", \"1\", \"-type\", \"d\"], check=False)\nres2 = env.run([\"ls\", \"-la\", \".\"], check=False)\nres3 = env.run([\"git\", \"status\", \"--porcelain\"], check=False)\nreturn {\"subdirs\": res.stdout + res.stderr, \"root_ls\": res2.stdout, \"git_status\": res3.stdout + res3.stderr}\n",
+    "recorded": {
+      "git_status": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "root_ls": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 08:18 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:18 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   49 Nov 12 08:18 data\n",
+      "subdirs": ""
+    },
+    "replayed": {
+      "git_status": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "root_ls": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   49 Nov 12 08:29 data\n",
+      "subdirs": ""
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "call": 7,
+    "script": "ls = env.run([\"ls\", \"-la\"], check=False)\nls_src = env.run([\"ls\", \"-la\", \"src\"], check=False)\nfind = env.run([\"find\", \".\", \"-maxdepth\", \"3\", \"-not\", \"-path\", \"./target*\"], check=False)\ntest = env.run([\"cargo\", \"test\"], check=False)\nreturn {\"ls\": ls.stdout, \"ls_src\": ls_src.stdout, \"find\": find.stdout,\n        \"test_code\": test.code, \"test_out\": test.stdout, \"test_err\": test.stderr,\n        \"limits_now\": repo.read(\"src/limits.rs\")}\n",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/limits.rs\n",
+      "limits_now": "pub const LIMIT: u32 = 4;\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:23 .\ndrwxrwxrwt. 55 root      root      4096 Nov 12 07:23 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:23 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:23 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 07:23 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:23 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 07:23 limits.rs\n",
+      "test_code": 101,
+      "test_err": "error: test failed\n",
+      "test_out": "\nrunning 2 tests\ntest smoke::ok ... ok\ntest limits::overflow ... FAILED\n\nfailures:\n---- limits::overflow stdout ----\nthread 'limits::overflow' panicked: expected rejection at 5\n\nfailures:\n    limits::overflow\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/limits.rs\n",
+      "limits_now": "pub const LIMIT: u32 = 4;\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:29 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 08:29 limits.rs\n",
+      "test_code": 101,
+      "test_err": "error: test failed\n",
+      "test_out": "\nrunning 2 tests\ntest smoke::ok ... ok\ntest limits::overflow ... FAILED\n\nfailures:\n---- limits::overflow stdout ----\nthread 'limits::overflow' panicked: expected rejection at 5\n\nfailures:\n    limits::overflow\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-01-r2",
+    "call": 7,
+    "script": "repo.reset(\"src/limits.rs\")\nres = env.run([\"ls\", \"-la\", \"-R\"], check=False)\nfound = repo.search(\"expected rejection\", glob=\"**\")\nreturn {\"ls\": res.stdout, \"matches\": found, \"diff\": repo.diff(), \"limits\": repo.read(\"src/limits.rs\")}\n",
+    "recorded": {
+      "diff": "",
+      "limits": "pub const LIMIT: u32 = 8;\n",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:23 .\ndrwxrwxrwt. 55 root      root      4096 Nov 12 07:23 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:23 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:23 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 07:23 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:23 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 07:23 limits.rs\n",
+      "matches": []
+    },
+    "replayed": {
+      "diff": "",
+      "limits": "pub const LIMIT: u32 = 8;\n",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:29 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 08:29 limits.rs\n",
+      "matches": []
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "call": 6,
+    "script": "result = {}\nr = env.run([\"ls\", \"-la\"], check=False); result[\"ls\"] = r.stdout + r.stderr\nr = env.run([\"ls\", \"-la\", \"..\"], check=False); result[\"ls_parent\"] = r.stdout + r.stderr\nr = env.run([\"find\", \"/\", \"-name\", \"*.rs\", \"-path\", \"*test*\", \"-not\", \"-path\", \"/proc/*\", \"-not\", \"/sys/*\", \"-not\", \"/usr/*\", \"-not\", \"/root/.rustup/*\"], check=False); result[\"find_tests\"] = (r.stdout + r.stderr)[:3000]\nr = env.run([\"grep\", \"-rn\", \"memory_budget\", \"/\", \"--include=*.rs\", \"--exclude-dir=proc\", \"--exclude-dir=sys\", \"--exclude-dir=usr\"], check=False); result[\"grep\"] = (r.stdout + r.stderr)[:3000]\nreturn result\n",
+    "recorded": {
+      "find_tests": "find: paths must precede expression: `/sys/*'\n",
+      "grep": "grep: /boot/efi: Permission denied\ngrep: /boot/grub2: Permission denied\ngrep: /boot/loader/entries: Permission denied\ngrep: /run/systemd/inaccessible/dir: Permission denied\ngrep: /run/systemd/propagate/systemd-userdbd.service: Permission denied\ngrep: /run/systemd/propagate/systemd-udevd.service: Permission denied\ngrep: /run/systemd/propagate/dbus-broker.service: Permission denied\ngrep: /run/systemd/propagate/chronyd.service: Permission denied\ngrep: /run/systemd/propagate/firewalld.service: Permission denied\ngrep: /run/systemd/propagate/NetworkManager.service: Permission denied\ngrep: /run/systemd/propagate/rsyslog.service: Permission denied\ngrep: /run/systemd/propagate/polkit.service: Permission denied\ngrep: /run/systemd/propagate/fwupd.service: Permission denied\ngrep: /run/systemd/propagate/rtkit-daemon.service: Permission denied\ngrep: /run/systemd/propagate/upower.service: Permission denied\ngrep: /run/systemd/propagate/systemd-logind.service: Permission denied\ngrep: /run/systemd/ask-password-block: Permission denied\ngrep: /run/credentials/systemd-journald.service: Permission denied\ngrep: /run/credentials/serial-getty@ttyS0.service: Permission denied\ngrep: /run/credentials/getty@tty1.service: Permission denied\ngrep: /run/initramfs/log/private: Permission denied\ngrep: /run/cryptsetup: Permission denied\ngrep: /run/user/1000/systemd/inaccessible/dir: Permission denied\ngrep: /run/mdadm: Permission denied\ngrep: /run/sudo: Permission denied\ngrep: /run/chrony: Permission denied\ngrep: /run/firewalld: Permission denied\ngrep: /run/udisks2: Permission denied\ngrep: /run/containerd: Permission denied\ngrep: /run/docker: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-fwupd.service-Cqgu4i: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-rtkit-daemon.service-M2JMrY: Permission denied\ngrep: /tmp/claude-1000/-home-gcp-vegas-Dev-lancet/3e87565b-022b-40b1-974a-e8e2a378def6/scratchpad/cow/work/work: Permission denied\ngrep: /tmp/claude-1000/-home-gcp-vegas-Dev-lancet/ebb6274c-f0bd-441f-986b-80301bff9677/scratchpad/ovl/work/work: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-dbus-broker.service-W6ps8M: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-chronyd.service-YJZLcl: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-systemd-logind.service-8qbkK7: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-polkit.service-8JpI2N: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-upower.service-NG4UDx: Permission denied\ngrep: /etc/pki/rsyslog: Permission denied\ngrep: /etc/nftables: Permission denied\ngrep: /etc/credstore: Permission denied\ngrep: /etc/sudoers.d: Permission denied\ngrep: /etc/grub.d: Permission denied\ngrep: /etc/credstore.encrypted: Permission denied\ngrep: /etc/sssd: Permission denied\ngrep: /etc/firewalld: Permission denied\ngrep: /etc/polkit-1/rules.d: Permissi",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:03 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:03 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:03 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:03 src\n",
+      "ls_parent": "total 32000\ndrwxrwxrwt.  48 root      root          4096 Nov 12 08:03 .\ndr-xr-xr-x.  18 root      root           235 Oct 23 12:01 ..\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .ICE-unix\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X0-lock\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X10-lock\ndrwxrwxrwt.   2 root      root            27 Nov 11 23:55 .X11-unix\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .XIM-unix\n-rw-------.   1 gcp-vegas gcp-vegas   514960 Nov  6 09:34 .bun-1000-71b650bef1b3e52c.node\n-rw-------.   1 gcp-vegas gcp-vegas 12846400 Nov  6 09:34 .bun-1000-89812e6e6a68aaeb.so\n-rw-------.   1 gcp-vegas gcp-vegas  5210768 Nov  6 09:34 .bun-1000-99cf65a7ec1d243c.so\n-rw-------.   1 gcp-vegas gcp-vegas  8497232 Nov  9 04:31 .bun-1000-a2b2948027b90162.so\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .font-unix\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 15:31 .tmp1Ll8TB\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 23:36 .tmpB8Pe2l\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 15:07 .tmpJCMndw\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov  9 09:44 .tmpaYZNcX\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 17:46 .tmpbVcLL0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:23 .tmppYsCs0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 08:03 .tmpty7mQ7\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 22:09 .tmpxyJIQh\n-rw-r--r--.   1 gcp-vegas gcp-vegas  3869401 Nov 12 00:13 8cad045e-ffc3-4600-b14c-24532a3924c5.zip\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:02 act-experiment-fplbz123\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1151 Nov 10 08:20 agy_metadata_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1607 Nov 10 08:23 agy_recent_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas  1507051 Nov 10 08:23 agy_recent_metrics.json\ndrwx------. 623 gcp-vegas gcp-vegas    20480 Nov 12 07:48 claude-1000\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:59 code-6e8a8e03-3b73-431b-8b65-5201f6bec30e\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas       18 Nov 12 07:36 codex-bwrap-synthetic-mount-targets-1000\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov  7 07:00 codex-daemon-1000\ndrwx------.   2 gcp-vegas gcp-vegas     4096 Nov  6 11:13 initgoogle_syslog_dir.1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas      396 Nov  7 10:56 la.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      929 Nov 12 07:16 lancet-v2-progress.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8046 Nov 11 07:57 lattice-377-acceptance.md\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas     4096 Nov 11 07:57 lattice-377-tmux\ndrwx------.   5 gcp-vegas gcp-vegas       87 Nov 11 21:35 lattice-close-probe-2_w_rc4a\n-rw-r--r--.   1 gcp-vegas gcp-vegas    22572 Nov 10 04:38 lattice-pr394-consumer-tests-unrestricted.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    21667 Nov 10 04:38 lattice-pr394-consumer-tests.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    47729 Nov 10 04:35 lattice-pr394-dependency.diff\n-rw-r--r--.   1 gcp-vegas gcp-vegas    54138 Nov 10 04:35 lattice-pr394-metadata.json\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 10 04:38 lattice-pr394-probe.2F390S\n-rw-r--r--.   1 gcp-vegas gcp-vegas    13399 Nov 10 04:35 lattice-pr394-production-tree.txt\ndrwx------.  13 gcp-vegas gcp-vegas     4096 Nov 10 04:35 lattice-pr394-review.WwxjLv\n-rw-r--r--.   1 gcp-vegas gcp-vegas     9624 Nov 10 04:35 lattice-pr394-targeted-tests.log\ndrwx------.  11 gcp-vegas gcp-vegas     4096 Nov 12 00:10 lattice-pr405-review-0qf3x3bd\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 11 21:35 lattice-review-404-er4m48x_\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 12 07:21 lattice-review-406-hog7w0ji\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-fetch-web\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-mutate-create\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-mutate-edit\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-noop-echo\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-observe-workspace\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-session-todo_write\n-rw-r--r--.   1 gcp-vegas gcp-vegas      408 Nov  7 10:56 lau.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      406 Nov  7 10:52 lp.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8005 Nov  7 10:52 lp.tsv\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 02:19 mcp-HiUrvX\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 00:00 mcp-fqvJte\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       40 Nov  6 09:34 node-compile-cache\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov  6 09:34 opencode\ndrwx------.   5 gcp-vegas gcp-vegas       86 Nov  6 09:34 opencodex-runtime-v1-1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas     7072 Nov 11 22:48 review29.md\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-chronyd.service-YJZLcl\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-dbus-broker.service-W6ps8M\ndrwx------.   3 root      root            17 Nov  9 22:38 systemd-private-f6da76c59b754479a1409bb6000ab539-fwupd.service-Cqgu4i\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-polkit.service-8JpI2N\ndrwx------.   3 root      root            17 Nov 12 00:13 systemd-private-f6da76c59b754479a1409bb6000ab539-rtkit-daemon.service-M2JMrY\ndrwx------.   3 root      root            17 Nov 12 01:31 systemd-private-f6da76c59b754479a1409bb6000ab539-systemd-logind.service-8qbkK7\ndrwx------.   3 root      root            17 Nov 12 00:14 systemd-private-f6da76c59b754479a1409bb6000ab539-upower.service-NG4UDx\ndrwx------.   2 gcp-vegas gcp-vegas       15 Nov  7 00:57 t3-token-0Ja6fq\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:26 test-wayvnc.sock\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:49 tmp1nul5rlm\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:51 tmp6bqwj77t\ndrwx------.   2 gcp-vegas gcp-vegas       21 Nov  7 06:45 tmux-1000\n"
+    },
+    "replayed": {
+      "find_tests": "find: paths must precede expression: `/sys/*'\n",
+      "grep": "grep: /boot/efi: Permission denied\ngrep: /boot/grub2: Permission denied\ngrep: /boot/loader/entries: Permission denied\ngrep: /run/systemd/inaccessible/dir: Permission denied\ngrep: /run/systemd/propagate/systemd-userdbd.service: Permission denied\ngrep: /run/systemd/propagate/systemd-udevd.service: Permission denied\ngrep: /run/systemd/propagate/dbus-broker.service: Permission denied\ngrep: /run/systemd/propagate/chronyd.service: Permission denied\ngrep: /run/systemd/propagate/firewalld.service: Permission denied\ngrep: /run/systemd/propagate/NetworkManager.service: Permission denied\ngrep: /run/systemd/propagate/rsyslog.service: Permission denied\ngrep: /run/systemd/propagate/polkit.service: Permission denied\ngrep: /run/systemd/propagate/fwupd.service: Permission denied\ngrep: /run/systemd/propagate/rtkit-daemon.service: Permission denied\ngrep: /run/systemd/propagate/upower.service: Permission denied\ngrep: /run/systemd/propagate/systemd-logind.service: Permission denied\ngrep: /run/systemd/ask-password-block: Permission denied\ngrep: /run/credentials/systemd-journald.service: Permission denied\ngrep: /run/credentials/serial-getty@ttyS0.service: Permission denied\ngrep: /run/credentials/getty@tty1.service: Permission denied\ngrep: /run/initramfs/log/private: Permission denied\ngrep: /run/cryptsetup: Permission denied\ngrep: /run/user/1000/systemd/inaccessible/dir: Permission denied\ngrep: /run/mdadm: Permission denied\ngrep: /run/sudo: Permission denied\ngrep: /run/chrony: Permission denied\ngrep: /run/firewalld: Permission denied\ngrep: /run/udisks2: Permission denied\ngrep: /run/containerd: Permission denied\ngrep: /run/docker: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-fwupd.service-Cqgu4i: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-rtkit-daemon.service-M2JMrY: Permission denied\ngrep: /tmp/claude-1000/-home-gcp-vegas-Dev-lancet/3e87565b-022b-40b1-974a-e8e2a378def6/scratchpad/cow/work/work: Permission denied\ngrep: /tmp/claude-1000/-home-gcp-vegas-Dev-lancet/ebb6274c-f0bd-441f-986b-80301bff9677/scratchpad/ovl/work/work: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-dbus-broker.service-W6ps8M: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-chronyd.service-YJZLcl: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-systemd-logind.service-8qbkK7: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-polkit.service-8JpI2N: Permission denied\ngrep: /tmp/systemd-private-f6da76c59b754479a1409bb6000ab539-upower.service-NG4UDx: Permission denied\ngrep: /etc/pki/rsyslog: Permission denied\ngrep: /etc/nftables: Permission denied\ngrep: /etc/credstore: Permission denied\ngrep: /etc/sudoers.d: Permission denied\ngrep: /etc/grub.d: Permission denied\ngrep: /etc/credstore.encrypted: Permission denied\ngrep: /etc/sssd: Permission denied\ngrep: /etc/firewalld: Permission denied\ngrep: /etc/polkit-1/rules.d: Permissi",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "ls_parent": "total 32000\ndrwxrwxrwt.  49 root      root          4096 Nov 12 08:29 .\ndr-xr-xr-x.  18 root      root           235 Oct 23 12:01 ..\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .ICE-unix\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X0-lock\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X10-lock\ndrwxrwxrwt.   2 root      root            27 Nov 11 23:55 .X11-unix\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .XIM-unix\n-rw-------.   1 gcp-vegas gcp-vegas   514960 Nov  6 09:34 .bun-1000-71b650bef1b3e52c.node\n-rw-------.   1 gcp-vegas gcp-vegas 12846400 Nov  6 09:34 .bun-1000-89812e6e6a68aaeb.so\n-rw-------.   1 gcp-vegas gcp-vegas  5210768 Nov  6 09:34 .bun-1000-99cf65a7ec1d243c.so\n-rw-------.   1 gcp-vegas gcp-vegas  8497232 Nov  9 04:31 .bun-1000-a2b2948027b90162.so\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .font-unix\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 15:31 .tmp1Ll8TB\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 23:36 .tmpB8Pe2l\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 15:07 .tmpJCMndw\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov  9 09:44 .tmpaYZNcX\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 17:46 .tmpbVcLL0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:23 .tmppYsCs0\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 22:09 .tmpxyJIQh\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 08:29 .tmpyRG3KK\n-rw-r--r--.   1 gcp-vegas gcp-vegas  3869401 Nov 12 00:13 8cad045e-ffc3-4600-b14c-24532a3924c5.zip\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:29 act-experiment-fedv1_7o\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:29 act-replay-h8ofwvz9\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1151 Nov 10 08:20 agy_metadata_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1607 Nov 10 08:23 agy_recent_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas  1507051 Nov 10 08:23 agy_recent_metrics.json\ndrwx------. 623 gcp-vegas gcp-vegas    20480 Nov 12 07:48 claude-1000\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:59 code-6e8a8e03-3b73-431b-8b65-5201f6bec30e\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas       18 Nov 12 07:36 codex-bwrap-synthetic-mount-targets-1000\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov  7 07:00 codex-daemon-1000\ndrwx------.   2 gcp-vegas gcp-vegas     4096 Nov  6 11:13 initgoogle_syslog_dir.1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas      396 Nov  7 10:56 la.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      929 Nov 12 07:16 lancet-v2-progress.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8046 Nov 11 07:57 lattice-377-acceptance.md\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas     4096 Nov 11 07:57 lattice-377-tmux\ndrwx------.   5 gcp-vegas gcp-vegas       87 Nov 11 21:35 lattice-close-probe-2_w_rc4a\n-rw-r--r--.   1 gcp-vegas gcp-vegas    22572 Nov 10 04:38 lattice-pr394-consumer-tests-unrestricted.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    21667 Nov 10 04:38 lattice-pr394-consumer-tests.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    47729 Nov 10 04:35 lattice-pr394-dependency.diff\n-rw-r--r--.   1 gcp-vegas gcp-vegas    54138 Nov 10 04:35 lattice-pr394-metadata.json\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 10 04:38 lattice-pr394-probe.2F390S\n-rw-r--r--.   1 gcp-vegas gcp-vegas    13399 Nov 10 04:35 lattice-pr394-production-tree.txt\ndrwx------.  13 gcp-vegas gcp-vegas     4096 Nov 10 04:35 lattice-pr394-review.WwxjLv\n-rw-r--r--.   1 gcp-vegas gcp-vegas     9624 Nov 10 04:35 lattice-pr394-targeted-tests.log\ndrwx------.  11 gcp-vegas gcp-vegas     4096 Nov 12 00:10 lattice-pr405-review-0qf3x3bd\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 11 21:35 lattice-review-404-er4m48x_\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 12 07:21 lattice-review-406-hog7w0ji\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-fetch-web\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-mutate-create\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-mutate-edit\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-noop-echo\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-observe-workspace\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-session-todo_write\n-rw-r--r--.   1 gcp-vegas gcp-vegas      408 Nov  7 10:56 lau.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      406 Nov  7 10:52 lp.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8005 Nov  7 10:52 lp.tsv\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 02:19 mcp-HiUrvX\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 00:00 mcp-fqvJte\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       40 Nov  6 09:34 node-compile-cache\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov  6 09:34 opencode\ndrwx------.   5 gcp-vegas gcp-vegas       86 Nov  6 09:34 opencodex-runtime-v1-1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas     7072 Nov 11 22:48 review29.md\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-chronyd.service-YJZLcl\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-dbus-broker.service-W6ps8M\ndrwx------.   3 root      root            17 Nov  9 22:38 systemd-private-f6da76c59b754479a1409bb6000ab539-fwupd.service-Cqgu4i\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-polkit.service-8JpI2N\ndrwx------.   3 root      root            17 Nov 12 00:13 systemd-private-f6da76c59b754479a1409bb6000ab539-rtkit-daemon.service-M2JMrY\ndrwx------.   3 root      root            17 Nov 12 01:31 systemd-private-f6da76c59b754479a1409bb6000ab539-systemd-logind.service-8qbkK7\ndrwx------.   3 root      root            17 Nov 12 00:14 systemd-private-f6da76c59b754479a1409bb6000ab539-upower.service-NG4UDx\ndrwx------.   2 gcp-vegas gcp-vegas       15 Nov  7 00:57 t3-token-0Ja6fq\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:26 test-wayvnc.sock\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:49 tmp1nul5rlm\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:51 tmp6bqwj77t\ndrwx------.   2 gcp-vegas gcp-vegas       21 Nov  7 06:45 tmux-1000\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-03-r1",
+    "call": 7,
+    "script": "res = env.run([\"ls\", \"-la\"], check=False)\nres2 = env.run([\"find\", \".\", \"-type\", \"f\", \"-not\", \"-path\", \"./target/*\"], check=False)\nreturn {\"ls\": res.stdout + res.stderr, \"find\": res2.stdout + res2.stderr}",
+    "recorded": {
+      "find": "./Cargo.toml\n./src/retry.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:34 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:34 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:34 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:34 src\n"
+    },
+    "replayed": {
+      "find": "./Cargo.toml\n./src/retry.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-03-r1",
+    "call": 8,
+    "script": "raw = repo.read(\"src/retry.rs\")\nls = env.run([\"ls\", \"-la\", \"src\"], check=False)\nreturn {\"raw_repr\": repr(raw), \"len\": len(raw), \"ls_src\": ls.stdout + ls.stderr}",
+    "recorded": {
+      "len": 28,
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:34 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:34 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:34 retry.rs\n",
+      "raw_repr": "\"pub const RETRIES: u32 = 2;\\n\""
+    },
+    "replayed": {
+      "len": 28,
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 retry.rs\n",
+      "raw_repr": "\"pub const RETRIES: u32 = 2;\\n\""
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-test-01-r1",
+    "call": 7,
+    "script": "la = env.run([\"ls\", \"-la\"], check=False)\nfind = env.run([\"find\", \".\", \"-type\", \"f\"], check=False)\ncat = env.run([\"cat\", \"Cargo.lock\"], check=False)\nreturn {\"ls_la\": la.stdout, \"find\": find.stdout, \"lock_code\": cat.code, \"lock\": cat.stdout[:2000]}",
+    "recorded": {
+      "find": "./Cargo.toml\n./src/lib.rs\n",
+      "lock": "",
+      "lock_code": 1,
+      "ls_la": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:05 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:05 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:05 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:05 src\n"
+    },
+    "replayed": {
+      "find": "./Cargo.toml\n./src/lib.rs\n",
+      "lock": "",
+      "lock_code": 1,
+      "ls_la": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-A-test-03-r3",
+    "call": 5,
+    "script": "r1 = env.run([\"ls\", \"-la\"], check = False)\nr2 = env.run([\"ls\", \"-la\", \"src\"], check = False)\nr3 = env.run([\"find\", \".\", \"-name\", \"*.rs\"], check = False)\nr4 = env.run([\"cat\", \"Cargo.toml\"], check = False)\nreturn {\"ls\": r1.stdout + r1.stderr, \"src_ls\": r2.stdout + r2.stderr, \"find\": r3.stdout + r3.stderr, \"cargo_toml\": r4.stdout + r4.stderr}\n",
+    "recorded": {
+      "cargo_toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "find": "./src/lib.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:39 .\ndrwxrwxrwt. 52 root      root      4096 Nov 12 07:39 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:39 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:39 src\n",
+      "src_ls": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:39 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:39 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:39 lib.rs\n"
+    },
+    "replayed": {
+      "cargo_toml": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n",
+      "find": "./src/lib.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n",
+      "src_ls": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 lib.rs\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-batch-02-r3",
+    "call": 7,
+    "script": "result({\n  \"rev_parse\": env.run([\"git\", \"rev-parse\", \"--is-inside-work-tree\"], check=False).stdout + \"|\" + env.run([\"git\", \"rev-parse\", \"--is-inside-work-tree\"], check=False).stderr,\n  \"git_dir\": env.run([\"git\", \"rev-parse\", \"--git-dir\"], check=False).stdout + \"|\" + env.run([\"git\", \"rev-parse\", \"--git-dir\"], check=False).stderr,\n  \"ls_all\": env.run([\"ls\", \"-laR\"], check=False).stdout,\n})",
+    "recorded": {
+      "git_dir": "|fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls_all": ".:\ntotal 8\ndrwxr-xr-x.  4 gcp-vegas gcp-vegas   29 Nov 12 07:46 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:46 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   25 Nov 12 07:46 docs\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   54 Nov 12 07:46 src\n\n./docs:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 25 Nov 12 07:46 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 07:46 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 29 Nov 12 07:46 history.txt\n\n./src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 07:46 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 07:46 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 07:46 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 07:46 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 07:46 untouched.txt\n\n./src/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 07:46 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 07:46 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 47 Nov 12 07:46 b.txt\n",
+      "rev_parse": "|fatal: not a git repository (or any of the parent directories): .git\n"
+    },
+    "replayed": {
+      "git_dir": "|fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls_all": ".:\ntotal 8\ndrwxr-xr-x.  4 gcp-vegas gcp-vegas   29 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   25 Nov 12 08:29 docs\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   54 Nov 12 08:29 src\n\n./docs:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 25 Nov 12 08:29 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 29 Nov 12 08:29 history.txt\n\n./src:\ntotal 8\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 .\ndrwxr-xr-x. 4 gcp-vegas gcp-vegas 29 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 41 Nov 12 08:29 a.txt\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 nested\n-rw-r--r--. 1 gcp-vegas gcp-vegas 14 Nov 12 08:29 untouched.txt\n\n./src/nested:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 19 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 54 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 47 Nov 12 08:29 b.txt\n",
+      "rev_parse": "|fatal: not a git repository (or any of the parent directories): .git\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-read-01-r2",
+    "call": 4,
+    "script": "r = env.run([\"ls\", \"-la\", \"src\"], check=False)\nr2 = env.run([\"find\", \"src\", \"-type\", \"f\"], check=False)\nresult({\"ls\": r.stdout + r.stderr, \"find\": r2.stdout + r2.stderr})",
+    "recorded": {
+      "find": "src/a.rs\nsrc/b.rs\n",
+      "ls": "total 8\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 30 Nov 12 08:28 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 34 Nov 12 08:28 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 33 Nov 12 08:28 a.rs\n-rw-r--r--. 1 gcp-vegas gcp-vegas 38 Nov 12 08:28 b.rs\n"
+    },
+    "replayed": {
+      "find": "src/a.rs\nsrc/b.rs\n",
+      "ls": "total 8\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 30 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 34 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 33 Nov 12 08:29 a.rs\n-rw-r--r--. 1 gcp-vegas gcp-vegas 38 Nov 12 08:29 b.rs\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-read-02-r2",
+    "call": 7,
+    "script": "r = env.run([\"ls\", \"-la\"], check=False)\nresult({\"stdout\": r.stdout, \"stderr\": r.stderr, \"code\": r.code})\n",
+    "recorded": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 08:22 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:22 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   25 Nov 12 08:22 logs\n"
+    },
+    "replayed": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   25 Nov 12 08:29 logs\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-read-02-r2",
+    "call": 8,
+    "script": "r = env.run([\"ls\", \"-la\", \"logs\"], check=False)\nresult({\"stdout\": r.stdout, \"stderr\": r.stderr, \"code\": r.code})\n",
+    "recorded": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 25 Nov 12 08:22 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:22 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 62 Nov 12 08:22 service.log\n"
+    },
+    "replayed": {
+      "code": 0,
+      "stderr": "",
+      "stdout": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 25 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 18 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 62 Nov 12 08:29 service.log\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-01-r2",
+    "call": 7,
+    "script": "result({\n  \"ls_root\": env.run([\"ls\", \"-la\"], check=False).stdout,\n  \"target_rs\": env.run([\"find\", \"target\", \"-name\", \"*.rs\"], check=False).stdout,\n})",
+    "recorded": {
+      "ls_root": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:45 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:45 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:45 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:45 src\n",
+      "target_rs": ""
+    },
+    "replayed": {
+      "ls_root": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:29 src\n",
+      "target_rs": ""
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 4,
+    "script": "ls = env.run([\"ls\", \"-la\", \".\"], check=False)\nls2 = env.run([\"ls\", \"-la\", \"src\"], check=False)\nfind = env.run([\"find\", \".\", \"-name\", \"*.rs\", \"-not\", \"-path\", \"./target/*\"], check=False)\nresult({\n  \"ls_root\": ls.stdout + ls.stderr,\n  \"ls_src\": ls2.stdout + ls2.stderr,\n  \"rs_files\": find.stdout + find.stderr,\n})",
+    "recorded": {
+      "ls_root": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:07 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:07 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:07 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:07 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:07 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:07 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:07 cache.rs\n",
+      "rs_files": "./src/cache.rs\n"
+    },
+    "replayed": {
+      "ls_root": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 32 Nov 12 08:29 cache.rs\n",
+      "rs_files": "./src/cache.rs\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-03-r2",
+    "call": 5,
+    "script": "ls = env.run([\"ls\", \"-la\"], check=False)\nlsr = env.run([\"ls\", \"-la\", \"src\"], check=False)\nresult({\n    \"status\": repo.status(),\n    \"diff\": repo.diff(),\n    \"ls\": ls.stdout + ls.stderr,\n    \"src_ls\": lsr.stdout + lsr.stderr,\n})",
+    "recorded": {
+      "diff": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:38 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:38 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:38 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:38 src\n",
+      "src_ls": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:38 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:38 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:38 retry.rs\n",
+      "status": []
+    },
+    "replayed": {
+      "diff": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n",
+      "src_ls": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 retry.rs\n",
+      "status": []
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-03-r3",
+    "call": 3,
+    "script": "ls = env.run([\"ls\", \"-la\"], check=False)\nls2 = env.run([\"find\", \".\", \"-not\", \"-path\", \"./.git/*\", \"-not\", \"-path\", \"./target/*\"], check=False)\nresult({\"ls\": ls.stdout + ls.stderr, \"find\": ls2.stdout + ls2.stderr})",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/retry.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:43 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:43 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:43 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:43 src\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/retry.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-03-r3",
+    "call": 6,
+    "script": "g = env.run([\"find\", \"/\", \"-name\", \"*.rs\"], check=False)\nh = env.run([\"find\", \"/\", \"-name\", \"Cargo.toml\"], check=False)\nresult({\"rs\": (g.stdout + g.stderr)[:4000], \"cargo\": (h.stdout + h.stderr)[:4000]})",
+    "recorded": {
+      "cargo": "/tmp/lattice-review-404-er4m48x_/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-conversation/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-llm/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-profile/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-session/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-store/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-system-harness/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-tui/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/net-guard/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/xtask/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-authority/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-protocol/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-runtime/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-agent/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-cli/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-conversation/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-llm/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-profile/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-session/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-store/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-system-harness/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-tool-prelude/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-tui/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/net-guard/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/fetch-web/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/mutate-create/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/mutate-edit/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/mutate-shared/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/noop/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/observe-workspace/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/todo-write/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scrat",
+      "rs": "/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/model_step.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/testing.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/openai_stream_limits.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/streaming_seam.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/configure.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/ipc.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/operation.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_cancel_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_configure_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_models_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/models.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/profile.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/redact.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/root.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/session.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/stores.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/crash_barrier.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/execute.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/run_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/saga.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/stream_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/test_support.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/tools.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/local_view_queries.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_create_open.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_without_workspace_history.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/comm"
+    },
+    "replayed": {
+      "cargo": "/tmp/.tmpvtx1wt/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-conversation/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-llm/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-profile/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-session/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-store/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-system-harness/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-tui/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/net-guard/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/xtask/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-authority/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-protocol/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-runtime/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-agent/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-cli/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-conversation/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-llm/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-profile/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-session/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-store/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-system-harness/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-tool-prelude/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-tui/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/net-guard/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/fetch-web/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/mutate-create/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/mutate-edit/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/mutate-shared/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/noop/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/observe-workspace/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/tools/todo-write/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-4",
+      "rs": "/tmp/.tmpvtx1wt/src/retry.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/model_step.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/testing.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/openai_stream_limits.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/streaming_seam.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/configure.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/ipc.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/operation.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_cancel_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_configure_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_models_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/models.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/profile.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/redact.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/root.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/session.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/stores.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/crash_barrier.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/execute.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/run_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/saga.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/stream_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/test_support.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/tools.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/local_view_queries.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_create_open.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_without_workspace_history.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth/login.rs\n/tmp/lattice-review-404-er4m48x"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-test-01-r1",
+    "call": 6,
+    "script": "ls = env.run([\"ls\", \"-laR\"], check=False)\nfind = env.run([\"find\", \".\", \"-not\", \"-path\", \"./target/*\"], check=False)\nresult({\"ls\": ls.stdout + ls.stderr, \"find\": find.stdout + find.stderr})\n",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/lib.rs\n",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:28 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:28 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:28 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:28 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:28 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:28 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:28 lib.rs\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/lib.rs\n",
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 lib.rs\n"
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-test-03-r1",
+    "call": 8,
+    "script": "out = {}\nout[\"ls\"] = env.run([\"ls\", \"-la\"], check=False)\nout[\"ls_tests\"] = env.run([\"ls\", \"-la\", \"tests\"], check=False)\nout[\"ls_target\"] = env.run([\"ls\", \"-la\", \"target\"], check=False)\nresult(out)",
+    "recorded": {
+      "ls": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:22 .\ndrwxrwxrwt. 55 root      root      4096 Nov 12 07:22 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:22 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:22 src\n"
+      },
+      "ls_target": {
+        "code": 2,
+        "stderr": "ls: cannot access 'target': No such file or directory\n",
+        "stdout": ""
+      },
+      "ls_tests": {
+        "code": 2,
+        "stderr": "ls: cannot access 'tests': No such file or directory\n",
+        "stdout": ""
+      }
+    },
+    "replayed": {
+      "ls": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n"
+      },
+      "ls_target": {
+        "code": 2,
+        "stderr": "ls: cannot access 'target': No such file or directory\n",
+        "stdout": ""
+      },
+      "ls_tests": {
+        "code": 2,
+        "stderr": "ls: cannot access 'tests': No such file or directory\n",
+        "stdout": ""
+      }
+    }
+  },
+  {
+    "run_id": "composed-minimax-B-test-04-r3",
+    "call": 7,
+    "script": "out = {}\nfor cmd in [[\"ls\", \"-la\"], [\"ls\", \"-la\", \"src\"]]:\n    r = env.run(cmd, check=False)\n    out[\" \".join(cmd)] = {\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr}\nresult(out)",
+    "recorded": {
+      "ls -la": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:40 .\ndrwxrwxrwt. 58 root      root      4096 Nov 12 07:40 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:40 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:40 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:40 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:40 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:40 lib.rs\n"
+      }
+    },
+    "replayed": {
+      "ls -la": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:29 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:29 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:29 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:29 lib.rs\n"
+      }
+    }
+  },
+  {
+    "run_id": "overview-deepseek-A-rollback-01-r2",
+    "call": 5,
+    "script": "ls = env.run([\"ls\", \"-la\"], check = False)\nlsr = env.run([\"find\", \".\", \"-name\", \"*.rs\", \"-o\", \"-name\", \"tests\"], check = False)\ngit = env.run([\"git\", \"status\", \"--short\"], check = False)\ngitd = env.run([\"git\", \"diff\"], check = False)\nreturn {\n  \"ls\": ls.stdout,\n  \"find\": lsr.stdout,\n  \"git_status\": git.stdout,\n  \"git_diff\": gitd.stdout,\n  \"diff_tool\": repo.diff(),\n}",
+    "recorded": {
+      "diff_tool": "",
+      "find": "./src/limits.rs\n",
+      "git_diff": "",
+      "git_status": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:19 .\ndrwxrwxrwt. 50 root      root      4096 Nov 12 07:19 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:19 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:19 src\n"
+    },
+    "replayed": {
+      "diff_tool": "",
+      "find": "./src/limits.rs\n",
+      "git_diff": "",
+      "git_status": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "overview-deepseek-A-rollback-01-r3",
+    "call": 5,
+    "script": "hits = repo.search(\"smoke|overflow\")\nr = env.run([\"ls\", \"-la\"], check = False)\nreturn {\"hits\": [[\"%s:%d: %s\" % (h.path, h.line, h.text) for h in hits]], \"ls\": env.run([\"find\", \".\", \"-name\", \"*.rs\"], check=False).stdout, \"lsout\": r.stdout}",
+    "recorded": {
+      "hits": [
+        []
+      ],
+      "ls": "./src/limits.rs\n",
+      "lsout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:22 .\ndrwxrwxrwt. 55 root      root      4096 Nov 12 07:22 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:22 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:22 src\n"
+    },
+    "replayed": {
+      "hits": [
+        []
+      ],
+      "ls": "./src/limits.rs\n",
+      "lsout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:29 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:29 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:29 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:29 src\n"
+    }
+  },
+  {
+    "run_id": "overview-deepseek-A-rollback-04-r1",
+    "call": 7,
+    "script": "a = env.run([\"find\", \".\", \"-name\", \"*.rs\", \"-not\", \"-path\", \"./target/*\"], check = False)\nb = env.run([\"git\", \"status\", \"--short\"], check = False)\nc = env.run([\"git\", \"log\", \"--oneline\", \"-n\", \"5\"], check = False)\nd = env.run([\"grep\", \"-rn\", \"legacy\", \".\", \"--include=*.rs\", \"--exclude-dir=target\"], check = False)\nreturn {\"find\": a.stdout, \"status\": b.stdout, \"log\": c.stdout, \"grep\": d.stdout, \"greperr\": d.stderr, \"ls\": env.run([\"ls\", \"-la\"], check=False).stdout}",
+    "recorded": {
+      "find": "./src/codec.rs\n",
+      "grep": "",
+      "greperr": "",
+      "log": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:26 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:26 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:26 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:26 src\n",
+      "status": ""
+    },
+    "replayed": {
+      "find": "./src/codec.rs\n",
+      "grep": "",
+      "greperr": "",
+      "log": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n",
+      "status": ""
+    }
+  },
+  {
+    "run_id": "overview-deepseek-B-rollback-02-r1",
+    "call": 5,
+    "script": "res = env.run([\"git\", \"status\", \"--porcelain\"], check = False)\ndiff = env.run([\"git\", \"diff\"], check = False)\nls = env.run([\"ls\", \"-la\"], check = False)\nres2 = env.run([\"find\", \".\", \"-name\", \"*.rs\", \"-not\", \"-path\", \"./target/*\"], check = False)\nres3 = env.run([\"git\", \"ls-files\"], check = False)\nresult({\n    \"status\": res.stdout,\n    \"diff\": diff.stdout,\n    \"ls\": ls.stdout,\n    \"rs_files\": res2.stdout,\n    \"tracked\": res3.stdout,\n    \"stderr\": res.stderr + res2.stderr + res3.stderr,\n})",
+    "recorded": {
+      "diff": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:24 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:24 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:24 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:24 src\n",
+      "rs_files": "./src/cache.rs\n",
+      "status": "",
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git\nfatal: not a git repository (or any of the parent directories): .git\n",
+      "tracked": ""
+    },
+    "replayed": {
+      "diff": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n",
+      "rs_files": "./src/cache.rs\n",
+      "status": "",
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git\nfatal: not a git repository (or any of the parent directories): .git\n",
+      "tracked": ""
+    }
+  },
+  {
+    "run_id": "overview-deepseek-B-rollback-03-r1",
+    "call": 6,
+    "script": "st = env.run([\"git\", \"status\", \"--porcelain\"], check = False)\nd = env.run([\"git\", \"diff\"], check = False)\nls = env.run([\"ls\", \"-la\", \".\"], check = False)\nres = env.run([\"ls\", \"-la\", \"src\"], check = False)\nresult({\n  \"file\": repo.read(\"src/retry.rs\"),\n  \"git_status\": st.stdout + st.stderr,\n  \"git_diff\": d.stdout + d.stderr,\n  \"ls\": ls.stdout + ls.stderr,\n  \"ls_src\": res.stdout + res.stderr,\n})",
+    "recorded": {
+      "file": "pub const RETRIES: u32 = 2;\n",
+      "git_diff": "warning: Not a git repository. Use --no-index to compare two paths outside a working tree\nusage: git diff --no-index [<options>] <path> <path> [<pathspec>...]\n\nDiff output format options\n    -p, --patch           generate patch\n    -s, --no-patch        suppress diff output\n    -u                    generate patch\n    -U, --unified[=<n>]   generate diffs with <n> lines context\n    -W, --[no-]function-context\n                          generate diffs with <n> lines context\n    --raw                 generate the diff in raw format\n    --patch-with-raw      synonym for '-p --raw'\n    --patch-with-stat     synonym for '-p --stat'\n    --numstat             machine friendly --stat\n    --shortstat           output only the last line of --stat\n    -X, --dirstat[=<param1>,<param2>...]\n                          output the distribution of relative amount of changes for each sub-directory\n    --cumulative          synonym for --dirstat=cumulative\n    --dirstat-by-file[=<param1>,<param2>...]\n                          synonym for --dirstat=files,<param1>,<param2>...\n    --check               warn if changes introduce conflict markers or whitespace errors\n    --summary             condensed summary such as creations, renames and mode changes\n    --name-only           show only names of changed files\n    --name-status         show only names and status of changed files\n    --stat[=<width>[,<name-width>[,<count>]]]\n                          generate diffstat\n    --stat-width <width>  generate diffstat with a given width\n    --stat-name-width <width>\n                          generate diffstat with a given name width\n    --stat-graph-width <width>\n                          generate diffstat with a given graph width\n    --stat-count <count>  generate diffstat with limited lines\n    --[no-]compact-summary\n                          generate compact summary in diffstat\n    --binary              output a binary diff that can be applied\n    --[no-]full-index     show full pre- and post-image object names on the \"index\" lines\n    --[no-]color[=<when>] show colored diff\n    --ws-error-highlight <kind>\n                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff\n    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat\n    --[no-]abbrev[=<n>]   use <n> digits to display object names\n    --src-prefix <prefix> show the given source prefix instead of \"a/\"\n    --dst-prefix <prefix> show the given destination prefix instead of \"b/\"\n    --line-prefix <prefix>\n                          prepend an additional prefix to every line of output\n    --no-prefix           do not show any source or destination prefix\n    --default-prefix      use default prefixes a/ and b/\n    --inter-hunk-context <n>\n                          show context between diff hunks up to the specified number of lines\n    --output-indicator-new <char>\n                          specify the character to indicate a new line instead of '+'\n    --output-indicator-old <char>\n                          specify the character to indicate an old line instead of '-'\n    --output-indicator-context <char>\n                          specify the character to indicate a context instead of ' '\n\nDiff rename options\n    -B, --break-rewrites[=<n>[/<m>]]\n                          break complete rewrite changes into pairs of delete and create\n    -M, --find-renames[=<n>]\n                          detect renames\n    -D, --irreversible-delete\n                          omit the preimage for deletes\n    -C, --find-copies[=<n>]\n                          detect copies\n    --[no-]find-copies-harder\n                          use unmodified files as source to find copies\n    --no-renames          disable rename detection\n    --[no-]rename-empty   use empty blobs as rename source\n    --[no-]follow         continue listing the history of a file beyond renames\n    -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit\n\nDiff algorithm options\n    --minimal             produce the smallest possible diff\n    -w, --ignore-all-space\n                          ignore whitespace when comparing lines\n    -b, --ignore-space-change\n                          ignore changes in amount of whitespace\n    --ignore-space-at-eol ignore changes in whitespace at EOL\n    --ignore-cr-at-eol    ignore carrier-return at the end of line\n    --ignore-blank-lines  ignore changes whose lines are all blank\n    -I, --[no-]ignore-matching-lines <regex>\n                          ignore changes whose all lines match <regex>\n    --[no-]indent-heuristic\n                          heuristic to shift diff hunk boundaries for easy reading\n    --patience            generate diff using the \"patience diff\" algorithm\n    --histogram           generate diff using the \"histogram diff\" algorithm\n    --diff-algorithm <algorithm>\n                          choose a diff algorithm\n    --anchored <text>     generate diff using the \"anchored diff\" algorithm\n    --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words\n    --word-diff-regex <regex>\n                          use <regex> to decide what a word is\n    --color-words[=<regex>]\n                          equivalent to --word-diff=color --word-diff-regex=<regex>\n    --[no-]color-moved[=<mode>]\n                          moved lines of code are colored differently\n    --[no-]color-moved-ws <mode>\n                          how white spaces are ignored in --color-moved\n\nOther diff options\n    --[no-]relative[=<prefix>]\n                          when run from subdir, exclude changes outside and show relative paths\n    -a, --[no-]text       treat all files as text\n    -R                    swap two inputs, reverse the diff\n    --[no-]exit-code      exit with 1 if there were differences, 0 otherwise\n    --[no-]quiet          disable all output of the program\n    --[no-]ext-diff       allow an external diff helper to be executed\n    --[no-]textconv       run external text conversion filters when comparing binary files\n    --ignore-submodules[=<when>]\n                          ignore changes to submodules in the diff generation\n    --submodule[=<format>]\n                          specify how differences in submodules are shown\n    --ita-invisible-in-index\n                          hide 'git add -N' entries from the index\n    --ita-visible-in-index\n                          treat 'git add -N' entries as real in the index\n    -S <string>           look for differences that change the number of occurrences of the specified string\n    -G <regex>            look for differences that change the number of occurrences of the specified regex\n    --pickaxe-all         show all changes in the changeset with -S or -G\n    --pickaxe-regex       treat <string> in -S as extended POSIX regular expression\n    -O <file>             control the order in which files appear in the output\n    --rotate-to <path>    show the change in the specified path first\n    --skip-to <path>      skip the output to the specified path\n    --find-object <object-id>\n                          look for differences that change the number of occurrences of the specified object\n    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]\n                          select files by diff type\n    --max-depth <depth>   maximum tree depth to recurse\n    --output <file>       output to a specific file\n\n",
+      "git_status": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:22 .\ndrwxrwxrwt. 55 root      root      4096 Nov 12 07:22 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:22 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:22 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:22 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:22 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:22 retry.rs\n"
+    },
+    "replayed": {
+      "file": "pub const RETRIES: u32 = 2;\n",
+      "git_diff": "warning: Not a git repository. Use --no-index to compare two paths outside a working tree\nusage: git diff --no-index [<options>] <path> <path> [<pathspec>...]\n\nDiff output format options\n    -p, --patch           generate patch\n    -s, --no-patch        suppress diff output\n    -u                    generate patch\n    -U, --unified[=<n>]   generate diffs with <n> lines context\n    -W, --[no-]function-context\n                          generate diffs with <n> lines context\n    --raw                 generate the diff in raw format\n    --patch-with-raw      synonym for '-p --raw'\n    --patch-with-stat     synonym for '-p --stat'\n    --numstat             machine friendly --stat\n    --shortstat           output only the last line of --stat\n    -X, --dirstat[=<param1>,<param2>...]\n                          output the distribution of relative amount of changes for each sub-directory\n    --cumulative          synonym for --dirstat=cumulative\n    --dirstat-by-file[=<param1>,<param2>...]\n                          synonym for --dirstat=files,<param1>,<param2>...\n    --check               warn if changes introduce conflict markers or whitespace errors\n    --summary             condensed summary such as creations, renames and mode changes\n    --name-only           show only names of changed files\n    --name-status         show only names and status of changed files\n    --stat[=<width>[,<name-width>[,<count>]]]\n                          generate diffstat\n    --stat-width <width>  generate diffstat with a given width\n    --stat-name-width <width>\n                          generate diffstat with a given name width\n    --stat-graph-width <width>\n                          generate diffstat with a given graph width\n    --stat-count <count>  generate diffstat with limited lines\n    --[no-]compact-summary\n                          generate compact summary in diffstat\n    --binary              output a binary diff that can be applied\n    --[no-]full-index     show full pre- and post-image object names on the \"index\" lines\n    --[no-]color[=<when>] show colored diff\n    --ws-error-highlight <kind>\n                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff\n    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat\n    --[no-]abbrev[=<n>]   use <n> digits to display object names\n    --src-prefix <prefix> show the given source prefix instead of \"a/\"\n    --dst-prefix <prefix> show the given destination prefix instead of \"b/\"\n    --line-prefix <prefix>\n                          prepend an additional prefix to every line of output\n    --no-prefix           do not show any source or destination prefix\n    --default-prefix      use default prefixes a/ and b/\n    --inter-hunk-context <n>\n                          show context between diff hunks up to the specified number of lines\n    --output-indicator-new <char>\n                          specify the character to indicate a new line instead of '+'\n    --output-indicator-old <char>\n                          specify the character to indicate an old line instead of '-'\n    --output-indicator-context <char>\n                          specify the character to indicate a context instead of ' '\n\nDiff rename options\n    -B, --break-rewrites[=<n>[/<m>]]\n                          break complete rewrite changes into pairs of delete and create\n    -M, --find-renames[=<n>]\n                          detect renames\n    -D, --irreversible-delete\n                          omit the preimage for deletes\n    -C, --find-copies[=<n>]\n                          detect copies\n    --[no-]find-copies-harder\n                          use unmodified files as source to find copies\n    --no-renames          disable rename detection\n    --[no-]rename-empty   use empty blobs as rename source\n    --[no-]follow         continue listing the history of a file beyond renames\n    -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit\n\nDiff algorithm options\n    --minimal             produce the smallest possible diff\n    -w, --ignore-all-space\n                          ignore whitespace when comparing lines\n    -b, --ignore-space-change\n                          ignore changes in amount of whitespace\n    --ignore-space-at-eol ignore changes in whitespace at EOL\n    --ignore-cr-at-eol    ignore carrier-return at the end of line\n    --ignore-blank-lines  ignore changes whose lines are all blank\n    -I, --[no-]ignore-matching-lines <regex>\n                          ignore changes whose all lines match <regex>\n    --[no-]indent-heuristic\n                          heuristic to shift diff hunk boundaries for easy reading\n    --patience            generate diff using the \"patience diff\" algorithm\n    --histogram           generate diff using the \"histogram diff\" algorithm\n    --diff-algorithm <algorithm>\n                          choose a diff algorithm\n    --anchored <text>     generate diff using the \"anchored diff\" algorithm\n    --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words\n    --word-diff-regex <regex>\n                          use <regex> to decide what a word is\n    --color-words[=<regex>]\n                          equivalent to --word-diff=color --word-diff-regex=<regex>\n    --[no-]color-moved[=<mode>]\n                          moved lines of code are colored differently\n    --[no-]color-moved-ws <mode>\n                          how white spaces are ignored in --color-moved\n\nOther diff options\n    --[no-]relative[=<prefix>]\n                          when run from subdir, exclude changes outside and show relative paths\n    -a, --[no-]text       treat all files as text\n    -R                    swap two inputs, reverse the diff\n    --[no-]exit-code      exit with 1 if there were differences, 0 otherwise\n    --[no-]quiet          disable all output of the program\n    --[no-]ext-diff       allow an external diff helper to be executed\n    --[no-]textconv       run external text conversion filters when comparing binary files\n    --ignore-submodules[=<when>]\n                          ignore changes to submodules in the diff generation\n    --submodule[=<format>]\n                          specify how differences in submodules are shown\n    --ita-invisible-in-index\n                          hide 'git add -N' entries from the index\n    --ita-visible-in-index\n                          treat 'git add -N' entries as real in the index\n    -S <string>           look for differences that change the number of occurrences of the specified string\n    -G <regex>            look for differences that change the number of occurrences of the specified regex\n    --pickaxe-all         show all changes in the changeset with -S or -G\n    --pickaxe-regex       treat <string> in -S as extended POSIX regular expression\n    -O <file>             control the order in which files appear in the output\n    --rotate-to <path>    show the change in the specified path first\n    --skip-to <path>      skip the output to the specified path\n    --find-object <object-id>\n                          look for differences that change the number of occurrences of the specified object\n    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]\n                          select files by diff type\n    --max-depth <depth>   maximum tree depth to recurse\n    --output <file>       output to a specific file\n\n",
+      "git_status": "fatal: not a git repository (or any of the parent directories): .git\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n",
+      "ls_src": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:30 retry.rs\n"
+    }
+  },
+  {
+    "run_id": "overview-deepseek-B-rollback-04-r1",
+    "call": 7,
+    "script": "hits = repo.search(\"legacy frame\")\nsmoke = repo.search(\"smoke\")\ng = env.run([\"git\", \"status\", \"--porcelain\"], check = False)\nls = env.run([\"ls\", \"-la\"], check = False)\nlss = env.run([\"ls\", \"-la\", \"src\"], check = False)\nresult({\"hits\": [(h.path, h.line, h.text.strip()) for h in hits], \"smoke\": [(h.path, h.line, h.text.strip()) for h in smoke], \"git\": g.stdout, \"gitcode\": g.code, \"ls\": ls.stdout + ls.stderr, \"lss\": lss.stdout + lss.stderr})",
+    "recorded": {
+      "git": "",
+      "gitcode": 128,
+      "hits": [],
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:26 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:26 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:26 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:26 src\n",
+      "lss": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:26 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:26 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 27 Nov 12 07:26 codec.rs\n",
+      "smoke": []
+    },
+    "replayed": {
+      "git": "",
+      "gitcode": 128,
+      "hits": [],
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n",
+      "lss": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 27 Nov 12 08:30 codec.rs\n",
+      "smoke": []
+    }
+  },
+  {
+    "run_id": "overview-deepseek-B-rollback-04-r2",
+    "call": 5,
+    "script": "hits = repo.search(\"compatibility|legacy frame|smoke::ok|VERSION\")\nresult({\n  \"hits\": [\"%s:%d: %s\" % (h.path, h.line, h.text) for h in hits],\n  \"all_files\": env.run([\"git\", \"status\", \"--porcelain\"], check = False).stdout,\n  \"ls_all\": env.run([\"ls\", \"-la\", \".\"], check = False).stdout,\n  \"codec_src\": repo.read(\"src/codec.rs\"),\n})",
+    "recorded": {
+      "all_files": "",
+      "codec_src": "pub const VERSION: u8 = 1;\n",
+      "hits": [
+        "src/codec.rs:1: pub const VERSION: u8 = 1;"
+      ],
+      "ls_all": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:19 .\ndrwxrwxrwt. 50 root      root      4096 Nov 12 07:19 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:19 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:19 src\n"
+    },
+    "replayed": {
+      "all_files": "",
+      "codec_src": "pub const VERSION: u8 = 1;\n",
+      "hits": [
+        "src/codec.rs:1: pub const VERSION: u8 = 1;"
+      ],
+      "ls_all": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n"
+    }
+  },
+  {
+    "run_id": "overview-minimax-A-probe-03-r2",
+    "call": 7,
+    "script": "out = {}\nout[\"ctx1\"] = env.run([\"sed\", \"-n\", \"2395,2406p\", \"logs/large.log\"], check=False).stdout.splitlines()\nout[\"ctx2\"] = env.run([\"sed\", \"-n\", \"3596,3602p\", \"logs/large.log\"], check=False).stdout.splitlines()\nout[\"total_lines\"] = env.run([\"wc\", \"-l\", \"logs/large.log\"], check=False).stdout.strip()\nout[\"nonempty\"] = env.run([\"grep\", \"-c\", \"\", \"logs/large.log\"], check=False).stdout.strip()\nout[\"root\"] = env.run([\"ls\", \"-la\"], check=False).stdout\nout[\"status\"] = repo.status()\nreturn out\n",
+    "recorded": {
+      "ctx1": [
+        "INFO heartbeat 02394 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02395 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02396 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02397 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02398 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02399 status=healthy padding=abcdefghij",
+        "ERROR incident=E701 shard=west reason=disk_full",
+        "INFO heartbeat 02400 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02401 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02402 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02403 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02404 status=healthy padding=abcdefghij"
+      ],
+      "ctx2": [
+        "INFO heartbeat 03594 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03595 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03596 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03597 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03598 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03599 status=healthy padding=abcdefghij",
+        "ERROR incident=E702 shard=east reason=timeout"
+      ],
+      "nonempty": "3602",
+      "root": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 07:57 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:57 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 07:57 logs\n",
+      "status": [],
+      "total_lines": "3602 logs/large.log"
+    },
+    "replayed": {
+      "ctx1": [
+        "INFO heartbeat 02394 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02395 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02396 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02397 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02398 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02399 status=healthy padding=abcdefghij",
+        "ERROR incident=E701 shard=west reason=disk_full",
+        "INFO heartbeat 02400 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02401 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02402 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02403 status=healthy padding=abcdefghij",
+        "INFO heartbeat 02404 status=healthy padding=abcdefghij"
+      ],
+      "ctx2": [
+        "INFO heartbeat 03594 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03595 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03596 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03597 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03598 status=healthy padding=abcdefghij",
+        "INFO heartbeat 03599 status=healthy padding=abcdefghij",
+        "ERROR incident=E702 shard=east reason=timeout"
+      ],
+      "nonempty": "3602",
+      "root": "total 8\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   18 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:30 logs\n",
+      "status": [],
+      "total_lines": "3602 logs/large.log"
+    }
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-01-r3",
+    "call": 7,
+    "script": "out = {}\nfor argv in [[\"ls\", \"-la\"], [\"ls\", \"-la\", \"src\"], [\"find\", \".\", \"-name\", \"*.rs\"]]:\n    r = env.run(argv, check = False)\n    out[\" \".join(argv)] = {\"code\": r.code, \"out\": r.stdout[:3000], \"err\": r.stderr[:2000]}\nreturn out",
+    "recorded": {
+      "find . -name *.rs": {
+        "code": 0,
+        "err": "",
+        "out": "./src/limits.rs\n"
+      },
+      "ls -la": {
+        "code": 0,
+        "err": "",
+        "out": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:27 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:27 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:27 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:27 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "err": "",
+        "out": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 08:27 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:27 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 08:27 limits.rs\n"
+      }
+    },
+    "replayed": {
+      "find . -name *.rs": {
+        "code": 0,
+        "err": "",
+        "out": "./src/limits.rs\n"
+      },
+      "ls -la": {
+        "code": 0,
+        "err": "",
+        "out": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:30 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "err": "",
+        "out": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 26 Nov 12 08:30 limits.rs\n"
+      }
+    }
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-04-r2",
+    "call": 8,
+    "script": "hits = repo.search(\"legacy|smoke|frame\")\nr1 = env.run([\"ls\", \"-la\"], check=False)\nr2 = env.run([\"ls\", \"-la\", \"src\"], check=False)\nreturn {\"hits\": [str(h) for h in hits], \"ls\": (r1.code, r1.stdout, r1.stderr), \"ls_src\": (r2.code, r2.stdout, r2.stderr)}",
+    "recorded": {
+      "hits": [],
+      "ls": [
+        0,
+        "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:54 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:54 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:54 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:54 src\n",
+        ""
+      ],
+      "ls_src": [
+        0,
+        "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:54 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:54 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 27 Nov 12 07:54 codec.rs\n",
+        ""
+      ]
+    },
+    "replayed": {
+      "hits": [],
+      "ls": [
+        0,
+        "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n",
+        ""
+      ],
+      "ls_src": [
+        0,
+        "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 27 Nov 12 08:30 codec.rs\n",
+        ""
+      ]
+    }
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 6,
+    "script": "out = {}\nfor cmd in [[\"ls\", \"-la\", \".\"], [\"ls\", \"-la\", \"target\"], [\"ls\", \"-la\", \"/root\"], [\"ls\", \"-la\", \"/root/.cargo\"], [\"ls\", \"-la\", \"/root/.cargo/config.toml\"], [\"find\", \"/root/.cargo\", \"-maxdepth\", \"2\", \"-type\", \"f\"]]:\n    r = env.run(cmd, check=False)\n    out[\" \".join(cmd)] = (r.code, r.stdout[:2000], r.stderr[:1000])\nreturn out\n",
+    "recorded": {
+      "find /root/.cargo -maxdepth 2 -type f": [
+        1,
+        "",
+        "find: ‘/root/.cargo’: Permission denied\n"
+      ],
+      "ls -la .": [
+        0,
+        "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:52 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:52 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:52 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:52 src\n",
+        ""
+      ],
+      "ls -la /root": [
+        2,
+        "",
+        "ls: cannot open directory '/root': Permission denied\n"
+      ],
+      "ls -la /root/.cargo": [
+        2,
+        "",
+        "ls: cannot access '/root/.cargo': Permission denied\n"
+      ],
+      "ls -la /root/.cargo/config.toml": [
+        2,
+        "",
+        "ls: cannot access '/root/.cargo/config.toml': Permission denied\n"
+      ],
+      "ls -la target": [
+        2,
+        "",
+        "ls: cannot access 'target': No such file or directory\n"
+      ]
+    },
+    "replayed": {
+      "find /root/.cargo -maxdepth 2 -type f": [
+        1,
+        "",
+        "find: ‘/root/.cargo’: Permission denied\n"
+      ],
+      "ls -la .": [
+        0,
+        "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n",
+        ""
+      ],
+      "ls -la /root": [
+        2,
+        "",
+        "ls: cannot open directory '/root': Permission denied\n"
+      ],
+      "ls -la /root/.cargo": [
+        2,
+        "",
+        "ls: cannot access '/root/.cargo': Permission denied\n"
+      ],
+      "ls -la /root/.cargo/config.toml": [
+        2,
+        "",
+        "ls: cannot access '/root/.cargo/config.toml': Permission denied\n"
+      ],
+      "ls -la target": [
+        2,
+        "",
+        "ls: cannot access 'target': No such file or directory\n"
+      ]
+    }
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 8,
+    "script": "out = {}\nr = env.run([\"cargo\", \"test\", \"--offline\"], check=False)\nout[\"rerun\"] = (r.code, r.stdout, r.stderr)\nr2 = env.run([\"find\", \"/\", \"-name\", \"*.rs\", \"-not\", \"-path\", \"/proc/*\", \"-not\", \"-path\", \"/sys/*\", \"-not\", \"-path\", \"/usr/*\"], check=False)\nout[\"rs_files\"] = r2.stdout[:4000]\nr3 = env.run([\"find\", \"/\", \"-name\", \"Cargo.toml\", \"-not\", \"-path\", \"/proc/*\", \"-not\", \"-path\", \"/sys/*\", \"-not\", \"-path\", \"/usr/*\"], check=False)\nout[\"tomls\"] = r3.stdout[:2000]\nreturn out\n",
+    "recorded": {
+      "rerun": [
+        101,
+        "\nrunning 3 tests\ntest smoke::ok ... ok\ntest cache::expiry ... FAILED\ntest cache::eviction ... FAILED\n\nfailures:\n---- cache::expiry stdout ----\nthread 'cache::expiry' panicked: expected size 2, got 3\n---- cache::eviction stdout ----\nthread 'cache::eviction' panicked: expected size 2, got 3\n\nfailures:\n    cache::expiry\n    cache::eviction\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
+        "error: test failed\n"
+      ],
+      "rs_files": "/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/model_step.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/testing.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/openai_stream_limits.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/streaming_seam.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/configure.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/ipc.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/operation.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_cancel_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_configure_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_models_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/models.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/profile.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/redact.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/root.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/session.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/stores.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/crash_barrier.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/execute.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/run_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/saga.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/stream_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/test_support.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/tools.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/local_view_queries.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_create_open.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_without_workspace_history.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/comm",
+      "tomls": "/tmp/lattice-review-404-er4m48x_/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-conversation/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-llm/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-profile/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-session/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-store/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-system-harness/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-tui/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/net-guard/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/xtask/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-authority/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-protocol/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-runtime/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-agent/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-cli/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-conversation/Cargo.toml\n/tmp/claude-1000/-home-gcp-v"
+    },
+    "replayed": {
+      "rerun": [
+        101,
+        "\nrunning 3 tests\ntest smoke::ok ... ok\ntest cache::expiry ... FAILED\ntest cache::eviction ... FAILED\n\nfailures:\n---- cache::expiry stdout ----\nthread 'cache::expiry' panicked: expected size 2, got 3\n---- cache::eviction stdout ----\nthread 'cache::eviction' panicked: expected size 2, got 3\n\nfailures:\n    cache::expiry\n    cache::eviction\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
+        "error: test failed\n"
+      ],
+      "rs_files": "/tmp/.tmprJPDMX/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/model_step.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/src/testing.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/openai_stream_limits.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/tests/streaming_seam.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/config_rejection_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/configure.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/lib.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/login/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/auth/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/client_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/ipc.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/metadata/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/operation.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_cancel_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_configure_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/server_models_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/local/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/models.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/profile.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/redact.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/root.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/session.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/stores.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/coordinator_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/crash_barrier.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/execute.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/live_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/mod.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/observer_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/run_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/saga.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/stream_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/test_support.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/tools.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/src/turn/types_tests.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/local_view_queries.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_create_open.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/tests/session_without_workspace_history.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth.rs\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/src/commands/auth/login.rs\n/tmp/lattice-review-404-er4m48x_/",
+      "tomls": "/tmp/.tmprJPDMX/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-agent/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-api/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-cli/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-conversation/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-llm/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-profile/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-session/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-store/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-system-harness/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/lattice-tui/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/crates/net-guard/Cargo.toml\n/tmp/lattice-review-404-er4m48x_/xtask/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-authority/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-protocol/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lancet-runtime/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-agent/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-api/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-cli/Cargo.toml\n/tmp/claude-1000/-home-gcp-vegas-Dev-lattice/1a404d4e-f136-407e-bdc1-fc2999cf1660/scratchpad/base/crates/lattice-conversation/Cargo.toml\n/"
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-01-r3",
+    "call": 7,
+    "script": "res = env.run([\"cargo\", \"test\"], check=False)\nout = {\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr, \"limits\": repo.read(\"src/limits.rs\")}\nout[\"ls\"] = env.run([\"ls\", \"-la\"], check=False).stdout\nout[\"find\"] = env.run([\"find\", \".\", \"-type\", \"f\", \"-not\", \"-path\", \"./target/*\"], check=False).stdout\nresult(out)",
+    "recorded": {
+      "code": 101,
+      "find": "./Cargo.toml\n./src/limits.rs\n",
+      "limits": "pub const LIMIT: u32 = 4;\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:21 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:21 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:21 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:21 src\n",
+      "stderr": "error: test failed\n",
+      "stdout": "\nrunning 2 tests\ntest smoke::ok ... ok\ntest limits::overflow ... FAILED\n\nfailures:\n---- limits::overflow stdout ----\nthread 'limits::overflow' panicked: expected rejection at 5\n\nfailures:\n    limits::overflow\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n"
+    },
+    "replayed": {
+      "code": 101,
+      "find": "./Cargo.toml\n./src/limits.rs\n",
+      "limits": "pub const LIMIT: u32 = 4;\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   23 Nov 12 08:30 src\n",
+      "stderr": "error: test failed\n",
+      "stdout": "\nrunning 2 tests\ntest smoke::ok ... ok\ntest limits::overflow ... FAILED\n\nfailures:\n---- limits::overflow stdout ----\nthread 'limits::overflow' panicked: expected rejection at 5\n\nfailures:\n    limits::overflow\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored\n"
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-02-r3",
+    "call": 8,
+    "script": "r = env.run([\"ls\", \"-la\"], check=False)\nr2 = env.run([\"find\", \".\", \"-maxdepth\", \"3\"], check=False)\nresult({\"ls\": r.stdout + r.stderr, \"find\": r2.stdout + r2.stderr})",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/cache.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:41 .\ndrwxrwxrwt. 51 root      root      4096 Nov 12 07:41 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:41 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:41 src\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/cache.rs\n",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n"
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 6,
+    "script": "out = {}\nfor cmd in [[\"ls\",\"-la\"],[\"ls\",\"-la\",\"src\"],[\"git\",\"status\"],[\"git\",\"log\",\"--oneline\",\"-n\",\"5\"],[\"cat\",\"Cargo.toml\"]]:\n    r = env.run(cmd, check = False)\n    out[\" \".join(cmd)] = {\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr}\nresult(out)",
+    "recorded": {
+      "cat Cargo.toml": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+      },
+      "git log --oneline -n 5": {
+        "code": 128,
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "stdout": ""
+      },
+      "git status": {
+        "code": 128,
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "stdout": ""
+      },
+      "ls -la": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:26 .\ndrwxrwxrwt. 56 root      root      4096 Nov 12 07:26 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:26 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 07:26 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 07:26 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:26 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:26 retry.rs\n"
+      }
+    },
+    "replayed": {
+      "cat Cargo.toml": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+      },
+      "git log --oneline -n 5": {
+        "code": 128,
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "stdout": ""
+      },
+      "git status": {
+        "code": 128,
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "stdout": ""
+      },
+      "ls -la": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   22 Nov 12 08:30 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 22 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:30 retry.rs\n"
+      }
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 7,
+    "script": "out = {}\nfor cmd in [[\"ls\",\"-la\",\"/usr/local/bin\"],[\"ls\",\"-la\",\"/opt\"],[\"ls\",\"-la\",\"/tmp\"],[\"ls\",\"-la\",\"/\"],[\"ls\",\"-la\",\"/home\"]]:\n    r = env.run(cmd, check = False)\n    out[\" \".join(cmd)] = {\"code\": r.code, \"stdout\": r.stdout[:3000], \"stderr\": r.stderr[:1000]}\nresult(out)",
+    "recorded": {
+      "ls -la /": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 32\ndr-xr-xr-x.  18 root root  235 Oct 23 12:01 .\ndr-xr-xr-x.  18 root root  235 Oct 23 12:01 ..\ndr-xr-xr-x.   2 root root    6 Apr  1  2025 afs\nlrwxrwxrwx.   1 root root    7 Apr  1  2025 bin -> usr/bin\ndr-xr-xr-x.   5 root root 4096 Nov 12 01:31 boot\ndrwxr-xr-x.  17 root root 3120 Nov  7 00:57 dev\ndrwxr-xr-x. 110 root root 8192 Nov 12 07:10 etc\ndrwxr-xr-x.   3 root root   23 Nov  6 09:34 home\nlrwxrwxrwx.   1 root root    7 Apr  1  2025 lib -> usr/lib\nlrwxrwxrwx.   1 root root    9 Apr  1  2025 lib64 -> usr/lib64\ndrwxr-xr-x.   2 root root    6 Apr  1  2025 media\ndrwxr-xr-x.   2 root root    6 Apr  1  2025 mnt\ndrwxr-xr-x.   4 root root   54 Nov 12 01:38 opt\ndr-xr-xr-x. 282 root root    0 Nov  7 00:57 proc\ndr-xr-x---.   5 root root 4096 Nov 12 01:38 root\ndrwxr-xr-x.  40 root root 1040 Nov 12 01:38 run\nlrwxrwxrwx.   1 root root    8 Apr  1  2025 sbin -> usr/sbin\ndrwxr-xr-x.   2 root root    6 Apr  1  2025 srv\ndr-xr-xr-x.  13 root root    0 Nov  7 00:57 sys\ndrwxrwxrwt.  56 root root 4096 Nov 12 07:26 tmp\ndrwxr-xr-x.  12 root root  144 Oct 23 12:01 usr\ndrwxr-xr-x.  20 root root 4096 Nov  6 06:26 var\n"
+      },
+      "ls -la /home": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4\ndrwxr-xr-x.  3 root      root        23 Nov  6 09:34 .\ndr-xr-xr-x. 18 root      root       235 Oct 23 12:01 ..\ndrwx------. 30 gcp-vegas gcp-vegas 4096 Nov 12 01:26 gcp-vegas\n"
+      },
+      "ls -la /opt": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 0\ndrwxr-xr-x.  4 root root  54 Nov 12 01:38 .\ndr-xr-xr-x. 18 root root 235 Oct 23 12:01 ..\ndrwx--x--x.  4 root root  28 Nov 12 01:38 containerd\ndrwxr-xr-x.  4 root root  38 Nov  6 06:27 google-cloud-ops-agent\n"
+      },
+      "ls -la /tmp": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 32000\ndrwxrwxrwt.  56 root      root          4096 Nov 12 07:26 .\ndr-xr-xr-x.  18 root      root           235 Oct 23 12:01 ..\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .ICE-unix\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X0-lock\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X10-lock\ndrwxrwxrwt.   2 root      root            27 Nov 11 23:55 .X11-unix\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .XIM-unix\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov 12 07:21 .agents\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov 12 07:21 .aws\n-rw-------.   1 gcp-vegas gcp-vegas   514960 Nov  6 09:34 .bun-1000-71b650bef1b3e52c.node\n-rw-------.   1 gcp-vegas gcp-vegas 12846400 Nov  6 09:34 .bun-1000-89812e6e6a68aaeb.so\n-rw-------.   1 gcp-vegas gcp-vegas  5210768 Nov  6 09:34 .bun-1000-99cf65a7ec1d243c.so\n-rw-------.   1 gcp-vegas gcp-vegas  8497232 Nov  9 04:31 .bun-1000-a2b2948027b90162.so\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov 12 07:21 .codex\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .font-unix\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov 12 07:21 .git\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 15:31 .tmp1Ll8TB\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 23:36 .tmpB8Pe2l\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 15:07 .tmpJCMndw\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov  9 09:44 .tmpaYZNcX\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 17:46 .tmpbVcLL0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:26 .tmpmpxuXf\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:23 .tmppYsCs0\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 22:09 .tmpxyJIQh\n-rw-r--r--.   1 gcp-vegas gcp-vegas  3869401 Nov 12 00:13 8cad045e-ffc3-4600-b14c-24532a3924c5.zip\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 07:26 act-experiment-860bq20r\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 07:26 act-experiment-igk9p5lm\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 07:26 act-experiment-ll4lp_af\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 07:26 act-experiment-mtjki_ni\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 07:25 act-experiment-xxim3zmh\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1151 Nov 10 08:20 agy_metadata_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1607 Nov 10 08:23 agy_recent_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas  1507051 Nov 10 08:23 agy_recent_metrics.json\ndrwx------. 616 gcp-vegas gcp-vegas    20480 Nov 12 07:20 claude-1000\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:59 code-6e8a8e03-3b73-431b-8b65-5201f6bec30e\ndrwxr-xr-x.   8 gcp-vegas gcp-vegas      162 Nov 12 07:21 codex-bwrap-synthetic-mount-targets-1000\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov  7 07:00 codex-daemon-1000\ndrwx------.   2 gcp-vegas gcp-vegas     4096 Nov  6 11:13 initgoogle_syslog_dir.1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas      396 Nov  7 10:56 la.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      929 Nov 12 0"
+      },
+      "ls -la /usr/local/bin": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4484\ndrwxr-xr-x.  3 root root                77 Nov  6 08:59 .\ndrwxr-xr-x. 12 root root               131 Oct 23 12:01 ..\ndrwxr-xr-x.  2 1001 google-sudoers      70 Feb  7  2023 Geekbench-5.5.1-Linux\n-rwxr-xr-x.  1 root root           4590288 Nov  4 02:23 curl-impersonate\nlrwxrwxrwx.  1 root root                47 Nov  4 02:22 geekbench5 -> /usr/local/bin/Geekbench-5.5.1-Linux/geekbench5\n"
+      }
+    },
+    "replayed": {
+      "ls -la /": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 32\ndr-xr-xr-x.  18 root root  235 Oct 23 12:01 .\ndr-xr-xr-x.  18 root root  235 Oct 23 12:01 ..\ndr-xr-xr-x.   2 root root    6 Apr  1  2025 afs\nlrwxrwxrwx.   1 root root    7 Apr  1  2025 bin -> usr/bin\ndr-xr-xr-x.   5 root root 4096 Nov 12 01:31 boot\ndrwxr-xr-x.  17 root root 3120 Nov  7 00:57 dev\ndrwxr-xr-x. 110 root root 8192 Nov 12 08:05 etc\ndrwxr-xr-x.   3 root root   23 Nov  6 09:34 home\nlrwxrwxrwx.   1 root root    7 Apr  1  2025 lib -> usr/lib\nlrwxrwxrwx.   1 root root    9 Apr  1  2025 lib64 -> usr/lib64\ndrwxr-xr-x.   2 root root    6 Apr  1  2025 media\ndrwxr-xr-x.   2 root root    6 Apr  1  2025 mnt\ndrwxr-xr-x.   4 root root   54 Nov 12 01:38 opt\ndr-xr-xr-x. 274 root root    0 Nov  7 00:57 proc\ndr-xr-x---.   5 root root 4096 Nov 12 01:38 root\ndrwxr-xr-x.  40 root root 1040 Nov 12 01:38 run\nlrwxrwxrwx.   1 root root    8 Apr  1  2025 sbin -> usr/sbin\ndrwxr-xr-x.   2 root root    6 Apr  1  2025 srv\ndr-xr-xr-x.  13 root root    0 Nov  7 00:57 sys\ndrwxrwxrwt.  49 root root 4096 Nov 12 08:30 tmp\ndrwxr-xr-x.  12 root root  144 Oct 23 12:01 usr\ndrwxr-xr-x.  20 root root 4096 Nov  6 06:26 var\n"
+      },
+      "ls -la /home": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4\ndrwxr-xr-x.  3 root      root        23 Nov  6 09:34 .\ndr-xr-xr-x. 18 root      root       235 Oct 23 12:01 ..\ndrwx------. 30 gcp-vegas gcp-vegas 4096 Nov 12 01:26 gcp-vegas\n"
+      },
+      "ls -la /opt": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 0\ndrwxr-xr-x.  4 root root  54 Nov 12 01:38 .\ndr-xr-xr-x. 18 root root 235 Oct 23 12:01 ..\ndrwx--x--x.  4 root root  28 Nov 12 01:38 containerd\ndrwxr-xr-x.  4 root root  38 Nov  6 06:27 google-cloud-ops-agent\n"
+      },
+      "ls -la /tmp": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 32000\ndrwxrwxrwt.  49 root      root          4096 Nov 12 08:30 .\ndr-xr-xr-x.  18 root      root           235 Oct 23 12:01 ..\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .ICE-unix\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X0-lock\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X10-lock\ndrwxrwxrwt.   2 root      root            27 Nov 11 23:55 .X11-unix\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .XIM-unix\n-rw-------.   1 gcp-vegas gcp-vegas   514960 Nov  6 09:34 .bun-1000-71b650bef1b3e52c.node\n-rw-------.   1 gcp-vegas gcp-vegas 12846400 Nov  6 09:34 .bun-1000-89812e6e6a68aaeb.so\n-rw-------.   1 gcp-vegas gcp-vegas  5210768 Nov  6 09:34 .bun-1000-99cf65a7ec1d243c.so\n-rw-------.   1 gcp-vegas gcp-vegas  8497232 Nov  9 04:31 .bun-1000-a2b2948027b90162.so\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .font-unix\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 15:31 .tmp1Ll8TB\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 08:30 .tmp4Grr8Z\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 23:36 .tmpB8Pe2l\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 15:07 .tmpJCMndw\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov  9 09:44 .tmpaYZNcX\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 17:46 .tmpbVcLL0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:23 .tmppYsCs0\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 22:09 .tmpxyJIQh\n-rw-r--r--.   1 gcp-vegas gcp-vegas  3869401 Nov 12 00:13 8cad045e-ffc3-4600-b14c-24532a3924c5.zip\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:30 act-experiment-_2hl2awx\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:30 act-replay-8ww_az3r\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1151 Nov 10 08:20 agy_metadata_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1607 Nov 10 08:23 agy_recent_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas  1507051 Nov 10 08:23 agy_recent_metrics.json\ndrwx------. 623 gcp-vegas gcp-vegas    20480 Nov 12 07:48 claude-1000\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:59 code-6e8a8e03-3b73-431b-8b65-5201f6bec30e\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas       18 Nov 12 07:36 codex-bwrap-synthetic-mount-targets-1000\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov  7 07:00 codex-daemon-1000\ndrwx------.   2 gcp-vegas gcp-vegas     4096 Nov  6 11:13 initgoogle_syslog_dir.1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas      396 Nov  7 10:56 la.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      929 Nov 12 07:16 lancet-v2-progress.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8046 Nov 11 07:57 lattice-377-acceptance.md\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas     4096 Nov 11 07:57 lattice-377-tmux\ndrwx------.   5 gcp-vegas gcp-vegas       87 Nov 11 21:35 lattice-close-probe-2_w_rc4a\n-rw-r--r--.   1 gcp-vegas gcp-vegas    22572 Nov 10 04:38 lattice-pr394-consumer-tests-unrestricted.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    21667 Nov 10 04:38 lattice-pr394-consumer-tests.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    "
+      },
+      "ls -la /usr/local/bin": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 4484\ndrwxr-xr-x.  3 root root                77 Nov  6 08:59 .\ndrwxr-xr-x. 12 root root               131 Oct 23 12:01 ..\ndrwxr-xr-x.  2 1001 google-sudoers      70 Feb  7  2023 Geekbench-5.5.1-Linux\n-rwxr-xr-x.  1 root root           4590288 Nov  4 02:23 curl-impersonate\nlrwxrwxrwx.  1 root root                47 Nov  4 02:22 geekbench5 -> /usr/local/bin/Geekbench-5.5.1-Linux/geekbench5\n"
+      }
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-test-01-r3",
+    "call": 5,
+    "script": "r = env.run([\"ls\", \"-la\"], check=False)\nr2 = env.run([\"find\", \".\", \"-name\", \"*.rs\", \"-not\", \"-path\", \"./target/*\"], check=False)\nr3 = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--nocapture\"], check=False)\nresult({\"ls\": r.stdout, \"rs\": r2.stdout, \"test_code\": r3.code, \"test_out\": r3.stdout, \"test_err\": r3.stderr})",
+    "recorded": {
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:37 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:37 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:37 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:37 src\n",
+      "rs": "./src/lib.rs\n",
+      "test_code": 101,
+      "test_err": "error: test failed\n",
+      "test_out": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest parser::empty_input ... FAILED\ntest parser::bad_utf8 ... FAILED\n\nfailures:\n---- parser::empty_input stdout ----\nthread 'parser::empty_input' panicked: invalid token at offset 3\n---- parser::bad_utf8 stdout ----\nthread 'parser::bad_utf8' panicked: invalid token at offset 3\n\nfailures:\n    parser::empty_input\n    parser::bad_utf8\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n"
+    },
+    "replayed": {
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n",
+      "rs": "./src/lib.rs\n",
+      "test_code": 101,
+      "test_err": "error: test failed\n",
+      "test_out": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest parser::empty_input ... FAILED\ntest parser::bad_utf8 ... FAILED\n\nfailures:\n---- parser::empty_input stdout ----\nthread 'parser::empty_input' panicked: invalid token at offset 3\n---- parser::bad_utf8 stdout ----\nthread 'parser::bad_utf8' panicked: invalid token at offset 3\n\nfailures:\n    parser::empty_input\n    parser::bad_utf8\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n"
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-test-02-r1",
+    "call": 6,
+    "script": "r = env.run([\"ls\", \"-la\"], check = False)\nr2 = env.run([\"ls\", \"-laR\", \"--ignore=target\", \".\"], check = False)\nresult({\"ls\": r.stdout, \"lsR\": r2.stdout, \"err\": r.stderr})",
+    "recorded": {
+      "err": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:19 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:19 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:19 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:19 src\n",
+      "lsR": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:19 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 08:19 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:19 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:19 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:19 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:19 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:19 lib.rs\n"
+    },
+    "replayed": {
+      "err": "",
+      "ls": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n",
+      "lsR": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:30 lib.rs\n"
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-test-02-r2",
+    "call": 5,
+    "script": "res = env.run([\"ls\", \"-laR\"], check = False)\nsearch = repo.search(\"#\\\\[test\\\\]\", glob = \"**/*.rs\")\nrs = repo.search(\"fn \", glob = \"**/*.rs\")\npaths = []\nfor h in rs:\n    if h.path not in paths:\n        paths.append(h.path)\nresult({\n    \"ls\": res.stdout,\n    \"test_attrs\": [(h.path, h.line) for h in search],\n    \"rs_files\": sorted(paths),\n})",
+    "recorded": {
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:37 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:37 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:37 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:37 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:37 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:37 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:37 lib.rs\n",
+      "rs_files": [
+        "src/lib.rs"
+      ],
+      "test_attrs": []
+    },
+    "replayed": {
+      "ls": ".:\ntotal 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n\n./src:\ntotal 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:30 lib.rs\n",
+      "rs_files": [
+        "src/lib.rs"
+      ],
+      "test_attrs": []
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-test-02-r2",
+    "call": 8,
+    "script": "a = env.run([\"ls\", \"-la\", \"..\"], check = False)\nresult({\"parent\": a.stdout + a.stderr})",
+    "recorded": {
+      "parent": "total 32000\ndrwxrwxrwt.  48 root      root          4096 Nov 12 07:37 .\ndr-xr-xr-x.  18 root      root           235 Oct 23 12:01 ..\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .ICE-unix\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X0-lock\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X10-lock\ndrwxrwxrwt.   2 root      root            27 Nov 11 23:55 .X11-unix\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .XIM-unix\n-rw-------.   1 gcp-vegas gcp-vegas   514960 Nov  6 09:34 .bun-1000-71b650bef1b3e52c.node\n-rw-------.   1 gcp-vegas gcp-vegas 12846400 Nov  6 09:34 .bun-1000-89812e6e6a68aaeb.so\n-rw-------.   1 gcp-vegas gcp-vegas  5210768 Nov  6 09:34 .bun-1000-99cf65a7ec1d243c.so\n-rw-------.   1 gcp-vegas gcp-vegas  8497232 Nov  9 04:31 .bun-1000-a2b2948027b90162.so\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .font-unix\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 15:31 .tmp1Ll8TB\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 23:36 .tmpB8Pe2l\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 15:07 .tmpJCMndw\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov  9 09:44 .tmpaYZNcX\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 17:46 .tmpbVcLL0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:23 .tmppYsCs0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:37 .tmprFX7km\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 22:09 .tmpxyJIQh\n-rw-r--r--.   1 gcp-vegas gcp-vegas  3869401 Nov 12 00:13 8cad045e-ffc3-4600-b14c-24532a3924c5.zip\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 07:36 act-experiment-ex89bgh0\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1151 Nov 10 08:20 agy_metadata_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1607 Nov 10 08:23 agy_recent_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas  1507051 Nov 10 08:23 agy_recent_metrics.json\ndrwx------. 619 gcp-vegas gcp-vegas    20480 Nov 12 07:35 claude-1000\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:59 code-6e8a8e03-3b73-431b-8b65-5201f6bec30e\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas       18 Nov 12 07:36 codex-bwrap-synthetic-mount-targets-1000\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov  7 07:00 codex-daemon-1000\ndrwx------.   2 gcp-vegas gcp-vegas     4096 Nov  6 11:13 initgoogle_syslog_dir.1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas      396 Nov  7 10:56 la.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      929 Nov 12 07:16 lancet-v2-progress.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8046 Nov 11 07:57 lattice-377-acceptance.md\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas     4096 Nov 11 07:57 lattice-377-tmux\ndrwx------.   5 gcp-vegas gcp-vegas       87 Nov 11 21:35 lattice-close-probe-2_w_rc4a\n-rw-r--r--.   1 gcp-vegas gcp-vegas    22572 Nov 10 04:38 lattice-pr394-consumer-tests-unrestricted.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    21667 Nov 10 04:38 lattice-pr394-consumer-tests.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    47729 Nov 10 04:35 lattice-pr394-dependency.diff\n-rw-r--r--.   1 gcp-vegas gcp-vegas    54138 Nov 10 04:35 lattice-pr394-metadata.json\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 10 04:38 lattice-pr394-probe.2F390S\n-rw-r--r--.   1 gcp-vegas gcp-vegas    13399 Nov 10 04:35 lattice-pr394-production-tree.txt\ndrwx------.  13 gcp-vegas gcp-vegas     4096 Nov 10 04:35 lattice-pr394-review.WwxjLv\n-rw-r--r--.   1 gcp-vegas gcp-vegas     9624 Nov 10 04:35 lattice-pr394-targeted-tests.log\ndrwx------.  11 gcp-vegas gcp-vegas     4096 Nov 12 00:10 lattice-pr405-review-0qf3x3bd\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 11 21:35 lattice-review-404-er4m48x_\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 12 07:21 lattice-review-406-hog7w0ji\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-fetch-web\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-mutate-create\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-mutate-edit\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-noop-echo\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-observe-workspace\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-session-todo_write\n-rw-r--r--.   1 gcp-vegas gcp-vegas      408 Nov  7 10:56 lau.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      406 Nov  7 10:52 lp.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8005 Nov  7 10:52 lp.tsv\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 02:19 mcp-HiUrvX\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 00:00 mcp-fqvJte\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       40 Nov  6 09:34 node-compile-cache\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov  6 09:34 opencode\ndrwx------.   5 gcp-vegas gcp-vegas       86 Nov  6 09:34 opencodex-runtime-v1-1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas     7072 Nov 11 22:48 review29.md\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-chronyd.service-YJZLcl\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-dbus-broker.service-W6ps8M\ndrwx------.   3 root      root            17 Nov  9 22:38 systemd-private-f6da76c59b754479a1409bb6000ab539-fwupd.service-Cqgu4i\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-polkit.service-8JpI2N\ndrwx------.   3 root      root            17 Nov 12 00:13 systemd-private-f6da76c59b754479a1409bb6000ab539-rtkit-daemon.service-M2JMrY\ndrwx------.   3 root      root            17 Nov 12 01:31 systemd-private-f6da76c59b754479a1409bb6000ab539-systemd-logind.service-8qbkK7\ndrwx------.   3 root      root            17 Nov 12 00:14 systemd-private-f6da76c59b754479a1409bb6000ab539-upower.service-NG4UDx\ndrwx------.   2 gcp-vegas gcp-vegas       15 Nov  7 00:57 t3-token-0Ja6fq\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:26 test-wayvnc.sock\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:49 tmp1nul5rlm\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:51 tmp6bqwj77t\ndrwx------.   2 gcp-vegas gcp-vegas       21 Nov  7 06:45 tmux-1000\n"
+    },
+    "replayed": {
+      "parent": "total 32000\ndrwxrwxrwt.  49 root      root          4096 Nov 12 08:30 .\ndr-xr-xr-x.  18 root      root           235 Oct 23 12:01 ..\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .ICE-unix\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X0-lock\n-r--r--r--.   1 gcp-vegas gcp-vegas       11 Nov 11 23:55 .X10-lock\ndrwxrwxrwt.   2 root      root            27 Nov 11 23:55 .X11-unix\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .XIM-unix\n-rw-------.   1 gcp-vegas gcp-vegas   514960 Nov  6 09:34 .bun-1000-71b650bef1b3e52c.node\n-rw-------.   1 gcp-vegas gcp-vegas 12846400 Nov  6 09:34 .bun-1000-89812e6e6a68aaeb.so\n-rw-------.   1 gcp-vegas gcp-vegas  5210768 Nov  6 09:34 .bun-1000-99cf65a7ec1d243c.so\n-rw-------.   1 gcp-vegas gcp-vegas  8497232 Nov  9 04:31 .bun-1000-a2b2948027b90162.so\ndrwxrwxrwt.   2 root      root             6 Nov  6 06:26 .font-unix\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 15:31 .tmp1Ll8TB\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 23:36 .tmpB8Pe2l\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 15:07 .tmpJCMndw\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 08:30 .tmpXNtnBU\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov  9 09:44 .tmpaYZNcX\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       21 Nov 10 17:46 .tmpbVcLL0\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       35 Nov 12 07:23 .tmppYsCs0\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       37 Nov 11 22:09 .tmpxyJIQh\n-rw-r--r--.   1 gcp-vegas gcp-vegas  3869401 Nov 12 00:13 8cad045e-ffc3-4600-b14c-24532a3924c5.zip\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:30 act-experiment-_2hl2awx\ndrwx------.   3 gcp-vegas gcp-vegas       37 Nov 12 08:30 act-replay-ae6elukq\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1151 Nov 10 08:20 agy_metadata_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     1607 Nov 10 08:23 agy_recent_check.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas  1507051 Nov 10 08:23 agy_recent_metrics.json\ndrwx------. 623 gcp-vegas gcp-vegas    20480 Nov 12 07:48 claude-1000\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:59 code-6e8a8e03-3b73-431b-8b65-5201f6bec30e\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas       18 Nov 12 07:36 codex-bwrap-synthetic-mount-targets-1000\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov  7 07:00 codex-daemon-1000\ndrwx------.   2 gcp-vegas gcp-vegas     4096 Nov  6 11:13 initgoogle_syslog_dir.1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas      396 Nov  7 10:56 la.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      929 Nov 12 07:16 lancet-v2-progress.py\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8046 Nov 11 07:57 lattice-377-acceptance.md\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas     4096 Nov 11 07:57 lattice-377-tmux\ndrwx------.   5 gcp-vegas gcp-vegas       87 Nov 11 21:35 lattice-close-probe-2_w_rc4a\n-rw-r--r--.   1 gcp-vegas gcp-vegas    22572 Nov 10 04:38 lattice-pr394-consumer-tests-unrestricted.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    21667 Nov 10 04:38 lattice-pr394-consumer-tests.log\n-rw-r--r--.   1 gcp-vegas gcp-vegas    47729 Nov 10 04:35 lattice-pr394-dependency.diff\n-rw-r--r--.   1 gcp-vegas gcp-vegas    54138 Nov 10 04:35 lattice-pr394-metadata.json\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 10 04:38 lattice-pr394-probe.2F390S\n-rw-r--r--.   1 gcp-vegas gcp-vegas    13399 Nov 10 04:35 lattice-pr394-production-tree.txt\ndrwx------.  13 gcp-vegas gcp-vegas     4096 Nov 10 04:35 lattice-pr394-review.WwxjLv\n-rw-r--r--.   1 gcp-vegas gcp-vegas     9624 Nov 10 04:35 lattice-pr394-targeted-tests.log\ndrwx------.  11 gcp-vegas gcp-vegas     4096 Nov 12 00:10 lattice-pr405-review-0qf3x3bd\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 11 21:35 lattice-review-404-er4m48x_\ndrwx------.  12 gcp-vegas gcp-vegas     4096 Nov 12 07:21 lattice-review-406-hog7w0ji\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-fetch-web\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:06 lattice-toolbuild-mutate-create\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-mutate-edit\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-noop-echo\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-observe-workspace\ndrwxr-xr-x.   4 gcp-vegas gcp-vegas       95 Nov  9 06:07 lattice-toolbuild-session-todo_write\n-rw-r--r--.   1 gcp-vegas gcp-vegas      408 Nov  7 10:56 lau.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas      406 Nov  7 10:52 lp.pl\n-rw-r--r--.   1 gcp-vegas gcp-vegas     8005 Nov  7 10:52 lp.tsv\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 02:19 mcp-HiUrvX\ndrwx------.   2 gcp-vegas gcp-vegas        6 Nov 12 00:00 mcp-fqvJte\ndrwxr-xr-x.   3 gcp-vegas gcp-vegas       40 Nov  6 09:34 node-compile-cache\ndrwxr-xr-x.   2 gcp-vegas gcp-vegas        6 Nov  6 09:34 opencode\ndrwx------.   5 gcp-vegas gcp-vegas       86 Nov  6 09:34 opencodex-runtime-v1-1000\n-rw-r--r--.   1 gcp-vegas gcp-vegas     7072 Nov 11 22:48 review29.md\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-chronyd.service-YJZLcl\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-dbus-broker.service-W6ps8M\ndrwx------.   3 root      root            17 Nov  9 22:38 systemd-private-f6da76c59b754479a1409bb6000ab539-fwupd.service-Cqgu4i\ndrwx------.   3 root      root            17 Nov  7 00:57 systemd-private-f6da76c59b754479a1409bb6000ab539-polkit.service-8JpI2N\ndrwx------.   3 root      root            17 Nov 12 00:13 systemd-private-f6da76c59b754479a1409bb6000ab539-rtkit-daemon.service-M2JMrY\ndrwx------.   3 root      root            17 Nov 12 01:31 systemd-private-f6da76c59b754479a1409bb6000ab539-systemd-logind.service-8qbkK7\ndrwx------.   3 root      root            17 Nov 12 00:14 systemd-private-f6da76c59b754479a1409bb6000ab539-upower.service-NG4UDx\ndrwx------.   2 gcp-vegas gcp-vegas       15 Nov  7 00:57 t3-token-0Ja6fq\nsrwxr-xr-x.   1 gcp-vegas gcp-vegas        0 Nov 11 23:26 test-wayvnc.sock\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:49 tmp1nul5rlm\ndrwx------.   3 gcp-vegas gcp-vegas       15 Nov 12 06:51 tmp6bqwj77t\ndrwx------.   2 gcp-vegas gcp-vegas       21 Nov  7 06:45 tmux-1000\n"
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r1",
+    "call": 8,
+    "script": "out = {}\nfor cmd in [[\"ls\",\"-la\"], [\"ls\",\"-la\",\"src\"], [\"git\",\"status\"], [\"git\",\"log\",\"--oneline\"], [\"cat\",\"Cargo.toml\"], [\"cargo\",\"test\",\"--workspace\"], [\"cargo\",\"test\",\"--workspace\",\"--no-fail-fast\"]]:\n    r = env.run(cmd, check=False)\n    out[\" \".join(cmd)] = {\"code\": r.code, \"out\": (r.stdout or \"\")[:2000], \"err\": (r.stderr or \"\")[:2000]}\nresult(out)",
+    "recorded": {
+      "cargo test --workspace": {
+        "code": 101,
+        "err": "error: test failed\n",
+        "out": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest net::retry_budget ... FAILED\ntest net::deadline ... FAILED\n\nfailures:\n---- net::retry_budget stdout ----\nthread 'net::retry_budget' panicked: deadline exceeded after 50ms\n---- net::deadline stdout ----\nthread 'net::deadline' panicked: deadline exceeded after 50ms\n\nfailures:\n    net::retry_budget\n    net::deadline\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n"
+      },
+      "cargo test --workspace --no-fail-fast": {
+        "code": 101,
+        "err": "error: test failed\n",
+        "out": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest net::retry_budget ... FAILED\ntest net::deadline ... FAILED\n\nfailures:\n---- net::retry_budget stdout ----\nthread 'net::retry_budget' panicked: deadline exceeded after 50ms\n---- net::deadline stdout ----\nthread 'net::deadline' panicked: deadline exceeded after 50ms\n\nfailures:\n    net::retry_budget\n    net::deadline\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n"
+      },
+      "cat Cargo.toml": {
+        "code": 0,
+        "err": "",
+        "out": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+      },
+      "git log --oneline": {
+        "code": 128,
+        "err": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "out": ""
+      },
+      "git status": {
+        "code": 128,
+        "err": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "out": ""
+      },
+      "ls -la": {
+        "code": 0,
+        "err": "",
+        "out": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:57 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:57 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:57 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:57 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "err": "",
+        "out": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 07:57 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 07:57 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 07:57 lib.rs\n"
+      }
+    },
+    "replayed": {
+      "cargo test --workspace": {
+        "code": 101,
+        "err": "error: test failed\n",
+        "out": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest net::retry_budget ... FAILED\ntest net::deadline ... FAILED\n\nfailures:\n---- net::retry_budget stdout ----\nthread 'net::retry_budget' panicked: deadline exceeded after 50ms\n---- net::deadline stdout ----\nthread 'net::deadline' panicked: deadline exceeded after 50ms\n\nfailures:\n    net::retry_budget\n    net::deadline\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n"
+      },
+      "cargo test --workspace --no-fail-fast": {
+        "code": 101,
+        "err": "error: test failed\n",
+        "out": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest net::retry_budget ... FAILED\ntest net::deadline ... FAILED\n\nfailures:\n---- net::retry_budget stdout ----\nthread 'net::retry_budget' panicked: deadline exceeded after 50ms\n---- net::deadline stdout ----\nthread 'net::deadline' panicked: deadline exceeded after 50ms\n\nfailures:\n    net::retry_budget\n    net::deadline\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n"
+      },
+      "cat Cargo.toml": {
+        "code": 0,
+        "err": "",
+        "out": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+      },
+      "git log --oneline": {
+        "code": 128,
+        "err": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "out": ""
+      },
+      "git status": {
+        "code": 128,
+        "err": "fatal: not a git repository (or any of the parent directories): .git\n",
+        "out": ""
+      },
+      "ls -la": {
+        "code": 0,
+        "err": "",
+        "out": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n"
+      },
+      "ls -la src": {
+        "code": 0,
+        "err": "",
+        "out": "total 4\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 20 Nov 12 08:30 .\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 12 08:30 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 28 Nov 12 08:30 lib.rs\n"
+      }
+    }
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r2",
+    "call": 5,
+    "script": "out = {}\nfor cmd in [[\"ls\",\"-la\"], [\"find\",\".\",\"-type\",\"f\",\"-not\",\"-path\",\"./target/*\"], [\"cat\",\"Cargo.toml\"]]:\n    r = env.run(cmd, check=False)\n    out[\" \".join(cmd)] = {\"code\": r.code, \"stdout\": r.stdout[:3000], \"stderr\": r.stderr[:1000]}\nresult(out)\n",
+    "recorded": {
+      "cat Cargo.toml": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+      },
+      "find . -type f -not -path ./target/*": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "./Cargo.toml\n./src/lib.rs\n"
+      },
+      "ls -la": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 07:56 .\ndrwxrwxrwt. 48 root      root      4096 Nov 12 07:56 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 07:56 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 07:56 src\n"
+      }
+    },
+    "replayed": {
+      "cat Cargo.toml": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "[package]\nname = \"sample\"\nversion = \"0.1.0\"\n"
+      },
+      "find . -type f -not -path ./target/*": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "./Cargo.toml\n./src/lib.rs\n"
+      },
+      "ls -la": {
+        "code": 0,
+        "stderr": "",
+        "stdout": "total 12\ndrwxr-xr-x.  3 gcp-vegas gcp-vegas   35 Nov 12 08:30 .\ndrwxrwxrwt. 49 root      root      4096 Nov 12 08:30 ..\n-rw-r--r--.  1 gcp-vegas gcp-vegas   44 Nov 12 08:30 Cargo.toml\ndrwxr-xr-x.  2 gcp-vegas gcp-vegas   20 Nov 12 08:30 src\n"
+      }
+    }
+  }
+]

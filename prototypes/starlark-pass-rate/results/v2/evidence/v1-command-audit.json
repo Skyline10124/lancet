@@ -1,0 +1,622 @@
+[
+  {
+    "run_id": "deepseek-A-rollback-03-r1",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:4, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      cargo = env.run([\"cargo\", \"--version\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:1:13\n  |\n1 |     cargo = env.run([\"cargo\", \"--version\"], check=False)\n  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "cargo = env.run([\"cargo\", \"--version\"], check=False)\nrustc = env.run([\"rustc\", \"--version\"], check=False)\nreturn {\"cargo\": cargo.code, \"cargo_out\": cargo.stdout.strip(), \"cargo_err\": cargo.stderr.strip()[:300],\n        \"rustc\": rustc.code, \"rustc_out\": rustc.stdout.strip(), \"rustc_err\": rustc.stderr.strip()[:300]}"
+  },
+  {
+    "run_id": "deepseek-A-test-01-r1",
+    "call": 1,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\"]\n --> script.star:1:9\n  |\n1 |     r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\nreturn {\"code\": r.code, \"stdout_tail\": text(r.stdout).tail(150), \"stderr_tail\": text(r.stderr).tail(60)}"
+  },
+  {
+    "run_id": "deepseek-A-test-01-r1",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:4, in <module>\n      __act_result__ = __act_main__()\n  * script.star:2, in __act_main__\n      r = env.run(c, check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:2:13\n  |\n2 |         r = env.run(c, check = False)\n  |             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "for c in [[\"cargo\", \"--version\"], [\"ls\"], [\"sh\", \"-c\", \"echo hi\"]]:\n    r = env.run(c, check = False)\n    results = results + [] if False else None\nreturn \"placeholder\""
+  },
+  {
+    "run_id": "deepseek-A-test-01-r2",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      __act_result__ = __act_main__()\n  * script.star:2, in __act_main__\n      r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\"]\n --> script.star:2:9\n  |\n2 |     r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "a = repo.read(\"Cargo.toml\")\nr = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\nreturn {\"toml\": a, \"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr}"
+  },
+  {
+    "run_id": "deepseek-A-test-02-r1",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "test",
+      "--offline",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--offline"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      r = env.run([\"cargo\", \"test\", \"--offline\", \"--no-fail-fast\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--offline\", \"--no-fail-fast\"]\n --> script.star:1:9\n  |\n1 |     r = env.run([\"cargo\", \"test\", \"--offline\", \"--no-fail-fast\"], check = False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--offline\", \"--no-fail-fast\"], check = False)\nreturn {\"code\": r.code, \"stdout\": str(r.stdout), \"stderr\": str(r.stderr)}"
+  },
+  {
+    "run_id": "deepseek-A-test-04-r2",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--test-threads=1"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--lib"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"]\n --> script.star:1:9\n  |\n1 |     r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"], check = False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"], check = False)\nreturn {\"code\": r.code, \"stdout\": str(r.stdout), \"stderr\": str(r.stderr)}"
+  },
+  {
+    "run_id": "deepseek-A-test-04-r3",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--test-threads=1"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--lib"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"]\n --> script.star:1:9\n  |\n1 |     r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"], check = False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--test-threads=1\"], check = False)\nreturn {\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr}"
+  },
+  {
+    "run_id": "deepseek-B-probe-03-r2",
+    "call": 4,
+    "argv": [
+      "sort"
+    ],
+    "normalized": [
+      "sort"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      uniq = env.pipe([[\"grep\", \"-o\", \"^[A-Z]*\", \"logs/large.log\"], [\"sort\"], [\"uni...\nerror: 模拟环境未提供该命令: [\"sort\"]\n --> script.star:3:8\n  |\n3 | uniq = env.pipe([[\"grep\", \"-o\", \"^[A-Z]*\", \"logs/large.log\"], [\"sort\"], [\"uniq\", \"-c\"]], check = False)\n  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "ci = env.run([\"grep\", \"-c\", \"-i\", \"error\", \"logs/large.log\"], check = False)\nexact = env.run([\"grep\", \"-c\", \"ERROR\", \"logs/large.log\"], check = False)\nuniq = env.pipe([[\"grep\", \"-o\", \"^[A-Z]*\", \"logs/large.log\"], [\"sort\"], [\"uniq\", \"-c\"]], check = False)\nresult({\"ci_count\": ci.stdout, \"exact_count\": exact.stdout, \"level_prefixes\": uniq.stdout})\n"
+  },
+  {
+    "run_id": "deepseek-B-test-01-r1",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast",
+      "--",
+      "--test-threads=1"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      res = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"], ...\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"]\n --> script.star:1:7\n  |\n1 | res = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"], check = False)\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"], check = False)\nfiles = repo.list(\"src\")\nresult({\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr, \"src\": files})"
+  },
+  {
+    "run_id": "deepseek-B-test-01-r3",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "test",
+      "--",
+      "--test-threads=1"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      r = env.run([\"cargo\", \"test\", \"--\", \"--test-threads=1\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--\", \"--test-threads=1\"]\n --> script.star:1:5\n  |\n1 | r = env.run([\"cargo\", \"test\", \"--\", \"--test-threads=1\"], check = False)\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--\", \"--test-threads=1\"], check = False)\nresult({\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr[-3000:]})"
+  },
+  {
+    "run_id": "deepseek-B-test-03-r1",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--workspace"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      res = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"]\n --> script.star:3:7\n  |\n3 | res = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "toml = repo.read(\"Cargo.toml\")\nfiles = repo.list(\"src\")\nres = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\nresult({\"toml\": toml, \"files\": files, \"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr})\n"
+  },
+  {
+    "run_id": "deepseek-B-test-03-r3",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--workspace"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      r = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"]\n --> script.star:1:5\n  |\n1 | r = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\nout = str(r.stdout)\nlines = out.split(\"\\n\")\nkeep = []\nfor ln in lines:\n    s = ln.strip()\n    if (s.startswith(\"Running\") or s.startswith(\"Doc-tests\") or s.startswith(\"running \") or s.startswith(\"test \")\n        or \"panicked\" in s or s.startswith(\"failures\") or s.startswith(\"---- \") or s.startswith(\"error\")\n        or s.startswith(\"test result\") or s.startswith(\"Summary\")):\n        keep.append(ln)\nresult({\"code\": r.code, \"n_lines\": len(lines), \"filtered\": \"\\n\".join(keep), \"stderr_tail\": str(text(r.stderr).tail(20))})"
+  },
+  {
+    "run_id": "deepseek-B-test-04-r3",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--list"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--list"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      lst = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--list\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--lib\", \"--\", \"--list\"]\n --> script.star:1:7\n  |\n1 | lst = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--list\"], check = False)\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "lst = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--list\"], check = False)\ntests = repo.search(\"#\\\\[test\\\\]|fn [a-z_0-9]+\\\\(\\\\)\")\nsrcTests = []\nfor h in tests:\n    srcTests.append(\"%s:%d: %s\" % (h.path, h.line, h.text.strip()))\nresult({\"list_code\": lst.code, \"list\": lst.stdout, \"list_err\": lst.stderr, \"src\": srcTests})"
+  },
+  {
+    "run_id": "minimax-A-edit-02-r1",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "build"
+    ],
+    "normalized": [
+      "cargo",
+      "build"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      res = env.run([\"cargo\", \"build\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"build\"]\n --> script.star:1:11\n  |\n1 |     res = env.run([\"cargo\", \"build\"], check=False)\n  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"build\"], check=False)\nreturn {\"code\": res.code, \"stdout\": res.stdout[-2000:], \"stderr\": res.stderr[-2000:]}"
+  },
+  {
+    "run_id": "minimax-A-probe-03-r3",
+    "call": 4,
+    "argv": [
+      "awk",
+      "{print $1}",
+      "logs/large.log"
+    ],
+    "normalized": [
+      "awk",
+      "{print $1}",
+      "logs/large.log"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:10, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      res = env.run([\"awk\", \"{print $1}\", \"logs/large.log\"])\nerror: 模拟环境未提供该命令: [\"awk\", \"{print $1}\", \"logs/large.log\"]\n --> script.star:1:11\n  |\n1 |     res = env.run([\"awk\", \"{print $1}\", \"logs/large.log\"])\n  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"awk\", \"{print $1}\", \"logs/large.log\"])\nlevels = {}\nfor line in res.stdout.splitlines():\n    if line == \"\":\n        continue\n    levels[line] = levels.get(line, 0) + 1\n# also check for case-insensitive 'error' anywhere, and 'ERR'\nres2 = env.run([\"grep\", \"-in\", \"error\", \"logs/large.log\"], check=False)\nres3 = env.run([\"grep\", \"-in\", \"err\", \"logs/large.log\"], check=False)\nreturn {\"levels\": levels, \"case_insens_error\": res2.stdout.splitlines(), \"err_substr\": res3.stdout.splitlines()}\n"
+  },
+  {
+    "run_id": "minimax-A-read-03-r2",
+    "call": 3,
+    "argv": [
+      "sh",
+      "-c",
+      "for f in data/a.txt data/b.txt; do echo \"== $f\"; od -c \"$f\" | tail -3; done"
+    ],
+    "normalized": [
+      "sh",
+      "-c",
+      "for f in data/a.txt data/b.txt; do echo \"== $f\"; od -c \"$f\" | tail -3; done"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:8, in <module>\n      __act_result__ = __act_main__()\n  * script.star:3, in __act_main__\n      oct = env.run([\"sh\", \"-c\", \"for f in data/a.txt data/b.txt; do echo \\\"== $f\\\"...\nerror: 模拟环境未提供该命令: [\"sh\", \"-c\", \"for f in data/a.txt data/b.txt; do echo \\\"== $f\\\"; od -c \\\"$f\\\" | tail -3; done\"]\n --> script.star:3:11\n  |\n3 |     oct = env.run([\"sh\", \"-c\", \"for f in data/a.txt data/b.txt; do echo \\\"== $f\\\"; od -c \\\"$f\\\" | tail -3; done\"])\n  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result = env.run([\"find\", \"data\", \"-type\", \"d\"])\nwc = env.run([\"wc\", \"-l\", \"data/a.txt\", \"data/b.txt\"])\noct = env.run([\"sh\", \"-c\", \"for f in data/a.txt data/b.txt; do echo \\\"== $f\\\"; od -c \\\"$f\\\" | tail -3; done\"])\nreturn {\n    \"dirs\": result.stdout,\n    \"wc\": wc.stdout,\n    \"oct\": oct.stdout,\n}"
+  },
+  {
+    "run_id": "minimax-A-read-03-r3",
+    "call": 2,
+    "argv": [
+      "bash",
+      "-c",
+      "find data -type f -name '*.txt' | sort"
+    ],
+    "normalized": [
+      "bash",
+      "-c",
+      "find data -type f -name '*.txt' | sort"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      res = env.run([\"bash\", \"-c\", \"find data -type f -name '*.txt' | sort\"], check...\nerror: 模拟环境未提供该命令: [\"bash\", \"-c\", \"find data -type f -name '*.txt' | sort\"]\n --> script.star:1:11\n  |\n1 |     res = env.run([\"bash\", \"-c\", \"find data -type f -name '*.txt' | sort\"], check=False)\n  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"bash\", \"-c\", \"find data -type f -name '*.txt' | sort\"], check=False)\nreturn {\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr}\n"
+  },
+  {
+    "run_id": "minimax-A-rollback-02-r1",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:4, in <module>\n      __act_result__ = __act_main__()\n  * script.star:3, in __act_main__\n      r3 = env.run([\"cargo\", \"--version\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:3:10\n  |\n3 |     r3 = env.run([\"cargo\", \"--version\"], check=False)\n  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"ls\", \"-la\"], check=False)\nr2 = env.run([\"ls\", \"-la\", \"src\"], check=False)\nr3 = env.run([\"cargo\", \"--version\"], check=False)\nreturn {\"root\": r.stdout + r.stderr, \"src\": r2.stdout + r2.stderr, \"cargo\": r3.stdout + r3.stderr, \"codes\": [r.code, r2.code, r3.code]}\n"
+  },
+  {
+    "run_id": "minimax-A-rollback-03-r3",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      __act_result__ = __act_main__()\n  * script.star:2, in __act_main__\n      result = env.run([\"cargo\", \"--version\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:2:14\n  |\n2 |     result = env.run([\"cargo\", \"--version\"], check=False)\n  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "files = repo.list(\".\")\nresult = env.run([\"cargo\", \"--version\"], check=False)\nreturn {\"files\": files, \"cargo\": result.stdout}"
+  },
+  {
+    "run_id": "minimax-A-rollback-04-r2",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      res = env.run([\"cargo\", \"--version\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:1:11\n  |\n1 |     res = env.run([\"cargo\", \"--version\"], check=False)\n  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"--version\"], check=False)\nreturn {\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr}"
+  },
+  {
+    "run_id": "minimax-A-rollback-04-r3",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      r = env.run([\"cargo\", \"--version\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:1:9\n  |\n1 |     r = env.run([\"cargo\", \"--version\"], check=False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"--version\"], check=False)\nr2 = env.run([\"rustc\", \"--version\"], check=False)\nreturn {\"cargo\": {\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr}, \"rustc\": {\"code\": r2.code, \"stdout\": r2.stdout, \"stderr\": r2.stderr}}"
+  },
+  {
+    "run_id": "minimax-A-test-01-r3",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:4, in <module>\n      __act_result__ = __act_main__()\n  * script.star:3, in __act_main__\n      result = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\"]\n --> script.star:3:14\n  |\n3 |     result = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check=False)\n  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "files = repo.list(\".\")\nmanifest = repo.read(\"Cargo.toml\", missing_ok=True)\nresult = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check=False)\nreturn {\"files\": files, \"manifest\": manifest, \"out\": result.stdout, \"err\": result.stderr, \"code\": result.code}"
+  },
+  {
+    "run_id": "minimax-A-test-02-r2",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--offline",
+      "--",
+      "--nocapture"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--offline"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      r = env.run([\"cargo\", \"test\", \"--offline\", \"--\", \"--nocapture\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--offline\", \"--\", \"--nocapture\"]\n --> script.star:1:9\n  |\n1 |     r = env.run([\"cargo\", \"test\", \"--offline\", \"--\", \"--nocapture\"], check = False)\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--offline\", \"--\", \"--nocapture\"], check = False)\nreturn {\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr, \"files\": repo.list(\"src\")}"
+  },
+  {
+    "run_id": "minimax-A-test-03-r1",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--workspace"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:6, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      result = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = ...\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"]\n --> script.star:1:14\n  |\n1 |     result = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\n  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result = env.run([\"cargo\", \"test\", \"--workspace\", \"--no-fail-fast\"], check = False)\nreturn {\n    \"code\": result.code,\n    \"stdout\": result.stdout,\n    \"stderr\": result.stderr,\n}"
+  },
+  {
+    "run_id": "minimax-A-test-04-r3",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--nocapture"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--lib"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      __act_result__ = __act_main__()\n  * script.star:1, in __act_main__\n      res = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"]\n --> script.star:1:11\n  |\n1 |     res = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\n  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\nout = res.stdout\nreturn {\"code\": res.code, \"stdout\": out, \"stderr\": res.stderr[-4000:]}"
+  },
+  {
+    "run_id": "minimax-B-batch-04-r2",
+    "call": 4,
+    "argv": [
+      "bash",
+      "-lc",
+      "find . -type f | sort && echo '---' && find src -type f | sort"
+    ],
+    "normalized": [
+      "bash",
+      "-lc",
+      "find . -type f | sort && echo '---' && find src -type f | sort"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      r = env.run([\"bash\", \"-lc\", \"find . -type f | sort && echo '---' && find src ...\nerror: 模拟环境未提供该命令: [\"bash\", \"-lc\", \"find . -type f | sort && echo '---' && find src -type f | sort\"]\n --> script.star:1:5\n  |\n1 | r = env.run([\"bash\", \"-lc\", \"find . -type f | sort && echo '---' && find src -type f | sort\"], check=False)\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"bash\", \"-lc\", \"find . -type f | sort && echo '---' && find src -type f | sort\"], check=False)\nresult({\"out\": r.stdout, \"err\": r.stderr, \"code\": r.code})"
+  },
+  {
+    "run_id": "minimax-B-rollback-01-r3",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:4, in <module>\n      \"cargo_version\": env.run([\"cargo\", \"--version\"], check=False).stdout,\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:4:20\n  |\n4 |   \"cargo_version\": env.run([\"cargo\", \"--version\"], check=False).stdout,\n  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result({\n  \"git_log\": env.run([\"git\", \"log\", \"--oneline\", \"-5\"], check=False).stdout,\n  \"git_files\": env.run([\"git\", \"ls-files\"], check=False).stdout,\n  \"cargo_version\": env.run([\"cargo\", \"--version\"], check=False).stdout,\n  \"hidden\": repo.list(\".\"),\n})"
+  },
+  {
+    "run_id": "minimax-B-rollback-03-r1",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      res = env.run([\"cargo\", \"--version\"])\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:1:7\n  |\n1 | res = env.run([\"cargo\", \"--version\"])\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"--version\"])\nresult({\"out\": res.stdout, \"err\": res.stderr, \"code\": res.code})\n"
+  },
+  {
+    "run_id": "minimax-B-rollback-03-r3",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-run"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--no-run"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      result(env.run([\"cargo\", \"test\", \"--no-run\"], check=False))\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-run\"]\n --> script.star:1:8\n  |\n1 | result(env.run([\"cargo\", \"test\", \"--no-run\"], check=False))\n  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result(env.run([\"cargo\", \"test\", \"--no-run\"], check=False))"
+  },
+  {
+    "run_id": "minimax-B-rollback-04-r3",
+    "call": 4,
+    "argv": [
+      "bash",
+      "-lc",
+      "ls -la; find . -path ./target -prune -o -type f -print"
+    ],
+    "normalized": [
+      "bash",
+      "-lc",
+      "ls -la; find . -path ./target -prune -o -type f -print"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:3, in <module>\n      \"all_files\": env.run([\"bash\", \"-lc\", \"ls -la; find . -path ./target -prune -o...\nerror: 模拟环境未提供该命令: [\"bash\", \"-lc\", \"ls -la; find . -path ./target -prune -o -type f -print\"]\n --> script.star:3:16\n  |\n3 |   \"all_files\": env.run([\"bash\", \"-lc\", \"ls -la; find . -path ./target -prune -o -type f -print\"], check = False).stdout,\n  |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result({\n  \"compat\": [h.path + \":\" + str(h.line) + \": \" + h.text for h in repo.search(\"compatibility|legacy frame\", glob = \"**/*\")],\n  \"all_files\": env.run([\"bash\", \"-lc\", \"ls -la; find . -path ./target -prune -o -type f -print\"], check = False).stdout,\n})"
+  },
+  {
+    "run_id": "minimax-B-test-01-r1",
+    "call": 3,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast",
+      "--",
+      "--test-threads=1"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      res = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"], ...\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"]\n --> script.star:1:7\n  |\n1 | res = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"], check = False)\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"test\", \"--no-fail-fast\", \"--\", \"--test-threads=1\"], check = False)\nresult({\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr})\n"
+  },
+  {
+    "run_id": "minimax-B-test-01-r1",
+    "call": 4,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      res = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\"]\n --> script.star:1:7\n  |\n1 | res = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check = False)\nresult({\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr})\n"
+  },
+  {
+    "run_id": "minimax-B-test-01-r3",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "test",
+      "--no-fail-fast"
+    ],
+    "normalized": [
+      "cargo",
+      "test"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check=False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--no-fail-fast\"]\n --> script.star:1:5\n  |\n1 | r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check=False)\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--no-fail-fast\"], check=False)\nresult({\"code\": r.code, \"len_stdout\": len(r.stdout), \"len_stderr\": len(r.stderr), \"stdout\": r.stdout, \"stderr\": r.stderr})\n"
+  },
+  {
+    "run_id": "minimax-B-test-02-r1",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "--version"
+    ],
+    "normalized": [
+      "cargo",
+      "--version"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      result({\"cargo\": env.run([\"cargo\", \"--version\"], check=False).stdout})\nerror: 模拟环境未提供该命令: [\"cargo\", \"--version\"]\n --> script.star:1:18\n  |\n1 | result({\"cargo\": env.run([\"cargo\", \"--version\"], check=False).stdout})\n  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result({\"cargo\": env.run([\"cargo\", \"--version\"], check=False).stdout})"
+  },
+  {
+    "run_id": "minimax-B-test-02-r1",
+    "call": 3,
+    "argv": [
+      "which",
+      "cargo"
+    ],
+    "normalized": [
+      "which",
+      "cargo"
+    ],
+    "matches_canned": false,
+    "error": "Traceback (most recent call last):\n  * script.star:2, in <module>\n      \"which_cargo\": env.run([\"which\", \"cargo\"], check=False).stdout,\nerror: 模拟环境未提供该命令: [\"which\", \"cargo\"]\n --> script.star:2:18\n  |\n2 |   \"which_cargo\": env.run([\"which\", \"cargo\"], check=False).stdout,\n  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "result({\n  \"which_cargo\": env.run([\"which\", \"cargo\"], check=False).stdout,\n  \"which_rustc\": env.run([\"which\", \"rustc\"], check=False).stdout,\n  \"path\": env.run([\"printenv\", \"PATH\"], check=False).stdout,\n  \"home\": env.run([\"printenv\", \"HOME\"], check=False).stdout,\n})"
+  },
+  {
+    "run_id": "minimax-B-test-04-r1",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--nocapture"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--lib"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"]\n --> script.star:1:5\n  |\n1 | r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "r = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\nresult({\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr})"
+  },
+  {
+    "run_id": "minimax-B-test-04-r2",
+    "call": 2,
+    "argv": [
+      "cargo",
+      "test",
+      "--lib",
+      "--",
+      "--nocapture"
+    ],
+    "normalized": [
+      "cargo",
+      "test",
+      "--lib"
+    ],
+    "matches_canned": true,
+    "error": "Traceback (most recent call last):\n  * script.star:1, in <module>\n      res = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\nerror: 模拟环境未提供该命令: [\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"]\n --> script.star:1:7\n  |\n1 | res = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\n  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n",
+    "script": "res = env.run([\"cargo\", \"test\", \"--lib\", \"--\", \"--nocapture\"], check = False)\nresult({\"code\": res.code, \"stdout\": res.stdout, \"stderr\": res.stderr})"
+  }
+]

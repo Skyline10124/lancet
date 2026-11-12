@@ -63,7 +63,7 @@ class Experiment(unittest.TestCase):
                     self.assertFalse(evaluate(task,bad,calls)['passed'],'额外改动必须导致失败')
                     if json.loads((task/'spec.json').read_text())['facts']:
                         self.assertFalse(evaluate(task,files_at(fixture),[])['passed'],'缺少返回事实必须失败')
-        (ROOT/'evidence/oracles.jsonl').write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in rows))
+        (ROOT/'results/v2/evidence/oracles.jsonl').write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in rows))
 
     def test_api_five_attempts_and_no_auth_logging(self):
         records=[]

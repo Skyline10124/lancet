@@ -1,0 +1,94 @@
+[
+  {
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "response_index": 8,
+    "tool_call_id": "call_01a1d05bb4e57397abc1c54b",
+    "script": "cmds = {}\nfor argv in [[\"ls\", \"-la\", \"target\"], [\"find\", \"target\", \"-name\", \"*.rs\"], [\"grep\", \"-rl\", \"expected rejection at\", \"/\"], [\"cargo\", \"test\", \"--\", \"--nocapture\"]]:\n    r = env.run(argv, check=False)\n    cmds[\" \".join(argv)] = {\"code\": r.code, \"out\": r.stdout[-3000:], \"err\": r.stderr[-2000:]}\nreturn {\"cmds\": cmds}\n",
+    "usage": {
+      "total_tokens": 5781,
+      "total_characters": 0,
+      "prompt_tokens": 5008,
+      "completion_tokens": 773,
+      "completion_tokens_details": {
+        "reasoning_tokens": 640
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 4163
+      }
+    },
+    "source_interfaces": {
+      "env.run": 1
+    },
+    "error": "Command '['/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/target/debug/act-sim', '--fixture', '/tmp/act-experiment-weykta4i/repo', '--script', '/tmp/act-experiment-weykta4i/script.star', '--mode', 'A', '--canned', '/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tasks/rollback-01/canned.json']' timed out after 60 seconds",
+    "runtime_events_available": false
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r1",
+    "response_index": 6,
+    "tool_call_id": "call_01a1d0da822975a2ac77d7bb",
+    "script": "find = env.run([\"grep\", \"-rl\", \"memory_budget\", \"/\"], check=False)\nreturn {\"out\": (find.stdout + find.stderr)[:3000], \"code\": find.code}",
+    "usage": {
+      "total_tokens": 3473,
+      "total_characters": 0,
+      "prompt_tokens": 3259,
+      "completion_tokens": 214,
+      "completion_tokens_details": {
+        "reasoning_tokens": 147
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2769
+      }
+    },
+    "source_interfaces": {
+      "env.run": 1
+    },
+    "error": "Command '['/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/target/debug/act-sim', '--fixture', '/tmp/act-experiment-9v8e86pc/repo', '--script', '/tmp/act-experiment-9v8e86pc/script.star', '--mode', 'A', '--canned', '/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tasks/rollback-02/canned.json']' timed out after 60 seconds",
+    "runtime_events_available": false
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-01-r1",
+    "response_index": 7,
+    "tool_call_id": "call_01a1d10bb42176c1b8b5badb",
+    "script": "res = env.run([\"grep\", \"-rl\", \"expected rejection at\", \"/tmp\", \"/opt\", \"/root\", \"/usr/local\", \"/home\", \"/srv\", \"/app\", \"/workspace\"], check=False)\nres2 = env.run([\"ls\", \"-la\", \"/\"], check=False)\nres3 = env.run([\"find\", \"/\", \"-maxdepth\", \"4\", \"-name\", \"*.rs\", \"-path\", \"*test*\"], check=False)\nreturn {\"grep\": res.stdout + res.stderr, \"lsroot\": res2.stdout + res2.stderr, \"find\": res3.stdout + res3.stderr}",
+    "usage": {
+      "total_tokens": 6264,
+      "total_characters": 0,
+      "prompt_tokens": 5762,
+      "completion_tokens": 502,
+      "completion_tokens_details": {
+        "reasoning_tokens": 330
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 3369
+      }
+    },
+    "source_interfaces": {
+      "env.run": 3
+    },
+    "error": "Command '['/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/target/debug/act-sim', '--fixture', '/tmp/act-experiment-lfb9j7ul/repo', '--script', '/tmp/act-experiment-lfb9j7ul/script.star', '--mode', 'A', '--canned', '/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tasks/rollback-01/canned.json']' timed out after 60 seconds",
+    "runtime_events_available": false
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-02-r1",
+    "response_index": 8,
+    "tool_call_id": "call_01a1d117490875e7b7d47a2e",
+    "script": "r1 = env.run([\"ls\", \"-la\", \"/home/gcp-vegas\"], check=False)\nr2 = env.run([\"cat\", \"/home/gcp-vegas/.cargo/config.toml\"], check=False)\nr3 = env.run([\"grep\", \"-rl\", \"memory_budget\", \"/home/gcp-vegas\", \"/usr/local\", \"/opt\", \"/var/tmp\", \"/tmp\"], check=False)\nresult({\"home\": r1.stdout + r1.stderr, \"cargo_cfg\": r2.stdout + r2.stderr, \"grep\": r3.stdout[:3000] + r3.stderr})",
+    "usage": {
+      "total_tokens": 6903,
+      "total_characters": 0,
+      "prompt_tokens": 6213,
+      "completion_tokens": 690,
+      "completion_tokens_details": {
+        "reasoning_tokens": 540
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 3183
+      }
+    },
+    "source_interfaces": {
+      "env.run": 3
+    },
+    "error": "Command '['/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/target/debug/act-sim', '--fixture', '/tmp/act-experiment-_yz_sim0/repo', '--script', '/tmp/act-experiment-_yz_sim0/script.star', '--mode', 'B', '--canned', '/home/gcp-vegas/.t3/worktrees/lancet/t3-4e357b6c/prototypes/starlark-pass-rate/tasks/rollback-02/canned.json']' timed out after 60 seconds",
+    "runtime_events_available": false
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "group": "base",
+    "model": "deepseek-flash",
+    "mode": "A",
+    "n": 72,
+    "completed": 68,
+    "first": 9,
+    "acts": 281,
+    "read_only": 154
+  },
+  {
+    "group": "base",
+    "model": "deepseek-flash",
+    "mode": "B",
+    "n": 72,
+    "completed": 68,
+    "first": 14,
+    "acts": 264,
+    "read_only": 158
+  },
+  {
+    "group": "base",
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "A",
+    "n": 72,
+    "completed": 61,
+    "first": 18,
+    "acts": 437,
+    "read_only": 200
+  },
+  {
+    "group": "base",
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "B",
+    "n": 72,
+    "completed": 59,
+    "first": 13,
+    "acts": 414,
+    "read_only": 217
+  },
+  {
+    "group": "overview",
+    "model": "deepseek-flash",
+    "mode": "A",
+    "n": 72,
+    "completed": 70,
+    "first": 14,
+    "acts": 244,
+    "read_only": 125
+  },
+  {
+    "group": "overview",
+    "model": "deepseek-flash",
+    "mode": "B",
+    "n": 72,
+    "completed": 66,
+    "first": 16,
+    "acts": 221,
+    "read_only": 115
+  },
+  {
+    "group": "overview",
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "A",
+    "n": 71,
+    "completed": 63,
+    "first": 11,
+    "acts": 351,
+    "read_only": 149
+  },
+  {
+    "group": "overview",
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "B",
+    "n": 71,
+    "completed": 63,
+    "first": 9,
+    "acts": 379,
+    "read_only": 176
+  },
+  {
+    "group": "composed",
+    "model": "deepseek-flash",
+    "mode": "A",
+    "n": 71,
+    "completed": 64,
+    "first": 15,
+    "acts": 235,
+    "read_only": 139
+  },
+  {
+    "group": "composed",
+    "model": "deepseek-flash",
+    "mode": "B",
+    "n": 72,
+    "completed": 68,
+    "first": 21,
+    "acts": 242,
+    "read_only": 139
+  },
+  {
+    "group": "composed",
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "A",
+    "n": 70,
+    "completed": 60,
+    "first": 18,
+    "acts": 377,
+    "read_only": 178
+  },
+  {
+    "group": "composed",
+    "model": "MiniMax-M3.1-Flash",
+    "mode": "B",
+    "n": 72,
+    "completed": 59,
+    "first": 16,
+    "acts": 414,
+    "read_only": 213
+  }
+]

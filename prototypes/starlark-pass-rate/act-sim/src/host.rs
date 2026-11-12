@@ -125,6 +125,7 @@ pub fn repo(builder: &mut GlobalsBuilder) {
         #[starlark(default = ".")] path: &str,
         eval: &mut Evaluator,
     ) -> anyhow::Result<Vec<String>> {
+        state(eval).record("list", json!({"path":path}));
         let mut result = Vec::new();
         for e in fs::read_dir(state(eval).path(path)?)? {
             let e = e?;
@@ -212,6 +213,7 @@ pub fn repo(builder: &mut GlobalsBuilder) {
         Ok(NoneType)
     }
     fn status<'v>(eval: &mut Evaluator<'v, '_, '_>) -> anyhow::Result<Value<'v>> {
+        state(eval).record("status", json!({}));
         Ok(eval.heap().alloc(
             state(eval)
                 .changes()?
@@ -225,6 +227,7 @@ pub fn repo(builder: &mut GlobalsBuilder) {
     }
     fn diff(eval: &mut Evaluator) -> anyhow::Result<String> {
         let s = state(eval);
+        s.record("diff", json!({}));
         let now = snapshot(&s.root)?;
         let mut output = String::new();
         for (path, _) in s.changes()? {
@@ -280,9 +283,11 @@ pub fn env(builder: &mut GlobalsBuilder) {
         let argv = argv.items;
         let s = state(eval);
         s.record("run", json!({"argv":argv,"check":check,"files":snapshot(&s.root)?.into_iter().map(|(p,c)| (p,String::from_utf8_lossy(&c).into_owned())).collect::<BTreeMap<_,_>>()}));
+        let normalized = crate::commands::normalize(&argv);
         if let Some(entries) = s.canned.as_array() {
             for entry in entries {
-                if entry["argv"] == json!(argv) {
+                let expected: Vec<String> = serde_json::from_value(entry["argv"].clone())?;
+                if crate::commands::normalize(&expected) == normalized {
                     s.record("command_result", entry.clone());
                     return response(
                         entry["code"].as_i64().unwrap() as i32,
@@ -314,14 +319,14 @@ pub fn env(builder: &mut GlobalsBuilder) {
         eval: &mut Evaluator<'v, '_, '_>,
     ) -> anyhow::Result<Value<'v>> {
         let argvs: Vec<Vec<String>> = argvs.items.into_iter().map(|x| x.items).collect();
+        let s = state(eval);
+        s.record("pipe", json!({"argvs":argvs,"check":check}));
         if argvs.is_empty() {
             bail!("管道不能为空");
         }
         for argv in &argvs {
             allowed(argv)?;
         }
-        let s = state(eval);
-        s.record("pipe", json!({"argvs":argvs,"check":check}));
         let mut children = Vec::new();
         let mut input = Stdio::null();
         for (i, argv) in argvs.iter().enumerate() {

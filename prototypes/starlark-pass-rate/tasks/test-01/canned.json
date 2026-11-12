@@ -5,7 +5,7 @@
       "test"
     ],
     "code": 101,
-    "stdout": "\nrunning 4 tests\ntest smoke::ok ... ok\ntest parser::empty_input ... FAILED\ntest parser::bad_utf8 ... FAILED\n\nfailures:\n---- parser::empty_input stdout ----\nthread 'parser::empty_input' panicked: invalid token at offset 3\n---- parser::bad_utf8 stdout ----\nthread 'parser::bad_utf8' panicked: invalid token at offset 3\n\nfailures:\n    parser::empty_input\n    parser::bad_utf8\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
+    "stdout": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest parser::empty_input ... FAILED\ntest parser::bad_utf8 ... FAILED\n\nfailures:\n---- parser::empty_input stdout ----\nthread 'parser::empty_input' panicked: invalid token at offset 3\n---- parser::bad_utf8 stdout ----\nthread 'parser::bad_utf8' panicked: invalid token at offset 3\n\nfailures:\n    parser::empty_input\n    parser::bad_utf8\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
     "stderr": "error: test failed\n"
   }
 ]

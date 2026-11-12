@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+from commands import normalize
 
 
 def files_at(root):
@@ -17,6 +18,40 @@ def leaves(value):
     elif isinstance(value, list):
         for v in value:
             yield from leaves(v)
+
+
+def has_count(value, name, count):
+    """接受文件→整数、文件→计数对象、记录列表及 wc 原始行；不跨文件配数。"""
+    def same_file(v):
+        return isinstance(v, str) and v in (name, 'data/' + name)
+
+    def number(v):
+        return type(v) is int and v == count
+
+    def count_field(v):
+        return isinstance(v, dict) and any(
+            k in ('lines', 'count', 'line_count', 'lineCount') and number(n)
+            for k, n in v.items())
+
+    for item in leaves(value):
+        if isinstance(item, dict):
+            if any(same_file(k) and (number(v) or count_field(v)) for k, v in item.items()):
+                return True
+            if any(same_file(item.get(k)) for k in ('path', 'file', 'name', 'filename')) and count_field(item):
+                return True
+        if isinstance(item, str):
+            path = r'(?:data/)?' + re.escape(name)
+            if re.search(r'(?m)^\s*' + str(count) + r'\s+' + path + r'\s*$', item):
+                return True
+            if re.search(path + r'["\\\s:=>,()\[\]-]{0,20}' + str(count) + r'\b', item):
+                return True
+            try:
+                decoded = json.loads(item)
+            except ValueError:
+                continue
+            if isinstance(decoded, (dict, list)) and has_count(decoded, name, count):
+                return True
+    return False
 
 
 def evaluate(task, files, calls, final=''):
@@ -42,7 +77,7 @@ def evaluate(task, files, calls, final=''):
         if not reads or not writes or min(reads) >= min(writes):
             reasons.append('未在较早一次 act 读取目标后再修改')
     if spec['command']:
-        runs = [e for _,e in events if e['op']=='run' and e['args']['argv']==spec['command']]
+        runs = [e for _,e in events if e['op']=='run' and normalize(e['args']['argv'])==normalize(spec['command'])]
         if not runs:
             reasons.append('未执行指定测试命令')
         if category == 'rollback':
@@ -52,7 +87,7 @@ def evaluate(task, files, calls, final=''):
                 reasons.append('未在要求的修改上运行测试')
     if spec['id']=='read-03':
         for name,count in [('a.txt',3),('b.txt',4)]:
-            if not re.search(re.escape(name) + r'["\\\s:=>,()\[\]-]{0,20}' + str(count) + r'\b', evidence):
+            if not any(has_count(v, name, count) for v in values):
                 reasons.append('行数未与文件对应: '+name)
     if spec['id'] in ('probe-02','probe-04'):
         wanted = ['alpha','zeta'] if spec['id']=='probe-02' else ['east','west']

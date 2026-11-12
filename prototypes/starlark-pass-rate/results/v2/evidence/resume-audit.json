@@ -1,0 +1,13 @@
+{
+  "checked_at": 1794497667.005401,
+  "branch": "exp/act-v2",
+  "driver_pid": 2868077,
+  "driver_still_running": true,
+  "frozen_inputs_verified": 153,
+  "frozen_harness_files_verified": 11,
+  "pilot_complete": 24,
+  "formal_finished_at_resume": 465,
+  "active_record": "base-minimax-B-batch-01-r2.jsonl",
+  "interrupted_records_deleted": [],
+  "reruns_due_to_interruption": 0
+}

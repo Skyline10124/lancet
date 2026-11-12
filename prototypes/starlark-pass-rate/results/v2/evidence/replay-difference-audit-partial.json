@@ -1,0 +1,628 @@
+{
+  "counts": {
+    "ls 元数据": 63,
+    "含 fixture 外命令的返回差异": 5
+  },
+  "entries": [
+    {
+      "run_id": "base-deepseek-A-rollback-02-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-deepseek-A-rollback-02-r3",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-deepseek-B-batch-04-r3",
+      "call": 2,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-deepseek-B-rollback-04-r1",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-read-03-r1",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-read-03-r3",
+      "call": 2,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-rollback-02-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-rollback-02-r2",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [
+        [
+          "find",
+          "/",
+          "-name",
+          "*.rs",
+          "-path",
+          "*test*",
+          "-newermt",
+          "-2020-01-01"
+        ]
+      ],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-rollback-04-r2",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-test-02-r3",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-test-04-r1",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-A-test-04-r2",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-batch-03-r1",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-read-03-r1",
+      "call": 3,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-rollback-01-r2",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-rollback-02-r2",
+      "call": 3,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-rollback-02-r2",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-test-02-r3",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "base-minimax-B-test-02-r3",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-03-r1",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-04-r3",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-batch-02-r3",
+      "call": 3,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-batch-03-r1",
+      "call": 4,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-read-03-r2",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-read-03-r3",
+      "call": 4,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-read-03-r3",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-read-03-r3",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-01-r1",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-01-r2",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-02-r3",
+      "call": 6,
+      "kind": "含 fixture 外命令的返回差异",
+      "external_commands": [
+        [
+          "ls",
+          "-la",
+          ".."
+        ],
+        [
+          "find",
+          "/",
+          "-name",
+          "*.rs",
+          "-path",
+          "*test*",
+          "-not",
+          "-path",
+          "/proc/*",
+          "-not",
+          "/sys/*",
+          "-not",
+          "/usr/*",
+          "-not",
+          "/root/.rustup/*"
+        ],
+        [
+          "grep",
+          "-rn",
+          "memory_budget",
+          "/",
+          "--include=*.rs",
+          "--exclude-dir=proc",
+          "--exclude-dir=sys",
+          "--exclude-dir=usr"
+        ]
+      ],
+      "metadata_normalized_equal": false
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-03-r1",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-03-r1",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-test-01-r1",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-A-test-03-r3",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-batch-02-r3",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-read-01-r2",
+      "call": 4,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-read-02-r2",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-read-02-r2",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-rollback-01-r2",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-rollback-02-r3",
+      "call": 4,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-rollback-03-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-rollback-03-r3",
+      "call": 3,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-rollback-03-r3",
+      "call": 6,
+      "kind": "含 fixture 外命令的返回差异",
+      "external_commands": [
+        [
+          "find",
+          "/",
+          "-name",
+          "*.rs"
+        ],
+        [
+          "find",
+          "/",
+          "-name",
+          "Cargo.toml"
+        ]
+      ],
+      "metadata_normalized_equal": false
+    },
+    {
+      "run_id": "composed-minimax-B-test-01-r1",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-test-03-r1",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "composed-minimax-B-test-04-r3",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-A-rollback-01-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-A-rollback-01-r3",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-A-rollback-04-r1",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-B-rollback-02-r1",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-B-rollback-03-r1",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-B-rollback-04-r1",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-deepseek-B-rollback-04-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-A-probe-03-r2",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-A-rollback-01-r3",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-A-rollback-04-r2",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-A-test-02-r2",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [
+        [
+          "ls",
+          "-la",
+          "/root"
+        ],
+        [
+          "ls",
+          "-la",
+          "/root/.cargo"
+        ],
+        [
+          "ls",
+          "-la",
+          "/root/.cargo/config.toml"
+        ],
+        [
+          "find",
+          "/root/.cargo",
+          "-maxdepth",
+          "2",
+          "-type",
+          "f"
+        ]
+      ],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-A-test-02-r2",
+      "call": 8,
+      "kind": "含 fixture 外命令的返回差异",
+      "external_commands": [
+        [
+          "find",
+          "/",
+          "-name",
+          "*.rs",
+          "-not",
+          "-path",
+          "/proc/*",
+          "-not",
+          "-path",
+          "/sys/*",
+          "-not",
+          "-path",
+          "/usr/*"
+        ],
+        [
+          "find",
+          "/",
+          "-name",
+          "Cargo.toml",
+          "-not",
+          "-path",
+          "/proc/*",
+          "-not",
+          "-path",
+          "/sys/*",
+          "-not",
+          "-path",
+          "/usr/*"
+        ]
+      ],
+      "metadata_normalized_equal": false
+    },
+    {
+      "run_id": "overview-minimax-B-rollback-01-r3",
+      "call": 7,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-rollback-02-r3",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-rollback-03-r1",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-rollback-03-r1",
+      "call": 7,
+      "kind": "含 fixture 外命令的返回差异",
+      "external_commands": [
+        [
+          "ls",
+          "-la",
+          "/usr/local/bin"
+        ],
+        [
+          "ls",
+          "-la",
+          "/opt"
+        ],
+        [
+          "ls",
+          "-la",
+          "/tmp"
+        ],
+        [
+          "ls",
+          "-la",
+          "/"
+        ],
+        [
+          "ls",
+          "-la",
+          "/home"
+        ]
+      ],
+      "metadata_normalized_equal": false
+    },
+    {
+      "run_id": "overview-minimax-B-test-01-r3",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-test-02-r1",
+      "call": 6,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-test-02-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-test-02-r2",
+      "call": 8,
+      "kind": "含 fixture 外命令的返回差异",
+      "external_commands": [
+        [
+          "ls",
+          "-la",
+          ".."
+        ]
+      ],
+      "metadata_normalized_equal": false
+    },
+    {
+      "run_id": "overview-minimax-B-test-03-r1",
+      "call": 8,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    },
+    {
+      "run_id": "overview-minimax-B-test-03-r2",
+      "call": 5,
+      "kind": "ls 元数据",
+      "external_commands": [],
+      "metadata_normalized_equal": true
+    }
+  ]
+}

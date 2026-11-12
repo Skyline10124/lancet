@@ -27,6 +27,6 @@ def audit(runs):
 
 
 if __name__=='__main__':
-    result=audit(read_runs('formal'))
+    result=audit(read_runs('formal', version=1))
     (ROOT/'evidence/checker-audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(dict(affected_runs=len(result)),ensure_ascii=False))

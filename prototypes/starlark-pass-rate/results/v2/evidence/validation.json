@@ -1,0 +1,18 @@
+{
+  "runs": 864,
+  "calls": 3886,
+  "grid_complete": true,
+  "frozen_files": 153,
+  "replay_state_or_check_mismatches": 0,
+  "replay_value_differences": 176,
+  "metrics_and_usage_checked": true,
+  "peak_concurrent_runs": {
+    "deepseek": 4,
+    "minimax": 1
+  },
+  "v1_and_docs_unchanged": true,
+  "status_counts": {
+    "complete": 859,
+    "harness_error": 5
+  }
+}

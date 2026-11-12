@@ -6,7 +6,7 @@
       "--workspace"
     ],
     "code": 101,
-    "stdout": "\nrunning 4 tests\ntest smoke::ok ... ok\ntest net::retry_budget ... FAILED\ntest net::deadline ... FAILED\n\nfailures:\n---- net::retry_budget stdout ----\nthread 'net::retry_budget' panicked: deadline exceeded after 50ms\n---- net::deadline stdout ----\nthread 'net::deadline' panicked: deadline exceeded after 50ms\n\nfailures:\n    net::retry_budget\n    net::deadline\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
+    "stdout": "\nrunning 3 tests\ntest smoke::ok ... ok\ntest net::retry_budget ... FAILED\ntest net::deadline ... FAILED\n\nfailures:\n---- net::retry_budget stdout ----\nthread 'net::retry_budget' panicked: deadline exceeded after 50ms\n---- net::deadline stdout ----\nthread 'net::deadline' panicked: deadline exceeded after 50ms\n\nfailures:\n    net::retry_budget\n    net::deadline\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored\n",
     "stderr": "error: test failed\n"
   }
 ]

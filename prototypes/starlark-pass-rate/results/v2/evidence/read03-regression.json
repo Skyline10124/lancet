@@ -1,0 +1,50 @@
+[
+  {
+    "run_id": "deepseek-A-read-03-r1",
+    "v1_passed": false,
+    "v2_check": {
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "run_id": "deepseek-A-read-03-r3",
+    "v1_passed": false,
+    "v2_check": {
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "run_id": "deepseek-B-read-03-r1",
+    "v1_passed": false,
+    "v2_check": {
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "run_id": "deepseek-B-read-03-r3",
+    "v1_passed": false,
+    "v2_check": {
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "run_id": "minimax-A-read-03-r1",
+    "v1_passed": false,
+    "v2_check": {
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "run_id": "minimax-B-read-03-r3",
+    "v1_passed": false,
+    "v2_check": {
+      "passed": true,
+      "reasons": []
+    }
+  }
+]

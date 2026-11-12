@@ -1,0 +1,963 @@
+[
+  {
+    "run_id": "base-minimax-A-rollback-01-r1",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "base-minimax-A-rollback-02-r2",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs",
+      "-path",
+      "*test*",
+      "-newermt",
+      "-2020-01-01"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "base-minimax-B-test-02-r2",
+    "call": 8,
+    "argv": [
+      "cat",
+      "/usr/local/bin/cargo"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "base-minimax-B-test-02-r2",
+    "call": 8,
+    "argv": [
+      "cat",
+      "/usr/local/bin/cargo.sh"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-edit-02-r2",
+    "call": 6,
+    "argv": [
+      "rustc",
+      "--crate-type",
+      "lib",
+      "--emit=metadata",
+      "-o",
+      "/dev/null",
+      "src/options.rs"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-01-r2",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs",
+      "-path",
+      "*test*",
+      "-not",
+      "-path",
+      "*/rustlib/*",
+      "-not",
+      "-path",
+      "/proc/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r2",
+    "call": 6,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "3",
+      "-name",
+      ".cargo",
+      "-type",
+      "d"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r2",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      "/"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      ".."
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "call": 6,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs",
+      "-path",
+      "*test*",
+      "-not",
+      "-path",
+      "/proc/*",
+      "-not",
+      "/sys/*",
+      "-not",
+      "/usr/*",
+      "-not",
+      "/root/.rustup/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "call": 6,
+    "argv": [
+      "grep",
+      "-rn",
+      "memory_budget",
+      "/",
+      "--include=*.rs",
+      "--exclude-dir=proc",
+      "--exclude-dir=sys",
+      "--exclude-dir=usr"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-04-r1",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "5",
+      "-name",
+      "*.rs"
+    ],
+    "act_outcome": "OutputLimitExceeded"
+  },
+  {
+    "run_id": "composed-minimax-A-rollback-04-r1",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "4",
+      "-name",
+      "*test*"
+    ],
+    "act_outcome": "OutputLimitExceeded"
+  },
+  {
+    "run_id": "composed-minimax-B-edit-02-r1",
+    "call": 4,
+    "argv": [
+      "rustc",
+      "--crate-type",
+      "lib",
+      "--emit=metadata",
+      "src/options.rs",
+      "-o",
+      "/tmp/options.rmeta"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-edit-02-r3",
+    "call": 5,
+    "argv": [
+      "rustc",
+      "--crate-type",
+      "lib",
+      "--edition",
+      "2021",
+      "src/options.rs",
+      "-o",
+      "/tmp/options.rlib"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 5,
+    "argv": [
+      "ls",
+      "-la",
+      "/root/.cargo"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 5,
+    "argv": [
+      "find",
+      "/root/.cargo",
+      "-maxdepth",
+      "2",
+      "-name",
+      "config*"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/root/.cargo"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 7,
+    "argv": [
+      "find",
+      "/root/.cargo",
+      "-maxdepth",
+      "2",
+      "-name",
+      "config*"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/root/.cargo"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "call": 8,
+    "argv": [
+      "find",
+      "/root/.cargo",
+      "-maxdepth",
+      "3",
+      "-name",
+      "config*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-03-r3",
+    "call": 6,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-03-r3",
+    "call": 6,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "Cargo.toml"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 5,
+    "argv": [
+      "ls",
+      "-la",
+      ".."
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/home"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/opt"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/root"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/workspace"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/srv"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-laR",
+      "/tmp/act-experiment-ha_z1nst"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 5,
+    "argv": [
+      "ls",
+      "-la",
+      ".."
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      ".."
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local/bin"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/bin"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/opt"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/root"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/home"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/etc/cargo"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local/cargo"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-01-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/root/.cargo"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-01-r2",
+    "call": 8,
+    "argv": [
+      "cat",
+      "/root/.cargo/config.toml"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-03-r3",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-03-r3",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-04-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/root"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-04-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local/bin"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-rollback-04-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/bin/cargo"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      "/root"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      "/root/.cargo"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      "/root/.cargo/config.toml"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 6,
+    "argv": [
+      "find",
+      "/root/.cargo",
+      "-maxdepth",
+      "2",
+      "-type",
+      "f"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs",
+      "-not",
+      "-path",
+      "/proc/*",
+      "-not",
+      "-path",
+      "/sys/*",
+      "-not",
+      "-path",
+      "/usr/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-A-test-02-r2",
+    "call": 8,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "Cargo.toml",
+      "-not",
+      "-path",
+      "/proc/*",
+      "-not",
+      "-path",
+      "/sys/*",
+      "-not",
+      "-path",
+      "/usr/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-edit-02-r1",
+    "call": 7,
+    "argv": [
+      "rustc",
+      "--crate-type",
+      "lib",
+      "--emit",
+      "metadata",
+      "-o",
+      "/dev/null",
+      "src/options.rs"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-02-r1",
+    "call": 7,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "3",
+      "-name",
+      "*.rs",
+      "-path",
+      "*test*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local/bin"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/opt"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/home"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r3",
+    "call": 7,
+    "argv": [
+      "find",
+      "/",
+      "-name",
+      "*.rs",
+      "-not",
+      "-path",
+      "/proc/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/opt"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r3",
+    "call": 8,
+    "argv": [
+      "find",
+      "/tmp/act-experiment-yd_vsvsx",
+      "-maxdepth",
+      "4"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-rollback-03-r3",
+    "call": 8,
+    "argv": [
+      "find",
+      "/tmp/.tmpUKz8Zp",
+      "-maxdepth",
+      "4"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-02-r1",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      ".."
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "overview-minimax-B-test-02-r2",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      ".."
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 7,
+    "argv": [
+      "ls",
+      "-la",
+      "/"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 7,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "4",
+      "-name",
+      "*.rs",
+      "-not",
+      "-path",
+      "/proc/*",
+      "-not",
+      "-path",
+      "/sys/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 7,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "4",
+      "-name",
+      "Cargo.toml",
+      "-not",
+      "-path",
+      "/proc/*",
+      "-not",
+      "/sys/*"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/tmp/lattice-377-tmux"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 8,
+    "argv": [
+      "cat",
+      "/tmp/lattice-377-tmux/fixture.rs"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 8,
+    "argv": [
+      "cat",
+      "/tmp/.tmppYsCs0/src/limits.rs"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-03-r3",
+    "call": 8,
+    "argv": [
+      "cat",
+      "/tmp/.tmpljGA7m/src/lib.rs"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-04-r3",
+    "call": 6,
+    "argv": [
+      "cat",
+      "/root/.cargo/config.toml"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-04-r3",
+    "call": 6,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/local/bin"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-04-r3",
+    "call": 6,
+    "argv": [
+      "find",
+      "/",
+      "-maxdepth",
+      "4",
+      "-name",
+      "cargo",
+      "-type",
+      "f"
+    ],
+    "act_outcome": "committed"
+  },
+  {
+    "run_id": "overview-minimax-B-test-04-r3",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/usr/bin/cargo"
+    ],
+    "act_outcome": "script_error"
+  },
+  {
+    "run_id": "overview-minimax-B-test-04-r3",
+    "call": 8,
+    "argv": [
+      "ls",
+      "-la",
+      "/home/gcp-vegas/.cargo/bin"
+    ],
+    "act_outcome": "script_error"
+  }
+]

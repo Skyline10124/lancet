@@ -1,0 +1,176 @@
+{
+  "runs": 24,
+  "api_errors": 0,
+  "harness_errors": 0,
+  "usage_and_metrics_checked": true,
+  "observations": [
+    {
+      "run_id": "base-deepseek-A-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 1,
+      "total_tokens": 3915
+    },
+    {
+      "run_id": "base-deepseek-A-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 8,
+      "total_tokens": 33230
+    },
+    {
+      "run_id": "base-deepseek-B-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6398
+    },
+    {
+      "run_id": "base-deepseek-B-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 7,
+      "total_tokens": 26435
+    },
+    {
+      "run_id": "base-minimax-A-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6495
+    },
+    {
+      "run_id": "base-minimax-A-rollback-01-r1",
+      "status": "complete",
+      "passed": false,
+      "acts": 8,
+      "total_tokens": 30258
+    },
+    {
+      "run_id": "base-minimax-B-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 4151
+    },
+    {
+      "run_id": "base-minimax-B-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 8,
+      "total_tokens": 30917
+    },
+    {
+      "run_id": "composed-deepseek-A-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 3,
+      "total_tokens": 8228
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6418
+    },
+    {
+      "run_id": "composed-deepseek-B-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 1,
+      "total_tokens": 4139
+    },
+    {
+      "run_id": "composed-deepseek-B-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 4,
+      "total_tokens": 13316
+    },
+    {
+      "run_id": "composed-minimax-A-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6440
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 8,
+      "total_tokens": 31080
+    },
+    {
+      "run_id": "composed-minimax-B-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 3,
+      "total_tokens": 7071
+    },
+    {
+      "run_id": "composed-minimax-B-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 8,
+      "total_tokens": 30338
+    },
+    {
+      "run_id": "overview-deepseek-A-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6049
+    },
+    {
+      "run_id": "overview-deepseek-A-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 5,
+      "total_tokens": 14800
+    },
+    {
+      "run_id": "overview-deepseek-B-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6239
+    },
+    {
+      "run_id": "overview-deepseek-B-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 8,
+      "total_tokens": 33615
+    },
+    {
+      "run_id": "overview-minimax-A-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 6184
+    },
+    {
+      "run_id": "overview-minimax-A-rollback-01-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 8,
+      "total_tokens": 36953
+    },
+    {
+      "run_id": "overview-minimax-B-read-02-r1",
+      "status": "complete",
+      "passed": true,
+      "acts": 2,
+      "total_tokens": 4232
+    },
+    {
+      "run_id": "overview-minimax-B-rollback-01-r1",
+      "status": "complete",
+      "passed": false,
+      "acts": 8,
+      "total_tokens": 27494
+    }
+  ]
+}

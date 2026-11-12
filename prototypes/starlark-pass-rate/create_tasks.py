@@ -16,7 +16,7 @@ def task(ident, category, goal, files, *, facts=(), expected=None, command=None,
     (dest / 'spec.json').write_text(json.dumps(spec, ensure_ascii=False, indent=2) + '\n')
     canned = []
     if command:
-        log = '\nrunning 4 tests\ntest smoke::ok ... ok\n' + ''.join(f'test {name} ... FAILED\n' for name in failures)
+        log = f'\nrunning {1 + len(failures)} tests\ntest smoke::ok ... ok\n' + ''.join(f'test {name} ... FAILED\n' for name in failures)
         log += '\nfailures:\n' + ''.join(f"---- {name} stdout ----\nthread '{name}' panicked: {reason}\n" for name in failures)
         log += '\nfailures:\n' + ''.join(f'    {name}\n' for name in failures) + f'\ntest result: FAILED. 1 passed; {len(failures)} failed; 0 ignored\n'
         canned = [dict(argv=command, code=101, stdout=log, stderr='error: test failed\n')]

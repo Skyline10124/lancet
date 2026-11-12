@@ -1,0 +1,11 @@
+{
+  "formal_runs": 864,
+  "pilot_runs": 24,
+  "incomplete_runs": 0,
+  "independent_metric_cells": 12,
+  "frozen_inputs_unchanged": true,
+  "v1_and_docs_unchanged": true,
+  "credential_scan_files": 1420,
+  "credential_matches": 0,
+  "formal_log_complete": true
+}

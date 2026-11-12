@@ -46,7 +46,7 @@ PROBES = {
 def run():
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp); fixture = root / 'repo'; fixture.mkdir()
-        with (ROOT / 'evidence/language-probes.jsonl').open('w') as output:
+        with (ROOT / 'results/v2/evidence/language-probes.jsonl').open('w') as output:
             for mode in ['A', 'B']:
                 for name, source in PROBES.items():
                     script = source.replace('OUT(', 'return (' if mode == 'A' else 'result(')

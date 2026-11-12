@@ -1,0 +1,5330 @@
+[
+  {
+    "path": "pilot/base-deepseek-A-read-02-r1.jsonl",
+    "run_id": "base-deepseek-A-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-deepseek-A-rollback-01-r1.jsonl",
+    "run_id": "base-deepseek-A-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-deepseek-B-read-02-r1.jsonl",
+    "run_id": "base-deepseek-B-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-deepseek-B-rollback-01-r1.jsonl",
+    "run_id": "base-deepseek-B-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-minimax-A-read-02-r1.jsonl",
+    "run_id": "base-minimax-A-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-minimax-A-rollback-01-r1.jsonl",
+    "run_id": "base-minimax-A-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-minimax-B-read-02-r1.jsonl",
+    "run_id": "base-minimax-B-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/base-minimax-B-rollback-01-r1.jsonl",
+    "run_id": "base-minimax-B-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-deepseek-A-read-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-deepseek-A-rollback-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-deepseek-B-read-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-deepseek-B-rollback-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-minimax-A-read-02-r1.jsonl",
+    "run_id": "composed-minimax-A-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-minimax-A-rollback-01-r1.jsonl",
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-minimax-B-read-02-r1.jsonl",
+    "run_id": "composed-minimax-B-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/composed-minimax-B-rollback-01-r1.jsonl",
+    "run_id": "composed-minimax-B-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-deepseek-A-read-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-deepseek-A-rollback-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-deepseek-B-read-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-deepseek-B-rollback-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-minimax-A-read-02-r1.jsonl",
+    "run_id": "overview-minimax-A-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-minimax-A-rollback-01-r1.jsonl",
+    "run_id": "overview-minimax-A-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-minimax-B-read-02-r1.jsonl",
+    "run_id": "overview-minimax-B-read-02-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "pilot/overview-minimax-B-rollback-01-r1.jsonl",
+    "run_id": "overview-minimax-B-rollback-01-r1",
+    "phase": "pilot",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-01-r1.jsonl",
+    "run_id": "base-deepseek-A-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-01-r2.jsonl",
+    "run_id": "base-deepseek-A-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-01-r3.jsonl",
+    "run_id": "base-deepseek-A-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-02-r1.jsonl",
+    "run_id": "base-deepseek-A-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-02-r2.jsonl",
+    "run_id": "base-deepseek-A-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-02-r3.jsonl",
+    "run_id": "base-deepseek-A-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-03-r1.jsonl",
+    "run_id": "base-deepseek-A-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-03-r2.jsonl",
+    "run_id": "base-deepseek-A-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-03-r3.jsonl",
+    "run_id": "base-deepseek-A-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-04-r1.jsonl",
+    "run_id": "base-deepseek-A-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-04-r2.jsonl",
+    "run_id": "base-deepseek-A-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-batch-04-r3.jsonl",
+    "run_id": "base-deepseek-A-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-01-r1.jsonl",
+    "run_id": "base-deepseek-A-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-01-r2.jsonl",
+    "run_id": "base-deepseek-A-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-01-r3.jsonl",
+    "run_id": "base-deepseek-A-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-02-r1.jsonl",
+    "run_id": "base-deepseek-A-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-02-r2.jsonl",
+    "run_id": "base-deepseek-A-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-02-r3.jsonl",
+    "run_id": "base-deepseek-A-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-03-r1.jsonl",
+    "run_id": "base-deepseek-A-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-03-r2.jsonl",
+    "run_id": "base-deepseek-A-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-03-r3.jsonl",
+    "run_id": "base-deepseek-A-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-04-r1.jsonl",
+    "run_id": "base-deepseek-A-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-04-r2.jsonl",
+    "run_id": "base-deepseek-A-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-edit-04-r3.jsonl",
+    "run_id": "base-deepseek-A-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-01-r1.jsonl",
+    "run_id": "base-deepseek-A-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-01-r2.jsonl",
+    "run_id": "base-deepseek-A-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-01-r3.jsonl",
+    "run_id": "base-deepseek-A-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-02-r1.jsonl",
+    "run_id": "base-deepseek-A-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-02-r2.jsonl",
+    "run_id": "base-deepseek-A-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-02-r3.jsonl",
+    "run_id": "base-deepseek-A-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-03-r1.jsonl",
+    "run_id": "base-deepseek-A-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-03-r2.jsonl",
+    "run_id": "base-deepseek-A-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-03-r3.jsonl",
+    "run_id": "base-deepseek-A-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-04-r1.jsonl",
+    "run_id": "base-deepseek-A-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-04-r2.jsonl",
+    "run_id": "base-deepseek-A-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-probe-04-r3.jsonl",
+    "run_id": "base-deepseek-A-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-01-r1.jsonl",
+    "run_id": "base-deepseek-A-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-01-r2.jsonl",
+    "run_id": "base-deepseek-A-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-01-r3.jsonl",
+    "run_id": "base-deepseek-A-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-02-r1.jsonl",
+    "run_id": "base-deepseek-A-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-02-r2.jsonl",
+    "run_id": "base-deepseek-A-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-02-r3.jsonl",
+    "run_id": "base-deepseek-A-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-03-r1.jsonl",
+    "run_id": "base-deepseek-A-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-03-r2.jsonl",
+    "run_id": "base-deepseek-A-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-03-r3.jsonl",
+    "run_id": "base-deepseek-A-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-04-r1.jsonl",
+    "run_id": "base-deepseek-A-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-04-r2.jsonl",
+    "run_id": "base-deepseek-A-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-read-04-r3.jsonl",
+    "run_id": "base-deepseek-A-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-01-r1.jsonl",
+    "run_id": "base-deepseek-A-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-01-r2.jsonl",
+    "run_id": "base-deepseek-A-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-01-r3.jsonl",
+    "run_id": "base-deepseek-A-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-02-r1.jsonl",
+    "run_id": "base-deepseek-A-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-02-r2.jsonl",
+    "run_id": "base-deepseek-A-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-02-r3.jsonl",
+    "run_id": "base-deepseek-A-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-03-r1.jsonl",
+    "run_id": "base-deepseek-A-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-03-r2.jsonl",
+    "run_id": "base-deepseek-A-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-03-r3.jsonl",
+    "run_id": "base-deepseek-A-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-04-r1.jsonl",
+    "run_id": "base-deepseek-A-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-04-r2.jsonl",
+    "run_id": "base-deepseek-A-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-rollback-04-r3.jsonl",
+    "run_id": "base-deepseek-A-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-01-r1.jsonl",
+    "run_id": "base-deepseek-A-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-01-r2.jsonl",
+    "run_id": "base-deepseek-A-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-01-r3.jsonl",
+    "run_id": "base-deepseek-A-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-02-r1.jsonl",
+    "run_id": "base-deepseek-A-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-02-r2.jsonl",
+    "run_id": "base-deepseek-A-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-02-r3.jsonl",
+    "run_id": "base-deepseek-A-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-03-r1.jsonl",
+    "run_id": "base-deepseek-A-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-03-r2.jsonl",
+    "run_id": "base-deepseek-A-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-03-r3.jsonl",
+    "run_id": "base-deepseek-A-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-04-r1.jsonl",
+    "run_id": "base-deepseek-A-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-04-r2.jsonl",
+    "run_id": "base-deepseek-A-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-A-test-04-r3.jsonl",
+    "run_id": "base-deepseek-A-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-01-r1.jsonl",
+    "run_id": "base-deepseek-B-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-01-r2.jsonl",
+    "run_id": "base-deepseek-B-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-01-r3.jsonl",
+    "run_id": "base-deepseek-B-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-02-r1.jsonl",
+    "run_id": "base-deepseek-B-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-02-r2.jsonl",
+    "run_id": "base-deepseek-B-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-02-r3.jsonl",
+    "run_id": "base-deepseek-B-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-03-r1.jsonl",
+    "run_id": "base-deepseek-B-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-03-r2.jsonl",
+    "run_id": "base-deepseek-B-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-03-r3.jsonl",
+    "run_id": "base-deepseek-B-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-04-r1.jsonl",
+    "run_id": "base-deepseek-B-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-04-r2.jsonl",
+    "run_id": "base-deepseek-B-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-batch-04-r3.jsonl",
+    "run_id": "base-deepseek-B-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-01-r1.jsonl",
+    "run_id": "base-deepseek-B-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-01-r2.jsonl",
+    "run_id": "base-deepseek-B-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-01-r3.jsonl",
+    "run_id": "base-deepseek-B-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-02-r1.jsonl",
+    "run_id": "base-deepseek-B-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-02-r2.jsonl",
+    "run_id": "base-deepseek-B-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-02-r3.jsonl",
+    "run_id": "base-deepseek-B-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-03-r1.jsonl",
+    "run_id": "base-deepseek-B-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-03-r2.jsonl",
+    "run_id": "base-deepseek-B-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-03-r3.jsonl",
+    "run_id": "base-deepseek-B-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-04-r1.jsonl",
+    "run_id": "base-deepseek-B-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-04-r2.jsonl",
+    "run_id": "base-deepseek-B-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-edit-04-r3.jsonl",
+    "run_id": "base-deepseek-B-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-01-r1.jsonl",
+    "run_id": "base-deepseek-B-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-01-r2.jsonl",
+    "run_id": "base-deepseek-B-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-01-r3.jsonl",
+    "run_id": "base-deepseek-B-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-02-r1.jsonl",
+    "run_id": "base-deepseek-B-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-02-r2.jsonl",
+    "run_id": "base-deepseek-B-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-02-r3.jsonl",
+    "run_id": "base-deepseek-B-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-03-r1.jsonl",
+    "run_id": "base-deepseek-B-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-03-r2.jsonl",
+    "run_id": "base-deepseek-B-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-03-r3.jsonl",
+    "run_id": "base-deepseek-B-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-04-r1.jsonl",
+    "run_id": "base-deepseek-B-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-04-r2.jsonl",
+    "run_id": "base-deepseek-B-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-probe-04-r3.jsonl",
+    "run_id": "base-deepseek-B-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-01-r1.jsonl",
+    "run_id": "base-deepseek-B-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-01-r2.jsonl",
+    "run_id": "base-deepseek-B-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-01-r3.jsonl",
+    "run_id": "base-deepseek-B-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-02-r1.jsonl",
+    "run_id": "base-deepseek-B-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-02-r2.jsonl",
+    "run_id": "base-deepseek-B-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-02-r3.jsonl",
+    "run_id": "base-deepseek-B-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-03-r1.jsonl",
+    "run_id": "base-deepseek-B-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-03-r2.jsonl",
+    "run_id": "base-deepseek-B-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-03-r3.jsonl",
+    "run_id": "base-deepseek-B-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-04-r1.jsonl",
+    "run_id": "base-deepseek-B-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-04-r2.jsonl",
+    "run_id": "base-deepseek-B-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-read-04-r3.jsonl",
+    "run_id": "base-deepseek-B-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-01-r1.jsonl",
+    "run_id": "base-deepseek-B-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-01-r2.jsonl",
+    "run_id": "base-deepseek-B-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-01-r3.jsonl",
+    "run_id": "base-deepseek-B-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-02-r1.jsonl",
+    "run_id": "base-deepseek-B-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-02-r2.jsonl",
+    "run_id": "base-deepseek-B-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-02-r3.jsonl",
+    "run_id": "base-deepseek-B-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-03-r1.jsonl",
+    "run_id": "base-deepseek-B-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-03-r2.jsonl",
+    "run_id": "base-deepseek-B-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-03-r3.jsonl",
+    "run_id": "base-deepseek-B-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-04-r1.jsonl",
+    "run_id": "base-deepseek-B-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-04-r2.jsonl",
+    "run_id": "base-deepseek-B-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-rollback-04-r3.jsonl",
+    "run_id": "base-deepseek-B-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-01-r1.jsonl",
+    "run_id": "base-deepseek-B-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-01-r2.jsonl",
+    "run_id": "base-deepseek-B-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-01-r3.jsonl",
+    "run_id": "base-deepseek-B-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-02-r1.jsonl",
+    "run_id": "base-deepseek-B-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-02-r2.jsonl",
+    "run_id": "base-deepseek-B-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-02-r3.jsonl",
+    "run_id": "base-deepseek-B-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-03-r1.jsonl",
+    "run_id": "base-deepseek-B-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-03-r2.jsonl",
+    "run_id": "base-deepseek-B-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-03-r3.jsonl",
+    "run_id": "base-deepseek-B-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-04-r1.jsonl",
+    "run_id": "base-deepseek-B-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-04-r2.jsonl",
+    "run_id": "base-deepseek-B-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-deepseek-B-test-04-r3.jsonl",
+    "run_id": "base-deepseek-B-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-01-r1.jsonl",
+    "run_id": "base-minimax-A-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-01-r2.jsonl",
+    "run_id": "base-minimax-A-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-01-r3.jsonl",
+    "run_id": "base-minimax-A-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-02-r1.jsonl",
+    "run_id": "base-minimax-A-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-02-r2.jsonl",
+    "run_id": "base-minimax-A-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-02-r3.jsonl",
+    "run_id": "base-minimax-A-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-03-r1.jsonl",
+    "run_id": "base-minimax-A-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-03-r2.jsonl",
+    "run_id": "base-minimax-A-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-03-r3.jsonl",
+    "run_id": "base-minimax-A-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-04-r1.jsonl",
+    "run_id": "base-minimax-A-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-04-r2.jsonl",
+    "run_id": "base-minimax-A-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-batch-04-r3.jsonl",
+    "run_id": "base-minimax-A-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-01-r1.jsonl",
+    "run_id": "base-minimax-A-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-01-r2.jsonl",
+    "run_id": "base-minimax-A-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-01-r3.jsonl",
+    "run_id": "base-minimax-A-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-02-r1.jsonl",
+    "run_id": "base-minimax-A-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-02-r2.jsonl",
+    "run_id": "base-minimax-A-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-02-r3.jsonl",
+    "run_id": "base-minimax-A-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-03-r1.jsonl",
+    "run_id": "base-minimax-A-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-03-r2.jsonl",
+    "run_id": "base-minimax-A-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-03-r3.jsonl",
+    "run_id": "base-minimax-A-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-04-r1.jsonl",
+    "run_id": "base-minimax-A-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-04-r2.jsonl",
+    "run_id": "base-minimax-A-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-edit-04-r3.jsonl",
+    "run_id": "base-minimax-A-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-01-r1.jsonl",
+    "run_id": "base-minimax-A-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-01-r2.jsonl",
+    "run_id": "base-minimax-A-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-01-r3.jsonl",
+    "run_id": "base-minimax-A-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-02-r1.jsonl",
+    "run_id": "base-minimax-A-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-02-r2.jsonl",
+    "run_id": "base-minimax-A-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-02-r3.jsonl",
+    "run_id": "base-minimax-A-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-03-r1.jsonl",
+    "run_id": "base-minimax-A-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-03-r2.jsonl",
+    "run_id": "base-minimax-A-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-03-r3.jsonl",
+    "run_id": "base-minimax-A-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-04-r1.jsonl",
+    "run_id": "base-minimax-A-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-04-r2.jsonl",
+    "run_id": "base-minimax-A-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-probe-04-r3.jsonl",
+    "run_id": "base-minimax-A-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-01-r1.jsonl",
+    "run_id": "base-minimax-A-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-01-r2.jsonl",
+    "run_id": "base-minimax-A-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-01-r3.jsonl",
+    "run_id": "base-minimax-A-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-02-r1.jsonl",
+    "run_id": "base-minimax-A-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-02-r2.jsonl",
+    "run_id": "base-minimax-A-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-02-r3.jsonl",
+    "run_id": "base-minimax-A-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-03-r1.jsonl",
+    "run_id": "base-minimax-A-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-03-r2.jsonl",
+    "run_id": "base-minimax-A-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-03-r3.jsonl",
+    "run_id": "base-minimax-A-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-04-r1.jsonl",
+    "run_id": "base-minimax-A-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-04-r2.jsonl",
+    "run_id": "base-minimax-A-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-read-04-r3.jsonl",
+    "run_id": "base-minimax-A-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-01-r1.jsonl",
+    "run_id": "base-minimax-A-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-01-r2.jsonl",
+    "run_id": "base-minimax-A-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-01-r3.jsonl",
+    "run_id": "base-minimax-A-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-02-r1.jsonl",
+    "run_id": "base-minimax-A-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-02-r2.jsonl",
+    "run_id": "base-minimax-A-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-02-r3.jsonl",
+    "run_id": "base-minimax-A-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-03-r1.jsonl",
+    "run_id": "base-minimax-A-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-03-r2.jsonl",
+    "run_id": "base-minimax-A-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-03-r3.jsonl",
+    "run_id": "base-minimax-A-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-04-r1.jsonl",
+    "run_id": "base-minimax-A-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-04-r2.jsonl",
+    "run_id": "base-minimax-A-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-rollback-04-r3.jsonl",
+    "run_id": "base-minimax-A-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-01-r1.jsonl",
+    "run_id": "base-minimax-A-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-01-r2.jsonl",
+    "run_id": "base-minimax-A-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-01-r3.jsonl",
+    "run_id": "base-minimax-A-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-02-r1.jsonl",
+    "run_id": "base-minimax-A-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-02-r2.jsonl",
+    "run_id": "base-minimax-A-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-02-r3.jsonl",
+    "run_id": "base-minimax-A-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-03-r1.jsonl",
+    "run_id": "base-minimax-A-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-03-r2.jsonl",
+    "run_id": "base-minimax-A-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-03-r3.jsonl",
+    "run_id": "base-minimax-A-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-04-r1.jsonl",
+    "run_id": "base-minimax-A-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-04-r2.jsonl",
+    "run_id": "base-minimax-A-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-A-test-04-r3.jsonl",
+    "run_id": "base-minimax-A-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-01-r1.jsonl",
+    "run_id": "base-minimax-B-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-01-r2.jsonl",
+    "run_id": "base-minimax-B-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-01-r3.jsonl",
+    "run_id": "base-minimax-B-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-02-r1.jsonl",
+    "run_id": "base-minimax-B-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-02-r2.jsonl",
+    "run_id": "base-minimax-B-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-02-r3.jsonl",
+    "run_id": "base-minimax-B-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-03-r1.jsonl",
+    "run_id": "base-minimax-B-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-03-r2.jsonl",
+    "run_id": "base-minimax-B-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-03-r3.jsonl",
+    "run_id": "base-minimax-B-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-04-r1.jsonl",
+    "run_id": "base-minimax-B-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-04-r2.jsonl",
+    "run_id": "base-minimax-B-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-batch-04-r3.jsonl",
+    "run_id": "base-minimax-B-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-01-r1.jsonl",
+    "run_id": "base-minimax-B-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-01-r2.jsonl",
+    "run_id": "base-minimax-B-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-01-r3.jsonl",
+    "run_id": "base-minimax-B-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-02-r1.jsonl",
+    "run_id": "base-minimax-B-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-02-r2.jsonl",
+    "run_id": "base-minimax-B-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-02-r3.jsonl",
+    "run_id": "base-minimax-B-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-03-r1.jsonl",
+    "run_id": "base-minimax-B-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-03-r2.jsonl",
+    "run_id": "base-minimax-B-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-03-r3.jsonl",
+    "run_id": "base-minimax-B-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-04-r1.jsonl",
+    "run_id": "base-minimax-B-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-04-r2.jsonl",
+    "run_id": "base-minimax-B-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-edit-04-r3.jsonl",
+    "run_id": "base-minimax-B-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-01-r1.jsonl",
+    "run_id": "base-minimax-B-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-01-r2.jsonl",
+    "run_id": "base-minimax-B-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-01-r3.jsonl",
+    "run_id": "base-minimax-B-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-02-r1.jsonl",
+    "run_id": "base-minimax-B-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-02-r2.jsonl",
+    "run_id": "base-minimax-B-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-02-r3.jsonl",
+    "run_id": "base-minimax-B-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-03-r1.jsonl",
+    "run_id": "base-minimax-B-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-03-r2.jsonl",
+    "run_id": "base-minimax-B-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-03-r3.jsonl",
+    "run_id": "base-minimax-B-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-04-r1.jsonl",
+    "run_id": "base-minimax-B-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-04-r2.jsonl",
+    "run_id": "base-minimax-B-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-probe-04-r3.jsonl",
+    "run_id": "base-minimax-B-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-01-r1.jsonl",
+    "run_id": "base-minimax-B-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-01-r2.jsonl",
+    "run_id": "base-minimax-B-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-01-r3.jsonl",
+    "run_id": "base-minimax-B-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-02-r1.jsonl",
+    "run_id": "base-minimax-B-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-02-r2.jsonl",
+    "run_id": "base-minimax-B-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-02-r3.jsonl",
+    "run_id": "base-minimax-B-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-03-r1.jsonl",
+    "run_id": "base-minimax-B-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-03-r2.jsonl",
+    "run_id": "base-minimax-B-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-03-r3.jsonl",
+    "run_id": "base-minimax-B-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-04-r1.jsonl",
+    "run_id": "base-minimax-B-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-04-r2.jsonl",
+    "run_id": "base-minimax-B-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-read-04-r3.jsonl",
+    "run_id": "base-minimax-B-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-01-r1.jsonl",
+    "run_id": "base-minimax-B-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-01-r2.jsonl",
+    "run_id": "base-minimax-B-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-01-r3.jsonl",
+    "run_id": "base-minimax-B-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-02-r1.jsonl",
+    "run_id": "base-minimax-B-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-02-r2.jsonl",
+    "run_id": "base-minimax-B-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-02-r3.jsonl",
+    "run_id": "base-minimax-B-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-03-r1.jsonl",
+    "run_id": "base-minimax-B-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-03-r2.jsonl",
+    "run_id": "base-minimax-B-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-03-r3.jsonl",
+    "run_id": "base-minimax-B-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-04-r1.jsonl",
+    "run_id": "base-minimax-B-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-04-r2.jsonl",
+    "run_id": "base-minimax-B-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-rollback-04-r3.jsonl",
+    "run_id": "base-minimax-B-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-01-r1.jsonl",
+    "run_id": "base-minimax-B-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-01-r2.jsonl",
+    "run_id": "base-minimax-B-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-01-r3.jsonl",
+    "run_id": "base-minimax-B-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-02-r1.jsonl",
+    "run_id": "base-minimax-B-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-02-r2.jsonl",
+    "run_id": "base-minimax-B-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-02-r3.jsonl",
+    "run_id": "base-minimax-B-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-03-r1.jsonl",
+    "run_id": "base-minimax-B-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-03-r2.jsonl",
+    "run_id": "base-minimax-B-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-03-r3.jsonl",
+    "run_id": "base-minimax-B-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-04-r1.jsonl",
+    "run_id": "base-minimax-B-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-04-r2.jsonl",
+    "run_id": "base-minimax-B-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/base-minimax-B-test-04-r3.jsonl",
+    "run_id": "base-minimax-B-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-01-r2.jsonl",
+    "run_id": "composed-deepseek-A-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-01-r3.jsonl",
+    "run_id": "composed-deepseek-A-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-02-r2.jsonl",
+    "run_id": "composed-deepseek-A-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-02-r3.jsonl",
+    "run_id": "composed-deepseek-A-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-03-r1.jsonl",
+    "run_id": "composed-deepseek-A-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-03-r2.jsonl",
+    "run_id": "composed-deepseek-A-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-03-r3.jsonl",
+    "run_id": "composed-deepseek-A-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-04-r1.jsonl",
+    "run_id": "composed-deepseek-A-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-04-r2.jsonl",
+    "run_id": "composed-deepseek-A-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-batch-04-r3.jsonl",
+    "run_id": "composed-deepseek-A-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-01-r2.jsonl",
+    "run_id": "composed-deepseek-A-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-01-r3.jsonl",
+    "run_id": "composed-deepseek-A-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-02-r2.jsonl",
+    "run_id": "composed-deepseek-A-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-02-r3.jsonl",
+    "run_id": "composed-deepseek-A-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-03-r1.jsonl",
+    "run_id": "composed-deepseek-A-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-03-r2.jsonl",
+    "run_id": "composed-deepseek-A-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-03-r3.jsonl",
+    "run_id": "composed-deepseek-A-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-04-r1.jsonl",
+    "run_id": "composed-deepseek-A-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-04-r2.jsonl",
+    "run_id": "composed-deepseek-A-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-edit-04-r3.jsonl",
+    "run_id": "composed-deepseek-A-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-01-r2.jsonl",
+    "run_id": "composed-deepseek-A-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-01-r3.jsonl",
+    "run_id": "composed-deepseek-A-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-02-r2.jsonl",
+    "run_id": "composed-deepseek-A-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-02-r3.jsonl",
+    "run_id": "composed-deepseek-A-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-03-r1.jsonl",
+    "run_id": "composed-deepseek-A-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-03-r2.jsonl",
+    "run_id": "composed-deepseek-A-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-03-r3.jsonl",
+    "run_id": "composed-deepseek-A-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-04-r1.jsonl",
+    "run_id": "composed-deepseek-A-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-04-r2.jsonl",
+    "run_id": "composed-deepseek-A-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-probe-04-r3.jsonl",
+    "run_id": "composed-deepseek-A-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-01-r2.jsonl",
+    "run_id": "composed-deepseek-A-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-01-r3.jsonl",
+    "run_id": "composed-deepseek-A-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-02-r2.jsonl",
+    "run_id": "composed-deepseek-A-read-02-r2",
+    "phase": "formal",
+    "status": "harness_error"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-02-r3.jsonl",
+    "run_id": "composed-deepseek-A-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-03-r1.jsonl",
+    "run_id": "composed-deepseek-A-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-03-r2.jsonl",
+    "run_id": "composed-deepseek-A-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-03-r3.jsonl",
+    "run_id": "composed-deepseek-A-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-04-r1.jsonl",
+    "run_id": "composed-deepseek-A-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-04-r2.jsonl",
+    "run_id": "composed-deepseek-A-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-read-04-r3.jsonl",
+    "run_id": "composed-deepseek-A-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-01-r2.jsonl",
+    "run_id": "composed-deepseek-A-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-01-r3.jsonl",
+    "run_id": "composed-deepseek-A-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-02-r2.jsonl",
+    "run_id": "composed-deepseek-A-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-02-r3.jsonl",
+    "run_id": "composed-deepseek-A-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-03-r1.jsonl",
+    "run_id": "composed-deepseek-A-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-03-r2.jsonl",
+    "run_id": "composed-deepseek-A-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-03-r3.jsonl",
+    "run_id": "composed-deepseek-A-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-04-r1.jsonl",
+    "run_id": "composed-deepseek-A-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-04-r2.jsonl",
+    "run_id": "composed-deepseek-A-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-rollback-04-r3.jsonl",
+    "run_id": "composed-deepseek-A-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-01-r1.jsonl",
+    "run_id": "composed-deepseek-A-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-01-r2.jsonl",
+    "run_id": "composed-deepseek-A-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-01-r3.jsonl",
+    "run_id": "composed-deepseek-A-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-02-r1.jsonl",
+    "run_id": "composed-deepseek-A-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-02-r2.jsonl",
+    "run_id": "composed-deepseek-A-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-02-r3.jsonl",
+    "run_id": "composed-deepseek-A-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-03-r1.jsonl",
+    "run_id": "composed-deepseek-A-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-03-r2.jsonl",
+    "run_id": "composed-deepseek-A-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-03-r3.jsonl",
+    "run_id": "composed-deepseek-A-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-04-r1.jsonl",
+    "run_id": "composed-deepseek-A-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-04-r2.jsonl",
+    "run_id": "composed-deepseek-A-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-A-test-04-r3.jsonl",
+    "run_id": "composed-deepseek-A-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-01-r2.jsonl",
+    "run_id": "composed-deepseek-B-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-01-r3.jsonl",
+    "run_id": "composed-deepseek-B-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-02-r2.jsonl",
+    "run_id": "composed-deepseek-B-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-02-r3.jsonl",
+    "run_id": "composed-deepseek-B-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-03-r1.jsonl",
+    "run_id": "composed-deepseek-B-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-03-r2.jsonl",
+    "run_id": "composed-deepseek-B-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-03-r3.jsonl",
+    "run_id": "composed-deepseek-B-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-04-r1.jsonl",
+    "run_id": "composed-deepseek-B-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-04-r2.jsonl",
+    "run_id": "composed-deepseek-B-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-batch-04-r3.jsonl",
+    "run_id": "composed-deepseek-B-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-01-r2.jsonl",
+    "run_id": "composed-deepseek-B-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-01-r3.jsonl",
+    "run_id": "composed-deepseek-B-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-02-r2.jsonl",
+    "run_id": "composed-deepseek-B-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-02-r3.jsonl",
+    "run_id": "composed-deepseek-B-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-03-r1.jsonl",
+    "run_id": "composed-deepseek-B-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-03-r2.jsonl",
+    "run_id": "composed-deepseek-B-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-03-r3.jsonl",
+    "run_id": "composed-deepseek-B-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-04-r1.jsonl",
+    "run_id": "composed-deepseek-B-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-04-r2.jsonl",
+    "run_id": "composed-deepseek-B-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-edit-04-r3.jsonl",
+    "run_id": "composed-deepseek-B-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-01-r2.jsonl",
+    "run_id": "composed-deepseek-B-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-01-r3.jsonl",
+    "run_id": "composed-deepseek-B-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-02-r2.jsonl",
+    "run_id": "composed-deepseek-B-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-02-r3.jsonl",
+    "run_id": "composed-deepseek-B-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-03-r1.jsonl",
+    "run_id": "composed-deepseek-B-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-03-r2.jsonl",
+    "run_id": "composed-deepseek-B-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-03-r3.jsonl",
+    "run_id": "composed-deepseek-B-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-04-r1.jsonl",
+    "run_id": "composed-deepseek-B-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-04-r2.jsonl",
+    "run_id": "composed-deepseek-B-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-probe-04-r3.jsonl",
+    "run_id": "composed-deepseek-B-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-01-r2.jsonl",
+    "run_id": "composed-deepseek-B-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-01-r3.jsonl",
+    "run_id": "composed-deepseek-B-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-02-r2.jsonl",
+    "run_id": "composed-deepseek-B-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-02-r3.jsonl",
+    "run_id": "composed-deepseek-B-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-03-r1.jsonl",
+    "run_id": "composed-deepseek-B-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-03-r2.jsonl",
+    "run_id": "composed-deepseek-B-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-03-r3.jsonl",
+    "run_id": "composed-deepseek-B-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-04-r1.jsonl",
+    "run_id": "composed-deepseek-B-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-04-r2.jsonl",
+    "run_id": "composed-deepseek-B-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-read-04-r3.jsonl",
+    "run_id": "composed-deepseek-B-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-01-r2.jsonl",
+    "run_id": "composed-deepseek-B-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-01-r3.jsonl",
+    "run_id": "composed-deepseek-B-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-02-r2.jsonl",
+    "run_id": "composed-deepseek-B-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-02-r3.jsonl",
+    "run_id": "composed-deepseek-B-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-03-r1.jsonl",
+    "run_id": "composed-deepseek-B-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-03-r2.jsonl",
+    "run_id": "composed-deepseek-B-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-03-r3.jsonl",
+    "run_id": "composed-deepseek-B-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-04-r1.jsonl",
+    "run_id": "composed-deepseek-B-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-04-r2.jsonl",
+    "run_id": "composed-deepseek-B-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-rollback-04-r3.jsonl",
+    "run_id": "composed-deepseek-B-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-01-r1.jsonl",
+    "run_id": "composed-deepseek-B-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-01-r2.jsonl",
+    "run_id": "composed-deepseek-B-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-01-r3.jsonl",
+    "run_id": "composed-deepseek-B-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-02-r1.jsonl",
+    "run_id": "composed-deepseek-B-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-02-r2.jsonl",
+    "run_id": "composed-deepseek-B-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-02-r3.jsonl",
+    "run_id": "composed-deepseek-B-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-03-r1.jsonl",
+    "run_id": "composed-deepseek-B-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-03-r2.jsonl",
+    "run_id": "composed-deepseek-B-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-03-r3.jsonl",
+    "run_id": "composed-deepseek-B-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-04-r1.jsonl",
+    "run_id": "composed-deepseek-B-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-04-r2.jsonl",
+    "run_id": "composed-deepseek-B-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-deepseek-B-test-04-r3.jsonl",
+    "run_id": "composed-deepseek-B-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-01-r1.jsonl",
+    "run_id": "composed-minimax-A-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-01-r2.jsonl",
+    "run_id": "composed-minimax-A-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-01-r3.jsonl",
+    "run_id": "composed-minimax-A-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-02-r1.jsonl",
+    "run_id": "composed-minimax-A-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-02-r2.jsonl",
+    "run_id": "composed-minimax-A-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-02-r3.jsonl",
+    "run_id": "composed-minimax-A-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-03-r1.jsonl",
+    "run_id": "composed-minimax-A-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-03-r2.jsonl",
+    "run_id": "composed-minimax-A-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-03-r3.jsonl",
+    "run_id": "composed-minimax-A-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-04-r1.jsonl",
+    "run_id": "composed-minimax-A-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-04-r2.jsonl",
+    "run_id": "composed-minimax-A-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-batch-04-r3.jsonl",
+    "run_id": "composed-minimax-A-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-01-r1.jsonl",
+    "run_id": "composed-minimax-A-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-01-r2.jsonl",
+    "run_id": "composed-minimax-A-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-01-r3.jsonl",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-02-r1.jsonl",
+    "run_id": "composed-minimax-A-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-02-r2.jsonl",
+    "run_id": "composed-minimax-A-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-02-r3.jsonl",
+    "run_id": "composed-minimax-A-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-03-r1.jsonl",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-03-r2.jsonl",
+    "run_id": "composed-minimax-A-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-03-r3.jsonl",
+    "run_id": "composed-minimax-A-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-04-r1.jsonl",
+    "run_id": "composed-minimax-A-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-04-r2.jsonl",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-edit-04-r3.jsonl",
+    "run_id": "composed-minimax-A-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-01-r1.jsonl",
+    "run_id": "composed-minimax-A-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-01-r2.jsonl",
+    "run_id": "composed-minimax-A-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-01-r3.jsonl",
+    "run_id": "composed-minimax-A-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-02-r1.jsonl",
+    "run_id": "composed-minimax-A-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-02-r2.jsonl",
+    "run_id": "composed-minimax-A-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-02-r3.jsonl",
+    "run_id": "composed-minimax-A-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-03-r1.jsonl",
+    "run_id": "composed-minimax-A-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-03-r2.jsonl",
+    "run_id": "composed-minimax-A-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-03-r3.jsonl",
+    "run_id": "composed-minimax-A-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-04-r1.jsonl",
+    "run_id": "composed-minimax-A-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-04-r2.jsonl",
+    "run_id": "composed-minimax-A-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-probe-04-r3.jsonl",
+    "run_id": "composed-minimax-A-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-01-r1.jsonl",
+    "run_id": "composed-minimax-A-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-01-r2.jsonl",
+    "run_id": "composed-minimax-A-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-01-r3.jsonl",
+    "run_id": "composed-minimax-A-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-02-r1.jsonl",
+    "run_id": "composed-minimax-A-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-02-r2.jsonl",
+    "run_id": "composed-minimax-A-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-02-r3.jsonl",
+    "run_id": "composed-minimax-A-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-03-r1.jsonl",
+    "run_id": "composed-minimax-A-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-03-r2.jsonl",
+    "run_id": "composed-minimax-A-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-03-r3.jsonl",
+    "run_id": "composed-minimax-A-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-04-r1.jsonl",
+    "run_id": "composed-minimax-A-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-04-r2.jsonl",
+    "run_id": "composed-minimax-A-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-read-04-r3.jsonl",
+    "run_id": "composed-minimax-A-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-01-r1.jsonl",
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "phase": "formal",
+    "status": "harness_error"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-01-r2.jsonl",
+    "run_id": "composed-minimax-A-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-01-r3.jsonl",
+    "run_id": "composed-minimax-A-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-02-r1.jsonl",
+    "run_id": "composed-minimax-A-rollback-02-r1",
+    "phase": "formal",
+    "status": "harness_error"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-02-r2.jsonl",
+    "run_id": "composed-minimax-A-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-02-r3.jsonl",
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-03-r1.jsonl",
+    "run_id": "composed-minimax-A-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-03-r2.jsonl",
+    "run_id": "composed-minimax-A-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-03-r3.jsonl",
+    "run_id": "composed-minimax-A-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-04-r1.jsonl",
+    "run_id": "composed-minimax-A-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-04-r2.jsonl",
+    "run_id": "composed-minimax-A-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-rollback-04-r3.jsonl",
+    "run_id": "composed-minimax-A-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-01-r1.jsonl",
+    "run_id": "composed-minimax-A-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-01-r2.jsonl",
+    "run_id": "composed-minimax-A-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-01-r3.jsonl",
+    "run_id": "composed-minimax-A-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-02-r1.jsonl",
+    "run_id": "composed-minimax-A-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-02-r2.jsonl",
+    "run_id": "composed-minimax-A-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-02-r3.jsonl",
+    "run_id": "composed-minimax-A-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-03-r1.jsonl",
+    "run_id": "composed-minimax-A-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-03-r2.jsonl",
+    "run_id": "composed-minimax-A-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-03-r3.jsonl",
+    "run_id": "composed-minimax-A-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-04-r1.jsonl",
+    "run_id": "composed-minimax-A-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-04-r2.jsonl",
+    "run_id": "composed-minimax-A-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-A-test-04-r3.jsonl",
+    "run_id": "composed-minimax-A-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-01-r1.jsonl",
+    "run_id": "composed-minimax-B-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-01-r2.jsonl",
+    "run_id": "composed-minimax-B-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-01-r3.jsonl",
+    "run_id": "composed-minimax-B-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-02-r1.jsonl",
+    "run_id": "composed-minimax-B-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-02-r2.jsonl",
+    "run_id": "composed-minimax-B-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-02-r3.jsonl",
+    "run_id": "composed-minimax-B-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-03-r1.jsonl",
+    "run_id": "composed-minimax-B-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-03-r2.jsonl",
+    "run_id": "composed-minimax-B-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-03-r3.jsonl",
+    "run_id": "composed-minimax-B-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-04-r1.jsonl",
+    "run_id": "composed-minimax-B-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-04-r2.jsonl",
+    "run_id": "composed-minimax-B-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-batch-04-r3.jsonl",
+    "run_id": "composed-minimax-B-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-01-r1.jsonl",
+    "run_id": "composed-minimax-B-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-01-r2.jsonl",
+    "run_id": "composed-minimax-B-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-01-r3.jsonl",
+    "run_id": "composed-minimax-B-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-02-r1.jsonl",
+    "run_id": "composed-minimax-B-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-02-r2.jsonl",
+    "run_id": "composed-minimax-B-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-02-r3.jsonl",
+    "run_id": "composed-minimax-B-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-03-r1.jsonl",
+    "run_id": "composed-minimax-B-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-03-r2.jsonl",
+    "run_id": "composed-minimax-B-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-03-r3.jsonl",
+    "run_id": "composed-minimax-B-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-04-r1.jsonl",
+    "run_id": "composed-minimax-B-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-04-r2.jsonl",
+    "run_id": "composed-minimax-B-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-edit-04-r3.jsonl",
+    "run_id": "composed-minimax-B-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-01-r1.jsonl",
+    "run_id": "composed-minimax-B-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-01-r2.jsonl",
+    "run_id": "composed-minimax-B-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-01-r3.jsonl",
+    "run_id": "composed-minimax-B-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-02-r1.jsonl",
+    "run_id": "composed-minimax-B-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-02-r2.jsonl",
+    "run_id": "composed-minimax-B-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-02-r3.jsonl",
+    "run_id": "composed-minimax-B-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-03-r1.jsonl",
+    "run_id": "composed-minimax-B-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-03-r2.jsonl",
+    "run_id": "composed-minimax-B-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-03-r3.jsonl",
+    "run_id": "composed-minimax-B-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-04-r1.jsonl",
+    "run_id": "composed-minimax-B-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-04-r2.jsonl",
+    "run_id": "composed-minimax-B-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-probe-04-r3.jsonl",
+    "run_id": "composed-minimax-B-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-01-r1.jsonl",
+    "run_id": "composed-minimax-B-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-01-r2.jsonl",
+    "run_id": "composed-minimax-B-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-01-r3.jsonl",
+    "run_id": "composed-minimax-B-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-02-r1.jsonl",
+    "run_id": "composed-minimax-B-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-02-r2.jsonl",
+    "run_id": "composed-minimax-B-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-02-r3.jsonl",
+    "run_id": "composed-minimax-B-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-03-r1.jsonl",
+    "run_id": "composed-minimax-B-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-03-r2.jsonl",
+    "run_id": "composed-minimax-B-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-03-r3.jsonl",
+    "run_id": "composed-minimax-B-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-04-r1.jsonl",
+    "run_id": "composed-minimax-B-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-04-r2.jsonl",
+    "run_id": "composed-minimax-B-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-read-04-r3.jsonl",
+    "run_id": "composed-minimax-B-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-01-r1.jsonl",
+    "run_id": "composed-minimax-B-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-01-r2.jsonl",
+    "run_id": "composed-minimax-B-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-01-r3.jsonl",
+    "run_id": "composed-minimax-B-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-02-r1.jsonl",
+    "run_id": "composed-minimax-B-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-02-r2.jsonl",
+    "run_id": "composed-minimax-B-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-02-r3.jsonl",
+    "run_id": "composed-minimax-B-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-03-r1.jsonl",
+    "run_id": "composed-minimax-B-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-03-r2.jsonl",
+    "run_id": "composed-minimax-B-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-03-r3.jsonl",
+    "run_id": "composed-minimax-B-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-04-r1.jsonl",
+    "run_id": "composed-minimax-B-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-04-r2.jsonl",
+    "run_id": "composed-minimax-B-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-rollback-04-r3.jsonl",
+    "run_id": "composed-minimax-B-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-01-r1.jsonl",
+    "run_id": "composed-minimax-B-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-01-r2.jsonl",
+    "run_id": "composed-minimax-B-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-01-r3.jsonl",
+    "run_id": "composed-minimax-B-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-02-r1.jsonl",
+    "run_id": "composed-minimax-B-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-02-r2.jsonl",
+    "run_id": "composed-minimax-B-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-02-r3.jsonl",
+    "run_id": "composed-minimax-B-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-03-r1.jsonl",
+    "run_id": "composed-minimax-B-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-03-r2.jsonl",
+    "run_id": "composed-minimax-B-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-03-r3.jsonl",
+    "run_id": "composed-minimax-B-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-04-r1.jsonl",
+    "run_id": "composed-minimax-B-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-04-r2.jsonl",
+    "run_id": "composed-minimax-B-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/composed-minimax-B-test-04-r3.jsonl",
+    "run_id": "composed-minimax-B-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-01-r2.jsonl",
+    "run_id": "overview-deepseek-A-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-01-r3.jsonl",
+    "run_id": "overview-deepseek-A-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-02-r2.jsonl",
+    "run_id": "overview-deepseek-A-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-02-r3.jsonl",
+    "run_id": "overview-deepseek-A-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-03-r1.jsonl",
+    "run_id": "overview-deepseek-A-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-03-r2.jsonl",
+    "run_id": "overview-deepseek-A-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-03-r3.jsonl",
+    "run_id": "overview-deepseek-A-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-04-r1.jsonl",
+    "run_id": "overview-deepseek-A-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-04-r2.jsonl",
+    "run_id": "overview-deepseek-A-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-batch-04-r3.jsonl",
+    "run_id": "overview-deepseek-A-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-01-r2.jsonl",
+    "run_id": "overview-deepseek-A-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-01-r3.jsonl",
+    "run_id": "overview-deepseek-A-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-02-r2.jsonl",
+    "run_id": "overview-deepseek-A-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-02-r3.jsonl",
+    "run_id": "overview-deepseek-A-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-03-r1.jsonl",
+    "run_id": "overview-deepseek-A-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-03-r2.jsonl",
+    "run_id": "overview-deepseek-A-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-03-r3.jsonl",
+    "run_id": "overview-deepseek-A-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-04-r1.jsonl",
+    "run_id": "overview-deepseek-A-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-04-r2.jsonl",
+    "run_id": "overview-deepseek-A-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-edit-04-r3.jsonl",
+    "run_id": "overview-deepseek-A-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-01-r2.jsonl",
+    "run_id": "overview-deepseek-A-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-01-r3.jsonl",
+    "run_id": "overview-deepseek-A-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-02-r2.jsonl",
+    "run_id": "overview-deepseek-A-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-02-r3.jsonl",
+    "run_id": "overview-deepseek-A-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-03-r1.jsonl",
+    "run_id": "overview-deepseek-A-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-03-r2.jsonl",
+    "run_id": "overview-deepseek-A-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-03-r3.jsonl",
+    "run_id": "overview-deepseek-A-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-04-r1.jsonl",
+    "run_id": "overview-deepseek-A-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-04-r2.jsonl",
+    "run_id": "overview-deepseek-A-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-probe-04-r3.jsonl",
+    "run_id": "overview-deepseek-A-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-01-r2.jsonl",
+    "run_id": "overview-deepseek-A-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-01-r3.jsonl",
+    "run_id": "overview-deepseek-A-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-02-r2.jsonl",
+    "run_id": "overview-deepseek-A-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-02-r3.jsonl",
+    "run_id": "overview-deepseek-A-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-03-r1.jsonl",
+    "run_id": "overview-deepseek-A-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-03-r2.jsonl",
+    "run_id": "overview-deepseek-A-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-03-r3.jsonl",
+    "run_id": "overview-deepseek-A-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-04-r1.jsonl",
+    "run_id": "overview-deepseek-A-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-04-r2.jsonl",
+    "run_id": "overview-deepseek-A-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-read-04-r3.jsonl",
+    "run_id": "overview-deepseek-A-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-01-r2.jsonl",
+    "run_id": "overview-deepseek-A-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-01-r3.jsonl",
+    "run_id": "overview-deepseek-A-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-02-r2.jsonl",
+    "run_id": "overview-deepseek-A-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-02-r3.jsonl",
+    "run_id": "overview-deepseek-A-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-03-r1.jsonl",
+    "run_id": "overview-deepseek-A-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-03-r2.jsonl",
+    "run_id": "overview-deepseek-A-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-03-r3.jsonl",
+    "run_id": "overview-deepseek-A-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-04-r1.jsonl",
+    "run_id": "overview-deepseek-A-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-04-r2.jsonl",
+    "run_id": "overview-deepseek-A-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-rollback-04-r3.jsonl",
+    "run_id": "overview-deepseek-A-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-01-r1.jsonl",
+    "run_id": "overview-deepseek-A-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-01-r2.jsonl",
+    "run_id": "overview-deepseek-A-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-01-r3.jsonl",
+    "run_id": "overview-deepseek-A-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-02-r1.jsonl",
+    "run_id": "overview-deepseek-A-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-02-r2.jsonl",
+    "run_id": "overview-deepseek-A-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-02-r3.jsonl",
+    "run_id": "overview-deepseek-A-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-03-r1.jsonl",
+    "run_id": "overview-deepseek-A-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-03-r2.jsonl",
+    "run_id": "overview-deepseek-A-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-03-r3.jsonl",
+    "run_id": "overview-deepseek-A-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-04-r1.jsonl",
+    "run_id": "overview-deepseek-A-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-04-r2.jsonl",
+    "run_id": "overview-deepseek-A-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-A-test-04-r3.jsonl",
+    "run_id": "overview-deepseek-A-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-01-r2.jsonl",
+    "run_id": "overview-deepseek-B-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-01-r3.jsonl",
+    "run_id": "overview-deepseek-B-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-02-r2.jsonl",
+    "run_id": "overview-deepseek-B-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-02-r3.jsonl",
+    "run_id": "overview-deepseek-B-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-03-r1.jsonl",
+    "run_id": "overview-deepseek-B-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-03-r2.jsonl",
+    "run_id": "overview-deepseek-B-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-03-r3.jsonl",
+    "run_id": "overview-deepseek-B-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-04-r1.jsonl",
+    "run_id": "overview-deepseek-B-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-04-r2.jsonl",
+    "run_id": "overview-deepseek-B-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-batch-04-r3.jsonl",
+    "run_id": "overview-deepseek-B-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-01-r2.jsonl",
+    "run_id": "overview-deepseek-B-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-01-r3.jsonl",
+    "run_id": "overview-deepseek-B-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-02-r2.jsonl",
+    "run_id": "overview-deepseek-B-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-02-r3.jsonl",
+    "run_id": "overview-deepseek-B-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-03-r1.jsonl",
+    "run_id": "overview-deepseek-B-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-03-r2.jsonl",
+    "run_id": "overview-deepseek-B-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-03-r3.jsonl",
+    "run_id": "overview-deepseek-B-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-04-r1.jsonl",
+    "run_id": "overview-deepseek-B-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-04-r2.jsonl",
+    "run_id": "overview-deepseek-B-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-edit-04-r3.jsonl",
+    "run_id": "overview-deepseek-B-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-01-r2.jsonl",
+    "run_id": "overview-deepseek-B-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-01-r3.jsonl",
+    "run_id": "overview-deepseek-B-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-02-r2.jsonl",
+    "run_id": "overview-deepseek-B-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-02-r3.jsonl",
+    "run_id": "overview-deepseek-B-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-03-r1.jsonl",
+    "run_id": "overview-deepseek-B-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-03-r2.jsonl",
+    "run_id": "overview-deepseek-B-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-03-r3.jsonl",
+    "run_id": "overview-deepseek-B-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-04-r1.jsonl",
+    "run_id": "overview-deepseek-B-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-04-r2.jsonl",
+    "run_id": "overview-deepseek-B-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-probe-04-r3.jsonl",
+    "run_id": "overview-deepseek-B-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-01-r2.jsonl",
+    "run_id": "overview-deepseek-B-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-01-r3.jsonl",
+    "run_id": "overview-deepseek-B-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-02-r2.jsonl",
+    "run_id": "overview-deepseek-B-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-02-r3.jsonl",
+    "run_id": "overview-deepseek-B-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-03-r1.jsonl",
+    "run_id": "overview-deepseek-B-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-03-r2.jsonl",
+    "run_id": "overview-deepseek-B-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-03-r3.jsonl",
+    "run_id": "overview-deepseek-B-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-04-r1.jsonl",
+    "run_id": "overview-deepseek-B-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-04-r2.jsonl",
+    "run_id": "overview-deepseek-B-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-read-04-r3.jsonl",
+    "run_id": "overview-deepseek-B-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-01-r2.jsonl",
+    "run_id": "overview-deepseek-B-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-01-r3.jsonl",
+    "run_id": "overview-deepseek-B-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-02-r2.jsonl",
+    "run_id": "overview-deepseek-B-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-02-r3.jsonl",
+    "run_id": "overview-deepseek-B-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-03-r1.jsonl",
+    "run_id": "overview-deepseek-B-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-03-r2.jsonl",
+    "run_id": "overview-deepseek-B-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-03-r3.jsonl",
+    "run_id": "overview-deepseek-B-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-04-r1.jsonl",
+    "run_id": "overview-deepseek-B-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-04-r2.jsonl",
+    "run_id": "overview-deepseek-B-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-rollback-04-r3.jsonl",
+    "run_id": "overview-deepseek-B-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-01-r1.jsonl",
+    "run_id": "overview-deepseek-B-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-01-r2.jsonl",
+    "run_id": "overview-deepseek-B-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-01-r3.jsonl",
+    "run_id": "overview-deepseek-B-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-02-r1.jsonl",
+    "run_id": "overview-deepseek-B-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-02-r2.jsonl",
+    "run_id": "overview-deepseek-B-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-02-r3.jsonl",
+    "run_id": "overview-deepseek-B-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-03-r1.jsonl",
+    "run_id": "overview-deepseek-B-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-03-r2.jsonl",
+    "run_id": "overview-deepseek-B-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-03-r3.jsonl",
+    "run_id": "overview-deepseek-B-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-04-r1.jsonl",
+    "run_id": "overview-deepseek-B-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-04-r2.jsonl",
+    "run_id": "overview-deepseek-B-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-deepseek-B-test-04-r3.jsonl",
+    "run_id": "overview-deepseek-B-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-01-r1.jsonl",
+    "run_id": "overview-minimax-A-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-01-r2.jsonl",
+    "run_id": "overview-minimax-A-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-01-r3.jsonl",
+    "run_id": "overview-minimax-A-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-02-r1.jsonl",
+    "run_id": "overview-minimax-A-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-02-r2.jsonl",
+    "run_id": "overview-minimax-A-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-02-r3.jsonl",
+    "run_id": "overview-minimax-A-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-03-r1.jsonl",
+    "run_id": "overview-minimax-A-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-03-r2.jsonl",
+    "run_id": "overview-minimax-A-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-03-r3.jsonl",
+    "run_id": "overview-minimax-A-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-04-r1.jsonl",
+    "run_id": "overview-minimax-A-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-04-r2.jsonl",
+    "run_id": "overview-minimax-A-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-batch-04-r3.jsonl",
+    "run_id": "overview-minimax-A-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-01-r1.jsonl",
+    "run_id": "overview-minimax-A-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-01-r2.jsonl",
+    "run_id": "overview-minimax-A-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-01-r3.jsonl",
+    "run_id": "overview-minimax-A-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-02-r1.jsonl",
+    "run_id": "overview-minimax-A-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-02-r2.jsonl",
+    "run_id": "overview-minimax-A-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-02-r3.jsonl",
+    "run_id": "overview-minimax-A-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-03-r1.jsonl",
+    "run_id": "overview-minimax-A-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-03-r2.jsonl",
+    "run_id": "overview-minimax-A-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-03-r3.jsonl",
+    "run_id": "overview-minimax-A-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-04-r1.jsonl",
+    "run_id": "overview-minimax-A-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-04-r2.jsonl",
+    "run_id": "overview-minimax-A-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-edit-04-r3.jsonl",
+    "run_id": "overview-minimax-A-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-01-r1.jsonl",
+    "run_id": "overview-minimax-A-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-01-r2.jsonl",
+    "run_id": "overview-minimax-A-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-01-r3.jsonl",
+    "run_id": "overview-minimax-A-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-02-r1.jsonl",
+    "run_id": "overview-minimax-A-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-02-r2.jsonl",
+    "run_id": "overview-minimax-A-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-02-r3.jsonl",
+    "run_id": "overview-minimax-A-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-03-r1.jsonl",
+    "run_id": "overview-minimax-A-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-03-r2.jsonl",
+    "run_id": "overview-minimax-A-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-03-r3.jsonl",
+    "run_id": "overview-minimax-A-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-04-r1.jsonl",
+    "run_id": "overview-minimax-A-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-04-r2.jsonl",
+    "run_id": "overview-minimax-A-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-probe-04-r3.jsonl",
+    "run_id": "overview-minimax-A-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-01-r1.jsonl",
+    "run_id": "overview-minimax-A-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-01-r2.jsonl",
+    "run_id": "overview-minimax-A-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-01-r3.jsonl",
+    "run_id": "overview-minimax-A-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-02-r1.jsonl",
+    "run_id": "overview-minimax-A-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-02-r2.jsonl",
+    "run_id": "overview-minimax-A-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-02-r3.jsonl",
+    "run_id": "overview-minimax-A-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-03-r1.jsonl",
+    "run_id": "overview-minimax-A-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-03-r2.jsonl",
+    "run_id": "overview-minimax-A-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-03-r3.jsonl",
+    "run_id": "overview-minimax-A-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-04-r1.jsonl",
+    "run_id": "overview-minimax-A-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-04-r2.jsonl",
+    "run_id": "overview-minimax-A-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-read-04-r3.jsonl",
+    "run_id": "overview-minimax-A-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-01-r1.jsonl",
+    "run_id": "overview-minimax-A-rollback-01-r1",
+    "phase": "formal",
+    "status": "harness_error"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-01-r2.jsonl",
+    "run_id": "overview-minimax-A-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-01-r3.jsonl",
+    "run_id": "overview-minimax-A-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-02-r1.jsonl",
+    "run_id": "overview-minimax-A-rollback-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-02-r2.jsonl",
+    "run_id": "overview-minimax-A-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-02-r3.jsonl",
+    "run_id": "overview-minimax-A-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-03-r1.jsonl",
+    "run_id": "overview-minimax-A-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-03-r2.jsonl",
+    "run_id": "overview-minimax-A-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-03-r3.jsonl",
+    "run_id": "overview-minimax-A-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-04-r1.jsonl",
+    "run_id": "overview-minimax-A-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-04-r2.jsonl",
+    "run_id": "overview-minimax-A-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-rollback-04-r3.jsonl",
+    "run_id": "overview-minimax-A-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-01-r1.jsonl",
+    "run_id": "overview-minimax-A-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-01-r2.jsonl",
+    "run_id": "overview-minimax-A-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-01-r3.jsonl",
+    "run_id": "overview-minimax-A-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-02-r1.jsonl",
+    "run_id": "overview-minimax-A-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-02-r2.jsonl",
+    "run_id": "overview-minimax-A-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-02-r3.jsonl",
+    "run_id": "overview-minimax-A-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-03-r1.jsonl",
+    "run_id": "overview-minimax-A-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-03-r2.jsonl",
+    "run_id": "overview-minimax-A-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-03-r3.jsonl",
+    "run_id": "overview-minimax-A-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-04-r1.jsonl",
+    "run_id": "overview-minimax-A-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-04-r2.jsonl",
+    "run_id": "overview-minimax-A-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-A-test-04-r3.jsonl",
+    "run_id": "overview-minimax-A-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-01-r1.jsonl",
+    "run_id": "overview-minimax-B-batch-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-01-r2.jsonl",
+    "run_id": "overview-minimax-B-batch-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-01-r3.jsonl",
+    "run_id": "overview-minimax-B-batch-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-02-r1.jsonl",
+    "run_id": "overview-minimax-B-batch-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-02-r2.jsonl",
+    "run_id": "overview-minimax-B-batch-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-02-r3.jsonl",
+    "run_id": "overview-minimax-B-batch-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-03-r1.jsonl",
+    "run_id": "overview-minimax-B-batch-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-03-r2.jsonl",
+    "run_id": "overview-minimax-B-batch-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-03-r3.jsonl",
+    "run_id": "overview-minimax-B-batch-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-04-r1.jsonl",
+    "run_id": "overview-minimax-B-batch-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-04-r2.jsonl",
+    "run_id": "overview-minimax-B-batch-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-batch-04-r3.jsonl",
+    "run_id": "overview-minimax-B-batch-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-01-r1.jsonl",
+    "run_id": "overview-minimax-B-edit-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-01-r2.jsonl",
+    "run_id": "overview-minimax-B-edit-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-01-r3.jsonl",
+    "run_id": "overview-minimax-B-edit-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-02-r1.jsonl",
+    "run_id": "overview-minimax-B-edit-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-02-r2.jsonl",
+    "run_id": "overview-minimax-B-edit-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-02-r3.jsonl",
+    "run_id": "overview-minimax-B-edit-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-03-r1.jsonl",
+    "run_id": "overview-minimax-B-edit-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-03-r2.jsonl",
+    "run_id": "overview-minimax-B-edit-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-03-r3.jsonl",
+    "run_id": "overview-minimax-B-edit-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-04-r1.jsonl",
+    "run_id": "overview-minimax-B-edit-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-04-r2.jsonl",
+    "run_id": "overview-minimax-B-edit-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-edit-04-r3.jsonl",
+    "run_id": "overview-minimax-B-edit-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-01-r1.jsonl",
+    "run_id": "overview-minimax-B-probe-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-01-r2.jsonl",
+    "run_id": "overview-minimax-B-probe-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-01-r3.jsonl",
+    "run_id": "overview-minimax-B-probe-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-02-r1.jsonl",
+    "run_id": "overview-minimax-B-probe-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-02-r2.jsonl",
+    "run_id": "overview-minimax-B-probe-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-02-r3.jsonl",
+    "run_id": "overview-minimax-B-probe-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-03-r1.jsonl",
+    "run_id": "overview-minimax-B-probe-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-03-r2.jsonl",
+    "run_id": "overview-minimax-B-probe-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-03-r3.jsonl",
+    "run_id": "overview-minimax-B-probe-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-04-r1.jsonl",
+    "run_id": "overview-minimax-B-probe-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-04-r2.jsonl",
+    "run_id": "overview-minimax-B-probe-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-probe-04-r3.jsonl",
+    "run_id": "overview-minimax-B-probe-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-01-r1.jsonl",
+    "run_id": "overview-minimax-B-read-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-01-r2.jsonl",
+    "run_id": "overview-minimax-B-read-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-01-r3.jsonl",
+    "run_id": "overview-minimax-B-read-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-02-r1.jsonl",
+    "run_id": "overview-minimax-B-read-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-02-r2.jsonl",
+    "run_id": "overview-minimax-B-read-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-02-r3.jsonl",
+    "run_id": "overview-minimax-B-read-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-03-r1.jsonl",
+    "run_id": "overview-minimax-B-read-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-03-r2.jsonl",
+    "run_id": "overview-minimax-B-read-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-03-r3.jsonl",
+    "run_id": "overview-minimax-B-read-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-04-r1.jsonl",
+    "run_id": "overview-minimax-B-read-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-04-r2.jsonl",
+    "run_id": "overview-minimax-B-read-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-read-04-r3.jsonl",
+    "run_id": "overview-minimax-B-read-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-01-r1.jsonl",
+    "run_id": "overview-minimax-B-rollback-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-01-r2.jsonl",
+    "run_id": "overview-minimax-B-rollback-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-01-r3.jsonl",
+    "run_id": "overview-minimax-B-rollback-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-02-r1.jsonl",
+    "run_id": "overview-minimax-B-rollback-02-r1",
+    "phase": "formal",
+    "status": "harness_error"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-02-r2.jsonl",
+    "run_id": "overview-minimax-B-rollback-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-02-r3.jsonl",
+    "run_id": "overview-minimax-B-rollback-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-03-r1.jsonl",
+    "run_id": "overview-minimax-B-rollback-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-03-r2.jsonl",
+    "run_id": "overview-minimax-B-rollback-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-03-r3.jsonl",
+    "run_id": "overview-minimax-B-rollback-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-04-r1.jsonl",
+    "run_id": "overview-minimax-B-rollback-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-04-r2.jsonl",
+    "run_id": "overview-minimax-B-rollback-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-rollback-04-r3.jsonl",
+    "run_id": "overview-minimax-B-rollback-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-01-r1.jsonl",
+    "run_id": "overview-minimax-B-test-01-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-01-r2.jsonl",
+    "run_id": "overview-minimax-B-test-01-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-01-r3.jsonl",
+    "run_id": "overview-minimax-B-test-01-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-02-r1.jsonl",
+    "run_id": "overview-minimax-B-test-02-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-02-r2.jsonl",
+    "run_id": "overview-minimax-B-test-02-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-02-r3.jsonl",
+    "run_id": "overview-minimax-B-test-02-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-03-r1.jsonl",
+    "run_id": "overview-minimax-B-test-03-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-03-r2.jsonl",
+    "run_id": "overview-minimax-B-test-03-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-03-r3.jsonl",
+    "run_id": "overview-minimax-B-test-03-r3",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-04-r1.jsonl",
+    "run_id": "overview-minimax-B-test-04-r1",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-04-r2.jsonl",
+    "run_id": "overview-minimax-B-test-04-r2",
+    "phase": "formal",
+    "status": "complete"
+  },
+  {
+    "path": "formal/overview-minimax-B-test-04-r3.jsonl",
+    "run_id": "overview-minimax-B-test-04-r3",
+    "phase": "formal",
+    "status": "complete"
+  }
+]
