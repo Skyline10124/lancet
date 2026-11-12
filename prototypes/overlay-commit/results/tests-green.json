@@ -1,0 +1,17 @@
+{
+  "command": [
+    "unshare",
+    "--user",
+    "--map-root-user",
+    "--mount",
+    "python3",
+    "-m",
+    "unittest",
+    "-v",
+    "test_commit"
+  ],
+  "code": 0,
+  "seconds": 0.1218574260128662,
+  "stdout": "",
+  "stderr": "test_any_conflict_prevents_all_writes (test_commit.CommitTests.test_any_conflict_prevents_all_writes) ... ok\ntest_opaque_directory (test_commit.CommitTests.test_opaque_directory) ... ok\ntest_redirect_is_recorded_without_processing_children (test_commit.CommitTests.test_redirect_is_recorded_without_processing_children) ... ok\ntest_strip_all_overlay_xattrs_and_symlink (test_commit.CommitTests.test_strip_all_overlay_xattrs_and_symlink) ... ok\ntest_target_has_no_conflict_check_or_preimage (test_commit.CommitTests.test_target_has_no_conflict_check_or_preimage) ... ok\ntest_timestamp_only_and_permission_change (test_commit.CommitTests.test_timestamp_only_and_permission_change) ... ok\ntest_whiteout_character_zero_zero (test_commit.CommitTests.test_whiteout_character_zero_zero) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.069s\n\nOK\n"
+}

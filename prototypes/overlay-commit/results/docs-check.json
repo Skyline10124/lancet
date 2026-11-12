@@ -1,0 +1,11 @@
+{
+  "command": [
+    "cargo",
+    "xtask",
+    "docs-check"
+  ],
+  "code": 0,
+  "seconds": 6.32173430302646,
+  "stdout": "文档链接检查通过：17 个 Markdown 文件\n",
+  "stderr": "   Compiling proc-macro2 v1.0.107\n   Compiling quote v1.0.47\n   Compiling unicode-ident v1.0.27\n   Compiling serde_core v1.0.229\n   Compiling memchr v2.8.3\n   Compiling utf8parse v0.2.2\n   Compiling serde v1.0.229\n   Compiling zmij v1.0.23\n   Compiling anstyle-parse v1.0.0\n   Compiling camino v1.2.6\n   Compiling is_terminal_polyfill v1.70.2\n   Compiling thiserror v2.0.21\n   Compiling colorchoice v1.0.5\n   Compiling serde_json v1.0.154\n   Compiling anstyle v1.0.14\n   Compiling anstyle-query v1.1.5\n   Compiling itoa v1.0.19\n   Compiling clap_lex v1.1.1\n   Compiling anstream v1.0.0\n   Compiling aho-corasick v1.1.5\n   Compiling anyhow v1.0.104\n   Compiling strsim v0.11.1\n   Compiling regex-syntax v0.8.11\n   Compiling heck v0.5.0\n   Compiling syn v3.0.10\n   Compiling clap_builder v4.6.7\n   Compiling regex-automata v0.4.18\n   Compiling semver v1.0.28\n   Compiling serde_derive v1.0.229\n   Compiling thiserror-impl v2.0.21\n   Compiling clap_derive v4.6.7\n   Compiling regex v1.13.1\n   Compiling clap v4.6.7\n   Compiling cargo-platform v0.1.9\n   Compiling cargo_metadata v0.19.2\n   Compiling xtask v0.0.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-dc7a648f/xtask)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.27s\n     Running `target/debug/xtask docs-check`\n"
+}

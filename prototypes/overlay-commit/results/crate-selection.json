@@ -1,0 +1,315 @@
+{
+  "method": "预热 cargo check 后 target/debug/deps 中属于 crate 依赖闭包的所有常规文件逻辑字节数；按目标名匹配；特性依赖取 cargo metadata 的工作区解析图",
+  "crates": [
+    {
+      "crate": "lattice-conversation",
+      "closure_packages": 24,
+      "deps_artifact_bytes": 86123904,
+      "files": 70
+    },
+    {
+      "crate": "net-guard",
+      "closure_packages": 36,
+      "deps_artifact_bytes": 93609266,
+      "files": 82
+    },
+    {
+      "crate": "lattice-store",
+      "closure_packages": 71,
+      "deps_artifact_bytes": 110076927,
+      "files": 107
+    },
+    {
+      "crate": "lattice-session",
+      "closure_packages": 103,
+      "deps_artifact_bytes": 129392503,
+      "files": 162
+    },
+    {
+      "crate": "lattice-profile",
+      "closure_packages": 110,
+      "deps_artifact_bytes": 132322938,
+      "files": 178
+    },
+    {
+      "crate": "xtask",
+      "closure_packages": 127,
+      "deps_artifact_bytes": 149087920,
+      "files": 209
+    },
+    {
+      "crate": "lattice-system-harness",
+      "closure_packages": 245,
+      "deps_artifact_bytes": 217301665,
+      "files": 384
+    },
+    {
+      "crate": "lattice-llm",
+      "closure_packages": 271,
+      "deps_artifact_bytes": 253773143,
+      "files": 394
+    },
+    {
+      "crate": "lattice-agent",
+      "closure_packages": 274,
+      "deps_artifact_bytes": 263285459,
+      "files": 400
+    },
+    {
+      "crate": "lattice-api",
+      "closure_packages": 281,
+      "deps_artifact_bytes": 271048889,
+      "files": 414
+    },
+    {
+      "crate": "lattice-tui",
+      "closure_packages": 399,
+      "deps_artifact_bytes": 349316969,
+      "files": 532
+    },
+    {
+      "crate": "lattice-cli",
+      "closure_packages": 418,
+      "deps_artifact_bytes": 360519909,
+      "files": 562
+    }
+  ],
+  "selected": "net-guard",
+  "own_artifacts": [
+    {
+      "crate": "net-guard",
+      "bytes": 1520454,
+      "files": 11,
+      "paths": [
+        "deps/net_guard-35769249070b9d5a.d",
+        "deps/libnet_guard-35769249070b9d5a.rmeta",
+        "incremental/net_guard-21mm3gy7bglqm/s-ho3gb2k0vi-1gns5qd.lock",
+        "incremental/net_guard-21mm3gy7bglqm/s-ho3gb2k0vi-1gns5qd-a2pnoxrbcnetvsbvxd47ca2vg/dep-graph.bin",
+        "incremental/net_guard-21mm3gy7bglqm/s-ho3gb2k0vi-1gns5qd-a2pnoxrbcnetvsbvxd47ca2vg/query-cache.bin",
+        "incremental/net_guard-21mm3gy7bglqm/s-ho3gb2k0vi-1gns5qd-a2pnoxrbcnetvsbvxd47ca2vg/work-products.bin",
+        "incremental/net_guard-21mm3gy7bglqm/s-ho3gb2k0vi-1gns5qd-a2pnoxrbcnetvsbvxd47ca2vg/metadata.rmeta",
+        ".fingerprint/net-guard-35769249070b9d5a/invoked.timestamp",
+        ".fingerprint/net-guard-35769249070b9d5a/dep-lib-net_guard",
+        ".fingerprint/net-guard-35769249070b9d5a/lib-net_guard",
+        ".fingerprint/net-guard-35769249070b9d5a/lib-net_guard.json"
+      ]
+    },
+    {
+      "crate": "lattice-store",
+      "bytes": 2676569,
+      "files": 21,
+      "paths": [
+        "deps/lattice_store_probe-7d6aa38e3a4477e1.d",
+        "deps/lattice_store-62811bac84cb9f47.d",
+        "deps/liblattice_store-62811bac84cb9f47.rmeta",
+        "deps/liblattice_store_probe-7d6aa38e3a4477e1.rmeta",
+        "incremental/lattice_store-21z8veemw7eci/s-ho3gb1zq8l-1f3ihyr.lock",
+        "incremental/lattice_store-21z8veemw7eci/s-ho3gb1zq8l-1f3ihyr-00mkn886yt3exzh7xtor1eina/dep-graph.bin",
+        "incremental/lattice_store-21z8veemw7eci/s-ho3gb1zq8l-1f3ihyr-00mkn886yt3exzh7xtor1eina/query-cache.bin",
+        "incremental/lattice_store-21z8veemw7eci/s-ho3gb1zq8l-1f3ihyr-00mkn886yt3exzh7xtor1eina/work-products.bin",
+        "incremental/lattice_store-21z8veemw7eci/s-ho3gb1zq8l-1f3ihyr-00mkn886yt3exzh7xtor1eina/metadata.rmeta",
+        "incremental/lattice_store_probe-3fedbqgq4y136/s-ho3gb4o0v1-0oroojk.lock",
+        "incremental/lattice_store_probe-3fedbqgq4y136/s-ho3gb4o0v1-0oroojk-4nlb8zg07fq2brw3va93i14t0/dep-graph.bin",
+        "incremental/lattice_store_probe-3fedbqgq4y136/s-ho3gb4o0v1-0oroojk-4nlb8zg07fq2brw3va93i14t0/query-cache.bin",
+        "incremental/lattice_store_probe-3fedbqgq4y136/s-ho3gb4o0v1-0oroojk-4nlb8zg07fq2brw3va93i14t0/work-products.bin",
+        ".fingerprint/lattice-store-62811bac84cb9f47/invoked.timestamp",
+        ".fingerprint/lattice-store-62811bac84cb9f47/dep-lib-lattice_store",
+        ".fingerprint/lattice-store-62811bac84cb9f47/lib-lattice_store",
+        ".fingerprint/lattice-store-62811bac84cb9f47/lib-lattice_store.json",
+        ".fingerprint/lattice-store-7d6aa38e3a4477e1/invoked.timestamp",
+        ".fingerprint/lattice-store-7d6aa38e3a4477e1/dep-bin-lattice-store-probe",
+        ".fingerprint/lattice-store-7d6aa38e3a4477e1/bin-lattice-store-probe",
+        ".fingerprint/lattice-store-7d6aa38e3a4477e1/bin-lattice-store-probe.json"
+      ]
+    },
+    {
+      "crate": "lattice-profile",
+      "bytes": 3717090,
+      "files": 11,
+      "paths": [
+        "deps/lattice_profile-8a8ff45ea4d347f0.d",
+        "deps/liblattice_profile-8a8ff45ea4d347f0.rmeta",
+        "incremental/lattice_profile-0l83bdriau081/s-ho3gb4usxa-00hq2nk.lock",
+        "incremental/lattice_profile-0l83bdriau081/s-ho3gb4usxa-00hq2nk-0vwz2u2yf0k7aqzx0wsnnnmqv/dep-graph.bin",
+        "incremental/lattice_profile-0l83bdriau081/s-ho3gb4usxa-00hq2nk-0vwz2u2yf0k7aqzx0wsnnnmqv/query-cache.bin",
+        "incremental/lattice_profile-0l83bdriau081/s-ho3gb4usxa-00hq2nk-0vwz2u2yf0k7aqzx0wsnnnmqv/work-products.bin",
+        "incremental/lattice_profile-0l83bdriau081/s-ho3gb4usxa-00hq2nk-0vwz2u2yf0k7aqzx0wsnnnmqv/metadata.rmeta",
+        ".fingerprint/lattice-profile-8a8ff45ea4d347f0/invoked.timestamp",
+        ".fingerprint/lattice-profile-8a8ff45ea4d347f0/dep-lib-lattice_profile",
+        ".fingerprint/lattice-profile-8a8ff45ea4d347f0/lib-lattice_profile",
+        ".fingerprint/lattice-profile-8a8ff45ea4d347f0/lib-lattice_profile.json"
+      ]
+    },
+    {
+      "crate": "lattice-agent",
+      "bytes": 4942515,
+      "files": 11,
+      "paths": [
+        "deps/lattice_agent-c192c9c13c6c55cd.d",
+        "deps/liblattice_agent-c192c9c13c6c55cd.rmeta",
+        "incremental/lattice_agent-0hsevb7r9xvpv/s-ho3gbbvlyv-10hf07e.lock",
+        "incremental/lattice_agent-0hsevb7r9xvpv/s-ho3gbbvlyv-10hf07e-224lxzn200s76jv7xrygczvc3/dep-graph.bin",
+        "incremental/lattice_agent-0hsevb7r9xvpv/s-ho3gbbvlyv-10hf07e-224lxzn200s76jv7xrygczvc3/work-products.bin",
+        "incremental/lattice_agent-0hsevb7r9xvpv/s-ho3gbbvlyv-10hf07e-224lxzn200s76jv7xrygczvc3/metadata.rmeta",
+        "incremental/lattice_agent-0hsevb7r9xvpv/s-ho3gbbvlyv-10hf07e-224lxzn200s76jv7xrygczvc3/query-cache.bin",
+        ".fingerprint/lattice-agent-c192c9c13c6c55cd/invoked.timestamp",
+        ".fingerprint/lattice-agent-c192c9c13c6c55cd/dep-lib-lattice_agent",
+        ".fingerprint/lattice-agent-c192c9c13c6c55cd/lib-lattice_agent",
+        ".fingerprint/lattice-agent-c192c9c13c6c55cd/lib-lattice_agent.json"
+      ]
+    },
+    {
+      "crate": "xtask",
+      "bytes": 6248030,
+      "files": 10,
+      "paths": [
+        "deps/libxtask-ecac72d21df66ce2.rmeta",
+        "deps/xtask-ecac72d21df66ce2.d",
+        "incremental/xtask-222txlmz9t6tq/s-ho3gb52ncr-0omssfe.lock",
+        "incremental/xtask-222txlmz9t6tq/s-ho3gb52ncr-0omssfe-3keulxdgg7msxm7fv8hopx56s/dep-graph.bin",
+        "incremental/xtask-222txlmz9t6tq/s-ho3gb52ncr-0omssfe-3keulxdgg7msxm7fv8hopx56s/query-cache.bin",
+        "incremental/xtask-222txlmz9t6tq/s-ho3gb52ncr-0omssfe-3keulxdgg7msxm7fv8hopx56s/work-products.bin",
+        ".fingerprint/xtask-ecac72d21df66ce2/invoked.timestamp",
+        ".fingerprint/xtask-ecac72d21df66ce2/dep-bin-xtask",
+        ".fingerprint/xtask-ecac72d21df66ce2/bin-xtask",
+        ".fingerprint/xtask-ecac72d21df66ce2/bin-xtask.json"
+      ]
+    },
+    {
+      "crate": "lattice-cli",
+      "bytes": 10533126,
+      "files": 10,
+      "paths": [
+        "deps/lattice-518147450a0f298e.d",
+        "deps/liblattice-518147450a0f298e.rmeta",
+        "incremental/lattice-1pp7qpy6t89tg/s-ho3gbdus80-0mun1iy.lock",
+        "incremental/lattice-1pp7qpy6t89tg/s-ho3gbdus80-0mun1iy-cn6pg9kb7mhoovd5afjq474cz/dep-graph.bin",
+        "incremental/lattice-1pp7qpy6t89tg/s-ho3gbdus80-0mun1iy-cn6pg9kb7mhoovd5afjq474cz/query-cache.bin",
+        "incremental/lattice-1pp7qpy6t89tg/s-ho3gbdus80-0mun1iy-cn6pg9kb7mhoovd5afjq474cz/work-products.bin",
+        ".fingerprint/lattice-cli-518147450a0f298e/invoked.timestamp",
+        ".fingerprint/lattice-cli-518147450a0f298e/dep-bin-lattice",
+        ".fingerprint/lattice-cli-518147450a0f298e/bin-lattice",
+        ".fingerprint/lattice-cli-518147450a0f298e/bin-lattice.json"
+      ]
+    },
+    {
+      "crate": "lattice-conversation",
+      "bytes": 12600771,
+      "files": 11,
+      "paths": [
+        "deps/lattice_conversation-51423de4f9faf322.d",
+        "deps/liblattice_conversation-51423de4f9faf322.rmeta",
+        "incremental/lattice_conversation-1hdf3wkxkwyed/s-ho3gb187dt-08660jg.lock",
+        "incremental/lattice_conversation-1hdf3wkxkwyed/s-ho3gb187dt-08660jg-57ezr9ibnp5xocd4o7aq4y5sf/dep-graph.bin",
+        "incremental/lattice_conversation-1hdf3wkxkwyed/s-ho3gb187dt-08660jg-57ezr9ibnp5xocd4o7aq4y5sf/query-cache.bin",
+        "incremental/lattice_conversation-1hdf3wkxkwyed/s-ho3gb187dt-08660jg-57ezr9ibnp5xocd4o7aq4y5sf/work-products.bin",
+        "incremental/lattice_conversation-1hdf3wkxkwyed/s-ho3gb187dt-08660jg-57ezr9ibnp5xocd4o7aq4y5sf/metadata.rmeta",
+        ".fingerprint/lattice-conversation-51423de4f9faf322/invoked.timestamp",
+        ".fingerprint/lattice-conversation-51423de4f9faf322/dep-lib-lattice_conversation",
+        ".fingerprint/lattice-conversation-51423de4f9faf322/lib-lattice_conversation",
+        ".fingerprint/lattice-conversation-51423de4f9faf322/lib-lattice_conversation.json"
+      ]
+    },
+    {
+      "crate": "lattice-tui",
+      "bytes": 16129385,
+      "files": 11,
+      "paths": [
+        "deps/lattice_tui-1d3b236675d282ee.d",
+        "deps/liblattice_tui-1d3b236675d282ee.rmeta",
+        "incremental/lattice_tui-2txswtxha4jld/s-ho3gbdg1co-1ijks6k.lock",
+        "incremental/lattice_tui-2txswtxha4jld/s-ho3gbdg1co-1ijks6k-5h6vt8lou55u8fea6oi0smihp/dep-graph.bin",
+        "incremental/lattice_tui-2txswtxha4jld/s-ho3gbdg1co-1ijks6k-5h6vt8lou55u8fea6oi0smihp/query-cache.bin",
+        "incremental/lattice_tui-2txswtxha4jld/s-ho3gbdg1co-1ijks6k-5h6vt8lou55u8fea6oi0smihp/work-products.bin",
+        "incremental/lattice_tui-2txswtxha4jld/s-ho3gbdg1co-1ijks6k-5h6vt8lou55u8fea6oi0smihp/metadata.rmeta",
+        ".fingerprint/lattice-tui-1d3b236675d282ee/invoked.timestamp",
+        ".fingerprint/lattice-tui-1d3b236675d282ee/dep-lib-lattice_tui",
+        ".fingerprint/lattice-tui-1d3b236675d282ee/lib-lattice_tui",
+        ".fingerprint/lattice-tui-1d3b236675d282ee/lib-lattice_tui.json"
+      ]
+    },
+    {
+      "crate": "lattice-system-harness",
+      "bytes": 18707246,
+      "files": 21,
+      "paths": [
+        "deps/lattice_system_harness-b1b5366076a5d710.d",
+        "deps/tui_mock-066b0d1ae065bb71.d",
+        "deps/liblattice_system_harness-b1b5366076a5d710.rmeta",
+        "deps/libtui_mock-066b0d1ae065bb71.rmeta",
+        "incremental/lattice_system_harness-2e3r8524ywhp8/s-ho3gbab26o-15tnam9.lock",
+        "incremental/lattice_system_harness-2e3r8524ywhp8/s-ho3gbab26o-15tnam9-e3u13tlhitw1tfdxw5wusng8v/dep-graph.bin",
+        "incremental/lattice_system_harness-2e3r8524ywhp8/s-ho3gbab26o-15tnam9-e3u13tlhitw1tfdxw5wusng8v/query-cache.bin",
+        "incremental/lattice_system_harness-2e3r8524ywhp8/s-ho3gbab26o-15tnam9-e3u13tlhitw1tfdxw5wusng8v/work-products.bin",
+        "incremental/lattice_system_harness-2e3r8524ywhp8/s-ho3gbab26o-15tnam9-e3u13tlhitw1tfdxw5wusng8v/metadata.rmeta",
+        "incremental/tui_mock-1hgi5e1avgndj/s-ho3gbaumgf-1k41cqh.lock",
+        "incremental/tui_mock-1hgi5e1avgndj/s-ho3gbaumgf-1k41cqh-el4kbwpsceo6tbx92nx61xjyb/dep-graph.bin",
+        "incremental/tui_mock-1hgi5e1avgndj/s-ho3gbaumgf-1k41cqh-el4kbwpsceo6tbx92nx61xjyb/query-cache.bin",
+        "incremental/tui_mock-1hgi5e1avgndj/s-ho3gbaumgf-1k41cqh-el4kbwpsceo6tbx92nx61xjyb/work-products.bin",
+        ".fingerprint/lattice-system-harness-066b0d1ae065bb71/invoked.timestamp",
+        ".fingerprint/lattice-system-harness-066b0d1ae065bb71/dep-bin-tui_mock",
+        ".fingerprint/lattice-system-harness-066b0d1ae065bb71/bin-tui_mock",
+        ".fingerprint/lattice-system-harness-066b0d1ae065bb71/bin-tui_mock.json",
+        ".fingerprint/lattice-system-harness-b1b5366076a5d710/invoked.timestamp",
+        ".fingerprint/lattice-system-harness-b1b5366076a5d710/dep-lib-lattice_system_harness",
+        ".fingerprint/lattice-system-harness-b1b5366076a5d710/lib-lattice_system_harness",
+        ".fingerprint/lattice-system-harness-b1b5366076a5d710/lib-lattice_system_harness.json"
+      ]
+    },
+    {
+      "crate": "lattice-session",
+      "bytes": 22030290,
+      "files": 11,
+      "paths": [
+        "deps/lattice_session-215f44a2748ce807.d",
+        "deps/liblattice_session-215f44a2748ce807.rmeta",
+        "incremental/lattice_session-0yaormwaxafvf/s-ho3gb3ngsh-0a1r5mk.lock",
+        "incremental/lattice_session-0yaormwaxafvf/s-ho3gb3ngsh-0a1r5mk-5skdmjl25dia085ssihrtjmzl/dep-graph.bin",
+        "incremental/lattice_session-0yaormwaxafvf/s-ho3gb3ngsh-0a1r5mk-5skdmjl25dia085ssihrtjmzl/query-cache.bin",
+        "incremental/lattice_session-0yaormwaxafvf/s-ho3gb3ngsh-0a1r5mk-5skdmjl25dia085ssihrtjmzl/work-products.bin",
+        "incremental/lattice_session-0yaormwaxafvf/s-ho3gb3ngsh-0a1r5mk-5skdmjl25dia085ssihrtjmzl/metadata.rmeta",
+        ".fingerprint/lattice-session-215f44a2748ce807/invoked.timestamp",
+        ".fingerprint/lattice-session-215f44a2748ce807/dep-lib-lattice_session",
+        ".fingerprint/lattice-session-215f44a2748ce807/lib-lattice_session",
+        ".fingerprint/lattice-session-215f44a2748ce807/lib-lattice_session.json"
+      ]
+    },
+    {
+      "crate": "lattice-llm",
+      "bytes": 40397125,
+      "files": 11,
+      "paths": [
+        "deps/lattice_llm-e01f473ea7dcb58b.d",
+        "deps/liblattice_llm-e01f473ea7dcb58b.rmeta",
+        "incremental/lattice_llm-0bnexfiyfdyjb/s-ho3gbal4qk-0tr26bt.lock",
+        "incremental/lattice_llm-0bnexfiyfdyjb/s-ho3gbal4qk-0tr26bt-cpz7o6gz1vbpc3ewpni5rj7g8/dep-graph.bin",
+        "incremental/lattice_llm-0bnexfiyfdyjb/s-ho3gbal4qk-0tr26bt-cpz7o6gz1vbpc3ewpni5rj7g8/query-cache.bin",
+        "incremental/lattice_llm-0bnexfiyfdyjb/s-ho3gbal4qk-0tr26bt-cpz7o6gz1vbpc3ewpni5rj7g8/work-products.bin",
+        "incremental/lattice_llm-0bnexfiyfdyjb/s-ho3gbal4qk-0tr26bt-cpz7o6gz1vbpc3ewpni5rj7g8/metadata.rmeta",
+        ".fingerprint/lattice-llm-e01f473ea7dcb58b/invoked.timestamp",
+        ".fingerprint/lattice-llm-e01f473ea7dcb58b/dep-lib-lattice_llm",
+        ".fingerprint/lattice-llm-e01f473ea7dcb58b/lib-lattice_llm",
+        ".fingerprint/lattice-llm-e01f473ea7dcb58b/lib-lattice_llm.json"
+      ]
+    },
+    {
+      "crate": "lattice-api",
+      "bytes": 43599865,
+      "files": 11,
+      "paths": [
+        "deps/lattice_api-cef9b2be226f3306.d",
+        "deps/liblattice_api-cef9b2be226f3306.rmeta",
+        "incremental/lattice_api-24x3qlabj1mto/s-ho3gbc12jq-0h98szx.lock",
+        "incremental/lattice_api-24x3qlabj1mto/s-ho3gbc12jq-0h98szx-0vg62gymolt1q1vpvahokagpx/dep-graph.bin",
+        "incremental/lattice_api-24x3qlabj1mto/s-ho3gbc12jq-0h98szx-0vg62gymolt1q1vpvahokagpx/query-cache.bin",
+        "incremental/lattice_api-24x3qlabj1mto/s-ho3gbc12jq-0h98szx-0vg62gymolt1q1vpvahokagpx/work-products.bin",
+        "incremental/lattice_api-24x3qlabj1mto/s-ho3gbc12jq-0h98szx-0vg62gymolt1q1vpvahokagpx/metadata.rmeta",
+        ".fingerprint/lattice-api-cef9b2be226f3306/invoked.timestamp",
+        ".fingerprint/lattice-api-cef9b2be226f3306/dep-lib-lattice_api",
+        ".fingerprint/lattice-api-cef9b2be226f3306/lib-lattice_api",
+        ".fingerprint/lattice-api-cef9b2be226f3306/lib-lattice_api.json"
+      ]
+    }
+  ],
+  "selection_method": "crate 自有 deps/incremental/.fingerprint/build 产物逻辑字节数（包括零字节二进制 rmeta）；共享依赖单列"
+}

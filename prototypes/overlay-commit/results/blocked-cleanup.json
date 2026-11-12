@@ -1,0 +1,13 @@
+{
+  "step": "删除 overlay work/work",
+  "command": [
+    "python3",
+    "prototypes/overlay-commit/cleanup.py"
+  ],
+  "consecutive_failures": 2,
+  "error": "PermissionError(13, 'Permission denied')",
+  "affected_directories": 94,
+  "status": "已解决；剩余 upper/work 0",
+  "raw": "cleanup-first-attempt.json",
+  "remaining": []
+}

@@ -1,0 +1,33 @@
+{
+  "command": [
+    "python3",
+    "prototypes/overlay-commit/verify_results.py"
+  ],
+  "code": 0,
+  "seconds": 0.1057226870325394,
+  "allow_reruns": false,
+  "summary": {
+    "runs": 84,
+    "variants": 28,
+    "excluded": 10,
+    "errors": [],
+    "outcomes": {
+      "committed": 39,
+      "conflict": 9,
+      "failed-discarded": 21,
+      "failed-kept-regenerable": 3,
+      "discarded": 12
+    },
+    "expectation_true": 75,
+    "confusion": {
+      "C1": {
+        "false_positive": 5,
+        "false_negative": 0
+      },
+      "C4": {
+        "false_positive": 5,
+        "false_negative": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,1281 @@
+{
+  "utc_ns": 1794498923107803870,
+  "active_processes": [],
+  "overlay_mounts": [],
+  "free_before_bytes": 78945583104,
+  "before_git": {
+    "status": {
+      "command": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "status",
+        "--porcelain"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.00532888004090637
+    },
+    "fsck": {
+      "command": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "fsck"
+      ],
+      "code": 0,
+      "stdout": "dangling commit bc00d042d2c0c9eeeee0ebc0a559441a04db425b\ndangling commit f600cc5fac91692be0faa7234c0d2a22c12209c6\ndangling commit 4a0134b15c814e74ebb449242048bf423e754e76\ndangling commit 70012d3b65dd654d50134475484e268e1111e61e\ndangling commit 06037d0325ec32036a60f061ed214ed1eec0fad9\ndangling commit 0a038bec1890e965011ac026974f56e32143a29b\ndangling commit 39035ed128d38ad1b62cd3240b8ed00d1d8c6568\ndangling commit 5204ac53e5f6a6b766339f108687c708b5f444a6\ndangling commit 8604a5f11a0d29ea028ae5d52a615b6991aa2bae\ndangling commit 97048c6e4e54a33ab3a5870f6dbe118bf59bdd5e\ndangling commit 2405cd16bf35eac85250f3c60033545a062cc98a\ndangling commit 05069cc2dacf20483287cd17304e7b995cc83716\ndangling commit 07062858d1686bf4cb2ff6eab959bf78c57395b5\ndangling commit 3d067ef05e82ab934d3f17619d6db1f5d8eadf46\ndangling commit 77067ca91a838066cfa6e6f8012e5609a17906cb\ndangling blob c40648d7e8c0d72596bf91944b855919403b4432\ndangling commit a50701bab235f41a6adc65037ae0209a3b912d4e\ndangling commit bb07c50abca79b707a819d8ba973eb22722b44ed\ndangling commit 5d08755921f2a278388824b7fbb8b58e57cdff1d\ndangling commit c208a235c954e6bd03050f806f696338fff1ce78\ndangling commit ea08a931b5d76eeda294fdb59ad96dffff65a7c0\ndangling commit a409ea9d5914db6c1e6845d7898d4a0ac811d316\ndangling commit 950ad727d6f1f44021f4a8a9d2950e153714847f\ndangling commit 340b752f31332197f20149565b28cfaab5113334\ndangling commit fb0b39801919a15bfd53419895d15b40a2eba5c6\ndangling commit 6b0c48f081dc7308e534cefec6e7c6679ec1a4ef\ndangling commit 780c85897373986c2f43bac6433efaad2ed28208\ndangling commit 920d051e5d3fe7ad106f56fbcd593f673106d498\ndangling commit d10ef690e829eaba0779d3b57682a7e9c499a795\ndangling commit 960fa2efd57801d8dfb3707bc7912ba9af2df484\ndangling commit ca0f3dd0ee009e80e1dd6d6e05caa92933d75219\ndangling commit 791027c08dc95ecb813f9e20a1398442ce7f698e\ndangling commit a610ec5f01a2153ed691cd6d7a6fddbd2c1170f6\ndangling commit ac1072aedf34561c6d940e24a964a52fc5947d90\ndangling commit d71048864845884c71f4c9b00baf6fa7dd8e85c5\ndangling commit c8111d33723513c16ddf159c1b917e0949a49b15\ndangling commit e112d6c03b98962f7b1da091789c7cf5c5981887\ndangling commit 4c1317461fa2557149e6fdceb5600e508cb609b1\ndangling commit 6814571c6721e0e7fa5a873372c514bd5b692310\ndangling commit 841487c959d7212225e5080b4d2a5efac65a3f22\ndangling commit 6015832ec7bd0be2815f6f7e38dabe266b06b3b9\ndangling commit 99153088f3ac05a553fdc2a43075e1934c342519\ndangling commit 891849359ae7ad81aaa75b3b698ce2e3ad37eb6c\ndangling commit a3184d4fbb79a818d02dfb852cb359d609e07430\ndangling commit 0719a3938a976a5448ce319b134bcf046ef3eefb\ndangling commit 161a95a2b3cc058618ad7972feb1179885916fe2\ndangling commit 691a6f9f79b3105b31db5334715f44ec03fd6730\ndangling commit 1c1b68576b92a8dfcf34d41384062007afffc3bd\ndangling commit 5f1be6cdcc6da5b0a4bbde5f864b51cde8d22176\ndangling commit 931ba1765d29d21c7c3ecc5f2bea4ed7b2ca8288\ndangling commit 091c8399e45e31963b5062847f02c6cc1274a033\ndangling commit 3e1cd884a8e8e722e49419e45dac993d44b3dbb0\ndangling commit 8b1ce57efe836f16b645c1691e1a9a5f7781dc8d\ndangling commit c11c6c6bfc243a6e96057595a20f8f934bdc9e6c\ndangling commit 411ebd0ef1ef2482bea20c9c7b90de1882dd6403\ndangling commit 681ea3bd355ca4dffc25a051c16620db61370a67\ndangling commit a01ebb1f209953d0150e1bed3effa3845a16f3d1\ndangling commit 17200e49ce3a1d482e8343af0d52aee449e6d4e5\ndangling commit 7720668bc47b94ce042234f4b213c524178fc180\ndangling commit fe2035f2f2c78116cce401efaf6e6061f70178f3\ndangling commit 00213a86df3f784245da68c9668c441bb3365edb\ndangling commit 1b219d37d9075ae2d0a92eaaf881e13680543d1c\ndangling commit 492120fd990accddf59fa29225db08b64086eca4\ndangling commit b22164f912929a4c4d021360106f450df972e842\ndangling commit e32176a5a5dc56922326466d736af0d289784de9\ndangling commit c8221d56ca85cf934fe04d64d772155d962463e9\ndangling commit 6c2495d90324d7fb0f1027a12ffd40eba7910af7\ndangling commit 0a2755492bc49e56429881766ef35e7338330569\ndangling commit aa2737b5b97c16a444125748861bf6d2afce329f\ndangling commit b2270cc9e27c465362db7cb8e4c67df97558d22d\ndangling commit ba27fbd61e03ed616b829a63ecb8ee1e29323b4c\ndangling commit d328a38558dc486c3f28355faebd970e1bccdec7\ndangling commit 5f29e1400c87412c223b0d50bfc9117ad79f6f24\ndangling commit 5f29e40f35a560b9efe5856f16937360f8d375c7\ndangling commit 402bed8439765bfe514efb858495e1ca9d6f7522\ndangling commit 582b74c1213a4286c1f7894a49e7b80fc7fa7892\ndangling commit 642be1a62925d25dfae877a665d76240910a1ac7\ndangling commit 342ce4e40a03557c9a2036f3cbb9256f2bd11977\ndangling commit 1e2d553c7ec545cc1d1e5e2e1a59932bbc35117d\ndangling commit 262f8e39b81ce13182b4fd5b8f1e84f714b11a75\ndangling commit 4f2f95e7da1a120585e9014b9c9899bbe9dfd126\ndangling commit b430122be30990098ae9be60abd5cb8b600e9f6d\ndangling commit c33042fd46636edd58191a5ca84946baa02624e6\ndangling commit e3306eb872b7c852faec90d3343e18834f0b7af7\ndangling commit 38323e86bb4938e8719cff75b70a10bc3e7bf825\ndangling commit 6c329d95b2702bcbd750461502136eaf5d5feeb3\ndangling commit 1c336455e244f1bb190a5c3a42ee2851dba0b3c4\ndangling commit 7533549683ca8a7602af690bd95bd65420253c0b\ndangling commit b233e06490d927fac2105f6cbfd88cf01cf838db\ndangling commit c0339c45abd762359f4f86e5f1dbeff5d8089dfe\ndangling commit 0434eaacbc8caa8a3e80dfd521ddc904f1d52ed2\ndangling commit b034f0f6cdc5b2a87cb7bfd7f0c6a3adf01e1c5c\ndangling commit 64352075c62b1b55fe3dd12ca6edba6aad6b11e1\ndangling commit 1c361e79f9f1724480181781253d6809c4638506\ndangling commit 4736df0a87fa11fe8310c1fbf6dd4beeca30fb4f\ndangling commit e1361dc767f953a8506ee133341bfc3ac7113342\ndangling commit 793763505013baab3cd29d7e09ae0c6fa9425629\ndangling commit 4338631daa6411e8948557da2f48a631d111d804\ndangling commit b9388dcc6639c6fd11ce255b8ad6a171e8908ebc\ndangling commit e139676f4bd6142bf5ec3555eed62fcce2087c8b\ndangling commit a03a9de5b19fbcbf179b6f010bafcf619446aec2\ndangling commit 0f3b28acee4bb11ef59961db3cfc254e94cf51b9\ndangling commit 783bec2f6df9f66b7eafeb8faa05b61973643055\ndangling commit 243e46477cabe57c6990e4dc4f77a681defd00ed\ndangling commit 633ede2989b7e2b2aded7dc039ace80479dcf4a1\ndangling commit 6f3e67164672c3d163f5248ab9ff059362466c28\ndangling commit b23ea81078b03d444c525b0c1936db56a55db468\ndangling commit 1b3fdbc829e4e8fdacd1f249b48fb5baf30e1679\ndangling commit 233ff258c8f5094a3228456a9cd3d83e680d2b6c\ndangling commit fc3f0a182146f99e8135cab7b0480708d3594650\ndangling commit 5140e6aeb12e575dce534616d41afb471a07bd73\ndangling commit 6f40ea7d37ad2011293fd1c5edab9ee1b8c2c570\ndangling commit ee408b8eb4d6e0d5ca7a7acc7c3ee8702046ac66\ndangling commit 3241676685d3e6d074b20a95ebd209fcfecb2668\ndangling commit 874182d6c1a9daea142d0f34631d500bb766fce1\ndangling commit e5410c5a391281f96de6ee868f200c6c26a55654\ndangling commit 5743b7a7e0a2bafd41772412df4711de6871bfce\ndangling commit b343c76e2c8185ccf2b58cf8d453f60e5df38145\ndangling commit b6431cb027785017f1d400e311395c0a647eb3e3\ndangling commit 3e440f5400be105406e2b350bbc1cb932101976c\ndangling commit 0045812404cf4ca90d2fab12dbdf4ec28a8eee0b\ndangling commit 9e45ed3e9f7dec8c78be06abe47e448130dc826c\ndangling commit cf4500597cb3f51d2d4c83a5e694189dd73dcbc6\ndangling commit f545ac52ff9286b549b61e738fe9b5a4b22678b3\ndangling commit 0f46e709b1bd305e538c536d33c78cb52dbc754e\ndangling commit 8c462b9c0e55b939611a7e848a616014fde1e8e0\ndangling commit 9c466a66cfd710208da28e26dcff4883ee995186\ndangling commit ea464c04c2f9086d7b55b0445233142e7c59b4e0\ndangling commit 13471e7d4fd79bf98be1800e316521970bb65f7d\ndangling commit 7d486476950efa65bb2fb44b26b744f763faa281\ndangling commit 8e4893967f036caf6cce6e007ae9d52a05f16007\ndangling commit e248cf95d560d7fbcc327e7d2f6356601c7a48d2\ndangling commit 4e4a223eac449e711ead89f05e1171b91c09a158\ndangling commit 0a4cd6f9f5bada057240f3d5e984c02bcb5491f3\ndangling commit 204cadcc8f033d9c241e640380a72e2e92259144\ndangling commit 734c1d302d72447f1bda74bac240b611ffd06ed8\ndangling commit f44c9c36dc5bd7be92f9a0beccc7cb88233539d6\ndangling commit 6e4e0dfb60f80492060189161234c60f09f6f2ff\ndangling commit c85078a2e364d4fc370b4aa83056bbc634e90d42\ndangling commit 4b51496815216d04e95c00ba5ed38f55a57fb024\ndangling commit 735157e1e4751c489c60888f9ec3fc44faeee65c\ndangling commit 3d54f05f12f4062b3f62cb3900dc59fb286cbee5\ndangling commit 4c548fccfd17f8c568a69e7054452c63d5e00f61\ndangling commit 5254e4de7b2347fd3fd84fda05a0c915415609ed\ndangling commit 7e5457aea0f0d43369f90275b80de96e22073845\ndangling commit 6c5524646601da2c919beab4153031ebdb667b29\ndangling commit ae563deed95851f77db75386263a3d067d6354e6\ndangling commit b757c7d9e91db0bc6ebb52f3b76fd51c4868edb9\ndangling commit ca577fdbf33363989849b97862a9773b8d8d4b0c\ndangling commit 6d58bc228e06d6c11f3b6b59ad427958efe39994\ndangling commit 7a58a94331b1b0c76e6f1ae497af19845466c199\ndangling commit ea588828afaa35d61fe8ed0f85696254b4f9c2ff\ndangling commit ea59c489559d322a25e45aa8095832fdce7adf9f\ndangling commit ef59f770fa5db8a2f82093079e9507c43e68d55c\ndangling commit fe59b5dbb7b13c865fef7b5a6b16cd03a883c90a\ndangling commit 425bbc922607523af17c7ba5de70a6f3bc43bde0\ndangling commit 7d5b295608e14fd9364806548742f7172515fdee\ndangling commit b35c123da9568d38ccf3b190e3dbf3ad79f9133c\ndangling commit fb5c42fc3f20c9ff3754ff0e612b9baff1779a75\ndangling commit 525d66ca077df8613d4adafe11d3b815018048f6\ndangling commit d65d2aa5c141537d15e897d8a4087d529725af1e\ndangling commit 795ec7211047abda7c45c717c04ab1eba7e10457\ndangling commit 945e7fe3f3bda039efccf584cb034b5baeb9dfd7\ndangling commit 1b5f077b41ed834ff11d771fb92630255070b92c\ndangling commit bf5f8a493c31d2342f59c7e0b5826dbd326e06ac\ndangling commit fb5fbfb7583b09eaa8360a0236e0bfeb9d886e93\ndangling commit 1d61cb1ff87c124c5977e3c1e4abba4d2eff8ab1\ndangling commit e1624ac281afe288d85e594796f9114025d8ce37\ndangling commit de645fcbc7b4e4dc0a5b915b893f6fbba8d2ab0f\ndangling commit e964717af9f3b09b66b247332c301034619e2171\ndangling commit 1f657e5246b366ca1fa1437b473f2fd04bdd991f\ndangling commit 4365864103c9b8a5c2d3e1aa0c99585b8f11db6d\ndangling commit 49659ef59d0826fcac706c9be53bc329617db2ce\ndangling commit 506544e50f36c27b024f50548478bc7834bd29bf\ndangling commit c3657fa655ca6e5e6d7784bad598fbcdf3f2ae6f\ndangling commit 6c663379f840fed7cd0d728ad0621a3056927852\ndangling commit a866d97c74240869385e2884993c00e6c519adc8\ndangling commit 38686680eb88fa382bbf068abec5d642db21625b\ndangling commit 736828ab8a3d3385999f3106731b479ebd41f6bf\ndangling commit 26690de4722e48dcbee53286b0eda3701ad5e908\ndangling commit 94699821b396a8c0110377f8536c63d89d930701\ndangling commit ac6a9c0c43554c6477736e3bfa32974e9b1835c0\ndangling commit b56aff6e367a295326802dd6bf13f5f240bd5288\ndangling commit be6af276a7f6591b29e8b1d99308deb166b46c22\ndangling commit a16b1a8f6bfac88a832d160ef56b2c8ae85c669e\ndangling commit dd6cc6e9a9a0b1cc9528a5d4f6eba075d9a1282e\ndangling commit df6c69729db2e233bdcd0839c452797a0b88d8ab\ndangling commit f56c05e7df79bf9f67fb2db4498b9030b7159a2e\ndangling commit fa6c2152b228da9c62550a5bf247587fd018f3ab\ndangling commit bf6dbd3c7ec4b8bd2a8bf3130ae2450c713089ff\ndangling commit 216f89ddaf77ffb43ce7ee5747ca9dfc3f26cb8c\ndangling commit 9e6fc4e7239d9c494160197c77af85242b68ac1f\ndangling commit c46fb0846e907e660618c4e7f257cabe1b42fdd5\ndangling commit da70d90e8b53b0c45dd1827f4938f1483c37b121\ndangling commit 1b71abe53a986c386e797bf8c121a752ce9b3189\ndangling commit b5716d440de512a8267c50b01b52968b5a0b4f25\ndangling commit 4a721995f3555af4858003c9b81819e5aa0177eb\ndangling commit 22737bde1cbebc0dac72b12eb47f6e0b8acdbac7\ndangling commit 71731c2c9c3564134f4a244620918d21239bfe2a\ndangling commit cd7391942d8505447ccf68a6cb7ef7d3a098db12\ndangling commit 4074027124ac22f2816c669e2779c193546ede12\ndangling commit 4775f8c1f0e12d5bdc21a3e8122541dad44c0f98\ndangling commit dc76b1483433813200e7722a3b6191b82793c298\ndangling tree 4977bc73ee0e265c26858e3f17bc04392b7b755d\ndangling commit 5777b55bf4983937807ee2ae7d4755fad8b2f28c\ndangling commit 73783919eeda40014a25dccb3f61ed507b63f58a\ndangling commit 877814a27828af5fdd10b87931ad907bc4b2004b\ndangling commit 07797824e3da4fb10b0ee970bf52d31630361b0f\ndangling commit 3079ce949f33d7e18a455936d551ada832acbe61\ndangling commit 8479269588c10ff1dfdf30401a8e70c0b887bdc6\ndangling commit 9b79742cdddc7d6f6917c066f80cfb53c850aeee\ndangling commit 457acbe9a54ad66f5b0dbce945042c337e61572a\ndangling commit 7d7a121837a64ab113043e16378dadfd977b3b5d\ndangling commit a67b75429122cc5b3b1f805fbb9aefe5076fbabf\ndangling commit ff7b4f1a802be32617876e0da1db8f98b0110cb4\ndangling commit d77cc074a9f50a77ade3fa38f5395a2b69bd3e27\ndangling commit e77c7dd6a761b6b63e7d316b040fcfc9fe89be61\ndangling commit 9e7d51bb6336218609e3c9c1db2390b381cc72a0\ndangling commit 027e45fac5e0f57e2ccf8d9233dc3f9c474a67ac\ndangling commit 927ebcff6e31eb09afd10c6a08f044f2453777ae\ndangling commit eb7ee3fcf57d2029837a3e7bb95f28dacc64b8e6\ndangling commit 067f8ad0ba248cb940fc135abca047f8e887b0bc\ndangling commit 1c7f4b6cee4184ec9b0359da62d81bcc4f08c247\ndangling commit d57f7ebd274e106d345bf1af406174b51668d94b\ndangling commit 1a80266b91e43f1349701d65869652581e83aa22\ndangling commit 1f800b92b9a17b50ca6c8e0320ddc89ca0f4b3f7\ndangling commit af800a5e42726772c3ab878e00c208813bb734bb\ndangling commit be80e251899a0f37a7a1e110c4a42d336c431a43\ndangling commit 438118e4039a70f3b9999d798ab0104aac56020e\ndangling commit 4b8168fa279be8bf3f7406b69ab916e311cae98f\ndangling commit 29829f280b6427a13128d321166806896eabd0e7\ndangling commit d882d6e45e2bba0061013b3baf5decf3f2b69d80\ndangling commit 018371ea4438fe6d3bbf0c600cf94f6cf9ea9b5c\ndangling commit 25834a8708b1afbe5e80409b4f6dbbc71502ed26\ndangling commit 998339430ad25db3a9557da98351162faa26319b\ndangling commit e483b09dd377f4d4dcc67c0fcec25f7c64a59af4\ndangling commit 37847572b268d8d952fad493382e45fc4c1f8a0c\ndangling commit 9e84816497d2f64fa65b87d98608588e004012b6\ndangling commit af84110c44bba119f01bafc2702e38dd90253341\ndangling commit 248528b37705112832c12d52fdc65c59e1e4b640\ndangling commit 0e8631023738b6e40439ddaa9d08dd2986213fe5\ndangling commit 318670b16793b2ae8b269c3070a6eb7a82e0f5bf\ndangling commit 5386bf190c6d7e02e9df7680f2e71914cc1b95ff\ndangling commit ae866441aa5a5eaade01e638371b76579e9d465a\ndangling commit bb86df7043455aa2f2567c3c4bc351f98e6d9be0\ndangling commit 6e878826b2fc1d8370d6108e850aa14519bd4d7d\ndangling commit c687e22592bf91dea7f718b3317b676f836ed9c2\ndangling commit 9488ae00a81ce0a7583f8804e992725c25637ecb\ndangling commit 91896f18099737bd2665b31350a8aba147d5fcb8\ndangling commit 9a89ff18d6233e6b3ffa7ece71657a9be1898cda\ndangling commit af89d822bcd2ee916a7f09e5258fc99c1d3a8bf9\ndangling commit b28ae1071fbedb3ecacc3c090d59c34e819c1263\ndangling commit c38a73ba32318d4f1f71c5c5150bafd533e2557c\ndangling commit da8b9542b2fd2e90451ed2e730810fe11e97222f\ndangling commit 288cfcad8a8f444c3430c4a6178e813fd2ab3523\ndangling commit 328cd9e86928a28baf8c2feba43bf126d316f42f\ndangling commit 8f8c0bbd14247e6cf0d23c91bbbb6d2e34193b0f\ndangling commit 9a8cf3a4eea12ec0ce1871913e95c4309e3afbe4\ndangling commit c08daf00a86e107e342cda1f61dc1698bcbfbe93\ndangling commit 498f5c64ae14c1cf2a36e1b59458f43427c94adb\ndangling commit e78f579f3af26c8cda8753ecb4d9340250425224\ndangling commit 58909c71962795457d6a803185410fac4e583c36\ndangling commit 71907e75c9c48827c960d43d512b20944efc048c\ndangling commit af9089324b1043526df3e9c8bcef4fd04ea9566a\ndangling commit 8591ec3fe9e3c4107d3255e1492ee194d0dad4f7\ndangling commit 099290ad2ba6d26647ae18e83543b4d4cb9b8df8\ndangling commit 71925cd7dba7c1677551bff7c43befc525c809f7\ndangling blob 8a924afc5fe4655265b4f0d8d920c17710d44486\ndangling commit c1929f94008d0a8351b787961411046002a0dbc3\ndangling commit ea9251897151dc771bb441c58d51fe9c8c5f14f0\ndangling commit 169347704d1cc12080eb24efcbd724958acf4065\ndangling commit c694dea222f353476fa6ebb97f6507fb82f78647\ndangling commit 1d958b2208835852240d08d51f97834537b6240f\ndangling commit 1d950dffe3f29e1814a0410fe8cdff5123846ad8\ndangling commit 77953616fffba59721faf983718a65990b7043a6\ndangling commit 0f970c6ad205bb28aad01a4cf07539e5f26e6ab9\ndangling commit 5897e49f44380eaa63d77a00c3dc7691e9019622\ndangling commit 739799cb539721acd53dff1434ad155f4ad8dadd\ndangling commit a498dee1ae22b3d2cd6a05e46adccc214c52e2bd\ndangling commit ff987b7bbf9f96603382a0fb195c29d6983e0a84\ndangling commit 4299a00ab3ae57910329d1396ac7552ff819cf15\ndangling commit 989a1f261dc85cc8f47dbd38a093b7eb10608854\ndangling commit f99a8014d7bfff3ea4121673e423dc436420bc3c\ndangling commit a19bd3f749fb42e5d6679eb8f5f3e25c03818024\ndangling commit f99b4de5a40405dca50ab8a6ec914b8d3b7cf755\ndangling commit 199cba12ba7e72b9cf5ce9cdaafd2af1068296fa\ndangling commit a79dd23589f6a1d10e973a0a428d9a52185f1df9\ndangling commit 379e25353fedf4bf803cf7306d23a3e55895a2ad\ndangling commit 3f9f3afdac24b304dc14afecd62c533a6a40efca\ndangling commit 4f9fe82af942ec35ca36710f7b4aa3fbfb64fb6c\ndangling commit 2ba0b1e4b795b0907942205e483db63fafc10847\ndangling commit 3aa02c97861c1576e6254ab666b96edf79e355f4\ndangling commit 50a03fb68d2485e0b6c4df7defe3dfb1555e3d66\ndangling commit 8da088c211d2a83fb701b0d4bd8bd723a96f2c3b\ndangling commit c5a0be50b4daa504c994680cc9f88c6055e02587\ndangling commit 77a1749009311cc21ce1d27197c87fcd2bccf877\ndangling commit 7ea15831c14c9e7e40506ed0ecfb693ffed4f65b\ndangling commit c6a15a7408ac8906cc367e665a73b4022ffaace9\ndangling commit 4fa285676ac27ddc128db345fb2c32638a397469\ndangling commit 8ea280809be0d335ad1c85caa3d3632fc2d360a4\ndangling commit c4a24cef08bba332b2bb112075da131dd352f32b\ndangling commit e5a2f15fc1d469b420af76ff80293b73fcfaa76d\ndangling commit 49a3987dcfcb11a5c72a7927e91ea9fe3a85802e\ndangling commit 1da42f6b7f5a4d692984e90fb78f55bb04144307\ndangling commit 21a49c8b6a941229a8075a743c4c38692fde22d0\ndangling commit dda4654f01f38408a8f221ab4c46a11460368878\ndangling commit 14a5f364ea502ceb0e590264cd959de768665eef\ndangling commit 9ea5c5edc7fe046f11f242cf80b7828dee4e0604\ndangling commit 3fa680de2337e19cf125ad18ac19f6539a943609\ndangling commit 49a647344fcf47214d8495589e4528e5322aff86\ndangling commit 22a74fcb40c358f5f2d5d16c8f058500c1c8d962\ndangling commit b1a74a1f00ec28074073df91d855f760ad2959a9\ndangling commit 19a84be1e4ccf0ed74720c8ef06302bcd9139ef9\ndangling commit 20aabe95892c20d8ab829b7f038d9b73efab5523\ndangling commit 6eaacccf4f7d2634de1ea71358fbfc64121cd306\ndangling commit 12ab418152c6079c22e938d1dc945a70e7f0c214\ndangling commit 3fac59da56c501955bd94353a4975a7069557a40\ndangling commit 94ade3b3f0ef83f89712eed38d713f88e86a542a\ndangling commit bcad800555fa122b812b0a043663da8ffa6d2856\ndangling commit 04ae4cd872fdb8742f3534472fda9bbe7e960793\ndangling commit 41af5ba8789b32328464f409af124ee0e5dc2b45\ndangling commit 87b0995ccc2f36d5f3893143258ca11bef3d67f1\ndangling commit f9b0c6db2593bb7858f4f5f49ed7d0a3d8fc5c1b\ndangling commit 28b1329040d4ed07ef8842c17809faccbc37d968\ndangling commit 4cb123435674fef62fbeba2207b99230e0536308\ndangling commit 9db1af6773ef0171d0e5b08f6bc855da6a2c00ed\ndangling commit 88b26c9ad1576389d2d237fd607a9f9115c3b6f7\ndangling commit 33b359ffb362a44a029a83f9bde3d45826e68fe8\ndangling commit f0b5698399f8c7d928fbe2833c04476486ac739e\ndangling commit f3b5db452ca1a09b9c04efefbc70f3a94c30ea01\ndangling commit 19b6ade1961625e5b65d9172b45827328cc3ab7d\ndangling commit 8fb60968c362a27978ae4295bd191271f8d4ff2b\ndangling commit 3db71134354a0872e3a4b2ba46190cdf8bee7b20\ndangling commit 8eb7660da691ac420f2701507af9f2eb497c8a20\ndangling commit a4b7228bb9c57be5c8db0cc2781fb65e5b4d5b28\ndangling commit 7fb8d134d9ddcddcc627e87273f3a0dd382b87ea\ndangling commit d5b8a11db9b7993f1a877ca2ecdb4a201951d7f4\ndangling commit e8b800cd82b15b86b7d9141d8295b09b35170e5d\ndangling commit efb8f587ea30d76cb6034b83716d6d50b9af665e\ndangling commit d6b9ac75c1dad7f2a1b4b541419588e180fd7e19\ndangling commit 21baa2b28f83508cb82b795afa26fc753a3014e0\ndangling commit 27ba85f13dc2df522ca6e0fb7e9b647f14478870\ndangling commit e5bb4b47ac5cf5f444726eff0646b66883190688\ndangling commit 7fbcf192c17012f1e7100dca4c408d3393775d9d\ndangling commit 40bd53e060c636e908f4cf8a8c785c1e8847bace\ndangling commit 5dbe419f66f9a017b88a6a89e791eddd18377ac6\ndangling commit abbe9bebc9a9e198babea89e5e0d3ed0e7125a18\ndangling commit 55bfb9cd10cf85c06fea08e3f601f292cafb2c93\ndangling commit 8abf0c046dc24a6c5de29e2208e9c3c6989554fc\ndangling commit a1bf2d9436c9acc5fe2e586b75bfa806fae1cf51\ndangling commit e2bf12c56f5f5e81df7052ba36be1ee8705d7cd4\ndangling commit 0bc0cea1cad8c80dbbbf468ba6dade45f3e04f50\ndangling commit d1c0b0b13550391cde807faed1d8ea89923927bd\ndangling commit f8c0bee1687a8a63cfebd208ab44783f57d40219\ndangling commit 0fc1091f8ae132723f534ba5a1de813d297853a9\ndangling commit 5ec17e9725157dca9641359a0e47778297473ce7\ndangling commit 93c2a4f8e794853be8df2316173bbdcbefb26940\ndangling commit 2ec41d6254ce0df9aed70f34472ecc16e07e494d\ndangling commit 9ec417155cf070175af74dabea250d903897af42\ndangling commit 45c59a36b91653a70e617dfe0e963988fe2e4f29\ndangling commit 2ac61338839b3d0936d1f3997dea0ed313beeafe\ndangling commit 3bc6fa1c8006efc769340814fe7aff50396b6c66\ndangling commit b4c7763d9592414f72611d06f9b60b76511a3be2\ndangling commit c0c8c07ba4d40cadd836ad3b643c8dc00c8fa26a\ndangling commit 3dc91d2badbafd4cf0533226d8f9ca1d805825ab\ndangling commit accafa4d60d897c48013367bdcdcf29813a24c25\ndangling commit b1cacab19da41be23e7161a2ebdad6d0ba3cd89f\ndangling commit f5cad1af59114f4858677f17ea94e318b32e8b67\ndangling commit 4ecb4d37cba41f2cf64dff1b4432acaef1ce01d6\ndangling commit 60cb97ca477264f6e4a4da76652c98380a8a7e0b\ndangling commit a5cb3f7b03fc8ad611016dbc3d791aed1c989e17\ndangling commit c0cbf04d8d6c6ffc59c15f3b1d22cbf4c97baaea\ndangling commit cecb92160b99e1c7f7ac35a0abc02cb822c203f7\ndangling commit d2cb823ac0243e5b33fd59dd4e6801c289f4f77e\ndangling commit 42cdcf254028759594b5399c5614a822121a93f5\ndangling commit dccde4f7e532907d14aa327b47ba879a2591a91b\ndangling commit 09ce09430d6eb8e01014add1c8e2bc5abcea20b1\ndangling commit b3cebd4ad8417f49c91af8de7c820504880b7cb6\ndangling commit 97cf095ecc60958b0cc643afed570b9b47965eeb\ndangling commit abcfa68ca1d4736685b8821a653a6b93a84d6973\ndangling commit 33d0b4c9282c9ec77aaca805e6e1b73c80d2cc03\ndangling commit 49d1b10ad991a33d767858514d7aa9914ace5c49\ndangling commit dad174876de774dc5ae0ececf3dcf70c2e1c4827\ndangling commit 2bd2c07f39c0d8a583baa5df2ce963171ba7fe07\ndangling commit 8bd26aea6e46abf62a921ecaab7f5a8c67316afe\ndangling commit 01d4bc420e6eca9533f79bbf4c79a01cde1bab50\ndangling commit 02d406e6f43af5115e34b1a7789400435ff15082\ndangling commit 9cd4f548a8a61418025ee8ede9b2dba7a61d8aed\ndangling commit 05d5c035f4ac04b4323b7592c4e5b7c81b2dd5f4\ndangling commit 05d68049869241ace29152e533717c4583cee10a\ndangling commit 0ed64661d37dc7bedd8fb54a06fbd23a86550c44\ndangling commit 76d644bdb7827b7b350d357e774a7378a3d3aea7\ndangling commit ecd67ce70aecf64dd36b95cd71e86d043a89e987\ndangling commit 71d7fb738deda4e9d52301143ca52b1abf4fe71a\ndangling commit 91d872f20337d0d9342ebc35f455855a2b6c0e32\ndangling commit 38da1825c50d1e8986d9494b7e5ab05242ac7b86\ndangling commit 07dcbb6e37875fc29f3c2ed1b96259b0579b3969\ndangling commit b7dcbe895dbe12dd1fc6aa0f09d1047c7cebe673\ndangling commit b7dc04d60c769b8d914ce5cfd83a96417c4d2e5c\ndangling commit dfdc1c445407e2c506aab1f0b03d008bc4cdf634\ndangling commit 4bdd6b0bf3c320a5c268ec464d267c5bb6fff653\ndangling commit 5fde54fea2f3bb4d71f746773e2f9d8764f865e6\ndangling commit 6edef29b24d15be83e2a3a5d46700b067ee57590\ndangling commit d4de3613f0b2ddbc75d100c280c8119a95e2e85c\ndangling commit e0de3a139ad1ce0efefd7643cb75a7ab965b0851\ndangling commit a4df8e04a955d94216c9c00149f748ed2fa92a07\ndangling commit b6df73666f0abd233a6e478eaea61bd88395869f\ndangling commit 00e0ef7c97d6f241ff5f1e07a0528bc2eb00583e\ndangling commit 2be036d52268f4b754b29be214ff991ae799c3ff\ndangling commit d7e0ff6acb3fd6a88d334b9b94a48b515039c21b\ndangling commit 70e2cc347eacf2f91f55dd5a56416793a09ced5f\ndangling commit 74e3f7fd10b75cb3fd51cd8067a0ae959ecd4c94\ndangling commit 81e380a19157c7d455b7a4d77ffc544e6f6b7260\ndangling commit 6fe46170b90242ed1d55ea927cfcab928fe77747\ndangling commit bce423d6378c7109134a9fb7d8914fd735ec29f4\ndangling commit 1be56496dfea734c38ec21d956d60219d15ef8d6\ndangling commit 45e5c525514163f7c7a185e11683c3d6db371b9c\ndangling commit 97e6dd42b029951e971e9ca866e8faa2d937198c\ndangling commit fee6e636030c656c608ec1b30f139b4b0a34aa13\ndangling commit dde797eaca6ed160785d442679c34be1f9deaabb\ndangling commit 08e8a14e0ad90b541753c26d6438b594d8c2ba91\ndangling commit 49e843f46431e350ea96118a88f1374d05ed942e\ndangling commit dbe809cef881b6d65092d4224dad884ac9781b4b\ndangling commit f5e8b2b7742804397da435831dfe7b85950ad252\ndangling commit a1e977d6dd2d024146fcd829a6eb57d2c8b1f3b1\ndangling commit a2e9038fecb6d2b3536f045b730490a5b737f7aa\ndangling commit 2aea00c4db2125babbbf63f42bbff68aef6dce77\ndangling commit 19eb2c6101c79f8d9f75a5529370db0910519923\ndangling commit 59eb40d9267c0ad6269cbf47e867c3e6dd583192\ndangling commit b0eb0a500a9944cff87eefe0bbc6c0fb38ccec1e\ndangling commit 4fec21e0a7c6ad6944603a19a1d1550451878914\ndangling commit d2eccda7a90e9d13e156ef6123173e3a2933a5aa\ndangling commit f4ecb8033bf6659a06202513ae0b26e5e550d460\ndangling blob 16ed471af57f176061915e3510bfd28546768f99\ndangling blob 71ed61c3ce5d784c3ed37ae9343f345efb59afd8\ndangling commit eded6a0c7bf3b44747b84d8450ef2487785d2b44\ndangling commit 42ef68a59952507bae28f7cbd49cd3f4acb9f459\ndangling commit 8fefd4cdabe3cffda1b0cd093c6fba513600d895\ndangling commit 99f0c64ef5ca85b3c32f7463992af8bf358e8d3c\ndangling commit 11f1d1f9ebcd590578251381b1e7cc9f0d7cea83\ndangling commit 26f124efc0bd57224a8fcd147b11f6ba854d9eea\ndangling commit 76f14a8e7b3e0f21df6e7293c928dda29b2ef1e8\ndangling commit aef1d0142e0db0db8739592f685b17235f80b919\ndangling commit d0f2e70f62750745f390807343df98a57bfe5293\ndangling commit d1f2262854542ebbae9295133ca5f82144b141d2\ndangling commit 41f46e3ac5bdfd56f8e5df15a18ebdec8ed6f46d\ndangling commit b5f4cc2f51359894703391ff2d07fb9364397655\ndangling commit edf4cff555f5b6a9351062f5fccf67e0e4a3c5ab\ndangling commit 71f7dcc6ce6a8d098926049e67c31abc1c5ac2cd\ndangling commit 96f86dd33c1c043cf470692a8b4091581be5a885\ndangling commit a9f810020e095a3dad9fd3fe79fdfe872d20c30a\ndangling commit c7f86d410eaea67d0642564798bd495458b3a0d7\ndangling commit 95f9ed20883481b619ea50870d9009b587680a14\ndangling commit eff9ad432bd3872363366e2d79a2aa5c4fa6e42e\ndangling commit 04fae1324b5b5cdf0030e0931a5c9090f15fcb44\ndangling commit bbfad0b9ffea11fa0f6891f9dcb76634941a6f39\ndangling commit 12fb8dd69aec8aea7b240db706ddb2dc7531e98e\ndangling commit 41fba09fb84c9218f21d74119f72da7d7f54e25f\ndangling commit 75fbf21aa9377e16ee1fe8b0ea75db41646c8386\ndangling commit a1fbe1bbb06b8232bc7d00ca45b25df1958124d5\ndangling commit 3cfca4f384e00df4932741a2346c809022b3d77e\ndangling commit 9bfdae63763623af968085257698232af874a8f0\ndangling commit d6fd9c8527bc0e37f6df3e31a9e41380be17780d\ndangling commit e0fd980826e9a0dfc2f34cae2a434d5cc683925f\ndangling commit 81fef1d92f711e15e19033590e67f51f6d5a170c\ndangling commit 2dff0e71543eee6ad453c971da02e3e024b8b8a5\ndangling commit 3cff832436406d68f800a4b16887496f521bac2b\n",
+      "stderr": "",
+      "seconds": 1.1426363260252401
+    },
+    "head": {
+      "command": [
+        "git",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "code": 0,
+      "stdout": "8739180aa6a27b61df69440cb2616703852d5aff\n",
+      "stderr": "",
+      "seconds": 0.0020682699978351593
+    },
+    "branch": {
+      "command": [
+        "git",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "symbolic-ref",
+        "--short",
+        "HEAD"
+      ],
+      "code": 0,
+      "stdout": "t2\n",
+      "stderr": "",
+      "seconds": 0.0019431100226938725
+    }
+  },
+  "deleted": [
+    "/home/gcp-vegas/exp/overlay/state/S1-default-P1-1-1794496795061781230/upper",
+    "/home/gcp-vegas/exp/overlay/state/S1-default-P1-2-1794496799540457144/upper",
+    "/home/gcp-vegas/exp/overlay/state/S1-default-P1-3-1794496803895224181/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-1-1794497694692569642/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-2-1794497807017717004/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-3-1794497911703667326/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-1-1794497736792212675/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-2-1794497841655067685/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-3-1794497946579129582/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-1-1794497771991094191/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-2-1794497876519469892/upper",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-3-1794497981605125568/upper",
+    "/home/gcp-vegas/exp/overlay/state/S3-default-P1-1-1794496808124449063/upper",
+    "/home/gcp-vegas/exp/overlay/state/S3-default-P1-2-1794496812392685273/upper",
+    "/home/gcp-vegas/exp/overlay/state/S3-default-P1-3-1794496816734188342/upper",
+    "/home/gcp-vegas/exp/overlay/state/S4-default-P1-1-1794496821044963951/upper",
+    "/home/gcp-vegas/exp/overlay/state/S4-default-P1-2-1794496825427557238/upper",
+    "/home/gcp-vegas/exp/overlay/state/S4-default-P1-3-1794496829725077867/upper",
+    "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-1-1794496834498925292/upper",
+    "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-2-1794496858274311842/upper",
+    "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-3-1794496882430511669/upper",
+    "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-1-1794496848353379423/upper",
+    "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-2-1794496872166623811/upper",
+    "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-3-1794496896904923741/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-1-1794498253167465036/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-2-1794498290424485545/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-3-1794498327952897256/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-1-1794498478607137203/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-2-1794498514290246101/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-3-1794498549818752085/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-1-1794498693155982184/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-2-1794498729870037822/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-3-1794498766967584778/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-1-1794498365436988018/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-2-1794498403164302922/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-3-1794498440902020037/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-1-1794498585987151690/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-2-1794498622078993137/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-3-1794498657644298339/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-1-1794498804132449318/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-2-1794498840808183303/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-3-1794498877943600235/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498018335166402/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498139410690948/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498024355147660/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498146932130479/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498030326384829/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498154279901516/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498054717579339/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498182789891061/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498060116325115/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498188200965167/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498066487962252/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498193576610594/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-1-1794498215192284499/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-2-1794498221504701487/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-3-1794498227838543755/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498036782811223/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498161583492925/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498042840064819/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498168700516039/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498048795038828/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498175804025684/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498072401595663/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498199001173870/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-2-1794498204346115878/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-3-1794498209766102013/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-1-1794498234185924533/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-2-1794498240504447201/upper",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-3-1794498246865077248/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-1-1794496917661409991/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-2-1794496930865665850/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-3-1794496943840987126/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-1-1794496910811559429/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-2-1794496926534380352/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-3-1794496939563443266/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-1-1794496922024549458/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-2-1794496935248808027/upper",
+    "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-3-1794496948176442545/upper",
+    "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-1-1794496952674653368/upper",
+    "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-2-1794496957007254376/upper",
+    "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-3-1794496961372596034/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-1-1794496965845607328/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-2-1794496979408051277/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-3-1794496992962339005/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-1-1794496965846057128/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-2-1794496979408459117/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-3-1794496992962740045/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-1-1794496972648928082/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-2-1794496986191687581/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-3-1794496999791544818/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-1-1794496972649340842/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-2-1794496986192093471/upper",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-3-1794496999791966168/upper"
+  ],
+  "failures": [
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S1-default-P1-1-1794496795061781230/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S1-default-P1-1-1794496795061781230/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S1-default-P1-2-1794496799540457144/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S1-default-P1-2-1794496799540457144/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S1-default-P1-3-1794496803895224181/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S1-default-P1-3-1794496803895224181/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-1-1794497694692569642/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-1-1794497694692569642/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-2-1794497807017717004/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-2-1794497807017717004/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-3-1794497911703667326/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-3-1794497911703667326/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-1-1794497736792212675/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-1-1794497736792212675/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-2-1794497841655067685/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-2-1794497841655067685/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-3-1794497946579129582/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-3-1794497946579129582/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-1-1794497771991094191/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-1-1794497771991094191/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-2-1794497876519469892/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-2-1794497876519469892/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-3-1794497981605125568/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-3-1794497981605125568/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S3-default-P1-1-1794496808124449063/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S3-default-P1-1-1794496808124449063/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S3-default-P1-2-1794496812392685273/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S3-default-P1-2-1794496812392685273/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S3-default-P1-3-1794496816734188342/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S3-default-P1-3-1794496816734188342/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S4-default-P1-1-1794496821044963951/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S4-default-P1-1-1794496821044963951/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S4-default-P1-2-1794496825427557238/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S4-default-P1-2-1794496825427557238/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S4-default-P1-3-1794496829725077867/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S4-default-P1-3-1794496829725077867/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-1-1794496834498925292/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-1-1794496834498925292/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-2-1794496858274311842/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-2-1794496858274311842/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-3-1794496882430511669/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-3-1794496882430511669/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-1-1794496848353379423/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-1-1794496848353379423/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-2-1794496872166623811/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-2-1794496872166623811/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-3-1794496896904923741/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-3-1794496896904923741/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-1-1794498253167465036/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-1-1794498253167465036/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-2-1794498290424485545/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-2-1794498290424485545/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-3-1794498327952897256/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-3-1794498327952897256/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-1-1794498478607137203/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-1-1794498478607137203/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-2-1794498514290246101/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-2-1794498514290246101/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-3-1794498549818752085/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-3-1794498549818752085/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-1-1794498693155982184/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-1-1794498693155982184/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-2-1794498729870037822/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-2-1794498729870037822/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-3-1794498766967584778/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-3-1794498766967584778/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-1-1794498365436988018/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-1-1794498365436988018/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-2-1794498403164302922/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-2-1794498403164302922/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-3-1794498440902020037/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-3-1794498440902020037/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-1-1794498585987151690/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-1-1794498585987151690/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-2-1794498622078993137/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-2-1794498622078993137/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-3-1794498657644298339/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-3-1794498657644298339/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-1-1794498804132449318/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-1-1794498804132449318/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-2-1794498840808183303/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-2-1794498840808183303/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-3-1794498877943600235/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-3-1794498877943600235/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498018335166402/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498018335166402/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498139410690948/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498139410690948/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498024355147660/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498024355147660/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498146932130479/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498146932130479/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498030326384829/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498030326384829/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498154279901516/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498154279901516/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498054717579339/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498054717579339/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498182789891061/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498182789891061/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498060116325115/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498060116325115/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498188200965167/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498188200965167/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498066487962252/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498066487962252/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498193576610594/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498193576610594/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-1-1794498215192284499/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-1-1794498215192284499/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-2-1794498221504701487/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-2-1794498221504701487/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-3-1794498227838543755/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-3-1794498227838543755/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498036782811223/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498036782811223/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498161583492925/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498161583492925/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498042840064819/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498042840064819/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498168700516039/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498168700516039/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498048795038828/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498048795038828/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498175804025684/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498175804025684/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498072401595663/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498072401595663/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498199001173870/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498199001173870/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-2-1794498204346115878/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-2-1794498204346115878/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-3-1794498209766102013/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-3-1794498209766102013/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-1-1794498234185924533/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-1-1794498234185924533/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-2-1794498240504447201/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-2-1794498240504447201/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-3-1794498246865077248/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-3-1794498246865077248/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-1-1794496917661409991/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-1-1794496917661409991/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-2-1794496930865665850/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-2-1794496930865665850/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-3-1794496943840987126/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-3-1794496943840987126/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-1-1794496910811559429/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-1-1794496910811559429/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-2-1794496926534380352/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-2-1794496926534380352/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-3-1794496939563443266/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-3-1794496939563443266/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-1-1794496922024549458/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-1-1794496922024549458/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-2-1794496935248808027/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-2-1794496935248808027/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-3-1794496948176442545/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-3-1794496948176442545/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-1-1794496952674653368/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-1-1794496952674653368/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-2-1794496957007254376/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-2-1794496957007254376/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-3-1794496961372596034/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-3-1794496961372596034/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-1-1794496965845607328/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-1-1794496965845607328/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-2-1794496979408051277/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-2-1794496979408051277/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-3-1794496992962339005/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-3-1794496992962339005/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-1-1794496965846057128/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-1-1794496965846057128/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-2-1794496979408459117/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-2-1794496979408459117/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-3-1794496992962740045/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-3-1794496992962740045/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-1-1794496972648928082/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-1-1794496972648928082/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-2-1794496986191687581/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-2-1794496986191687581/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-3-1794496999791544818/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-3-1794496999791544818/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-1-1794496972649340842/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-1-1794496972649340842/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-2-1794496986192093471/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-2-1794496986192093471/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-3-1794496999791966168/work",
+      "attempt": 1,
+      "error": "PermissionError(13, 'Permission denied')"
+    },
+    {
+      "path": "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-3-1794496999791966168/work",
+      "attempt": 2,
+      "error": "PermissionError(13, 'Permission denied')"
+    }
+  ],
+  "remaining_upper_work": [
+    "/home/gcp-vegas/exp/overlay/state/S1-default-P1-1-1794496795061781230/work",
+    "/home/gcp-vegas/exp/overlay/state/S1-default-P1-2-1794496799540457144/work",
+    "/home/gcp-vegas/exp/overlay/state/S1-default-P1-3-1794496803895224181/work",
+    "/home/gcp-vegas/exp/overlay/state/S3-default-P1-1-1794496808124449063/work",
+    "/home/gcp-vegas/exp/overlay/state/S3-default-P1-2-1794496812392685273/work",
+    "/home/gcp-vegas/exp/overlay/state/S3-default-P1-3-1794496816734188342/work",
+    "/home/gcp-vegas/exp/overlay/state/S4-default-P1-1-1794496821044963951/work",
+    "/home/gcp-vegas/exp/overlay/state/S4-default-P1-2-1794496825427557238/work",
+    "/home/gcp-vegas/exp/overlay/state/S4-default-P1-3-1794496829725077867/work",
+    "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-1-1794496834498925292/work",
+    "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-1-1794496848353379423/work",
+    "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-2-1794496858274311842/work",
+    "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-2-1794496872166623811/work",
+    "/home/gcp-vegas/exp/overlay/state/S5-discard-P1-3-1794496882430511669/work",
+    "/home/gcp-vegas/exp/overlay/state/S5-keep-regenerable-P1-3-1794496896904923741/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-1-1794496910811559429/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-1-1794496917661409991/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-1-1794496922024549458/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-2-1794496926534380352/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-2-1794496930865665850/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-2-1794496935248808027/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-mv-P1-3-1794496939563443266/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-git-mv-P1-3-1794496943840987126/work",
+    "/home/gcp-vegas/exp/overlay/state/S7-os-rename-P1-3-1794496948176442545/work",
+    "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-1-1794496952674653368/work",
+    "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-2-1794496957007254376/work",
+    "/home/gcp-vegas/exp/overlay/state/S8-opaque-P1-3-1794496961372596034/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-1-1794496965846057128/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-1-1794496965845607328/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-1-1794496972649340842/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-1-1794496972648928082/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-2-1794496979408051277/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-2-1794496979408459117/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-2-1794496986191687581/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-2-1794496986192093471/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-A-P1-3-1794496992962339005/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-different-B-P1-3-1794496992962740045/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-A-P1-3-1794496999791544818/work",
+    "/home/gcp-vegas/exp/overlay/state/S9-same-B-P1-3-1794496999791966168/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-1-1794497694692569642/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-1-1794497736792212675/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-1-1794497771991094191/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-2-1794497807017717004/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-2-1794497841655067685/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-2-1794497876519469892/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P1-3-1794497911703667326/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P2-3-1794497946579129582/work",
+    "/home/gcp-vegas/exp/overlay/state/S2-noise-P3-3-1794497981605125568/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498018335166402/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498024355147660/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498030326384829/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498036782811223/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498042840064819/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498048795038828/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498054717579339/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498060116325115/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498066487962252/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498072401595663/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-1-1794498139410690948/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-2-1794498146932130479/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P1-3-1794498154279901516/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-1-1794498161583492925/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-2-1794498168700516039/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P1-3-1794498175804025684/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-1-1794498182789891061/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-2-1794498188200965167/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P2-3-1794498193576610594/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-1-1794498199001173870/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-2-1794498204346115878/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P2-3-1794498209766102013/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-1-1794498215192284499/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-2-1794498221504701487/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-commit-P3-3-1794498227838543755/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-1-1794498234185924533/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-2-1794498240504447201/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-quiet-discard-P3-3-1794498246865077248/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-1-1794498253167465036/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-2-1794498290424485545/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P1-3-1794498327952897256/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-1-1794498365436988018/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-2-1794498403164302922/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P1-3-1794498440902020037/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-1-1794498478607137203/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-2-1794498514290246101/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P2-3-1794498549818752085/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-1-1794498585987151690/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-2-1794498622078993137/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P2-3-1794498657644298339/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-1-1794498693155982184/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-2-1794498729870037822/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-commit-P3-3-1794498766967584778/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-1-1794498804132449318/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-2-1794498840808183303/work",
+    "/home/gcp-vegas/exp/overlay/state/S6-noise-discard-P3-3-1794498877943600235/work"
+  ],
+  "after_git": {
+    "status": {
+      "command": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "status",
+        "--porcelain"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.0056564799742773175
+    },
+    "fsck": {
+      "command": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "fsck"
+      ],
+      "code": 0,
+      "stdout": "dangling commit bc00d042d2c0c9eeeee0ebc0a559441a04db425b\ndangling commit f600cc5fac91692be0faa7234c0d2a22c12209c6\ndangling commit 4a0134b15c814e74ebb449242048bf423e754e76\ndangling commit 70012d3b65dd654d50134475484e268e1111e61e\ndangling commit 06037d0325ec32036a60f061ed214ed1eec0fad9\ndangling commit 0a038bec1890e965011ac026974f56e32143a29b\ndangling commit 39035ed128d38ad1b62cd3240b8ed00d1d8c6568\ndangling commit 5204ac53e5f6a6b766339f108687c708b5f444a6\ndangling commit 8604a5f11a0d29ea028ae5d52a615b6991aa2bae\ndangling commit 97048c6e4e54a33ab3a5870f6dbe118bf59bdd5e\ndangling commit 2405cd16bf35eac85250f3c60033545a062cc98a\ndangling commit 05069cc2dacf20483287cd17304e7b995cc83716\ndangling commit 07062858d1686bf4cb2ff6eab959bf78c57395b5\ndangling commit 3d067ef05e82ab934d3f17619d6db1f5d8eadf46\ndangling commit 77067ca91a838066cfa6e6f8012e5609a17906cb\ndangling blob c40648d7e8c0d72596bf91944b855919403b4432\ndangling commit a50701bab235f41a6adc65037ae0209a3b912d4e\ndangling commit bb07c50abca79b707a819d8ba973eb22722b44ed\ndangling commit 5d08755921f2a278388824b7fbb8b58e57cdff1d\ndangling commit c208a235c954e6bd03050f806f696338fff1ce78\ndangling commit ea08a931b5d76eeda294fdb59ad96dffff65a7c0\ndangling commit a409ea9d5914db6c1e6845d7898d4a0ac811d316\ndangling commit 950ad727d6f1f44021f4a8a9d2950e153714847f\ndangling commit 340b752f31332197f20149565b28cfaab5113334\ndangling commit fb0b39801919a15bfd53419895d15b40a2eba5c6\ndangling commit 6b0c48f081dc7308e534cefec6e7c6679ec1a4ef\ndangling commit 780c85897373986c2f43bac6433efaad2ed28208\ndangling commit 920d051e5d3fe7ad106f56fbcd593f673106d498\ndangling commit d10ef690e829eaba0779d3b57682a7e9c499a795\ndangling commit 960fa2efd57801d8dfb3707bc7912ba9af2df484\ndangling commit ca0f3dd0ee009e80e1dd6d6e05caa92933d75219\ndangling commit 791027c08dc95ecb813f9e20a1398442ce7f698e\ndangling commit a610ec5f01a2153ed691cd6d7a6fddbd2c1170f6\ndangling commit ac1072aedf34561c6d940e24a964a52fc5947d90\ndangling commit d71048864845884c71f4c9b00baf6fa7dd8e85c5\ndangling commit c8111d33723513c16ddf159c1b917e0949a49b15\ndangling commit e112d6c03b98962f7b1da091789c7cf5c5981887\ndangling commit 4c1317461fa2557149e6fdceb5600e508cb609b1\ndangling commit 6814571c6721e0e7fa5a873372c514bd5b692310\ndangling commit 841487c959d7212225e5080b4d2a5efac65a3f22\ndangling commit 6015832ec7bd0be2815f6f7e38dabe266b06b3b9\ndangling commit 99153088f3ac05a553fdc2a43075e1934c342519\ndangling commit 891849359ae7ad81aaa75b3b698ce2e3ad37eb6c\ndangling commit a3184d4fbb79a818d02dfb852cb359d609e07430\ndangling commit 0719a3938a976a5448ce319b134bcf046ef3eefb\ndangling commit 161a95a2b3cc058618ad7972feb1179885916fe2\ndangling commit 691a6f9f79b3105b31db5334715f44ec03fd6730\ndangling commit 1c1b68576b92a8dfcf34d41384062007afffc3bd\ndangling commit 5f1be6cdcc6da5b0a4bbde5f864b51cde8d22176\ndangling commit 931ba1765d29d21c7c3ecc5f2bea4ed7b2ca8288\ndangling commit 091c8399e45e31963b5062847f02c6cc1274a033\ndangling commit 3e1cd884a8e8e722e49419e45dac993d44b3dbb0\ndangling commit 8b1ce57efe836f16b645c1691e1a9a5f7781dc8d\ndangling commit c11c6c6bfc243a6e96057595a20f8f934bdc9e6c\ndangling commit 411ebd0ef1ef2482bea20c9c7b90de1882dd6403\ndangling commit 681ea3bd355ca4dffc25a051c16620db61370a67\ndangling commit a01ebb1f209953d0150e1bed3effa3845a16f3d1\ndangling commit 17200e49ce3a1d482e8343af0d52aee449e6d4e5\ndangling commit 7720668bc47b94ce042234f4b213c524178fc180\ndangling commit fe2035f2f2c78116cce401efaf6e6061f70178f3\ndangling commit 00213a86df3f784245da68c9668c441bb3365edb\ndangling commit 1b219d37d9075ae2d0a92eaaf881e13680543d1c\ndangling commit 492120fd990accddf59fa29225db08b64086eca4\ndangling commit b22164f912929a4c4d021360106f450df972e842\ndangling commit e32176a5a5dc56922326466d736af0d289784de9\ndangling commit c8221d56ca85cf934fe04d64d772155d962463e9\ndangling commit 6c2495d90324d7fb0f1027a12ffd40eba7910af7\ndangling commit 0a2755492bc49e56429881766ef35e7338330569\ndangling commit aa2737b5b97c16a444125748861bf6d2afce329f\ndangling commit b2270cc9e27c465362db7cb8e4c67df97558d22d\ndangling commit ba27fbd61e03ed616b829a63ecb8ee1e29323b4c\ndangling commit d328a38558dc486c3f28355faebd970e1bccdec7\ndangling commit 5f29e1400c87412c223b0d50bfc9117ad79f6f24\ndangling commit 5f29e40f35a560b9efe5856f16937360f8d375c7\ndangling commit 402bed8439765bfe514efb858495e1ca9d6f7522\ndangling commit 582b74c1213a4286c1f7894a49e7b80fc7fa7892\ndangling commit 642be1a62925d25dfae877a665d76240910a1ac7\ndangling commit 342ce4e40a03557c9a2036f3cbb9256f2bd11977\ndangling commit 1e2d553c7ec545cc1d1e5e2e1a59932bbc35117d\ndangling commit 262f8e39b81ce13182b4fd5b8f1e84f714b11a75\ndangling commit 4f2f95e7da1a120585e9014b9c9899bbe9dfd126\ndangling commit b430122be30990098ae9be60abd5cb8b600e9f6d\ndangling commit c33042fd46636edd58191a5ca84946baa02624e6\ndangling commit e3306eb872b7c852faec90d3343e18834f0b7af7\ndangling commit 38323e86bb4938e8719cff75b70a10bc3e7bf825\ndangling commit 6c329d95b2702bcbd750461502136eaf5d5feeb3\ndangling commit 1c336455e244f1bb190a5c3a42ee2851dba0b3c4\ndangling commit 7533549683ca8a7602af690bd95bd65420253c0b\ndangling commit b233e06490d927fac2105f6cbfd88cf01cf838db\ndangling commit c0339c45abd762359f4f86e5f1dbeff5d8089dfe\ndangling commit 0434eaacbc8caa8a3e80dfd521ddc904f1d52ed2\ndangling commit b034f0f6cdc5b2a87cb7bfd7f0c6a3adf01e1c5c\ndangling commit 64352075c62b1b55fe3dd12ca6edba6aad6b11e1\ndangling commit 1c361e79f9f1724480181781253d6809c4638506\ndangling commit 4736df0a87fa11fe8310c1fbf6dd4beeca30fb4f\ndangling commit e1361dc767f953a8506ee133341bfc3ac7113342\ndangling commit 793763505013baab3cd29d7e09ae0c6fa9425629\ndangling commit 4338631daa6411e8948557da2f48a631d111d804\ndangling commit b9388dcc6639c6fd11ce255b8ad6a171e8908ebc\ndangling commit e139676f4bd6142bf5ec3555eed62fcce2087c8b\ndangling commit a03a9de5b19fbcbf179b6f010bafcf619446aec2\ndangling commit 0f3b28acee4bb11ef59961db3cfc254e94cf51b9\ndangling commit 783bec2f6df9f66b7eafeb8faa05b61973643055\ndangling commit 243e46477cabe57c6990e4dc4f77a681defd00ed\ndangling commit 633ede2989b7e2b2aded7dc039ace80479dcf4a1\ndangling commit 6f3e67164672c3d163f5248ab9ff059362466c28\ndangling commit b23ea81078b03d444c525b0c1936db56a55db468\ndangling commit 1b3fdbc829e4e8fdacd1f249b48fb5baf30e1679\ndangling commit 233ff258c8f5094a3228456a9cd3d83e680d2b6c\ndangling commit fc3f0a182146f99e8135cab7b0480708d3594650\ndangling commit 5140e6aeb12e575dce534616d41afb471a07bd73\ndangling commit 6f40ea7d37ad2011293fd1c5edab9ee1b8c2c570\ndangling commit ee408b8eb4d6e0d5ca7a7acc7c3ee8702046ac66\ndangling commit 3241676685d3e6d074b20a95ebd209fcfecb2668\ndangling commit 874182d6c1a9daea142d0f34631d500bb766fce1\ndangling commit e5410c5a391281f96de6ee868f200c6c26a55654\ndangling commit 5743b7a7e0a2bafd41772412df4711de6871bfce\ndangling commit b343c76e2c8185ccf2b58cf8d453f60e5df38145\ndangling commit b6431cb027785017f1d400e311395c0a647eb3e3\ndangling commit 3e440f5400be105406e2b350bbc1cb932101976c\ndangling commit 0045812404cf4ca90d2fab12dbdf4ec28a8eee0b\ndangling commit 9e45ed3e9f7dec8c78be06abe47e448130dc826c\ndangling commit cf4500597cb3f51d2d4c83a5e694189dd73dcbc6\ndangling commit f545ac52ff9286b549b61e738fe9b5a4b22678b3\ndangling commit 0f46e709b1bd305e538c536d33c78cb52dbc754e\ndangling commit 8c462b9c0e55b939611a7e848a616014fde1e8e0\ndangling commit 9c466a66cfd710208da28e26dcff4883ee995186\ndangling commit ea464c04c2f9086d7b55b0445233142e7c59b4e0\ndangling commit 13471e7d4fd79bf98be1800e316521970bb65f7d\ndangling commit 7d486476950efa65bb2fb44b26b744f763faa281\ndangling commit 8e4893967f036caf6cce6e007ae9d52a05f16007\ndangling commit e248cf95d560d7fbcc327e7d2f6356601c7a48d2\ndangling commit 4e4a223eac449e711ead89f05e1171b91c09a158\ndangling commit 0a4cd6f9f5bada057240f3d5e984c02bcb5491f3\ndangling commit 204cadcc8f033d9c241e640380a72e2e92259144\ndangling commit 734c1d302d72447f1bda74bac240b611ffd06ed8\ndangling commit f44c9c36dc5bd7be92f9a0beccc7cb88233539d6\ndangling commit 6e4e0dfb60f80492060189161234c60f09f6f2ff\ndangling commit c85078a2e364d4fc370b4aa83056bbc634e90d42\ndangling commit 4b51496815216d04e95c00ba5ed38f55a57fb024\ndangling commit 735157e1e4751c489c60888f9ec3fc44faeee65c\ndangling commit 3d54f05f12f4062b3f62cb3900dc59fb286cbee5\ndangling commit 4c548fccfd17f8c568a69e7054452c63d5e00f61\ndangling commit 5254e4de7b2347fd3fd84fda05a0c915415609ed\ndangling commit 7e5457aea0f0d43369f90275b80de96e22073845\ndangling commit 6c5524646601da2c919beab4153031ebdb667b29\ndangling commit ae563deed95851f77db75386263a3d067d6354e6\ndangling commit b757c7d9e91db0bc6ebb52f3b76fd51c4868edb9\ndangling commit ca577fdbf33363989849b97862a9773b8d8d4b0c\ndangling commit 6d58bc228e06d6c11f3b6b59ad427958efe39994\ndangling commit 7a58a94331b1b0c76e6f1ae497af19845466c199\ndangling commit ea588828afaa35d61fe8ed0f85696254b4f9c2ff\ndangling commit ea59c489559d322a25e45aa8095832fdce7adf9f\ndangling commit ef59f770fa5db8a2f82093079e9507c43e68d55c\ndangling commit fe59b5dbb7b13c865fef7b5a6b16cd03a883c90a\ndangling commit 425bbc922607523af17c7ba5de70a6f3bc43bde0\ndangling commit 7d5b295608e14fd9364806548742f7172515fdee\ndangling commit b35c123da9568d38ccf3b190e3dbf3ad79f9133c\ndangling commit fb5c42fc3f20c9ff3754ff0e612b9baff1779a75\ndangling commit 525d66ca077df8613d4adafe11d3b815018048f6\ndangling commit d65d2aa5c141537d15e897d8a4087d529725af1e\ndangling commit 795ec7211047abda7c45c717c04ab1eba7e10457\ndangling commit 945e7fe3f3bda039efccf584cb034b5baeb9dfd7\ndangling commit 1b5f077b41ed834ff11d771fb92630255070b92c\ndangling commit bf5f8a493c31d2342f59c7e0b5826dbd326e06ac\ndangling commit fb5fbfb7583b09eaa8360a0236e0bfeb9d886e93\ndangling commit 1d61cb1ff87c124c5977e3c1e4abba4d2eff8ab1\ndangling commit e1624ac281afe288d85e594796f9114025d8ce37\ndangling commit de645fcbc7b4e4dc0a5b915b893f6fbba8d2ab0f\ndangling commit e964717af9f3b09b66b247332c301034619e2171\ndangling commit 1f657e5246b366ca1fa1437b473f2fd04bdd991f\ndangling commit 4365864103c9b8a5c2d3e1aa0c99585b8f11db6d\ndangling commit 49659ef59d0826fcac706c9be53bc329617db2ce\ndangling commit 506544e50f36c27b024f50548478bc7834bd29bf\ndangling commit c3657fa655ca6e5e6d7784bad598fbcdf3f2ae6f\ndangling commit 6c663379f840fed7cd0d728ad0621a3056927852\ndangling commit a866d97c74240869385e2884993c00e6c519adc8\ndangling commit 38686680eb88fa382bbf068abec5d642db21625b\ndangling commit 736828ab8a3d3385999f3106731b479ebd41f6bf\ndangling commit 26690de4722e48dcbee53286b0eda3701ad5e908\ndangling commit 94699821b396a8c0110377f8536c63d89d930701\ndangling commit ac6a9c0c43554c6477736e3bfa32974e9b1835c0\ndangling commit b56aff6e367a295326802dd6bf13f5f240bd5288\ndangling commit be6af276a7f6591b29e8b1d99308deb166b46c22\ndangling commit a16b1a8f6bfac88a832d160ef56b2c8ae85c669e\ndangling commit dd6cc6e9a9a0b1cc9528a5d4f6eba075d9a1282e\ndangling commit df6c69729db2e233bdcd0839c452797a0b88d8ab\ndangling commit f56c05e7df79bf9f67fb2db4498b9030b7159a2e\ndangling commit fa6c2152b228da9c62550a5bf247587fd018f3ab\ndangling commit bf6dbd3c7ec4b8bd2a8bf3130ae2450c713089ff\ndangling commit 216f89ddaf77ffb43ce7ee5747ca9dfc3f26cb8c\ndangling commit 9e6fc4e7239d9c494160197c77af85242b68ac1f\ndangling commit c46fb0846e907e660618c4e7f257cabe1b42fdd5\ndangling commit da70d90e8b53b0c45dd1827f4938f1483c37b121\ndangling commit 1b71abe53a986c386e797bf8c121a752ce9b3189\ndangling commit b5716d440de512a8267c50b01b52968b5a0b4f25\ndangling commit 4a721995f3555af4858003c9b81819e5aa0177eb\ndangling commit 22737bde1cbebc0dac72b12eb47f6e0b8acdbac7\ndangling commit 71731c2c9c3564134f4a244620918d21239bfe2a\ndangling commit cd7391942d8505447ccf68a6cb7ef7d3a098db12\ndangling commit 4074027124ac22f2816c669e2779c193546ede12\ndangling commit 4775f8c1f0e12d5bdc21a3e8122541dad44c0f98\ndangling commit dc76b1483433813200e7722a3b6191b82793c298\ndangling tree 4977bc73ee0e265c26858e3f17bc04392b7b755d\ndangling commit 5777b55bf4983937807ee2ae7d4755fad8b2f28c\ndangling commit 73783919eeda40014a25dccb3f61ed507b63f58a\ndangling commit 877814a27828af5fdd10b87931ad907bc4b2004b\ndangling commit 07797824e3da4fb10b0ee970bf52d31630361b0f\ndangling commit 3079ce949f33d7e18a455936d551ada832acbe61\ndangling commit 8479269588c10ff1dfdf30401a8e70c0b887bdc6\ndangling commit 9b79742cdddc7d6f6917c066f80cfb53c850aeee\ndangling commit 457acbe9a54ad66f5b0dbce945042c337e61572a\ndangling commit 7d7a121837a64ab113043e16378dadfd977b3b5d\ndangling commit a67b75429122cc5b3b1f805fbb9aefe5076fbabf\ndangling commit ff7b4f1a802be32617876e0da1db8f98b0110cb4\ndangling commit d77cc074a9f50a77ade3fa38f5395a2b69bd3e27\ndangling commit e77c7dd6a761b6b63e7d316b040fcfc9fe89be61\ndangling commit 9e7d51bb6336218609e3c9c1db2390b381cc72a0\ndangling commit 027e45fac5e0f57e2ccf8d9233dc3f9c474a67ac\ndangling commit 927ebcff6e31eb09afd10c6a08f044f2453777ae\ndangling commit eb7ee3fcf57d2029837a3e7bb95f28dacc64b8e6\ndangling commit 067f8ad0ba248cb940fc135abca047f8e887b0bc\ndangling commit 1c7f4b6cee4184ec9b0359da62d81bcc4f08c247\ndangling commit d57f7ebd274e106d345bf1af406174b51668d94b\ndangling commit 1a80266b91e43f1349701d65869652581e83aa22\ndangling commit 1f800b92b9a17b50ca6c8e0320ddc89ca0f4b3f7\ndangling commit af800a5e42726772c3ab878e00c208813bb734bb\ndangling commit be80e251899a0f37a7a1e110c4a42d336c431a43\ndangling commit 438118e4039a70f3b9999d798ab0104aac56020e\ndangling commit 4b8168fa279be8bf3f7406b69ab916e311cae98f\ndangling commit 29829f280b6427a13128d321166806896eabd0e7\ndangling commit d882d6e45e2bba0061013b3baf5decf3f2b69d80\ndangling commit 018371ea4438fe6d3bbf0c600cf94f6cf9ea9b5c\ndangling commit 25834a8708b1afbe5e80409b4f6dbbc71502ed26\ndangling commit 998339430ad25db3a9557da98351162faa26319b\ndangling commit e483b09dd377f4d4dcc67c0fcec25f7c64a59af4\ndangling commit 37847572b268d8d952fad493382e45fc4c1f8a0c\ndangling commit 9e84816497d2f64fa65b87d98608588e004012b6\ndangling commit af84110c44bba119f01bafc2702e38dd90253341\ndangling commit 248528b37705112832c12d52fdc65c59e1e4b640\ndangling commit 0e8631023738b6e40439ddaa9d08dd2986213fe5\ndangling commit 318670b16793b2ae8b269c3070a6eb7a82e0f5bf\ndangling commit 5386bf190c6d7e02e9df7680f2e71914cc1b95ff\ndangling commit ae866441aa5a5eaade01e638371b76579e9d465a\ndangling commit bb86df7043455aa2f2567c3c4bc351f98e6d9be0\ndangling commit 6e878826b2fc1d8370d6108e850aa14519bd4d7d\ndangling commit c687e22592bf91dea7f718b3317b676f836ed9c2\ndangling commit 9488ae00a81ce0a7583f8804e992725c25637ecb\ndangling commit 91896f18099737bd2665b31350a8aba147d5fcb8\ndangling commit 9a89ff18d6233e6b3ffa7ece71657a9be1898cda\ndangling commit af89d822bcd2ee916a7f09e5258fc99c1d3a8bf9\ndangling commit b28ae1071fbedb3ecacc3c090d59c34e819c1263\ndangling commit c38a73ba32318d4f1f71c5c5150bafd533e2557c\ndangling commit da8b9542b2fd2e90451ed2e730810fe11e97222f\ndangling commit 288cfcad8a8f444c3430c4a6178e813fd2ab3523\ndangling commit 328cd9e86928a28baf8c2feba43bf126d316f42f\ndangling commit 8f8c0bbd14247e6cf0d23c91bbbb6d2e34193b0f\ndangling commit 9a8cf3a4eea12ec0ce1871913e95c4309e3afbe4\ndangling commit c08daf00a86e107e342cda1f61dc1698bcbfbe93\ndangling commit 498f5c64ae14c1cf2a36e1b59458f43427c94adb\ndangling commit e78f579f3af26c8cda8753ecb4d9340250425224\ndangling commit 58909c71962795457d6a803185410fac4e583c36\ndangling commit 71907e75c9c48827c960d43d512b20944efc048c\ndangling commit af9089324b1043526df3e9c8bcef4fd04ea9566a\ndangling commit 8591ec3fe9e3c4107d3255e1492ee194d0dad4f7\ndangling commit 099290ad2ba6d26647ae18e83543b4d4cb9b8df8\ndangling commit 71925cd7dba7c1677551bff7c43befc525c809f7\ndangling blob 8a924afc5fe4655265b4f0d8d920c17710d44486\ndangling commit c1929f94008d0a8351b787961411046002a0dbc3\ndangling commit ea9251897151dc771bb441c58d51fe9c8c5f14f0\ndangling commit 169347704d1cc12080eb24efcbd724958acf4065\ndangling commit c694dea222f353476fa6ebb97f6507fb82f78647\ndangling commit 1d958b2208835852240d08d51f97834537b6240f\ndangling commit 1d950dffe3f29e1814a0410fe8cdff5123846ad8\ndangling commit 77953616fffba59721faf983718a65990b7043a6\ndangling commit 0f970c6ad205bb28aad01a4cf07539e5f26e6ab9\ndangling commit 5897e49f44380eaa63d77a00c3dc7691e9019622\ndangling commit 739799cb539721acd53dff1434ad155f4ad8dadd\ndangling commit a498dee1ae22b3d2cd6a05e46adccc214c52e2bd\ndangling commit ff987b7bbf9f96603382a0fb195c29d6983e0a84\ndangling commit 4299a00ab3ae57910329d1396ac7552ff819cf15\ndangling commit 989a1f261dc85cc8f47dbd38a093b7eb10608854\ndangling commit f99a8014d7bfff3ea4121673e423dc436420bc3c\ndangling commit a19bd3f749fb42e5d6679eb8f5f3e25c03818024\ndangling commit f99b4de5a40405dca50ab8a6ec914b8d3b7cf755\ndangling commit 199cba12ba7e72b9cf5ce9cdaafd2af1068296fa\ndangling commit a79dd23589f6a1d10e973a0a428d9a52185f1df9\ndangling commit 379e25353fedf4bf803cf7306d23a3e55895a2ad\ndangling commit 3f9f3afdac24b304dc14afecd62c533a6a40efca\ndangling commit 4f9fe82af942ec35ca36710f7b4aa3fbfb64fb6c\ndangling commit 2ba0b1e4b795b0907942205e483db63fafc10847\ndangling commit 3aa02c97861c1576e6254ab666b96edf79e355f4\ndangling commit 50a03fb68d2485e0b6c4df7defe3dfb1555e3d66\ndangling commit 8da088c211d2a83fb701b0d4bd8bd723a96f2c3b\ndangling commit c5a0be50b4daa504c994680cc9f88c6055e02587\ndangling commit 77a1749009311cc21ce1d27197c87fcd2bccf877\ndangling commit 7ea15831c14c9e7e40506ed0ecfb693ffed4f65b\ndangling commit c6a15a7408ac8906cc367e665a73b4022ffaace9\ndangling commit 4fa285676ac27ddc128db345fb2c32638a397469\ndangling commit 8ea280809be0d335ad1c85caa3d3632fc2d360a4\ndangling commit c4a24cef08bba332b2bb112075da131dd352f32b\ndangling commit e5a2f15fc1d469b420af76ff80293b73fcfaa76d\ndangling commit 49a3987dcfcb11a5c72a7927e91ea9fe3a85802e\ndangling commit 1da42f6b7f5a4d692984e90fb78f55bb04144307\ndangling commit 21a49c8b6a941229a8075a743c4c38692fde22d0\ndangling commit dda4654f01f38408a8f221ab4c46a11460368878\ndangling commit 14a5f364ea502ceb0e590264cd959de768665eef\ndangling commit 9ea5c5edc7fe046f11f242cf80b7828dee4e0604\ndangling commit 3fa680de2337e19cf125ad18ac19f6539a943609\ndangling commit 49a647344fcf47214d8495589e4528e5322aff86\ndangling commit 22a74fcb40c358f5f2d5d16c8f058500c1c8d962\ndangling commit b1a74a1f00ec28074073df91d855f760ad2959a9\ndangling commit 19a84be1e4ccf0ed74720c8ef06302bcd9139ef9\ndangling commit 20aabe95892c20d8ab829b7f038d9b73efab5523\ndangling commit 6eaacccf4f7d2634de1ea71358fbfc64121cd306\ndangling commit 12ab418152c6079c22e938d1dc945a70e7f0c214\ndangling commit 3fac59da56c501955bd94353a4975a7069557a40\ndangling commit 94ade3b3f0ef83f89712eed38d713f88e86a542a\ndangling commit bcad800555fa122b812b0a043663da8ffa6d2856\ndangling commit 04ae4cd872fdb8742f3534472fda9bbe7e960793\ndangling commit 41af5ba8789b32328464f409af124ee0e5dc2b45\ndangling commit 87b0995ccc2f36d5f3893143258ca11bef3d67f1\ndangling commit f9b0c6db2593bb7858f4f5f49ed7d0a3d8fc5c1b\ndangling commit 28b1329040d4ed07ef8842c17809faccbc37d968\ndangling commit 4cb123435674fef62fbeba2207b99230e0536308\ndangling commit 9db1af6773ef0171d0e5b08f6bc855da6a2c00ed\ndangling commit 88b26c9ad1576389d2d237fd607a9f9115c3b6f7\ndangling commit 33b359ffb362a44a029a83f9bde3d45826e68fe8\ndangling commit f0b5698399f8c7d928fbe2833c04476486ac739e\ndangling commit f3b5db452ca1a09b9c04efefbc70f3a94c30ea01\ndangling commit 19b6ade1961625e5b65d9172b45827328cc3ab7d\ndangling commit 8fb60968c362a27978ae4295bd191271f8d4ff2b\ndangling commit 3db71134354a0872e3a4b2ba46190cdf8bee7b20\ndangling commit 8eb7660da691ac420f2701507af9f2eb497c8a20\ndangling commit a4b7228bb9c57be5c8db0cc2781fb65e5b4d5b28\ndangling commit 7fb8d134d9ddcddcc627e87273f3a0dd382b87ea\ndangling commit d5b8a11db9b7993f1a877ca2ecdb4a201951d7f4\ndangling commit e8b800cd82b15b86b7d9141d8295b09b35170e5d\ndangling commit efb8f587ea30d76cb6034b83716d6d50b9af665e\ndangling commit d6b9ac75c1dad7f2a1b4b541419588e180fd7e19\ndangling commit 21baa2b28f83508cb82b795afa26fc753a3014e0\ndangling commit 27ba85f13dc2df522ca6e0fb7e9b647f14478870\ndangling commit e5bb4b47ac5cf5f444726eff0646b66883190688\ndangling commit 7fbcf192c17012f1e7100dca4c408d3393775d9d\ndangling commit 40bd53e060c636e908f4cf8a8c785c1e8847bace\ndangling commit 5dbe419f66f9a017b88a6a89e791eddd18377ac6\ndangling commit abbe9bebc9a9e198babea89e5e0d3ed0e7125a18\ndangling commit 55bfb9cd10cf85c06fea08e3f601f292cafb2c93\ndangling commit 8abf0c046dc24a6c5de29e2208e9c3c6989554fc\ndangling commit a1bf2d9436c9acc5fe2e586b75bfa806fae1cf51\ndangling commit e2bf12c56f5f5e81df7052ba36be1ee8705d7cd4\ndangling commit 0bc0cea1cad8c80dbbbf468ba6dade45f3e04f50\ndangling commit d1c0b0b13550391cde807faed1d8ea89923927bd\ndangling commit f8c0bee1687a8a63cfebd208ab44783f57d40219\ndangling commit 0fc1091f8ae132723f534ba5a1de813d297853a9\ndangling commit 5ec17e9725157dca9641359a0e47778297473ce7\ndangling commit 93c2a4f8e794853be8df2316173bbdcbefb26940\ndangling commit 2ec41d6254ce0df9aed70f34472ecc16e07e494d\ndangling commit 9ec417155cf070175af74dabea250d903897af42\ndangling commit 45c59a36b91653a70e617dfe0e963988fe2e4f29\ndangling commit 2ac61338839b3d0936d1f3997dea0ed313beeafe\ndangling commit 3bc6fa1c8006efc769340814fe7aff50396b6c66\ndangling commit b4c7763d9592414f72611d06f9b60b76511a3be2\ndangling commit c0c8c07ba4d40cadd836ad3b643c8dc00c8fa26a\ndangling commit 3dc91d2badbafd4cf0533226d8f9ca1d805825ab\ndangling commit accafa4d60d897c48013367bdcdcf29813a24c25\ndangling commit b1cacab19da41be23e7161a2ebdad6d0ba3cd89f\ndangling commit f5cad1af59114f4858677f17ea94e318b32e8b67\ndangling commit 4ecb4d37cba41f2cf64dff1b4432acaef1ce01d6\ndangling commit 60cb97ca477264f6e4a4da76652c98380a8a7e0b\ndangling commit a5cb3f7b03fc8ad611016dbc3d791aed1c989e17\ndangling commit c0cbf04d8d6c6ffc59c15f3b1d22cbf4c97baaea\ndangling commit cecb92160b99e1c7f7ac35a0abc02cb822c203f7\ndangling commit d2cb823ac0243e5b33fd59dd4e6801c289f4f77e\ndangling commit 42cdcf254028759594b5399c5614a822121a93f5\ndangling commit dccde4f7e532907d14aa327b47ba879a2591a91b\ndangling commit 09ce09430d6eb8e01014add1c8e2bc5abcea20b1\ndangling commit b3cebd4ad8417f49c91af8de7c820504880b7cb6\ndangling commit 97cf095ecc60958b0cc643afed570b9b47965eeb\ndangling commit abcfa68ca1d4736685b8821a653a6b93a84d6973\ndangling commit 33d0b4c9282c9ec77aaca805e6e1b73c80d2cc03\ndangling commit 49d1b10ad991a33d767858514d7aa9914ace5c49\ndangling commit dad174876de774dc5ae0ececf3dcf70c2e1c4827\ndangling commit 2bd2c07f39c0d8a583baa5df2ce963171ba7fe07\ndangling commit 8bd26aea6e46abf62a921ecaab7f5a8c67316afe\ndangling commit 01d4bc420e6eca9533f79bbf4c79a01cde1bab50\ndangling commit 02d406e6f43af5115e34b1a7789400435ff15082\ndangling commit 9cd4f548a8a61418025ee8ede9b2dba7a61d8aed\ndangling commit 05d5c035f4ac04b4323b7592c4e5b7c81b2dd5f4\ndangling commit 05d68049869241ace29152e533717c4583cee10a\ndangling commit 0ed64661d37dc7bedd8fb54a06fbd23a86550c44\ndangling commit 76d644bdb7827b7b350d357e774a7378a3d3aea7\ndangling commit ecd67ce70aecf64dd36b95cd71e86d043a89e987\ndangling commit 71d7fb738deda4e9d52301143ca52b1abf4fe71a\ndangling commit 91d872f20337d0d9342ebc35f455855a2b6c0e32\ndangling commit 38da1825c50d1e8986d9494b7e5ab05242ac7b86\ndangling commit 07dcbb6e37875fc29f3c2ed1b96259b0579b3969\ndangling commit b7dcbe895dbe12dd1fc6aa0f09d1047c7cebe673\ndangling commit b7dc04d60c769b8d914ce5cfd83a96417c4d2e5c\ndangling commit dfdc1c445407e2c506aab1f0b03d008bc4cdf634\ndangling commit 4bdd6b0bf3c320a5c268ec464d267c5bb6fff653\ndangling commit 5fde54fea2f3bb4d71f746773e2f9d8764f865e6\ndangling commit 6edef29b24d15be83e2a3a5d46700b067ee57590\ndangling commit d4de3613f0b2ddbc75d100c280c8119a95e2e85c\ndangling commit e0de3a139ad1ce0efefd7643cb75a7ab965b0851\ndangling commit a4df8e04a955d94216c9c00149f748ed2fa92a07\ndangling commit b6df73666f0abd233a6e478eaea61bd88395869f\ndangling commit 00e0ef7c97d6f241ff5f1e07a0528bc2eb00583e\ndangling commit 2be036d52268f4b754b29be214ff991ae799c3ff\ndangling commit d7e0ff6acb3fd6a88d334b9b94a48b515039c21b\ndangling commit 70e2cc347eacf2f91f55dd5a56416793a09ced5f\ndangling commit 74e3f7fd10b75cb3fd51cd8067a0ae959ecd4c94\ndangling commit 81e380a19157c7d455b7a4d77ffc544e6f6b7260\ndangling commit 6fe46170b90242ed1d55ea927cfcab928fe77747\ndangling commit bce423d6378c7109134a9fb7d8914fd735ec29f4\ndangling commit 1be56496dfea734c38ec21d956d60219d15ef8d6\ndangling commit 45e5c525514163f7c7a185e11683c3d6db371b9c\ndangling commit 97e6dd42b029951e971e9ca866e8faa2d937198c\ndangling commit fee6e636030c656c608ec1b30f139b4b0a34aa13\ndangling commit dde797eaca6ed160785d442679c34be1f9deaabb\ndangling commit 08e8a14e0ad90b541753c26d6438b594d8c2ba91\ndangling commit 49e843f46431e350ea96118a88f1374d05ed942e\ndangling commit dbe809cef881b6d65092d4224dad884ac9781b4b\ndangling commit f5e8b2b7742804397da435831dfe7b85950ad252\ndangling commit a1e977d6dd2d024146fcd829a6eb57d2c8b1f3b1\ndangling commit a2e9038fecb6d2b3536f045b730490a5b737f7aa\ndangling commit 2aea00c4db2125babbbf63f42bbff68aef6dce77\ndangling commit 19eb2c6101c79f8d9f75a5529370db0910519923\ndangling commit 59eb40d9267c0ad6269cbf47e867c3e6dd583192\ndangling commit b0eb0a500a9944cff87eefe0bbc6c0fb38ccec1e\ndangling commit 4fec21e0a7c6ad6944603a19a1d1550451878914\ndangling commit d2eccda7a90e9d13e156ef6123173e3a2933a5aa\ndangling commit f4ecb8033bf6659a06202513ae0b26e5e550d460\ndangling blob 16ed471af57f176061915e3510bfd28546768f99\ndangling blob 71ed61c3ce5d784c3ed37ae9343f345efb59afd8\ndangling commit eded6a0c7bf3b44747b84d8450ef2487785d2b44\ndangling commit 42ef68a59952507bae28f7cbd49cd3f4acb9f459\ndangling commit 8fefd4cdabe3cffda1b0cd093c6fba513600d895\ndangling commit 99f0c64ef5ca85b3c32f7463992af8bf358e8d3c\ndangling commit 11f1d1f9ebcd590578251381b1e7cc9f0d7cea83\ndangling commit 26f124efc0bd57224a8fcd147b11f6ba854d9eea\ndangling commit 76f14a8e7b3e0f21df6e7293c928dda29b2ef1e8\ndangling commit aef1d0142e0db0db8739592f685b17235f80b919\ndangling commit d0f2e70f62750745f390807343df98a57bfe5293\ndangling commit d1f2262854542ebbae9295133ca5f82144b141d2\ndangling commit 41f46e3ac5bdfd56f8e5df15a18ebdec8ed6f46d\ndangling commit b5f4cc2f51359894703391ff2d07fb9364397655\ndangling commit edf4cff555f5b6a9351062f5fccf67e0e4a3c5ab\ndangling commit 71f7dcc6ce6a8d098926049e67c31abc1c5ac2cd\ndangling commit 96f86dd33c1c043cf470692a8b4091581be5a885\ndangling commit a9f810020e095a3dad9fd3fe79fdfe872d20c30a\ndangling commit c7f86d410eaea67d0642564798bd495458b3a0d7\ndangling commit 95f9ed20883481b619ea50870d9009b587680a14\ndangling commit eff9ad432bd3872363366e2d79a2aa5c4fa6e42e\ndangling commit 04fae1324b5b5cdf0030e0931a5c9090f15fcb44\ndangling commit bbfad0b9ffea11fa0f6891f9dcb76634941a6f39\ndangling commit 12fb8dd69aec8aea7b240db706ddb2dc7531e98e\ndangling commit 41fba09fb84c9218f21d74119f72da7d7f54e25f\ndangling commit 75fbf21aa9377e16ee1fe8b0ea75db41646c8386\ndangling commit a1fbe1bbb06b8232bc7d00ca45b25df1958124d5\ndangling commit 3cfca4f384e00df4932741a2346c809022b3d77e\ndangling commit 9bfdae63763623af968085257698232af874a8f0\ndangling commit d6fd9c8527bc0e37f6df3e31a9e41380be17780d\ndangling commit e0fd980826e9a0dfc2f34cae2a434d5cc683925f\ndangling commit 81fef1d92f711e15e19033590e67f51f6d5a170c\ndangling commit 2dff0e71543eee6ad453c971da02e3e024b8b8a5\ndangling commit 3cff832436406d68f800a4b16887496f521bac2b\n",
+      "stderr": "",
+      "seconds": 2.0973714879946783
+    },
+    "head": {
+      "command": [
+        "git",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "code": 0,
+      "stdout": "27d349910fff1428eae4f2dab832f10ed377a4ab\n",
+      "stderr": "",
+      "seconds": 0.0019879299798049033
+    },
+    "branch": {
+      "command": [
+        "git",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "symbolic-ref",
+        "--short",
+        "HEAD"
+      ],
+      "code": 0,
+      "stdout": "main\n",
+      "stderr": "",
+      "seconds": 0.0019859999883919954
+    }
+  },
+  "free_after_bytes": 79472459776,
+  "retained": [
+    "/home/gcp-vegas/exp/overlay/repo",
+    "/home/gcp-vegas/exp/overlay/state/*/preimage",
+    "/home/gcp-vegas/exp/overlay/state/*/*.json",
+    "/home/gcp-vegas/exp/overlay/baseline",
+    "/home/gcp-vegas/exp/overlay/scripts",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-dc7a648f/prototypes/overlay-commit/results"
+  ],
+  "recorder_status": {
+    "command": [
+      "systemctl",
+      "--user",
+      "show",
+      "lattice-write-recorder",
+      "-p",
+      "ActiveState",
+      "-p",
+      "SubState",
+      "-p",
+      "MainPID",
+      "-p",
+      "ActiveEnterTimestamp"
+    ],
+    "code": 0,
+    "stdout": "MainPID=2800672\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Thu 2026-11-12 07:01:14 PST\n",
+    "stderr": "",
+    "seconds": 0.009096419962588698
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "step": "S6 bot-run 身份入口的仓库 URL 校验",
+  "command": [
+    "bot-run",
+    "git",
+    "commit",
+    "-m",
+    "t"
+  ],
+  "consecutive_failures": 3,
+  "error": "bot-run: origin/pushurl 不是有效的单一 GitHub 仓库地址，或使用了自定义 SSH Host 别名。\n",
+  "status": "已修复后重跑",
+  "repair_commands": [
+    {
+      "command": [
+        "git",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/repo",
+        "remote",
+        "set-url",
+        "origin",
+        "https://github.com/Skyline10124/lattice.git"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.0025861200410872698
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/home/gcp-vegas/exp/overlay/baseline",
+        "remote",
+        "set-url",
+        "origin",
+        "https://github.com/Skyline10124/lattice.git"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.002240270026959479
+    }
+  ],
+  "identity_check": {
+    "command": [
+      "unshare",
+      "--user",
+      "--map-root-user",
+      "--mount",
+      "bot-run",
+      "git",
+      "var",
+      "GIT_AUTHOR_IDENT"
+    ],
+    "code": 0,
+    "stdout": "lattice-devbot[bot] <325403158+lattice-devbot[bot]@users.noreply.github.com> 1794498106 -0800\n",
+    "stderr": "",
+    "seconds": 0.9226976719801314
+  },
+  "excluded_runs": [
+    "S6-quiet-commit-P1-1-1794498018335166402",
+    "S6-quiet-commit-P1-2-1794498024355147660",
+    "S6-quiet-commit-P1-3-1794498030326384829",
+    "S6-quiet-discard-P1-1-1794498036782811223",
+    "S6-quiet-discard-P1-2-1794498042840064819",
+    "S6-quiet-discard-P1-3-1794498048795038828",
+    "S6-quiet-commit-P2-1-1794498054717579339",
+    "S6-quiet-commit-P2-2-1794498060116325115",
+    "S6-quiet-commit-P2-3-1794498066487962252",
+    "S6-quiet-discard-P2-1-1794498072401595663"
+  ],
+  "driver_deviation": "首批驱动只将 namespace blocked 识别为基础设施失败，因此同变体第3次仍运行；现已将 bot-run 前置拒绝分类为 blocked",
+  "interrupted_runs": [
+    "S6-quiet-discard-P2-1-1794498072401595663"
+  ]
+}

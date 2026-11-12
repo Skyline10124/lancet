@@ -1,0 +1,13 @@
+{
+  "command": [
+    "systemctl",
+    "--user",
+    "status",
+    "lattice-write-recorder",
+    "--no-pager"
+  ],
+  "code": 0,
+  "stdout": "● lattice-write-recorder.service - [systemd-run] /usr/bin/python3 /home/gcp-vegas/exp/overlay/watch_writes.py /home/gcp-vegas/Dev/lattice /home/gcp-vegas/exp/overlay/lattice-writes\n     Loaded: loaded (/run/user/1000/systemd/transient/lattice-write-recorder.service; transient)\n  Transient: yes\n     Active: active (running) since Thu 2026-11-12 07:01:14 PST; 33min ago\n Invocation: ba1b1a7513914abca499002e5db6839c\n   Main PID: 2800672 (python3)\n      Tasks: 1 (limit: 203114)\n     Memory: 9.9M (peak: 10.7M)\n        CPU: 249ms\n     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/lattice-write-recorder.service\n             └─2800672 /usr/bin/python3 /home/gcp-vegas/exp/overlay/watch_writes.py /home/gcp-vegas/Dev/lattice /home/gcp-vegas/exp/overlay/lattice-writes\n\nNov 12 07:01:14 gcp systemd[1156]: Started lattice-write-recorder.service - [systemd-run] /usr/bin/python3 /home/gcp-vegas/exp/overlay/watch_writes.py /home/gcp-vegas/Dev/lattice /home/gcp-vegas/exp/overlay/lattice-writes.\n",
+  "stderr": "",
+  "seconds": 0.009714899002574384
+}

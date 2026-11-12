@@ -1,0 +1,16 @@
+{
+  "command": [
+    "unshare",
+    "--user",
+    "--map-root-user",
+    "--mount",
+    "python3",
+    "-m",
+    "unittest",
+    "-v",
+    "test_commit"
+  ],
+  "code": 1,
+  "stdout": "",
+  "stderr": "test_commit (unittest.loader._FailedTest.test_commit) ... ERROR\n\n======================================================================\nERROR: test_commit (unittest.loader._FailedTest.test_commit)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_commit\nTraceback (most recent call last):\n  File \"/usr/lib64/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/gcp-vegas/.t3/worktrees/lancet/t3-dc7a648f/prototypes/overlay-commit/test_commit.py\", line 10, in <module>\n    from commit import classify, commit, snapshot, fs_time\nModuleNotFoundError: No module named 'commit'\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+}

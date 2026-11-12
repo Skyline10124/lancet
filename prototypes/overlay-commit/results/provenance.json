@@ -1,0 +1,40 @@
+{
+  "plan_path": "/home/gcp-vegas/.t3/userdata/providers/antigravity/ac0a3dfd6dddb20962cecff6ee5fe65e19d3923be20e52c5ab52ff877f7e4c32/antigravity-acp/brain/d5eaa34d-2720-4f9e-b4af-485cd1f34da2/act_prototype_experiments.md",
+  "plan_sha256": "ea9f85dc8e8f68f211f6b1567e4e7fc3eec5b2e3a9f73527288ec8182d072687",
+  "adr_ref": {
+    "command": [
+      "git",
+      "rev-parse",
+      "origin/docs/adr-0001-lancet-node-act"
+    ],
+    "code": 0,
+    "stdout": "76122f5e51aff2f171511c9e784c33420b6d5886\n",
+    "stderr": "",
+    "seconds": 0.0023065399727784097
+  },
+  "adr_blob": {
+    "command": [
+      "git",
+      "rev-parse",
+      "origin/docs/adr-0001-lancet-node-act:docs/adr/0002-lancet-node-api-tools-and-act.md"
+    ],
+    "code": 0,
+    "stdout": "c6b7b8102ab549a18137e873d47f7aff8f56d9e2\n",
+    "stderr": "",
+    "seconds": 0.0021836390369571745
+  },
+  "boundary": "一次本地 --no-hardlinks clone 后全部实验在 ~/exp/overlay；不触碰原检出；记录器只读。",
+  "delivered_source_sha256": {
+    "test_commit.py": "eba5e40819492441c10ee027e353ca927558a1d4fb42a32dbca50dc820fa8d1e",
+    "commit.py": "86cb3b213736566345ed6ffb5629c054e93352a7bf736a86dae3d9d09ecfd20d",
+    "ovl_act.py": "115c6ecba2f244042f48681322edd44ef778329b77af19bf2e403d302a1a84c3",
+    "ovl-act": "0378549515fdd40e6f2eb20ecf6cfb8c5865b80adc090865ed2c5703ffcb6208",
+    "suite.py": "580fd7dd8401ebd8e375c2b968c4bf5e4c3f863d1c3084f45f253206d4287a04",
+    "calibrate.py": "563207a4475055f8d6fa7edf46c0291127d08ad900461c16b25fce93f39dbdf0",
+    "noise.py": "b51d76d0b3357384d7d1998994021958bba3260cfb6d4cafc9b205d61c223f4c",
+    "ide-noise.sh": "4e51d3bdc8c6ba2e87e177ce5ac2acf55f39f436f0ed928dc8cd5f10ff8d3c53",
+    "report.py": "6df5c2c99984cfb0333b319d6c59f7c2a2b6f9e4ca90d400ff8004510c3f8079",
+    "verify_results.py": "742a6dd2dd09847e6884b8073fbfb6360acd834aea0989c9e9185c5cef91dd03",
+    "cleanup.py": "631d0121752bcd3a1efbf13ef2a26c0e246a68061cda50652bcbdb3706f1aec1"
+  }
+}

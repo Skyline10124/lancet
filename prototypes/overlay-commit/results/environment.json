@@ -1,0 +1,186 @@
+{
+  "kernel": "6.12.0-211.68.1+2.1.el10_2_ciq.x86_64",
+  "os": "NAME=\"Rocky Linux\"\nVERSION=\"10.2 (Red Quartz)\"\nRELEASE_TYPE=\"stable\"\nID=\"rocky\"\nID_LIKE=\"rhel centos fedora\"\nVERSION_ID=\"10.2\"\nPLATFORM_ID=\"platform:el10\"\nPRETTY_NAME=\"Rocky Linux 10.2 (Red Quartz)\"\nANSI_COLOR=\"0;32\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:rocky:rocky:10::baseos\"\nHOME_URL=\"https://rockylinux.org/\"\nVENDOR_NAME=\"RESF\"\nVENDOR_URL=\"https://resf.org/\"\nBUG_REPORT_URL=\"https://bugs.rockylinux.org/\"\nSUPPORT_END=\"2035-05-31\"\nROCKY_SUPPORT_PRODUCT=\"Rocky-Linux-10\"\nROCKY_SUPPORT_PRODUCT_VERSION=\"10.2\"\nREDHAT_SUPPORT_PRODUCT=\"Rocky Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"10.2\"\n",
+  "selinux": {
+    "command": [
+      "getenforce"
+    ],
+    "code": 0,
+    "stdout": "Enforcing\n",
+    "stderr": "",
+    "seconds": 0.00121003994718194
+  },
+  "filesystem": {
+    "command": [
+      "df",
+      "-T",
+      "/home/gcp-vegas/exp/overlay/repo"
+    ],
+    "code": 0,
+    "stdout": "Filesystem     Type 1K-blocks      Used Available Use% Mounted on\n/dev/nvme0n1p2 xfs  261871664 180015420  81856244  69% /\n",
+    "stderr": "",
+    "seconds": 0.0021446800092235208
+  },
+  "free": {
+    "command": [
+      "df",
+      "-B1",
+      "/home/gcp-vegas/exp/overlay/repo"
+    ],
+    "code": 0,
+    "stdout": "Filesystem        1B-blocks         Used   Available Use% Mounted on\n/dev/nvme0n1p2 268156583936 184335790080 83820793856  69% /\n",
+    "stderr": "",
+    "seconds": 0.0011070100008510053
+  },
+  "mountinfo": "72 1 259:2 / / rw,relatime shared:1 - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n37 72 0:6 / /dev rw,nosuid shared:2 - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\n38 37 0:26 / /dev/shm rw,nosuid,nodev shared:3 - tmpfs tmpfs rw,seclabel,inode64\n39 37 0:27 / /dev/pts rw,nosuid,noexec,relatime shared:4 - devpts devpts rw,seclabel,gid=5,mode=620,ptmxmode=000\n40 72 0:25 / /sys rw,nosuid,nodev,noexec,relatime shared:5 - sysfs sysfs rw,seclabel\n41 40 0:7 / /sys/kernel/security rw,nosuid,nodev,noexec,relatime shared:6 - securityfs securityfs rw\n42 40 0:29 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:7 - cgroup2 cgroup2 rw,seclabel,nsdelegate,memory_recursiveprot\n43 40 0:30 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime shared:8 - pstore pstore rw,seclabel\n44 40 0:31 / /sys/firmware/efi/efivars rw,nosuid,nodev,noexec,relatime shared:9 - efivarfs efivarfs rw\n45 40 0:32 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime shared:10 - bpf bpf rw,mode=700\n46 40 0:19 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime shared:11 - configfs configfs rw\n47 72 0:24 / /proc rw,nosuid,nodev,noexec,relatime shared:13 - proc proc rw\n48 72 0:28 / /run rw,nosuid,nodev shared:14 - tmpfs tmpfs rw,seclabel,size=6518880k,nr_inodes=819200,mode=755,inode64\n26 40 0:22 / /sys/fs/selinux rw,nosuid,noexec,relatime shared:12 - selinuxfs selinuxfs rw\n25 47 0:33 / /proc/sys/fs/binfmt_misc rw,relatime shared:15 - autofs systemd-1 rw,fd=35,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=6445\n27 40 0:8 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime shared:16 - debugfs debugfs rw,seclabel\n28 37 0:21 / /dev/mqueue rw,nosuid,nodev,noexec,relatime shared:17 - mqueue mqueue rw,seclabel\n29 37 0:34 / /dev/hugepages rw,nosuid,nodev,relatime shared:18 - hugetlbfs hugetlbfs rw,seclabel,pagesize=2M\n30 40 0:13 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime shared:19 - tracefs tracefs rw,seclabel\n65 48 0:35 / /run/credentials/systemd-journald.service ro,nosuid,nodev,noexec,relatime,nosymfollow shared:20 - tmpfs tmpfs rw,seclabel,size=1024k,nr_inodes=1024,mode=700,inode64,noswap\n32 40 0:36 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime shared:21 - fusectl fusectl rw\n35 72 259:1 / /boot/efi rw,relatime shared:73 - vfat /dev/nvme0n1p1 rw,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro\n59 48 0:49 / /run/user/1000 rw,nosuid,nodev,relatime shared:256 - tmpfs tmpfs rw,seclabel,size=3259436k,nr_inodes=814859,mode=700,uid=1000,gid=1005,inode64\n125 25 0:51 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime shared:319 - binfmt_misc binfmt_misc rw\n495 48 0:56 / /run/credentials/serial-getty@ttyS0.service ro,nosuid,nodev,noexec,relatime,nosymfollow shared:354 - tmpfs tmpfs rw,seclabel,size=1024k,nr_inodes=1024,mode=700,inode64,noswap\n508 48 0:55 / /run/credentials/getty@tty1.service ro,nosuid,nodev,noexec,relatime,nosymfollow shared:409 - tmpfs tmpfs rw,seclabel,size=1024k,nr_inodes=1024,mode=700,inode64,noswap\n157 59 0:48 / /run/user/1000/doc rw,nosuid,nodev,relatime shared:268 - fuse.portal portal rw,user_id=1000,group_id=1005\n",
+  "repo_head": {
+    "command": [
+      "git",
+      "-C",
+      "/home/gcp-vegas/exp/overlay/repo",
+      "rev-parse",
+      "HEAD"
+    ],
+    "code": 0,
+    "stdout": "27d349910fff1428eae4f2dab832f10ed377a4ab\n",
+    "stderr": "",
+    "seconds": 0.0020090489997528493
+  },
+  "lancet_base": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "code": 0,
+    "stdout": "67674d308db81a015cf1cff60e2b9d40f0e7ff74\n",
+    "stderr": "",
+    "seconds": 0.002034079981967807
+  },
+  "python": "3.12.15 (main, Oct  1 2026, 00:00:00) [GCC 14.3.1 20251022 (Red Hat 14.3.1-4)]",
+  "git": {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "code": 0,
+    "stdout": "git version 2.52.0\n",
+    "stderr": "",
+    "seconds": 0.001737489947117865
+  },
+  "rustc": {
+    "command": [
+      "rustc",
+      "--version"
+    ],
+    "code": 0,
+    "stdout": "rustc 1.96.0 (ac68faa20 2026-05-25)\n",
+    "stderr": "",
+    "seconds": 0.01370802999008447
+  },
+  "crate_sizes": [
+    {
+      "name": "lattice-cli",
+      "rmeta_bytes": 0,
+      "artifacts": []
+    },
+    {
+      "name": "xtask",
+      "rmeta_bytes": 0,
+      "artifacts": [
+        "target/debug/deps/libxtask-ecac72d21df66ce2.rmeta"
+      ]
+    },
+    {
+      "name": "net-guard",
+      "rmeta_bytes": 16235,
+      "artifacts": [
+        "target/debug/deps/libnet_guard-35769249070b9d5a.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-store",
+      "rmeta_bytes": 57236,
+      "artifacts": [
+        "target/debug/deps/liblattice_store-62811bac84cb9f47.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-agent",
+      "rmeta_bytes": 90658,
+      "artifacts": [
+        "target/debug/deps/liblattice_agent-c192c9c13c6c55cd.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-profile",
+      "rmeta_bytes": 107676,
+      "artifacts": [
+        "target/debug/deps/liblattice_profile-8a8ff45ea4d347f0.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-tui",
+      "rmeta_bytes": 676356,
+      "artifacts": [
+        "target/debug/deps/liblattice_tui-1d3b236675d282ee.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-conversation",
+      "rmeta_bytes": 871651,
+      "artifacts": [
+        "target/debug/deps/liblattice_conversation-51423de4f9faf322.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-system-harness",
+      "rmeta_bytes": 924200,
+      "artifacts": [
+        "target/debug/deps/liblattice_system_harness-b1b5366076a5d710.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-session",
+      "rmeta_bytes": 1384882,
+      "artifacts": [
+        "target/debug/deps/liblattice_session-215f44a2748ce807.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-api",
+      "rmeta_bytes": 3587600,
+      "artifacts": [
+        "target/debug/deps/liblattice_api-cef9b2be226f3306.rmeta"
+      ]
+    },
+    {
+      "name": "lattice-llm",
+      "rmeta_bytes": 3612260,
+      "artifacts": [
+        "target/debug/deps/liblattice_llm-e01f473ea7dcb58b.rmeta"
+      ]
+    }
+  ],
+  "repo_counts": {
+    "True": {
+      "entries": 6832,
+      "files": 5900
+    },
+    "False": {
+      "entries": 3268,
+      "files": 2874
+    }
+  },
+  "clone": {
+    "command": [
+      "git",
+      "clone",
+      "--no-hardlinks",
+      "/home/gcp-vegas/Dev/lattice",
+      "/home/gcp-vegas/exp/overlay/repo"
+    ],
+    "code": 0,
+    "stderr": "Cloning into '/home/gcp-vegas/exp/overlay/repo'...\ndone.\n"
+  }
+}

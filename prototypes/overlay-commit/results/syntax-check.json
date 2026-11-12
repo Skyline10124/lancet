@@ -1,0 +1,20 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "py_compile",
+    "prototypes/overlay-commit/calibrate.py",
+    "prototypes/overlay-commit/cleanup.py",
+    "prototypes/overlay-commit/commit.py",
+    "prototypes/overlay-commit/noise.py",
+    "prototypes/overlay-commit/ovl_act.py",
+    "prototypes/overlay-commit/report.py",
+    "prototypes/overlay-commit/suite.py",
+    "prototypes/overlay-commit/test_commit.py",
+    "prototypes/overlay-commit/verify_results.py"
+  ],
+  "code": 0,
+  "seconds": 0.04526923899538815,
+  "stdout": "",
+  "stderr": ""
+}
