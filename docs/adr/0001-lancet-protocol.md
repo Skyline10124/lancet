@@ -1,5 +1,5 @@
 ---
-status: proposed
+status: accepted
 ---
 
 # ADR 0001：以 `lancet-protocol` 定义外部上下文节点协议
