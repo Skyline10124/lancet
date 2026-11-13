@@ -29,7 +29,7 @@ status: proposed
 | 概念 | 规则 |
 | --- | --- |
 | 节点 | 一个独立运行的外部上下文与动作服务进程，对外暴露单一被挂载目标的读取、变更、回执查询与可选求逆能力 |
-| `node_id` | 节点实例跨重启稳定的持久身份。调用方以 `node_id` 绑定挂载目标，连接握手时强制核对 |
+| `node_id` | 节点实例跨重启稳定的持久身份（UUID v4，节点首次初始化状态目录时生成并持久化；配置文件另设人类可读的 `display_name`）。调用方以 `node_id` 绑定挂载目标，连接握手时强制核对 |
 | `lancet-protocol` | 本仓库提供的独立协议 crate，只包含帧编解码、协议消息类型、结局与错误码、effect 与 co-effect、环境简述、回执与 `residue` 数据结构及规范摘要计算，不依赖 `wasmtime`、操作系统沙箱或特定存储引擎 |
 
 - **协议与节点内部机制解耦。** 协议不预设节点内部使用脚本解释器、WASM、`overlayfs` 或本地文件系统。`lancet-node` 通过该协议暴露单一编排入口 `act`（见 [ADR 0002](0002-lancet-node-api-tools-and-act.md)）；算力受限的硬件节点或只读数据源可直接通过同一协议暴露一组类型化原子操作。
@@ -102,7 +102,7 @@ RejectCode    = DuplicateInvocation | DuplicateRevert | CatalogMismatch | Invali
 
 - **相对时限**：`remaining_ms` 传递剩余毫秒预算，不传绝对时间戳。预算耗尽时由节点负责中止内部活动、进入安全状态并返回 `Deadline`。
 - **调用方等待上限**：节点在 `hello` 中声明 `settle_grace_ms`：预算耗尽、收到 `cancel` 或连接断开之后，节点最迟在这段时间内结束内部活动（含提交临界区）并结算调用记录。调用方从发出 `execute` 起用本地单调时钟计时，等待上限为 `remaining_ms + settle_grace_ms` 再加调用方配置的传输余量；到期仍未收到回复时，调用方停止等待，本地判定为 `Indeterminate`，随后按第 6 节对账。是否同时关闭连接由调用方决定；关闭会按断连规则取消同一连接上的其他在途调用。
-- **上下文载荷与回执分离**：`content` 是交回模型上下文的数据，序列化后字节数不超过 `output_limit`；完整执行轨迹、大体积前态与外部连接明细保存在节点，回包仅附紧凑的 `receipt_summary`。
+- **上下文载荷与回执分离**：`content` 是交回模型上下文的数据，序列化后字节数不超过 `output_limit`；完整执行轨迹、大体积前态与外部连接明细保存在节点，回包仅附紧凑的 `receipt_summary`（协议固定其序列化上限为 16 KiB，超出时裁剪 diff 等摘要并标明完整内容经 `receipt` 查询）。
 - **`Indeterminate` 的两类来源**：连接中断、进程崩溃或超过等待上限仍未收到回复时，由调用方本地判定为不确定；节点自身驱动下游硬件或外部桥接器丢失确认、无法断定 effect 是否发生时，由节点显式返回 `Indeterminate`。调用方本地判定的不确定可经第 6 节对账收敛。
 
 ### 4. effect、co-effect、回执与 `residue`
@@ -166,7 +166,7 @@ Seam   = { from: handle name, to: handle name, direction: Integrity | Confidenti
 
 - **能力声明**：不支持求逆的节点（纯只读节点、无前态的硬件节点或降级桥接器）在 `hello` 中声明 `supports_revert = false`，调用 `revert` 时以 `rejected { Unsupported }` 回复。
 - **零重放与只追加账本**：`revert` 携带调用方生成的 `revert_id`，与 `invocation_id` 共用第 6 节的调用记录：重复的 `revert_id` 以 `DuplicateRevert` 拒绝，结果经 `receipt(Revert(revert_id))` 查询。每次 `revert` 作为一次新的状态变更生成自己的回执，原回执保持只读不改写。
-- **求逆即逐项施加 ε⁻¹**：节点按传入的 `invocation_id` 列表逆序逐个处理，对每个变更项施加其逆。逆本身是 `Write` effect，记入本次 `revert` 自己的回执。对 `residue` 为 `None` 的变更项，施加逆的前提是当前目标状态等于该次调用回执记录的写后状态：
+- **求逆即逐项施加 ε⁻¹**：调用方按会话树中的执行正序传入 `Vec<invocation_id>`，节点严格从末尾向开头逆序逐个处理，对每个变更项施加其逆。逆本身是 `Write` effect，记入本次 `revert` 自己的回执。对 `residue` 为 `None` 的变更项，施加逆的前提是当前目标状态等于该次调用回执记录的写后状态：
   - 相等：恢复为前态，记为 `Restored`；
   - 已等于前态（例如重新发起的 `revert` 遇到上次已还原的项）：不动，记为 `Restored`；
   - 其余不等（期间已被用户或其他调用改过）：保持现状不动，记为 `Conflict`；
@@ -247,9 +247,7 @@ match receipt(target):
 
 | 事项 | 建议 |
 | --- | --- |
-| `node_id` 的格式与生成时机 | 节点首次初始化状态目录时生成 UUID v4 并持久化，配置文件另设人类可读的显示名 |
 | 远程字节流传输的认证与加密封装 | 第一个版本只落地本地 Unix 域套接字；帧协议保持传输无关，远程连接后续经 SSH 转发或 mTLS 承载 |
-| 回执明细与前态的默认保留期 | 两者都由节点配置；协议只规定第 6 节的约束（前态不长于回执、账本永久）。默认值随各节点实现的 ADR 给出 |
 
 ## 归属
 
