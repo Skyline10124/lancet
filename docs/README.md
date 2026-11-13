@@ -21,7 +21,7 @@
 ## 架构决策
 
 - [ADR 0001](adr/0001-lancet-protocol.md)（accepted）：以 `lancet-protocol` 定义外部上下文节点协议（连接、零重放、五态结局、回执与求逆）。
-- [ADR 0002](adr/0002-lancet-node-api-tools-and-act.md)（accepted）：`lancet-node` 以 Starlark 编排、API 工具、宿主资源与写时复制提供 `act`。
+- [ADR 0002](adr/0002-lancet-node-api-tools-and-act.md)（proposed）：`lancet-node` 以 Starlark 编排、API 工具、宿主资源与写时复制提供 `act`。
 
 ## 参考资料
 

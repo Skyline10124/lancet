@@ -1,5 +1,5 @@
 ---
-status: accepted
+status: proposed
 ---
 
 # ADR 0002：`lancet-node` 以 API 工具、宿主资源与写时复制提供 `act`
