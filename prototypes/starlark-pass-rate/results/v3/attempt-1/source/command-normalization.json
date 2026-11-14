@@ -1,0 +1,10 @@
+{
+  "prefix": ["cargo", "test"],
+  "cargo_ignored_flags": ["-q", "--quiet", "--no-fail-fast"],
+  "cargo_scope_flags": ["--offline", "--workspace", "--lib"],
+  "cargo_filter_limit": 1,
+  "test_ignored_flags": ["-q", "--quiet", "--nocapture", "--show-output", "--exact"],
+  "test_positive_integer_options": ["--test-threads"],
+  "test_filter_limit": 1,
+  "description": "仅 cargo test 族归一化：忽略列出的输出/调度开关与测试名过滤；保留并排序 scope flags。--list、--no-run、未知开关及其他命令保持原样，不伪装为已运行测试。过滤变体仍返回该任务完整预置输出。"
+}

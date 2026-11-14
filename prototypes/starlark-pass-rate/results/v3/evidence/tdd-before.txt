@@ -1,0 +1,36 @@
+EFF
+======================================================================
+ERROR: test_v3_notice_reservation (test_v3.CommitSemantics.test_v3_notice_reservation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_v3.py", line 46, in test_v3_notice_reservation
+    self.assertLessEqual(len(out['content'].encode()), 65536)
+                             ~~~^^^^^^^^^^^
+KeyError: 'content'
+
+======================================================================
+FAIL: test_v3_read_reset_and_marker_scope (test_v3.CommitSemantics.test_v3_read_reset_and_marker_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_v3.py", line 31, in test_v3_read_reset_and_marker_scope
+    self.assertEqual(out['outcome'], 'read_only')
+AssertionError: 'committed' != 'read_only'
+- committed
++ read_only
+
+
+======================================================================
+FAIL: test_v3_uncommitted_commit_and_failure (test_v3.CommitSemantics.test_v3_uncommitted_commit_and_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_v3.py", line 17, in test_v3_uncommitted_commit_and_failure
+    self.assertEqual(out['outcome'], 'uncommitted_reverted')
+AssertionError: 'committed' != 'uncommitted_reverted'
+- committed
++ uncommitted_reverted
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.089s
+
+FAILED (failures=2, errors=1)

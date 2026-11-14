@@ -1,0 +1,14 @@
+{
+  "time": 1794687132.0578673,
+  "no_experiment_processes": true,
+  "temporary_directory_cleaned": true,
+  "modified_files_within_prototype": true,
+  "key_values_absent": true,
+  "provided_key_files_checked": 2,
+  "git_diff_check_passed": true,
+  "docs_check_exit_code": 0,
+  "primary_formal_runs": 144,
+  "primary_pilot_runs": 12,
+  "archived_formal_runs": 105,
+  "archived_pilot_runs": 12
+}

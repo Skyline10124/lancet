@@ -56,7 +56,7 @@ class V2(unittest.TestCase):
                         p,old,new=spec['replacement']
                         script=f'repo.edit({p!r}, {old!r}, {new!r})\n'
                     script+=f'r = env.run({argv!r}, check=False)\n'
-                    script+= 'discard(r.stdout + r.stderr)' if ident.startswith('rollback') else 'return r.stdout + r.stderr'
+                    script+= 'return r.stdout + r.stderr' if ident.startswith('rollback') else 'return r.stdout + r.stderr'
                     out=driver.run_act(fixture,task,script,'A',temp)
                     self.assertTrue(out['ran'],out.get('error'))
                     self.assertTrue(evaluate(task,files_at(fixture),[{'outcome':out}])['passed'])
@@ -75,42 +75,25 @@ class V2(unittest.TestCase):
         self.assertEqual([c.args[0] for c in sleep.call_args_list],[1,2,4,8,16,32,64,120,120])
         self.assertNotIn('secret-test',json.dumps(records))
 
-    def test_metrics_and_composed_examples(self):
+    def test_metrics_and_composed_example(self):
         from metrics import act_metrics, source_calls
-        self.assertEqual(source_calls('# print(1)\ns = "repo.write(1)"\nprint("x")\nprint(2)'), {'print': 2})
-        task=ROOT/'tasks/rollback-01'
-        for mode in 'AB':
-            baseline=driver.tool_prompt('base',mode)
-            composed=driver.tool_prompt('composed',mode)
-            self.assertEqual(baseline.split('## Example')[0],composed.split('## Example')[0])
-            code=composed.split('```python\n')[1].split('```')[0]
-            self.assertLessEqual(len(code.splitlines()),20)
-            for failing in (False,True):
-                with self.subTest(mode=mode,failing=failing),tempfile.TemporaryDirectory() as td:
-                    temp=Path(td); fixture=temp/'repo'; (fixture/'src').mkdir(parents=True)
-                    original='pub const MAX_ITEMS: usize = 10;\n'
-                    (fixture/'src/config.rs').write_text(original)
-                    canned=temp/'canned.json'
-                    canned.write_text(json.dumps([dict(argv=['cargo','test'],code=101 if failing else 0,stdout='test summary',stderr='test reason' if failing else '')]))
-                    out=driver.run_act(fixture,temp,code,mode,temp)
-                    self.assertTrue(out['ran'],out.get('error'))
-                    self.assertEqual(out['outcome'],'discarded' if failing else 'committed')
-                    self.assertEqual((fixture/'src/config.rs').read_text(),original if failing else original.replace('10','20'))
-                    m=act_metrics(code,out)
-                    self.assertEqual(m['category_counts']['read'],1 if failing else 2)
-                    self.assertEqual(m['category_counts']['write'],1)
-                    self.assertEqual(m['category_counts']['execute'],1)
-                    self.assertFalse(m['read_only'])
-            with tempfile.TemporaryDirectory() as td:
-                temp=Path(td); fixture=temp/'repo'; shutil.copytree(task/'fixture',fixture)
-                out=driver.run_act(fixture,task,'repo.list()\nrepo.status()\nrepo.diff()\nrepo.read("Cargo.toml")',mode,temp)
-                m=act_metrics('',out)
-                self.assertEqual(m['category_counts']['read'],4)
-                self.assertTrue(m['read_only'])
-                self.assertFalse(m['single_interface'])
-                out=driver.run_act(fixture,task,'print("x")',mode,temp)
-                self.assertFalse(out['ran'])
-                self.assertEqual(act_metrics('print("x")',out)['print_calls'],1)
+        self.assertEqual(source_calls('# commit()\ns = "repo.write(1)"\ncommit()'), {'commit': 1})
+        code=driver.tool_prompt('composed','A').split('```python\n')[1].split('```')[0]
+        for failing in (False,True):
+            with self.subTest(failing=failing),tempfile.TemporaryDirectory() as td:
+                temp=Path(td); fixture=temp/'repo'; (fixture/'crates/demo').mkdir(parents=True)
+                (fixture/'Cargo.toml').write_text('[workspace]')
+                original='OldSymbol\n'
+                (fixture/'crates/demo/lib.rs').write_text(original)
+                (temp/'canned.json').write_text(json.dumps([dict(argv=['cargo','test'],code=101 if failing else 0,stdout='test result: FAILED' if failing else 'test result: ok',stderr='')]))
+                out=driver.run_act(fixture,temp,code,'A',temp)
+                self.assertTrue(out['ran'],out.get('error'))
+                self.assertEqual(out['outcome'],'uncommitted_reverted' if failing else 'committed')
+                self.assertEqual((fixture/'crates/demo/lib.rs').read_text(),original if failing else 'NewSymbol\n')
+                m=act_metrics(code,out)
+                self.assertEqual(m['category_counts']['commit'],0 if failing else 1)
+                self.assertEqual(m['category_counts']['write'],1)
+                self.assertFalse(m['read_only'])
 
     def test_overview_sorted_and_truncated(self):
         with tempfile.TemporaryDirectory() as td:

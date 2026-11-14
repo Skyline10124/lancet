@@ -1,0 +1,15 @@
+[
+  {
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "call": 3,
+    "script": "res = env.run([\"ls\", \"-la\"], check=False)\nres2 = env.run([\"find\", \".\", \"-not\", \"-path\", \"./.git/*\"], check=False)\nreturn {\"ls\": res.stdout + res.stderr, \"find\": res2.stdout + res2.stderr}\n",
+    "recorded": {
+      "find": ".\n./Cargo.toml\n./src\n./src/limits.rs\n",
+      "ls": "total 4\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 14 10:59 .\ndrwx------. 4 gcp-vegas gcp-vegas 55 Nov 14 10:59 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 44 Nov 14 10:59 Cargo.toml\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 14 10:59 src\n"
+    },
+    "replayed": {
+      "find": ".\n./Cargo.toml\n./src\n./src/limits.rs\n",
+      "ls": "total 4\ndrwxr-xr-x. 3 gcp-vegas gcp-vegas 35 Nov 14 11:03 .\ndrwx------. 4 gcp-vegas gcp-vegas 55 Nov 14 11:03 ..\n-rw-r--r--. 1 gcp-vegas gcp-vegas 44 Nov 14 11:03 Cargo.toml\ndrwxr-xr-x. 2 gcp-vegas gcp-vegas 23 Nov 14 11:03 src\n"
+    }
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-read-01-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "ls-files",
+      "src"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 2,
+    "argv": [
+      "git",
+      "diff"
+    ],
+    "outcome": "uncommitted_reverted"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain",
+      "--",
+      "src/settings.py"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "diff",
+      "--",
+      "src/settings.py"
+    ],
+    "outcome": "OutputLimitExceeded"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "OutputLimitExceeded"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 5,
+    "argv": [
+      "git",
+      "diff",
+      "--",
+      "src/settings.py"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 5,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 2,
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--",
+      "README.md"
+    ],
+    "outcome": "uncommitted_reverted"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 3,
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--",
+      "README.md"
+    ],
+    "outcome": "OutputLimitExceeded"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 3,
+    "argv": [
+      "git",
+      "--no-pager",
+      "status",
+      "--short"
+    ],
+    "outcome": "OutputLimitExceeded"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 4,
+    "argv": [
+      "git",
+      "--no-pager",
+      "status",
+      "--short"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 5,
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--stat",
+      "--",
+      "README.md"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 6,
+    "argv": [
+      "git",
+      "--no-pager",
+      "status",
+      "--short",
+      "--",
+      "README.md"
+    ],
+    "outcome": "script_error"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 6,
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--",
+      "README.md"
+    ],
+    "outcome": "script_error"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 7,
+    "argv": [
+      "git",
+      "--no-pager",
+      "status",
+      "--short",
+      "--",
+      "README.md"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 7,
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--",
+      "README.md"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r1",
+    "call": 8,
+    "argv": [
+      "git",
+      "rev-parse",
+      "--show-toplevel"
+    ],
+    "outcome": "script_error"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 2,
+    "argv": [
+      "git",
+      "diff",
+      "--stat"
+    ],
+    "outcome": "uncommitted_reverted"
+  }
+]

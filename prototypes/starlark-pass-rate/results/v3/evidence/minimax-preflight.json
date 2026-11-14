@@ -1,0 +1,42 @@
+{
+  "status": 200,
+  "response": {
+    "id": "0747e1d87fca6555aecc2cd1318c0759",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "OK",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1794682584,
+    "model": "MiniMax-M3.1-Flash",
+    "object": "chat.completion",
+    "usage": {
+      "total_tokens": 208,
+      "total_characters": 0,
+      "prompt_tokens": 205,
+      "completion_tokens": 3,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 197
+      }
+    },
+    "input_sensitive": false,
+    "output_sensitive": false,
+    "input_sensitive_type": 0,
+    "output_sensitive_type": 0,
+    "output_sensitive_int": 0,
+    "base_resp": {
+      "status_code": 0,
+      "status_msg": ""
+    }
+  },
+  "time": 1794682585.3195505,
+  "base_url": "https://api.minimaxi.com/v1/chat/completions"
+}

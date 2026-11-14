@@ -18,7 +18,7 @@ pub struct State {
     pub root: PathBuf,
     pub baseline: BTreeMap<String, Vec<u8>>,
     pub canned: Json,
-    pub discarded: Cell<bool>,
+    pub committed: Cell<bool>,
     pub result_set: Cell<bool>,
     pub events: RefCell<Vec<Json>>,
 }
@@ -367,11 +367,11 @@ pub fn common(builder: &mut GlobalsBuilder) {
     fn text<'v>(s: &str, heap: Heap<'v>) -> anyhow::Result<Value<'v>> {
         Ok(heap.alloc(crate::text::Text(s.to_owned())))
     }
-    fn discard<'v>(value: Value<'v>, eval: &mut Evaluator<'v, '_, '_>) -> anyhow::Result<NoneType> {
-        state(eval).discarded.set(true);
-        state(eval).record("discard", json!({}));
-        eval.module().set_extra_value(value);
-        bail!("__ACT_DISCARD__")
+    fn commit(eval: &mut Evaluator) -> anyhow::Result<NoneType> {
+        let s = state(eval);
+        s.committed.set(true);
+        s.record("commit", json!({"changed_files":s.changes()?.len()}));
+        Ok(NoneType)
     }
 }
 #[starlark_module]

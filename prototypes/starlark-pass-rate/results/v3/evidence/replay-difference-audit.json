@@ -1,0 +1,383 @@
+[
+  {
+    "phase": "pilot",
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "pilot",
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "call": 7,
+    "kind": "临时副本目录名与 ls 元数据",
+    "metadata_normalized_equal": false,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": [
+      [
+        "ls",
+        "-la",
+        ".."
+      ],
+      [
+        "find",
+        "/",
+        "-maxdepth",
+        "4",
+        "-name",
+        "*.rs",
+        "-path",
+        "*test*"
+      ]
+    ]
+  },
+  {
+    "phase": "pilot",
+    "run_id": "composed-minimax-A-test-01-r1",
+    "call": 7,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-batch-04-r1",
+    "call": 2,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-02-r2",
+    "call": 5,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-02-r3",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-probe-01-r2",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-probe-03-r1",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-probe-03-r2",
+    "call": 1,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-probe-03-r3",
+    "call": 7,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-read-03-r2",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-read-03-r3",
+    "call": 2,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-01-r1",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-01-r3",
+    "call": 7,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": [
+      [
+        "find",
+        "/",
+        "-maxdepth",
+        "3",
+        "-name",
+        "*.rs",
+        "-not",
+        "-path",
+        "/proc/*",
+        "-not",
+        "-path",
+        "/sys/*",
+        "-not",
+        "-path",
+        "/usr/*",
+        "-not",
+        "-path",
+        "/root/.cargo/*",
+        "-not",
+        "-path",
+        "/root/.rustup/*"
+      ],
+      [
+        "ls",
+        "-la",
+        "/tmp",
+        "/opt",
+        "/root"
+      ]
+    ]
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-02-r2",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "call": 3,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-02-r3",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-03-r1",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-03-r2",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-03-r2",
+    "call": 8,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-03-r3",
+    "call": 5,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-04-r1",
+    "call": 5,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-04-r2",
+    "call": 4,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-04-r2",
+    "call": 6,
+    "kind": "临时副本目录名与 ls 元数据",
+    "metadata_normalized_equal": false,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": [
+      [
+        "ls",
+        "-la",
+        ".."
+      ],
+      [
+        "cat",
+        "/root/.cargo/config.toml"
+      ],
+      [
+        "cat",
+        "/root/.cargo/config"
+      ],
+      [
+        "find",
+        "/",
+        "-maxdepth",
+        "5",
+        "-name",
+        "*.rs"
+      ]
+    ]
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-04-r3",
+    "call": 5,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-04-r3",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-01-r1",
+    "call": 1,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-01-r1",
+    "call": 7,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-01-r2",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-01-r3",
+    "call": 5,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-02-r1",
+    "call": 7,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-03-r1",
+    "call": 5,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-03-r2",
+    "call": 6,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": [
+      [
+        "ls",
+        "-la",
+        "/root/.cargo/bin"
+      ]
+    ]
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-03-r3",
+    "call": 8,
+    "kind": "ls 元数据",
+    "metadata_normalized_equal": true,
+    "temp_normalized_equal": true,
+    "absolute_or_parent_args": []
+  }
+]

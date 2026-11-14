@@ -8,7 +8,7 @@ CLASSES = {
     'read': ('read', 'list', 'search', 'status', 'diff'),
     'write': ('write', 'edit', 'reset'),
     'execute': ('run', 'pipe'),
-    'discard': ('discard',),
+    'commit': ('commit',),
     'fail': ('fail',),
 }
 INTERFACES = {name for names in CLASSES.values() for name in names}
@@ -28,7 +28,7 @@ def source_calls(script):
             continue
         if i>=2 and tokens[i-1]=='.' and tokens[i-2] in ('repo','env'):
             counts[tokens[i-2]+'.'+token]+=1
-        elif token in ('discard','fail','print') and (i==0 or tokens[i-1] not in ('.','def')):
+        elif token in ('commit','fail','print') and (i==0 or tokens[i-1] not in ('.','def')):
             counts[token]+=1
     return dict(counts)
 
@@ -44,6 +44,6 @@ def act_metrics(script, outcome):
     source_categories={k:sum(source.get(('repo.' if n in CLASSES['read']+CLASSES['write'] else 'env.' if n in CLASSES['execute'] else '')+n,0) for n in names) for k,names in CLASSES.items()}
     return dict(interfaces=dict(executed),category_counts=categories,
                 source_interfaces=source,source_category_counts=source_categories,
-                read_only=categories['read']>0 and not any(categories[k] for k in ('write','execute','discard','fail')),
+                read_only=categories['read']>0 and not any(categories[k] for k in ('write','execute','commit','fail')),
                 single_interface=len(executed)==1,single_call=sum(executed.values())==1,
                 print_calls=source.get('print',0))

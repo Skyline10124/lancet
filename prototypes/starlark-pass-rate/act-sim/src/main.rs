@@ -49,14 +49,14 @@ fn diagnostic(error: String, mode: &str, lines: usize) -> (String, Option<usize>
     (output, line)
 }
 fn execute(fixture: PathBuf, script: String, canned: Json, mode: &str) -> anyhow::Result<Json> {
-    let temp = tempfile::tempdir()?;
+    let temp = tempfile::tempdir_in(fixture.parent().context("夹具缺少父目录")?)?;
     let baseline = host::snapshot(&fixture)?;
     host::restore(temp.path(), &baseline)?;
     let state = host::State {
         root: temp.path().to_owned(),
         baseline,
         canned,
-        discarded: Cell::new(false),
+        committed: Cell::new(false),
         result_set: Cell::new(false),
         events: RefCell::new(Vec::new()),
     };
@@ -102,11 +102,9 @@ fn execute(fixture: PathBuf, script: String, canned: Json, mode: &str) -> anyhow
         eval.extra = Some(&state);
         let result = eval.eval_module(ast, &globals);
         if let Err(e) = result {
-            if !state.discarded.get() {
-                return (None, Some(e.to_string()));
-            }
+            return (None, Some(e.to_string()));
         }
-        let v = if state.discarded.get() || mode == "B" {
+        let v = if mode == "B" {
             module.extra_value().unwrap_or(Value::new_none())
         } else {
             let readback =
@@ -122,25 +120,45 @@ fn execute(fixture: PathBuf, script: String, canned: Json, mode: &str) -> anyhow
         }
     });
     let changes = state.changes()?;
+    // 仅写入审计记录；候选文件不交给被测模型，供撤销前正确性判定。
+    let candidate = host::snapshot(temp.path())?;
+    let candidate_changes: serde_json::Map<String, Json> = changes.iter().map(|(p, _)| {
+        let content = candidate.get(p).map(|c| Json::String(String::from_utf8_lossy(c).into_owned())).unwrap_or(Json::Null);
+        (p.clone(), content)
+    }).collect();
+    let commit_called = state.committed.get();
     let events = state.events.into_inner();
     if let Some(raw) = raw_error {
         let (error, line) = diagnostic(raw.clone(), mode, script.lines().count());
         return Ok(
-            json!({"parsed":true,"ran":false,"outcome":"script_error","error":error,"raw_error":raw,"line":line,"value":null,"events":events,"changes":changes}),
+            json!({"parsed":true,"ran":false,"outcome":"script_error","error":error,"raw_error":raw,"line":line,"value":null,"events":events,"changes":changes,"commit_called":commit_called,"candidate_changes":candidate_changes}),
         );
     }
     let value = value.unwrap();
-    if value.len() > 65536 {
+    // 为撤销提示固定预留 256 UTF-8 字节，所有调用采用同一返回值预算。
+    if value.len() > 65536 - 256 {
         return Ok(
-            json!({"parsed":true,"ran":false,"outcome":"OutputLimitExceeded","error":"OutputLimitExceeded","raw_error":"OutputLimitExceeded","line":null,"value":null,"output_bytes":value.len(),"events":events,"changes":changes}),
+            json!({"parsed":true,"ran":false,"outcome":"OutputLimitExceeded","error":"OutputLimitExceeded","raw_error":"OutputLimitExceeded","line":null,"value":null,"output_bytes":value.len(),"events":events,"changes":changes,"commit_called":commit_called,"candidate_changes":candidate_changes}),
         );
     }
-    if !state.discarded.get() {
-        host::restore(&fixture, &host::snapshot(temp.path())?)?;
+    let reverted = !changes.is_empty() && !commit_called;
+    if commit_called {
+        host::restore(&fixture, &candidate)?;
     }
-    Ok(
-        json!({"parsed":true,"ran":true,"outcome":if state.discarded.get(){"discarded"}else{"committed"},"error":null,"raw_error":null,"line":null,"value":serde_json::from_str::<Json>(&value)?,"output_bytes":value.len(),"events":events,"changes":changes}),
-    )
+    let notice = reverted.then(|| format!("未调用 commit()：本次对 {} 个文件的修改已撤销；需要保留改动时请调用 commit()", changes.len()));
+    let content = match &notice {
+        Some(line) => format!("{value}\n{line}"),
+        None => value.clone(),
+    };
+    Ok(json!({
+        "parsed":true,"ran":true,"status":"Succeeded",
+        "outcome":if reverted {"uncommitted_reverted"} else if !changes.is_empty() {"committed"} else {"read_only"},
+        "error":null,"raw_error":null,"line":null,
+        "value":serde_json::from_str::<Json>(&value)?,"content":content,
+        "revert_notice":notice,"output_bytes":content.len(),"events":events,"changes":changes,
+        "commit_called":commit_called,"candidate_changes":candidate_changes,
+        "receipt_summary":{"uncommitted_reverted":reverted,"changed_files":changes.len()}
+    }))
 }
 fn main() -> anyhow::Result<()> {
     let mut args = std::env::args().skip(1);

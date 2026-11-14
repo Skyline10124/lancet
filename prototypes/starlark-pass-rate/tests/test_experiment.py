@@ -17,13 +17,13 @@ def oracle(task):
     spec=json.loads((task/'spec.json').read_text()); category=spec['category']; ident=spec['id']
     if category=='edit':
         p,old,new=spec['replacement']
-        return [f'return repo.read({json.dumps(p)})',f'repo.edit({json.dumps(p)}, {json.dumps(old)}, {json.dumps(new)})\nreturn repo.diff()']
+        return [f'return repo.read({json.dumps(p)})',f'repo.edit({json.dumps(p)}, {json.dumps(old)}, {json.dumps(new)})\ncommit()\nreturn repo.diff()']
     if category=='batch':
         _,old,new=spec['replacement']
-        return [f'paths = {{h.path: True for h in repo.search({json.dumps(old)}, glob="src/**")}}\nfor p in paths:\n    repo.edit(p, {json.dumps(old)}, {json.dumps(new)}, all=True)\nreturn repo.diff()']
+        return [f'paths = {{h.path: True for h in repo.search({json.dumps(old)}, glob="src/**")}}\nfor p in paths:\n    repo.edit(p, {json.dumps(old)}, {json.dumps(new)}, all=True)\ncommit()\nreturn repo.diff()']
     if category=='rollback':
         p,old,new=spec['replacement']
-        return [f'repo.edit({json.dumps(p)}, {json.dumps(old)}, {json.dumps(new)})\nr = env.run({json.dumps(spec["command"])}, check=False)\nif r.code != 0:\n    discard(r.stdout + r.stderr)\nreturn r.stdout']
+        return [f'repo.edit({json.dumps(p)}, {json.dumps(old)}, {json.dumps(new)})\nr = env.run({json.dumps(spec["command"])}, check=False)\nif r.code != 0:\n    return r.stdout + r.stderr\nreturn r.stdout']
     if category=='test':
         return [f'r = env.run({json.dumps(spec["command"])}, check=False)\nreturn r.stdout + r.stderr']
     return [{
@@ -39,8 +39,9 @@ def oracle(task):
 
 
 def as_b(script):
-    # 参考脚本只有最后一行使用顶层 return；discard 分支保持原样。
-    return '\n'.join('result('+l[7:]+')' if l.startswith('return ') else l for l in script.splitlines())
+    # B 模式参考脚本改用入口函数，保持分支 return 的行为。
+    return 'def main():\n'+'\n'.join('    '+l for l in script.splitlines())+'\nresult(main())'
+
 
 
 class Experiment(unittest.TestCase):
@@ -63,7 +64,7 @@ class Experiment(unittest.TestCase):
                     self.assertFalse(evaluate(task,bad,calls)['passed'],'额外改动必须导致失败')
                     if json.loads((task/'spec.json').read_text())['facts']:
                         self.assertFalse(evaluate(task,files_at(fixture),[])['passed'],'缺少返回事实必须失败')
-        (ROOT/'results/v2/evidence/oracles.jsonl').write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in rows))
+        (ROOT/'results/v3/evidence/oracles.jsonl').write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in rows))
 
     def test_api_five_attempts_and_no_auth_logging(self):
         records=[]

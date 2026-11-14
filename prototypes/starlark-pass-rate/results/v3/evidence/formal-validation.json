@@ -1,0 +1,19 @@
+{
+  "phase": "formal",
+  "runs": 144,
+  "acts": 631,
+  "grid_complete": true,
+  "peaks": {
+    "deepseek": 4,
+    "minimax": 1
+  },
+  "states_and_checks_mismatched": 0,
+  "value_differences": 31,
+  "old_evidence_and_tasks_unchanged": true,
+  "docs_unchanged": true,
+  "no_keys": true,
+  "statuses": {
+    "complete": 143,
+    "harness_error": 1
+  }
+}

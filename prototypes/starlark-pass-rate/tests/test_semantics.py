@@ -42,15 +42,11 @@ class Semantics(unittest.TestCase):
         self.assertIn('第二次', out['error'])
         self.unchanged()
 
-    def test_commit_discard_fail(self):
+    def test_commit_and_fail(self):
         for mode in ['A', 'B']:
-            out = self.run_script('repo.write("a.txt", "changed")\ndiscard({"why": "failed"})\nrepo.write("a.txt", "wrong")', mode)
-            self.assertEqual(out['value'], {'why': 'failed'})
-            self.assertEqual(out['outcome'], 'discarded')
+            self.assertFalse(self.run_script('repo.write("a.txt", "changed")\ncommit()\nfail("failed")', mode)['ran'])
             self.unchanged()
-            self.assertFalse(self.run_script('repo.write("a.txt", "changed")\nfail("failed")', mode)['ran'])
-            self.unchanged()
-        out = self.run_script('repo.write("a.txt", "kept")')
+        out = self.run_script('repo.write("a.txt", "kept")\ncommit()')
         self.assertEqual(out['outcome'], 'committed')
         self.assertEqual((self.fixture / 'a.txt').read_text(), 'kept')
 
@@ -60,21 +56,21 @@ class Semantics(unittest.TestCase):
             self.assertFalse(out['ran'])
             self.assertIn('EditMatchError', out['error'])
             self.unchanged()
-        self.assertTrue(self.run_script('repo.edit("a.txt", "old old", "once")')['ran'])
+        self.assertTrue(self.run_script('repo.edit("a.txt", "old old", "once")\ncommit()')['ran'])
         self.assertEqual((self.fixture / 'a.txt').read_text(), 'once\n')
         (self.fixture / 'a.txt').write_text('old old\n')
-        self.assertTrue(self.run_script('repo.edit("a.txt", "old", "new", all = True)')['ran'])
+        self.assertTrue(self.run_script('repo.edit("a.txt", "old", "new", all = True)\ncommit()')['ran'])
         self.assertEqual((self.fixture / 'a.txt').read_text(), 'new new\n')
 
     def test_output_limit(self):
-        for ending, mode in [('return', 'A'), ('result', 'B'), ('discard', 'A')]:
+        for ending, mode in [('return', 'A'), ('result', 'B')]:
             code = '"界" * 22000'
             expr = f'{ending} {code}' if ending == 'return' else f'{ending}({code})'
             out = self.run_script('repo.write("a.txt", "changed")\n' + expr, mode)
             self.assertEqual(out['outcome'], 'OutputLimitExceeded')
             self.unchanged()
-        self.assertTrue(self.run_script('return "x" * 65534')['ran'])
-        self.assertFalse(self.run_script('return "x" * 65535')['ran'])
+        self.assertTrue(self.run_script('return "x" * 65278')['ran'])
+        self.assertFalse(self.run_script('return "x" * 65279')['ran'])
 
     def test_repo_text_and_commands(self):
         out = self.run_script('repo.write("dir/b.txt", "one\\nTODO fix\\nthree\\n")\nreturn {"hits": repo.search("TODO", glob="**/*.txt"), "entries": repo.list(), "view": str(text(repo.read("dir/b.txt")).grep("TODO", before=1).tail(2)), "lines": text("a\\nb\\n").head(1).lines(), "status": repo.status(), "diff": repo.diff()}')

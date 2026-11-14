@@ -1,0 +1,18 @@
+{
+  "phase": "pilot",
+  "runs": 12,
+  "acts": 47,
+  "grid_complete": true,
+  "peaks": {
+    "deepseek": 4,
+    "minimax": 1
+  },
+  "states_and_checks_mismatched": 0,
+  "value_differences": 1,
+  "old_evidence_and_tasks_unchanged": true,
+  "docs_unchanged": true,
+  "no_keys": true,
+  "statuses": {
+    "complete": 12
+  }
+}

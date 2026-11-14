@@ -1,0 +1,2147 @@
+{
+  "worktree": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba",
+  "prototype": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate",
+  "baseline_ref": "origin/exp/act-v2",
+  "baseline_sha": "d37b8cfc1ead2bdcce442b2db8eb4f8e46964ec7",
+  "head": "4e16f24d4eca68d8282e2fe7c39892d3aafbec89",
+  "modified_vs_v2": [
+    "prototypes/starlark-pass-rate/README.md",
+    "prototypes/starlark-pass-rate/act-sim/src/host.rs",
+    "prototypes/starlark-pass-rate/act-sim/src/main.rs",
+    "prototypes/starlark-pass-rate/driver.py",
+    "prototypes/starlark-pass-rate/freeze.py",
+    "prototypes/starlark-pass-rate/metrics.py",
+    "prototypes/starlark-pass-rate/prompts/act_tool_A_composed.md",
+    "prototypes/starlark-pass-rate/tests/test_experiment.py",
+    "prototypes/starlark-pass-rate/tests/test_semantics.py",
+    "prototypes/starlark-pass-rate/tests/test_v2.py"
+  ],
+  "audit": {
+    "time": 1794687132.0578673,
+    "no_experiment_processes": true,
+    "temporary_directory_cleaned": true,
+    "modified_files_within_prototype": true,
+    "key_values_absent": true,
+    "provided_key_files_checked": 2,
+    "git_diff_check_passed": true,
+    "docs_check_exit_code": 0,
+    "primary_formal_runs": 144,
+    "primary_pilot_runs": 12,
+    "archived_formal_runs": 105,
+    "archived_pilot_runs": 12
+  },
+  "files": [
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/README.md",
+      "relative_path": "prototypes/starlark-pass-rate/README.md",
+      "sha256": "e659a1c82dbdf3ab2f6a0f2aef741b387d5101aac2987a98c1868ab4c58fe1f6",
+      "bytes": 4911
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/REPORT-v3.md",
+      "relative_path": "prototypes/starlark-pass-rate/REPORT-v3.md",
+      "sha256": "d2cb1aa9762cd9ac6ae833a1bd81ac5c98aa4ca546ae6b5ab030e2571dc1d514",
+      "bytes": 30240
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/act-sim/src/host.rs",
+      "relative_path": "prototypes/starlark-pass-rate/act-sim/src/host.rs",
+      "sha256": "2d63f2b52f18626483534de1c7521b8230a6740c6d3b1b1bbc608e63243ab09e",
+      "bytes": 13694
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/act-sim/src/main.rs",
+      "relative_path": "prototypes/starlark-pass-rate/act-sim/src/main.rs",
+      "sha256": "a69b4c4795e2fd3d0720c1f7707b9b0647d531e8d46282f8ad4a2c7b51252a6a",
+      "bytes": 7715
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/audit_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/audit_v3.py",
+      "sha256": "e15b9d147f1eb03ac8573b13b16c5b301c38dbeb4c8676f3a9c0cf9c133735ea",
+      "bytes": 2839
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/budget.py",
+      "relative_path": "prototypes/starlark-pass-rate/budget.py",
+      "sha256": "cec4a9079cc3abe70157ac6806e3c00b0cbe7a0d0b670ff6f2f6219eb15e9597",
+      "bytes": 3031
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/check_docs_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/check_docs_v3.py",
+      "sha256": "bd17584ac2198ed811f2dce5cf1aed23d50f548c5a91a654cb3f691124f8fd39",
+      "bytes": 1836
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/crosscheck_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/crosscheck_v3.py",
+      "sha256": "c09b1f505e14d4a1072597f2f4ee1f275c0cf786586242925e239bd30f26532f",
+      "bytes": 4413
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/driver.py",
+      "relative_path": "prototypes/starlark-pass-rate/driver.py",
+      "sha256": "53c75ec234f4956dd28eeac78143c6dc03f8639bcc66f7c54c956c0327d9dc04",
+      "bytes": 14677
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/freeze.py",
+      "relative_path": "prototypes/starlark-pass-rate/freeze.py",
+      "sha256": "1ff8eec985433dfd2fab956be1d3bb20f1a8b4ace4024302026ad20c4521a091",
+      "bytes": 2254
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/metrics.py",
+      "relative_path": "prototypes/starlark-pass-rate/metrics.py",
+      "sha256": "e6985c6163893e9124043ad9192a1e553b10a8adfe5c370d22193dfca729697e",
+      "bytes": 2247
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/prompts/act_tool_A_composed.md",
+      "relative_path": "prototypes/starlark-pass-rate/prompts/act_tool_A_composed.md",
+      "sha256": "4b2a70571f80f7aa6850687f3f9027095dc2bb3af6c285bd8eb26d399cab8ce0",
+      "bytes": 4689
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/render_chart_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/render_chart_v3.py",
+      "sha256": "9388b56bb345a12ce281b871c2bc60aac1452db1b9137aa940bbf9cb9f731123",
+      "bytes": 1877
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/report_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/report_v3.py",
+      "sha256": "fe1894adbd8aa9b612bbfa9a4b3a72af8d5be6df06e19bbb0ae41f61fe9eed1f",
+      "bytes": 42584
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/archive-integrity.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/archive-integrity.json",
+      "sha256": "1baf7fa6a3908339bc3388f5d092a3d728186fa45fafa2141bcfc8f2654f822c",
+      "bytes": 16910
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/formal-progress.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/formal-progress.jsonl",
+      "sha256": "a9be630aa87e6049a0eba7fcdadee21ed4f03202ac2c84a3cbcfcdf05e74644d",
+      "bytes": 12553
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/formal-stderr.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/formal-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/freeze.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/freeze.json",
+      "sha256": "ae21b83d0da904295b5790adb7c4ab3f9b5c4cf54eb2def55c3bdca453085494",
+      "bytes": 19749
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/git-command-audit.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/git-command-audit.json",
+      "sha256": "d8c43ed09b0381e5d369efbb1e25f872e83adccb18d56ad9b257e7f66d10bf7a",
+      "bytes": 3841
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/interruption.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/interruption.json",
+      "sha256": "48606337982f87a05e1a1d19853551bd09d2738d57898618f9eda077aafb963f",
+      "bytes": 11670
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/oracles.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/oracles.jsonl",
+      "sha256": "8af60d915c9f103861da0389c969bd539cc4a042d144e5cc4c33b3fc19a70a64",
+      "bytes": 79034
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-progress.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-progress.jsonl",
+      "sha256": "e8d2b04e531a5c5617a2f890bcd40d0e169c110473e7738076b84303f1b50dec",
+      "bytes": 1426
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-replay-mismatches.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-replay-mismatches.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-replay-value-differences.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-replay-value-differences.json",
+      "sha256": "182ec9d2b353b81fe120d707895335836e08e1f74d62919b5c735ab7b75d6160",
+      "bytes": 968
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-stderr.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-validation.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/pilot-validation.json",
+      "sha256": "a6022a774dda4c700164681e1a5b794953757c2c66f4070f985b8358c38b2cba",
+      "bytes": 322
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/tests.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/evidence/tests.txt",
+      "sha256": "88210a5f6e36cf1e9e7b4355cf3372374b15a7f9d258d085745501ecbb6546d9",
+      "bytes": 120
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-01-r1.jsonl",
+      "sha256": "23461119a09e01bedef7ec805e64a3de4c96ca39eda203fe10223cf558d1e9df",
+      "bytes": 30900
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-01-r2.jsonl",
+      "sha256": "1ca8bc80ce8e1d5f97a4da74c8109f028fd80fa6b28f52efdceab272e6c448d4",
+      "bytes": 26046
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-01-r3.jsonl",
+      "sha256": "f00db648aee678902fdfa4e2c8ab861da76b3a232d4503ab7ef0fb02950d1cc5",
+      "bytes": 23441
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-02-r1.jsonl",
+      "sha256": "d0ca88544e40ed0a39b6dffd9e83f2eb49f513a257a54caa02b87a894a68e403",
+      "bytes": 28545
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-02-r2.jsonl",
+      "sha256": "a20895f170bbd50f126e16c29466098161aa53f7a966068c6c4aa50860108c08",
+      "bytes": 24984
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-02-r3.jsonl",
+      "sha256": "06f22d3d395349e9714ccdabb5b256490dde6efefa3886797c901ccfcefe2fdb",
+      "bytes": 31331
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-03-r1.jsonl",
+      "sha256": "8123b41c1b9b2bdb8414d6ae63074971db4b8aa0dc7c1cde866659617de6172d",
+      "bytes": 32639
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-03-r2.jsonl",
+      "sha256": "a62f526a5e723cb3bc6da8068d25c1e5d5bf3b1e8cb027d71d57420838b7ed3b",
+      "bytes": 34392
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-03-r3.jsonl",
+      "sha256": "e6352688a0bdaba220671fcb1737597d2cfb35a670c1014ad64164d02d251b9d",
+      "bytes": 25962
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-04-r1.jsonl",
+      "sha256": "8da59c79e229ca89f4462e1d5275a8530e594fca15eabcb75c9c4909b70efef5",
+      "bytes": 19373
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-04-r2.jsonl",
+      "sha256": "f63ccec9b15cd3dd14ec1a1df55c2f7898790cb3a609954ae33dbdfd311e4120",
+      "bytes": 27630
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-batch-04-r3.jsonl",
+      "sha256": "679eca6439f86ff7daab6116ba72dbf20900a5bfae970f36b26614f9be841bbf",
+      "bytes": 20490
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-01-r1.jsonl",
+      "sha256": "1a8495691fc24643c3101a15e48a5d5d0a740b3c317f250acd0c4725dd7b2116",
+      "bytes": 17752
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-01-r2.jsonl",
+      "sha256": "2af1ec1e72a5a052458cef4c845a38226a8d2094538bbb437d01623e52dd040b",
+      "bytes": 18108
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-01-r3.jsonl",
+      "sha256": "537bf7c312cbdd98c08a6a39da7a533507a226957e6a1d237cb0990990f78f7b",
+      "bytes": 21046
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-02-r1.jsonl",
+      "sha256": "ef41e29776ce254a1b37e6e2f6988d3234bc4c095e9b47d93cf9edd8754167ef",
+      "bytes": 16818
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-02-r2.jsonl",
+      "sha256": "1b3b2fb95ea25045c475e07fc4aa9115eaf5381eee3641fd28bca12feeb52bdb",
+      "bytes": 17055
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-02-r3.jsonl",
+      "sha256": "db06eef10ddbace64c9594f1fd0010ed86751b6e1003ef333afd1d7d7875d288",
+      "bytes": 17814
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-03-r1.jsonl",
+      "sha256": "17cb2ee45e37653b86a160834e2bf04cbb9a7ec21d58c90edbb1ea8780e862a5",
+      "bytes": 19018
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-03-r2.jsonl",
+      "sha256": "276f2e4b20f483fc41ee87ba5467c654dcb5623c358f44c54904ede5984b21f2",
+      "bytes": 23128
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-03-r3.jsonl",
+      "sha256": "e4e1036e8f39dceb6de762f2ea98710ef8f077358a3ef5c7b6216631c002fa92",
+      "bytes": 17788
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-04-r1.jsonl",
+      "sha256": "b6f80289d1de0beb3f4f050ef423267ae789cdd2d782fc4b5d2d7da4303b7188",
+      "bytes": 17783
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-04-r2.jsonl",
+      "sha256": "cafbd43c1f6e2af66bff862d5f753ffeb4be7793a12fae977fe7dbdedef7316b",
+      "bytes": 16992
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-edit-04-r3.jsonl",
+      "sha256": "d33e27fbeef8fe6c62ebb2eb1775dd089b048f5effc6a163f759659cf472f7f1",
+      "bytes": 16803
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-01-r1.jsonl",
+      "sha256": "e4779bd7c35886feb7901e14def0b34c73f32e2fb6451e19566c4012f07346ae",
+      "bytes": 14031
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-01-r2.jsonl",
+      "sha256": "747558e91d303299d550c61efd233697104b3f2b7db8a87f2e9afa0d34c8884a",
+      "bytes": 13483
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-01-r3.jsonl",
+      "sha256": "1db85d3bea4c017a04a042f5ec4610a15b5d0aec8b15cfb74bd696188735877a",
+      "bytes": 13568
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-02-r1.jsonl",
+      "sha256": "a0e62919917f5d07430ee6f517235afb0eacb81adb59ec9a220b6be654899bca",
+      "bytes": 26832
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-02-r2.jsonl",
+      "sha256": "119e08594c1619ed074a1b00b69e414bd77acdaffadca74a7027561a5a8b27b3",
+      "bytes": 33518
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-02-r3.jsonl",
+      "sha256": "fecccc7e0ca13f55b8c2c8ba8d66b1b390ba597d4ee04da3ec1fb32524fbb971",
+      "bytes": 25202
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-03-r1.jsonl",
+      "sha256": "c0bc0ea6d6a5abde2b01be711b53430d03d3f8f6adf9def988a6fd49a4b90e87",
+      "bytes": 225724
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-03-r2.jsonl",
+      "sha256": "b93c623d3a418558e5b809d52bb62cad16d7b28cd1c3afa53f85b6bd52ab4947",
+      "bytes": 237763
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-03-r3.jsonl",
+      "sha256": "5be789fa9f7532dbd88c3494d5583224944c703e5444366d2db012f42e954d07",
+      "bytes": 229607
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-04-r1.jsonl",
+      "sha256": "9947612e0eeb2c5aa9fe10259599e4962e8dbc8cd9ac037867aa781d5246531a",
+      "bytes": 23360
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-04-r2.jsonl",
+      "sha256": "2e70fefc523cf166689b7afdf69b1cf1bb8eb6eb7d8ae87f290be0840c419c85",
+      "bytes": 32243
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-probe-04-r3.jsonl",
+      "sha256": "d01cb4efd34253036d80374e5f17fec05a52958d34946b3d30ed8e703a51d24b",
+      "bytes": 23770
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-01-r1.jsonl",
+      "sha256": "79f5d11385ff9343d3c257480660aa8cf9e090044904c99a8443452af31fe41b",
+      "bytes": 18098
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-01-r2.jsonl",
+      "sha256": "6628435956b546e9a43a949889d2362ef87880b3580468bb05f1c45fdedb46ff",
+      "bytes": 17618
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-01-r3.jsonl",
+      "sha256": "e45f37f50eddd34305b92ed05bafa4356b77adac2fd9b5c58cf58905299ef8b2",
+      "bytes": 19341
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-02-r1.jsonl",
+      "sha256": "adaa213134cab0cd721ee8eb881e7cc17d1d567563d31b06b2f82e76c84ec722",
+      "bytes": 13701
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-02-r2.jsonl",
+      "sha256": "6682c028013ac0adbe31fc4b30c5046930d902e118b7f252096985730c18acc0",
+      "bytes": 13727
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-02-r3.jsonl",
+      "sha256": "b9053e5f5c08d5ded01d344da923304b592cacdf9a9e0c7bfcdce02707506466",
+      "bytes": 18051
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-03-r1.jsonl",
+      "sha256": "d9224dfe02f911dc7bd755cb78d4036b0e89c64d40da699eb3fd9cbe47edc837",
+      "bytes": 17906
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-03-r2.jsonl",
+      "sha256": "4163a06e5c70b957cde258f0877fb7b96b24f764ea98f50c5df5f286d15d5022",
+      "bytes": 19840
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-03-r3.jsonl",
+      "sha256": "270cb510f1f25e2c89fc6ec938aae59d80d403b1942ac5cdc3a4e90a55b2e02c",
+      "bytes": 26313
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-04-r1.jsonl",
+      "sha256": "9feb8f7e73f85e7c7472f9ad9c1e34dd47e9101e1a0e48f633af4882361c688d",
+      "bytes": 13177
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-04-r2.jsonl",
+      "sha256": "eefadd20091811f604cd343dbd13cbf19db1212f9548e7194655b143ad4de0a5",
+      "bytes": 23392
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-read-04-r3.jsonl",
+      "sha256": "b453ead0c9af2bad82417d142943f728c0a53a7fec28b2f1b2c039196329f9d8",
+      "bytes": 25701
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-01-r1.jsonl",
+      "sha256": "5a9e2b3231320c95b07afecf65d8b7f49307608b62f1d313acbde3cf56b1e1fd",
+      "bytes": 23695
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-01-r2.jsonl",
+      "sha256": "5a58fa439fa12fd2ee562b39e26e969ace2d3ed5d5a5b81a501075e2793c7f45",
+      "bytes": 59568
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-01-r3.jsonl",
+      "sha256": "7034e9d54f977bec17fad45d3ee697d1da905fdb4d1541256d432e2b08ebfa2a",
+      "bytes": 26841
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-02-r1.jsonl",
+      "sha256": "3fe1ba8b5d2455bb10abf19f178db680aff004e3245e900bc05316d5cf2aa521",
+      "bytes": 39580
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-02-r2.jsonl",
+      "sha256": "c5bc502a5f1915a03c6350fa682275d0ac4a450d796aa0fc16a14aa63aa80cdf",
+      "bytes": 63668
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-02-r3.jsonl",
+      "sha256": "0f736bd0d6e9a51ab4cbaa91adeec639d6b7f13baa9a4351c4d6e1e5880a35f8",
+      "bytes": 50977
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-03-r1.jsonl",
+      "sha256": "51cdcd3f50566f0a7f798f4d5d7fd3d07127ebd49a0e3f1fdede0ed3d8e1db86",
+      "bytes": 47319
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-03-r2.jsonl",
+      "sha256": "bab74f23b87b64c72a896e615e0b871b8cdbc76dec81df1e6addf556360b743f",
+      "bytes": 24764
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-03-r3.jsonl",
+      "sha256": "2604a40ba4ee7386d07d9541414af6121968634a5048e0bf1124c6bfff4f818a",
+      "bytes": 21582
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-04-r1.jsonl",
+      "sha256": "c8fd4f034edc4e37ed4e3d9e5b6f5d67a3a38a74cffc418fe2256cd29ce9a4c3",
+      "bytes": 35614
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-04-r2.jsonl",
+      "sha256": "f845f677f4042db9d8220b432dd2cadf10e28bc1746647acb89f94d3f3b4ce84",
+      "bytes": 30394
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-rollback-04-r3.jsonl",
+      "sha256": "b288a0d5bbae78a080200a99be7fa60ba6797072c1649638b6fb950a7508ea2c",
+      "bytes": 49667
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-01-r1.jsonl",
+      "sha256": "0c569847e00678496a1f3d572136fa493e982f3f8d451ef6a3cea61afe752f4d",
+      "bytes": 58783
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-01-r2.jsonl",
+      "sha256": "743080d5df138cc95ecd125153c672f56aa51c1c24e42d3627f29445258031bc",
+      "bytes": 24176
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-01-r3.jsonl",
+      "sha256": "8c2fb1e45d8101aa560f6494d65645f55cec247ff7c4b022fe299082ef92d132",
+      "bytes": 21535
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-02-r1.jsonl",
+      "sha256": "b2dc0624c8bfaddf47df8c4cf252a08bd35f408e1c0a4cd145c8cc6fe4a89ba7",
+      "bytes": 16394
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-02-r2.jsonl",
+      "sha256": "c5a65ee37047a4113ba3db49a349e55e109fd39ab3aee3e34b2ea577ac072801",
+      "bytes": 22141
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-02-r3.jsonl",
+      "sha256": "f3eeae8d1783a8f1cf96a6dfc15d5ce203c1ebe367642e66d30f8ad0623b1f0c",
+      "bytes": 26040
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-03-r1.jsonl",
+      "sha256": "cc1065446cc065bfe37227d7a23523a59b68404dd9c4a0bafd0e073400830513",
+      "bytes": 23780
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-03-r2.jsonl",
+      "sha256": "f7908f6a1e3840568f535c905d2c65f059145a072470dd5e019ff08fcccc989b",
+      "bytes": 23156
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-03-r3.jsonl",
+      "sha256": "6686e88f22e60619aba66bfefc081f5b090efafb3c47fd050bcc6f1f580edb89",
+      "bytes": 26166
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-04-r1.jsonl",
+      "sha256": "e974c72ba65bab45cd101c34677142d10dfd692e6d2d6ae4f46fef0bf8618e03",
+      "bytes": 22253
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-04-r2.jsonl",
+      "sha256": "ad27974855f3dc2effed5b32fa56f1031e07588e5f9e17ff3bf7e9d6402fee1f",
+      "bytes": 21067
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-deepseek-A-test-04-r3.jsonl",
+      "sha256": "1d65e612c4c925c09e21900f62559dcd49b7768d37c3fdac330715378ec0a6ba",
+      "bytes": 22161
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-01-r3.jsonl",
+      "sha256": "367b6bb90d585a7304890a9ce4635e16635d53966a51d146ec8aec8e4e46f6af",
+      "bytes": 35287
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-02-r1.jsonl",
+      "sha256": "bdc7252ec69afbb3534f6104a099ba1f7a4cc5550760a9b288dafeeae2d17ac2",
+      "bytes": 27968
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-02-r2.jsonl",
+      "sha256": "6f44ef549b6b9f9415e8fad6251c478d00f8a8620b91cb64a9f87523e27598b8",
+      "bytes": 49514
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-02-r3.jsonl",
+      "sha256": "e9340ff014899f247fa730e88298461229ac3c6330166fc49a1cfe7543eef6b9",
+      "bytes": 40682
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-batch-03-r2.jsonl",
+      "sha256": "447968983617565c9b7f1f519a6329cbbe340519339dc4ff91f298fafebfa79a",
+      "bytes": 42125
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-01-r1.jsonl",
+      "sha256": "d7e7c13c3b12e5b2ff88978220c8011ef16e0b63891dad6489a67870890802df",
+      "bytes": 41521
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-01-r2.jsonl",
+      "sha256": "aa7fb8d502e48bf7a2cb621f23528fa0d412491de69afec62ce103297e86e7ad",
+      "bytes": 21139
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-01-r3.jsonl",
+      "sha256": "045bbd407a0b967f12151a73cf8772fc2a58eb6912d1d03ecb02496c46c2e3ef",
+      "bytes": 40111
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-02-r3.jsonl",
+      "sha256": "5e8107de8e4b3fceacd28b3670f7f1c84a2fb3896a5114471aed4ba1b011cc0a",
+      "bytes": 28572
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-03-r1.jsonl",
+      "sha256": "394cc90a5ab1594b69a22faaed36b4d4fa73e7fb7af2fb48334c4409249bb8bb",
+      "bytes": 63011
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-03-r2.jsonl",
+      "sha256": "634e440ad5b1a34b755347495fcb5ce8ecb0d0283d16667ca11a830379954220",
+      "bytes": 28078
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-04-r2.jsonl",
+      "sha256": "7948c7dbfcfa1508cfd74ba8eaee9c36127e12acaef3c24207b3e93359e2cdd0",
+      "bytes": 191698
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-edit-04-r3.jsonl",
+      "sha256": "247cd67c33e8f64f75fec4ad142c0c510d96d75ac6f8fa32c8b5473b8711a221",
+      "bytes": 21153
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-probe-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-probe-02-r2.jsonl",
+      "sha256": "a1d08792e60433192628bf817513ee01c43b5b9b6c88b52c241cd1c55db1e150",
+      "bytes": 28378
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-probe-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-probe-03-r2.jsonl",
+      "sha256": "5059dfaf93ec76c319266b7d7dee04e50c8a3862716a997f68d40adb9ebec4c9",
+      "bytes": 6237
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-probe-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-probe-03-r3.jsonl",
+      "sha256": "4cafbd24abd28594a7cec3c4b72321951197faa3a47a579605b49c92e88f310b",
+      "bytes": 1865055
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-01-r2.jsonl",
+      "sha256": "b09b4cca807b856deb283f8ce9dd192427e244ce771bcc1499843c9c01bae91d",
+      "bytes": 28491
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-03-r1.jsonl",
+      "sha256": "4848b26dcd223d6bfaf699fbe5aeb300e405c3db1d1ddeb09c6ed282531cad14",
+      "bytes": 42249
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-03-r3.jsonl",
+      "sha256": "d574257cf3297034780b8535316f4dbbd1de6e94665e9a70b3749a13d2074584",
+      "bytes": 37557
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-04-r1.jsonl",
+      "sha256": "f9391d09800e97b0d966a64d930bb715d5c5fd77d40c146869702d94fb787214",
+      "bytes": 19581
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-read-04-r2.jsonl",
+      "sha256": "25e99df39496e9cd6fd181edd5939294b2a05293e6dade5dff5f75bd14e003ce",
+      "bytes": 32352
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-01-r2.jsonl",
+      "sha256": "d909e7a6b89c274120fda095f654ede35aa29edd4b221788d8e1690ddab2821b",
+      "bytes": 74276
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-01-r3.jsonl",
+      "sha256": "7283c6d5a8e1220b88f094332f79e55cf0ae5c5599322107a5310ad8f27cab14",
+      "bytes": 47519
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-02-r3.jsonl",
+      "sha256": "00fff70d28b3a7ebaf111085b902384dca3aed4b8e7f4b516e3f99415af5233c",
+      "bytes": 62291
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-03-r3.jsonl",
+      "sha256": "559838714e1b486039c4a971512d59c395d6042d8a47328d266d31b30505fdb3",
+      "bytes": 68280
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-04-r2.jsonl",
+      "sha256": "d6437356dc39c34d40bc0c5273b18d28d2be2655668facb7d3302959e2f6c869",
+      "bytes": 53763
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-rollback-04-r3.jsonl",
+      "sha256": "f9c1ae3aff7378749ba7e3b5a8e6c9bd944aa441b63b7a70ef8c7d4c837576e5",
+      "bytes": 58767
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-01-r1.jsonl",
+      "sha256": "3bf2a3d13e508098e33c0a5b6f797c09587120473a8863ffc4cfaf29c0ba8669",
+      "bytes": 64032
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-01-r2.jsonl",
+      "sha256": "460f7e0e63f7ecc3012086f21ec2cfe0797764ff190a94e1051ee2e518178758",
+      "bytes": 46840
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-01-r3.jsonl",
+      "sha256": "6413d1078d74a933b780dde1d04f50cec14dfce4fdf8f44dc1070c4d4d4b773d",
+      "bytes": 55928
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-02-r3.jsonl",
+      "sha256": "73a15ce436fba04a0801663bcbac161c65e33f805fe56122059d4c605ecb00bb",
+      "bytes": 59675
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-03-r2.jsonl",
+      "sha256": "0f0931ce2416b2a368f336ba87588cdcc94f47b6e51c7b12a59a1d532219ade2",
+      "bytes": 54769
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/formal/composed-minimax-A-test-04-r3.jsonl",
+      "sha256": "b08205cf157c96d63e46f3ac0451fd4782db6a927a86118cf2ff911b3fd5d9d5",
+      "bytes": 20395
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-batch-01-r1.jsonl",
+      "sha256": "2e586abd1ba412137a63e216c2ba6e381d7d1314096b8550c48224749008409b",
+      "bytes": 36792
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-edit-01-r1.jsonl",
+      "sha256": "dcf48e801ab69020ae078680a3b5a92c8330d6d3dc3a5a914a95fec7cfc1cd2a",
+      "bytes": 17102
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-probe-02-r1.jsonl",
+      "sha256": "b09b0d30e2ce196e34965b79efa77b9636558737110f2cc99f3e34203f45317a",
+      "bytes": 13839
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-read-02-r1.jsonl",
+      "sha256": "83cd3b8252090326a8f63b27a113275d9b56eaedf341ec46401f66af61aa79ef",
+      "bytes": 18312
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-rollback-01-r1.jsonl",
+      "sha256": "0a8f06df22ab2eecc261afd8ea0e9fd15e28ff203acdc58a269f180e62ca00e7",
+      "bytes": 21169
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-deepseek-A-test-01-r1.jsonl",
+      "sha256": "b6ca428c4d93e5d9b162aa53abfdab129176aaa27853cc2d295c0b081aa9f0e7",
+      "bytes": 33862
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-batch-01-r1.jsonl",
+      "sha256": "86c11378a6d456551c4655eb4004d85e91c954cd1f759ef2d1e8d9123b5791ab",
+      "bytes": 40529
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-edit-01-r1.jsonl",
+      "sha256": "d06c59feb7d8d123103d2b9b111c95369ba93460b6fd15b7b752e45a75ebeb60",
+      "bytes": 16066
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-probe-02-r1.jsonl",
+      "sha256": "c42c8604cd2cb855bb469560d0ed32e39652e3baa460111852c5a0c34722fd7f",
+      "bytes": 39088
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-read-02-r1.jsonl",
+      "sha256": "50a9c6fd049e39b4558221bbd494ef89425e0b452bf87181d944aaeb853045ca",
+      "bytes": 15620
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-rollback-01-r1.jsonl",
+      "sha256": "eeb2300c913bd12ddf690d6efa2776ba65653b9b4ead65d612a6f40e57414a64",
+      "bytes": 53690
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/pilot/composed-minimax-A-test-01-r1.jsonl",
+      "sha256": "794dd7aa1df9357146cfe2c2bd32af18f7de9cb9d88b83811c0d1c610780619a",
+      "bytes": 48055
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/Cargo.lock",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/Cargo.lock",
+      "sha256": "4b054007ae83cd7de1a0d1f29a84eac068774476d7f320945348a2230368f7c0",
+      "bytes": 44097
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/Cargo.toml",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/Cargo.toml",
+      "sha256": "b47299543f6c940f04f31b77f51e3761b43c392f20eed01b6b2ce58def3c44f6",
+      "bytes": 74
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/Cargo.toml",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/Cargo.toml",
+      "sha256": "ea6083c5f32a613356ec848196fa61364d87597900368946ed8f930ecd75d5e8",
+      "bytes": 233
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/commands.rs",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/commands.rs",
+      "sha256": "7479f23a4b54dec2beb974c824d686ac6bb0e532676c427bc264832680a0137d",
+      "bytes": 2038
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/host.rs",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/host.rs",
+      "sha256": "2d63f2b52f18626483534de1c7521b8230a6740c6d3b1b1bbc608e63243ab09e",
+      "bytes": 13694
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/main.rs",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/main.rs",
+      "sha256": "a69b4c4795e2fd3d0720c1f7707b9b0647d531e8d46282f8ad4a2c7b51252a6a",
+      "bytes": 7715
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/text.rs",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/act-sim/src/text.rs",
+      "sha256": "d5cb14e9c912d04442692407dbe4caca1b2d0422dec28cc1c3251252e1c62dbb",
+      "bytes": 2681
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/budget.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/budget.py",
+      "sha256": "cec4a9079cc3abe70157ac6806e3c00b0cbe7a0d0b670ff6f2f6219eb15e9597",
+      "bytes": 3031
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/command-normalization.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/command-normalization.json",
+      "sha256": "6f347e5cc8965ad49314512e350a4efa8d79a8f5e019c2cfa3e284d2c9033d2c",
+      "bytes": 631
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/commands.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/commands.py",
+      "sha256": "c6046b0f59186b07ce7db7c4cc4df78ec4c62bce2c9a64c0cec86ec14dbd15dc",
+      "bytes": 1282
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/driver.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/driver.py",
+      "sha256": "56ff5d2e01bd0afb0012b6039276b3cb69759cc096b39e1be803c70efbf084f2",
+      "bytes": 14670
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/metrics.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/metrics.py",
+      "sha256": "e6985c6163893e9124043ad9192a1e553b10a8adfe5c370d22193dfca729697e",
+      "bytes": 2247
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_experiment.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_experiment.py",
+      "sha256": "8d7babba702378b3966b6cb77fd1b772d71d03ee5d65a4b736b06f1afdf6a3b4",
+      "bytes": 5568
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_semantics.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_semantics.py",
+      "sha256": "0d2ac7c217bc56c21535d03697b62b756dd5636566363b3c7c07650772e405e5",
+      "bytes": 4532
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_v2.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_v2.py",
+      "sha256": "b90b91f5004e902caaec23245ae796f518a6a531112b0337b962450f4bd2ebfa",
+      "bytes": 8169
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/attempt-1/source/tests/test_v3.py",
+      "sha256": "46f37e5a8c993b6c9e22ad34ffbb13b53bc09ed0cdb09286753223cdd3b47608",
+      "bytes": 6291
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/absolute-argument-audit.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/absolute-argument-audit.json",
+      "sha256": "ed58d99959bc54d9e97c7b8483194744e5c660e216408d5fdab3737fb0a65096",
+      "bytes": 7810
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/budget.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/budget.jsonl",
+      "sha256": "f1ad008850aaa6b8f8416b105a319c3c86557cc3532970259cc19d8866850487",
+      "bytes": 111516
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/completion-chart.html",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/completion-chart.html",
+      "sha256": "864d89d4738e376c734a1109593d76ccc67b038b1865b830e3b22eb225cb4ba8",
+      "bytes": 1690
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/deepseek-endpoints.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/deepseek-endpoints.json",
+      "sha256": "5849b1a2717f432731cd15e103460e49507b5b0d3bffd070ebf3677d92f103c6",
+      "bytes": 62046
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/docs-check-untracked.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/docs-check-untracked.txt",
+      "sha256": "61f0c40d1af93d615f6bbf808d6e52bef57ce5201f7f76c4456ff02796c23c83",
+      "bytes": 1397
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/docs-check.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/docs-check.txt",
+      "sha256": "9412c17b3745b453cdb034e31832bf7f25d7a2147691d688dc802a083b43d8c3",
+      "bytes": 167
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/docs-validation.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/docs-validation.json",
+      "sha256": "3dde9fa9305ee9c474e6d4d54886b5dbc0776af6140f50d746fb0b2c4235a7e8",
+      "bytes": 177
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/failed-run-evidence.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/failed-run-evidence.json",
+      "sha256": "8b49bdf3d3d4480eeb5dc03e79cf6b6d093afccb8dc402d058bc05076f7bfbff",
+      "bytes": 9173
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/final-audit.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/final-audit.json",
+      "sha256": "e33f558bbe57155e67b7b19c06a32dfc0886e02f7a7aca9f3b850bbcc6c82c26",
+      "bytes": 394
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/formal-progress.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/formal-progress.jsonl",
+      "sha256": "b93eed4588cd717466fa88372677ed6695f3bbe47e549251c7f32a5fcce3b31a",
+      "bytes": 17401
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/formal-replay-mismatches.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/formal-replay-mismatches.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/formal-replay-value-differences.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/formal-replay-value-differences.json",
+      "sha256": "1651a2c6061d4f59804b53ea6b76b2efd6114539fdcbd39144c2b1e48160aec2",
+      "bytes": 91945
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/formal-stderr.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/formal-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/formal-validation.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/formal-validation.json",
+      "sha256": "4d79841b0853583fd96ecfb4cde172c20abc21a3e0abdd7a0cc7d2b0a10c0ae6",
+      "bytes": 351
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/freeze.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/freeze.json",
+      "sha256": "16e08b71bc0d9aee0a8a7031d08548839b506f0e99b589ae9581328be315a58a",
+      "bytes": 19749
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/independent-crosscheck.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/independent-crosscheck.json",
+      "sha256": "3f0a1f8ec9fe8599793c5769a29fc1aa1c24c5b6f7b78db09ab2ea58d1047a46",
+      "bytes": 1269
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/metrics.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/metrics.json",
+      "sha256": "f5de0ee1949ac2d4fb2fe90e3c63f29e335de72697ecc1d84d409e273cc89343",
+      "bytes": 276041
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/minimax-preflight.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/minimax-preflight.json",
+      "sha256": "1b1ebc3057871197e3fe297ada05795c03046c33ab8f864344b10417ac380387",
+      "bytes": 963
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/oracles.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/oracles.jsonl",
+      "sha256": "8af60d915c9f103861da0389c969bd539cc4a042d144e5cc4c33b3fc19a70a64",
+      "bytes": 79034
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/pilot-progress.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/pilot-progress.jsonl",
+      "sha256": "15e305ad0e1a572f6220fff9e13d8072f55c04503ba1794addff7750cbf53a99",
+      "bytes": 1425
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/pilot-replay-mismatches.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/pilot-replay-mismatches.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/pilot-replay-value-differences.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/pilot-replay-value-differences.json",
+      "sha256": "36f1919da5695a6ea269a27c531ddf02a192c934a25735b44e5b976557b86fa1",
+      "bytes": 12972
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/pilot-stderr.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/pilot-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/pilot-validation.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/pilot-validation.json",
+      "sha256": "e31b8af1a7588f678b88388522ee7d389f8581394fff3e7f5a92f99472c34159",
+      "bytes": 322
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/possible-command-write-audit.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/possible-command-write-audit.json",
+      "sha256": "2a53fcfd5b5b9f7ab70352e479b424b6db0ffef4bf7162ad2a8d7953f656331a",
+      "bytes": 6087
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/replay-difference-audit.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/replay-difference-audit.json",
+      "sha256": "4ec56b8a6d62d4696fe1e86e5881b227c7ea5da4a3cde55c6c024f6f50673bc1",
+      "bytes": 9015
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/tdd-before.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/tdd-before.txt",
+      "sha256": "d2fd144c60802631620f279c6b61f2f5c5772011a04a46ee640c777175bd0f47",
+      "bytes": 1814
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/tests.txt",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/tests.txt",
+      "sha256": "1f4fce05ed19bd4dce3a0d6cef691bb7baa9990b408a64a5699a61a5bab0bb5a",
+      "bytes": 121
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/usage-after-deepseek.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/usage-after-deepseek.json",
+      "sha256": "6900988ba0b213d19b48cf44dbc2440de36b571b9c83bb32938ebf6158e43e16",
+      "bytes": 82
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/usage-end.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/usage-end.json",
+      "sha256": "f9f42b6bd67cb3583bd05abe8cd6d18baac103ca349094d23144001c1a13fbc8",
+      "bytes": 86
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/evidence/usage-start.json",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/evidence/usage-start.json",
+      "sha256": "186deb168c444373a2946974629004456e8bb5815e4f039fc45d114cda0b5003",
+      "bytes": 91
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-01-r1.jsonl",
+      "sha256": "873a7951912f4234d0f3b30bc883dfe528fb3d6529175c885e18c4d12003ba31",
+      "bytes": 32622
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-01-r2.jsonl",
+      "sha256": "f7756fa717cf83a38cfba5664313ae0950b26564d460e6722e9e4df9a227bd1b",
+      "bytes": 33097
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-01-r3.jsonl",
+      "sha256": "40aac741a258fa6e518b13f2b6df9163c718cd3cc6d77a2fda33353f8f59db8d",
+      "bytes": 26951
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-02-r1.jsonl",
+      "sha256": "1b95e095a729530ba91901ac8f2ee8b5c378d6545c586801754758355b6aa940",
+      "bytes": 19976
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-02-r2.jsonl",
+      "sha256": "f077cac3094dbc33aa5231eb800e48dfd71424a2292a246ae6125b7e428f0270",
+      "bytes": 28029
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-02-r3.jsonl",
+      "sha256": "a331f9320ba5150969aa351e61813e671f87a3ce5f43862770d5df66e20d223a",
+      "bytes": 36164
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-03-r1.jsonl",
+      "sha256": "6c694a42e51f9e271f490c138c5c7919515511aeb4e960aa7ae2a76c69060d90",
+      "bytes": 23960
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-03-r2.jsonl",
+      "sha256": "27a7fb73d8f41cb1aaa0973c5d39223682132e26213de57570cdd2bc27b8c98e",
+      "bytes": 26727
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-03-r3.jsonl",
+      "sha256": "7e4383a7ec23c2a6b61c5c243c57b8f092c036d0cb3b887c87633c8e10de2e56",
+      "bytes": 28242
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-04-r1.jsonl",
+      "sha256": "928e1407a7e7e13f2f950246a0f705200167bc086cb0e4d4658f04350da6a3aa",
+      "bytes": 21435
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-04-r2.jsonl",
+      "sha256": "a6e5cf36ed5d59b8b722247238c6b985e9c41c0c117e92fc119c31da7c3c3e9b",
+      "bytes": 29084
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-batch-04-r3.jsonl",
+      "sha256": "269dd02f21ba3a36d4a53870b8f2278543e769a76ef69e1831e0dd656ddaa76d",
+      "bytes": 30121
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-01-r1.jsonl",
+      "sha256": "25a797aa9682d205e648d66e2b2fa7a7086c1ec2cf303a60d2da92fa335ee338",
+      "bytes": 17132
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-01-r2.jsonl",
+      "sha256": "e01755915e8b93b793c1311269e850637d46895620f68be152e7a5fbe492d932",
+      "bytes": 16859
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-01-r3.jsonl",
+      "sha256": "153b1150d421e3e00b8ecc391aa243675a5132efee384db0dfc20cd9943c94db",
+      "bytes": 16984
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-02-r1.jsonl",
+      "sha256": "d37a38396e09d8855f70a4ef010d65dd666bf1e19daa8bdc141524f57fee8ee6",
+      "bytes": 17423
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-02-r2.jsonl",
+      "sha256": "88e18008f677d9440944e09a6b15d6dc587fe1cec3258a86a506a722a7a1227b",
+      "bytes": 17480
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-02-r3.jsonl",
+      "sha256": "fe7759fe24da2687d3347f90fa7bb9a31767db256f5e10786253b3fcb0851aa9",
+      "bytes": 21739
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-03-r1.jsonl",
+      "sha256": "7b371f016d38b622be85ead893e70f777f2b0b16dcbe6afd9fdf26697ea68982",
+      "bytes": 25384
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-03-r2.jsonl",
+      "sha256": "da1149ab868fcfdecbd2de5f71d1ff3c70bbc88a631f7ee654998e363ef95c67",
+      "bytes": 22731
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-03-r3.jsonl",
+      "sha256": "00a12c8d4eab06523ad4b9e600d1ae00d2e479692301d9dbc482f753c29aed7c",
+      "bytes": 25125
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-04-r1.jsonl",
+      "sha256": "239d3e4dd187d970742875c09ae00466a37bc8aa84385ec2a00bb57ba0c7e795",
+      "bytes": 17755
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-04-r2.jsonl",
+      "sha256": "fbee2e763c7f60a2d27632c07a9c81d59024ebb771f1e228af0ea9ccea4413f9",
+      "bytes": 22589
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-edit-04-r3.jsonl",
+      "sha256": "7406617674230b140e113131aef253d3c5858d61174feb7b1aa9592bbe63f4d7",
+      "bytes": 21225
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-01-r1.jsonl",
+      "sha256": "3ade0c04f6eff0acfc1e60554e965a018fb85404d9fd03364390d564ae0fe37a",
+      "bytes": 15108
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-01-r2.jsonl",
+      "sha256": "36ce44f3d4e03ed756a1571acf2943052953b9d73086960def79670af68abbb7",
+      "bytes": 13329
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-01-r3.jsonl",
+      "sha256": "1e1d12f672995476ab39ed0bc4b1cc6ae1a1a9b4f394f4f393385f921ee48caf",
+      "bytes": 16711
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-02-r1.jsonl",
+      "sha256": "a1636ea368a4b7d02d79472db370f1abe59be94cca7afd4dcb88376637649a49",
+      "bytes": 25816
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-02-r2.jsonl",
+      "sha256": "9afe2f5b604b0aff82b8016c84b66c5b442a884c62e35d93bfc72a3c8a08d22c",
+      "bytes": 21498
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-02-r3.jsonl",
+      "sha256": "6323216689339a22e9690ef50fda1fe4f486555527af963715d9d06628b9abbd",
+      "bytes": 28185
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-03-r1.jsonl",
+      "sha256": "dc49942a436ef100be0e4f6d0d41e9451aa241e89e19b61226a29b6eb146e643",
+      "bytes": 36303
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-03-r2.jsonl",
+      "sha256": "f07bcd2bdb85bcbcb392a32d6f3d9cd79e95e19faa6873a5f5ce3ccf34c18523",
+      "bytes": 25688
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-03-r3.jsonl",
+      "sha256": "d06a0ab44d3ba656a760bb0a6eef031a6e531d73a1318ec169d7c23e3286960e",
+      "bytes": 21355
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-04-r1.jsonl",
+      "sha256": "34783f97bd432358436d083f84af12eaea37cc25f5679bb75c2de4a01ee01a53",
+      "bytes": 24208
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-04-r2.jsonl",
+      "sha256": "eda354cbc22021cbf918b684b54f666ce12247bce936dbc19cdfcc739d3a527a",
+      "bytes": 20454
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-probe-04-r3.jsonl",
+      "sha256": "14d61d02ce1d94c5baf23287c264fc65ce1e8dc98f17bc58ef3228e113a351ad",
+      "bytes": 22983
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-01-r1.jsonl",
+      "sha256": "431c4f244b0bb3b400072aa17f08ea88200412e2574350d223de820ecd1dcd62",
+      "bytes": 17928
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-01-r2.jsonl",
+      "sha256": "dd6e881867e4ac3b1154753acac915a70dd0dae5413d20153163ac5ba633d916",
+      "bytes": 19000
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-01-r3.jsonl",
+      "sha256": "1b00a46abf342ef0c0bcc7eaaafb125751c2127d1be0574f59139d7681c79339",
+      "bytes": 12920
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-02-r1.jsonl",
+      "sha256": "bb7d6582b95007d8a96f7a7172a32fb36e47ae9132d85450492a3e1e5d546e66",
+      "bytes": 18373
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-02-r2.jsonl",
+      "sha256": "cb2fce9afdce72c2922d3e4d699605343cb3aa7a3f960c18b0d587df1c9cd84c",
+      "bytes": 13995
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-02-r3.jsonl",
+      "sha256": "c3a14b444ec4f8fc0a7c968eb85a59138ca71c8422e4930aa592a0ef3741e494",
+      "bytes": 13667
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-03-r1.jsonl",
+      "sha256": "bbcc8ce0fa527f03777bf436ac16a7a06a4283a29ccefc6d922ccf00e0207786",
+      "bytes": 30260
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-03-r2.jsonl",
+      "sha256": "5adba1abe6896627df8bb037dd00f28a624f7c0de9d3be0b19e07c1b9aeffd90",
+      "bytes": 19169
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-03-r3.jsonl",
+      "sha256": "55cde040751dd78de501c20d9e31bf96c267c7cfdc44ad439114792eb2889854",
+      "bytes": 20588
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-04-r1.jsonl",
+      "sha256": "a54a794b7b84172ec4a48817f6e4d130612e896a7271241ab440282d69a82ad4",
+      "bytes": 13542
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-04-r2.jsonl",
+      "sha256": "45bf039a3cb02e62be65c9c6adb1567f7fbb943f1765d46705b760ff80a97119",
+      "bytes": 13200
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-read-04-r3.jsonl",
+      "sha256": "547e8fe46fda47261760bc3991da150d4bd66f79d324cec01f107057c75213f6",
+      "bytes": 13553
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-01-r1.jsonl",
+      "sha256": "4a1d7af79008d8a9acc80c11b69e66c0c92793226f971ee19e2c63174c64e3bd",
+      "bytes": 22589
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-01-r2.jsonl",
+      "sha256": "e917ebf4cf56cb5222ef9c59325b967ac1a4124be8635a881c8bf4e4c2ce232f",
+      "bytes": 33009
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-01-r3.jsonl",
+      "sha256": "635c4d5610a48cf02acd3d1d03524205a6eb8630521c3e02c974027794b23f4f",
+      "bytes": 39852
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-02-r1.jsonl",
+      "sha256": "c7fa6d46a70a5f5d66fc3f32f0a4609c677d974c4cee10fea4ef099066682e17",
+      "bytes": 28209
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-02-r2.jsonl",
+      "sha256": "25f72349afbc762994f0efe757f81306c71739e60ab7d852b59fef718cd4d99f",
+      "bytes": 39205
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-02-r3.jsonl",
+      "sha256": "02187d4240d674d571e11f6e81b9639a113e858ef660e5c6766213961eb75238",
+      "bytes": 38075
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-03-r1.jsonl",
+      "sha256": "08d353af54598653038931fdc8f9a2a90f2840e01f34a4ee996db2cdff5802da",
+      "bytes": 54360
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-03-r2.jsonl",
+      "sha256": "42d6a2b02713a8afd9aa7c77658bc0bff95fbc2236a5daf886e634b6b5e551f4",
+      "bytes": 51147
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-03-r3.jsonl",
+      "sha256": "c56ad6c8179d393bd705b493d4283186386d43bda56cecd879e131b2cf1bfdc4",
+      "bytes": 35160
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-04-r1.jsonl",
+      "sha256": "6649b726bb3e710cd08816ca4f4ec25dc72d7c97446e46b25e0cf6d0104cc8de",
+      "bytes": 21682
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-04-r2.jsonl",
+      "sha256": "208b7216d08901bf7f1c40c58f9d569fbe66cae372e6c92a99518d5abb912175",
+      "bytes": 20972
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-rollback-04-r3.jsonl",
+      "sha256": "dd87ced874ae44d892729f546cead0270b6b675191b15ba670e5ae40fee7a4ea",
+      "bytes": 56222
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-01-r1.jsonl",
+      "sha256": "328eaad41d7697157f315560657a643d59497ebee593a0739542b7e7bbbed144",
+      "bytes": 22044
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-01-r2.jsonl",
+      "sha256": "1573b5d2b747d3df0ace7dfe06cd44aa007787e7aed13ddf2ead0638fa020170",
+      "bytes": 21907
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-01-r3.jsonl",
+      "sha256": "35f5f416396e6ccc8348642bf65be636dad2ba889704977f8f726814ec309846",
+      "bytes": 27029
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-02-r1.jsonl",
+      "sha256": "471b29620e791a6c2b7b67cb4c51efe51788002456f6d44a122ab9dcb11cd36c",
+      "bytes": 22264
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-02-r2.jsonl",
+      "sha256": "718bc1ce10f9cf0e031108ed19de9242519a183560dab06e9ecdf1916c99f3b5",
+      "bytes": 44979
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-02-r3.jsonl",
+      "sha256": "615ceb796cc24052876ce889b291b717848baa08b5b42ae7ae9ec56545e71d72",
+      "bytes": 22938
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-03-r1.jsonl",
+      "sha256": "29d053635fc1d92b14ea934e25188d4c3e320d815d7f6dce602c9ed099216678",
+      "bytes": 54397
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-03-r2.jsonl",
+      "sha256": "c5c84085ed0078f21380d40442c8018061af4787fe2b979a5c33ff04b6c15db2",
+      "bytes": 56547
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-03-r3.jsonl",
+      "sha256": "4d77d69c88a4e6175caef667ac08d8d98960950a5c53c9671dda5aa7115bb1d3",
+      "bytes": 24324
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-04-r1.jsonl",
+      "sha256": "f39c7d1cf932b42a71b6f26ea9f936b6226d56898a9f408911fa6217e0f36aae",
+      "bytes": 50883
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-04-r2.jsonl",
+      "sha256": "10138c8a6ec46ebdb2b66616a46929fc34cecc831616d9764a8140db3fa29c74",
+      "bytes": 15590
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-deepseek-A-test-04-r3.jsonl",
+      "sha256": "a1f605e8df68a0e276fa090d85bec41459f095c94d681eaed0b4eb8edca5f68e",
+      "bytes": 16741
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-01-r1.jsonl",
+      "sha256": "0ecca949b6b5f5298e5cc9c0bb5c95fb7c7429e84ab5f0a53743ae722feb9b56",
+      "bytes": 39245
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-01-r2.jsonl",
+      "sha256": "b5ef1eec77668733cec158f9ec52723b9dd21793f4ff54bc034e1cc60fe678a8",
+      "bytes": 39252
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-01-r3.jsonl",
+      "sha256": "a23ddcd95cae170aeb154b56596d75c504975372259f4ab22f6c0f7fb9a10f3e",
+      "bytes": 38658
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-02-r1.jsonl",
+      "sha256": "82ce0e34f57b57727b94038b4c4d10c9afd027c952b7a6410576f014d40fa5ad",
+      "bytes": 40002
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-02-r2.jsonl",
+      "sha256": "09b0abdc3e832b86d8f9d5b983dd3822fd54289ddd171da49bc46b5ad9f91f71",
+      "bytes": 48932
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-02-r3.jsonl",
+      "sha256": "32dac5755207d1445cd6429651361dc728bef3b1347267223859f9fd834c3a86",
+      "bytes": 44691
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-03-r1.jsonl",
+      "sha256": "4cc9f6eab4d689849f1ef5dbbc481536518e342367e525c8c0326f94467df69f",
+      "bytes": 44558
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-03-r2.jsonl",
+      "sha256": "694c0dfde743a315fd32c3cdb1e66279b8ff399aab5cc3f7c7295fa50126e146",
+      "bytes": 40102
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-03-r3.jsonl",
+      "sha256": "591114e31541e128163082af75372c70543701c74c2364e2906aaf9f7fefc4f0",
+      "bytes": 47072
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-04-r1.jsonl",
+      "sha256": "4c9eda819b274f522f55c1b8483b667f50d77a1e3ccfb15e1d8c1eb8a5c9299e",
+      "bytes": 37491
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-04-r2.jsonl",
+      "sha256": "f10b53764b6fda96f5cd192443d6b92f7c0da2410ee1cb0e902f48868b5ef130",
+      "bytes": 37597
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-batch-04-r3.jsonl",
+      "sha256": "ca24737fd3b1383cd24fa28e658eef9a3a5d941c73250ab2586773c8b97f3399",
+      "bytes": 47818
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-01-r1.jsonl",
+      "sha256": "9d4eba071fb8e8a2d4ddbd7159c4c6c45fc84604bc58cd4e56b643082952d2d3",
+      "bytes": 27149
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-01-r2.jsonl",
+      "sha256": "6fa907e96dcc5042ce004282445553de0bb6a116fb07b337b6335b15629106f4",
+      "bytes": 22207
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-01-r3.jsonl",
+      "sha256": "3fbc0b757265ded858a1e106684b47bae81f48e005b1b62d9b22df222a2589f9",
+      "bytes": 31334
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-02-r1.jsonl",
+      "sha256": "b17c2cf20ed61a42e871b4c024072f373bff40f5a9fcdace8f0700b8578e38be",
+      "bytes": 21862
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-02-r2.jsonl",
+      "sha256": "49be863261b46359981e14976fd99c18297187c5134f6ec6d9a5259c73b9040e",
+      "bytes": 58684
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-02-r3.jsonl",
+      "sha256": "95c1011082970d1ce5a23f03b902b3218a721650574742ddaa36d74aa0348550",
+      "bytes": 30882
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-03-r1.jsonl",
+      "sha256": "f52ff260c9f91580b8ad8b7b2e8c83d7ff7136fcfb5cf80817cfa6b8ff640e56",
+      "bytes": 30901
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-03-r2.jsonl",
+      "sha256": "eacc230d8d794073595be4a39e9a4179277a114a1dbd9c8db711b91b507b2604",
+      "bytes": 57011
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-03-r3.jsonl",
+      "sha256": "31ea99276343486d3e01e6aadb1e4ea1efceec19ecbeec1b61181b2090664836",
+      "bytes": 33450
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-04-r1.jsonl",
+      "sha256": "37cbd283f789878c39349c607f501569009a74fe56b184048230461833fa41f2",
+      "bytes": 26895
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-04-r2.jsonl",
+      "sha256": "b26bbfad4c709def87c7f5bb84e226b89d79332e45caf84337ed155fc6ad305d",
+      "bytes": 38877
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-edit-04-r3.jsonl",
+      "sha256": "f906f64d9f5ba767ba34441dd306d094a35ec70b81bb869ec73e4d7c11f3bcd8",
+      "bytes": 22439
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-01-r1.jsonl",
+      "sha256": "7797e40134e18b474be5343ec62052f577ba9faaba8cf3be0aafac3f7d9eb12c",
+      "bytes": 13323
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-01-r2.jsonl",
+      "sha256": "b18b0e10f85c401a29ba308dfac437aa21b43fad3c86cbbd21e6354754f676b2",
+      "bytes": 27549
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-01-r3.jsonl",
+      "sha256": "f8dca07c4f9635b1fc427ea1ca162f68acbce139c1537a306e2a4099d9a63445",
+      "bytes": 24882
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-02-r1.jsonl",
+      "sha256": "71da410bb243d7984123046c8b31dd829a0e4bd5388d38e41720433af2f422d9",
+      "bytes": 35094
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-02-r2.jsonl",
+      "sha256": "a8e7edb9192ada930431cc73eb35b9c6b030a131c5145bb579d2102fa28642b8",
+      "bytes": 29667
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-02-r3.jsonl",
+      "sha256": "d5dace50a36a0416932c13b221da2de0a597fbbfdab6656326266bfbbc1d2d6e",
+      "bytes": 35773
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-03-r1.jsonl",
+      "sha256": "bd6463a10b1bfafccff46980b912236041f412751f6c9d4747fb1aa35365f9da",
+      "bytes": 1264905
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-03-r2.jsonl",
+      "sha256": "fd87cb4a447ec38e370aacd45cb93bdbd9703183ab4ee7a5c81dd662fd0d7547",
+      "bytes": 3689334
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-03-r3.jsonl",
+      "sha256": "1a04a6915d293d77915bb08deadc0315a33dbdb08085bf30e2a71b15de885a29",
+      "bytes": 250149
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-04-r1.jsonl",
+      "sha256": "725d98ec160b91725de163960138cc6818e656ae3dcc228d843ce0158adec9bb",
+      "bytes": 30917
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-04-r2.jsonl",
+      "sha256": "7e50d23af6291971ca134f6c83f8929ca0722d6cd69b67cbb85163acaa95c445",
+      "bytes": 38057
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-probe-04-r3.jsonl",
+      "sha256": "5b5fc6e881b3d9592fe30aa15ed3c6b11452c2e8bd84ac36194047e7a4e96721",
+      "bytes": 28995
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-01-r1.jsonl",
+      "sha256": "ce9c57fe4c4023698c1c6b1cb80f18de6d68ec06b1e1dae1a966cb2ed132cc0e",
+      "bytes": 19109
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-01-r2.jsonl",
+      "sha256": "109caf6a4e4ad6910783d9251e444e6af102cc8222863bee8691f9680c30ab28",
+      "bytes": 22438
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-01-r3.jsonl",
+      "sha256": "87a92fc6a2d8e97efed68ff57a95934e34deb702715faba4c18fb9c77bb23f6a",
+      "bytes": 22070
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-02-r1.jsonl",
+      "sha256": "deb39200ad3ad89d6b16b2403a8eaf42197211954ed80573989007a09f8d58db",
+      "bytes": 16519
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-02-r2.jsonl",
+      "sha256": "2b79088c1f06f798c7c30ad7db379049f55d3d7c25da4851d263043c4cc66619",
+      "bytes": 16413
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-02-r3.jsonl",
+      "sha256": "99ca74aba45ee6341c0c3d29ad9988e0ee53415225f917961daec772e0a73d2d",
+      "bytes": 14076
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-03-r1.jsonl",
+      "sha256": "ab73b0bd65eb479f362dc908b7f86c49b59d47b14a93bf5de362690b29212dac",
+      "bytes": 39356
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-03-r2.jsonl",
+      "sha256": "d8323fb60eb929c2f78f4a02c21f89a07b237b05e2c36a7c6c6f66043b24a99b",
+      "bytes": 32929
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-03-r3.jsonl",
+      "sha256": "820aaf250c1dcbe50cc4b24c659635728ddb299cc4cead4fc25413bbc389f0c7",
+      "bytes": 31985
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-04-r1.jsonl",
+      "sha256": "b4898137693c4c015afa86d21d49e6459a2de89f611f3b2ddf55e8a2c2e83a48",
+      "bytes": 18716
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-04-r2.jsonl",
+      "sha256": "d58a6e6bac7bd2d822603006853ae6cdfe13c2256d48b6cfa200244257b018fe",
+      "bytes": 21418
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-read-04-r3.jsonl",
+      "sha256": "534bbff3790c9bc1d5e0a9b6594a45ec8d0156d25586d5d8b57d90acdfd8b805",
+      "bytes": 23402
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-01-r1.jsonl",
+      "sha256": "8f6b55aa4d18f751a6033fb42ded4001859361a184ad53a88f4a14379bd5b0dc",
+      "bytes": 72167
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-01-r2.jsonl",
+      "sha256": "a6ea68a7ae0bb9bd6a44e0d48ed6ad2cb563f63a4925eb31b98238f5a4edd538",
+      "bytes": 54948
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-01-r3.jsonl",
+      "sha256": "40a6b5f25814d9a7a1dda53f33629ee1332f9fd5499ad5ac6e1752b49e8b923e",
+      "bytes": 113706
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-02-r1.jsonl",
+      "sha256": "088a92b68208504974f5323b37f7c7191d196656a2ca09d9c9baf9ba0fbd7d9a",
+      "bytes": 53378
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-02-r2.jsonl",
+      "sha256": "27c88cd67dfeba78de0bbd23c0382f35370cb8a466dc3ff6e5c9650c69a7eb82",
+      "bytes": 42248
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-02-r3.jsonl",
+      "sha256": "df0736928c3a04840cfd08a3b0471f206296f1840c0bcb62937ad0256de04aef",
+      "bytes": 48285
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-03-r1.jsonl",
+      "sha256": "157bdaccd2cba71155ce3ebdf83f783c7ecf00048f1f0d15adacab8fc4539cf3",
+      "bytes": 61579
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-03-r2.jsonl",
+      "sha256": "9e33fd2035878e740de725dd01361379de7ce4a3278d25b987de57d773afe515",
+      "bytes": 52987
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-03-r3.jsonl",
+      "sha256": "54ac28cf365e8d6723257a2477e326a5e5fb9c332f7beee05c59d7b4b587295f",
+      "bytes": 64284
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-04-r1.jsonl",
+      "sha256": "e16eef2302031a90be5482fff060c847ce5d7a5456dda4a5e60d7cefe484a35e",
+      "bytes": 70260
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-04-r2.jsonl",
+      "sha256": "e0c7f48f86d524fd21d0e85edb09b64fbb36bf89699a85590564e79cb36238d9",
+      "bytes": 78786
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-rollback-04-r3.jsonl",
+      "sha256": "b5b72dece35fa72aba001be9ba557db6740a2bbb5b375faac32972f41efbf0f0",
+      "bytes": 70141
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-01-r1.jsonl",
+      "sha256": "188da3fca139f086450c426c39a816db47d3320b72f063a4ac7db0a589e15210",
+      "bytes": 47034
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-01-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-01-r2.jsonl",
+      "sha256": "1b042d53bf97ee5614a96c397d4b5491ea4d0b42bc2c430b494676029b48fa70",
+      "bytes": 58289
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-01-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-01-r3.jsonl",
+      "sha256": "96582a0bcff5be3c07d5a9f81b01b47000684e05849f7bd6647965f56fc406bd",
+      "bytes": 45850
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-02-r1.jsonl",
+      "sha256": "3b8fb25bcfcb412d77a3a2515f771b031ab51030ab873693107bb0f04934bf2e",
+      "bytes": 51940
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-02-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-02-r2.jsonl",
+      "sha256": "849fe4d56254a8011edbd7c5e182228954e3b23863fb46eb2d142182f06c31b6",
+      "bytes": 41879
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-02-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-02-r3.jsonl",
+      "sha256": "271167b28b85eeec419880a94793ab770e9d6656576520f35072b77034ec9da1",
+      "bytes": 47653
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-03-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-03-r1.jsonl",
+      "sha256": "1f7a6d633b4667ac6b946a7ce9a4103f9dc8d774f0d311d7493e1bbeb9434eaa",
+      "bytes": 54093
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-03-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-03-r2.jsonl",
+      "sha256": "1ff90918905aba8eaf3e100bcafe1a30bacafe752cb820f71627a9716c55b35b",
+      "bytes": 69727
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-03-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-03-r3.jsonl",
+      "sha256": "e6a8c7119e36d739f260d392f6f137bbeb277b2390a96e89ae1953ac3a027d39",
+      "bytes": 46406
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-04-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-04-r1.jsonl",
+      "sha256": "bf3ade676c679e2a4f0d74cd40524f8543450946666c960645a8199d71080201",
+      "bytes": 47396
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-04-r2.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-04-r2.jsonl",
+      "sha256": "d80adfa292e25203a7ac18d62e5c0a60bdbef0eccad6277f5bd7c0290b216022",
+      "bytes": 48816
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-04-r3.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/formal/composed-minimax-A-test-04-r3.jsonl",
+      "sha256": "a0dbc7f36012a6b0ee4dcb856a7afa2813e2afd97485113b2ce0fdd4779090ac",
+      "bytes": 49981
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-batch-01-r1.jsonl",
+      "sha256": "1f8003c93ef74bfd74cfba0a7f237f342f593db51ac4bdc9668e2eebbcd32d9d",
+      "bytes": 27473
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-edit-01-r1.jsonl",
+      "sha256": "62be60c78111110b5739a47ba1eb312dd8eb25ffb4a48da97172a2128d69da14",
+      "bytes": 17232
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-probe-02-r1.jsonl",
+      "sha256": "891b425f914eb69a595050d14789fd2da147756f73412c0ab5e7212c6a78a0d4",
+      "bytes": 26311
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-read-02-r1.jsonl",
+      "sha256": "d610107a5142f711798841f58cb42da293c053600f95a3b4d4f581945c3766b0",
+      "bytes": 13458
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-rollback-01-r1.jsonl",
+      "sha256": "811b70a380ce9c3f59cb1d54d7100fd03e5ce2451ecdd5cb0f679903e4c81797",
+      "bytes": 26864
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-deepseek-A-test-01-r1.jsonl",
+      "sha256": "c6466887f7d9187c9f20831189d0ef1c203585b099bc5357a7e45940f42a3236",
+      "bytes": 28384
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-batch-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-batch-01-r1.jsonl",
+      "sha256": "f58990a83f6e7a5aaad9a8616105b5a1cc960ea3085b8425a25c656a39ae4892",
+      "bytes": 41557
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-edit-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-edit-01-r1.jsonl",
+      "sha256": "e8092abaf19ee942df5c6b5c5fb4e18bb92acd538eabe2599a741b7d6a0dc9cc",
+      "bytes": 26965
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-probe-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-probe-02-r1.jsonl",
+      "sha256": "142e42741700a69fb453e2e3824650c3c01e24fd90609b6468fe8f0b207f1cae",
+      "bytes": 29809
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-read-02-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-read-02-r1.jsonl",
+      "sha256": "48848cbe5696e79b59fc71ff45bf2dfc4adeee282f14eca6402ff6f5e784358d",
+      "bytes": 17533
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-rollback-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-rollback-01-r1.jsonl",
+      "sha256": "1ba37b87484df58a24a3160d01deb26ff4f8337fc2020945c8f3681725c017fe",
+      "bytes": 65377
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-test-01-r1.jsonl",
+      "relative_path": "prototypes/starlark-pass-rate/results/v3/pilot/composed-minimax-A-test-01-r1.jsonl",
+      "sha256": "1404e96f539789751ba0b502a267faf247dc45f1c2d17f048c81a86a5c2796aa",
+      "bytes": 54524
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_experiment.py",
+      "relative_path": "prototypes/starlark-pass-rate/tests/test_experiment.py",
+      "sha256": "8d7babba702378b3966b6cb77fd1b772d71d03ee5d65a4b736b06f1afdf6a3b4",
+      "bytes": 5568
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_semantics.py",
+      "relative_path": "prototypes/starlark-pass-rate/tests/test_semantics.py",
+      "sha256": "0d2ac7c217bc56c21535d03697b62b756dd5636566363b3c7c07650772e405e5",
+      "bytes": 4532
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_v2.py",
+      "relative_path": "prototypes/starlark-pass-rate/tests/test_v2.py",
+      "sha256": "b90b91f5004e902caaec23245ae796f518a6a531112b0337b962450f4bd2ebfa",
+      "bytes": 8169
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/tests/test_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/tests/test_v3.py",
+      "sha256": "5aa74c0c65fcdd2d26e76e8139456f011820575b0c1eaeb735c046fdc1a2537d",
+      "bytes": 6932
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-6c35aeba/prototypes/starlark-pass-rate/validate_v3.py",
+      "relative_path": "prototypes/starlark-pass-rate/validate_v3.py",
+      "sha256": "a9504b778fef34fc3b067e63b7c1c83a0c6374ba08b557ec25f2b5d8ca8665a0",
+      "bytes": 7382
+    }
+  ]
+}

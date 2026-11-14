@@ -1,0 +1,6 @@
+{
+  "command": "cargo xtask docs-check（临时 GIT_INDEX_FILE，包含未跟踪交付文件）",
+  "exit_code": 0,
+  "real_index_unchanged": true,
+  "temporary_entries": 341
+}

@@ -1,0 +1,83 @@
+{
+  "deepseek": {
+    "completion": {
+      "n": 68,
+      "d": 72
+    },
+    "missed_correct_acts": {
+      "n": 0,
+      "d": 24
+    },
+    "missed_correct_runs": {
+      "n": 0,
+      "d": 36
+    },
+    "rescued_runs": {
+      "n": 0,
+      "d": 0
+    },
+    "next_act_recovery": {
+      "n": 0,
+      "d": 0
+    },
+    "correct_omission_recovery": {
+      "n": 0,
+      "d": 0
+    },
+    "read_commit_calls": 0
+  },
+  "minimax": {
+    "completion": {
+      "n": 67,
+      "d": 71
+    },
+    "missed_correct_acts": {
+      "n": 17,
+      "d": 41
+    },
+    "missed_correct_runs": {
+      "n": 17,
+      "d": 36
+    },
+    "rescued_runs": {
+      "n": 17,
+      "d": 17
+    },
+    "next_act_recovery": {
+      "n": 15,
+      "d": 17
+    },
+    "correct_omission_recovery": {
+      "n": 15,
+      "d": 17
+    },
+    "read_commit_calls": 0
+  },
+  "all": {
+    "completion": {
+      "n": 135,
+      "d": 143
+    },
+    "missed_correct_acts": {
+      "n": 17,
+      "d": 65
+    },
+    "missed_correct_runs": {
+      "n": 17,
+      "d": 72
+    },
+    "rescued_runs": {
+      "n": 17,
+      "d": 17
+    },
+    "next_act_recovery": {
+      "n": 15,
+      "d": 17
+    },
+    "correct_omission_recovery": {
+      "n": 15,
+      "d": 17
+    },
+    "read_commit_calls": 0
+  }
+}

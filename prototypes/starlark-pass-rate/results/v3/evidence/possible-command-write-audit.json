@@ -1,0 +1,355 @@
+[
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-batch-04-r2",
+    "call": 5,
+    "argv": [
+      "git",
+      "diff",
+      "--stat"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-batch-04-r2",
+    "call": 5,
+    "argv": [
+      "git",
+      "diff"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-batch-04-r2",
+    "call": 6,
+    "argv": [
+      "git",
+      "status"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-batch-04-r2",
+    "call": 6,
+    "argv": [
+      "git",
+      "log",
+      "--oneline",
+      "-5"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 3,
+    "argv": [
+      "git",
+      "diff"
+    ],
+    "outcome": "uncommitted_reverted"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 4,
+    "argv": [
+      "git",
+      "diff",
+      "--cached"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 4,
+    "argv": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 5,
+    "argv": [
+      "git",
+      "status"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 5,
+    "argv": [
+      "git",
+      "log",
+      "--oneline",
+      "-3"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-01-r3",
+    "call": 5,
+    "argv": [
+      "git",
+      "show",
+      "HEAD:config.json"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-02-r2",
+    "call": 7,
+    "argv": [
+      "git",
+      "diff"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-02-r3",
+    "call": 1,
+    "argv": [
+      "git",
+      "status"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-02-r3",
+    "call": 4,
+    "argv": [
+      "git",
+      "log",
+      "--oneline",
+      "-10"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-02-r3",
+    "call": 4,
+    "argv": [
+      "git",
+      "diff",
+      "HEAD"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "diff"
+    ],
+    "outcome": "uncommitted_reverted"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "--no-pager",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--",
+      "README.md"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-03-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "--no-pager",
+      "log",
+      "--oneline",
+      "-3"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 2,
+    "argv": [
+      "git",
+      "diff"
+    ],
+    "outcome": "uncommitted_reverted"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "diff",
+      "--",
+      "src/settings.py"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "ls-files",
+      "src/settings.py"
+    ],
+    "outcome": "committed"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 4,
+    "argv": [
+      "git",
+      "rev-parse",
+      "--is-inside-work-tree"
+    ],
+    "outcome": "script_error"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-edit-04-r2",
+    "call": 5,
+    "argv": [
+      "git",
+      "rev-parse",
+      "--is-inside-work-tree"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-read-03-r1",
+    "call": 4,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-read-03-r3",
+    "call": 5,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-01-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-01-r2",
+    "call": 3,
+    "argv": [
+      "git",
+      "log",
+      "--oneline",
+      "-5"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-02-r1",
+    "call": 8,
+    "argv": [
+      "git",
+      "ls-files"
+    ],
+    "outcome": "script_error"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-rollback-02-r2",
+    "call": 6,
+    "argv": [
+      "git",
+      "status"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-02-r1",
+    "call": 7,
+    "argv": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "outcome": "read_only"
+  },
+  {
+    "phase": "formal",
+    "run_id": "composed-minimax-A-test-02-r1",
+    "call": 7,
+    "argv": [
+      "git",
+      "log",
+      "--oneline",
+      "-5"
+    ],
+    "outcome": "read_only"
+  }
+]

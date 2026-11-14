@@ -4,10 +4,13 @@ returning it.
 
 ## Outcome
 
-- The script ends normally (by `return` or by reaching the end): all file
-  changes are **kept**, and the returned value is shown to you.
-- `discard(value)`: stops the script immediately, **throws away** all file
-  changes made in this call, and shows `value` to you.
+- `commit()` marks this call's file changes to be kept when the script ends
+  normally. Call it after successful edits and validation. Read-only scripts
+  do not need it.
+- If the script changes files and returns normally without `commit()`, the
+  changes are automatically reverted. The outcome is still Succeeded; a line
+  appended to the returned content says how many files were reverted and
+  reminds you to call `commit()` when you want to keep changes.
 - `fail(message)`, or any error: stops the script, throws away all file
   changes, and shows you the error with its line number.
 
@@ -78,15 +81,27 @@ filtered view; `str(view)` gives the string back.
 ## Example
 
 ```python
-path = "src/config.rs"
-content = repo.read(path)
-old = "pub const MAX_ITEMS: usize = 10;"
-new = "pub const MAX_ITEMS: usize = 20;"
-if old not in content:
-    discard({"reason": "expected setting not found"})
-repo.edit(path, old, new)
-tests = env.run(["cargo", "test"], check = False)
-if tests.code != 0:
-    discard({"reason": tests.stdout + tests.stderr})
-return {"summary": tests.stdout, "diff": repo.diff()}
+cfg = repo.read("Cargo.toml", missing_ok = True)
+if cfg == None:
+    fail("missing Cargo.toml")
+
+for hit in repo.search("OldSymbol", glob = "crates/**/*.rs"):
+    repo.edit(hit.path, "OldSymbol", "NewSymbol")
+
+res = env.run(["cargo", "test"], check = False)
+if res.code != 0:
+    # 未调用 commit()：正常 return 后节点自动还原已编辑的文件
+    return {
+        "ok": False,
+        "code": res.code,
+        "failures": str(text(res.stdout + res.stderr).grep("FAILED|error\\[", after = 5).tail(40)),
+        "reverted": repo.status(),
+    }
+
+commit()
+return {
+    "ok": True,
+    "summary": str(text(res.stdout).grep("test result:").tail(5)),
+    "diff": repo.diff(),
+}
 ```

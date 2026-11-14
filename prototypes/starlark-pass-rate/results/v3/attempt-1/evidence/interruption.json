@@ -1,0 +1,536 @@
+{
+  "time": 1794684233.2756987,
+  "reason": "GIT_CEILING_DIRECTORIES 设为当前夹具而非其父目录，未阻止 Git 向上发现研究仓库；归档整批并重新运行，不挑选有利样本替换。",
+  "driver_pid": 2197087,
+  "terminated_children": [],
+  "planned_formal": 144,
+  "started_formal": 105,
+  "not_started_formal": 39,
+  "runs": [
+    {
+      "run_id": "composed-deepseek-A-batch-01-r1",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-01-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-01-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-02-r1",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-02-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-02-r3",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-03-r1",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-03-r2",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-03-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-04-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-04-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-batch-04-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-01-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-01-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-01-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-02-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-02-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-02-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-03-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-03-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-03-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-04-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-04-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-edit-04-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-01-r1",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-01-r2",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-01-r3",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-02-r1",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-02-r2",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-02-r3",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-03-r1",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-03-r2",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-03-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-04-r1",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-04-r2",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-deepseek-A-probe-04-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-read-01-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-read-01-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-read-01-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-read-02-r1",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-read-02-r2",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-read-02-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-read-03-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-read-03-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-read-03-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-read-04-r1",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-read-04-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-read-04-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-01-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-01-r2",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-01-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-02-r1",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-02-r2",
+      "status": "complete",
+      "acts": 7
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-02-r3",
+      "status": "complete",
+      "acts": 7
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-03-r1",
+      "status": "complete",
+      "acts": 7
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-03-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-03-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-04-r1",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-04-r2",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-rollback-04-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-deepseek-A-test-01-r1",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-deepseek-A-test-01-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-01-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-02-r1",
+      "status": "complete",
+      "acts": 1
+    },
+    {
+      "run_id": "composed-deepseek-A-test-02-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-02-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-test-03-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-03-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-03-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-deepseek-A-test-04-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-04-r2",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-deepseek-A-test-04-r3",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-minimax-A-batch-01-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-batch-02-r1",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-minimax-A-batch-02-r2",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-batch-02-r3",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-minimax-A-batch-03-r2",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-minimax-A-edit-01-r1",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-edit-01-r2",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-minimax-A-edit-01-r3",
+      "status": "complete",
+      "acts": 5
+    },
+    {
+      "run_id": "composed-minimax-A-edit-02-r3",
+      "status": "complete",
+      "acts": 6
+    },
+    {
+      "run_id": "composed-minimax-A-edit-03-r1",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-edit-03-r2",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-minimax-A-edit-04-r2",
+      "status": "complete",
+      "acts": 6
+    },
+    {
+      "run_id": "composed-minimax-A-edit-04-r3",
+      "status": "complete",
+      "acts": 3
+    },
+    {
+      "run_id": "composed-minimax-A-probe-02-r2",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-minimax-A-probe-03-r2",
+      "status": "interrupted",
+      "acts": 0
+    },
+    {
+      "run_id": "composed-minimax-A-probe-03-r3",
+      "status": "complete",
+      "acts": 6
+    },
+    {
+      "run_id": "composed-minimax-A-read-01-r2",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-minimax-A-read-03-r1",
+      "status": "complete",
+      "acts": 6
+    },
+    {
+      "run_id": "composed-minimax-A-read-03-r3",
+      "status": "complete",
+      "acts": 6
+    },
+    {
+      "run_id": "composed-minimax-A-read-04-r1",
+      "status": "complete",
+      "acts": 2
+    },
+    {
+      "run_id": "composed-minimax-A-read-04-r2",
+      "status": "complete",
+      "acts": 4
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-01-r2",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-01-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-02-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-03-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-04-r2",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-rollback-04-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-test-01-r1",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-test-01-r2",
+      "status": "complete",
+      "acts": 7
+    },
+    {
+      "run_id": "composed-minimax-A-test-01-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-test-02-r3",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-test-03-r2",
+      "status": "complete",
+      "acts": 8
+    },
+    {
+      "run_id": "composed-minimax-A-test-04-r3",
+      "status": "complete",
+      "acts": 2
+    }
+  ]
+}
