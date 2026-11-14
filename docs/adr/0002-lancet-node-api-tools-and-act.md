@@ -37,6 +37,7 @@ status: proposed
 | `starlark` 0.14.2 自带的资源限制只是尽力而为 | 本地源码 `src/eval/runtime/evaluator.rs`：`set_max_heap_size`、`set_max_tick_count` 与 `set_check_cancelled` 不在分配或执行时即时生效，只在每 1000 个 tick（一次函数调用或一次循环回跳计一个 tick）运行一次的检查点上判断，单个内置函数执行期间不检查；堆上限只计 Starlark 堆，`dict`、`struct` 在 Rust 堆上的存储不计入；源码注释写明这两种上限都不能保证内存或运行时间有界，需要保证时应借助操作系统机制 |
 | 隔离网络命名空间监听套接字可经 `SCM_RIGHTS` 传回宿主，写系统调用可跨命名空间 `ptrace` 拦截 | 实测在 `unshare --user --map-root-user --net` 内启用 `lo` 并 `bind("127.0.0.1:0")` 后，经 `socketpair`（`SCM_RIGHTS`）将监听 fd 传回宿主进程 `accept` 成功；SELinux Enforcing（`deny_ptrace = off`）下宿主进程对 `user+pid+mount+net` 子命名空间内进程执行 `PTRACE_SEIZE` 成功（`rc = 0`）；被动监听侧 `fanotify` 的 `FAN_REPORT_PIDFD` 与 FUSE 的 `FUSE_DEV_IOC_BACKING_OPEN`（`FUSE_PASSTHROUGH`）非特权均返回 `EPERM` |
 | Starlark 编排实测通过率与回滚失误分布 | 实验 1 v2（`exp/act-v2` 分支 `prototypes/starlark-pass-rate/REPORT-v2.md`，859 次有效运行）：扣除判定器假阴性后，常规五类任务完成率为 deepseek-flash 359/359、MiniMax-M3.1-Flash 358/360；但在“正常返回即自动保留改动”语义下，MiniMax 在回滚类任务中 0 次调用 `discard`、失败 38/68 次；扣除测试台命令白名单后，单次 `act` 报错集中于未开启 `SetType`/`sum`/`Print`、宿主视图未实现序列化及无括号生成器等少量语法差异 |
+| 子进程写拦截三种机制的覆盖、竞态与开销 | 实验 3（`exp/write-intercept` 分支 `prototypes/write-intercept/REPORT.md`，234 个覆盖运行、75 个工作负载运行；Agent 另行重跑竞态用例，结果一致）：在检查之后、系统调用之前由另一线程改写参数内存，`SECCOMP_RET_TRACE` 加 `ptrace`（A）与用户态通知后回复 `CONTINUE`（B1）各 600/600 次打开未登记的文件，节点复制参数后代执行（B2）为 0/600；检查之后把路径替换为符号链接，三者均被绕过；A 下沙箱内 `PTRACE_TRACEME` / `PTRACE_ATTACH` 返回 `EPERM`，沙箱内程序再装一个用户态通知过滤器即可绕过外层 `TRACE`，B 下再装监听器返回 `EBUSY`；B 的监听方退出后，被拦截的调用返回 `ENOSYS`，但已打开的 fd 仍可写入；三者都漏记跨规则硬链接、目录、符号链接、权限位与 xattr 的变化，以及装过滤器之前打开的可写 fd；B2 代执行时使用了节点的 umask；LATTICE 副本上的构建开销在噪声范围内，一次被拦截的 `open` 加 `close` 约 60 µs（不拦截时 3.5 µs），改名含 1,000 个文件的目录约 3 s |
 
 ### 尚未核实
 
@@ -44,6 +45,7 @@ status: proposed
 | --- | --- |
 | 节点进程内复用 `wasmtime::Engine` 实例化解释器组件与 API 工具组件的耗时；上面的数字来自命令行，含进程启动 | 第 4 节 |
 | 以 `wasmtime` 49 的 `ResourceLimiter` 与 epoch 中断对单次组件调用施加内存上限与截止中断，超限后回收该实例、节点继续服务 | 第 4 节 |
+| 子进程写调用代执行的完整规则：对象绑定（取得稳定 fd、核对 inode 后 `FICLONE`，再在同一对象上截断与注入）、目录项操作后的 inode 核对、硬链接规则、节点死亡联动，以及按子进程上下文（cwd、root、dirfd、umask、`openat2` 的 resolve 标志）代执行的正确性与开销 | 第 6 节 |
 
 ## 决策
 
@@ -145,7 +147,7 @@ return {
 | 宿主资源（句柄种类） | 句柄代表什么 | 实现 |
 | --- | --- | --- |
 | 目录 | 一个工作目录及其读写级别 | 节点实现的目录资源，在这一层过滤配置中的 `hidden` 路径 |
-| 执行环境 | 一组挂载、资源上限与网络出口 | `bubblewrap`（`user`/`mount`/`pid`/`net` 命名空间）加 `seccomp-bpf` 与 `ptrace` 写拦截：按读写级别绑定真实目录，仅对已存在的 `hidden` 路径做只读遮蔽挂载（文件挂 `/dev/null`，目录挂空 `tmpfs`），子进程新建或重命名到 `hidden` 的写系统调用回填 `-EACCES`，到期终止整个 PID 命名空间 |
+| 执行环境 | 一组挂载、资源上限与网络出口 | `bubblewrap`（`user`/`mount`/`pid`/`net` 命名空间）加 seccomp 用户态通知写拦截（见第 6 节）：按读写级别绑定真实目录，仅对已存在的 `hidden` 路径做只读遮蔽挂载（文件挂 `/dev/null`，目录挂空 `tmpfs`），新建或改名到 `hidden` 的写调用返回 `EACCES`，到期或节点退出时终止整个 PID 命名空间 |
 | 网络出口 | 允许访问的主机域名清单（`hosts`） | 节点内的域名白名单放行代理（首阶段按域名校验，不做 TLS 中间人解包） |
 
 - **API 工具与解释器都是 WASM 组件**，在 `wasmtime` 中运行。API 工具对第三方开放（见第 2 节），节点不信任工具的实现，由组件边界让声明成为强制约束：
@@ -155,7 +157,7 @@ return {
 - **组件预编译后加载。** 每次调用现编译的开销在秒级，节点只加载预编译产物。
 - **原生进程经执行环境资源运行。** `proc.run` 与 `proc.pipe` 的声明方式与其他 API 工具相同，操作系统级沙箱是执行环境资源的实现。
 - **原生进程经 `SCM_RIGHTS` 跨命名空间代理出网。** 子进程处于只有 `lo` 的隔离网络命名空间；启动垫片在命名空间内执行 `bind("127.0.0.1:0")`，经 `socketpair`（`SCM_RIGHTS`）把监听 fd 与端口号传回宿主 `lancet-node` 事件循环，写好 `HTTPS_PROXY` / `https_proxy` 与 `HTTP_PROXY` / `http_proxy` 后直接 `execvp` 目标进程（沙箱内无常驻转发进程，工作目录内不挂套接字文件）。代理对明文 HTTP `Host` 与 HTTPS `CONNECT` 目标域名对照 `egress.hosts` 放行并记入回执，拒绝直连、字面量裸 IP 与解析到回环/链路本地/私网网段的目标。
-- **依赖缺失时启动失败。** 配置授予了执行环境而主机缺少可用的 `bubblewrap`、命名空间、`seccomp` 或非特权 `ptrace` 能力时，节点启动报错，不退回无沙箱或无追踪执行。
+- **依赖缺失时启动失败。** 配置授予了执行环境而主机缺少可用的 `bubblewrap`、命名空间、seccomp 用户态通知（含 `SECCOMP_ADDFD_FLAG_SEND`）或读取子进程内存所需的 ptrace 访问权限时，节点启动报错，不退回无沙箱或无拦截执行。
 
 ### 5. 工作区与节点配置
 
@@ -203,7 +205,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 
 ### 6. 写前检查点、原地修改、显式 `commit()` 与文件级求逆
 
-`lancet-node` 不在工作目录上挂载合并文件系统做运行期草稿隔离，而是在源目录上原地执行写入，并在写入发生前以 `ioctl(FICLONE)`（reflink）把前态保存到节点状态目录，从而精确算出每次调用的 $\varepsilon$ 与 $\varepsilon^{-1}$。目录上的 `Write` 由 `fs.write`、`fs.edit`、`fs.reset` 与挂载了可写目录的 `proc.*` 共用这一套检查点账本。
+`lancet-node` 不在工作目录上挂载合并文件系统做运行期草稿隔离，而是在源目录上原地执行写入，并在写入发生前以 `ioctl(FICLONE)`（reflink）把前态保存到节点状态目录，从而精确算出每次调用的 $\varepsilon$ 与 $\varepsilon^{-1}$。工作目录上的写入都由节点的目录资源执行：`fs.write`、`fs.edit`、`fs.reset` 直接调用它；挂载了可写目录的 `proc.*` 中，子进程的写系统调用经 seccomp 用户态通知交给节点，由同一个目录资源代为执行。两者共用一套检查点账本。
 
 ```mermaid
 sequenceDiagram
@@ -220,6 +222,11 @@ sequenceDiagram
         N->>N: 若为写入操作，按需在节点状态目录建立 FICLONE 写前检查点
         N->>T: 实例化组件，只注入该次调用的句柄
         T->>R: 在真实工作目录上读写、执行或经代理出网
+        opt 执行环境中的子进程发起写系统调用
+            R->>N: seccomp 用户态通知
+            N->>N: 复制参数、分类路径、按需建立写前检查点并代为执行
+            N-->>R: 注入 fd 或返回调用结果
+        end
         R-->>T: 原始结果
         T-->>N: 原始结果
         N->>N: 更新本次检查点账本与写后摘要，追加子调用记录
@@ -231,19 +238,33 @@ sequenceDiagram
 ```
 
 - **可写工作目录互斥与同文件系统要求**：节点对每个可写工作目录持互斥锁，同一时间至多一个持有该目录可写权限的 `act` 运行；每个可写工作目录须与节点状态目录下的对应前态区同处支持 `FICLONE` 的文件系统，启动校验不满足时节点报错退出。执行环境内工作目录保持真实路径，跨目录相对引用照常可用。
-- **按需按文件懒建立写前检查点（`fs.*` 与 `proc.*` 统一）**：
-  - 只读调用（`fs.read`、`fs.list`、`fs.search`、`fs.status`、`fs.diff`）与未发生常规文件写入的子进程不建立检查点。
-  - `fs.write` / `fs.edit`：首次修改检查点范围内的路径 `p` 前，对原文件执行单文件 `FICLONE` 留存前态并记录写前摘要（原文件不存在则记 `Absent`），随后原子替换目标文件并记录写后摘要。
-  - `proc.run` / `proc.pipe`：子进程启动前安装极薄 `seccomp-bpf` 过滤器，仅对写操作触发 `SECCOMP_RET_TRACE`（带 `O_WRONLY`/`O_RDWR`/`O_CREAT`/`O_TRUNC` 标志的 `open*`，以及 `creat`、`unlink*`、`rename*`、`truncate`、`link*`、`symlink*`；同时对 `io_uring_setup` 返回 `ENOSYS` 防止绕过系统调用层；只读 `open`、`read`、`write`、`stat`、`mmap` 在内核直接放行）。子线程停在写系统调用入口时，节点经 `ptrace` 解析目标路径：命中 `hidden` 直接回填 `-EACCES`；命中 `regenerable` 或 `.git/` 直接放行；命中常规路径且本次 `act` 首次触碰时，先对原文件执行单文件 `FICLONE`（目录 `rename` 则克隆该目录下尚未登记的常规文件）留存前态并记入本次子进程改动集，再放行系统调用。子进程退出后仅对已登记的改动路径计算写后摘要，不做整树扫描。
+- **按需懒建立写前检查点，绑定到实际对象（`fs.*` 与 `proc.*` 统一）**：
+  - 只读调用（`fs.read`、`fs.list`、`fs.search`、`fs.status`、`fs.diff`）与未发生写入的子进程不建立检查点。
+  - 本次 `act` 首次修改账本范围内的对象前，目录资源按原调用的解析语义取得目标对象的稳定 fd，按解析后的实际路径分类并记下 inode，再从这个 fd 执行 `FICLONE` 留存前态并记录写前状态（原对象不存在则记 `Absent`），随后在同一个对象上截断或写入。目录 `rename` 时克隆该目录下尚未登记的常规文件，代价随文件数线性增长（实验 3 中 1,000 个文件约 3 s）。
+  - `rename`、`unlink` 等目录项操作完成后，核对被操作对象的 inode 与检查点记录一致。不一致说明检查之后路径已被替换：节点停止本次 `act`，终止执行环境中的全部进程，结算为 `Indeterminate` 并写明原因。
+  - `fs.write` / `fs.edit` 原子替换目标文件并记录写后状态；链接数大于 1 的文件按下方硬链接规则在原 inode 上写入。
+- **`proc.*` 的写系统调用由节点代执行**：
+  - 标准输入输出由节点以管道提供。启动垫片在 `execvp` 目标进程前关闭其余全部 fd，再以 `SECCOMP_FILTER_FLAG_NEW_LISTENER` 安装过滤器，把通知 fd 经第 4 节的 `SCM_RIGHTS` 通道交回节点。
+  - 过滤器把写入口交给节点：带写标志（`O_WRONLY`/`O_RDWR`/`O_CREAT`/`O_TRUNC`）的 `open*`、全部 `openat2`、`creat`、`unlink*`、`rmdir`、`rename*`、`truncate`、`link*`、`symlink*`、`mkdir*`、`mknod*`、`chmod` 族、`setxattr` 族与 `removexattr` 族；对 `io_uring_setup` 返回 `ENOSYS`，防止绕过系统调用层。只读调用，以及 `write`、`mmap` 等作用在已有 fd 上的调用，由内核直接放行。
+  - 节点收到通知后从子进程内存复制参数，此后只使用这份副本，并按子进程的上下文（cwd、root、dirfd、umask、`openat2` 的 resolve 标志）代为执行：工作目录内的路径经目录资源执行，并按路径分类建立检查点；工作目录之外的路径（执行环境的临时目录、缓存目录与设备文件）直接代执行，不建检查点。`open*` 的结果经 `SECCOMP_IOCTL_NOTIF_ADDFD`（带 `SECCOMP_ADDFD_FLAG_SEND`）原子注入子进程。
+  - 交给节点的写调用一律代执行，不回复 `CONTINUE`：内核放行时会重新读取参数内存，检查之后的改写将绕过账本（见[已核实的事实](#已核实的事实)）。
+- **硬链接**：
+  - `link*` 的新链接与源文件分属不同路径类别（常规、`regenerable`、`.git/`）时返回 `EXDEV`。
+  - `regenerable` 与 `.git/` 的豁免只对链接数为 1 的文件生效；经这类路径以写方式打开或截断链接数大于 1 的文件时，按常规文件留前态。
+  - 链接数大于 1 的文件，写入与还原都在原 inode 上进行，不做改名替换，保住链接关系。
+- **账本记录范围**：第一个版本记录每个对象的内容、是否存在、类型（常规文件、目录、符号链接及其指向）与权限位。时间戳与所有者不记录，还原后时间戳为还原时刻，构建工具据此重新构建。写入或删除 xattr 返回 `ENOTSUP`。新建的目录、FIFO 等特殊文件按新路径登记，前态为 `Absent`。
+- **`hidden` 覆盖全部新建入口**：新建（带 `O_CREAT` 的 `open*`、`creat`、`mkdir*`、`mknod*`、`symlink*`、`link*`）或改名到 `hidden` 路径的调用返回 `EACCES`；已存在的 `hidden` 路径由第 4 节的遮蔽挂载处理。
+- **失效联动**：执行环境的 PID 1 随节点退出而终止，内核随即终止整个 PID 命名空间，节点死后子进程不能再经已打开的 fd 写入。通知 fd 关闭后，尚未处理的写调用返回 `ENOSYS`。
+- **只结算已登记对象**：子进程退出后只对已登记对象计算写后状态，不做整树扫描；登记了但后态等于前态的对象（例如失败的 `O_EXCL` 打开、未写入的写方式打开）不进变更集。
 - **路径分类规则**：
 
-| 路径范围 | 建文件检查点 / 留前态 | 未 `commit()` 或异常时原地还原 | 进回执明细与 diff 摘要 |
+| 路径范围 | 建立检查点 / 留前态 | 未 `commit()` 或异常时原地还原 | 进回执明细与 diff 摘要 |
 | --- | --- | --- | --- |
-| 常规路径（非 `regenerable`、非 `hidden`、非 `.git/`） | 是（写前按文件 `FICLONE` 到节点状态目录） | 是（核对写后摘要一致后还原） | 逐个文件列出并生成 diff |
-| 匹配 `regenerable`（如 `target/`） | 否（写拦截直接放行，不克隆） | 否（保留增量构建产物） | 只记命中规则 |
-| `.git/` | 否（避免混入宿主后台 Git 活动或在回滚时损坏版本库） | 否（不做文件级覆盖回滚） | 子进程改变本地 `HEAD` / `refs/heads/` 时单列版本库变更 |
+| 常规路径（非 `regenerable`、非 `hidden`、非 `.git/`） | 是（写前从目标对象的 fd `FICLONE` 到节点状态目录；目录、符号链接与权限位记录写前状态） | 是（核对写后状态一致后还原） | 逐项列出，文件内容生成 diff |
+| 匹配 `regenerable`（如 `target/`） | 否（代执行但不留前态；链接数大于 1 的文件除外） | 否（保留增量构建产物） | 只记命中规则 |
+| `.git/` | 否（避免混入宿主后台 Git 活动或在回滚时损坏版本库；链接数大于 1 的文件除外） | 否（不做文件级覆盖回滚） | 子进程改变本地 `HEAD` / `refs/heads/` 时单列版本库变更 |
 
-- **外部并发写零串扰与同文件冲突保护**：节点外的并发写者（如外部编辑器保存其他文件）不经过子进程 `seccomp-bpf`，不会被扫入本次变更账本或 `diff`，也不会在未 `commit()` 或失败回滚时被误还原。仅当外部写者改写了本次 `act` 也修改过的同一路径时，节点在结算或原地还原前核对磁盘当前内容摘要不等于记录的写后摘要，保持该文件现状不动并记录冲突（若脚本原本以正常 `return` 结算，整体转为 `Failed(Conflict)`）。
+- **外部并发写零串扰与同文件冲突保护**：节点外的并发写者（如外部编辑器保存其他文件）不经过子进程的写拦截，不会被扫入本次变更账本或 `diff`，也不会在未 `commit()` 或失败回滚时被误还原。仅当外部写者改写了本次 `act` 也修改过的同一路径时，节点在结算或原地还原前核对磁盘当前内容摘要不等于记录的写后摘要，保持该文件现状不动并记录冲突（若脚本原本以正常 `return` 结算，整体转为 `Failed(Conflict)`）。
 - **崩溃恢复**：写前检查点在每次单文件修改落盘前已持久化在节点状态目录。节点在 `act` 执行或结算中途崩溃（调用记录处于 `Pending`）时，重启后、响应 `hello` 之前检查遗留账本中实际登记的那几个路径：已有写后摘要且与磁盘当前摘要一致的路径，按检查点原地还原并结算为 `Failed`；若崩溃恰发生在子进程已打开某路径写入、尚未退出记录写后摘要的窗口内，磁盘当前摘要仍等于写前摘要则无残留，已变且无法排除停机期间外部编辑则保持现状并按 [ADR 0001 第 6 节](0001-lancet-protocol.md#6-调用记录的生命周期与对账) 结算为 `Indeterminate`。
 
 `act` 结束时的结局映射规则：
@@ -263,12 +284,13 @@ act 结束时:
             else:                   Failed(Conflict)
     elif 序列化字节数 > output_limit: 按检查点原地还原 -> Failed(OutputLimitExceeded)
     elif 子调用的 seam 询问被拒:     按检查点原地还原 -> Failed(SeamBlocked)  # 审批上线后
+    elif 检测到检查之后路径被替换:   按检查点原地还原已登记的项 -> Indeterminate { reason }
     elif 脚本 fail 或子调用报错:     按检查点原地还原 -> Failed(ScriptOrToolError)
     elif 调用方 cancel 或连接断开:  按检查点原地还原 -> Cancelled
     elif remaining_ms 耗尽:        按检查点原地还原 -> Deadline
 ```
 
-- **文件级求逆实现与保留期**：`lancet-node` 按 [ADR 0001 第 5 节](0001-lancet-protocol.md#5-求逆revert与会话-rewind-的配合) 处理 `revert` 时，复用同一套单文件求逆逻辑：对逆序遍历到的每次已提交调用逐文件核对当前内容摘要是否等于回执记录的写后摘要，相等则以节点状态目录中的 `FICLONE` 前态原子替换（`Restored`），不等则保持不动并报告 `Conflict`。匹配 `regenerable` 的写入、`.git/` 版本库变更、环境目录缓存写入与已发生的联网没有文件级逆，报告 `Irreversible(residue)`。回执明细默认保留 30 天，`FICLONE` 前态默认保留 7 天（均可在节点配置覆盖，前态保留期不长于回执保留期）。
+- **文件级求逆实现与保留期**：`lancet-node` 按 [ADR 0001 第 5 节](0001-lancet-protocol.md#5-求逆revert与会话-rewind-的配合) 处理 `revert` 时，复用同一套求逆逻辑：对逆序遍历到的每次已提交调用逐项核对当前状态是否等于回执记录的写后状态，相等则按记录的写前状态恢复（`Restored`），不等则保持不动并报告 `Conflict`。文件以节点状态目录中的 `FICLONE` 前态原子替换，链接数大于 1 的文件在原 inode 上写回；目录、符号链接与权限位按记录重建。匹配 `regenerable` 的写入、`.git/` 版本库变更、环境目录缓存写入与已发生的联网没有文件级逆，报告 `Irreversible(residue)`。回执明细默认保留 30 天，`FICLONE` 前态默认保留 7 天（均可在节点配置覆盖，前态保留期不长于回执保留期）。
 
 ### 7. effect、co-effect、`residue` 与 `seam` 在工具基座中的读取方
 
@@ -285,7 +307,7 @@ act 结束时:
 
 | effect 项 | 协议 `residue` 取值 |
 | --- | --- |
-| 已 `commit()` 保留在工作目录且留有 `FICLONE` 前态的常规文件变更 | `None`（可施加逆） |
+| 已 `commit()` 保留在工作目录、且记录了写前状态的常规路径变更（文件内容、目录、符号链接与权限位） | `None`（可施加逆） |
 | 匹配 `regenerable` 的工作目录写入 | `Regenerable` |
 | 执行环境缓存目录中的写入 | `InternalState` |
 | 子进程对 `.git/` 本地版本库引用的变更，以及 `http.fetch` 或子进程经节点代理发出的网络请求 | `External`（记录变更引用或目标主机） |
@@ -342,6 +364,7 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 | API 工具声明（签名、effect 与 co-effect 模板） | 每个 API 工具随附的静态声明 | `lancet-node`（生成 `act` 类型存根、`environment_summary`、`catalog_digest`，受理检查、句柄收窄与绑定） | 模型、调用方、Starlark 静态检查 |
 | 脚本静态检查、控制流与纯计算过滤结果 | Starlark 解释器组件线性内存 | Starlark 解释器组件（求值前静态名称与类型检查、求值与正交过滤） | `lancet-node`（接收脚本交回的结果或静态诊断） |
 | 单次 `act` 的写前检查点账本与 `commit()` 标记 | 节点状态目录与当次调用内存态 | `lancet-node`（按需 `FICLONE`、`status`/`diff`/`reset` 查询，结束时保留前态或原地施加 $\varepsilon^{-1}$ 还原） | 脚本 |
+| 子进程写调用的通知 fd 与代执行 | 节点（每次 `proc.*` 调用持有一个通知 fd） | `lancet-node` 目录资源（复制参数、分类路径、建立检查点、代为执行并注入 fd） | 子进程（只得到调用结果） |
 | 已提交调用的 `FICLONE` 前态文件与写后摘要 | 节点状态目录 | `lancet-node`（结算转存、崩溃恢复与 `revert` 核对还原） | 调用方 |
 
 ## 否决的方案
@@ -365,7 +388,9 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 | 第一个版本只做只读 API、不含进程执行或完全断网 | 缺少完成真实软件工程任务所需的基础能力 |
 | 进程执行时整体放开宿主网络，或直接接入 `passt` / `slirp4netns` 四层网络栈 | 出口不受域名白名单约束，子进程可绕过代理直连任意公网 IP，也无法逐次记入回执 `residue`；首阶段仅需域名校验时，`SCM_RIGHTS` 跨命名空间传递监听 fd 比在进程内维护 `/dev/net/tun` + `smoltcp` 透明协议栈轻得多 |
 | 在可写 `proc.*` 启动前做整树 `FICLONE` 基线并在退出后全盘扫描对比 | 每次跑测试都付出整树遍历与克隆开销；更严重的是子进程运行窗口内外部编辑器对其他文件的并发保存会被误扫进 `diff`、记为本次写后摘要，并在未 `commit()` 或失败时被误回滚 |
-| 在沙箱挂载命名空间内自建全套用户态透传 FUSE 追踪子进程改动 | 实测内核 `FUSE_PASSTHROUGH` 要求宿主初始命名空间 `CAP_SYS_ADMIN`、非特权不可用；纯用户态透传需维护复杂的 POSIX 状态机且首次构建产物读写全经用户态拷贝，不如 `seccomp-bpf` + `ptrace` 仅拦写入口直接保留原生 XFS 数据面 |
+| 在沙箱挂载命名空间内自建全套用户态透传 FUSE 追踪子进程改动 | 实测内核 `FUSE_PASSTHROUGH` 要求宿主初始命名空间 `CAP_SYS_ADMIN`、非特权不可用；纯用户态透传需维护复杂的 POSIX 状态机且首次构建产物读写全经用户态拷贝，不如 seccomp 只拦写入口、保留原生 XFS 数据面 |
+| 以 `SECCOMP_RET_TRACE` 加 `ptrace` 拦截子进程写调用 | 实验 3：只停住触发调用的线程，其他线程在检查之后改写参数内存即可绕过账本（600/600）；占用 tracer 位置，沙箱内调试器与 `strace` 失效；沙箱内程序再装一个用户态通知过滤器即可绕过外层 `TRACE` |
+| 用户态通知检查后回复 `CONTINUE` 放行 | 实验 3：内核放行时重新读取参数内存，检查之后的改写同样绕过账本（600/600） |
 | 读取工作区内的 `.gitignore` 作为路径规则，或把规则文件放进工作区版本库 | 被 Git 忽略不等于可再生；规则文件若位于可写工作区内，脚本即可自行篡改边界策略 |
 | 一个 `lancet-node` 实例同时服务多个工作区 | 一个节点对应一个工作区身份；多仓库协作由同一工作区内的多个工作目录句柄表达 |
 | 以微虚拟机承载执行环境 | LATTICE ADR 0002 的经验表明，工作区投影、保存点与合并机制远多于本场景所需 |
@@ -376,7 +401,7 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 
 | 项 | 影响 |
 | --- | --- |
-| 内核能力 | 需要非特权用户、挂载、PID、网络命名空间、`seccomp` 过滤、非特权 `ptrace`（SELinux `deny_ptrace = off`）与 cgroup 委派；缺失时节点启动失败 |
+| 内核能力 | 需要非特权用户、挂载、PID、网络命名空间，seccomp 用户态通知（`SECCOMP_ADDFD_FLAG_SEND` 自 Linux 5.14 起），读取子进程内存所需的 ptrace 访问权限（SELinux `deny_ptrace = off`，Yama `ptrace_scope` 不高于 1），以及 cgroup 委派；缺失时节点启动失败 |
 | 文件系统 | 每个可写工作目录与节点状态目录下的对应前态区须同处支持 `FICLONE`（reflink）的文件系统（如 XFS）；建检查点与留前态不复制数据块，启动校验不满足时节点报错退出 |
 | `bubblewrap` | 授予执行环境时为主机必需依赖，由机器所有者安装 |
 | `wasmtime` | 成为 `lancet-node` 的宿主依赖。`wasmtime` 50 要求 `rustc 1.97`，本仓库当前固定 `1.96.0`；引入时选用 49 系列，或先升级工具链 |
