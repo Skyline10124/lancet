@@ -195,24 +195,10 @@ egress = "crates"
 name = "crates"
 hosts = ["index.crates.io", "static.crates.io"]
 
-# 每条推出的 seam 都须写明策略，缺一条节点即拒绝启动（见第 7 节）
-[[seam]]
-from = "lancet"
-to = "dev"
-direction = "integrity"          # lancet 上的写入会在 dev 中被执行
-policy = "allow"
-
-[[seam]]
-from = "lancet"
-to = "crates"
-direction = "confidentiality"    # lancet 的可读内容可经 crates 外发
-policy = "allow"
-
-[[seam]]
-from = "lattice"
-to = "crates"
-direction = "confidentiality"
-policy = "allow"
+# seam 边集由上面的授权推出，不在配置中声明（见第 7 节）。本例推出：
+#   integrity        lancet ⇒ dev       lancet 上的写入会在 dev 中被执行
+#   confidentiality  lancet ⇒ crates    lancet 的可读内容可经 crates 外发
+#   confidentiality  lattice ⇒ crates
 ```
 
 ### 6. 写前检查点、原地修改、显式 `commit()` 与文件级求逆
@@ -276,7 +262,7 @@ act 结束时:
             if 无外部写者冲突:       Succeeded { content, receipt_summary }  # 标明 uncommitted_reverted
             else:                   Failed(Conflict)
     elif 序列化字节数 > output_limit: 按检查点原地还原 -> Failed(OutputLimitExceeded)
-    elif 子调用被 seam 闸口拒绝:     按检查点原地还原 -> Failed(SeamBlocked)
+    elif 子调用的 seam 询问被拒:     按检查点原地还原 -> Failed(SeamBlocked)  # 审批上线后
     elif 脚本 fail 或子调用报错:     按检查点原地还原 -> Failed(ScriptOrToolError)
     elif 调用方 cancel 或连接断开:  按检查点原地还原 -> Cancelled
     elif remaining_ms 耗尽:        按检查点原地还原 -> Deadline
@@ -293,7 +279,7 @@ act 结束时:
 | API 工具的 effect 与 co-effect 模板 | 分发层 | 用本次调用实际传入的句柄实例化 κ，核对其中句柄与模式均已授予；回执记录实际发生的 ε，并核对它不越出模板，越出即为节点缺陷，本次 `act` 以 `Failed` 结束 |
 | 同上 | 配置加载 | 推出 `seam` 边集与 `environment_summary` 的句柄条目 |
 | `residue` | `revert`、协调层与用户 | 哪些项可施加逆，如实报告不可还原项 |
-| `seam` | 分发层（完整性闸口）、配置加载（机密性闸口）；审批上线后加上准入 | 放行并记录跨越，或拒绝 |
+| `seam` 边集 | 调用方与用户（经 `environment_summary`）；审批上线后加上准入 | 第一个版本：用户据此决定是否保留相应的授权组合，节点不拦截；审批上线后：准入据此询问用户 |
 
 `lancet-node` 中各类 effect 到协议 `residue`（见 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-effectco-effect回执与-residue)）的映射：
 
@@ -306,7 +292,7 @@ act 结束时:
 
 只读 API 工具没有 effect；未调用 `commit()` 或异常中止后已在 `act` 结束前原地还原的常规文件写入，在结算后对外部世界无残留改变，不产生回执中的 `Write` effect 条目（运行期间已发生的 `Regenerable`、`InternalState` 与 `External` 项仍如实记入回执）。
 
-#### `seam` 边集与闸口
+#### `seam` 边集与询问
 
 节点加载配置时由句柄关系推出边集：
 
@@ -318,37 +304,21 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 ```
 
 - **机密性边不限于同一次 `act`。** 第一次 `act` 读到的内容交回模型后，模型可以把它写进下一次 `act` 的 `http.fetch`。中转的是脚本加模型，所以只要授权组合里同时有可读目录和网络出口，就成立一条边。
-- **每条边必须在配置中写明策略**（见第 5 节示例），缺失时节点拒绝启动。边集与策略写入 `environment_summary`。
+- **边集只由授权推出，不在配置中声明。** 边集写入 `environment_summary`，第一个版本每条边的 `policy` 都是 `Allow`。授予可读目录、执行环境与网络出口，就是确认它们之间的组合；不接受某个组合时，撤掉相应的句柄。
+- **第一个版本不在运行时拦截，也不记录跨越。** 审批上线前每条边只能放行或拒绝：完整性边一旦拒绝，改完代码再运行测试就会被拦下，开发环境只能放行；机密性方向，节点追踪不了数据在脚本、模型与原生进程之间的流动，运行时无从判定。回执照常记录变更文件与外发主机，供调用方核对与用户事后审计。
 
-| 方向 | 闸口位置 | 允许的策略 | 规则 |
-| --- | --- | --- | --- |
-| 完整性 | 运行时：分发层受理 `proc.run` / `proc.pipe` 时 | `Allow`、`Deny` | 见下方伪代码 |
-| 机密性 | 加载配置时 | 只能是 `Allow` | 节点追踪不了数据在脚本、模型与原生进程中的流动，运行时无从判定。写成 `Allow` 即显式确认这个授权组合；不接受这个组合时，须撤掉可读目录或网络出口之一 |
+审批上线后，完整性方向在分发 `proc.run` / `proc.pipe` 前询问用户（`Ask`），机密性方向按下表的“审批”层在 `Emit` 前询问。完整性询问遵守下列规则：
 
-完整性闸口按 API 调用粒度判定，本次 `act` 内尚未 `commit()` 的原地写入同样计入。闸口状态持久保存在节点状态目录，跨 `act` 有效：
-
-```text
-节点为每个被调用写过的路径 p 记 crossed_digest(p)，首次被写时取写前内容的摘要
-p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_digest(p)
-
-分发 proc.run / proc.pipe(e) 时:
-    for 每个以可写方式挂载进 e 的目录 d:
-        U[d] = d 中的未过闸路径
-        if U[d] 非空 且 边 d ⇒ e 为 Deny: 本次子调用以 SeamBlocked 失败，不放行任何一条
-    放行；对每个非空的 U[d]:
-        回执记一条跨越 { seam: d ⇒ e, count: |U[d]| }
-        对 U[d] 中每个 p: crossed_digest(p) ← digest(p)
-```
-
-- **原地还原与求逆无需特殊处理。** 未 `commit()` 自动还原、异常回滚或 `revert` 把文件写回前态后，若前态摘要等于 `crossed_digest`，该路径自然回到已过闸状态。
-- **反方向的流动已被覆盖。** `http.fetch` 拿回的内容写进目录 `d`，就是 `d` 上的 `Write`，之后经边 `d ⇒ e` 的完整性闸口处理。
+- **只看常规路径。** 询问的内容是：可写挂载进该执行环境的目录中，被调用修改过且尚未获批的常规路径（即第 6 节检查点账本中的路径，含本次 `act` 内尚未 `commit()` 的写入），以及将要运行的命令。询问复用账本已记录的写前与写后摘要；`regenerable` 与 `.git/` 下的写入不计入，节点不为它们记录任何状态。
+- **反方向的流动同样覆盖。** `http.fetch` 拿回的内容写进目录 `d` 的常规路径时，与其他写入一样进入询问。
+- **结果进回执。** 获批时回执记一条跨越 `{ seam: d ⇒ e, count }`；被拒时本次子调用以 `SeamBlocked` 失败。
 
 机密性方向的外发控制：
 
 | 层 | 手段 | 读取方与决定 |
 | --- | --- | --- |
 | 出口清单 | 网络出口句柄限定允许访问的主机域名 | 代理逐个请求核对域名放行或拒绝 |
-| 组合确认 | 机密性边须在配置中显式写为 `Allow` | 配置加载：未写则拒绝启动 |
+| 组合展示 | 推出的机密性边写入 `environment_summary` | 调用方展示给用户；机器所有者不接受某个组合时，撤掉相应的句柄 |
 | 回执 | 每次外发记 `External { host }` | 调用方核对，用户事后审计 |
 | 审批 | `Emit` 前询问用户 | 准入，审批上线后 |
 
@@ -359,8 +329,7 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 | 事项 | 建议 |
 | --- | --- |
 | 第 1 节的能力清单是否完整，例如长时间运行的后台守护进程与交互式输入 | 先按四类实施 |
-| 完整性闸口计入哪些写入 | 第一个版本计入全部写入，含 `regenerable` 与 `proc.*` 派生的写入；是否按路径规则收窄，按实施后的跨越记录裁决 |
-| 完整性边的询问策略 | 审批上线后增加 `Ask`，由准入读取 `environment_summary` 中的边与策略 |
+| 审批上线后的询问怎样配置与记录 | 询问范围按第 7 节；已获批状态的记录方式、各边默认是否询问以及配置写法随审批设计一并裁决，届时在 [ADR 0001](0001-lancet-protocol.md) 的 `policy` 取值中增加 `Ask` |
 | `revert` 是否进入第一批实现 | 接口按 [ADR 0001](0001-lancet-protocol.md) 定稿，`FICLONE` 前态从第一个版本开始留存；跨调用 `revert` 执行逻辑排在 `execute` 闭环之后 |
 
 ## 归属
@@ -369,12 +338,11 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 
 | 概念 | 状态持有者 | 规则执行者 | 只使用结果的组件 |
 | --- | --- | --- | --- |
-| 工作区组成、授权、路径规则、网络出口清单与 `seam` 策略 | 节点配置文件 | `lancet-node`（启动校验、推出 `seam` 边集、实例化组件、挂载与代理放行） | 调用方、Starlark 脚本 |
+| 工作区组成、授权、路径规则与网络出口清单 | 节点配置文件 | `lancet-node`（启动校验、推出 `seam` 边集、实例化组件、挂载与代理放行） | 调用方、Starlark 脚本 |
 | API 工具声明（签名、effect 与 co-effect 模板） | 每个 API 工具随附的静态声明 | `lancet-node`（生成 `act` 类型存根、`environment_summary`、`catalog_digest`，受理检查、句柄收窄与绑定） | 模型、调用方、Starlark 静态检查 |
 | 脚本静态检查、控制流与纯计算过滤结果 | Starlark 解释器组件线性内存 | Starlark 解释器组件（求值前静态名称与类型检查、求值与正交过滤） | `lancet-node`（接收脚本交回的结果或静态诊断） |
 | 单次 `act` 的写前检查点账本与 `commit()` 标记 | 节点状态目录与当次调用内存态 | `lancet-node`（按需 `FICLONE`、`status`/`diff`/`reset` 查询，结束时保留前态或原地施加 $\varepsilon^{-1}$ 还原） | 脚本 |
 | 已提交调用的 `FICLONE` 前态文件与写后摘要 | 节点状态目录 | `lancet-node`（结算转存、崩溃恢复与 `revert` 核对还原） | 调用方 |
-| 完整性闸口状态（各路径的 `crossed_digest`） | 节点状态目录 | `lancet-node` 分发层 | 调用方（经回执中的跨越记录） |
 
 ## 否决的方案
 
@@ -391,6 +359,8 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 | 在 Starlark 中标注 effect，或运行前静态推出脚本的 effect | 句柄作为值在脚本中传递，静态分析只能近似；模型也不会写标注；分发层在每次 API 调用时已拿到精确值 |
 | 以污点追踪在运行时拦截机密性方向的外发 | 经长度、正则与分支的隐式流动追踪不住；数据经模型上下文中转时彻底断链，只会造成已拦住的错觉 |
 | 机密性边只在同一次 `act` 内成立 | 模型可以把上一次 `act` 读到的内容写进下一次 `act` 的外发请求 |
+| 第一个版本即在运行时按路径摘要判定完整性边，策略为放行或拒绝 | 放行只是计数；拒绝会让改完代码后的测试、乃至构建之后的测试都被拦下，开发环境只能放行。若计入全部写入，还要在覆盖每个 `regenerable` 产物前读旧文件算摘要，与第 6 节直接放行的规则冲突，并跨 `act` 持久保存每个写过路径的摘要（2026-11-14 实测 LATTICE 仓库的 `target/` 有 101,329 个文件、75 GB）；跨越计数也被构建产物淹没 |
+| 在配置中逐条声明 `seam` 边并写明策略 | 第一个版本每条边只有放行一种取值，逐条声明只是重复确认授权；可读目录 n 个、网络出口 m 个时，要写 n×m 条相同的条目 |
 | 以 Landlock 与 seccomp 的进程沙箱作为统一边界 | 授权是套在进程上的路径规则而非句柄，无法在已授权目录下精细排除 `hidden` 子路径 |
 | 第一个版本只做只读 API、不含进程执行或完全断网 | 缺少完成真实软件工程任务所需的基础能力 |
 | 进程执行时整体放开宿主网络，或直接接入 `passt` / `slirp4netns` 四层网络栈 | 出口不受域名白名单约束，子进程可绕过代理直连任意公网 IP，也无法逐次记入回执 `residue`；首阶段仅需域名校验时，`SCM_RIGHTS` 跨命名空间传递监听 fd 比在进程内维护 `/dev/net/tun` + `smoltcp` 透明协议栈轻得多 |
@@ -416,7 +386,7 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 
 | 文档 | 处理 |
 | --- | --- |
-| [领域术语表](../reference/glossary.md) | 本 ADR 与 [ADR 0001](0001-lancet-protocol.md) 接受后写入：工作区、工作目录、环境目录、API 工具、宿主资源、工具基座、闸口、前态 |
+| [领域术语表](../reference/glossary.md) | 本 ADR 与 [ADR 0001](0001-lancet-protocol.md) 接受后写入：工作区、工作目录、环境目录、API 工具、宿主资源、工具基座、前态 |
 | `docs/architecture/` | 随实施建立架构合同：`act` 与 Starlark 编排、宿主资源与沙箱、写前检查点与求逆、节点配置 |
 | [项目介绍](../../README.md) | 随第一个业务 crate 更新当前状态 |
 
