@@ -10,7 +10,7 @@ status: proposed
 
 - LATTICE 的 [ADR 0009](https://github.com/Skyline10124/lattice/blob/0b261013ceb5f07a3948d2ecc8c8826729e93efa/docs/adr/0009-remove-legacy-lancet-tool-executor.md) 规定新 LANCET 在独立仓库中重写为独立进程 `lancet-node`，对外提供 `act`；方向来自 LATTICE 的 [`#309`](https://github.com/Skyline10124/lattice/issues/309)：模型只有一个入口工具 `act`，脚本在受约束的 API 上组合调用，每个调用声明 `effect` 与 `scope`，结果以回执保存。
 - [ADR 0001](0001-lancet-protocol.md) 已将协调层与外部上下文节点的通信契约抽离为通用协议 `lancet-protocol`。本 ADR 规定 `lancet-node` 如何作为该协议在 Linux 软件工作区上的实现，落地编排语言、API 工具、宿主资源隔离与写前写时复制检查点。
-- 本 ADR 记录 2026-11-11 至 2026-11-13 维护者与 Agent 的设计讨论及两项原型实验结论。讨论中分期或待实施验证的事项集中在[待裁决](#待裁决)。
+- 本 ADR 记录 2026-11-11 至 2026-11-14 维护者与 Agent 的设计讨论及两项原型实验结论。讨论中分期或待实施验证的事项集中在[待裁决](#待裁决)。
 
 ### 约束
 
@@ -21,7 +21,7 @@ status: proposed
 
 ### 已核实的事实
 
-2026-11-11 至 2026-11-13 在开发主机上核实：Rocky Linux 10.2，内核 6.12，SELinux 为 Enforcing，工作区位于 XFS，工具链为 `rustc 1.96.0`。
+2026-11-11 至 2026-11-14 在开发主机上核实：Rocky Linux 10.2，内核 6.12，SELinux 为 Enforcing，工作区位于 XFS，工具链为 `rustc 1.96.0`。
 
 | 事实 | 核实方式与结果 |
 | --- | --- |
@@ -34,6 +34,7 @@ status: proposed
 | `starlark-rust` 能编译为 `wasm32-wasip2` 组件 | `starlark` 0.14.2 编译通过，产物 6.5 MB；组件只导入 WASI 的时钟、标准流、环境与随机数接口，不导入文件系统与套接字 |
 | Starlark 组件能在 `wasmtime` 中运行，预编译后启动开销小 | `wasmtime` 49.0.5 命令行运行含函数与列表推导的脚本，结果与原生一致；每次现编译时整个进程耗时 1152 ms，预编译后约 12 ms，原生进程约 6 ms（均含进程启动） |
 | `starlark` 0.14.2 语法、标准库与静态检查边界 | `Dialect::Standard` 默认关闭顶层语句，开启 `enable_top_level_stmt: true` 后支持顶层 `if` 与 `for`；顶层 `return` 仍是语法错误（“`return` cannot be used outside of a `def` function”），将脚本包裹为单一入口函数即可同时支持顶层 `return` 与顶层绑定静态类型检查；语言无 `while` 与 `try / except`，允许递归；宿主函数返回 `Err` 时调用栈干净退栈；内置 `LibraryExtension` 含 `Json`、`SetType`（已实现 `serde::Serialize`）、`StructType`、`Map`、`Filter` 与可挂自定义 `PrintHandler` 的 `Print`，无内置正则模块与 `sum`；实验性 `enable_f_strings` 仅支持裸标识符插值；内置 `DocModule` 可从宿主签名提取文档结构，`AstModuleTypecheck::typecheck` 可在求值前做静态名称解析与类型求解 |
+| `starlark` 0.14.2 自带的资源限制只是尽力而为 | 本地源码 `src/eval/runtime/evaluator.rs`：`set_max_heap_size`、`set_max_tick_count` 与 `set_check_cancelled` 不在分配或执行时即时生效，只在每 1000 个 tick（一次函数调用或一次循环回跳计一个 tick）运行一次的检查点上判断，单个内置函数执行期间不检查；堆上限只计 Starlark 堆，`dict`、`struct` 在 Rust 堆上的存储不计入；源码注释写明这两种上限都不能保证内存或运行时间有界，需要保证时应借助操作系统机制 |
 | 隔离网络命名空间监听套接字可经 `SCM_RIGHTS` 传回宿主，写系统调用可跨命名空间 `ptrace` 拦截 | 实测在 `unshare --user --map-root-user --net` 内启用 `lo` 并 `bind("127.0.0.1:0")` 后，经 `socketpair`（`SCM_RIGHTS`）将监听 fd 传回宿主进程 `accept` 成功；SELinux Enforcing（`deny_ptrace = off`）下宿主进程对 `user+pid+mount+net` 子命名空间内进程执行 `PTRACE_SEIZE` 成功（`rc = 0`）；被动监听侧 `fanotify` 的 `FAN_REPORT_PIDFD` 与 FUSE 的 `FUSE_DEV_IOC_BACKING_OPEN`（`FUSE_PASSTHROUGH`）非特权均返回 `EPERM` |
 | Starlark 编排实测通过率与回滚失误分布 | 实验 1 v2（`exp/act-v2` 分支 `prototypes/starlark-pass-rate/REPORT-v2.md`，859 次有效运行）：扣除判定器假阴性后，常规五类任务完成率为 deepseek-flash 359/359、MiniMax-M3.1-Flash 358/360；但在“正常返回即自动保留改动”语义下，MiniMax 在回滚类任务中 0 次调用 `discard`、失败 38/68 次；扣除测试台命令白名单后，单次 `act` 报错集中于未开启 `SetType`/`sum`/`Print`、宿主视图未实现序列化及无括号生成器等少量语法差异 |
 
@@ -42,6 +43,7 @@ status: proposed
 | 事项 | 影响的决策 |
 | --- | --- |
 | 节点进程内复用 `wasmtime::Engine` 实例化解释器组件与 API 工具组件的耗时；上面的数字来自命令行，含进程启动 | 第 4 节 |
+| 以 `wasmtime` 49 的 `ResourceLimiter` 与 epoch 中断对单次组件调用施加内存上限与截止中断，超限后回收该实例、节点继续服务 | 第 4 节 |
 
 ## 决策
 
@@ -69,6 +71,8 @@ status: proposed
 | `act` | `lancet-node` 对模型可见的唯一工具，输入为脚本字符串。它本身不带任何固有能力 |
 
 effect、co-effect、句柄、`residue` 与 `seam` 的定义见 [ADR 0001 第 4 节](0001-lancet-protocol.md#4-effectco-effect回执与-residue)。本节点的句柄种类就是本 ADR 第 4 节的三类宿主资源：目录、执行环境、网络出口。
+
+**API 工具对第三方开放。** 除下表的首批工具外，节点也接受第三方独立构建的 API 工具。节点以同一方式对待全部工具：不信任工具的实现，只按声明分发句柄，隔离与资源上限由第 4 节的组件边界承担。第一个版本只发布首批工具，第三方工具的安装、分发与信任配置按第 1 节推后。
 
 首批 API 工具（`d` 为目录句柄，`e` 为执行环境句柄，`n` 为网络出口句柄；`mounts(e)` 为 `e` 挂载的目录及其模式）：
 
@@ -144,8 +148,10 @@ return {
 | 执行环境 | 一组挂载、资源上限与网络出口 | `bubblewrap`（`user`/`mount`/`pid`/`net` 命名空间）加 `seccomp-bpf` 与 `ptrace` 写拦截：按读写级别绑定真实目录，仅对已存在的 `hidden` 路径做只读遮蔽挂载（文件挂 `/dev/null`，目录挂空 `tmpfs`），子进程新建或重命名到 `hidden` 的写系统调用回填 `-EACCES`，到期终止整个 PID 命名空间 |
 | 网络出口 | 允许访问的主机域名清单（`hosts`） | 节点内的域名白名单放行代理（首阶段按域名校验，不做 TLS 中间人解包） |
 
-- **API 工具与解释器都是 WASM 组件**，在 `wasmtime` 中运行。API 工具组件实例化时只得到本次调用授权的句柄，没有交给它的资源无从引用。
-- **解释器组件不持有任何宿主资源**，只导入调用节点子工具分发的接口。
+- **API 工具与解释器都是 WASM 组件**，在 `wasmtime` 中运行。API 工具对第三方开放（见第 2 节），节点不信任工具的实现，由组件边界让声明成为强制约束：
+  - 工具组件实例化时只得到本次调用按声明注入的句柄，句柄按声明的模式收窄：声明 `Uses<d, Read>` 的工具只拿到 `d` 的只读视图。没有交给它的资源无从引用，工具越不出自己的声明。
+  - 节点为每次组件调用设置内存上限，并在截止时间到达时中断该次调用；超限或超时只终止这一个实例，节点继续服务。
+- **解释器组件不持有任何宿主资源**，只导入调用节点子工具分发的接口。节点对它同样设置内存上限，并在 `remaining_ms` 耗尽或收到 `cancel` 时中断。`starlark` 自带的堆上限与取消检查只是尽力而为（见[已核实的事实](#已核实的事实)），用于尽早返回可读的错误，不作为边界。
 - **组件预编译后加载。** 每次调用现编译的开销在秒级，节点只加载预编译产物。
 - **原生进程经执行环境资源运行。** `proc.run` 与 `proc.pipe` 的声明方式与其他 API 工具相同，操作系统级沙箱是执行环境资源的实现。
 - **原生进程经 `SCM_RIGHTS` 跨命名空间代理出网。** 子进程处于只有 `lo` 的隔离网络命名空间；启动垫片在命名空间内执行 `bind("127.0.0.1:0")`，经 `socketpair`（`SCM_RIGHTS`）把监听 fd 与端口号传回宿主 `lancet-node` 事件循环，写好 `HTTPS_PROXY` / `https_proxy` 与 `HTTP_PROXY` / `http_proxy` 后直接 `execvp` 目标进程（沙箱内无常驻转发进程，工作目录内不挂套接字文件）。代理对明文 HTTP `Host` 与 HTTPS `CONNECT` 目标域名对照 `egress.hosts` 放行并记入回执，拒绝直连、字面量裸 IP 与解析到回环/链路本地/私网网段的目标。
@@ -353,7 +359,6 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 | 事项 | 建议 |
 | --- | --- |
 | 第 1 节的能力清单是否完整，例如长时间运行的后台守护进程与交互式输入 | 先按四类实施 |
-| API 工具是随节点发布的封闭集合，还是各自独立构建的扩展单元 | 第一个版本作为随节点发布的封闭集合 |
 | 完整性闸口计入哪些写入 | 第一个版本计入全部写入，含 `regenerable` 与 `proc.*` 派生的写入；是否按路径规则收窄，按实施后的跨越记录裁决 |
 | 完整性边的询问策略 | 审批上线后增加 `Ask`，由准入读取 `environment_summary` 中的边与策略 |
 | `revert` 是否进入第一批实现 | 接口按 [ADR 0001](0001-lancet-protocol.md) 定稿，`FICLONE` 前态从第一个版本开始留存；跨调用 `revert` 执行逻辑排在 `execute` 闭环之后 |
@@ -365,7 +370,7 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 | 概念 | 状态持有者 | 规则执行者 | 只使用结果的组件 |
 | --- | --- | --- | --- |
 | 工作区组成、授权、路径规则、网络出口清单与 `seam` 策略 | 节点配置文件 | `lancet-node`（启动校验、推出 `seam` 边集、实例化组件、挂载与代理放行） | 调用方、Starlark 脚本 |
-| API 工具声明（签名、effect 与 co-effect 模板） | 随节点发布的静态声明 | `lancet-node`（生成 `act` 类型存根、`environment_summary`、`catalog_digest`，受理检查与句柄绑定） | 模型、调用方、Starlark 静态检查 |
+| API 工具声明（签名、effect 与 co-effect 模板） | 每个 API 工具随附的静态声明 | `lancet-node`（生成 `act` 类型存根、`environment_summary`、`catalog_digest`，受理检查、句柄收窄与绑定） | 模型、调用方、Starlark 静态检查 |
 | 脚本静态检查、控制流与纯计算过滤结果 | Starlark 解释器组件线性内存 | Starlark 解释器组件（求值前静态名称与类型检查、求值与正交过滤） | `lancet-node`（接收脚本交回的结果或静态诊断） |
 | 单次 `act` 的写前检查点账本与 `commit()` 标记 | 节点状态目录与当次调用内存态 | `lancet-node`（按需 `FICLONE`、`status`/`diff`/`reset` 查询，结束时保留前态或原地施加 $\varepsilon^{-1}$ 还原） | 脚本 |
 | 已提交调用的 `FICLONE` 前态文件与写后摘要 | 节点状态目录 | `lancet-node`（结算转存、崩溃恢复与 `revert` 核对还原） | 调用方 |
@@ -382,7 +387,7 @@ p 未过闸 ⇔ p 最近一次写入来自调用，且 digest(p) ≠ crossed_dig
 | 在各个 API 工具参数上分别添加 `grep`、`head`、`tail` 等过滤选项 | 违反单一职责并在工具间重复定义；未专门加过滤参数的工具（如 `http.fetch`）返回中等体积文本时仍无从在沙箱内筛选 |
 | 为模型提供跨轮次的解释器栈内挂起断点（`pause / resume`），或在每次 `fs.edit` 落盘前强制暂停确认 | 模型在读到文件内容前无法预写断点下半段的具体修改逻辑，“先读入上下文、推理后再改”天然拆成两次 `act` 即可；已有 `FICLONE` 前态与 `revert` 兜底时，每次编辑强制暂停只会成倍增加推理轮次 |
 | `proc.run` 接受 shell 命令字符串以换取管道简写 | 引入命令注入、多层引号转义错误与宿主 shell 环境差异；解释器内的链式正则过滤与参数数组形式的 `proc.pipe` 已覆盖筛选需求 |
-| 脚本进程单独设沙箱，API 降为节点内置宿主函数 | 出现两套定义；API 声明的 effect 与 co-effect 模板只剩文档意义 |
+| 脚本进程单独设沙箱，API 降为节点内置宿主函数 | 第三方 API 工具在节点进程内运行，能触及节点持有的全部资源，声明的 effect 与 co-effect 模板失去强制力，单次调用也无法设置内存与时间上限；解释器放进 `wasmtime` 即获得同样的隔离与上限，不必另设一套进程沙箱 |
 | 在 Starlark 中标注 effect，或运行前静态推出脚本的 effect | 句柄作为值在脚本中传递，静态分析只能近似；模型也不会写标注；分发层在每次 API 调用时已拿到精确值 |
 | 以污点追踪在运行时拦截机密性方向的外发 | 经长度、正则与分支的隐式流动追踪不住；数据经模型上下文中转时彻底断链，只会造成已拦住的错觉 |
 | 机密性边只在同一次 `act` 内成立 | 模型可以把上一次 `act` 读到的内容写进下一次 `act` 的外发请求 |
