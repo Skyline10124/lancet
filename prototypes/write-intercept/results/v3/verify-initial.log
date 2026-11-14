@@ -1,0 +1,22 @@
+PASS 七类参数改写各 200，常规路径零变化 
+PASS 硬链接残余与两类可写树跨类反例确实执行 
+PASS 沙箱内 80 次有实际尝试且没有插入锁内 
+PASS 目录改名阻断不同子目录的打开 
+PASS 外部 100 次窗口均执行，检测后恢复无冲突 b 
+PASS 12 次操作成功、有锚点，新节点恢复保住 inode 拓扑 
+PASS 两个规模各 5 次，结构记录恒为 1、clone 恒为 0，恢复精确 
+PASS 先恢复改名后的文件，再改回目录 
+PASS 跨类目录逐个 clone、目录交换无 clone 
+PASS 并发 fsync、写许可晚于提交完成 
+PASS 上下文已记录两项动态 mount 差异，其余与 ns 一致 
+PASS 连续 cwd/umask 和无效 dirfd 不破坏 worker 
+PASS worker 在目标 user/mount、宿主 pid，沙箱 proc 不可见 
+PASS 50 次最终终止，实际返回的调用均 ENOSYS，变化项保守恢复 
+PASS builds 四配置各三个成功样本 
+PASS checkouts 四配置各三个成功样本 
+PASS 空与缺失 target 均完整构建成功 
+PASS 微基准每组 20,000 次无失败 
+PASS 第一二轮源码、报告、results 均保持原样 
+PASS ADR 没有修改 
+FAIL 交付文档相对链接存在 [['REPORT-v3.md', 'results/v3/verification.json'], ['REPORT-v3.md', 'results/v3/docs-check-temporary-index.json']]
+PASS 没有本轮沙箱或 probe 残留 

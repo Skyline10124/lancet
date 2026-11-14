@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "name": "七类参数改写各 200，常规路径零变化",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "硬链接残余与两类可写树跨类反例确实执行",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "沙箱内 80 次有实际尝试且没有插入锁内",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "目录改名阻断不同子目录的打开",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "外部 100 次窗口均执行，检测后恢复无冲突 b",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "12 次操作成功、有锚点，新节点恢复保住 inode 拓扑",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "两个规模各 5 次，结构记录恒为 1、clone 恒为 0，恢复精确",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "先恢复改名后的文件，再改回目录",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "跨类目录逐个 clone、目录交换无 clone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "并发 fsync、写许可晚于提交完成",
+      "passed": true,
+      "detail": {
+        "peak_fsync_overlap": 8,
+        "violations": []
+      }
+    },
+    {
+      "name": "上下文已记录两项动态 mount 差异，其余与 ns 一致",
+      "passed": true,
+      "detail": [
+        "tmpfs-perm",
+        "tmpfs-perm-nocap"
+      ]
+    },
+    {
+      "name": "连续 cwd/umask 和无效 dirfd 不破坏 worker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "worker 在目标 user/mount、宿主 pid，沙箱 proc 不可见",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "50 次最终终止，实际返回的调用均 ENOSYS，变化项保守恢复",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "builds 四配置各三个成功样本",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "checkouts 四配置各三个成功样本",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "空与缺失 target 均完整构建成功",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "微基准每组 20,000 次无失败",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "第一二轮源码、报告、results 均保持原样",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ADR 没有修改",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "交付文档相对链接存在",
+      "passed": false,
+      "detail": [
+        [
+          "REPORT-v3.md",
+          "results/v3/verification.json"
+        ],
+        [
+          "REPORT-v3.md",
+          "results/v3/docs-check-temporary-index.json"
+        ]
+      ]
+    },
+    {
+      "name": "没有本轮沙箱或 probe 残留",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "passed": false,
+  "hashes": {
+    "Makefile": "f1a91baa6a89aab1ff59851eec111df07c15079d93282475cd9f3ee4a709803c",
+    "v3-runtime.h": "6faf6a29315cd7bb9dc7c70d32314f716826d394cb7ab6e47ed3f3213298b268",
+    "intercept-v3.c": "5a29099d8aa5dca7a754e2681ab11431a0fb67eaabaafa5b66b29397656ebcfb",
+    "v3-node.h": "c098fd1af3de4c23c5084695f612c53dccb0bccfd7ce49ecf00c3c6d43635470",
+    "probe-v3.c": "a2003e3fde8c8ccc503583c2d2328f9608db0a1bb9228d3c6bae066d0aa47928",
+    "experiment-v3.py": "ea18eedf5077ea42a932c7ddffd7d6af15123cab3a944cd723c630750b822be2",
+    "recover-v3.py": "c2fc447679b51a012737c57c5cac45553cad05e0c531260431ee1e5d77536af2",
+    "races-v3.py": "43f55befe2c42fd4fa6613a54c698cd10eac0ed770dfa0d9dd87d429b5ffc293",
+    "benchmarks-v3.py": "0f9a4b46abc9f92b9151d89453f0b2d843bf052b813c97a539e144d0713d76f1",
+    "timings-v3.py": "d9c7546f7ea36017fd85c2579830468865b5a02b9096857694f69060cec5a494",
+    "context-edge-v3.py": "78b54ad0d02a6caa826acca8eea7dffb6fd7dde3fdf23489ec8c709a1818e8a6",
+    "docs-check-v3.py": "bf97567c16684f65d12d91fe51029f593576f57facfd9c29a47680f8d07e4b44",
+    "notification-floor-v3.c": "9b5d8bda42a6c383378dc49a373a896dc2eafb416cd4101609fe64daab4c32b0",
+    "floor-v3.py": "7cb588cc86de086aa10a714cd8fb724a483d06a19101a95ddd1b1ae0a676fa60",
+    "context-v3.py": "9718226731d54660aadbdeb08857b544c4f4d211cd37aa9a768229b8ced63dfb",
+    "final-benchmarks-v3.py": "de264fddcf71fc6874cf1a6c95199604fa0d47969b8a7530d0f0c8a3c579ace9",
+    "verify-v3.py": "76b700176c2e870a05d0deff6f310dd1861b97cdb749dc0316352db2979293c8",
+    "summarize-v3.py": "2ed426a6779b760a6bf5d2e95d9391f043556ef7674758ddb13a6dcf5e55b795",
+    "binary": "95abf9eef8c7f00ac3c275d5adfe03a90b9132cfb0734bff809d21ead78f4c89"
+  }
+}

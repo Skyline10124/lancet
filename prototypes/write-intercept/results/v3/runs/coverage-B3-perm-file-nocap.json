@@ -1,0 +1,58 @@
+{
+  "name": "coverage-B3-perm-file-nocap",
+  "mode": "B3",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "B3",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/coverage-B3-perm-file-nocap",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/coverage-B3-perm-file-nocap",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "perm-file-nocap"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2270526,
+  "process_wall_s": 0.004013880039565265,
+  "stats": {
+    "mode": "B3",
+    "wall_s": 0.00296138,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 0,
+    "continued": 0,
+    "workers": 1,
+    "worker_threads": 8,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "landlock_abi": 6,
+    "lock_waits": 0,
+    "anchors": 0,
+    "moves": 0,
+    "batches": 0,
+    "max_batch": 0,
+    "digest_s": 1.7997808754444122e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"perm-file-nocap\",\"rc\":-1,\"errno\":13,\"seconds\":0.000356460}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "perm-file-nocap",
+      "rc": -1,
+      "errno": 13,
+      "seconds": 0.00035646
+    }
+  ]
+}

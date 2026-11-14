@@ -1,0 +1,8 @@
+make: Entering directory '/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept'
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread probe-v3.c -o .scratch/probe-v3
+In file included from probe-v3.c:2:
+probe.c: In function ‘baseline_probe_main’:
+probe.c:56:12: warning: variable ‘start’ might be clobbered by ‘longjmp’ or ‘vfork’ [-Wclobbered]
+   56 |     double start=now();
+      |            ^~~~~
+make: Leaving directory '/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept'

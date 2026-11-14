@@ -1,0 +1,387 @@
+{
+  "build": {
+    "none": {
+      "n": 3,
+      "median": 56.404813452,
+      "minimum": 54.896676758,
+      "maximum": 61.572298383,
+      "samples": [
+        56.404813452,
+        61.572298383,
+        54.896676758
+      ]
+    },
+    "ns": {
+      "n": 3,
+      "median": 54.705476912,
+      "minimum": 54.043887867,
+      "maximum": 55.022110658,
+      "samples": [
+        55.022110658,
+        54.705476912,
+        54.043887867
+      ]
+    },
+    "B2v2": {
+      "n": 3,
+      "median": 59.055121161,
+      "minimum": 58.7449929,
+      "maximum": 70.162298161,
+      "samples": [
+        59.055121161,
+        58.7449929,
+        70.162298161
+      ]
+    },
+    "B3": {
+      "n": 3,
+      "median": 54.852606253,
+      "minimum": 54.676764507,
+      "maximum": 55.538709183,
+      "samples": [
+        54.676764507,
+        55.538709183,
+        54.852606253
+      ]
+    }
+  },
+  "checkout": {
+    "none": {
+      "n": 3,
+      "median": 0.258667332,
+      "minimum": 0.247835203,
+      "maximum": 0.401551758,
+      "samples": [
+        0.401551758,
+        0.258667332,
+        0.247835203
+      ]
+    },
+    "ns": {
+      "n": 3,
+      "median": 0.275972582,
+      "minimum": 0.275969002,
+      "maximum": 0.288596121,
+      "samples": [
+        0.288596121,
+        0.275972582,
+        0.275969002
+      ]
+    },
+    "B2v2": {
+      "n": 3,
+      "median": 12.375600551,
+      "minimum": 12.332887445,
+      "maximum": 12.933581744,
+      "samples": [
+        12.933581744,
+        12.375600551,
+        12.332887445
+      ]
+    },
+    "B3": {
+      "n": 3,
+      "median": 12.748428781,
+      "minimum": 12.654796895,
+      "maximum": 13.787522071,
+      "samples": [
+        13.787522071,
+        12.748428781,
+        12.654796895
+      ]
+    }
+  },
+  "build_overhead_percent": 0.2689481004555905,
+  "micro": {
+    "none-native": {
+      "n": 3,
+      "median": 3.391452,
+      "minimum": 3.386815,
+      "maximum": 3.405082,
+      "samples": [
+        3.391452,
+        3.386815,
+        3.405082
+      ]
+    },
+    "ns-namespace": {
+      "n": 3,
+      "median": 3.405825,
+      "minimum": 3.377849,
+      "maximum": 3.421594,
+      "samples": [
+        3.377849,
+        3.421594,
+        3.405825
+      ]
+    },
+    "B2v2-emulate": {
+      "n": 3,
+      "median": 393.081137,
+      "minimum": 386.532363,
+      "maximum": 400.136445,
+      "samples": [
+        386.532363,
+        400.136445,
+        393.081137
+      ]
+    },
+    "B3-continue": {
+      "n": 3,
+      "median": 29.097435,
+      "minimum": 29.026691,
+      "maximum": 29.183079,
+      "samples": [
+        29.097435,
+        29.183079,
+        29.026691
+      ]
+    },
+    "B3-emulate": {
+      "n": 3,
+      "median": 167.567295,
+      "minimum": 165.143345,
+      "maximum": 172.16599,
+      "samples": [
+        167.567295,
+        165.143345,
+        172.16599
+      ]
+    }
+  },
+  "directory": {
+    "1000": {
+      "n": 5,
+      "median": 2.00032,
+      "minimum": 1.9180300000000001,
+      "maximum": 2.40225,
+      "samples": [
+        2.0245200000000003,
+        1.9180300000000001,
+        1.9842000000000002,
+        2.40225,
+        2.00032
+      ]
+    },
+    "10000": {
+      "n": 5,
+      "median": 2.2351099999999997,
+      "minimum": 1.93499,
+      "maximum": 2.74518,
+      "samples": [
+        1.93499,
+        2.74518,
+        2.2351099999999997,
+        2.62715,
+        1.9783499999999998
+      ]
+    }
+  },
+  "directory_unflushed": {
+    "1000": {
+      "n": 5,
+      "median": 7.94216,
+      "minimum": 6.98855,
+      "maximum": 15.609720000000001,
+      "samples": [
+        15.609720000000001,
+        7.94216,
+        7.77985,
+        6.98855,
+        8.186729999999999
+      ]
+    },
+    "10000": {
+      "n": 5,
+      "median": 49.644178999999994,
+      "minimum": 46.957929,
+      "maximum": 50.523399,
+      "samples": [
+        49.666909000000004,
+        49.644178999999994,
+        47.82824900000001,
+        50.523399,
+        46.957929
+      ]
+    }
+  },
+  "landlock": [
+    {
+      "case": "ll-race",
+      "kind": "open",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    },
+    {
+      "case": "ll-race",
+      "kind": "truncate",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    },
+    {
+      "case": "ll-race",
+      "kind": "rename",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    },
+    {
+      "case": "ll-race",
+      "kind": "unlink",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    },
+    {
+      "case": "ll-race",
+      "kind": "link",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    },
+    {
+      "case": "ll-race",
+      "kind": "symlink",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    },
+    {
+      "case": "ll-race",
+      "kind": "mkdir",
+      "iterations": 200,
+      "succeeded": 0,
+      "denied": 200,
+      "other": 0,
+      "unregistered_paths": 0
+    }
+  ],
+  "external": [
+    {
+      "case": "unlink",
+      "pattern": "remove",
+      "total": 20,
+      "detected": 0,
+      "missed": 20
+    },
+    {
+      "case": "unlink",
+      "pattern": "move",
+      "total": 20,
+      "detected": 20,
+      "missed": 0
+    },
+    {
+      "case": "rename",
+      "pattern": "move",
+      "total": 20,
+      "detected": 20,
+      "missed": 0
+    },
+    {
+      "case": "rename",
+      "pattern": "target",
+      "total": 20,
+      "detected": 0,
+      "missed": 20
+    },
+    {
+      "case": "symlink",
+      "pattern": "aba",
+      "total": 20,
+      "detected": 0,
+      "missed": 20
+    }
+  ],
+  "crashes": {
+    "total": 50,
+    "enosys": 15,
+    "no_return_observed": 35,
+    "regular_fd_write": 15,
+    "allowed_fd_write": 15,
+    "still_running": 0,
+    "indeterminate": 15
+  },
+  "floor": {
+    "native": {
+      "n": 3,
+      "median": 3.41,
+      "minimum": 3.39,
+      "maximum": 3.46,
+      "samples": [
+        3.39,
+        3.41,
+        3.46
+      ]
+    },
+    "cont": {
+      "n": 3,
+      "median": 10.4,
+      "minimum": 10.33,
+      "maximum": 10.42,
+      "samples": [
+        10.33,
+        10.4,
+        10.42
+      ]
+    },
+    "cont-read": {
+      "n": 3,
+      "median": 12.3,
+      "minimum": 12.29,
+      "maximum": 12.39,
+      "samples": [
+        12.39,
+        12.3,
+        12.29
+      ]
+    },
+    "addfd-read": {
+      "n": 3,
+      "median": 23.18,
+      "minimum": 22.91,
+      "maximum": 23.89,
+      "samples": [
+        23.18,
+        23.89,
+        22.91
+      ]
+    }
+  },
+  "groups": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "rule_status": [
+    "部分通过",
+    "通过",
+    "通过",
+    "部分通过",
+    "通过",
+    "部分通过",
+    "通过",
+    "未通过"
+  ]
+}

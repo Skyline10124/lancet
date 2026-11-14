@@ -1,0 +1,45 @@
+{
+  "name": "coverage-ns-within-target",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/coverage-ns-within-target",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/coverage-ns-within-target",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "within-target"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.002999850083142519,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00196883,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.5005934983491898e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"within-target\",\"rc\":0,\"errno\":0,\"seconds\":0.000017490}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "within-target",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 1.749e-05
+    }
+  ]
+}

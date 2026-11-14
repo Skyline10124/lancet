@@ -1,0 +1,105 @@
+make: Entering directory '/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept'
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread intercept.c -o .scratch/intercept
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread probe.c -o .scratch/probe
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread intercept-v2.c -o .scratch/intercept-v2
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread probe-v2.c -o .scratch/probe-v2
+In file included from probe-v2.c:2:
+probe.c: In function ‘baseline_probe_main’:
+probe.c:56:12: warning: variable ‘start’ might be clobbered by ‘longjmp’ or ‘vfork’ [-Wclobbered]
+   56 |     double start=now();
+      |            ^~~~~
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread intercept-v3.c -o .scratch/intercept-v3
+In file included from intercept-v3.c:8:
+v3-runtime.h: In function ‘install_landlock’:
+v3-runtime.h:48:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   48 |         if(syscall(SYS_landlock_add_rule,fd,LANDLOCK_RULE_PATH_BENEATH,&a,0))die("Landlock add rule");close(p);
+      |         ^~
+v3-runtime.h:48:103: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   48 |         if(syscall(SYS_landlock_add_rule,fd,LANDLOCK_RULE_PATH_BENEATH,&a,0))die("Landlock add rule");close(p);
+      |                                                                                                       ^~~~~
+v3-runtime.h:50:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   50 |     if(prctl(PR_SET_NO_NEW_PRIVS,1,0,0,0)||syscall(SYS_landlock_restrict_self,fd,0))die("Landlock restrict");close(fd);
+      |     ^~
+v3-runtime.h:50:110: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   50 |     if(prctl(PR_SET_NO_NEW_PRIVS,1,0,0,0)||syscall(SYS_landlock_restrict_self,fd,0))die("Landlock restrict");close(fd);
+      |                                                                                                              ^~~~~
+intercept-v3.c: In function ‘helper’:
+intercept-v3.c:354:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  354 |     if(o.isopen&&v>=0&&v!=fds[0])close(v);goto cleanup;
+      |     ^~
+intercept-v3.c:354:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  354 |     if(o.isopen&&v>=0&&v!=fds[0])close(v);goto cleanup;
+      |                                           ^~~~
+In file included from intercept-v3.c:420:
+v3-node.h: In function ‘start_worker’:
+v3-node.h:27:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   27 |         if(u<0||m<0||setns(u,CLONE_NEWUSER)||setns(m,CLONE_NEWNS))die("worker namespace");close(u);close(m);
+      |         ^~
+v3-node.h:27:91: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   27 |         if(u<0||m<0||setns(u,CLONE_NEWUSER)||setns(m,CLONE_NEWNS))die("worker namespace");close(u);close(m);
+      |                                                                                           ^~~~~
+v3-node.h:36:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+   36 |     for(int i=0;i<V3_SLOTS;i++)close(channels[i][1]);worker_count=1;
+      |     ^~~
+v3-node.h:36:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+   36 |     for(int i=0;i<V3_SLOTS;i++)close(channels[i][1]);worker_count=1;
+      |                                                      ^~~~~~~~~~~~
+v3-node.h: In function ‘resolve_path’:
+v3-node.h:50:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   50 |     if(snprintf(out,4096,"%s/%s",parent,slash+1)>=4096)return -1;return 0;
+      |     ^~
+v3-node.h:50:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   50 |     if(snprintf(out,4096,"%s/%s",parent,slash+1)>=4096)return -1;return 0;
+      |                                                                  ^~~~~~
+v3-node.h: At top level:
+v3-node.h:71:13: error: conflicting types for ‘rendezvous’; have ‘void(const char *, int)’
+   71 | static void rendezvous(const char *p,int phase) {
+      |             ^~~~~~~~~~
+In file included from intercept-v3.c:3:
+intercept.c:290:13: note: previous definition of ‘rendezvous’ with type ‘void(struct op *)’
+  290 | static void rendezvous(struct op *o) {
+      |             ^~~~~~~~~~
+v3-node.h: In function ‘notification’:
+v3-node.h:116:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  116 |         if(l1==l2)l2=-1;if(l2>=0&&(l1<0||l2<l1)){int swap=l1;l1=l2;l2=swap;}
+      |         ^~
+v3-node.h:116:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  116 |         if(l1==l2)l2=-1;if(l2>=0&&(l1<0||l2<l1)){int swap=l1;l1=l2;l2=swap;}
+      |                         ^~
+v3-node.h:117:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  117 |         if(l1>=0)take_lock(l1);if(l2>=0)take_lock(l2);
+      |         ^~
+v3-node.h:117:32: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  117 |         if(l1>=0)take_lock(l1);if(l2>=0)take_lock(l2);
+      |                                ^~
+v3-node.h:150:40: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘__u64’ {aka ‘long long unsigned int’} [-Wformat=]
+  150 |     if(audit){fprintf(audit,"{\"id\":%lu,\"registered\":%d,\"durable_generation\":%lu,\"execute_after\":%.9f}\n",n.id,changed,seen,now());fflush(audit);}
+      |                                      ~~^                                                                         ~~~~
+      |                                        |                                                                          |
+      |                                        long unsigned int                                                          __u64 {aka long long unsigned int}
+      |                                      %llu
+v3-node.h:176:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  176 |     if(l2>=0)pthread_mutex_unlock(&directory_locks[l2]);if(l1>=0)pthread_mutex_unlock(&directory_locks[l1]);
+      |     ^~
+v3-node.h:176:57: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  176 |     if(l2>=0)pthread_mutex_unlock(&directory_locks[l2]);if(l1>=0)pthread_mutex_unlock(&directory_locks[l1]);
+      |                                                         ^~
+v3-node.h: In function ‘main’:
+v3-node.h:207:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  207 |     if(recv(socks[0],&init,sizeof(init),0)!=sizeof(init))die("init pid");initpid=init;
+      |     ^~
+v3-node.h:207:74: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  207 |     if(recv(socks[0],&init,sizeof(init),0)!=sizeof(init))die("init pid");initpid=init;
+      |                                                                          ^~~~~~~
+intercept-v3.c: At top level:
+intercept-v3.c:14:33: warning: ‘link_success’ defined but not used [-Wunused-variable]
+   14 | static unsigned long link_calls,link_success;
+      |                                 ^~~~~~~~~~~~
+intercept-v3.c:14:22: warning: ‘link_calls’ defined but not used [-Wunused-variable]
+   14 | static unsigned long link_calls,link_success;
+      |                      ^~~~~~~~~~
+v3-runtime.h:13:81: warning: ‘durable_violations’ defined but not used [-Wunused-variable]
+   13 | static unsigned long continued, lock_waits, batches, max_batch, anchors, moves, durable_violations;
+      |                                                                                 ^~~~~~~~~~~~~~~~~~
+make: *** [Makefile:30: .scratch/intercept-v3] Error 1
+make: Leaving directory '/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept'

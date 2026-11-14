@@ -1,0 +1,3762 @@
+[
+  {
+    "rep": 0,
+    "result": {
+      "name": "grouped-0",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-0",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2331961,
+      "process_wall_s": 0.024697449058294296,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.023581139,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.006794219953007996
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 36235819,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 36235819,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 67220328,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 67220328,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 85033350,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 85033350,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 54738393,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 54738393,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 101709000,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 101709000,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 118208416,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 118208416,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 151454585,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 151454585,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-0/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 135341961,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 135341961,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d0/a",
+        "d2/a",
+        "d3/a",
+        "d1/a",
+        "d4/a",
+        "d5/a",
+        "d7/a",
+        "d6/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.738369721,
+        "end": 641314.739939751,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738370631,
+        "end": 641314.740014231,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738363641,
+        "end": 641314.740030291,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738362681,
+        "end": 641314.740065531,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738375261,
+        "end": 641314.740016551,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738361701,
+        "end": 641314.740042511,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738359141,
+        "end": 641314.740020081,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.738367511,
+        "end": 641314.740071051,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.741258551
+      },
+      {
+        "id": 923653203280451699,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741291561
+      },
+      {
+        "id": 923653203280451702,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741297071
+      },
+      {
+        "id": 923653203280451705,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741302531
+      },
+      {
+        "id": 923653203280451700,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741312631
+      },
+      {
+        "id": 923653203280451704,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741318241
+      },
+      {
+        "id": 923653203280451703,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741336901
+      },
+      {
+        "id": 923653203280451701,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741360471
+      },
+      {
+        "id": 923653203280451706,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.741400861
+      }
+    ]
+  },
+  {
+    "rep": 1,
+    "result": {
+      "name": "grouped-1",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-1",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2331998,
+      "process_wall_s": 0.02083910908550024,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.019753869,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.005311609944328666
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 337637429,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 337637429,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 353496959,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 353496959,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 393244274,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 393244274,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 371967029,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 371967029,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 403663068,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 403663068,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 420139645,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 420139645,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 471105284,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 471105284,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-1/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 471105282,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 471105282,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d0/a",
+        "d1/a",
+        "d3/a",
+        "d2/a",
+        "d4/a",
+        "d5/a",
+        "d7/a",
+        "d6/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.77135384,
+        "end": 641314.77342727,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77136498,
+        "end": 641314.77351843,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77135226,
+        "end": 641314.7735158,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77135539,
+        "end": 641314.77355761,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77135788,
+        "end": 641314.77357832,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77136635,
+        "end": 641314.77356199,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77136322,
+        "end": 641314.77351676,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.77135986,
+        "end": 641314.77351248,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.77448527
+      },
+      {
+        "id": 11205049692852408191,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.7745167
+      },
+      {
+        "id": 11205049692852408193,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.77452187
+      },
+      {
+        "id": 11205049692852408196,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.774528
+      },
+      {
+        "id": 11205049692852408198,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.77453868
+      },
+      {
+        "id": 11205049692852408195,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.77454436
+      },
+      {
+        "id": 11205049692852408197,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.77455422
+      },
+      {
+        "id": 11205049692852408194,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.77457139
+      },
+      {
+        "id": 11205049692852408192,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.77458422
+      }
+    ]
+  },
+  {
+    "rep": 2,
+    "result": {
+      "name": "grouped-2",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-2",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332035,
+      "process_wall_s": 0.025547939003445208,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.024334219,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.004932839889079332
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 672066263,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 672066263,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 656331205,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 656331205,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 638289737,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 638289737,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 689734399,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 689734399,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 722812394,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 722812394,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 704796228,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 704796228,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 739882786,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 739882786,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-2/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 774607824,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 774607824,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d2/a",
+        "d1/a",
+        "d0/a",
+        "d3/a",
+        "d5/a",
+        "d4/a",
+        "d6/a",
+        "d7/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.807469539,
+        "end": 641314.809956219,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807642879,
+        "end": 641314.810045339,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807647479,
+        "end": 641314.810083629,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807654899,
+        "end": 641314.810100689,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807651149,
+        "end": 641314.810028699,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807462689,
+        "end": 641314.810024839,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807469799,
+        "end": 641314.810033729,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.807474339,
+        "end": 641314.810092439,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.811251469
+      },
+      {
+        "id": 17292444971812156206,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811286839
+      },
+      {
+        "id": 17292444971812156208,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811292579
+      },
+      {
+        "id": 17292444971812156205,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811299589
+      },
+      {
+        "id": 17292444971812156211,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811310499
+      },
+      {
+        "id": 17292444971812156207,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811319019
+      },
+      {
+        "id": 17292444971812156209,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811333819
+      },
+      {
+        "id": 17292444971812156204,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811347979
+      },
+      {
+        "id": 17292444971812156210,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.811371139
+      }
+    ]
+  },
+  {
+    "rep": 3,
+    "result": {
+      "name": "grouped-3",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-3",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332072,
+      "process_wall_s": 0.02225110901053995,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.021127689,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.004171039909124374
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 101709002,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 101709002,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 169386562,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 169386562,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 118159753,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 118159753,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 135341964,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 135341964,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 153147569,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 153147569,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 85033352,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 85033352,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 184944426,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 184944426,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-3/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 208057310,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 208057310,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d1/a",
+        "d5/a",
+        "d2/a",
+        "d3/a",
+        "d4/a",
+        "d0/a",
+        "d6/a",
+        "d7/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.841385818,
+        "end": 641314.843462228,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841387088,
+        "end": 641314.843559868,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841396998,
+        "end": 641314.843584398,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841396398,
+        "end": 641314.843604368,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841388528,
+        "end": 641314.843569368,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841392818,
+        "end": 641314.843561518,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841398918,
+        "end": 641314.843550868,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.841389658,
+        "end": 641314.843608568,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.844499388
+      },
+      {
+        "id": 8586531204219998808,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844531908
+      },
+      {
+        "id": 8586531204219998811,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844536718
+      },
+      {
+        "id": 8586531204219998807,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844542328
+      },
+      {
+        "id": 8586531204219998809,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844550688
+      },
+      {
+        "id": 8586531204219998810,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844559758
+      },
+      {
+        "id": 8586531204219998813,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844566618
+      },
+      {
+        "id": 8586531204219998814,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844578778
+      },
+      {
+        "id": 8586531204219998812,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.844585688
+      }
+    ]
+  },
+  {
+    "rep": 4,
+    "result": {
+      "name": "grouped-4",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-4",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332109,
+      "process_wall_s": 0.026779899024404585,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.025676069,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.009169870056211948
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 393244277,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 393244277,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 420139647,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 420139647,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 471105286,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 471105286,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 403664668,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 403664668,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 471105288,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 471105288,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 471105290,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 471105290,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 487740671,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 487740671,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-4/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 504084445,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 504084445,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d0/a",
+        "d2/a",
+        "d3/a",
+        "d1/a",
+        "d4/a",
+        "d5/a",
+        "d6/a",
+        "d7/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.878431057,
+        "end": 641314.880744597,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878437827,
+        "end": 641314.880835387,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878443527,
+        "end": 641314.880805927,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878434457,
+        "end": 641314.880822777,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878435867,
+        "end": 641314.880874777,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878450437,
+        "end": 641314.880857227,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878431347,
+        "end": 641314.880877077,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.878433877,
+        "end": 641314.880853647,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.881753217
+      },
+      {
+        "id": 13381531067011356350,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881791097
+      },
+      {
+        "id": 13381531067011356355,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881802767
+      },
+      {
+        "id": 13381531067011356353,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881819427
+      },
+      {
+        "id": 13381531067011356351,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881835397
+      },
+      {
+        "id": 13381531067011356354,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881847337
+      },
+      {
+        "id": 13381531067011356356,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881866497
+      },
+      {
+        "id": 13381531067011356357,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881888137
+      },
+      {
+        "id": 13381531067011356352,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.881904027
+      }
+    ]
+  },
+  {
+    "rep": 5,
+    "result": {
+      "name": "grouped-5",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-5",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332146,
+      "process_wall_s": 0.02065686008427292,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.01955458,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.0039905799785628915
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 790279832,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 790279832,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 739882788,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 739882788,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 790279834,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 790279834,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 790279836,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 790279836,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 806232214,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 806232214,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 822770280,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 822770280,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 1038330,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 1038330,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-5/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 840292607,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 840292607,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d1/a",
+        "d0/a",
+        "d2/a",
+        "d3/a",
+        "d4/a",
+        "d5/a",
+        "d7/a",
+        "d6/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.913332206,
+        "end": 641314.915511396,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913334436,
+        "end": 641314.915609466,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913327366,
+        "end": 641314.915632126,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913332646,
+        "end": 641314.915595096,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913335086,
+        "end": 641314.915661046,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913338516,
+        "end": 641314.915587106,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913334996,
+        "end": 641314.915615486,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.913326146,
+        "end": 641314.915659146,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.917812726
+      },
+      {
+        "id": 11907892075301488224,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917846896
+      },
+      {
+        "id": 11907892075301488229,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917855496
+      },
+      {
+        "id": 11907892075301488228,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917862136
+      },
+      {
+        "id": 11907892075301488225,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917869406
+      },
+      {
+        "id": 11907892075301488226,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917883946
+      },
+      {
+        "id": 11907892075301488230,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917899846
+      },
+      {
+        "id": 11907892075301488223,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917922366
+      },
+      {
+        "id": 11907892075301488227,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.917945556
+      }
+    ]
+  },
+  {
+    "rep": 6,
+    "result": {
+      "name": "grouped-6",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-6",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332183,
+      "process_wall_s": 0.02191722998395562,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.02069041,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.00455266993958503
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 184944428,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 184944428,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 222019470,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 222019470,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 208057313,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 208057313,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 236015914,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 236015914,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 252696158,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 252696158,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 271882426,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 271882426,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 286406738,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 286406738,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-6/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 302999427,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 302999427,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d0/a",
+        "d2/a",
+        "d1/a",
+        "d3/a",
+        "d4/a",
+        "d5/a",
+        "d6/a",
+        "d7/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.947686535,
+        "end": 641314.949746235,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947685975,
+        "end": 641314.949833815,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947706165,
+        "end": 641314.949863205,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947684755,
+        "end": 641314.949876935,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947691205,
+        "end": 641314.949812155,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947701325,
+        "end": 641314.949866155,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947693195,
+        "end": 641314.949821115,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.947697325,
+        "end": 641314.949804555,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.951081255
+      },
+      {
+        "id": 3143443947524326796,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951116125
+      },
+      {
+        "id": 3143443947524326800,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951121545
+      },
+      {
+        "id": 3143443947524326798,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951130335
+      },
+      {
+        "id": 3143443947524326801,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951137365
+      },
+      {
+        "id": 3143443947524326797,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951147985
+      },
+      {
+        "id": 3143443947524326799,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951152885
+      },
+      {
+        "id": 3143443947524326803,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951167035
+      },
+      {
+        "id": 3143443947524326802,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.951186115
+      }
+    ]
+  },
+  {
+    "rep": 7,
+    "result": {
+      "name": "grouped-7",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-7",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332220,
+      "process_wall_s": 0.02004116994794458,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.01887474,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.004291040007956326
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 487740642,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 487740642,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 504084451,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 504084451,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 520934619,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 520934619,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 541986452,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 541986452,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 553947214,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 553947214,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 590129438,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 590129438,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 606132053,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 606132053,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-7/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 575445552,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 575445552,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d0/a",
+        "d1/a",
+        "d2/a",
+        "d3/a",
+        "d4/a",
+        "d6/a",
+        "d7/a",
+        "d5/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641314.978383104,
+        "end": 641314.981192834,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978390394,
+        "end": 641314.981266704,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978377794,
+        "end": 641314.981292514,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978383084,
+        "end": 641314.981314634,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978395614,
+        "end": 641314.981336774,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978388914,
+        "end": 641314.981302414,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978400534,
+        "end": 641314.981370114,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641314.978377824,
+        "end": 641314.981369374,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641314.982295774
+      },
+      {
+        "id": 2299572354432323034,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982331414
+      },
+      {
+        "id": 2299572354432323038,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982336884
+      },
+      {
+        "id": 2299572354432323039,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982342564
+      },
+      {
+        "id": 2299572354432323035,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982351804
+      },
+      {
+        "id": 2299572354432323036,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982356944
+      },
+      {
+        "id": 2299572354432323041,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982373374
+      },
+      {
+        "id": 2299572354432323037,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982398574
+      },
+      {
+        "id": 2299572354432323040,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641314.982439674
+      }
+    ]
+  },
+  {
+    "rep": 8,
+    "result": {
+      "name": "grouped-8",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-8",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332257,
+      "process_wall_s": 0.025023689959198236,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.02383037,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.005033220048062503
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 790279841,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 790279841,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 806232216,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 806232216,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 822770282,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 822770282,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 839742805,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 839742805,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 1038332,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 1038332,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 17392482,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 17392482,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 36235831,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 36235831,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-8/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 54738398,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 54738398,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d0/a",
+        "d1/a",
+        "d2/a",
+        "d3/a",
+        "d4/a",
+        "d5/a",
+        "d6/a",
+        "d7/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641315.015394263,
+        "end": 641315.018157123,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015416313,
+        "end": 641315.018253193,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015394903,
+        "end": 641315.018266783,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015403343,
+        "end": 641315.018231923,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015399173,
+        "end": 641315.018263583,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015412353,
+        "end": 641315.018321473,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015405653,
+        "end": 641315.018307073,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.015406483,
+        "end": 641315.018314633,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641315.019227213
+      },
+      {
+        "id": 8432720742815968383,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019261933
+      },
+      {
+        "id": 8432720742815968386,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019267303
+      },
+      {
+        "id": 8432720742815968390,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019274993
+      },
+      {
+        "id": 8432720742815968385,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019286513
+      },
+      {
+        "id": 8432720742815968387,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019292273
+      },
+      {
+        "id": 8432720742815968388,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019308953
+      },
+      {
+        "id": 8432720742815968384,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019322673
+      },
+      {
+        "id": 8432720742815968389,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.019339993
+      }
+    ]
+  },
+  {
+    "rep": 9,
+    "result": {
+      "name": "grouped-9",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/grouped-9",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "parallel-prestates",
+        "8"
+      ],
+      "environment": {
+        "WI_AUDIT": "1"
+      },
+      "returncode": 0,
+      "node_pid": 2332294,
+      "process_wall_s": 0.022386719938367605,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.02129676,
+        "code": 0,
+        "calls": 8,
+        "registered": 8,
+        "clones": 8,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 8,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 8,
+        "digest_s": 0.00401690904982388
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 271882428,
+          "nlink": 1,
+          "link": "",
+          "relative": "d2/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 271882428,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d3/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 286406740,
+          "nlink": 1,
+          "link": "",
+          "relative": "d3/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 286406740,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 252696160,
+          "nlink": 1,
+          "link": "",
+          "relative": "d1/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 252696160,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 3,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d5/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 320230985,
+          "nlink": 1,
+          "link": "",
+          "relative": "d5/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 320230985,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 4,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 236015916,
+          "nlink": 1,
+          "link": "",
+          "relative": "d0/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 236015916,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 5,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d4/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 302999429,
+          "nlink": 1,
+          "link": "",
+          "relative": "d4/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 302999429,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 6,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d7/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 353528385,
+          "nlink": 1,
+          "link": "",
+          "relative": "d7/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 353528385,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        },
+        {
+          "index": 7,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/grouped-9/d6/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 337637386,
+          "nlink": 1,
+          "link": "",
+          "relative": "d6/a",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 337637386,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+          },
+          "clone_sha256": "6db7d803e74f1ffa7d8f5adc0bf95b3e15bf4c8373fffadf546227cc6c6742cb"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "d2/a",
+        "d3/a",
+        "d1/a",
+        "d5/a",
+        "d0/a",
+        "d4/a",
+        "d7/a",
+        "d6/a"
+      ],
+      "stdout": "{\"children\":8,\"failed\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "children": 8,
+          "failed": 0
+        }
+      ]
+    },
+    "audit": [
+      {
+        "kind": "fsync",
+        "start": 641315.049589522,
+        "end": 641315.052132642,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049589362,
+        "end": 641315.052232102,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049595112,
+        "end": 641315.052257282,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049601182,
+        "end": 641315.052271502,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049586022,
+        "end": 641315.052282172,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049588972,
+        "end": 641315.052207302,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049588392,
+        "end": 641315.052242452,
+        "errno": 0
+      },
+      {
+        "kind": "fsync",
+        "start": 641315.049591362,
+        "end": 641315.052216922,
+        "errno": 0
+      },
+      {
+        "kind": "commit",
+        "upto": 8,
+        "size": 8,
+        "complete": 641315.054220782
+      },
+      {
+        "id": 12006073715310042039,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054257442
+      },
+      {
+        "id": 12006073715310042044,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054265392
+      },
+      {
+        "id": 12006073715310042038,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054276872
+      },
+      {
+        "id": 12006073715310042037,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054282962
+      },
+      {
+        "id": 12006073715310042042,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054298862
+      },
+      {
+        "id": 12006073715310042043,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054314362
+      },
+      {
+        "id": 12006073715310042041,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054336582
+      },
+      {
+        "id": 12006073715310042040,
+        "registered": 1,
+        "durable_generation": 8,
+        "execute_after": 641315.054360032
+      }
+    ]
+  }
+]

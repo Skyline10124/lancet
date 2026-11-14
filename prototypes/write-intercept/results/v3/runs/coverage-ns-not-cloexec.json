@@ -1,0 +1,46 @@
+{
+  "name": "coverage-ns-not-cloexec",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/coverage-ns-not-cloexec",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/coverage-ns-not-cloexec",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "not-cloexec"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2271134,
+  "process_wall_s": 0.0030295700998976827,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.001983719,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.4994369596242905e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"not-cloexec\",\"rc\":0,\"errno\":0,\"seconds\":0.000007870}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "not-cloexec",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 7.87e-06
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "coverage-ns-resolve-nosym-ok",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/coverage-ns-resolve-nosym-ok",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/coverage-ns-resolve-nosym-ok",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "resolve-nosym-ok"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2270929,
+  "process_wall_s": 0.0031301190610975027,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.002102249,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.6007106751203537e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"resolve-nosym-ok\",\"rc\":6,\"errno\":0,\"seconds\":0.000019440}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "resolve-nosym-ok",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 1.944e-05
+    }
+  ]
+}

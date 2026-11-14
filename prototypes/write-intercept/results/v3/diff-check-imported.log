@@ -1,0 +1,236 @@
+prototypes/write-intercept/results/benchmark-progress.log:22: trailing whitespace.
++git-status-none-0 0 {'mode': 'none', 'wall_s': 0.029167669, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:46: trailing whitespace.
++git-status-ns-0 0 {'mode': 'ns', 'wall_s': 0.026624909, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:70: trailing whitespace.
++git-status-A-0 0 {'mode': 'A', 'wall_s': 0.036828739, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:94: trailing whitespace.
++git-status-B1-0 0 {'mode': 'B1', 'wall_s': 0.026630219, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:118: trailing whitespace.
++git-status-B2-0 0 {'mode': 'B2', 'wall_s': 0.040004228, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:142: trailing whitespace.
++git-status-ns-1 0 {'mode': 'ns', 'wall_s': 0.026655609, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.200249582529068e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:166: trailing whitespace.
++git-status-A-1 0 {'mode': 'A', 'wall_s': 0.026989429, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 5.200272426009178e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:190: trailing whitespace.
++git-status-B1-1 0 {'mode': 'B1', 'wall_s': 0.046013388, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:214: trailing whitespace.
++git-status-B2-1 0 {'mode': 'B2', 'wall_s': 0.026465049, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:238: trailing whitespace.
++git-status-none-1 0 {'mode': 'none', 'wall_s': 0.024530329, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:262: trailing whitespace.
++git-status-A-2 0 {'mode': 'A', 'wall_s': 0.026809519, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.7997961044311523e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:286: trailing whitespace.
++git-status-B1-2 0 {'mode': 'B1', 'wall_s': 0.041815949, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:310: trailing whitespace.
++git-status-B2-2 0 {'mode': 'B2', 'wall_s': 0.035394139, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:334: trailing whitespace.
++git-status-none-2 0 {'mode': 'none', 'wall_s': 0.02490888, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:358: trailing whitespace.
++git-status-ns-2 0 {'mode': 'ns', 'wall_s': 0.026343999, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} 
+prototypes/write-intercept/results/benchmark-progress.log:362: new blank line at EOF.
+prototypes/write-intercept/results/crash.log:1: trailing whitespace.
++A -9 
+prototypes/write-intercept/results/crash.log:7: new blank line at EOF.
+prototypes/write-intercept/results/summary.csv:1: trailing whitespace.
++task,mode,samples,valid,wall_s,min_s,max_s,calls,registered,clones,digest_s,overhead_percent,over_ns_percent
+prototypes/write-intercept/results/summary.csv:2: trailing whitespace.
++build-full,none,3,3,60.688994917,58.335022348,80.509805574,0,0,0,2.400483936071396e-07,0.0,-1.8392944001466627
+prototypes/write-intercept/results/summary.csv:3: trailing whitespace.
++build-full,ns,3,3,61.826160016,59.31557497,80.384398037,0,0,0,2.50060111284256e-07,1.8737583322235185,0.0
+prototypes/write-intercept/results/summary.csv:4: trailing whitespace.
++build-full,A,3,3,57.607503906,54.981201406,65.876904265,11995,0,0,2.600718289613724e-07,-5.077512018800667,-6.823416024718753
+prototypes/write-intercept/results/summary.csv:5: trailing whitespace.
++build-full,B1,3,3,61.901079423,60.799880099,65.74050819,11995,0,0,2.4994369596242905e-07,1.997206425411524,0.12117751932290144
+prototypes/write-intercept/results/summary.csv:6: trailing whitespace.
++build-full,B2,3,3,65.182623307,65.144920869,75.266912632,11995,0,0,2.6996713131666183e-07,7.404354605222263,5.428872325454748
+prototypes/write-intercept/results/summary.csv:7: trailing whitespace.
++build-incremental,none,3,3,8.792148529,7.331909664,10.633673931,0,0,0,2.7997884899377823e-07,0.0,-7.388338991505982
+prototypes/write-intercept/results/summary.csv:8: trailing whitespace.
++build-incremental,ns,3,3,9.493565317,8.34777464,10.237552499,0,0,0,2.4994369596242905e-07,7.977763179118824,0.0
+prototypes/write-intercept/results/summary.csv:9: trailing whitespace.
++build-incremental,A,3,3,7.634364064,7.520902668,8.509852036,258,0,0,2.400483936071396e-07,-13.168390651968254,-19.583804302381036
+prototypes/write-intercept/results/summary.csv:10: trailing whitespace.
++build-incremental,B1,3,3,8.314270182,7.929088674,8.610360542,258,0,0,2.6996713131666183e-07,-5.435285191370099,-12.422046887782534
+prototypes/write-intercept/results/summary.csv:11: trailing whitespace.
++build-incremental,B2,3,3,8.555511314,8.459796227,10.451378323,262,0,0,3.00002284348011e-07,-2.691460616474761,-9.880945373812711
+prototypes/write-intercept/results/summary.csv:12: trailing whitespace.
++test-subset,none,3,3,4.681579789,4.106441137,5.257659717,0,0,0,3.300374373793602e-07,0.0,8.517637958187763
+prototypes/write-intercept/results/summary.csv:13: trailing whitespace.
++test-subset,ns,3,3,4.314118771,4.22109603,4.527949584,0,0,0,2.3993197828531265e-07,-7.849081604107189,0.0
+prototypes/write-intercept/results/summary.csv:14: trailing whitespace.
++test-subset,A,3,3,4.32364063,4.169738076,4.993994469,736,0,0,2.7997884899377823e-07,-7.64569173510673,0.2207138816855636
+prototypes/write-intercept/results/summary.csv:15: trailing whitespace.
++test-subset,B1,3,3,5.27090952,4.682928729,5.543899621,736,0,0,2.7997884899377823e-07,12.588266302428707,22.1781272094699
+prototypes/write-intercept/results/summary.csv:16: trailing whitespace.
++test-subset,B2,3,3,4.776934266,4.310800521,4.95371998,736,0,0,2.6996713131666183e-07,2.036801278577971,10.727926595602732
+prototypes/write-intercept/results/summary.csv:17: trailing whitespace.
++git-status,none,3,3,0.02490888,0.024530329,0.029167669,0,0,0,2.6996713131666183e-07,0.0,-6.445201371392473
+prototypes/write-intercept/results/summary.csv:18: trailing whitespace.
++git-status,ns,3,3,0.026624909,0.026343999,0.026655609,0,0,0,2.300366759300232e-07,6.889225850379455,0.0
+prototypes/write-intercept/results/summary.csv:19: trailing whitespace.
++git-status,A,3,3,0.026989429,0.026809519,0.036828739,1,0,0,3.7997961044311523e-07,8.352639701182852,1.369093881222283
+prototypes/write-intercept/results/summary.csv:20: trailing whitespace.
++git-status,B1,3,3,0.041815949,0.026630219,0.046013388,1,0,0,3.00002284348011e-07,67.87566923924318,57.055744303201195
+prototypes/write-intercept/results/summary.csv:21: trailing whitespace.
++git-status,B2,3,3,0.035394139,0.026465049,0.040004228,1,0,0,2.600718289613724e-07,42.094461894713845,32.936187688002995
+prototypes/write-intercept/results/summary.csv:22: trailing whitespace.
++git-checkout,none,3,3,0.00355833,0.00353453,0.00428291,0,0,0,2.4994369596242905e-07,0.0,-24.732367791486965
+prototypes/write-intercept/results/summary.csv:23: trailing whitespace.
++git-checkout,ns,3,3,0.00472757,0.00466376,0.00478274,0,0,0,2.5995541363954544e-07,32.85923452855695,0.0
+prototypes/write-intercept/results/summary.csv:24: trailing whitespace.
++git-checkout,A,3,3,0.00651676,0.00639321,0.007036219,24,0,0,1.5995465219020844e-07,83.14096781355298,37.8458700770163
+prototypes/write-intercept/results/summary.csv:25: trailing whitespace.
++git-checkout,B1,3,3,0.0136433,0.0070306,0.01477223,24,0,0,2.7997884899377823e-07,283.4186261532798,188.59012135198418
+prototypes/write-intercept/results/summary.csv:26: trailing whitespace.
++git-checkout,B2,3,3,0.00755031,0.006991119,0.00986431,24,0,0,3.100140020251274e-07,112.18689666219825,59.70805297436104
+prototypes/write-intercept/results/summary.csv:27: trailing whitespace.
++git-commit,none,3,0,,,,,,,,,
+prototypes/write-intercept/results/summary.csv:28: trailing whitespace.
++git-commit,ns,3,0,,,,,,,,,
+prototypes/write-intercept/results/summary.csv:29: trailing whitespace.
++git-commit,A,3,0,,,,,,,,,
+prototypes/write-intercept/results/summary.csv:30: trailing whitespace.
++git-commit,B1,3,0,,,,,,,,,
+prototypes/write-intercept/results/summary.csv:31: trailing whitespace.
++git-commit,B2,3,0,,,,,,,,,
+prototypes/write-intercept/results/summary.csv:32: trailing whitespace.
++micro,none,3,3,0.069544808,0.069466898,0.073901498,0,0,0,4.00003045797348e-07,0.0,-1.9456520661748744
+prototypes/write-intercept/results/summary.csv:33: trailing whitespace.
++micro,ns,3,3,0.070924757,0.070541327,0.070960988,0,0,0,2.899905666708946e-07,1.9842588392795735,0.0
+prototypes/write-intercept/results/summary.csv:34: trailing whitespace.
++micro,A,3,3,1.205702953,1.178334194,1.214834712,20000,0,0,2.50060111284256e-07,1633.7066384596244,1599.9747394270241
+prototypes/write-intercept/results/summary.csv:35: trailing whitespace.
++micro,B1,3,3,1.172288384,1.160467264,1.193074013,20000,0,0,2.400483936071396e-07,1585.659099094788,1552.8620380045854
+prototypes/write-intercept/results/summary.csv:36: trailing whitespace.
++micro,B2,3,3,1.241884892,1.229409092,1.242458162,20000,0,0,2.3993197828531265e-07,1685.7334396551935,1650.9892800901664
+prototypes/write-intercept/results/supplement.log:4: trailing whitespace.
++extra-A-hold-existing-fd 
+prototypes/write-intercept/results/v2/benchmark-progress.log:14: trailing whitespace.
++git-status-none-0 0 {'mode': 'none', 'wall_s': 0.178017554, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.00003045797348e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:17: trailing whitespace.
++git-commit-none-0 0 {'mode': 'none', 'wall_s': 0.028322559, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4004763215780258e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:31: trailing whitespace.
++git-status-ns-0 0 {'mode': 'ns', 'wall_s': 0.026280219, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.899905666708946e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:34: trailing whitespace.
++git-commit-ns-0 0 {'mode': 'ns', 'wall_s': 0.029589529, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.7997808754444122e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:48: trailing whitespace.
++git-status-B2-0 0 {'mode': 'B2', 'wall_s': 0.00673409, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.00001522898674e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:51: trailing whitespace.
++git-commit-B2-0 0 {'mode': 'B2', 'wall_s': 0.01097981, 'code': 0, 'calls': 28, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 28, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:69: trailing whitespace.
++git-status-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.00714932, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.200249582529068e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:72: trailing whitespace.
++git-commit-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.028893179, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0005994100356474519} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:86: trailing whitespace.
++git-status-ns-1 0 {'mode': 'ns', 'wall_s': 0.00681149, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:89: trailing whitespace.
++git-commit-ns-1 0 {'mode': 'ns', 'wall_s': 0.00924916, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:103: trailing whitespace.
++git-status-B2-1 0 {'mode': 'B2', 'wall_s': 0.006819159, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:106: trailing whitespace.
++git-commit-B2-1 0 {'mode': 'B2', 'wall_s': 0.01081246, 'code': 0, 'calls': 28, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 28, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:120: trailing whitespace.
++git-status-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.00724598, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:123: trailing whitespace.
++git-commit-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.02473406, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0005906700389459729} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:137: trailing whitespace.
++git-status-none-1 0 {'mode': 'none', 'wall_s': 0.025240319, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:140: trailing whitespace.
++git-commit-none-1 0 {'mode': 'none', 'wall_s': 0.02733479, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:154: trailing whitespace.
++git-status-B2-2 0 {'mode': 'B2', 'wall_s': 0.026532049, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:157: trailing whitespace.
++git-commit-B2-2 0 {'mode': 'B2', 'wall_s': 0.030758369, 'code': 0, 'calls': 28, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 28, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:171: trailing whitespace.
++git-status-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.00716194, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.400491550564766e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:174: trailing whitespace.
++git-commit-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.024064989, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0006117000011727214} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:188: trailing whitespace.
++git-status-none-2 0 {'mode': 'none', 'wall_s': 0.025245279, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.2992102205753326e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:191: trailing whitespace.
++git-commit-none-2 0 {'mode': 'none', 'wall_s': 0.02735306, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.6996636986732483e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:205: trailing whitespace.
++git-status-ns-2 0 {'mode': 'ns', 'wall_s': 0.026318679, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.00003045797348e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:208: trailing whitespace.
++git-commit-ns-2 0 {'mode': 'ns', 'wall_s': 0.028537749, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:222: trailing whitespace.
++git-status-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.00733425, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 5.100155249238014e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:225: trailing whitespace.
++git-commit-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.0263144, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0005926399026066065} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:239: trailing whitespace.
++git-status-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.00718425, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:242: trailing whitespace.
++git-commit-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.027102089, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0006609599804505706} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:256: trailing whitespace.
++git-status-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.00713508, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} 
+prototypes/write-intercept/results/v2/benchmark-progress.log:259: trailing whitespace.
++git-commit-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.024328749, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0006803399883210659} 
+prototypes/write-intercept/results/v2/performance.csv:1: trailing whitespace.
++task,mode,n,median_s,min_s,max_s,digest_median_s
+prototypes/write-intercept/results/v2/performance.csv:2: trailing whitespace.
++build-full,B2,3,56.088629988,54.645791833,57.636139938,2.4994369596242905e-07
+prototypes/write-intercept/results/v2/performance.csv:3: trailing whitespace.
++build-full,B2v2,3,58.877582112,58.876799452,59.044550217,2.6996713131666183e-07
+prototypes/write-intercept/results/v2/performance.csv:4: trailing whitespace.
++build-full,none,3,54.892549636,53.918215246,57.113793232,3.200257197022438e-07
+prototypes/write-intercept/results/v2/performance.csv:5: trailing whitespace.
++build-full,ns,3,54.62177287,53.792700041,54.874603836,3.200257197022438e-07
+prototypes/write-intercept/results/v2/performance.csv:6: trailing whitespace.
++build-incremental,B2,3,7.516150283,7.375862477,7.686626107,2.400483936071396e-07
+prototypes/write-intercept/results/v2/performance.csv:7: trailing whitespace.
++build-incremental,B2v2,3,8.04564598,7.987504782,8.048410411,0.7541420569177717
+prototypes/write-intercept/results/v2/performance.csv:8: trailing whitespace.
++build-incremental,none,3,7.787008914,7.379275946,8.330652896,2.6996713131666183e-07
+prototypes/write-intercept/results/v2/performance.csv:9: trailing whitespace.
++build-incremental,ns,3,7.552574941,7.344222167,7.790297264,2.3993197828531265e-07
+prototypes/write-intercept/results/v2/performance.csv:10: trailing whitespace.
++git-checkout,B2,3,0.0063941,0.006336479,0.00647222,2.50060111284256e-07
+prototypes/write-intercept/results/v2/performance.csv:11: trailing whitespace.
++git-checkout,B2v2,3,0.0149991,0.014942629,0.015079909,2.3993197828531265e-07
+prototypes/write-intercept/results/v2/performance.csv:12: trailing whitespace.
++git-checkout,none,3,0.003614789,0.00360505,0.00418655,1.7997808754444122e-07
+prototypes/write-intercept/results/v2/performance.csv:13: trailing whitespace.
++git-checkout,ns,3,0.00462401,0.00455333,0.0046775,2.5995541363954544e-07
+prototypes/write-intercept/results/v2/performance.csv:14: trailing whitespace.
++git-commit,B2,3,0.01097981,0.01081246,0.030758369,2.7997884899377823e-07
+prototypes/write-intercept/results/v2/performance.csv:15: trailing whitespace.
++git-commit,B2v2,3,0.0263144,0.024328749,0.027102089,0.0006609599804505706
+prototypes/write-intercept/results/v2/performance.csv:16: trailing whitespace.
++git-commit,none,3,0.02735306,0.02733479,0.028322559,1.6996636986732483e-07
+prototypes/write-intercept/results/v2/performance.csv:17: trailing whitespace.
++git-commit,ns,3,0.028537749,0.00924916,0.029589529,2.3993197828531265e-07
+prototypes/write-intercept/results/v2/performance.csv:18: trailing whitespace.
++git-status,B2,3,0.006819159,0.00673409,0.026532049,2.50060111284256e-07
+prototypes/write-intercept/results/v2/performance.csv:19: trailing whitespace.
++git-status,B2v2,3,0.00718425,0.00713508,0.00733425,2.6996713131666183e-07
+prototypes/write-intercept/results/v2/performance.csv:20: trailing whitespace.
++git-status,none,3,0.025245279,0.025240319,0.178017554,3.2992102205753326e-07
+prototypes/write-intercept/results/v2/performance.csv:21: trailing whitespace.
++git-status,ns,3,0.026280219,0.00681149,0.026318679,2.899905666708946e-07
+prototypes/write-intercept/results/v2/performance.csv:22: trailing whitespace.
++micro,B2,3,1.216719642,1.193660203,1.250970301,4.100147634744644e-07
+prototypes/write-intercept/results/v2/performance.csv:23: trailing whitespace.
++micro,B2v2,3,7.785949804,7.711352016,7.922842112,2.5995541363954544e-07
+prototypes/write-intercept/results/v2/performance.csv:24: trailing whitespace.
++micro,none,3,0.069457778,0.069276248,0.069548098,2.899905666708946e-07
+prototypes/write-intercept/results/v2/performance.csv:25: trailing whitespace.
++micro,ns,3,0.070571197,0.070488177,0.070829498,2.7997884899377823e-07
+prototypes/write-intercept/results/v2/performance.csv:26: trailing whitespace.
++rename-large,B2,3,2.963278657,2.815307453,3.048394735,0.5802209220128134
+prototypes/write-intercept/results/v2/performance.csv:27: trailing whitespace.
++rename-large,B2v2,3,2.972359416,2.821829335,3.012773587,0.5943491919897497
+prototypes/write-intercept/results/v2/performance.csv:28: trailing whitespace.
++rename-large,B2v2-batch,3,1.278415432,1.244061743,1.3201104,0.5902485919650644
+prototypes/write-intercept/results/v2/performance.csv:29: trailing whitespace.
++rename-large,none,3,0.00081308,0.00078208,0.00081442,3.8999132812023163e-07
+prototypes/write-intercept/results/v2/performance.csv:30: trailing whitespace.
++rename-large,ns,3,0.002000399,0.00198637,0.0020081,3.4994445741176605e-07
+prototypes/write-intercept/results/v2/performance.csv:31: trailing whitespace.
++test-subset,B2,3,4.104978331,4.079845251,4.11175357,2.400483936071396e-07
+prototypes/write-intercept/results/v2/performance.csv:32: trailing whitespace.
++test-subset,B2v2,3,4.356370284,4.274274977,4.415916003,2.50060111284256e-07
+prototypes/write-intercept/results/v2/performance.csv:33: trailing whitespace.
++test-subset,none,3,4.076246471,4.065823321,4.086572071,2.4994369596242905e-07
+prototypes/write-intercept/results/v2/performance.csv:34: trailing whitespace.
++test-subset,ns,3,4.134174539,4.059145402,4.331765013,2.4994369596242905e-07

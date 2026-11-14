@@ -1,0 +1,3 @@
+make: Entering directory '/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept'
+gcc -O2 -g -Wall -Wextra -Wno-format-truncation -pthread intercept-v3.c -o .scratch/intercept-v3
+make: Leaving directory '/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept'

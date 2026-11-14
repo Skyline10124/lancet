@@ -1,0 +1,15 @@
+{
+  "command": [
+    "cargo",
+    "--offline",
+    "--locked",
+    "xtask",
+    "docs-check"
+  ],
+  "temporary_index": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/docs-index-v3",
+  "tracked_paths_added": 2092,
+  "real_index_unchanged": true,
+  "returncode": 0,
+  "stdout": "文档链接检查通过：23 个 Markdown 文件\n",
+  "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running `prototypes/write-intercept/.scratch/docs-target/debug/xtask docs-check`\n"
+}

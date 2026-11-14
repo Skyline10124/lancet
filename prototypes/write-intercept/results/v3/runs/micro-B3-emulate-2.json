@@ -1,0 +1,63 @@
+{
+  "name": "micro-B3-emulate-2",
+  "mode": "B3",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "B3",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/micro-B3-emulate-2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/micro-B3-emulate-2",
+    "120",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "micro-path",
+    "/dev/null",
+    "20000"
+  ],
+  "environment": {
+    "WI_FORCE_EMULATE": "1"
+  },
+  "returncode": 0,
+  "node_pid": 2331609,
+  "process_wall_s": 3.4480983150424436,
+  "stats": {
+    "mode": "B3",
+    "wall_s": 3.446390115,
+    "code": 0,
+    "calls": 20000,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 20000,
+    "continued": 0,
+    "workers": 1,
+    "worker_threads": 8,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "landlock_abi": 6,
+    "lock_waits": 0,
+    "anchors": 0,
+    "moves": 0,
+    "batches": 0,
+    "max_batch": 0,
+    "digest_s": 2.300366759300232e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":3.443319805,\"us_per_call\":172.165990}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 3.443319805,
+      "us_per_call": 172.16599
+    }
+  ]
+}

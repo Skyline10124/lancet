@@ -1,0 +1,50 @@
+[
+  {
+    "path": "checkouts.json.gz",
+    "raw_bytes": 21955194,
+    "compressed_bytes": 2845482,
+    "raw_sha256": "81577757446ccf891fb024d693b1ca28e7e503899a880fa8cd80ffaaae34ae02"
+  },
+  {
+    "path": "checkouts-before-optimization.json.gz",
+    "raw_bytes": 21957395,
+    "compressed_bytes": 2847962,
+    "raw_sha256": "8c5913d064b7c9113eeab876b5546cdc17653857a2e92cde7bb5df1119db5c5d"
+  },
+  {
+    "path": "runs/checkout-B2v2-0.json.gz",
+    "raw_bytes": 3448634,
+    "compressed_bytes": 471504,
+    "raw_sha256": "a48dff23e9ea9073c07faec92f951878bc88c905a4b059543e1e7f863184f1b6"
+  },
+  {
+    "path": "runs/checkout-B3-0-before-optimization.json.gz",
+    "raw_bytes": 3448743,
+    "compressed_bytes": 471453,
+    "raw_sha256": "527c68f2515107b8ddcd64b1837678509bb8c1b7c282f5ae74ad419935d80530"
+  },
+  {
+    "path": "runs/checkout-B2v2-1.json.gz",
+    "raw_bytes": 3448633,
+    "compressed_bytes": 471455,
+    "raw_sha256": "8f955663b23e57ff810bd02e592d8800be69faea45196521c542589bd60cf06c"
+  },
+  {
+    "path": "runs/checkout-B3-1-before-optimization.json.gz",
+    "raw_bytes": 3448742,
+    "compressed_bytes": 471250,
+    "raw_sha256": "530c2ac0596d5fe3537cab54667eb9178e703641f0d028f7232fd2e6ffd03769"
+  },
+  {
+    "path": "runs/checkout-B2v2-2.json.gz",
+    "raw_bytes": 3448634,
+    "compressed_bytes": 471381,
+    "raw_sha256": "77704fbb6d60f7d347ce7df2b160335d3e2b3cefdb08d4ec54ba51fce7ea5451"
+  },
+  {
+    "path": "runs/checkout-B3-2-before-optimization.json.gz",
+    "raw_bytes": 3448743,
+    "compressed_bytes": 471259,
+    "raw_sha256": "a48242a8d771c5d9d2e8537b2d2227de03f2d79f7df4d9434b3f64e1d5bfdfdd"
+  }
+]

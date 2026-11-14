@@ -1,0 +1,188 @@
+full-none-0 0 {'mode': 'none', 'wall_s': 56.404813452, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 56.36s
+
+full-ns-0 0 {'mode': 'ns', 'wall_s': 53.712833404, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.400491550564766e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.66s
+
+full-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 59.055121161, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4994293451309204e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 59.00s
+
+full-B3-0 0 {'mode': 'B3', 'wall_s': 57.298755335, 'code': 0, 'calls': 14610, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 97, 'continued': 14083, 'workers': 1, 'worker_threads': 8, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 0, 'max_batch': 0, 'digest_s': 1.2991949915885925e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 57.25s
+
+full-ns-1 0 {'mode': 'ns', 'wall_s': 53.472089532, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4994293451309204e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.42s
+
+full-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 58.7449929, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.5005934983491898e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.69s
+
+full-B3-1 0 {'mode': 'B3', 'wall_s': 57.506472298, 'code': 0, 'calls': 14614, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 97, 'continued': 14087, 'workers': 1, 'worker_threads': 8, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 0, 'max_batch': 0, 'digest_s': 1.3993121683597565e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 57.45s
+
+full-none-1 0 {'mode': 'none', 'wall_s': 61.572298383, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.300359144806862e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 01s
+
+full-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 70.162298161, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.3993121683597565e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 10s
+
+full-B3-2 0 {'mode': 'B3', 'wall_s': 58.585327036, 'code': 0, 'calls': 14610, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 97, 'continued': 14083, 'workers': 1, 'worker_threads': 8, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 0, 'max_batch': 0, 'digest_s': 1.4004763215780258e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.53s
+
+full-none-2 0 {'mode': 'none', 'wall_s': 54.896676758, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.300359144806862e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.84s
+
+full-ns-2 0 {'mode': 'ns', 'wall_s': 62.739024588, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.300359144806862e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 02s
+
+Switched to a new branch 'wi-v3-checkout'
+checkout-none-0 0 {'mode': 'none', 'wall_s': 0.401551758, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4004763215780258e-07}
+checkout-ns-0 0 {'mode': 'ns', 'wall_s': 0.288596121, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.2992026060819626e-07}
+checkout-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 12.933581744, 'code': 0, 'calls': 8023, 'registered': 4000, 'clones': 4000, 'denied': 0, 'errors': 0, 'emulated': 8023, 'workers': 8023, 'link_calls': 0, 'link_success': 0, 'inode_checks': 4006, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.187826893059537}
+checkout-B3-0 0 {'mode': 'B3', 'wall_s': 13.611334233, 'code': 0, 'calls': 8023, 'registered': 4000, 'clones': 4000, 'denied': 0, 'errors': 0, 'emulated': 8000, 'continued': 23, 'workers': 1, 'worker_threads': 8, 'inode_checks': 4000, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 4000, 'max_batch': 1, 'digest_s': 2.2106804420473054}
+checkout-ns-1 0 {'mode': 'ns', 'wall_s': 0.275972582, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.2991949915885925e-07}
+checkout-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 12.375600551, 'code': 0, 'calls': 8023, 'registered': 4000, 'clones': 4000, 'denied': 0, 'errors': 0, 'emulated': 8023, 'workers': 8023, 'link_calls': 0, 'link_success': 0, 'inode_checks': 4006, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.093212537933141}
+checkout-B3-1 0 {'mode': 'B3', 'wall_s': 12.43871271, 'code': 0, 'calls': 8023, 'registered': 4000, 'clones': 4000, 'denied': 0, 'errors': 0, 'emulated': 8000, 'continued': 23, 'workers': 1, 'worker_threads': 8, 'inode_checks': 4000, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 4000, 'max_batch': 1, 'digest_s': 2.0796203979989514}
+checkout-none-1 0 {'mode': 'none', 'wall_s': 0.258667332, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.5005934983491898e-07}
+checkout-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 12.332887445, 'code': 0, 'calls': 8023, 'registered': 4000, 'clones': 4000, 'denied': 0, 'errors': 0, 'emulated': 8023, 'workers': 8023, 'link_calls': 0, 'link_success': 0, 'inode_checks': 4006, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.078616776969284}
+checkout-B3-2 0 {'mode': 'B3', 'wall_s': 12.338712275, 'code': 0, 'calls': 8023, 'registered': 4000, 'clones': 4000, 'denied': 0, 'errors': 0, 'emulated': 8000, 'continued': 23, 'workers': 1, 'worker_threads': 8, 'inode_checks': 4000, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 4000, 'max_batch': 1, 'digest_s': 2.0181210099253803}
+checkout-none-2 0 {'mode': 'none', 'wall_s': 0.247835203, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.3993121683597565e-07}
+checkout-ns-2 0 {'mode': 'ns', 'wall_s': 0.275969002, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.6996636986732483e-07}
+empty 0 {'mode': 'B3', 'wall_s': 58.334429878, 'code': 0, 'calls': 14610, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 97, 'continued': 14083, 'workers': 1, 'worker_threads': 8, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 0, 'max_batch': 0, 'digest_s': 1.300359144806862e-07} 
+   Compiling jsonwebtoken v11.1.0
+   Compiling tokio-rustls v0.26.4
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling lattice-system-harness v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-system-harness)
+   Compiling reqwest v0.13.4
+   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)
+   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.28s
+
+absent 120 {'mode': 'B3', 'wall_s': 0.714395879, 'code': 137, 'calls': 1025, 'registered': 3, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 969, 'continued': 11, 'workers': 1, 'worker_threads': 8, 'inode_checks': 11, 'mismatches': 1, 'reply_failures': 1, 'indeterminate': 1, 'timeout': 0, 'race_handshakes': 0, 'landlock_abi': 6, 'lock_waits': 0, 'anchors': 0, 'moves': 0, 'batches': 3, 'max_batch': 1, 'digest_s': 0.000242569949477911}    Compiling proc-macro2 v1.0.106
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.45
+   Compiling libc v0.2.186
+   Compiling cfg-if v1.0.4
+

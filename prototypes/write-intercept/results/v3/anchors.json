@@ -1,0 +1,5135 @@
+[
+  {
+    "case": "unlink-hardlink",
+    "rep": 0,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607195,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882277,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 739882282,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882278,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 739882283,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 822770265,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882277,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 789678251,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 17426776,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426777,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882279,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882281,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882280,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 839743117,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 739882284,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 806231548,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 806231549,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607194,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 774607196,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622516,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607195,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882277,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 739882282,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882278,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 739882283,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 822770265,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882277,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 789678251,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 17426776,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426777,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882279,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882281,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882280,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 839743117,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 739882284,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 806231548,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 806231549,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607194,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 774607196,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622516,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-unlink-hardlink-0",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-unlink-hardlink-0",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-hardlink"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268508,
+      "process_wall_s": 0.00796796998474747,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.006829039,
+        "code": 0,
+        "calls": 1,
+        "registered": 1,
+        "clones": 1,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0005910999607294798
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-0/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 739882277,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard"
+      ],
+      "stdout": "{\"case\":\"unlink-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.004009270}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "unlink-hardlink",
+          "rc": 0,
+          "errno": 0,
+          "seconds": 0.00400927
+        }
+      ]
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-0/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-0/hard"
+        }
+      ],
+      "recovery_pid": 2268529
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "unlink-hardlink",
+    "rep": 1,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 84854141,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900436,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 53900441,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900437,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 53900442,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 135320821,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900436,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 101600271,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 194398226,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 194398227,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900438,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900440,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900439,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 153107771,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 53900443,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 118159663,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 118159664,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 67968669,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 67968670,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 169422951,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 84854141,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900436,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 53900441,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900437,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 53900442,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 135320821,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900436,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 101600271,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 194398226,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 194398227,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900438,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900440,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900439,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 153107771,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 53900443,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 118159663,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 118159664,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 67968669,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 67968670,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 169422951,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-unlink-hardlink-1",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-unlink-hardlink-1",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-hardlink"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268530,
+      "process_wall_s": 0.008003290044143796,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00689931,
+        "code": 0,
+        "calls": 1,
+        "registered": 1,
+        "clones": 1,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0005252800183370709
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-1/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 53900436,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard"
+      ],
+      "stdout": "{\"case\":\"unlink-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.004120290}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "unlink-hardlink",
+          "rc": 0,
+          "errno": 0,
+          "seconds": 0.00412029
+        }
+      ]
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-1/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-1/hard"
+        }
+      ],
+      "recovery_pid": 2268551
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "unlink-hardlink",
+    "rep": 2,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 252732513,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407153,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 221407171,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407155,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 221407172,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 302613191,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407153,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 271813681,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 353337406,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 353337407,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407165,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407169,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407168,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 319683977,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 221407174,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 286355575,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 286355576,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 235725891,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 235745096,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 337651160,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 252732513,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407153,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 221407171,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407155,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 221407172,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 302613191,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407153,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 271813681,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 353337406,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 353337407,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407165,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407169,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407168,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 319683977,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 221407174,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 286355575,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 286355576,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 235725891,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 235745096,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 337651160,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-unlink-hardlink-2",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-unlink-hardlink-2",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-hardlink"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268552,
+      "process_wall_s": 0.007835950003936887,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00678845,
+        "code": 0,
+        "calls": 1,
+        "registered": 1,
+        "clones": 1,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0005096800159662962
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-2/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 221407153,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard"
+      ],
+      "stdout": "{\"case\":\"unlink-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.003852140}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "unlink-hardlink",
+          "rc": 0,
+          "errno": 0,
+          "seconds": 0.00385214
+        }
+      ]
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-2/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-unlink-hardlink-2/hard"
+        }
+      ],
+      "recovery_pid": 2268573
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "rename-hardlink",
+    "rep": 0,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 420007775,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241599,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 393241668,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241664,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 393241669,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471502621,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241599,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471502619,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 520934498,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 520934499,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241665,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241667,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241666,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 487740492,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 393241670,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471502620,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 471502622,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 403663053,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 403663054,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 504081687,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 420007775,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241599,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 393241668,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241664,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 393241669,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471502621,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241599,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471502619,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 520934498,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 520934499,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241665,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241667,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241666,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 487740492,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 393241670,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471502620,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 471502622,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 403663053,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 403663054,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 504081687,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-rename-hardlink-0",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-rename-hardlink-0",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-hardlink"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268574,
+      "process_wall_s": 0.008420479949563742,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00726912,
+        "code": 0,
+        "calls": 1,
+        "registered": 2,
+        "clones": 1,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0005498399259522557
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0/new",
+          "before": "Absent",
+          "mode": 0,
+          "dev": 0,
+          "ino": 0,
+          "nlink": 0,
+          "link": "",
+          "relative": "new",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 393241599,
+            "nlink": 3,
+            "type": "file",
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "prestate": {
+            "type": "Absent"
+          }
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 393241599,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "new",
+        "hard"
+      ],
+      "stdout": "{\"case\":\"rename-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.004447340}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "rename-hardlink",
+          "rc": 0,
+          "errno": 0,
+          "seconds": 0.00444734
+        }
+      ]
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0/hard",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0/new"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0/hard"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-0/new"
+        }
+      ],
+      "recovery_pid": 2268595
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "rename-hardlink",
+    "rep": 1,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 589507317,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945485,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 553945490,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945486,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 553945491,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 638292192,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945485,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 606019636,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 688630297,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 688630298,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945487,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945489,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945488,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 655799319,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 553945492,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622297002,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 622297003,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 575445508,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 575445691,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 671651287,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 589507317,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945485,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 553945490,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945486,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 553945491,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 638292192,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945485,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 606019636,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 688630297,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 688630298,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945487,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945489,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945488,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 655799319,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 553945492,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622297002,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 622297003,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 575445508,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 575445691,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 671651287,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-rename-hardlink-1",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-rename-hardlink-1",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-hardlink"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268596,
+      "process_wall_s": 0.009161700028926134,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00811551,
+        "code": 0,
+        "calls": 1,
+        "registered": 2,
+        "clones": 1,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.002701730001717806
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1/new",
+          "before": "Absent",
+          "mode": 0,
+          "dev": 0,
+          "ino": 0,
+          "nlink": 0,
+          "link": "",
+          "relative": "new",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 553945485,
+            "nlink": 3,
+            "type": "file",
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "prestate": {
+            "type": "Absent"
+          }
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 553945485,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "new",
+        "hard"
+      ],
+      "stdout": "{\"case\":\"rename-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.005281390}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "rename-hardlink",
+          "rc": 0,
+          "errno": 0,
+          "seconds": 0.00528139
+        }
+      ]
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1/hard",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1/new"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1/hard"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-1/new"
+        }
+      ],
+      "recovery_pid": 2268617
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "rename-hardlink",
+    "rep": 2,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607197,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855146,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 721855151,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855147,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 721855152,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 806231518,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855146,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607198,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622517,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 622518,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855148,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855150,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855149,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 822766653,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 721855153,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 789677921,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 789677922,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 739882285,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882286,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 839742933,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607197,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855146,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 721855151,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855147,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 721855152,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 806231518,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855146,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774607198,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622517,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 622518,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855148,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855150,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855149,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 822766653,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 721855153,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 789677921,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 789677922,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 739882285,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739882286,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 839742933,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-rename-hardlink-2",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-rename-hardlink-2",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-hardlink"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268618,
+      "process_wall_s": 0.00814082007855177,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00692175,
+        "code": 0,
+        "calls": 1,
+        "registered": 2,
+        "clones": 1,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0006433599628508091
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2/new",
+          "before": "Absent",
+          "mode": 0,
+          "dev": 0,
+          "ino": 0,
+          "nlink": 0,
+          "link": "",
+          "relative": "new",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 721855146,
+            "nlink": 3,
+            "type": "file",
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "prestate": {
+            "type": "Absent"
+          }
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 721855146,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "new",
+        "hard"
+      ],
+      "stdout": "{\"case\":\"rename-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.004071420}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "rename-hardlink",
+          "rc": 0,
+          "errno": 0,
+          "seconds": 0.00407142
+        }
+      ]
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2/hard",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2/new"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2/hard"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-rename-hardlink-2/new"
+        }
+      ],
+      "recovery_pid": 2268639
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "rep": 0,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 67968671,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235802,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 36235807,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235803,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 36235808,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 118159456,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235802,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 84854085,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 169420954,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 169420955,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235804,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235806,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235805,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 135318010,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 36235809,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 101600272,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 101600273,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 53900444,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900445,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 152888056,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 67968671,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235802,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 36235807,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235803,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 36235808,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 118159456,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235802,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 84854085,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 169420954,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 169420955,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235804,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235806,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235805,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 135318010,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 36235809,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 101600272,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 101600273,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 53900444,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 53900445,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 152888056,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-anchor-unlink-all-0",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-anchor-unlink-all-0",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-unlink-all"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268640,
+      "process_wall_s": 0.010525460005737841,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00944044,
+        "code": 0,
+        "calls": 2,
+        "registered": 2,
+        "clones": 2,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 2,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 2,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 2,
+        "max_batch": 1,
+        "digest_s": 0.0013873889110982418
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 36235802,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 36235802,
+          "nlink": 2,
+          "link": "",
+          "relative": "a",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard",
+        "a"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "observations": []
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0/a",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0/a"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-0/hard"
+        }
+      ],
+      "recovery_pid": 2268661
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "rep": 1,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 235745097,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810257,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 207810262,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810258,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 207810263,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 286355534,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810257,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 252732514,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 337651161,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 337651162,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810259,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810261,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810260,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 302605862,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 207810264,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 271813614,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 271813618,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 221406994,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407175,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 319683978,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 235745097,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810257,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 207810262,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810258,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 207810263,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 286355534,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810257,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 252732514,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 337651161,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 337651162,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810259,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810261,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 207810260,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 302605862,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 207810264,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 271813614,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 271813618,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 221406994,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 221407175,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 319683978,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-anchor-unlink-all-1",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-anchor-unlink-all-1",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-unlink-all"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268662,
+      "process_wall_s": 0.010404549073427916,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.009346349,
+        "code": 0,
+        "calls": 2,
+        "registered": 2,
+        "clones": 2,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 2,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 2,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 2,
+        "max_batch": 1,
+        "digest_s": 0.0010268900077790022
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 207810257,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 207810257,
+          "nlink": 2,
+          "link": "",
+          "relative": "a",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard",
+        "a"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "observations": []
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1/a",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1/a"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-1/hard"
+        }
+      ],
+      "recovery_pid": 2268683
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "rep": 2,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 403663055,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966675,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 371966680,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966676,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 371966681,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471500569,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966675,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 420007496,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 504081688,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 504081693,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966677,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966679,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966678,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 471500571,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 371966682,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471500568,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 471500570,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 393241671,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241672,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 487740493,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 403663055,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966675,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 371966680,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966676,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 371966681,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471500569,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966675,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 420007496,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 504081688,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 504081693,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966677,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966679,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371966678,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 471500571,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 371966682,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 471500568,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 471500570,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 393241671,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 393241672,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 487740493,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-anchor-unlink-all-2",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-anchor-unlink-all-2",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-unlink-all"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268684,
+      "process_wall_s": 0.01048217003699392,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00936378,
+        "code": 0,
+        "calls": 2,
+        "registered": 2,
+        "clones": 2,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 2,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 2,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 2,
+        "max_batch": 1,
+        "digest_s": 0.0010845198994502425
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 371966675,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2/a",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 371966675,
+          "nlink": 2,
+          "link": "",
+          "relative": "a",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard",
+        "a"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "observations": []
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2/a",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2/a"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-unlink-all-2/hard"
+        }
+      ],
+      "recovery_pid": 2268705
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "rep": 0,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 575445692,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945978,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 541945985,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945979,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 541945986,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622297004,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945978,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 589507318,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 671651288,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 671651289,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945980,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945984,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945983,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 638292193,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 541945987,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 606019588,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 606019589,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 553943771,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945493,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 655799008,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 575445692,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945978,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 541945985,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945979,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 541945986,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 622297004,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945978,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 589507318,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 671651288,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 671651289,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945980,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945984,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 541945983,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 638292193,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 541945987,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 606019588,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 606019589,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 553943771,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553945493,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 655799008,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-anchor-overwrite-0",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-anchor-overwrite-0",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-overwrite"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268706,
+      "process_wall_s": 0.009321789955720305,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.0081918,
+        "code": 0,
+        "calls": 1,
+        "registered": 2,
+        "clones": 2,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0010900100460276008
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 541945978,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 541945979,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0/b",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 541945979,
+          "nlink": 1,
+          "link": "",
+          "relative": "b",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+          },
+          "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard",
+        "b"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "observations": []
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0/b",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0/b"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-0/hard"
+        }
+      ],
+      "recovery_pid": 2268735
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "rep": 1,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 739879594,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779770,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 704779775,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779771,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 704779840,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 789677923,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779770,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774603706,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 839742934,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 839742935,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779772,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779774,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779773,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 806231519,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 704779841,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774603707,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 774603708,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 721854876,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855154,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 822766654,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 739879594,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779770,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 704779775,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779771,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 704779840,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 789677923,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779770,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774603706,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 839742934,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 839742935,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779772,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779774,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704779773,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 806231519,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 704779841,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 774603707,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 774603708,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 721854876,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 721855154,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 822766654,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-anchor-overwrite-1",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-anchor-overwrite-1",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-overwrite"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268736,
+      "process_wall_s": 0.009204359957948327,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.00811979,
+        "code": 0,
+        "calls": 1,
+        "registered": 2,
+        "clones": 2,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.001093770028091967
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 704779770,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 704779771,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1/b",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 704779771,
+          "nlink": 1,
+          "link": "",
+          "relative": "b",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+          },
+          "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard",
+        "b"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "observations": []
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1/b",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1/b"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-1/hard"
+        }
+      ],
+      "recovery_pid": 2268765
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "rep": 2,
+    "before": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 53900446,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426786,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 17426793,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426787,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 17426897,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 101600274,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426786,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 67968672,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 152888057,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 152888058,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426788,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426791,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426789,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 118159457,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 17426898,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 84854086,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 84854087,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 36235576,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235810,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 135318011,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "after": {
+      ".git": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 53900446,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426786,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "alias": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 17426793,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "b": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426787,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "dangling": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 17426897,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "new-target"
+      },
+      "empty": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 101600274,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "hard": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426786,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "hidden": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 67968672,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 152888057,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "jail/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 152888058,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "outside": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426788,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a"
+      },
+      "race-evil": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426791,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030"
+      },
+      "race-safe": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 17426789,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "readonly": {
+        "mode": 365,
+        "dev": 66306,
+        "ino": 118159457,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "readonly-file": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 17426898,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "sub": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 84854086,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "sub/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 84854087,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "target": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 36235576,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "target/a": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36235810,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ce257625a0d881c9200f5f6a617bd596a3b55754e82a35f10bfdff08a00d44ea"
+      },
+      "tmpmount": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 135318011,
+        "nlink": 2,
+        "type": "directory"
+      }
+    },
+    "result": {
+      "name": "anchor-anchor-overwrite-2",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/anchor-anchor-overwrite-2",
+        "30",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-overwrite"
+      ],
+      "environment": {},
+      "returncode": 0,
+      "node_pid": 2268766,
+      "process_wall_s": 0.009539109072647989,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.008422639,
+        "code": 0,
+        "calls": 1,
+        "registered": 2,
+        "clones": 2,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 1,
+        "continued": 0,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 1,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 0,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 1,
+        "moves": 0,
+        "batches": 1,
+        "max_batch": 1,
+        "digest_s": 0.0011001699604094028
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2/hard",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 17426786,
+          "nlink": 3,
+          "link": "",
+          "relative": "hard",
+          "after": {
+            "mode": 420,
+            "dev": 66306,
+            "ino": 17426787,
+            "nlink": 1,
+            "type": "file",
+            "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+          },
+          "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2/b",
+          "before": "file",
+          "mode": 33188,
+          "dev": 66306,
+          "ino": 17426787,
+          "nlink": 1,
+          "link": "",
+          "relative": "b",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "file",
+            "mode": 420,
+            "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+          },
+          "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+        }
+      ],
+      "moves": [],
+      "changes": [
+        "hard",
+        "b"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "observations": []
+    },
+    "recovery": {
+      "outcome": "Restored",
+      "restored": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2/b",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2/hard"
+      ],
+      "conflicts": [],
+      "errors": [],
+      "trace": [
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2/b"
+        },
+        {
+          "action": "object",
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/anchor-anchor-overwrite-2/hard"
+        }
+      ],
+      "recovery_pid": 2268795
+    },
+    "exact_inode_topology": true,
+    "operation_ok": true
+  }
+]

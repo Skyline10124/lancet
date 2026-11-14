@@ -1,0 +1,478 @@
+[
+  {
+    "kind": "open",
+    "result": {
+      "name": "landlock-open",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-open",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-open",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "open",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-open.control"
+      },
+      "returncode": 0,
+      "node_pid": 2262212,
+      "process_wall_s": 0.0165055199759081,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.01438067,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 1.6996636986732483e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"open\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "open",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  },
+  {
+    "kind": "truncate",
+    "result": {
+      "name": "landlock-truncate",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-truncate",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-truncate",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "truncate",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-truncate.control"
+      },
+      "returncode": 0,
+      "node_pid": 2262433,
+      "process_wall_s": 0.015115980058908463,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.01403452,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 2.100132405757904e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"truncate\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "truncate",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  },
+  {
+    "kind": "rename",
+    "result": {
+      "name": "landlock-rename",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-rename",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-rename",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "rename",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-rename.control"
+      },
+      "returncode": 0,
+      "node_pid": 2262654,
+      "process_wall_s": 0.01901970896869898,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.017911909,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 1.300359144806862e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"rename\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "rename",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  },
+  {
+    "kind": "unlink",
+    "result": {
+      "name": "landlock-unlink",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-unlink",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-unlink",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "unlink",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-unlink.control"
+      },
+      "returncode": 0,
+      "node_pid": 2262875,
+      "process_wall_s": 0.014190898975357413,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.013142149,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 1.4994293451309204e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"unlink\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "unlink",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  },
+  {
+    "kind": "link",
+    "result": {
+      "name": "landlock-link",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-link",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-link",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "link",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-link.control"
+      },
+      "returncode": 0,
+      "node_pid": 2263096,
+      "process_wall_s": 0.021130899898707867,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.02005976,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 2.3993197828531265e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"link\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "link",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  },
+  {
+    "kind": "symlink",
+    "result": {
+      "name": "landlock-symlink",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-symlink",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-symlink",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "symlink",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-symlink.control"
+      },
+      "returncode": 0,
+      "node_pid": 2263317,
+      "process_wall_s": 0.015383829944767058,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.01424571,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 1.5005934983491898e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"symlink\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "symlink",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  },
+  {
+    "kind": "mkdir",
+    "result": {
+      "name": "landlock-mkdir",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/landlock-mkdir",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/landlock-mkdir",
+        "120",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+        "ll-race",
+        "mkdir",
+        "200"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/v3-landlock-mkdir.control"
+      },
+      "returncode": 0,
+      "node_pid": 2263538,
+      "process_wall_s": 0.01519296900369227,
+      "stats": {
+        "mode": "B3",
+        "wall_s": 0.014112919,
+        "code": 0,
+        "calls": 201,
+        "registered": 0,
+        "clones": 0,
+        "denied": 0,
+        "errors": 0,
+        "emulated": 0,
+        "continued": 201,
+        "workers": 1,
+        "worker_threads": 8,
+        "inode_checks": 0,
+        "mismatches": 0,
+        "reply_failures": 0,
+        "indeterminate": 0,
+        "timeout": 0,
+        "race_handshakes": 200,
+        "landlock_abi": 6,
+        "lock_waits": 0,
+        "anchors": 0,
+        "moves": 0,
+        "batches": 0,
+        "max_batch": 0,
+        "digest_s": 2.7008354663848877e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "{\"case\":\"ll-race\",\"kind\":\"mkdir\",\"iterations\":200,\"succeeded\":0,\"denied\":200,\"other\":0}\n",
+      "stderr": "",
+      "observations": [
+        {
+          "case": "ll-race",
+          "kind": "mkdir",
+          "iterations": 200,
+          "succeeded": 0,
+          "denied": 200,
+          "other": 0
+        }
+      ]
+    },
+    "regular_changes": []
+  }
+]

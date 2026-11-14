@@ -1,0 +1,170 @@
+[
+  {
+    "rep": 0,
+    "mode": "native",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "native",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "native      sync       3.39 us/iter\n",
+    "stderr": "",
+    "us": 3.39
+  },
+  {
+    "rep": 0,
+    "mode": "cont",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "cont",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "cont        sync      10.33 us/iter\n",
+    "stderr": "",
+    "us": 10.33
+  },
+  {
+    "rep": 0,
+    "mode": "cont-read",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "cont-read",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "cont-read   sync      12.39 us/iter\n",
+    "stderr": "",
+    "us": 12.39
+  },
+  {
+    "rep": 0,
+    "mode": "addfd-read",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "addfd-read",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "addfd-read  sync      23.18 us/iter\n",
+    "stderr": "",
+    "us": 23.18
+  },
+  {
+    "rep": 1,
+    "mode": "native",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "native",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "native      sync       3.41 us/iter\n",
+    "stderr": "",
+    "us": 3.41
+  },
+  {
+    "rep": 1,
+    "mode": "cont",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "cont",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "cont        sync      10.40 us/iter\n",
+    "stderr": "",
+    "us": 10.4
+  },
+  {
+    "rep": 1,
+    "mode": "cont-read",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "cont-read",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "cont-read   sync      12.30 us/iter\n",
+    "stderr": "",
+    "us": 12.3
+  },
+  {
+    "rep": 1,
+    "mode": "addfd-read",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "addfd-read",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "addfd-read  sync      23.89 us/iter\n",
+    "stderr": "",
+    "us": 23.89
+  },
+  {
+    "rep": 2,
+    "mode": "native",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "native",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "native      sync       3.46 us/iter\n",
+    "stderr": "",
+    "us": 3.46
+  },
+  {
+    "rep": 2,
+    "mode": "cont",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "cont",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "cont        sync      10.42 us/iter\n",
+    "stderr": "",
+    "us": 10.42
+  },
+  {
+    "rep": 2,
+    "mode": "cont-read",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "cont-read",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "cont-read   sync      12.29 us/iter\n",
+    "stderr": "",
+    "us": 12.29
+  },
+  {
+    "rep": 2,
+    "mode": "addfd-read",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/notification-floor-v3",
+      "addfd-read",
+      "20000",
+      "sync"
+    ],
+    "returncode": 0,
+    "stdout": "addfd-read  sync      22.91 us/iter\n",
+    "stderr": "",
+    "us": 22.91
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "name": "context-alternating-ns",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/context-alternating-ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/context-alternating-ns",
+    "30",
+    "--",
+    "python3",
+    "-c",
+    "import os,subprocess,sys,json\ncode=\"import os;os.chdir(__import__('sys').argv[1]);os.umask(int(__import__('sys').argv[2],8));f=os.open('new',os.O_CREAT|os.O_WRONLY,0o666);os.write(f,os.getcwd().encode());os.close(f)\"\nfor i in range(20):\n a=subprocess.Popen([sys.executable,'-c',code,'sub','077']);b=subprocess.Popen([sys.executable,'-c',code,'empty','022']);assert a.wait()==b.wait()==0\n assert os.stat('sub/new').st_mode&0o777==0o600\n assert os.stat('empty/new').st_mode&0o777==0o644\n assert open('sub/new').read()==os.path.join(os.getcwd(),'sub')\n assert open('empty/new').read()==os.path.join(os.getcwd(),'empty')\n os.unlink('sub/new');os.unlink('empty/new')\nprint(json.dumps({'iterations':20,'ok':True}))"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2271160,
+  "process_wall_s": 0.23352149303536862,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.232400513,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4994293451309204e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"iterations\": 20, \"ok\": true}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "iterations": 20,
+      "ok": true
+    }
+  ]
+}

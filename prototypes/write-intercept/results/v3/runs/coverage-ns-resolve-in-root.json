@@ -1,0 +1,46 @@
+{
+  "name": "coverage-ns-resolve-in-root",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/coverage-ns-resolve-in-root",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/coverage-ns-resolve-in-root",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "resolve-in-root"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2270732,
+  "process_wall_s": 0.0030995000852271914,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00206457,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.6007106751203537e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"resolve-in-root\",\"rc\":6,\"errno\":0,\"seconds\":0.000023620}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "resolve-in-root",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 2.362e-05
+    }
+  ]
+}

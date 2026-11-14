@@ -1,0 +1,46 @@
+{
+  "name": "coverage-ns-perm-dir-nocap",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/coverage-ns-perm-dir-nocap",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/coverage-ns-perm-dir-nocap",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "perm-dir-nocap"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2270574,
+  "process_wall_s": 0.003132930025458336,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00204877,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.200249582529068e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"perm-dir-nocap\",\"rc\":-1,\"errno\":13,\"seconds\":0.000015100}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "perm-dir-nocap",
+      "rc": -1,
+      "errno": 13,
+      "seconds": 1.51e-05
+    }
+  ]
+}

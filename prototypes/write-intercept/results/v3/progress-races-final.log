@@ -1,0 +1,20 @@
+landlock-open [{'case': 'll-race', 'kind': 'open', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-truncate [{'case': 'll-race', 'kind': 'truncate', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-rename [{'case': 'll-race', 'kind': 'rename', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-unlink [{'case': 'll-race', 'kind': 'unlink', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-link [{'case': 'll-race', 'kind': 'link', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-symlink [{'case': 'll-race', 'kind': 'symlink', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-mkdir [{'case': 'll-race', 'kind': 'mkdir', 'iterations': 200, 'succeeded': 0, 'denied': 200, 'other': 0}] []
+landlock-hardlink-open [{'case': 'll-race', 'kind': 'open', 'iterations': 200, 'succeeded': 200, 'denied': 0, 'other': 0}]
+landlock-writable-cross-link [{'case': 'll-race', 'kind': 'link', 'iterations': 1, 'succeeded': 1, 'denied': 0, 'other': 0}]
+landlock-writable-cross-rename [{'case': 'll-race', 'kind': 'rename', 'iterations': 1, 'succeeded': 1, 'denied': 0, 'other': 0}]
+inside remove sequence done
+inside move sequence done
+inside target sequence done
+inside aba sequence done
+external unlink remove done
+external unlink move done
+external rename move done
+external rename target done
+external symlink aba done
+crashes done

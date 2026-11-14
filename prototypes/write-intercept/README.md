@@ -77,3 +77,18 @@ Git 提交基准调用规定的 `bot-run` 入口。实验 HOME 未提供其认�
 | [results/v2/](results/v2/) | 本轮原始结果、失败运行、汇总与验证 |
 
 `make v2` 编译两轮基线和新增程序。其余命令、复制要求、计时口径与剩余缺口见第二轮报告的“复现与交付验证”。`B2v2` 要求 stdin/stdout/stderr 均为管道，统一使用第二轮 Python runner 启动。原型不接入 `lancet-node`，不得作为任意不可信程序的安全边界。
+
+## 第三轮：修订后第 6 节
+
+第三轮结论、验收表、限制与复现入口见 [REPORT-v3.md](REPORT-v3.md)。新增实现保留第二轮源码与结果不变；原始结果集中在 [results/v3/](results/v3/)。
+
+| 文件 | 用途 |
+| --- | --- |
+| [intercept-v3.c](intercept-v3.c)、[v3-runtime.h](v3-runtime.h)、[v3-node.h](v3-node.h) | Landlock、常驻 worker、并发通知、目录锁、持久锚点、结构化改名与合并落盘 |
+| [probe-v3.c](probe-v3.c)、[races-v3.py](races-v3.py) | 参数改写、沙箱内外目录替换、锚点恢复与节点死亡 |
+| [experiment-v3.py](experiment-v3.py)、[recover-v3.py](recover-v3.py) | 原始运行记录、前后态 oracle 与新进程恢复 |
+| [context-v3.py](context-v3.py)、[context-edge-v3.py](context-edge-v3.py) | 子进程上下文与 worker 可见性 |
+| [benchmarks-v3.py](benchmarks-v3.py)、[final-benchmarks-v3.py](final-benchmarks-v3.py)、[timings-v3.py](timings-v3.py) | 四配置构建、前态密集检出、单调用与目录改名基准 |
+| [notification-floor-v3.c](notification-floor-v3.c)、[floor-v3.py](floor-v3.py) | 本轮独立测量通知往返下限 |
+| [compress-v3.py](compress-v3.py) | 对第三轮大体积 JSON 无损压缩，保留解压字节哈希 |
+| [summarize-v3.py](summarize-v3.py)、[verify-v3.py](verify-v3.py)、[docs-check-v3.py](docs-check-v3.py) | 汇总、交付一致性检查与文档检查 |

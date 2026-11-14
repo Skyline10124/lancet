@@ -1,0 +1,47 @@
+{
+  "name": "edge-ns-unknown-high-bit",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/edge-ns-unknown-high-bit",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/edge-ns-unknown-high-bit",
+    "30",
+    "--",
+    "python3",
+    "-c",
+    "\nimport ctypes,os,json\nlibc=ctypes.CDLL(None,use_errno=True)\nclass How(ctypes.Structure):_fields_=[('flags',ctypes.c_uint64),('mode',ctypes.c_uint64),('resolve',ctypes.c_uint64),('extra',ctypes.c_uint64)]\ncase=__import__('sys').argv[1];h=How();h.flags=os.O_WRONLY;size=24;path=b'a';d=-100\nif case=='zero-extension':size=32\nif case=='unknown-high-bit':h.flags|=1<<63\nif case=='in-root-dangling':\n d=os.open('sub',os.O_PATH);path=b'dangling';h.flags|=os.O_CREAT;h.mode=0o600;h.resolve=16\nfd=libc.syscall(ctypes.c_long(437),ctypes.c_int(d),ctypes.c_char_p(path),ctypes.byref(h),ctypes.c_size_t(size));err=ctypes.get_errno() if fd<0 else 0\nif fd>=0:os.close(fd)\nprint(json.dumps({'case':case,'rc':-1 if fd<0 else 0,'errno':err}))\n",
+    "unknown-high-bit"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2271359,
+  "process_wall_s": 0.022252058959566057,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.021196999,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.6996713131666183e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\": \"unknown-high-bit\", \"rc\": -1, \"errno\": 22}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "unknown-high-bit",
+      "rc": -1,
+      "errno": 22
+    }
+  ]
+}

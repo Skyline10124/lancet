@@ -1,0 +1,84 @@
+{
+  "name": "edge-B3-in-root-dangling",
+  "mode": "B3",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "B3",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/edge-B3-in-root-dangling",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/edge-B3-in-root-dangling",
+    "30",
+    "--",
+    "python3",
+    "-c",
+    "\nimport ctypes,os,json\nlibc=ctypes.CDLL(None,use_errno=True)\nclass How(ctypes.Structure):_fields_=[('flags',ctypes.c_uint64),('mode',ctypes.c_uint64),('resolve',ctypes.c_uint64),('extra',ctypes.c_uint64)]\ncase=__import__('sys').argv[1];h=How();h.flags=os.O_WRONLY;size=24;path=b'a';d=-100\nif case=='zero-extension':size=32\nif case=='unknown-high-bit':h.flags|=1<<63\nif case=='in-root-dangling':\n d=os.open('sub',os.O_PATH);path=b'dangling';h.flags|=os.O_CREAT;h.mode=0o600;h.resolve=16\nfd=libc.syscall(ctypes.c_long(437),ctypes.c_int(d),ctypes.c_char_p(path),ctypes.byref(h),ctypes.c_size_t(size));err=ctypes.get_errno() if fd<0 else 0\nif fd>=0:os.close(fd)\nprint(json.dumps({'case':case,'rc':-1 if fd<0 else 0,'errno':err}))\n",
+    "in-root-dangling"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2271388,
+  "process_wall_s": 0.026461948989890516,
+  "stats": {
+    "mode": "B3",
+    "wall_s": 0.025337099,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "continued": 0,
+    "workers": 1,
+    "worker_threads": 8,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "landlock_abi": 6,
+    "lock_waits": 0,
+    "anchors": 0,
+    "moves": 0,
+    "batches": 1,
+    "max_batch": 1,
+    "digest_s": 0.00013563001994043589
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/edge-B3-in-root-dangling/sub/new",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "sub/new",
+      "after": {
+        "mode": 384,
+        "dev": 66306,
+        "ino": 521615891,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "moves": [],
+  "changes": [
+    "sub/new"
+  ],
+  "stdout": "{\"case\": \"in-root-dangling\", \"rc\": 0, \"errno\": 0}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "in-root-dangling",
+      "rc": 0,
+      "errno": 0
+    }
+  ]
+}

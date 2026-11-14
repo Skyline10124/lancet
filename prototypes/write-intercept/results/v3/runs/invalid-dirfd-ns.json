@@ -1,0 +1,44 @@
+{
+  "name": "invalid-dirfd-ns",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/fixtures-v3/invalid-dirfd-ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/invalid-dirfd-ns",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/probe-v3",
+    "invalid-dirfd"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 2271285,
+  "process_wall_s": 0.007432709098793566,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00644094,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.6007106751203537e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"iterations\":1000,\"wrong\":0}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "iterations": 1000,
+      "wrong": 0
+    }
+  ]
+}

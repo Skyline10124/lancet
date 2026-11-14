@@ -1,0 +1,6 @@
+zero-extension ns [{'case': 'zero-extension', 'rc': 0, 'errno': 0}]
+zero-extension B3 [{'case': 'zero-extension', 'rc': 0, 'errno': 0}]
+unknown-high-bit ns [{'case': 'unknown-high-bit', 'rc': -1, 'errno': 22}]
+unknown-high-bit B3 [{'case': 'unknown-high-bit', 'rc': -1, 'errno': 22}]
+in-root-dangling ns [{'case': 'in-root-dangling', 'rc': 0, 'errno': 0}]
+in-root-dangling B3 [{'case': 'in-root-dangling', 'rc': 0, 'errno': 0}]

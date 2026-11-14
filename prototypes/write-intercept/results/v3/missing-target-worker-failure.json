@@ -1,0 +1,151 @@
+[
+  {
+    "condition": "empty",
+    "result": {
+      "name": "build-target-empty",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/build-target-empty",
+        "1200",
+        "--",
+        "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/cargo",
+        "build",
+        "--offline",
+        "--workspace"
+      ],
+      "environment": {
+        "CARGO_HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/cargo-home",
+        "RUSTC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustc",
+        "RUSTDOC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustdoc",
+        "RUSTUP_HOME": "/home/gcp-vegas/.rustup",
+        "HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/home-v3",
+        "CARGO_BUILD_JOBS": "4",
+        "CARGO_PROFILE_DEV_DEBUG": "0",
+        "CARGO_PROFILE_TEST_DEBUG": "0",
+        "CARGO_INCREMENTAL": "0",
+        "GIT_CONFIG_NOSYSTEM": "1",
+        "GIT_CONFIG_GLOBAL": "/dev/null",
+        "TMPDIR": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/tmp-v3",
+        "LC_ALL": "C",
+        "PATH": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.codex/tmp/arg0-linux/codex-arg002OP2B:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/bin:/home/gcp-vegas/.cargo/bin:/home/gcp-vegas/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+      },
+      "returncode": 126,
+      "process_wall_s": 6.97921364789363,
+      "stats": {
+        "digest_s": 2.899905666708946e-07
+      },
+      "ledger": [],
+      "moves": [],
+      "changes": [],
+      "stdout": "",
+      "stderr": "   Compiling proc-macro2 v1.0.106\n   Compiling quote v1.0.45\n   Compiling unicode-ident v1.0.24\n   Compiling libc v0.2.186\n   Compiling cfg-if v1.0.4\n   Compiling memchr v2.8.2\n   Compiling smallvec v1.15.2\n   Compiling thiserror v2.0.18\n   Compiling syn v2.0.117\n   Compiling aho-corasick v1.1.4\n   Compiling regex-syntax v0.8.11\n   Compiling parking_lot_core v0.9.12\n   Compiling itoa v1.0.18\n   Compiling scopeguard v1.2.0\n   Compiling lock_api v0.4.14\n   Compiling once_cell v1.21.4\n   Compiling parking_lot v0.12.5\n   Compiling stable_deref_trait v1.2.1\n   Compiling regex-automata v0.4.14\n   Compiling getrandom v0.4.2\n   Compiling bitflags v2.13.0\n   Compiling typenum v1.20.1\n   Compiling autocfg v1.5.1\n   Compiling equivalent v1.0.2\n   Compiling foldhash v0.2.0\n   Compiling allocator-api2 v0.2.21\n   Compiling fastrand v2.4.1\n   Compiling crc32fast v1.5.0\n   Compiling hashbrown v0.17.1\n   Compiling same-file v1.0.6\n   Compiling walkdir v2.5.0\n   Compiling serde_core v1.0.228\n   Compiling gix-trace v0.1.20\n   Compiling tinyvec_macros v0.1.1\n   Compiling tinyvec v1.11.0\n   Compiling log v0.4.32\n   Compiling unicode-normalization v0.1.25\n   Compiling bstr v1.13.0\n   Compiling thiserror-impl v2.0.18\n   Compiling gix-validate v0.11.2\n   Compiling gix-utils v0.3.4\n   Compiling rustix v1.1.4\n   Compiling version_check v0.9.5\n   Compiling gix-path v0.12.2\n   Compiling generic-array v0.14.7\n   Compiling linux-raw-sys v0.12.1\n   Compiling prodash v31.0.0\n   Compiling errno v0.3.14\n   Compiling zlib-rs v0.6.6\n   Compiling pin-project-lite v0.2.17\n   Compiling signal-hook-registry v1.4.8\n   Compiling jobserver v0.1.34\n   Compiling byteorder v1.5.0\n   Compiling find-msvc-tools v0.1.9\n   Compiling heapless v0.8.0\n   Compiling shlex v2.0.1\n   Compiling futures-core v0.3.32\n   Compiling cc v1.2.64\n   Compiling hash32 v0.3.1\n   Compiling mio v1.2.1\n   Compiling synstructure v0.13.2\n   Compiling faster-hex v0.10.1\n   Compiling serde v1.0.228\n   Compiling crypto-common v0.1.7\n",
+      "observations": []
+    }
+  },
+  {
+    "condition": "absent",
+    "result": {
+      "name": "build-target-absent",
+      "mode": "B3",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/intercept-v3",
+        "B3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/states-v3/build-target-absent",
+        "1200",
+        "--",
+        "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/cargo",
+        "build",
+        "--offline",
+        "--workspace"
+      ],
+      "environment": {
+        "CARGO_HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/cargo-home",
+        "RUSTC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustc",
+        "RUSTDOC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustdoc",
+        "RUSTUP_HOME": "/home/gcp-vegas/.rustup",
+        "HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/home-v3",
+        "CARGO_BUILD_JOBS": "4",
+        "CARGO_PROFILE_DEV_DEBUG": "0",
+        "CARGO_PROFILE_TEST_DEBUG": "0",
+        "CARGO_INCREMENTAL": "0",
+        "GIT_CONFIG_NOSYSTEM": "1",
+        "GIT_CONFIG_GLOBAL": "/dev/null",
+        "TMPDIR": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/tmp-v3",
+        "LC_ALL": "C",
+        "PATH": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.codex/tmp/arg0-linux/codex-arg002OP2B:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/bin:/home/gcp-vegas/.cargo/bin:/home/gcp-vegas/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+      },
+      "returncode": 126,
+      "process_wall_s": 7.386749904952012,
+      "stats": {
+        "digest_s": 0.0002604599576443434
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice",
+          "before": "directory",
+          "mode": 16877,
+          "dev": 66306,
+          "ino": 589946023,
+          "nlink": 12,
+          "link": "",
+          "relative": ".",
+          "after": {
+            "mode": 493,
+            "dev": 66306,
+            "ino": 589946023,
+            "nlink": 13,
+            "type": "directory"
+          },
+          "prestate": {
+            "type": "directory",
+            "mode": 493
+          }
+        },
+        {
+          "index": 1,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/targetuYDdHT",
+          "before": "Absent",
+          "mode": 0,
+          "dev": 0,
+          "ino": 0,
+          "nlink": 0,
+          "link": "",
+          "relative": "targetuYDdHT",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "Absent"
+          }
+        },
+        {
+          "index": 2,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-2a72ab2f/prototypes/write-intercept/.scratch/lattice/targetuYDdHT/CACHEDIR.TAG",
+          "before": "Absent",
+          "mode": 0,
+          "dev": 0,
+          "ino": 0,
+          "nlink": 0,
+          "link": "",
+          "relative": "targetuYDdHT/CACHEDIR.TAG",
+          "after": {
+            "type": "Absent"
+          },
+          "prestate": {
+            "type": "Absent"
+          }
+        }
+      ],
+      "moves": [],
+      "changes": [],
+      "stdout": "",
+      "stderr": "   Compiling proc-macro2 v1.0.106\n   Compiling unicode-ident v1.0.24\n   Compiling quote v1.0.45\n   Compiling libc v0.2.186\n   Compiling cfg-if v1.0.4\n   Compiling memchr v2.8.2\n   Compiling smallvec v1.15.2\n   Compiling thiserror v2.0.18\n   Compiling aho-corasick v1.1.4\n   Compiling syn v2.0.117\n   Compiling parking_lot_core v0.9.12\n   Compiling regex-syntax v0.8.11\n   Compiling itoa v1.0.18\n   Compiling scopeguard v1.2.0\n   Compiling lock_api v0.4.14\n   Compiling once_cell v1.21.4\n   Compiling parking_lot v0.12.5\n   Compiling stable_deref_trait v1.2.1\n   Compiling getrandom v0.4.2\n   Compiling typenum v1.20.1\n   Compiling regex-automata v0.4.14\n   Compiling bitflags v2.13.0\n   Compiling autocfg v1.5.1\n   Compiling allocator-api2 v0.2.21\n   Compiling equivalent v1.0.2\n   Compiling foldhash v0.2.0\n   Compiling fastrand v2.4.1\n   Compiling hashbrown v0.17.1\n   Compiling crc32fast v1.5.0\n   Compiling same-file v1.0.6\n   Compiling walkdir v2.5.0\n   Compiling serde_core v1.0.228\n   Compiling gix-trace v0.1.20\n   Compiling tinyvec_macros v0.1.1\n   Compiling tinyvec v1.11.0\n   Compiling log v0.4.32\n   Compiling unicode-normalization v0.1.25\n   Compiling thiserror-impl v2.0.18\n   Compiling bstr v1.13.0\n   Compiling gix-validate v0.11.2\n   Compiling gix-utils v0.3.4\n   Compiling rustix v1.1.4\n   Compiling gix-path v0.12.2\n   Compiling version_check v0.9.5\n   Compiling linux-raw-sys v0.12.1\n   Compiling generic-array v0.14.7\n   Compiling prodash v31.0.0\n   Compiling errno v0.3.14\n   Compiling zlib-rs v0.6.6\n   Compiling pin-project-lite v0.2.17\n   Compiling signal-hook-registry v1.4.8\n   Compiling jobserver v0.1.34\n   Compiling find-msvc-tools v0.1.9\n   Compiling futures-core v0.3.32\n   Compiling shlex v2.0.1\n   Compiling heapless v0.8.0\n   Compiling byteorder v1.5.0\n   Compiling hash32 v0.3.1\n   Compiling cc v1.2.64\n   Compiling mio v1.2.1\n   Compiling synstructure v0.13.2\n   Compiling faster-hex v0.10.1\n   Compiling serde v1.0.228\n",
+      "observations": []
+    }
+  }
+]
