@@ -9,7 +9,7 @@ status: accepted
 ### 来源
 
 - LATTICE 的 [ADR 0009](https://github.com/Skyline10124/lattice/blob/0b261013ceb5f07a3948d2ecc8c8826729e93efa/docs/adr/0009-remove-legacy-lancet-tool-executor.md) 将旧 LANCET 移出 LATTICE 仓库，协调层收窄为单一窄接口 `ToolExecutor`，不再在会话进程内直接运行工具或触碰工作区业务文件。
-- 2026-11-11 维护者与 Agent 的架构讨论进一步明确：Agent 定义与会话协调位于被操作对象之外；软件工作区（如 `lancet-node`，见 [ADR 0002](0002-lancet-node-api-tools-and-act.md)）、只读检索源乃至未来的硬件/设备节点，均作为外部上下文节点按统一协议挂载到协调层。
+- 2026-11-11 维护者与 Agent 的架构讨论进一步明确：Agent 定义与会话协调位于被操作对象之外；软件工作区（如 `lancet-node`，见 ADR 0002）、只读检索源乃至未来的硬件/设备节点，均作为外部上下文节点按统一协议挂载到协调层。
 - 现有通用工具协议（如 MCP）缺少持久实例身份核对、目录快照冻结、持久零重放、不确定态以及 effect 回执与求逆语义，在非幂等工作区变更或硬件物理动作下无法防止断连重试导致的重复执行，也无法在故障后对账真实发生的 effect。
 
 ### 约束
@@ -32,7 +32,7 @@ status: accepted
 | `node_id` | 节点实例跨重启稳定的持久身份（UUID v4，节点首次初始化状态目录时生成并持久化；配置文件另设人类可读的 `display_name`）。调用方以 `node_id` 绑定挂载目标，连接握手时强制核对 |
 | `lancet-protocol` | 本仓库提供的独立协议 crate，只包含帧编解码、协议消息类型、结局与错误码、effect 与 co-effect、环境简述、回执与 `residue` 数据结构及规范摘要计算，不依赖 `wasmtime`、操作系统沙箱或特定存储引擎 |
 
-- **协议与节点内部机制解耦。** 协议不预设节点内部使用脚本解释器、WASM、`overlayfs` 或本地文件系统。`lancet-node` 通过该协议暴露单一编排入口 `act`（见 [ADR 0002](0002-lancet-node-api-tools-and-act.md)）；算力受限的硬件节点或只读数据源可直接通过同一协议暴露一组类型化原子操作。
+- **协议与节点内部机制解耦。** 协议不预设节点内部使用脚本解释器、WASM、`overlayfs` 或本地文件系统。`lancet-node` 通过该协议暴露单一编排入口 `act`（见 ADR 0002）；算力受限的硬件节点或只读数据源可直接通过同一协议暴露一组类型化原子操作。
 - **Agent 与节点分离。** 节点不感知 Agent 配置、模型、系统提示词或会话树结构；会话与轮次标识对节点仅作不透明记账标签。
 - **向下兼容外部生态。** 协议语义严于 MCP；第三方 MCP Server 后续可经独立桥接进程降级接入（诚实声明不支持 `revert`，断连或 effect 是否发生未知时记为 `Indeterminate`），主协议不为迁就弱保证而削减约束。
 
@@ -289,7 +289,7 @@ match receipt(target):
 
 | 文档 | 处理 |
 | --- | --- |
-| [ADR 0002](0002-lancet-node-api-tools-and-act.md) | 规定 `lancet-node` 如何作为本协议的软件工作区节点实现，通过 `act`、API 工具、宿主资源与写时复制落地各项协议保证 |
+| ADR 0002 | 规定 `lancet-node` 如何作为本协议的软件工作区节点实现，通过 `act`、API 工具、宿主资源与写时复制落地各项协议保证 |
 | [领域术语表](../reference/glossary.md) | 本 ADR 与 ADR 0002 接受后写入：外部上下文节点、`node_id`、`catalog_digest`、回执（`Receipt`）、调用记录、围栏、effect、co-effect、句柄、`seam`、`residue`、环境简述 |
 | `docs/architecture/` | 随 `lancet-protocol` 实施建立节点协议架构合同 |
 
@@ -297,6 +297,6 @@ match receipt(target):
 
 | ADR | 关系 |
 | --- | --- |
-| LATTICE ADR 0009 | 与 [ADR 0002](0002-lancet-node-api-tools-and-act.md) 共同承接其第 7 节，把协调层与外部节点的通信契约抽离为通用协议 |
+| LATTICE ADR 0009 | 与 ADR 0002 共同承接其第 7 节，把协调层与外部节点的通信契约抽离为通用协议 |
 | LATTICE ADR 0006 | 沿用 `rewind` 只移动会话树位置；外部节点状态恢复由第 5 节的 `revert` 独立提供 |
 | LATTICE ADR 0012 | 会话的外部上下文挂载列表与项目绑定方式在 LATTICE 接回 ADR 中决定 |
