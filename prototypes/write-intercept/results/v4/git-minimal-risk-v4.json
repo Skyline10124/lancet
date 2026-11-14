@@ -1,0 +1,103 @@
+{
+  "relaxed": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_s": 0.005417009931989014,
+    "trace": [
+      {
+        "event": "data",
+        "sid": "20261114T215226.324930Z-Hfc1aa7ef-P0026e430",
+        "thread": "main",
+        "time": "2026-11-14T21:52:26.327575Z",
+        "file": "preload-index.c",
+        "line": 177,
+        "t_abs": 0.002901,
+        "t_rel": 0.001668,
+        "nesting": 2,
+        "category": "index",
+        "key": "preload/sum_lstat",
+        "value": "4485"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215226.324930Z-Hfc1aa7ef-P0026e430",
+        "thread": "main",
+        "time": "2026-11-14T21:52:26.327647Z",
+        "file": "read-cache.c",
+        "line": 1595,
+        "t_abs": 0.002973,
+        "t_rel": 5.3e-05,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_lstat",
+        "value": "0"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215226.324930Z-Hfc1aa7ef-P0026e430",
+        "thread": "main",
+        "time": "2026-11-14T21:52:26.327653Z",
+        "file": "read-cache.c",
+        "line": 1596,
+        "t_abs": 0.002979,
+        "t_rel": 5.9e-05,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_scan",
+        "value": "0"
+      }
+    ]
+  },
+  "default": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_s": 0.005620179930701852,
+    "trace": [
+      {
+        "event": "data",
+        "sid": "20261114T215226.330576Z-Hfc1aa7ef-P0026e439",
+        "thread": "main",
+        "time": "2026-11-14T21:52:26.333499Z",
+        "file": "preload-index.c",
+        "line": 177,
+        "t_abs": 0.003146,
+        "t_rel": 0.001978,
+        "nesting": 2,
+        "category": "index",
+        "key": "preload/sum_lstat",
+        "value": "4485"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215226.330576Z-Hfc1aa7ef-P0026e439",
+        "thread": "main",
+        "time": "2026-11-14T21:52:26.333576Z",
+        "file": "read-cache.c",
+        "line": 1595,
+        "t_abs": 0.003223,
+        "t_rel": 5.4e-05,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_lstat",
+        "value": "0"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215226.330576Z-Hfc1aa7ef-P0026e439",
+        "thread": "main",
+        "time": "2026-11-14T21:52:26.333582Z",
+        "file": "read-cache.c",
+        "line": 1596,
+        "t_abs": 0.003229,
+        "t_rel": 6e-05,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_scan",
+        "value": "0"
+      }
+    ]
+  },
+  "bytes_changed": true
+}

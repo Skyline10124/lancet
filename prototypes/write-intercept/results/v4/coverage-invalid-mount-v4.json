@@ -1,0 +1,5361 @@
+[
+  {
+    "case": "open",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016892299754545093,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.023131859954446554,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002911500632762909,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028568689012899995,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015570800751447678,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01940306997857988,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002789500867947936,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-rdwr",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0018004300072789192,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-rdwr-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-rdwr-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-rdwr"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.018880469957366586,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003338499227538705,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028233389602974057,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-rdwr",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015849699266254902,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-rdwr-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-rdwr-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-rdwr"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017894419957883656,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002761200303211808,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-append",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014634400140494108,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-append-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-append-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-append"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016093019978143275,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002798300702124834,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003323500044643879,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-append",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014792300062254071,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-append-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-append-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-append"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017328059999272227,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028659997042268515,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-trunc-readonly",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001402470050379634,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-trunc-readonly-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-trunc-readonly-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-trunc-readonly"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015390068991109729,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003138299798592925,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002871669945307076,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-trunc-readonly",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001444319961592555,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-trunc-readonly-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-trunc-readonly-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-trunc-readonly"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017626859014853835,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00029501004610210657,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-readonly",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015911400550976396,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-readonly-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-readonly-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-readonly"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01784112909808755,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028454000130295753,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003004239988513291,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-readonly",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014995799865573645,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-readonly-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-readonly-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-readonly"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015478459070436656,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028594990726560354,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-create",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014978200197219849,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-create-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-create-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-create"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015521629946306348,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028402998577803373,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0032642700243741274,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-create",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014524790458381176,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-create-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-create-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-create"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017494269995950162,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002712999703362584,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-excl-fail",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014881399692967534,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-excl-fail-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-excl-fail-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-excl-fail"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015916720032691956,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.000278739957138896,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002985640079714358,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-excl-fail",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014432099414989352,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-excl-fail-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-excl-fail-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-excl-fail"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016643399954773486,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027526996564120054,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-idle",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014071200275793672,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-idle-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-idle-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-idle"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014563639997504652,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002775699831545353,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002823240007273853,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-idle",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001388339907862246,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-open-idle-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-open-idle-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "open-idle"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014293668908067048,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028433999978005886,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014166400069370866,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-openat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-openat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "openat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01656851905863732,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002804800169542432,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002901260042563081,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001485269982367754,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-openat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-openat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "openat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017455939087085426,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002824499970301986,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cwd",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014274489367380738,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-cwd-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-cwd-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "cwd"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01590686000417918,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002770600840449333,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0033218100434169173,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cwd",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014533799840137362,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-cwd-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-cwd-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "cwd"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014595690066926181,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002777290064841509,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001401429995894432,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-openat2-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-openat2-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "openat2"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015619700076058507,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028588995337486267,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0027790300082415342,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014087000163272023,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-openat2-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-openat2-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "openat2"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015396479982882738,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002846599090844393,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2-beneath",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014271900290623307,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-openat2-beneath-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-openat2-beneath-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "openat2-beneath"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015654479037038982,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028098002076148987,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0030553400283679366,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2-beneath",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001425200025551021,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-openat2-beneath-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-openat2-beneath-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "openat2-beneath"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01458259904757142,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003117501037195325,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "creat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014521999983116984,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-creat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-creat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "creat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016252579051069915,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002844100818037987,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0032944700215011835,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "creat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015167600940912962,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-creat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-creat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "creat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01443162898067385,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028570007998496294,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014278700109571218,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-tmpfile-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-tmpfile-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "tmpfile"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015807340038008988,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028222997207194567,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002818319946527481,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001537429983727634,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-tmpfile-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-tmpfile-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "tmpfile"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014762579929083586,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027644005604088306,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile-empty",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.00148436997551471,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-tmpfile-empty-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-tmpfile-empty-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "tmpfile-empty"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014584189979359508,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003202699590474367,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003038630005903542,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile-empty",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014159400016069412,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-tmpfile-empty-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-tmpfile-empty-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "tmpfile-empty"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014726149966008961,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003039499279111624,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "opath",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015715300105512142,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-opath-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-opath-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "opath"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01916803896892816,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003014099784195423,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028057899326086044,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "opath",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015118700684979558,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-opath-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-opath-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "opath"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017943428945727646,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.000289349933154881,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-cwd",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015623599756509066,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-proc-cwd-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-proc-cwd-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "proc-cwd"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01762381906155497,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002763300435617566,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002958660013973713,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-cwd",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016268600011244416,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-proc-cwd-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-proc-cwd-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "proc-cwd"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014920958899892867,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003287299768999219,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-root",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015635599847882986,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-proc-root-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-proc-root-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "proc-root"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01712545903865248,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002773699816316366,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0029921800596639514,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-root",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0019451699918136,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-proc-root-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-proc-root-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "proc-root"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016061419970355928,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00037825992330908775,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink-alias",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015819799154996872,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-symlink-alias-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-symlink-alias-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "symlink-alias"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015323559986427426,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00029077997896820307,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002883350010961294,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink-alias",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015495889820158482,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-symlink-alias-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-symlink-alias-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "symlink-alias"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01980162994004786,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003231900045648217,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "dangling-symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001497079967521131,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-dangling-symlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-dangling-symlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "dangling-symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014133309945464134,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027769000735133886,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003016649978235364,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "dangling-symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001480050035752356,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-dangling-symlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-dangling-symlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "dangling-symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016156950034201145,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028631999157369137,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "umask",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001433930010534823,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-umask-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-umask-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "umask"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014909569988958538,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027942005544900894,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028349600033834577,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "umask",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015057800337672234,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-umask-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-umask-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "umask"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01716804993338883,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00030632002744823694,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "hardlink-normal",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015554900746792555,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-hardlink-normal-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-hardlink-normal-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "hardlink-normal"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01616385893430561,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.0002931400667876005,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0027133800322189927,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "hardlink-normal",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016767099732533097,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-hardlink-normal-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-hardlink-normal-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "hardlink-normal"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015522529021836817,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.0003271800233051181,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015707500278949738,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.0164986290037632,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002831900492310524,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003341280040331185,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014675500569865108,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01697203889489174,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002857400104403496,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015355698997154832,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlinkat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlinkat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlinkat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014739868929609656,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027900002896785736,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002748830011114478,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001574199995957315,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlinkat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlinkat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlinkat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015401049982756376,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002775900065898895,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rmdir",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014830800937488675,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rmdir-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rmdir-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rmdir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014715539989992976,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028412998653948307,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002892509917728603,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rmdir",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014880899107083678,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rmdir-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rmdir-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rmdir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014597540022805333,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028112996369600296,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat-dir",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014617500128224492,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlinkat-dir-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlinkat-dir-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlinkat-dir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.019066710025072098,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00029128999449312687,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002694849972613156,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat-dir",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014692699769511819,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlinkat-dir-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlinkat-dir-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlinkat-dir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01689901005011052,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002963399747386575,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014463498955592513,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01652642001863569,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00030661001801490784,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002808979945257306,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001658339984714985,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015521598979830742,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.000292569980956614,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "renameat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015640200581401587,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-renameat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-renameat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "renameat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.0158037890214473,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002791100414469838,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0026960199465975165,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "renameat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014622299931943417,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-renameat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-renameat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "renameat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015258608967997134,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00030618999153375626,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-exchange",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0017234089318662882,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-exchange-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-exchange-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-exchange"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014229009975679219,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002842999529093504,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002829450066201389,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-exchange",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014733999269083142,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-exchange-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-exchange-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-exchange"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01567987003363669,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003000799333676696,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-noreplace",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014774200972169638,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-noreplace-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-noreplace-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-noreplace"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015579210012219846,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003080399474129081,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002836368978023529,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-noreplace",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014482599217444658,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-noreplace-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-noreplace-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-noreplace"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014478859957307577,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002795400796458125,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-dir",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014621500158682466,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-dir-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-dir-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-dir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017509610042907298,
+      "synced": 19,
+      "entries": 19
+    },
+    "epsilon": {
+      "scan_s": 0.0003399100387468934,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003171789925545454,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-dir",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014877200592309237,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-dir-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-dir-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-dir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.0183638499584049,
+      "synced": 19,
+      "entries": 19
+    },
+    "epsilon": {
+      "scan_s": 0.00035940995439887047,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "truncate",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0013966599944978952,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-truncate-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-truncate-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "truncate"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.013775179977528751,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003070499515160918,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002856120001524687,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "truncate",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014534699730575085,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-truncate-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-truncate-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "truncate"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014526290004141629,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002878899686038494,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "link",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016154100885614753,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-link-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-link-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "link"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016112179029732943,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00031584000680595636,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0031520299380645156,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "link",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015416400274261832,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-link-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-link-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "link"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01499876903835684,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00033214001450687647,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "linkat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015082299942150712,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-linkat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-linkat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "linkat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015120368916541338,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028009002562612295,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028179900255054235,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "linkat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015792499762028456,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-linkat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-linkat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "linkat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016674408921971917,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.000314839999191463,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001478999969549477,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-symlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-symlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01566318003460765,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003076100256294012,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002939239959232509,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001604270888492465,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-symlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-symlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015783380018547177,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002774499589577317,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlinkat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001595270005054772,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-symlinkat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-symlinkat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "symlinkat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015503379981964827,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002794699976220727,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002629599068313837,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlinkat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016006099758669734,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-symlinkat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-symlinkat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "symlinkat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014870560029521585,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003100200556218624,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015896899858489633,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlink-symlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlink-symlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014708269969560206,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00031641998793929815,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002511350088752806,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014816999901086092,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlink-symlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlink-symlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014167670044116676,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002847100840881467,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdir",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014332999708130956,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mkdir-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mkdir-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mkdir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015497748972848058,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027681002393364906,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028739500558003783,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdir",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015442000003531575,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mkdir-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mkdir-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mkdir"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01725204905960709,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028587994165718555,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdirat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001432059914804995,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mkdirat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mkdirat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mkdirat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01554807904176414,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002769900020211935,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.004022770095616579,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdirat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014132600044831634,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mkdirat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mkdirat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mkdirat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017588269081898034,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027585995849221945,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "chmod",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001381470006890595,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-chmod-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-chmod-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "chmod"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014527349034324288,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003156400052830577,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002673099981620908,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "chmod",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014333600411191583,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-chmod-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-chmod-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "chmod"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016568409046158195,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027825997676700354,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmod",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001570609980262816,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fchmod-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fchmod-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fchmod"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01800346001982689,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00029440002981573343,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00306956993881613,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmod",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015422500437125564,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fchmod-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fchmod-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fchmod"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014842638978734612,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002787400735542178,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015336299547925591,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fchmodat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fchmodat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fchmodat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015366149949841201,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002781400689855218,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0029364899965003133,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001470849965699017,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fchmodat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fchmodat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fchmodat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016395809943787754,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002785800024867058,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat2",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014941900735720992,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fchmodat2-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fchmodat2-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fchmodat2"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.02026901999488473,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028704002033919096,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002982929931022227,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat2",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016606999561190605,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fchmodat2-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fchmodat2-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fchmodat2"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015776699990965426,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003168390830978751,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknod",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015858799451962113,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mknod-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mknod-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mknod"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01467299007344991,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002805799013003707,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002779550035484135,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknod",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001449999981559813,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mknod-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mknod-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mknod"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015074780094437301,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00030865997541695833,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknodat",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014468299923464656,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mknodat-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mknodat-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mknodat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015098670031875372,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027601001784205437,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002745019970461726,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknodat",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014110499760136008,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mknodat-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mknodat-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mknodat"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017134918947704136,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00029762997291982174,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "ftruncate",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015032400842756033,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-ftruncate-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-ftruncate-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "ftruncate"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01636415906250477,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00030298996716737747,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002794410102069378,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "ftruncate",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014949600445106626,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-ftruncate-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-ftruncate-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "ftruncate"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014160349033772945,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028536992613226175,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fallocate",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014713499695062637,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fallocate-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fallocate-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fallocate"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016628708923235536,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002836200874298811,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002831990015693009,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fallocate",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014347500400617719,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fallocate-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fallocate-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fallocate"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016199499019421637,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002863300032913685,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mmap",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014055599458515644,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mmap-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mmap-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mmap"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015164969023317099,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00031261006370186806,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0030996300047263503,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mmap",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015736899804323912,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-mmap-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-mmap-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "mmap"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014984078938141465,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003019199939444661,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "nofollow",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016430090181529522,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-nofollow-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-nofollow-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "nofollow"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01650285895448178,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00036361010279506445,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0031438800506293774,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "nofollow",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001829109969548881,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-nofollow-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-nofollow-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "nofollow"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014607320073992014,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00040630996227264404,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "excl-symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015664200764149427,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-excl-symlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-excl-symlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "excl-symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015934969065710902,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003386699827387929,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00287349009886384,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "excl-symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016215200303122401,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-excl-symlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-excl-symlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "excl-symlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015897048986516893,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00029966002330183983,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cloexec",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015255099860951304,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-cloexec-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-cloexec-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "cloexec"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014397509978152812,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003292789915576577,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028152200393378735,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cloexec",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001566960010677576,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-cloexec-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-cloexec-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "cloexec"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015370420063845813,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028198002837598324,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "not-cloexec",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014546799939125776,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-not-cloexec-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-not-cloexec-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "not-cloexec"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015479970024898648,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0003096699947491288,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0029506890568882227,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "not-cloexec",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014189600478857756,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-not-cloexec-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-not-cloexec-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "not-cloexec"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015386719955131412,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002856299979612231,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fork",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014836799819022417,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fork-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fork-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fork"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015379180083982646,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027891003992408514,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002624599961563945,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fork",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014912200858816504,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-fork-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-fork-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "fork"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.018089610035531223,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002951700007542968,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "vfork",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015778800006955862,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-vfork-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-vfork-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "vfork"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01589455991052091,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002837199717760086,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002954709925688803,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "vfork",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0016361800953745842,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-vfork-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-vfork-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "vfork"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015861229971051216,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028163997922092676,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015704099787399173,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-thread-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-thread-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "thread"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015840890002436936,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002795399632304907,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028460199246183038,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001520019955933094,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-thread-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-thread-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "thread"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01607221900485456,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002815299667418003,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread-exec",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001478999969549477,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-thread-exec-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-thread-exec-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "thread-exec"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014762089005671442,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00027869001496583223,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002931019989773631,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread-exec",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001491459901444614,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-thread-exec-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-thread-exec-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "thread-exec"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.017442598938941956,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002793299499899149,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-hardlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014898600056767464,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlink-hardlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlink-hardlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-hardlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014632378937676549,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.00030215003062039614,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.002658190089277923,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-hardlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015279999934136868,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-unlink-hardlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-unlink-hardlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "unlink-hardlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.016759439022280276,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.0002866199938580394,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-hardlink",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014861900126561522,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-hardlink-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-hardlink-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-hardlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015420358977280557,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.00028815993573516607,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0032210899516940117,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-hardlink",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014650800731033087,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-hardlink-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-hardlink-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-hardlink"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01558497897349298,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.00029274995904415846,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001421610009856522,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-anchor-unlink-all-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-anchor-unlink-all-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-unlink-all"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.014924588962458074,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.00029360002372413874,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0028177499771118164,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014218699652701616,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-anchor-unlink-all-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-anchor-unlink-all-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-unlink-all"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01483589899726212,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.000291600008495152,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014025099808350205,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-anchor-overwrite-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-anchor-overwrite-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-overwrite"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015208438970148563,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.0002902100095525384,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.003018690040335059,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014687899965792894,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-anchor-overwrite-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-anchor-overwrite-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "anchor-overwrite"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015818728948943317,
+      "synced": 16,
+      "entries": 16
+    },
+    "epsilon": {
+      "scan_s": 0.0002937199315056205,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-edit",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014626400079578161,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-edit-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-edit-False",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-edit"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01713627902790904,
+      "synced": 19,
+      "entries": 19
+    },
+    "epsilon": {
+      "scan_s": 0.00033741001971066,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0029945600545033813,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-edit",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001538699958473444,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-rename-edit-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-rename-edit-True",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "rename-edit"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01989099895581603,
+      "synced": 19,
+      "entries": 19
+    },
+    "epsilon": {
+      "scan_s": 0.0003680699737742543,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-file-dir",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014288099482655525,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-type-file-dir-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-type-file-dir-False",
+        "--",
+        "sh",
+        "-c",
+        "rm a && mkdir a && echo child > a/x"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015525499009527266,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00031239003874361515,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0041511800372973084,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-file-dir",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.001450980082154274,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-type-file-dir-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-type-file-dir-True",
+        "--",
+        "sh",
+        "-c",
+        "rm a && mkdir a && echo child > a/x"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015966299106366932,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028515991289168596,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-dir-file",
+    "commit": false,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0014502099948003888,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-type-dir-file-False",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-type-dir-file-False",
+        "--",
+        "sh",
+        "-c",
+        "rmdir empty && echo file > empty"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.015524939051829278,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.00028477003797888756,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0030521100852638483,
+      "outcome": "discarded"
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-dir-file",
+    "commit": true,
+    "execution": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "类别挂载: Invalid argument\n",
+      "exec_s": 0.0015943200560286641,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-coverage-type-dir-file-True",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/coverage-type-dir-file-True",
+        "--",
+        "sh",
+        "-c",
+        "rmdir empty && echo file > empty"
+      ]
+    },
+    "sync": {
+      "sync_s": 0.01632417901419103,
+      "synced": 15,
+      "entries": 15
+    },
+    "epsilon": {
+      "scan_s": 0.0002831598976626992,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "epsilon_exact": true,
+    "commit_result": {
+      "outcome": "Unchanged",
+      "commit_s": 0.0,
+      "prepare_s": 0.0,
+      "apply_s": 0.0,
+      "conflicts": []
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  }
+]

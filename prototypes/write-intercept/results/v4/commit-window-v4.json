@@ -1,0 +1,13 @@
+{
+  "result": {
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/commit-window/transactions/1794693147564458506",
+    "commit_s": 0.01324443006888032,
+    "prepare_s": 0.005771040101535618,
+    "apply_s": 0.007473689969629049,
+    "conflicts": []
+  },
+  "final": "sandbox",
+  "external_preserved": false,
+  "injected_at": "三方比对与前态落盘之后、应用之前"
+}

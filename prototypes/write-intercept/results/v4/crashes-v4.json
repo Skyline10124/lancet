@@ -1,0 +1,2187 @@
+[
+  {
+    "stage": "before-log",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008025440038181841,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-log-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-log-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [],
+    "ledger_phases": [],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006878679967485368,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-log-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-log-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [],
+    "ledger_phases": [],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006855860003270209,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-log-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-log-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [],
+    "ledger_phases": [],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006775579997338355,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-log-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-log-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [],
+    "ledger_phases": [],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006833479972556233,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-log-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-log-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [],
+    "ledger_phases": [],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-log",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006997290067374706,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-log-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-log-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-log",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006924698944203556,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-log-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-log-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-log",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006951300078071654,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-log-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-log-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-log",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006937530008144677,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-log-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-log-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-log",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006851090001873672,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-log-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-log-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006816100096330047,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-pre-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-pre-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007032628986053169,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-pre-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-pre-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00694906001444906,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-pre-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-pre-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006896289996802807,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-pre-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-pre-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0069339999463409185,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-pre-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-pre-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006904789013788104,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-pre-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-pre-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007042529992759228,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-pre-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-pre-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006802789983339608,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-pre-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-pre-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006841548951342702,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-pre-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-pre-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006968499976210296,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-pre-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-pre-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"preparing\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00682179001159966,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-ready-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-ready-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006792410043999553,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-ready-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-ready-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006793549982830882,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-ready-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-ready-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0069807099644094706,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-ready-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-ready-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006925530033186078,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-ready-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-ready-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006838598987087607,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-1-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-1-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006846170057542622,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-1-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-1-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006880179978907108,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-1-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-1-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006969189969822764,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-1-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-1-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007061020005494356,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-1-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-1-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006972109898924828,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-4-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-4-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006912769982591271,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-4-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-4-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00685765000525862,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-4-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-4-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0069219800643622875,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-4-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-4-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007354379980824888,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-apply-4-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-apply-4-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007008200045675039,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-post-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-post-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006993329036049545,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-post-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-post-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006885610055178404,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-post-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-post-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006951070041395724,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-post-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-post-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006975839962251484,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-before-post-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-before-post-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007005729945376515,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-post-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-post-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006998760043643415,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-post-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-post-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006901370012201369,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-post-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-post-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0068740289425477386,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-post-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-post-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006957029923796654,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-post-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-post-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0070596999721601605,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-complete-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-complete-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Committed\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "complete"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006885969894938171,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-complete-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-complete-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Committed\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "complete"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0070435600355267525,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-complete-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-complete-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Committed\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "complete"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006735150003805757,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-complete-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-complete-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Committed\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "complete"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006804750068113208,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-after-complete-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-after-complete-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Committed\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "complete"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 0,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006942039937712252,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-inplace-partial-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-inplace-partial-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 1,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007092599989846349,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-inplace-partial-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-inplace-partial-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 2,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006993970018811524,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-inplace-partial-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-inplace-partial-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 3,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006810830091126263,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-inplace-partial-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-inplace-partial-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 4,
+    "killed": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0070679300697520375,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-crash-inplace-partial-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/crash-inplace-partial-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "stderr": "",
+    "middle_difference": [
+      "a",
+      "hard",
+      "outside"
+    ],
+    "mixed": [],
+    "expected_difference": [],
+    "recoveries": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"ready\"}\n",
+        "stderr": ""
+      }
+    ],
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "all_old_or_new": true,
+    "whole_expected": true,
+    "pass": true
+  }
+]

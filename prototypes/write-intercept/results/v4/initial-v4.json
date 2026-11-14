@@ -1,0 +1,104 @@
+[
+  {
+    "sync_s": 3.3140420929994434,
+    "synced": 3100,
+    "entries": 3100,
+    "init_total_s": 3.3140948230866343,
+    "files": 3000,
+    "du_allocated_bytes": 12701696,
+    "du_apparent_bytes": 1116480,
+    "state_allocated_bytes": 17502208,
+    "filefrag": "Filesystem type is: 58465342\nFile size of /home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/scale-3000-v4/d000/f000000 is 288 (1 block of 4096 bytes)\n ext:     logical_offset:        physical_offset: length:   expected: flags:\n   0:        0..       0:   31320242..  31320242:      1:             last,shared,eof\n/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/scale-3000-v4/d000/f000000: 1 extent found\nFile size of /home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/scale-3000/shadow/d000/f000000 is 288 (1 block of 4096 bytes)\n ext:     logical_offset:        physical_offset: length:   expected: flags:\n   0:        0..       0:   31320242..  31320242:      1:             last,shared,eof\n/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/scale-3000/shadow/d000/f000000: 1 extent found\n",
+    "rep": 0
+  },
+  {
+    "sync_s": 11.134552540956065,
+    "synced": 10100,
+    "entries": 10100,
+    "init_total_s": 11.135725361062214,
+    "files": 10000,
+    "du_allocated_bytes": 41783296,
+    "du_apparent_bytes": 3804480,
+    "state_allocated_bytes": 57520128,
+    "filefrag": "Filesystem type is: 58465342\nFile size of /home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/scale-10000-v4/d000/f000000 is 288 (1 block of 4096 bytes)\n ext:     logical_offset:        physical_offset: length:   expected: flags:\n   0:        0..       0:   38424256..  38424256:      1:             last,shared,eof\n/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/scale-10000-v4/d000/f000000: 1 extent found\nFile size of /home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/scale-10000/shadow/d000/f000000 is 288 (1 block of 4096 bytes)\n ext:     logical_offset:        physical_offset: length:   expected: flags:\n   0:        0..       0:   38424256..  38424256:      1:             last,shared,eof\n/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/scale-10000/shadow/d000/f000000: 1 extent found\n",
+    "rep": 0
+  },
+  {
+    "sync_s": 91.52362398791593,
+    "synced": 100100,
+    "entries": 100100,
+    "init_total_s": 91.52596648794133,
+    "files": 100000,
+    "du_allocated_bytes": 414519296,
+    "du_apparent_bytes": 41244480,
+    "state_allocated_bytes": 570970112,
+    "filefrag": "Filesystem type is: 58465342\nFile size of /home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/scale-100000-v4/d000/f000000 is 288 (1 block of 4096 bytes)\n ext:     logical_offset:        physical_offset: length:   expected: flags:\n   0:        0..       0:   42030240..  42030240:      1:             last,shared,eof\n/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/scale-100000-v4/d000/f000000: 1 extent found\nFile size of /home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/scale-100000/shadow/d000/f000000 is 288 (1 block of 4096 bytes)\n ext:     logical_offset:        physical_offset: length:   expected: flags:\n   0:        0..       0:   42030240..  42030240:      1:             last,shared,eof\n/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/scale-100000/shadow/d000/f000000: 1 extent found\n",
+    "rep": 0
+  },
+  {
+    "sync_s": 3.244550994015299,
+    "synced": 3100,
+    "entries": 3100,
+    "init_total_s": 3.244621373945847,
+    "files": 3000,
+    "rep": 1,
+    "du_allocated_bytes": 12701696,
+    "du_apparent_bytes": 1116480,
+    "state_allocated_bytes": 17502208
+  },
+  {
+    "sync_s": 3.289445793023333,
+    "synced": 3100,
+    "entries": 3100,
+    "init_total_s": 3.289502263069153,
+    "files": 3000,
+    "rep": 2,
+    "du_allocated_bytes": 12701696,
+    "du_apparent_bytes": 1116480,
+    "state_allocated_bytes": 17502208
+  },
+  {
+    "sync_s": 10.910547417937778,
+    "synced": 10100,
+    "entries": 10100,
+    "init_total_s": 10.91164203803055,
+    "files": 10000,
+    "rep": 1,
+    "du_allocated_bytes": 41783296,
+    "du_apparent_bytes": 3804480,
+    "state_allocated_bytes": 57520128
+  },
+  {
+    "sync_s": 11.177254739915952,
+    "synced": 10100,
+    "entries": 10100,
+    "init_total_s": 11.177987239905633,
+    "files": 10000,
+    "rep": 2,
+    "du_allocated_bytes": 41783296,
+    "du_apparent_bytes": 3804480,
+    "state_allocated_bytes": 57528320
+  },
+  {
+    "sync_s": 102.67144191998523,
+    "synced": 100100,
+    "entries": 100100,
+    "init_total_s": 102.67352379998192,
+    "files": 100000,
+    "rep": 1,
+    "du_allocated_bytes": 414519296,
+    "du_apparent_bytes": 41244480,
+    "state_allocated_bytes": 570978304
+  },
+  {
+    "sync_s": 100.72051794594154,
+    "synced": 100100,
+    "entries": 100100,
+    "init_total_s": 100.72282516595442,
+    "files": 100000,
+    "rep": 2,
+    "du_allocated_bytes": 414519296,
+    "du_apparent_bytes": 41244480,
+    "state_allocated_bytes": 570970112
+  }
+]

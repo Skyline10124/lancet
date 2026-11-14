@@ -1,0 +1,460 @@
+{
+  "worktree": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2",
+  "files": [
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/REPORT-v4.md",
+      "relative": "prototypes/write-intercept/REPORT-v4.md",
+      "bytes": 26929
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/audit-v4.py",
+      "relative": "prototypes/write-intercept/audit-v4.py",
+      "bytes": 3668
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/benchmarks-v4.py",
+      "relative": "prototypes/write-intercept/benchmarks-v4.py",
+      "bytes": 7790
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/docs-check-v4.py",
+      "relative": "prototypes/write-intercept/docs-check-v4.py",
+      "bytes": 1903
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/git-v4.py",
+      "relative": "prototypes/write-intercept/git-v4.py",
+      "bytes": 6016
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/namespace-v4.c",
+      "relative": "prototypes/write-intercept/namespace-v4.c",
+      "bytes": 3477
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/profile-v4.py",
+      "relative": "prototypes/write-intercept/profile-v4.py",
+      "bytes": 1583
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/recover-v4.py",
+      "relative": "prototypes/write-intercept/recover-v4.py",
+      "bytes": 1416
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/artifact-renames-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/artifact-renames-v4.json",
+      "bytes": 2391
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/audit-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/audit-v4.json",
+      "bytes": 788
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/baseline-integrity-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/baseline-integrity-v4.json",
+      "bytes": 82
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/benchmark-source-hashes-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/benchmark-source-hashes-v4.json",
+      "bytes": 609
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/benchmarks-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/benchmarks-v4.log",
+      "bytes": 15573
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/boundaries-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/boundaries-v4.json",
+      "bytes": 4342
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/boundaries-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/boundaries-v4.log",
+      "bytes": 0
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/builds-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/builds-v4.json",
+      "bytes": 157353
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/checkouts-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/checkouts-v4.json",
+      "bytes": 10466
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/cleanup-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/cleanup-v4.json",
+      "bytes": 79
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/commit-window-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/commit-window-v4.json",
+      "bytes": 469
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/compile-final-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/compile-final-v4.json",
+      "bytes": 1510
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/compile-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/compile-v4.log",
+      "bytes": 1253
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/concurrent-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/concurrent-v4.json",
+      "bytes": 21289
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/coverage-before-fixes-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/coverage-before-fixes-v4.json",
+      "bytes": 267107
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/coverage-invalid-mount-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/coverage-invalid-mount-v4.json",
+      "bytes": 166274
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/coverage-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/coverage-v4.json",
+      "bytes": 275702
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/crashes-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/crashes-v4.json",
+      "bytes": 63752
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/docs-check-temporary-index-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/docs-check-temporary-index-v4.json",
+      "bytes": 547
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/docs-check-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/docs-check-v4.log",
+      "bytes": 236
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/environment-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/environment-v4.json",
+      "bytes": 155570
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/git-discard-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/git-discard-v4.json",
+      "bytes": 148512
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/git-minimal-only-risk-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/git-minimal-only-risk-v4.json",
+      "bytes": 4067
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/git-minimal-risk-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/git-minimal-risk-v4.json",
+      "bytes": 2654
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/git-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/git-v4.json",
+      "bytes": 291149
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/git-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/git-v4.log",
+      "bytes": 43240
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/incremental-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/incremental-v4.json",
+      "bytes": 787131
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/initial-repeats-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/initial-repeats-v4.log",
+      "bytes": 159
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/initial-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/initial-v4.json",
+      "bytes": 5369
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/lattice-initial-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/lattice-initial-v4.json",
+      "bytes": 71
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/ledger-compat-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/ledger-compat-v4.json",
+      "bytes": 864
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/micro-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/micro-v4.json",
+      "bytes": 23905
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/performance-v4.html",
+      "relative": "prototypes/write-intercept/results/v4/performance-v4.html",
+      "bytes": 1820
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/profile-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/profile-v4.json",
+      "bytes": 8436
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/profile-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/profile-v4.log",
+      "bytes": 2728
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/restart-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/restart-v4.json",
+      "bytes": 2886
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-B3-0-v4.json.gz",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-B3-0-v4.json.gz",
+      "bytes": 464651
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-B3-1-v4.json.gz",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-B3-1-v4.json.gz",
+      "bytes": 465265
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-B3-2-v4.json.gz",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-B3-2-v4.json.gz",
+      "bytes": 465550
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-none-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-none-0-v4.json",
+      "bytes": 2486
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-none-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-none-1-v4.json",
+      "bytes": 2487
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-none-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-none-2-v4.json",
+      "bytes": 2487
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-ns-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-ns-0-v4.json",
+      "bytes": 2476
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-ns-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-ns-1-v4.json",
+      "bytes": 2476
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/checkout-ns-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/checkout-ns-2-v4.json",
+      "bytes": 2476
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-B3-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-B3-0-v4.json",
+      "bytes": 15191
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-B3-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-B3-1-v4.json",
+      "bytes": 15190
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-B3-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-B3-2-v4.json",
+      "bytes": 15191
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-none-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-none-0-v4.json",
+      "bytes": 14937
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-none-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-none-1-v4.json",
+      "bytes": 14937
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-none-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-none-2-v4.json",
+      "bytes": 14936
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-ns-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-ns-0-v4.json",
+      "bytes": 14927
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-ns-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-ns-1-v4.json",
+      "bytes": 14926
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/full-ns-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/full-ns-2-v4.json",
+      "bytes": 14928
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-B3-a-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-B3-a-0-v4.json",
+      "bytes": 2338
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-B3-a-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-B3-a-1-v4.json",
+      "bytes": 2345
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-B3-a-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-B3-a-2-v4.json",
+      "bytes": 2345
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-B3-null-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-B3-null-0-v4.json",
+      "bytes": 1592
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-B3-null-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-B3-null-1-v4.json",
+      "bytes": 1591
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-B3-null-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-B3-null-2-v4.json",
+      "bytes": 1592
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-none-a-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-none-a-0-v4.json",
+      "bytes": 1323
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-none-a-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-none-a-1-v4.json",
+      "bytes": 1323
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-none-a-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-none-a-2-v4.json",
+      "bytes": 1323
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-none-null-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-none-null-0-v4.json",
+      "bytes": 1337
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-none-null-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-none-null-1-v4.json",
+      "bytes": 1337
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-none-null-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-none-null-2-v4.json",
+      "bytes": 1336
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-ns-a-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-ns-a-0-v4.json",
+      "bytes": 1313
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-ns-a-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-ns-a-1-v4.json",
+      "bytes": 1314
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-ns-a-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-ns-a-2-v4.json",
+      "bytes": 1313
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-ns-null-0-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-ns-null-0-v4.json",
+      "bytes": 1327
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-ns-null-1-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-ns-null-1-v4.json",
+      "bytes": 1328
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/runs/micro-ns-null-2-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/runs/micro-ns-null-2-v4.json",
+      "bytes": 1327
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/settlement-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/settlement-v4.json",
+      "bytes": 4669
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/summary-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/summary-v4.json",
+      "bytes": 5822
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/supplement-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/supplement-v4.json",
+      "bytes": 3113
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/supplement-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/supplement-v4.log",
+      "bytes": 3113
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/sync-v4.json",
+      "relative": "prototypes/write-intercept/results/v4/sync-v4.json",
+      "bytes": 3656
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/results/v4/verification-v4.log",
+      "relative": "prototypes/write-intercept/results/v4/verification-v4.log",
+      "bytes": 3858
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/shadow-v4.py",
+      "relative": "prototypes/write-intercept/shadow-v4.py",
+      "bytes": 17246
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/summarize-v4.py",
+      "relative": "prototypes/write-intercept/summarize-v4.py",
+      "bytes": 11931
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/supplement-v4.py",
+      "relative": "prototypes/write-intercept/supplement-v4.py",
+      "bytes": 9177
+    },
+    {
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/verify-v4.py",
+      "relative": "prototypes/write-intercept/verify-v4.py",
+      "bytes": 10482
+    }
+  ],
+  "imported_baseline": {
+    "source": "origin/exp/write-intercept",
+    "files": 2092,
+    "unchanged": true
+  }
+}

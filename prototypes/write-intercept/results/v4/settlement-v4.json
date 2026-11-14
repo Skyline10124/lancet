@@ -1,0 +1,155 @@
+[
+  {
+    "changed": 1,
+    "rep": 0,
+    "sync": {
+      "sync_s": 0.22449978301301599,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.05496358894743025,
+    "epsilon_count": 1,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692789457014178",
+    "commit_s": 0.26887366198934615,
+    "prepare_s": 0.20120654406491667,
+    "apply_s": 0.06766760791651905,
+    "conflicts": []
+  },
+  {
+    "changed": 1,
+    "rep": 1,
+    "sync": {
+      "sync_s": 0.22474937292281538,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.05441097798757255,
+    "epsilon_count": 1,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692789862846616",
+    "commit_s": 0.11682901694439352,
+    "prepare_s": 0.05381569894962013,
+    "apply_s": 0.06301404803525656,
+    "conflicts": []
+  },
+  {
+    "changed": 1,
+    "rep": 2,
+    "sync": {
+      "sync_s": 0.22309288301039487,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.06932822801172733,
+    "epsilon_count": 1,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692790273047604",
+    "commit_s": 0.11700415692757815,
+    "prepare_s": 0.05403732892591506,
+    "apply_s": 0.06296724802814424,
+    "conflicts": []
+  },
+  {
+    "changed": 100,
+    "rep": 0,
+    "sync": {
+      "sync_s": 0.22431495296768844,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.05642626795452088,
+    "epsilon_count": 100,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692790685410482",
+    "commit_s": 0.19683630391955376,
+    "prepare_s": 0.06794430792797357,
+    "apply_s": 0.12889280600938946,
+    "conflicts": []
+  },
+  {
+    "changed": 100,
+    "rep": 1,
+    "sync": {
+      "sync_s": 0.23812415299471468,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.057054428034462035,
+    "epsilon_count": 100,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692791192935027",
+    "commit_s": 0.20237836404703557,
+    "prepare_s": 0.06865475804079324,
+    "apply_s": 0.13372448598966002,
+    "conflicts": []
+  },
+  {
+    "changed": 100,
+    "rep": 2,
+    "sync": {
+      "sync_s": 0.22362828301265836,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.056286958046257496,
+    "epsilon_count": 100,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692791702822502",
+    "commit_s": 0.21385266399011016,
+    "prepare_s": 0.0801383180078119,
+    "apply_s": 0.13371498591732234,
+    "conflicts": []
+  },
+  {
+    "changed": 4000,
+    "rep": 0,
+    "sync": {
+      "sync_s": 0.22514392307493836,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.13839167600963265,
+    "epsilon_count": 4000,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692792856809557",
+    "commit_s": 3.3097776420181617,
+    "prepare_s": 0.571891033090651,
+    "apply_s": 2.73788741894532,
+    "conflicts": []
+  },
+  {
+    "changed": 4000,
+    "rep": 1,
+    "sync": {
+      "sync_s": 0.24013483291491866,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.13625933590810746,
+    "epsilon_count": 4000,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692797138105091",
+    "commit_s": 3.330625051050447,
+    "prepare_s": 0.5661705329548568,
+    "apply_s": 2.764455448021181,
+    "conflicts": []
+  },
+  {
+    "changed": 4000,
+    "rep": 2,
+    "sync": {
+      "sync_s": 0.2365059630246833,
+      "synced": 0,
+      "entries": 4000
+    },
+    "scan_s": 0.13834067597053945,
+    "epsilon_count": 4000,
+    "outcome": "Committed",
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692801494654261",
+    "commit_s": 3.382264570100233,
+    "prepare_s": 0.628236121032387,
+    "apply_s": 2.754029448959045,
+    "conflicts": []
+  }
+]

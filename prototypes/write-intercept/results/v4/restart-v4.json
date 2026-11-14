@@ -1,0 +1,72 @@
+[
+  {
+    "stage": "before-log",
+    "killed": true,
+    "restart_code": 0,
+    "stdout": "{\"transactions\": [{\"transaction\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/restart-before-log/transactions/1794693146961513984\", \"result\": {\"outcome\": \"Unprepared\"}}], \"entries\": 16, \"restart_s\": 0.011185529991053045}\n",
+    "stderr": "",
+    "sync": {
+      "sync_s": 0.004888679017312825,
+      "synced": 0,
+      "entries": 16
+    },
+    "next_outcome": "Unchanged",
+    "difference": []
+  },
+  {
+    "stage": "after-ready",
+    "killed": true,
+    "restart_code": 0,
+    "stdout": "{\"transactions\": [{\"transaction\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/restart-after-ready/transactions/1794693147078975131\", \"result\": {\"outcome\": \"Restored\", \"phase\": \"ready\"}}], \"entries\": 16, \"restart_s\": 0.016038579982705414}\n",
+    "stderr": "",
+    "sync": {
+      "sync_s": 0.005089940037578344,
+      "synced": 0,
+      "entries": 16
+    },
+    "next_outcome": "Unchanged",
+    "difference": []
+  },
+  {
+    "stage": "apply-1",
+    "killed": true,
+    "restart_code": 0,
+    "stdout": "{\"transactions\": [{\"transaction\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/restart-apply-1/transactions/1794693147208864417\", \"result\": {\"outcome\": \"Restored\", \"phase\": \"ready\"}}], \"entries\": 16, \"restart_s\": 0.016233708942309022}\n",
+    "stderr": "",
+    "sync": {
+      "sync_s": 0.004567370051518083,
+      "synced": 0,
+      "entries": 16
+    },
+    "next_outcome": "Unchanged",
+    "difference": []
+  },
+  {
+    "stage": "after-complete",
+    "killed": true,
+    "restart_code": 0,
+    "stdout": "{\"transactions\": [{\"transaction\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/restart-after-complete/transactions/1794693147339452213\", \"result\": {\"outcome\": \"Committed\", \"phase\": \"complete\"}}], \"entries\": 17, \"restart_s\": 0.011309589026495814}\n",
+    "stderr": "",
+    "sync": {
+      "sync_s": 0.005016429931856692,
+      "synced": 0,
+      "entries": 17
+    },
+    "next_outcome": "Unchanged",
+    "difference": []
+  },
+  {
+    "stage": "inplace-partial",
+    "killed": true,
+    "restart_code": 0,
+    "stdout": "{\"transactions\": [{\"transaction\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/restart-inplace-partial/transactions/1794693147468477159\", \"result\": {\"outcome\": \"Restored\", \"phase\": \"ready\"}}], \"entries\": 16, \"restart_s\": 0.016132279066368937}\n",
+    "stderr": "",
+    "sync": {
+      "sync_s": 0.004793139989487827,
+      "synced": 0,
+      "entries": 16
+    },
+    "next_outcome": "Unchanged",
+    "difference": []
+  }
+]

@@ -1,0 +1,109 @@
+[
+  {
+    "case": "external-sync",
+    "sync": {
+      "sync_s": 0.010571678983978927,
+      "synced": 13,
+      "entries": 20
+    },
+    "difference": []
+  },
+  {
+    "case": "initial-metadata",
+    "difference": [],
+    "hardlink_preserved": true,
+    "shadow_is_different_inode": true
+  },
+  {
+    "case": "multi-act-revert",
+    "reverts": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      },
+      {
+        "code": 0,
+        "stdout": "{\"outcome\": \"Restored\", \"phase\": \"complete\"}\n",
+        "stderr": ""
+      }
+    ],
+    "difference": []
+  },
+  {
+    "case": "revert-conflict",
+    "result": {
+      "outcome": "Conflict",
+      "conflicts": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-revert-conflict/a"
+      ]
+    },
+    "external_preserved": true
+  },
+  {
+    "case": "preexisting-cross-category-alias",
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"hardlink-alias\",\"rc\":6,\"errno\":0,\"seconds\":0.000031650}\n",
+      "stderr": "",
+      "exec_s": 0.0028110500425100327,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-preexisting-alias",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/preexisting-alias",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "hardlink-alias"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00033549999352544546,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "real_regular_changed": true
+  },
+  {
+    "case": "xattr-policy",
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"setxattr\",\"rc\":0,\"errno\":0,\"seconds\":0.000016300}\n",
+      "stderr": "",
+      "exec_s": 0.0027347300201654434,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-xattr",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/xattr",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/probe-v3",
+        "setxattr"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00038154004141688347,
+      "epsilon": {
+        "paths": [],
+        "directory_renames": [],
+        "entries": []
+      }
+    },
+    "shadow_xattrs": [
+      "security.selinux",
+      "user.probe"
+    ]
+  },
+  {
+    "case": "hardlink-inode",
+    "before": 638284536,
+    "after": 638284536,
+    "reverted": 638284536,
+    "hard": 638284536,
+    "result": {
+      "outcome": "Restored",
+      "phase": "complete"
+    }
+  }
+]

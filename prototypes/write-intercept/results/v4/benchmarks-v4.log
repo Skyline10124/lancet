@@ -1,0 +1,133 @@
+full-none-0 0 56.295036259 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 56.25s
+
+full-ns-0 0 54.452647342 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.40s
+
+full-B3-0 0 55.495911571 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 55.42s
+
+full-S-0 0 53.92512565595098 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.81s
+
+full-ns-1 0 54.292309827 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.24s
+
+full-B3-1 0 54.84871434 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.80s
+
+full-S-1 0 54.161932519986294 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.04s
+
+full-none-1 0 54.760041452 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.62s
+
+full-B3-2 0 55.220613159 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 55.14s
+
+full-S-2 0 54.489612709963694 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.37s
+
+full-none-2 0 53.827446909 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.78s
+
+full-ns-2 0 53.786803031 t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.74s
+
+checkout-none-0 0 0.254759403 None
+checkout-ns-0 0 0.274913142 None
+checkout-B3-0 0 14.315888654 None
+checkout-S-0 0 9.019963546073996 {'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794692516428379738', 'commit_s': 4.0707051679492, 'prepare_s': 1.131962358020246, 'apply_s': 2.9387440299615264, 'conflicts': []}
+checkout-ns-1 0 0.271530442 None
+checkout-B3-1 0 12.439049747 None
+checkout-S-1 0 8.931660513975658 {'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794692541608578555', 'commit_s': 3.7129903950262815, 'prepare_s': 0.82562063599471, 'apply_s': 2.887370669050142, 'conflicts': []}
+checkout-none-1 0 0.250877243 None
+checkout-B3-2 0 12.622207151 None
+checkout-S-2 0 8.749390771030448 {'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794692566409923748', 'commit_s': 3.6393566980259493, 'prepare_s': 0.8094210469862446, 'apply_s': 2.8299365610582754, 'conflicts': []}
+checkout-none-2 0 0.249655543 None
+checkout-ns-2 0 0.271250602 None
+micro-none-null-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067724478, 'us_per_call': 3.386224}
+micro-ns-null-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067598198, 'us_per_call': 3.37991}
+micro-B3-null-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.578315853, 'us_per_call': 28.915793}
+micro-S-null-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067732167, 'us_per_call': 3.386608}
+micro-none-a-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.064135929, 'us_per_call': 3.206796}
+micro-ns-a-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.063539699, 'us_per_call': 3.176985}
+micro-B3-a-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 3.423286, 'us_per_call': 171.1643}
+micro-S-a-0 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.070198618, 'us_per_call': 3.509931}
+micro-none-null-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.069579028, 'us_per_call': 3.478951}
+micro-ns-null-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.069046978, 'us_per_call': 3.452349}
+micro-B3-null-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.579068033, 'us_per_call': 28.953402}
+micro-S-null-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067698328, 'us_per_call': 3.384916}
+micro-none-a-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.063491838, 'us_per_call': 3.174592}
+micro-ns-a-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.063449438, 'us_per_call': 3.172472}
+micro-B3-a-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 3.281073924, 'us_per_call': 164.053696}
+micro-S-a-1 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067639558, 'us_per_call': 3.381978}
+micro-none-null-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067990428, 'us_per_call': 3.399521}
+micro-ns-null-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067504518, 'us_per_call': 3.375226}
+micro-B3-null-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.580271863, 'us_per_call': 29.013593}
+micro-S-null-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.068234948, 'us_per_call': 3.411747}
+micro-none-a-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.064024258, 'us_per_call': 3.201213}
+micro-ns-a-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.064536888, 'us_per_call': 3.226844}
+micro-B3-a-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 3.405512251, 'us_per_call': 170.275613}
+micro-S-a-2 {'case': 'micro-path', 'iterations': 20000, 'failed': 0, 'seconds': 0.067812498, 'us_per_call': 3.390625}
+sync 3000 0 0 {'sync_s': 0.18111712497193366, 'synced': 0, 'entries': 3100}
+sync 3000 0 1 {'sync_s': 0.17606514506042004, 'synced': 0, 'entries': 3100}
+sync 3000 0 2 {'sync_s': 0.17909111501649022, 'synced': 0, 'entries': 3100}
+sync 3000 10 0 {'sync_s': 0.2060983539558947, 'synced': 10, 'entries': 3100}
+sync 3000 10 1 {'sync_s': 0.18884407402947545, 'synced': 10, 'entries': 3100}
+sync 3000 10 2 {'sync_s': 0.18915774498600513, 'synced': 10, 'entries': 3100}
+sync 3000 1000 0 {'sync_s': 0.842024715966545, 'synced': 1000, 'entries': 3100}
+sync 3000 1000 1 {'sync_s': 0.8584046949399635, 'synced': 1000, 'entries': 3100}
+sync 3000 1000 2 {'sync_s': 0.8726082149660215, 'synced': 1000, 'entries': 3100}
+sync 10000 0 0 {'sync_s': 0.6469241909217089, 'synced': 0, 'entries': 10100}
+sync 10000 0 1 {'sync_s': 0.6263405720237643, 'synced': 0, 'entries': 10100}
+sync 10000 0 2 {'sync_s': 0.635936161968857, 'synced': 0, 'entries': 10100}
+sync 10000 10 0 {'sync_s': 0.641397551051341, 'synced': 10, 'entries': 10100}
+sync 10000 10 1 {'sync_s': 0.6414435009937733, 'synced': 10, 'entries': 10100}
+sync 10000 10 2 {'sync_s': 0.6307375020114705, 'synced': 10, 'entries': 10100}
+sync 10000 1000 0 {'sync_s': 1.3276304540922865, 'synced': 1000, 'entries': 10100}
+sync 10000 1000 1 {'sync_s': 1.3075072839856148, 'synced': 1000, 'entries': 10100}
+sync 10000 1000 2 {'sync_s': 1.2993525629863143, 'synced': 1000, 'entries': 10100}
+sync 100000 0 0 {'sync_s': 7.708754273015074, 'synced': 0, 'entries': 100100}
+sync 100000 0 1 {'sync_s': 7.688587073003873, 'synced': 0, 'entries': 100100}
+sync 100000 0 2 {'sync_s': 7.606700444943272, 'synced': 0, 'entries': 100100}
+sync 100000 10 0 {'sync_s': 7.691220271983184, 'synced': 10, 'entries': 100100}
+sync 100000 10 1 {'sync_s': 7.576811656006612, 'synced': 10, 'entries': 100100}
+sync 100000 10 2 {'sync_s': 7.678454334032722, 'synced': 10, 'entries': 100100}
+sync 100000 1000 0 {'sync_s': 8.281892326078378, 'synced': 1000, 'entries': 100100}
+sync 100000 1000 1 {'sync_s': 8.3810974820517, 'synced': 1000, 'entries': 100100}
+sync 100000 1000 2 {'sync_s': 8.32806874497328, 'synced': 1000, 'entries': 100100}
+settlement {'changed': 1, 'rep': 0, 'sync': {'sync_s': 0.22449978301301599, 'synced': 0, 'entries': 4000}, 'scan_s': 0.05496358894743025, 'epsilon_count': 1, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692789457014178', 'commit_s': 0.26887366198934615, 'prepare_s': 0.20120654406491667, 'apply_s': 0.06766760791651905, 'conflicts': []}
+settlement {'changed': 1, 'rep': 1, 'sync': {'sync_s': 0.22474937292281538, 'synced': 0, 'entries': 4000}, 'scan_s': 0.05441097798757255, 'epsilon_count': 1, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692789862846616', 'commit_s': 0.11682901694439352, 'prepare_s': 0.05381569894962013, 'apply_s': 0.06301404803525656, 'conflicts': []}
+settlement {'changed': 1, 'rep': 2, 'sync': {'sync_s': 0.22309288301039487, 'synced': 0, 'entries': 4000}, 'scan_s': 0.06932822801172733, 'epsilon_count': 1, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692790273047604', 'commit_s': 0.11700415692757815, 'prepare_s': 0.05403732892591506, 'apply_s': 0.06296724802814424, 'conflicts': []}
+settlement {'changed': 100, 'rep': 0, 'sync': {'sync_s': 0.22431495296768844, 'synced': 0, 'entries': 4000}, 'scan_s': 0.05642626795452088, 'epsilon_count': 100, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692790685410482', 'commit_s': 0.19683630391955376, 'prepare_s': 0.06794430792797357, 'apply_s': 0.12889280600938946, 'conflicts': []}
+settlement {'changed': 100, 'rep': 1, 'sync': {'sync_s': 0.23812415299471468, 'synced': 0, 'entries': 4000}, 'scan_s': 0.057054428034462035, 'epsilon_count': 100, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692791192935027', 'commit_s': 0.20237836404703557, 'prepare_s': 0.06865475804079324, 'apply_s': 0.13372448598966002, 'conflicts': []}
+settlement {'changed': 100, 'rep': 2, 'sync': {'sync_s': 0.22362828301265836, 'synced': 0, 'entries': 4000}, 'scan_s': 0.056286958046257496, 'epsilon_count': 100, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692791702822502', 'commit_s': 0.21385266399011016, 'prepare_s': 0.0801383180078119, 'apply_s': 0.13371498591732234, 'conflicts': []}
+settlement {'changed': 4000, 'rep': 0, 'sync': {'sync_s': 0.22514392307493836, 'synced': 0, 'entries': 4000}, 'scan_s': 0.13839167600963265, 'epsilon_count': 4000, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692792856809557', 'commit_s': 3.3097776420181617, 'prepare_s': 0.571891033090651, 'apply_s': 2.73788741894532, 'conflicts': []}
+settlement {'changed': 4000, 'rep': 1, 'sync': {'sync_s': 0.24013483291491866, 'synced': 0, 'entries': 4000}, 'scan_s': 0.13625933590810746, 'epsilon_count': 4000, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692797138105091', 'commit_s': 3.330625051050447, 'prepare_s': 0.5661705329548568, 'apply_s': 2.764455448021181, 'conflicts': []}
+settlement {'changed': 4000, 'rep': 2, 'sync': {'sync_s': 0.2365059630246833, 'synced': 0, 'entries': 4000}, 'scan_s': 0.13834067597053945, 'epsilon_count': 4000, 'outcome': 'Committed', 'transaction': '/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/end-scan/transactions/1794692801494654261', 'commit_s': 3.382264570100233, 'prepare_s': 0.628236121032387, 'apply_s': 2.754029448959045, 'conflicts': []}
+incremental 0 0 0

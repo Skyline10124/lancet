@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": {
+    "coverage_126": true,
+    "tmpfiles_executed": true,
+    "directory_rename_identified": true,
+    "cross_category_12_exdev": true,
+    "external_12": true,
+    "same_file_commit_conflict": true,
+    "crashes_55": true,
+    "crash_ledger": true,
+    "restart_5": true,
+    "git_48": true,
+    "git_discard_counterexamples": true,
+    "minimal_independent_control": true,
+    "incremental_one_crate": true,
+    "builds-v4.json": true,
+    "checkouts-v4.json": true,
+    "micro_24": true,
+    "sync_27": true,
+    "settlement_9": true,
+    "initial_9": true,
+    "baseline_unmodified": true,
+    "ledger_object_format": true,
+    "commit_window_counterexample": true,
+    "supplement_semantics": true,
+    "preexisting_alias_counterexample": true
+  }
+}

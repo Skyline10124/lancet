@@ -1,0 +1,153 @@
+{
+  "minimal": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_s": 0.04214149806648493,
+    "trace": [
+      {
+        "event": "data",
+        "sid": "20261114T215824.755100Z-Hfc1aa7ef-P0026e9ed",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.758064Z",
+        "file": "preload-index.c",
+        "line": 177,
+        "t_abs": 0.00324,
+        "t_rel": 0.001927,
+        "nesting": 2,
+        "category": "index",
+        "key": "preload/sum_lstat",
+        "value": "4485"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215824.755100Z-Hfc1aa7ef-P0026e9ed",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.792284Z",
+        "file": "read-cache.c",
+        "line": 1595,
+        "t_abs": 0.037459,
+        "t_rel": 0.034201,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_lstat",
+        "value": "3999"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215824.755100Z-Hfc1aa7ef-P0026e9ed",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.792302Z",
+        "file": "read-cache.c",
+        "line": 1596,
+        "t_abs": 0.037478,
+        "t_rel": 0.03422,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_scan",
+        "value": "0"
+      }
+    ]
+  },
+  "default_after_minimal": {
+    "returncode": 0,
+    "stdout": " M wi-checkout-data/d00/f0000.txt\n",
+    "stderr": "",
+    "wall_s": 0.00587263994384557,
+    "trace": [
+      {
+        "event": "data",
+        "sid": "20261114T215824.797339Z-Hfc1aa7ef-P0026e9f6",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.800210Z",
+        "file": "preload-index.c",
+        "line": 177,
+        "t_abs": 0.003118,
+        "t_rel": 0.00188,
+        "nesting": 2,
+        "category": "index",
+        "key": "preload/sum_lstat",
+        "value": "4485"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215824.797339Z-Hfc1aa7ef-P0026e9f6",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.800336Z",
+        "file": "read-cache.c",
+        "line": 1595,
+        "t_abs": 0.003245,
+        "t_rel": 0.000107,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_lstat",
+        "value": "1"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215824.797339Z-Hfc1aa7ef-P0026e9f6",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.800343Z",
+        "file": "read-cache.c",
+        "line": 1596,
+        "t_abs": 0.003252,
+        "t_rel": 0.000114,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_scan",
+        "value": "1"
+      }
+    ]
+  },
+  "default_independent": {
+    "returncode": 0,
+    "stdout": " M wi-checkout-data/d00/f0000.txt\n",
+    "stderr": "",
+    "wall_s": 0.005511149996891618,
+    "trace": [
+      {
+        "event": "data",
+        "sid": "20261114T215824.803530Z-Hfc1aa7ef-P0026e9ff",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.806278Z",
+        "file": "preload-index.c",
+        "line": 177,
+        "t_abs": 0.002978,
+        "t_rel": 0.001777,
+        "nesting": 2,
+        "category": "index",
+        "key": "preload/sum_lstat",
+        "value": "4485"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215824.803530Z-Hfc1aa7ef-P0026e9ff",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.806399Z",
+        "file": "read-cache.c",
+        "line": 1595,
+        "t_abs": 0.0031,
+        "t_rel": 0.000102,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_lstat",
+        "value": "1"
+      },
+      {
+        "event": "data",
+        "sid": "20261114T215824.803530Z-Hfc1aa7ef-P0026e9ff",
+        "thread": "main",
+        "time": "2026-11-14T21:58:24.806406Z",
+        "file": "read-cache.c",
+        "line": 1596,
+        "t_abs": 0.003108,
+        "t_rel": 0.00011,
+        "nesting": 2,
+        "category": "index",
+        "key": "refresh/sum_scan",
+        "value": "1"
+      }
+    ]
+  },
+  "bytes_changed": true
+}

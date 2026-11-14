@@ -1,0 +1,5 @@
+文档链接检查通过：24 个 Markdown 文件
+     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `prototypes/write-intercept/.scratch/docs-target/debug/xtask docs-check`
+
+real_index_unchanged True

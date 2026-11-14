@@ -1,0 +1,707 @@
+[
+  {
+    "same": false,
+    "commit": false,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22348557400982827,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-False-False-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-False-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0004634399665519595,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "discard_s": 0.00605879002250731,
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": false,
+    "commit": false,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22391500300727785,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-False-False-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-False-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0004987000720575452,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "discard_s": 0.0052260999800637364,
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": false,
+    "commit": false,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.2235387529945001,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-False-False-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-False-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0005244900239631534,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "discard_s": 0.004677699995227158,
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": false,
+    "commit": true,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.2233958930009976,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-False-True-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-True-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0004887909162789583,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-True-0/transactions/1794691763752943591",
+      "commit_s": 0.012243468896485865,
+      "prepare_s": 0.005824038991704583,
+      "apply_s": 0.00641972990706563,
+      "conflicts": []
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": false,
+    "commit": true,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22361113294027746,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-False-True-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-True-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00047871004790067673,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-True-1/transactions/1794691764009006153",
+      "commit_s": 0.011744940071366727,
+      "prepare_s": 0.005416050087660551,
+      "apply_s": 0.006329139927402139,
+      "conflicts": []
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": false,
+    "commit": true,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.2234190640738234,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-False-True-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-True-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0004719700664281845,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-False-True-2/transactions/1794691764263075146",
+      "commit_s": 0.014426569105125964,
+      "prepare_s": 0.006902649067342281,
+      "apply_s": 0.007524190004914999,
+      "conflicts": []
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": true,
+    "commit": false,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22332522401120514,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-True-False-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-True-False-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00047771004028618336,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "discard_s": 0.005105520016513765,
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": true,
+    "commit": false,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22397878393530846,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-True-False-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-True-False-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0004618199309334159,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "discard_s": 0.004506508936174214,
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": true,
+    "commit": false,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22357775294221938,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-True-False-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-True-False-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00047155003994703293,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "discard_s": 0.004345010034739971,
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": true,
+    "commit": true,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22309785394463688,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-True-True-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-True-True-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00048011995386332273,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "outcome": "Conflict",
+      "conflicts": [
+        "a"
+      ],
+      "commit_s": 0.0003088399535045028
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": true,
+    "commit": true,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22362930397503078,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-True-True-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-True-True-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.00048079993575811386,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "outcome": "Conflict",
+      "conflicts": [
+        "a"
+      ],
+      "commit_s": 0.0003211400471627712
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": true,
+    "commit": true,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22362293407786638,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-external-True-True-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/external-True-True-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "scan_s": 0.0004807300865650177,
+      "epsilon": {
+        "paths": [
+          "a"
+        ],
+        "directory_renames": [],
+        "entries": [
+          {
+            "path": "a",
+            "before": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+              "links": [
+                "a"
+              ]
+            },
+            "after": {
+              "type": "file",
+              "mode": 420,
+              "sha256": "b7ad567477c83756aab9a542b2be04f77dbae25115d85f22070d74d8cc4779dc",
+              "links": [
+                "a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "outcome": "Conflict",
+      "conflicts": [
+        "a"
+      ],
+      "commit_s": 0.0003203300293534994
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  }
+]

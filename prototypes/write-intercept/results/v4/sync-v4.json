@@ -1,0 +1,218 @@
+[
+  {
+    "files": 3000,
+    "changed": 0,
+    "rep": 0,
+    "sync_s": 0.18111712497193366,
+    "synced": 0,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 0,
+    "rep": 1,
+    "sync_s": 0.17606514506042004,
+    "synced": 0,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 0,
+    "rep": 2,
+    "sync_s": 0.17909111501649022,
+    "synced": 0,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 10,
+    "rep": 0,
+    "sync_s": 0.2060983539558947,
+    "synced": 10,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 10,
+    "rep": 1,
+    "sync_s": 0.18884407402947545,
+    "synced": 10,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 10,
+    "rep": 2,
+    "sync_s": 0.18915774498600513,
+    "synced": 10,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 1000,
+    "rep": 0,
+    "sync_s": 0.842024715966545,
+    "synced": 1000,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 1000,
+    "rep": 1,
+    "sync_s": 0.8584046949399635,
+    "synced": 1000,
+    "entries": 3100
+  },
+  {
+    "files": 3000,
+    "changed": 1000,
+    "rep": 2,
+    "sync_s": 0.8726082149660215,
+    "synced": 1000,
+    "entries": 3100
+  },
+  {
+    "files": 10000,
+    "changed": 0,
+    "rep": 0,
+    "sync_s": 0.6469241909217089,
+    "synced": 0,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 0,
+    "rep": 1,
+    "sync_s": 0.6263405720237643,
+    "synced": 0,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 0,
+    "rep": 2,
+    "sync_s": 0.635936161968857,
+    "synced": 0,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 10,
+    "rep": 0,
+    "sync_s": 0.641397551051341,
+    "synced": 10,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 10,
+    "rep": 1,
+    "sync_s": 0.6414435009937733,
+    "synced": 10,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 10,
+    "rep": 2,
+    "sync_s": 0.6307375020114705,
+    "synced": 10,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 1000,
+    "rep": 0,
+    "sync_s": 1.3276304540922865,
+    "synced": 1000,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 1000,
+    "rep": 1,
+    "sync_s": 1.3075072839856148,
+    "synced": 1000,
+    "entries": 10100
+  },
+  {
+    "files": 10000,
+    "changed": 1000,
+    "rep": 2,
+    "sync_s": 1.2993525629863143,
+    "synced": 1000,
+    "entries": 10100
+  },
+  {
+    "files": 100000,
+    "changed": 0,
+    "rep": 0,
+    "sync_s": 7.708754273015074,
+    "synced": 0,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 0,
+    "rep": 1,
+    "sync_s": 7.688587073003873,
+    "synced": 0,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 0,
+    "rep": 2,
+    "sync_s": 7.606700444943272,
+    "synced": 0,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 10,
+    "rep": 0,
+    "sync_s": 7.691220271983184,
+    "synced": 10,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 10,
+    "rep": 1,
+    "sync_s": 7.576811656006612,
+    "synced": 10,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 10,
+    "rep": 2,
+    "sync_s": 7.678454334032722,
+    "synced": 10,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 1000,
+    "rep": 0,
+    "sync_s": 8.281892326078378,
+    "synced": 1000,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 1000,
+    "rep": 1,
+    "sync_s": 8.3810974820517,
+    "synced": 1000,
+    "entries": 100100
+  },
+  {
+    "files": 100000,
+    "changed": 1000,
+    "rep": 2,
+    "sync_s": 8.32806874497328,
+    "synced": 1000,
+    "entries": 100100
+  }
+]

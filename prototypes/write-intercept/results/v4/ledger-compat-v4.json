@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/recover-v3.py",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/ledger-compat/transactions/1794693146842392398"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"outcome\": \"Restored\",\n  \"restored\": [\n    \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-ledger-compat/a\"\n  ],\n  \"conflicts\": [],\n  \"errors\": [],\n  \"trace\": [\n    {\n      \"action\": \"object\",\n      \"path\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/fixtures-v3/v4-ledger-compat/a\"\n    }\n  ],\n  \"recovery_pid\": 2548821\n}\n",
+  "stderr": "",
+  "poststate_metadata_projection_required": true,
+  "difference": []
+}

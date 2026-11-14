@@ -1,0 +1,272 @@
+[
+  {
+    "preflush": false,
+    "rep": 0,
+    "flush_s": 5.00003807246685e-07,
+    "sync": {
+      "sync_s": 4.465908017940819,
+      "synced": 4067,
+      "entries": 4676
+    },
+    "sync_profile": {
+      "clone_s": 2.128346197656356,
+      "clone_n": 4001
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.3207641909830272,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice",
+        "--",
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ]
+    },
+    "scan_s": 0.15526509494520724,
+    "commit": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794693153268191828",
+      "commit_s": 3.811665227985941,
+      "prepare_s": 0.8705144739942625,
+      "apply_s": 2.9411519540008157,
+      "conflicts": []
+    },
+    "commit_profile": {
+      "clone_s": 0.8262323085218668,
+      "clone_n": 8000
+    },
+    "total_s": 8.756111531984061
+  },
+  {
+    "preflush": true,
+    "rep": 0,
+    "flush_s": 0.25908441201318055,
+    "sync": {
+      "sync_s": 3.324361771927215,
+      "synced": 4669,
+      "entries": 4676
+    },
+    "sync_profile": {
+      "clone_s": 0.5103321365313604,
+      "clone_n": 4485
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.302784860949032,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice",
+        "--",
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ]
+    },
+    "scan_s": 0.15602080500684679,
+    "commit": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794693161502860355",
+      "commit_s": 3.7190157010918483,
+      "prepare_s": 0.8527095350436866,
+      "apply_s": 2.866307385964319,
+      "conflicts": []
+    },
+    "commit_profile": {
+      "clone_s": 0.8397022590506822,
+      "clone_n": 8000
+    },
+    "total_s": 7.765078800031915
+  },
+  {
+    "preflush": false,
+    "rep": 1,
+    "flush_s": 9.100185707211494e-07,
+    "sync": {
+      "sync_s": 5.3069590230006725,
+      "synced": 4669,
+      "entries": 4676
+    },
+    "sync_profile": {
+      "clone_s": 2.521525446791202,
+      "clone_n": 4485
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.3141986510017887,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice",
+        "--",
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ]
+    },
+    "scan_s": 0.1705534450011328,
+    "commit": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794693171331980175",
+      "commit_s": 3.5852994539309293,
+      "prepare_s": 0.8240278050070629,
+      "apply_s": 2.761272598989308,
+      "conflicts": []
+    },
+    "commit_profile": {
+      "clone_s": 0.8241442275466397,
+      "clone_n": 8000
+    },
+    "total_s": 9.380549201974645
+  },
+  {
+    "preflush": true,
+    "rep": 1,
+    "flush_s": 0.25602103292476386,
+    "sync": {
+      "sync_s": 3.258849334088154,
+      "synced": 4669,
+      "entries": 4676
+    },
+    "sync_profile": {
+      "clone_s": 0.5253757658647373,
+      "clone_n": 4485
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.3207486200844869,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice",
+        "--",
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ]
+    },
+    "scan_s": 0.16518679598812014,
+    "commit": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794693179272112420",
+      "commit_s": 3.6530718120047823,
+      "prepare_s": 0.8280493360944092,
+      "apply_s": 2.825023156008683,
+      "conflicts": []
+    },
+    "commit_profile": {
+      "clone_s": 0.8332502824487165,
+      "clone_n": 8000
+    },
+    "total_s": 7.657583873951808
+  },
+  {
+    "preflush": false,
+    "rep": 2,
+    "flush_s": 5.400506779551506e-07,
+    "sync": {
+      "sync_s": 5.192033536033705,
+      "synced": 4669,
+      "entries": 4676
+    },
+    "sync_profile": {
+      "clone_s": 2.432117752963677,
+      "clone_n": 4485
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.31432853103615344,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice",
+        "--",
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ]
+    },
+    "scan_s": 0.16598721500486135,
+    "commit": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794693188916477205",
+      "commit_s": 3.580188464024104,
+      "prepare_s": 0.8206032250309363,
+      "apply_s": 2.759585828986019,
+      "conflicts": []
+    },
+    "commit_profile": {
+      "clone_s": 0.8229047353379428,
+      "clone_n": 8000
+    },
+    "total_s": 9.256457126000896
+  },
+  {
+    "preflush": true,
+    "rep": 2,
+    "flush_s": 0.32622893003281206,
+    "sync": {
+      "sync_s": 3.2475282839732245,
+      "synced": 4669,
+      "entries": 4676
+    },
+    "sync_profile": {
+      "clone_s": 0.5336132930824533,
+      "clone_n": 4485
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.3092020709300414,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/lattice",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice",
+        "--",
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ]
+    },
+    "scan_s": 0.16661596507765353,
+    "commit": {
+      "outcome": "Committed",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-92eb11b2/prototypes/write-intercept/.scratch/states-v4/bench-lattice/transactions/1794693196873534169",
+      "commit_s": 3.606811632984318,
+      "prepare_s": 0.809644075925462,
+      "apply_s": 2.797168476972729,
+      "conflicts": []
+    },
+    "commit_profile": {
+      "clone_s": 0.8380327353952453,
+      "clone_n": 8000
+    },
+    "total_s": 7.660593143082224
+  }
+]

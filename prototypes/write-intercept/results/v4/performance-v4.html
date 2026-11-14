@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+:root {font-family:var(--font-sans, sans-serif);color:var(--foreground, CanvasText)}
+body{margin:0}select{font:inherit;color:var(--foreground);background:var(--card);border:1px solid var(--border);padding:8px;border-radius:var(--radius)}
+.chart{height:220px;margin-top:16px}.row{display:grid;grid-template-columns:90px 1fr 90px;align-items:center;gap:12px;height:48px}.track{height:24px;background:var(--secondary);border-radius:4px}.bar{height:24px;border-radius:4px}.num{font-variant-numeric:tabular-nums}.note{color:var(--muted-foreground);font-size:13px}
+</style></head><body><select id="choice"></select><div class="chart" id="chart"></div><p class="note">三次中位数。S 构建/checkout 含同步、执行、扫描与提交；微基准是探针内部单次耗时。共享主机，未清页缓存。</p><script>
+const data=[{"label": "LATTICE 全量构建", "values": [54.760041, 54.29231, 55.220613, 54.161933], "unit": "s"}, {"label": "4,000 文件 checkout", "values": [0.250877, 0.27153, 12.622207, 8.931661], "unit": "s"}, {"label": "open+close /dev/null", "values": [3.4, 3.38, 28.953, 3.387], "unit": "µs"}, {"label": "open+close a", "values": [3.201, 3.177, 170.276, 3.391], "unit": "µs"}];const names=['无沙箱','命名空间','B3','S'];const choice=document.getElementById('choice');
+data.forEach((d,i)=>choice.add(new Option(d.label,i)));function draw(){const d=data[choice.value],max=Math.max(...d.values);document.getElementById('chart').innerHTML=d.values.map((v,i)=>`<div class="row"><span>${names[i]}</span><div class="track"><div class="bar" style="width:${v/max*100}%;background:var(--chart-${i+1})"></div></div><span class="num">${v.toFixed(3)} ${d.unit}</span></div>`).join('')}choice.onchange=draw;draw();
+</script></body></html>
