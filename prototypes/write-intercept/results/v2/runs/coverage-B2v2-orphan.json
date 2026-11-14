@@ -1,0 +1,75 @@
+{
+  "name": "coverage-B2v2-orphan",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-orphan",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-orphan",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "orphan"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.10676730703562498,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.105626127,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0001490800641477108
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-orphan/child",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "child",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 206191739,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "child"
+  ],
+  "stdout": "{\"case\":\"orphan\",\"rc\":0,\"errno\":0,\"seconds\":0.000236460}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "orphan",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00023646
+    }
+  ]
+}

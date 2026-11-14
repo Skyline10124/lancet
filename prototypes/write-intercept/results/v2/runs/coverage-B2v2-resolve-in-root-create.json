@@ -1,0 +1,75 @@
+{
+  "name": "coverage-B2v2-resolve-in-root-create",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-resolve-in-root-create",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-resolve-in-root-create",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "resolve-in-root-create"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006050190073437989,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.004993559,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00014270003885030746
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-resolve-in-root-create/sub/new",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "sub/new",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 688572387,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "sub/new"
+  ],
+  "stdout": "{\"case\":\"resolve-in-root-create\",\"rc\":6,\"errno\":0,\"seconds\":0.002851899}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "resolve-in-root-create",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.002851899
+    }
+  ]
+}

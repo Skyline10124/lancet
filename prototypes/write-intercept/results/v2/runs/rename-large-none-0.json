@@ -1,0 +1,44 @@
+{
+  "name": "rename-large-none-0",
+  "mode": "none",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "none",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/rename-large-none-0",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/rename-large-none-0",
+    "120",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "rename-large"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.00190377002581954,
+  "stats": {
+    "mode": "none",
+    "wall_s": 0.00078208,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.8999132812023163e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"rename-large\",\"rc\":0,\"errno\":0,\"seconds\":0.000022780}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "rename-large",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 2.278e-05
+    }
+  ]
+}

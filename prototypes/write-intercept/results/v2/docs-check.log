@@ -1,0 +1,50 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling memchr v2.8.3
+   Compiling serde v1.0.229
+   Compiling utf8parse v0.2.2
+   Compiling zmij v1.0.23
+   Compiling anstyle-parse v1.0.0
+   Compiling thiserror v2.0.21
+   Compiling camino v1.2.6
+   Compiling colorchoice v1.0.5
+   Compiling anstyle v1.0.14
+   Compiling anstyle-query v1.1.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling serde_json v1.0.154
+   Compiling itoa v1.0.19
+   Compiling anstream v1.0.0
+   Compiling strsim v0.11.1
+   Compiling clap_lex v1.1.1
+   Compiling aho-corasick v1.1.5
+   Compiling regex-syntax v0.8.11
+   Compiling heck v0.5.0
+   Compiling anyhow v1.0.104
+   Compiling clap_builder v4.6.7
+   Compiling syn v3.0.10
+   Compiling regex-automata v0.4.18
+   Compiling semver v1.0.28
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.21
+   Compiling clap_derive v4.6.7
+   Compiling regex v1.13.1
+   Compiling clap v4.6.7
+   Compiling cargo-platform v0.1.9
+   Compiling cargo_metadata v0.19.2
+   Compiling xtask v0.0.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/xtask)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.65s
+     Running `prototypes/write-intercept/.scratch/docs-target/debug/xtask docs-check`
+prototypes/write-intercept/README.md:62: 目标不存在：REPORT-v2.md
+prototypes/write-intercept/README.md:66: 目标不存在：intercept-v2.c
+prototypes/write-intercept/README.md:67: 目标不存在：probe-v2.c
+prototypes/write-intercept/README.md:68: 目标不存在：experiment-v2.py
+prototypes/write-intercept/README.md:69: 目标不存在：races-v2.py
+prototypes/write-intercept/README.md:70: 目标不存在：supplement-v2.py
+prototypes/write-intercept/README.md:71: 目标不存在：benchmarks-v2.py
+prototypes/write-intercept/README.md:72: 目标不存在：timings-v2.py
+prototypes/write-intercept/README.md:73: 目标不存在：summarize-v2.py
+prototypes/write-intercept/README.md:74: 目标不存在：verify-v2.py
+prototypes/write-intercept/README.md:75: 目标不存在：results/v2/
+Error: 文档链接检查失败：11 处

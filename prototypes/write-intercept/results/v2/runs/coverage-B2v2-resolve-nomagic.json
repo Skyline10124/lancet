@@ -1,0 +1,50 @@
+{
+  "name": "coverage-B2v2-resolve-nomagic",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-resolve-nomagic",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-resolve-nomagic",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "resolve-nomagic"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0037656599888578057,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00269374,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 0,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.3993197828531265e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"resolve-nomagic\",\"rc\":-1,\"errno\":40,\"seconds\":0.000501300}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "resolve-nomagic",
+      "rc": -1,
+      "errno": 40,
+      "seconds": 0.0005013
+    }
+  ]
+}

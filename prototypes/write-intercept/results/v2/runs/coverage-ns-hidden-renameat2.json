@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-hidden-renameat2",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-hidden-renameat2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-hidden-renameat2",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "hidden-renameat2"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0039210900431498885,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.0026081,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.5995541363954544e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"hidden-renameat2\",\"rc\":0,\"errno\":0,\"seconds\":0.000029870}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "hidden-renameat2",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 2.987e-05
+    }
+  ]
+}

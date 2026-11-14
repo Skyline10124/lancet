@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-nofollow",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-nofollow",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-nofollow",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "nofollow"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.00316858000587672,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.0020506,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.6996713131666183e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"nofollow\",\"rc\":-1,\"errno\":40,\"seconds\":0.000013490}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "nofollow",
+      "rc": -1,
+      "errno": 40,
+      "seconds": 1.349e-05
+    }
+  ]
+}

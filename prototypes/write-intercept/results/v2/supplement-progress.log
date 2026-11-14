@@ -1,0 +1,9 @@
+rename-destination done
+symlink-aba done
+symlinkat-aba done
+unlink-hardlink {'conflicts': [], 'errors': []} [] {'before_same_inode': True, 'after_same_inode': False, 'original_a_inode_preserved': True}
+rename-hardlink {'conflicts': [], 'errors': []} [] {'before_same_inode': True, 'after_same_inode': True, 'original_a_inode_preserved': True}
+mkdir-trailing {'conflicts': [], 'errors': []} [] None
+restore-conflict {'conflicts': ['a'], 'errors': []} ['a'] None
+external-unregistered {'conflicts': [], 'errors': []} ['outside'] None
+deadline {'conflicts': [], 'errors': []} [] None

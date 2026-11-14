@@ -1,0 +1,25 @@
+parameter-0 [{'safe_hits': 200, 'evil_hits': 0, 'failed': 0}, {'case': 'race', 'rc': 200, 'errno': 0, 'seconds': 1.208156012}]
+parameter-1 [{'safe_hits': 200, 'evil_hits': 0, 'failed': 0}, {'case': 'race', 'rc': 200, 'errno': 0, 'seconds': 0.140457245}]
+parameter-2 [{'safe_hits': 200, 'evil_hits': 0, 'failed': 0}, {'case': 'race', 'rc': 200, 'errno': 0, 'seconds': 0.134456626}]
+open rename-old 0
+open-inside rename-old 0
+rename rename-old 20
+rename remove-old 20
+renameat rename-old 20
+renameat remove-old 20
+renameat2 rename-old 20
+renameat2 remove-old 20
+unlink rename-old 20
+unlink remove-old 0
+unlinkat rename-old 20
+unlinkat remove-old 0
+rmdir rename-old 20
+rmdir remove-old 0
+link rename-old 20
+link remove-old 20
+linkat rename-old 20
+linkat remove-old 20
+cancel-open done
+cancel-unlink done
+crash B2 done
+crash B2v2 done

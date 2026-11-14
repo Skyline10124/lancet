@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-chroot",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-chroot",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-chroot",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "chroot"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007265919935889542,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.0061934,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0009282700484618545
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-chroot/jail/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 320235444,
+      "nlink": 1,
+      "link": "",
+      "relative": "jail/a",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 320235444,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "2ad0eb1133c09ab2230c6e344c986ce5bf203667c8b5a744d5629b848671f2dd"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+      },
+      "clone_sha256": "b187895c1c0bcb7f35de529c7e1aaa6fa4b6050985d47058bd76acef3c9f34d2"
+    }
+  ],
+  "changes": [
+    "jail/a"
+  ],
+  "stdout": "{\"case\":\"chroot\",\"rc\":6,\"errno\":0,\"seconds\":0.003924290}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "chroot",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00392429
+    }
+  ]
+}

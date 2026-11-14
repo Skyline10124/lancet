@@ -1,0 +1,78 @@
+{
+  "name": "crash-B2v2-33",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/crash-B2v2-33",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/crash-B2v2-33",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "crash-old"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-crash-B2v2-33.control"
+  },
+  "returncode": -9,
+  "process_wall_s": 0.009833479998633265,
+  "stats": {
+    "digest_s": 0.00187624990940094
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/crash-B2v2-33/b",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 739134581,
+      "nlink": 1,
+      "link": "",
+      "relative": "b",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739134581,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/crash-B2v2-33/race-safe",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 739134583,
+      "nlink": 1,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 739134583,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "changes": [],
+  "stdout": "",
+  "stderr": "",
+  "observations": []
+}

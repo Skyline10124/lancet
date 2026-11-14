@@ -1,0 +1,76 @@
+{
+  "name": "edge-B2v2-in-root-dangling",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/edge-B2v2-in-root-dangling",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/edge-B2v2-in-root-dangling",
+    "30",
+    "--",
+    "python3",
+    "-c",
+    "\nimport ctypes,os,json\nlibc=ctypes.CDLL(None,use_errno=True)\nclass How(ctypes.Structure):_fields_=[('flags',ctypes.c_uint64),('mode',ctypes.c_uint64),('resolve',ctypes.c_uint64),('extra',ctypes.c_uint64)]\ncase=__import__('sys').argv[1];h=How();h.flags=os.O_WRONLY;size=24;path=b'a';d=-100\nif case=='zero-extension':size=32\nif case=='unknown-high-bit':h.flags|=1<<63\nif case=='in-root-dangling':\n d=os.open('sub',os.O_PATH);path=b'dangling';h.flags|=os.O_CREAT;h.mode=0o600;h.resolve=16\nfd=libc.syscall(ctypes.c_long(437),ctypes.c_int(d),ctypes.c_char_p(path),ctypes.byref(h),ctypes.c_size_t(size));err=ctypes.get_errno() if fd<0 else 0\nif fd>=0:os.close(fd)\nprint(json.dumps({'case':case,'rc':-1 if fd<0 else 0,'errno':err}))\n",
+    "in-root-dangling"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.03154758899472654,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.030453999,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0001500900834798813
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/edge-B2v2-in-root-dangling/sub/new",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "sub/new",
+      "after": {
+        "mode": 384,
+        "dev": 66306,
+        "ino": 588013667,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "sub/new"
+  ],
+  "stdout": "{\"case\": \"in-root-dangling\", \"rc\": 0, \"errno\": 0}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "in-root-dangling",
+      "rc": 0,
+      "errno": 0
+    }
+  ]
+}

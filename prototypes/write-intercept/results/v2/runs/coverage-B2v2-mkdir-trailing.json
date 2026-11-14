@@ -1,0 +1,74 @@
+{
+  "name": "coverage-B2v2-mkdir-trailing",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-mkdir-trailing",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-mkdir-trailing",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "mkdir-trailing"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.005859529948793352,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.0047635,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 8.896994404494762e-05
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-mkdir-trailing/newdir",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "newdir",
+      "after": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 208436546,
+        "nlink": 2,
+        "type": "directory"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "newdir"
+  ],
+  "stdout": "{\"case\":\"mkdir-trailing\",\"rc\":0,\"errno\":0,\"seconds\":0.002689600}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "mkdir-trailing",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.0026896
+    }
+  ]
+}

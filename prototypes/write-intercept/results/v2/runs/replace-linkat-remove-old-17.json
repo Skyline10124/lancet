@@ -1,0 +1,75 @@
+{
+  "name": "replace-linkat-remove-old-17",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-linkat-remove-old-17",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-linkat-remove-old-17",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-linkat"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-linkat-remove-old-17.control"
+  },
+  "returncode": 120,
+  "process_wall_s": 0.009635279071517289,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00812571,
+    "code": 137,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "inode_checks": 1,
+    "mismatches": 1,
+    "reply_failures": 0,
+    "indeterminate": 1,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.000179130001924932
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-linkat-remove-old-17/dest",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "dest",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 704769906,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "95713e9cbdd1dfcb2d4080c2537f418d43ca0da25f0d7d6631f4f7c97b89dc47"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "dest"
+  ],
+  "stdout": "{\"case\":\"replace-linkat\",\"rc\":0,\"errno\":0,\"seconds\":0.005315510}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "replace-linkat",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00531551
+    }
+  ]
+}

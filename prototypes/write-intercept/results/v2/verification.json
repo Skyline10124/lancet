@@ -1,0 +1,431 @@
+{
+  "ok": true,
+  "validations": [
+    {
+      "name": "完整覆盖矩阵",
+      "ok": true,
+      "detail": 224
+    },
+    {
+      "name": "受控覆盖均正常结束",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "112 个最小求逆语义比较",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "15 种 hidden 入口 EACCES",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "继承 fd 不可写",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cross-target",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cross-git",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cross-target-git",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "target 内硬链接成功",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "umask 0077",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "open-excl-fail 不进变更集",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "open-idle 不进变更集",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "xattr 六入口 ENOTSUP",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:umask",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:cwd",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:openat",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:chroot",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:nofollow",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:excl-symlink",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:tmpfile",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:tmpfile-empty",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:cloexec",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:not-cloexec",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-beneath",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-beneath-escape",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-in-root",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-in-root-create",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-nosym",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-nomagic",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-noxdev",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-noxdev-ok",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-nosym-ok",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-nomagic-ok",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:resolve-dangling-nosym",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:perm-file",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:perm-file-nocap",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:perm-dir",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:perm-dir-nocap",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:tmpfs-perm",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "上下文:tmpfs-perm-nocap",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "openat2 边缘:zero-extension",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "openat2 边缘:unknown-high-bit",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "openat2 边缘:in-root-dangling",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "clone 与类型前态符合 oracle",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "参数竞态 600 次无绕过",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "360 次路径替换数据",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "内外路径替换 evil 未改",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "保留 unlink/rmdir 漏检反例",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "可见替换均发现并停止",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "symlink ABA 漏检证据",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "rename 目标端漏检证据",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "删除硬链接恢复失败如实保留",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "改名硬链接恢复原 inode",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "代执行后取消 40 次 Indeterminate",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "直接父子链死亡实验",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "保留旧 fd 死亡窗口反例",
+      "ok": true,
+      "detail": 49
+    },
+    {
+      "name": "四配置六任务各三次",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:build-full-B2v2-0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:build-incremental-B2v2-0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:test-subset-B2v2-0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-status-B2v2-0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-checkout-B2v2-0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-commit-B2v2-0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:build-full-B2v2-1",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:build-incremental-B2v2-1",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:test-subset-B2v2-1",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-status-B2v2-1",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-checkout-B2v2-1",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-commit-B2v2-1",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:build-full-B2v2-2",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:build-incremental-B2v2-2",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:test-subset-B2v2-2",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-status-B2v2-2",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-checkout-B2v2-2",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "cargo/link:git-commit-B2v2-2",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "普通 git 提交执行成功",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "27 次微基准",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "第一轮报告及已有 results 字节未变",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ADR 未修改",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "交付本地链接",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "本轮沙箱与探针无存活进程",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "sources": {
+    "benchmarks.py": "d870b4b857de32d03457ed96e7015002f35c059e2381953b97d8735d3f6706bd",
+    "crash.py": "20696f0e9a3bff6209b0576ca98c58c146c5da70ed3acc1620ef6fd54e8db7bc",
+    "experiment.py": "af7b31d5ee5fc1efc7683a5f22c99f1069f110d6bd22111532568564b72c1428",
+    "intercept.c": "18d728eb424e1c374f708b352e92ca38a15ca682c6f516d0489d545370a4d918",
+    "probe.c": "e36815ec3876d0a1e11fe065dc0e00e9e2ae7b9212e6c9aaffb4b99a24ec9679",
+    "summarize.py": "247ed6433a981186c47d18e15d16977f9b916f95bbf5acb208de3181fe79d8f9",
+    "supplement.py": "ff667f52ca87e70b204935e3136f02ef19351c0c680d8d526f33277948d8be6b",
+    "verify.py": "7976b25cb0d2675974eec33efd698be08c95a044c6169b5571373d2a13719273",
+    "intercept-v2.c": "d4585255e89f4cc0ddde617450b3aabd3fb9a955291348811dbba5864236ad8b",
+    "probe-v2.c": "076439bc8971848ac0e24d5baf43d3d31d0de7d140878e6c78bf0bc7a2d47035",
+    "experiment-v2.py": "424941c984d93fd6515b3b782f92174bee1b9e67be7c3f37f619db67fd4cdc0c",
+    "benchmarks-v2.py": "ac7d597bbdf029f5e01ea399c36715a9e4b52b906b4b21647989eaefbde73cb0",
+    "races-v2.py": "27e1cfde44c1e5f26a1f62726def121786628dae1a460275ad49f91bfcf80589",
+    "supplement-v2.py": "366a8160dc550c5d454bcd30d5e5d21d432c23b44d36e00020fe6bd1b3e0ff19",
+    "timings-v2.py": "f8a0743649d710910c4d79d45b0b0d91b431f1359036bef8a57eba21e6d86a8c",
+    "summarize-v2.py": "6fff70a1ce6d21c2c9c454948ab40b60f3dfeb6595bcf9adc365a4f270b296e5",
+    "verify-v2.py": "019e1e8a6729c4560b41f8724e53af064084e943ef3a46124ac43d704d26aa4e",
+    "context-edge-v2.py": "f1f339d22414ea1bc8fd8c785e0009a88ceaa12d1acf5510ae573590264b99d8",
+    "docs-check-v2.py": "3b30d4ee890861f6dbea36b4f750592bf3f196c7d3a6852b64255f41d794b614"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-creat",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-creat",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-creat",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "creat"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.015257239923812449,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.01374792,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.001259070006199181
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-creat/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 553932064,
+      "nlink": 1,
+      "link": "",
+      "relative": "a",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 553932064,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [
+    "a"
+  ],
+  "stdout": "{\"case\":\"creat\",\"rc\":6,\"errno\":0,\"seconds\":0.006426380}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "creat",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00642638
+    }
+  ]
+}

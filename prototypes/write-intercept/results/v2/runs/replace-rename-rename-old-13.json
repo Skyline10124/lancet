@@ -1,0 +1,96 @@
+{
+  "name": "replace-rename-rename-old-13",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-rename-rename-old-13",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-rename-rename-old-13",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-rename"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-rename-rename-old-13.control"
+  },
+  "returncode": 120,
+  "process_wall_s": 0.008528970065526664,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00741416,
+    "code": 137,
+    "calls": 1,
+    "registered": 2,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "inode_checks": 1,
+    "mismatches": 1,
+    "reply_failures": 0,
+    "indeterminate": 1,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.0006778199458494782
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-rename-rename-old-13/dest",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "dest",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 320880669,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "95713e9cbdd1dfcb2d4080c2537f418d43ca0da25f0d7d6631f4f7c97b89dc47"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-rename-rename-old-13/race-safe",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 320880663,
+      "nlink": 1,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "type": "Absent"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "changes": [
+    "dest",
+    "race-safe"
+  ],
+  "stdout": "{\"case\":\"replace-rename\",\"rc\":0,\"errno\":0,\"seconds\":0.005298890}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "replace-rename",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00529889
+    }
+  ]
+}

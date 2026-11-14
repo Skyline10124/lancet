@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-resolve-noxdev-ok",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-resolve-noxdev-ok",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-resolve-noxdev-ok",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "resolve-noxdev-ok"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0030688500264659524,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00198112,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.7997884899377823e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"resolve-noxdev-ok\",\"rc\":6,\"errno\":0,\"seconds\":0.000025700}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "resolve-noxdev-ok",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 2.57e-05
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-git-hardlink",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-git-hardlink",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-git-hardlink",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "git-hardlink"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.017892239964567125,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.01639018,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0015030000358819962
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-git-hardlink/.git/alias",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 271336613,
+      "nlink": 2,
+      "link": "",
+      "relative": ".git/alias",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 271336613,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [
+    ".git/alias"
+  ],
+  "stdout": "{\"case\":\"git-hardlink\",\"rc\":6,\"errno\":0,\"seconds\":0.006564720}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "git-hardlink",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00656472
+    }
+  ]
+}

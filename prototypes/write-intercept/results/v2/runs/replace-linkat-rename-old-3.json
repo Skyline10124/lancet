@@ -1,0 +1,68 @@
+{
+  "name": "replace-linkat-rename-old-3",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-linkat-rename-old-3",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-linkat-rename-old-3",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-linkat"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-linkat-rename-old-3.control"
+  },
+  "returncode": 120,
+  "process_wall_s": 0.009045310085639358,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00758165,
+    "code": 137,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "inode_checks": 1,
+    "mismatches": 1,
+    "reply_failures": 0,
+    "indeterminate": 1,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.00013999990187585354
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-linkat-rename-old-3/dest",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "dest",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 36522839,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "95713e9cbdd1dfcb2d4080c2537f418d43ca0da25f0d7d6631f4f7c97b89dc47"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "dest"
+  ],
+  "stdout": "",
+  "stderr": "",
+  "observations": []
+}

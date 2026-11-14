@@ -1,0 +1,71 @@
+{
+  "name": "crash-B2-17",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/crash-B2-17",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/crash-B2-17",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "crash-old"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-crash-B2-17.control"
+  },
+  "returncode": -9,
+  "process_wall_s": 0.009269949048757553,
+  "stats": {
+    "digest_s": 0.001025830046273768
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/crash-B2-17/b",
+      "before": "file",
+      "mono_s": 621973.699829781,
+      "relative": "b",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 722886742,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc"
+      },
+      "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/crash-B2-17/race-safe",
+      "before": "file",
+      "mono_s": 621973.702235251,
+      "relative": "race-safe",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 722886744,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "changes": [],
+  "stdout": "{\"existing_fd_write\":6,\"open_errno\":38}\n{\"case\":\"crash-old\",\"rc\":-1,\"errno\":38,\"seconds\":0.005799149}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "existing_fd_write": 6,
+      "open_errno": 38
+    },
+    {
+      "case": "crash-old",
+      "rc": -1,
+      "errno": 38,
+      "seconds": 0.005799149
+    }
+  ]
+}

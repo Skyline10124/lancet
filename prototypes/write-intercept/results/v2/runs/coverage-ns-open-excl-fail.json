@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-open-excl-fail",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-open-excl-fail",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-open-excl-fail",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "open-excl-fail"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0071534099988639355,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00567719,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.3993273973464966e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"open-excl-fail\",\"rc\":-1,\"errno\":17,\"seconds\":0.000008960}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "open-excl-fail",
+      "rc": -1,
+      "errno": 17,
+      "seconds": 8.96e-06
+    }
+  ]
+}

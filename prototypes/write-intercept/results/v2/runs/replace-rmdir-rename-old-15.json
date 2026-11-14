@@ -1,0 +1,71 @@
+{
+  "name": "replace-rmdir-rename-old-15",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-rmdir-rename-old-15",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-rmdir-rename-old-15",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-rmdir"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-rmdir-rename-old-15.control"
+  },
+  "returncode": 120,
+  "process_wall_s": 0.008490809006616473,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00700352,
+    "code": 137,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "inode_checks": 1,
+    "mismatches": 1,
+    "reply_failures": 0,
+    "indeterminate": 1,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.0001442600041627884
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-rmdir-rename-old-15/race-safe",
+      "before": "directory",
+      "mode": 16877,
+      "dev": 66306,
+      "ino": 656014084,
+      "nlink": 2,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "type": "Absent"
+      },
+      "prestate": {
+        "type": "directory",
+        "mode": 493
+      }
+    }
+  ],
+  "changes": [
+    "race-safe"
+  ],
+  "stdout": "{\"case\":\"replace-rmdir\",\"rc\":0,\"errno\":0,\"seconds\":0.004452889}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "replace-rmdir",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.004452889
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "name": "replace-open-inside-rename-old-7",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-open-inside-rename-old-7",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-open-inside-rename-old-7",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-open-inside"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-open-inside-rename-old-7.control"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.009045019978657365,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00804569,
+    "code": 0,
+    "calls": 4,
+    "registered": 2,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 4,
+    "workers": 4,
+    "inode_checks": 2,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.0014289000537246466
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-open-inside-rename-old-7/race-safe",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 488585336,
+      "nlink": 1,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 488585341,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "race-evil"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-open-inside-rename-old-7/spare",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "spare",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 488585336,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "race-safe",
+    "spare"
+  ],
+  "stdout": "{\"case\":\"replace-open-inside\",\"rc\":6,\"errno\":0,\"seconds\":0.005945470}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "replace-open-inside",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00594547
+    }
+  ]
+}

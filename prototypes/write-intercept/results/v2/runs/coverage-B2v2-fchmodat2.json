@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-fchmodat2",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-fchmodat2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-fchmodat2",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "fchmodat2"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.010928859934210777,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00952712,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0006459200521931052
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-fchmodat2/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 206201058,
+      "nlink": 1,
+      "link": "",
+      "relative": "a",
+      "after": {
+        "mode": 385,
+        "dev": 66306,
+        "ino": 206201058,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [
+    "a"
+  ],
+  "stdout": "{\"case\":\"fchmodat2\",\"rc\":0,\"errno\":0,\"seconds\":0.005223160}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "fchmodat2",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00522316
+    }
+  ]
+}

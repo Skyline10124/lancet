@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-chmod",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-chmod",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-chmod",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "chmod"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.004178549977950752,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00262939,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.200257197022438e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"chmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000014590}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "chmod",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 1.459e-05
+    }
+  ]
+}

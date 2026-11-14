@@ -1,0 +1,78 @@
+{
+  "name": "replace-open-rename-old-15",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-open-rename-old-15",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-open-rename-old-15",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-open"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-open-rename-old-15.control"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.00735979899764061,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.006202449,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.0005019300151616335
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-open-rename-old-15/race-safe",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 320880081,
+      "nlink": 1,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 320880091,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "race-evil"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "changes": [
+    "race-safe"
+  ],
+  "stdout": "{\"case\":\"replace-open\",\"rc\":6,\"errno\":0,\"seconds\":0.004099799}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "replace-open",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.004099799
+    }
+  ]
+}

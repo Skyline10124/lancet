@@ -1,0 +1,45 @@
+{
+  "name": "coverage-ns-inherited-mmap",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-inherited-mmap",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-inherited-mmap",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "inherited-mmap",
+    "3"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006540089030750096,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.005484539,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.9010698199272156e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"inherited-mmap\",\"rc\":0,\"errno\":0,\"seconds\":0.003537219}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "inherited-mmap",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.003537219
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "replace-unlinkat-rename-old-10",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-unlinkat-rename-old-10",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/replace-unlinkat-rename-old-10",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-unlinkat"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-replace-unlinkat-rename-old-10.control"
+  },
+  "returncode": 120,
+  "process_wall_s": 0.012155989999882877,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.01058716,
+    "code": 137,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "inode_checks": 1,
+    "mismatches": 1,
+    "reply_failures": 0,
+    "indeterminate": 1,
+    "timeout": 0,
+    "race_handshakes": 1,
+    "digest_s": 0.0008510500192642212
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/replace-unlinkat-rename-old-10/race-safe",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 271339369,
+      "nlink": 1,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "type": "Absent"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "changes": [
+    "race-safe"
+  ],
+  "stdout": "",
+  "stderr": "",
+  "observations": []
+}

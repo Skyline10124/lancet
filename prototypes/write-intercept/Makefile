@@ -15,3 +15,11 @@ all: .scratch/intercept .scratch/probe
 
 check: all
 	python3 experiment.py coverage
+
+v2: all .scratch/intercept-v2 .scratch/probe-v2
+
+.scratch/intercept-v2: intercept-v2.c intercept.c | .scratch
+	$(CC) $(CFLAGS) $< -o $@
+
+.scratch/probe-v2: probe-v2.c probe.c | .scratch
+	$(CC) $(CFLAGS) $< -o $@

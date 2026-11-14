@@ -1,0 +1,11 @@
+{
+  "binary": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+  "binary_sha256": "3bb2fe432eb887dcef8c403d75f226b0ff32498251f5b2d3708ed450084327cd",
+  "sources": {
+    "intercept.c": "18d728eb424e1c374f708b352e92ca38a15ca682c6f516d0489d545370a4d918",
+    "intercept-v2.c": "d4585255e89f4cc0ddde617450b3aabd3fb9a955291348811dbba5864236ad8b",
+    "probe.c": "e36815ec3876d0a1e11fe065dc0e00e9e2ae7b9212e6c9aaffb4b99a24ec9679",
+    "probe-v2.c": "076439bc8971848ac0e24d5baf43d3d31d0de7d140878e6c78bf0bc7a2d47035"
+  },
+  "note": "最终 B2v2 三组工作负载与微基准使用此二进制；最终三组在其余基线之后顺序执行。"
+}

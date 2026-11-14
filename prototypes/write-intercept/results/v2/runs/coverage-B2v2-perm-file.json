@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-perm-file",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-perm-file",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-perm-file",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "perm-file"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007391660008579493,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00631805,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0005453400081023574
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-perm-file/readonly-file",
+      "before": "file",
+      "mode": 33060,
+      "dev": 66306,
+      "ino": 739134731,
+      "nlink": 1,
+      "link": "",
+      "relative": "readonly-file",
+      "after": {
+        "mode": 292,
+        "dev": 66306,
+        "ino": 739134731,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "e495e555796708cd6e0053e157f76c1738b406131fa41b8edc607ecdd5e0d0a7"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 292,
+        "sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+      },
+      "clone_sha256": "4fed3970dcc0d31dccddbf69ef55b00f32d2ca787f1757894914bc0365ea7aa5"
+    }
+  ],
+  "changes": [
+    "readonly-file"
+  ],
+  "stdout": "{\"case\":\"perm-file\",\"rc\":6,\"errno\":0,\"seconds\":0.004121250}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "perm-file",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00412125
+    }
+  ]
+}

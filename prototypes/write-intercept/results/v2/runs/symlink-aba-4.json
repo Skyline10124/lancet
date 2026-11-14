@@ -1,0 +1,78 @@
+{
+  "name": "symlink-aba-4",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/symlink-aba-4",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/symlink-aba-4",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "replace-symlink"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-symlink-aba-4.control",
+    "WI_RACE_PHASE": "2"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.00627281004562974,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00510246,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 1,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 9.053992107510567e-05
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/symlink-aba-4/race-safe",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "mode": 511,
+        "dev": 66306,
+        "ino": 704771827,
+        "nlink": 1,
+        "type": "symlink",
+        "link": "a"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "race-safe"
+  ],
+  "stdout": "{\"case\":\"replace-symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.002936430}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "replace-symlink",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00293643
+    }
+  ]
+}

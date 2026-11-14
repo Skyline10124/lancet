@@ -1,0 +1,259 @@
+build-full-none-0 0 {'mode': 'none', 'wall_s': 57.113793232, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.300374373793602e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 57.02s
+
+build-incremental-none-0 0 {'mode': 'none', 'wall_s': 7.379275946, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.5995617508888245e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.33s
+
+test-subset-none-0 0 {'mode': 'none', 'wall_s': 4.065823321, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.02s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-none-0 0 {'mode': 'none', 'wall_s': 0.178017554, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.00003045797348e-07} 
+git-checkout-none-0 0 {'mode': 'none', 'wall_s': 0.00418655, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.7997808754444122e-07} Switched to a new branch 'wi-v2-none-0'
+
+git-commit-none-0 0 {'mode': 'none', 'wall_s': 0.028322559, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4004763215780258e-07} 
+build-full-ns-0 0 {'mode': 'ns', 'wall_s': 54.62177287, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.200257197022438e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.57s
+
+build-incremental-ns-0 0 {'mode': 'ns', 'wall_s': 7.790297264, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.74s
+
+test-subset-ns-0 0 {'mode': 'ns', 'wall_s': 4.331765013, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.28s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-ns-0 0 {'mode': 'ns', 'wall_s': 0.026280219, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.899905666708946e-07} 
+git-checkout-ns-0 0 {'mode': 'ns', 'wall_s': 0.00455333, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.5995617508888245e-07} Switched to a new branch 'wi-v2-ns-0'
+
+git-commit-ns-0 0 {'mode': 'ns', 'wall_s': 0.029589529, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.7997808754444122e-07} 
+build-full-B2-0 0 {'mode': 'B2', 'wall_s': 57.636139938, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 11995, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.8998980522155762e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 57.58s
+
+build-incremental-B2-0 0 {'mode': 'B2', 'wall_s': 7.375862477, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 258, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.8998980522155762e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.32s
+
+test-subset-B2-0 0 {'mode': 'B2', 'wall_s': 4.079845251, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 736, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.200257197022438e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.03s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2-0 0 {'mode': 'B2', 'wall_s': 0.00673409, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.00001522898674e-07} 
+git-checkout-B2-0 0 {'mode': 'B2', 'wall_s': 0.006336479, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 24, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.200249582529068e-07} Switched to a new branch 'wi-v2-B2-0'
+
+git-commit-B2-0 0 {'mode': 'B2', 'wall_s': 0.01097981, 'code': 0, 'calls': 28, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 28, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} 
+build-full-B2v2-0 101 {'mode': 'B2v2', 'wall_s': 47.16116504, 'code': 101, 'calls': 13273, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 12443, 'workers': 13273, 'inode_checks': 3382, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7008354663848877e-07} registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.45.0/builder/main.rs:1599:18:
+  Failed to copy include directory during build setup: Error { kind: NotFound, message: "No such file or directory (os error 2)" }
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+build-full-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 58.675171848, 'code': 0, 'calls': 14084, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13224, 'workers': 14084, 'inode_checks': 3593, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.100140020251274e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.62s
+
+build-incremental-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 8.330679201, 'code': 0, 'calls': 379, 'registered': 5, 'clones': 5, 'denied': 0, 'errors': 0, 'emulated': 368, 'workers': 379, 'inode_checks': 101, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.7530961260199547} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.28s
+
+test-subset-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 4.306326934, 'code': 0, 'calls': 840, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 785, 'workers': 840, 'inode_checks': 231, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.25s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.00714932, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.200249582529068e-07} 
+git-checkout-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.01505031, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 24, 'workers': 24, 'inode_checks': 6, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.8998980522155762e-07} Switched to a new branch 'wi-v2-B2v2-0'
+
+git-commit-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.028893179, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0005994100356474519} 
+build-full-ns-1 0 {'mode': 'ns', 'wall_s': 54.874603836, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.83s
+
+build-incremental-ns-1 0 {'mode': 'ns', 'wall_s': 7.344222167, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.2992026060819626e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.29s
+
+test-subset-ns-1 0 {'mode': 'ns', 'wall_s': 4.059145402, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.01s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-ns-1 0 {'mode': 'ns', 'wall_s': 0.00681149, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} 
+git-checkout-ns-1 0 {'mode': 'ns', 'wall_s': 0.0046775, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} Switched to a new branch 'wi-v2-ns-1'
+
+git-commit-ns-1 0 {'mode': 'ns', 'wall_s': 0.00924916, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} 
+build-full-B2-1 0 {'mode': 'B2', 'wall_s': 56.088629988, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 11995, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 56.04s
+
+build-incremental-B2-1 0 {'mode': 'B2', 'wall_s': 7.516150283, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 258, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.46s
+
+test-subset-B2-1 0 {'mode': 'B2', 'wall_s': 4.11175357, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 736, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.06s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2-1 0 {'mode': 'B2', 'wall_s': 0.006819159, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} 
+git-checkout-B2-1 0 {'mode': 'B2', 'wall_s': 0.00647222, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 24, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} Switched to a new branch 'wi-v2-B2-1'
+
+git-commit-B2-1 0 {'mode': 'B2', 'wall_s': 0.01081246, 'code': 0, 'calls': 28, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 28, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} 
+build-full-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 58.843002571, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.79s
+
+build-incremental-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 8.893928209, 'code': 0, 'calls': 379, 'registered': 5, 'clones': 5, 'denied': 0, 'errors': 0, 'emulated': 368, 'workers': 379, 'link_calls': 5, 'link_success': 5, 'inode_checks': 101, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.7539122760063037} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.84s
+
+test-subset-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 4.337588772, 'code': 0, 'calls': 840, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 785, 'workers': 840, 'link_calls': 0, 'link_success': 0, 'inode_checks': 231, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.28s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.00724598, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+git-checkout-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.01510963, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 24, 'workers': 24, 'link_calls': 0, 'link_success': 0, 'inode_checks': 6, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.200257197022438e-07} Switched to a new branch 'wi-v2-B2v2-1'
+
+git-commit-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.02473406, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0005906700389459729} 
+build-full-none-1 0 {'mode': 'none', 'wall_s': 53.918215246, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.86s
+
+build-incremental-none-1 0 {'mode': 'none', 'wall_s': 8.330652896, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.28s
+
+test-subset-none-1 0 {'mode': 'none', 'wall_s': 4.076246471, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.03s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-none-1 0 {'mode': 'none', 'wall_s': 0.025240319, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+git-checkout-none-1 0 {'mode': 'none', 'wall_s': 0.003614789, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.8009450286626816e-07} Switched to a new branch 'wi-v2-none-1'
+
+git-commit-none-1 0 {'mode': 'none', 'wall_s': 0.02733479, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} 
+build-full-B2-2 0 {'mode': 'B2', 'wall_s': 54.645791833, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 11995, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.59s
+
+build-incremental-B2-2 0 {'mode': 'B2', 'wall_s': 7.686626107, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 258, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.8999132812023163e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.63s
+
+test-subset-B2-2 0 {'mode': 'B2', 'wall_s': 4.104978331, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 736, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.05s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2-2 0 {'mode': 'B2', 'wall_s': 0.026532049, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} 
+git-checkout-B2-2 0 {'mode': 'B2', 'wall_s': 0.0063941, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 24, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} Switched to a new branch 'wi-v2-B2-2'
+
+git-commit-B2-2 0 {'mode': 'B2', 'wall_s': 0.030758369, 'code': 0, 'calls': 28, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 28, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+build-full-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 59.280086847, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 59.22s
+
+build-incremental-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 8.020264757, 'code': 0, 'calls': 379, 'registered': 5, 'clones': 5, 'denied': 0, 'errors': 0, 'emulated': 368, 'workers': 379, 'link_calls': 5, 'link_success': 5, 'inode_checks': 101, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.7522813869873062} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.96s
+
+test-subset-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 4.382591411, 'code': 0, 'calls': 840, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 785, 'workers': 840, 'link_calls': 0, 'link_success': 0, 'inode_checks': 231, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.3993273973464966e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.33s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.00716194, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.400491550564766e-07} 
+git-checkout-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.01471252, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 24, 'workers': 24, 'link_calls': 0, 'link_success': 0, 'inode_checks': 6, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} Switched to a new branch 'wi-v2-B2v2-2'
+
+git-commit-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.024064989, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0006117000011727214} 
+build-full-none-2 0 {'mode': 'none', 'wall_s': 54.892549636, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.200257197022438e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.84s
+
+build-incremental-none-2 0 {'mode': 'none', 'wall_s': 7.787008914, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.74s
+
+test-subset-none-2 0 {'mode': 'none', 'wall_s': 4.086572071, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.04s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-none-2 0 {'mode': 'none', 'wall_s': 0.025245279, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.2992102205753326e-07} 
+git-checkout-none-2 0 {'mode': 'none', 'wall_s': 0.00360505, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.5995465219020844e-07} Switched to a new branch 'wi-v2-none-2'
+
+git-commit-none-2 0 {'mode': 'none', 'wall_s': 0.02735306, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.6996636986732483e-07} 
+build-full-ns-2 0 {'mode': 'ns', 'wall_s': 53.792700041, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 53.74s
+
+build-incremental-ns-2 0 {'mode': 'ns', 'wall_s': 7.552574941, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.50s
+
+test-subset-ns-2 0 {'mode': 'ns', 'wall_s': 4.134174539, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.08s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-ns-2 0 {'mode': 'ns', 'wall_s': 0.026318679, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.00003045797348e-07} 
+git-checkout-ns-2 0 {'mode': 'ns', 'wall_s': 0.00462401, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} Switched to a new branch 'wi-v2-ns-2'
+
+git-commit-ns-2 0 {'mode': 'ns', 'wall_s': 0.028537749, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+build-full-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 58.877582112, 'code': 0, 'calls': 14082, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13222, 'workers': 14082, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3592, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.400491550564766e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.82s
+
+build-incremental-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 8.048410411, 'code': 0, 'calls': 383, 'registered': 5, 'clones': 5, 'denied': 0, 'errors': 0, 'emulated': 372, 'workers': 383, 'link_calls': 5, 'link_success': 5, 'inode_checks': 103, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.7529453969327733} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.99s
+
+test-subset-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 4.274274977, 'code': 0, 'calls': 840, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 785, 'workers': 840, 'link_calls': 0, 'link_success': 0, 'inode_checks': 231, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.22s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.00733425, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 5.100155249238014e-07} 
+git-checkout-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.015079909, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 24, 'workers': 24, 'link_calls': 0, 'link_success': 0, 'inode_checks': 6, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.7997808754444122e-07} Switched to a new branch 'wi-v2-final-B2v2-0'
+
+git-commit-B2v2-0 0 {'mode': 'B2v2', 'wall_s': 0.0263144, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0005926399026066065} 
+build-full-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 59.044550217, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.98s
+
+build-incremental-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 8.04564598, 'code': 0, 'calls': 379, 'registered': 5, 'clones': 5, 'denied': 0, 'errors': 0, 'emulated': 368, 'workers': 379, 'link_calls': 5, 'link_success': 5, 'inode_checks': 101, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.7541420569177717} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.99s
+
+test-subset-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 4.356370284, 'code': 0, 'calls': 840, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 785, 'workers': 840, 'link_calls': 0, 'link_success': 0, 'inode_checks': 231, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.30s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.00718425, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+git-checkout-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.014942629, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 24, 'workers': 24, 'link_calls': 0, 'link_success': 0, 'inode_checks': 6, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} Switched to a new branch 'wi-v2-final-B2v2-1'
+
+git-commit-B2v2-1 0 {'mode': 'B2v2', 'wall_s': 0.027102089, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0006609599804505706} 
+build-full-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 58.876799452, 'code': 0, 'calls': 14080, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 13220, 'workers': 14080, 'link_calls': 49, 'link_success': 49, 'inode_checks': 3591, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} ktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.82s
+
+build-incremental-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 7.987504782, 'code': 0, 'calls': 379, 'registered': 5, 'clones': 5, 'denied': 0, 'errors': 0, 'emulated': 368, 'workers': 379, 'link_calls': 5, 'link_success': 5, 'inode_checks': 101, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.8010508449515328} rktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.93s
+
+test-subset-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 4.415916003, 'code': 0, 'calls': 840, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 785, 'workers': 840, 'link_calls': 0, 'link_success': 0, 'inode_checks': 231, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} iling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.36s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.00713508, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 1, 'workers': 1, 'link_calls': 0, 'link_success': 0, 'inode_checks': 0, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} 
+git-checkout-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.0149991, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'emulated': 24, 'workers': 24, 'link_calls': 0, 'link_success': 0, 'inode_checks': 6, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} Switched to a new branch 'wi-v2-final-B2v2-2'
+
+git-commit-B2v2-2 0 {'mode': 'B2v2', 'wall_s': 0.024328749, 'code': 0, 'calls': 28, 'registered': 1, 'clones': 1, 'denied': 0, 'errors': 0, 'emulated': 28, 'workers': 28, 'link_calls': 1, 'link_success': 1, 'inode_checks': 8, 'mismatches': 0, 'reply_failures': 0, 'indeterminate': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 0.0006803399883210659} 

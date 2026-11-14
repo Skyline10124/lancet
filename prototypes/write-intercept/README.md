@@ -56,3 +56,24 @@ mkdir -p .scratch/manual-work .scratch/manual-state
 `FICLONE` 文件、账本和检查点目录在放行前执行 `fsync`。写前 SHA-256 在退出后读取 clone 验证，未在放行前持久保存摘要；断电恢复与 ADR 的持久回执语义未实现。原始结果保留失败项，脚本退出 0 只代表探针执行完毕，不代表覆盖保证成立，应检查 `rc`、`errno`、`missing` 和 `prestate_bad`。
 
 Git 提交基准调用规定的 `bot-run` 入口。实验 HOME 未提供其认证辅助工具，因此本次该项失败，不能把失败时间视为提交性能。未更换提交身份或复制宿主认证材料。其他 Git 基准只作用于 `.scratch/lattice`；本 worktree 不提交、不推送。
+
+## 第二轮：ADR 第 6 节新规则
+
+第二轮结论及失败反例见 [REPORT-v2.md](REPORT-v2.md)。本轮保留上文的第一轮文件与数据，不应把上文的旧边界描述当作 B2v2 的能力。新增入口：
+
+| 文件 | 用途 |
+| --- | --- |
+| [intercept-v2.c](intercept-v2.c) | 稳定 fd、上下文 worker、目录项核对、完整类型账本、直接 PID 1 失效联动；包含并复用未改动的第一轮 C 实现 |
+| [probe-v2.c](probe-v2.c) | 第二轮原生 syscall、权限、resolve、取消与死亡探针 |
+| [experiment-v2.py](experiment-v2.py) | 对照覆盖、后态摘要、最小求逆及外置 oracle |
+| [races-v2.py](races-v2.py) | 参数、路径替换、通知取消与 SIGKILL 原始试验 |
+| [supplement-v2.py](supplement-v2.py) | 目标端替换、symlink ABA、硬链接恢复及冲突反例 |
+| [context-edge-v2.py](context-edge-v2.py) | openat2 参数长度、高位 flags、IN_ROOT 悬空链接的原生对照 |
+| [benchmarks-v2.py](benchmarks-v2.py) | 四配置 LATTICE 工作负载，普通 Git 空提交基准 |
+| [timings-v2.py](timings-v2.py) | open/close、1,000 文件目录 rename 与批量 fsync |
+| [summarize-v2.py](summarize-v2.py) | 原始 JSON 生成计数、性能表及图 |
+| [docs-check-v2.py](docs-check-v2.py) | 临时索引纳入新增文件，运行未修改的 docs-check，核对真实索引未变 |
+| [verify-v2.py](verify-v2.py) | 关键证据断言、链接、第一轮不变性及进程清理核对 |
+| [results/v2/](results/v2/) | 本轮原始结果、失败运行、汇总与验证 |
+
+`make v2` 编译两轮基线和新增程序。其余命令、复制要求、计时口径与剩余缺口见第二轮报告的“复现与交付验证”。`B2v2` 要求 stdin/stdout/stderr 均为管道，统一使用第二轮 Python runner 启动。原型不接入 `lancet-node`，不得作为任意不可信程序的安全边界。

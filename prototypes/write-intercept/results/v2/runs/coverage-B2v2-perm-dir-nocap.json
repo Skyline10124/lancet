@@ -1,0 +1,68 @@
+{
+  "name": "coverage-B2v2-perm-dir-nocap",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-perm-dir-nocap",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-perm-dir-nocap",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "perm-dir-nocap"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006004260038025677,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00493012,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 9.2889997176826e-05
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-perm-dir-nocap/readonly/new",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "readonly/new",
+      "after": {
+        "type": "Absent"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [],
+  "stdout": "{\"case\":\"perm-dir-nocap\",\"rc\":-1,\"errno\":13,\"seconds\":0.002808140}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "perm-dir-nocap",
+      "rc": -1,
+      "errno": 13,
+      "seconds": 0.00280814
+    }
+  ]
+}

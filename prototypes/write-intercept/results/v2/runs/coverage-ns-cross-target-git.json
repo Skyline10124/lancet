@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-cross-target-git",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-cross-target-git",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-cross-target-git",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "cross-target-git"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.002927319030277431,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.001927689,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.400483936071396e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"cross-target-git\",\"rc\":0,\"errno\":0,\"seconds\":0.000017440}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "cross-target-git",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 1.744e-05
+    }
+  ]
+}

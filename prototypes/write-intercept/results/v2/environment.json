@@ -1,0 +1,94 @@
+{
+  "uname -a": {
+    "rc": 0,
+    "stdout": "Linux gcp 6.12.0-211.68.1+2.1.el10_2_ciq.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Oct 31 02:03:16 UTC 2026 x86_64 GNU/Linux\n",
+    "stderr": ""
+  },
+  "id": {
+    "rc": 0,
+    "stdout": "uid=1000(gcp-vegas) gid=1005(gcp-vegas) groups=1005(gcp-vegas),4(adm),39(video),1000(google-sudoers),1001(dip),1002(docker),1003(lxd),1004(plugdev) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023\n",
+    "stderr": ""
+  },
+  "getenforce": {
+    "rc": 0,
+    "stdout": "Enforcing\n",
+    "stderr": ""
+  },
+  "getsebool deny_ptrace": {
+    "rc": 0,
+    "stdout": "deny_ptrace --> off\n",
+    "stderr": ""
+  },
+  "gcc --version": {
+    "rc": 0,
+    "stdout": "gcc (GCC) 14.3.1 20251022 (Red Hat 14.3.1-4)\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "stderr": ""
+  },
+  "git --version": {
+    "rc": 0,
+    "stdout": "git version 2.52.0\n",
+    "stderr": ""
+  },
+  "df -T prototypes/write-intercept": {
+    "rc": 0,
+    "stdout": "Filesystem     Type 1K-blocks      Used Available Use% Mounted on\n/dev/nvme0n1p2 xfs  261871664 242468688  19402976  93% /\n",
+    "stderr": ""
+  },
+  "lscpu": {
+    "rc": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           52 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  8\nOn-line CPU(s) list:                     0-7\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9B14\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      2\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5199.99\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr wbnoinvd arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               128 KiB (4 instances)\nL1i cache:                               128 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-7\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; Safe RET\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Mitigation; Clear CPU buffers\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "stderr": ""
+  },
+  "git --no-optional-locks --no-pager -C prototypes/write-intercept/.scratch/lattice rev-parse HEAD": {
+    "rc": 0,
+    "stdout": "f250d32fcc5186a7d738a1bf6da5afa1b89ff9d0\n",
+    "stderr": ""
+  },
+  "/proc/sys/kernel/yama/ptrace_scope": "0\n",
+  "/proc/sys/kernel/seccomp/actions_avail": "kill_process kill_thread trap errno user_notif trace log allow\n",
+  "sources": {
+    "benchmarks.py": "d870b4b857de32d03457ed96e7015002f35c059e2381953b97d8735d3f6706bd",
+    "crash.py": "20696f0e9a3bff6209b0576ca98c58c146c5da70ed3acc1620ef6fd54e8db7bc",
+    "experiment.py": "af7b31d5ee5fc1efc7683a5f22c99f1069f110d6bd22111532568564b72c1428",
+    "intercept.c": "18d728eb424e1c374f708b352e92ca38a15ca682c6f516d0489d545370a4d918",
+    "probe.c": "e36815ec3876d0a1e11fe065dc0e00e9e2ae7b9212e6c9aaffb4b99a24ec9679",
+    "summarize.py": "247ed6433a981186c47d18e15d16977f9b916f95bbf5acb208de3181fe79d8f9",
+    "supplement.py": "ff667f52ca87e70b204935e3136f02ef19351c0c680d8d526f33277948d8be6b",
+    "verify.py": "7976b25cb0d2675974eec33efd698be08c95a044c6169b5571373d2a13719273",
+    "intercept-v2.c": "d4585255e89f4cc0ddde617450b3aabd3fb9a955291348811dbba5864236ad8b",
+    "probe-v2.c": "076439bc8971848ac0e24d5baf43d3d31d0de7d140878e6c78bf0bc7a2d47035",
+    "experiment-v2.py": "424941c984d93fd6515b3b782f92174bee1b9e67be7c3f37f619db67fd4cdc0c",
+    "benchmarks-v2.py": "ac7d597bbdf029f5e01ea399c36715a9e4b52b906b4b21647989eaefbde73cb0",
+    "races-v2.py": "27e1cfde44c1e5f26a1f62726def121786628dae1a460275ad49f91bfcf80589",
+    "supplement-v2.py": "366a8160dc550c5d454bcd30d5e5d21d432c23b44d36e00020fe6bd1b3e0ff19",
+    "timings-v2.py": "f8a0743649d710910c4d79d45b0b0d91b431f1359036bef8a57eba21e6d86a8c",
+    "summarize-v2.py": "6fff70a1ce6d21c2c9c454948ab40b60f3dfeb6595bcf9adc365a4f270b296e5",
+    "verify-v2.py": "019e1e8a6729c4560b41f8724e53af064084e943ef3a46124ac43d704d26aa4e",
+    "context-edge-v2.py": "f1f339d22414ea1bc8fd8c785e0009a88ceaa12d1acf5510ae573590264b99d8",
+    "docs-check-v2.py": "3b30d4ee890861f6dbea36b4f750592bf3f196c7d3a6852b64255f41d794b614"
+  },
+  "provenance": {
+    "base": "30c2c23539de9e617de8d03c3746f83178db9804",
+    "round1": "05180709fda2a0cdaf2d226ad540470064050943",
+    "copy_source": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch",
+    "copy_command": "cp -a --reflink=always SOURCE/lattice SOURCE/cargo-home DEST/",
+    "benchmark_note": "首轮前三个配置之后修复 mkdir 末尾斜杠；增加 link 计数及修复 openat2 边缘后，最终 B2v2 三组在全部基线之后重新顺序采样。"
+  },
+  "sources_at_initial_capture": {
+    "benchmarks.py": "d870b4b857de32d03457ed96e7015002f35c059e2381953b97d8735d3f6706bd",
+    "crash.py": "20696f0e9a3bff6209b0576ca98c58c146c5da70ed3acc1620ef6fd54e8db7bc",
+    "experiment.py": "af7b31d5ee5fc1efc7683a5f22c99f1069f110d6bd22111532568564b72c1428",
+    "intercept.c": "18d728eb424e1c374f708b352e92ca38a15ca682c6f516d0489d545370a4d918",
+    "probe.c": "e36815ec3876d0a1e11fe065dc0e00e9e2ae7b9212e6c9aaffb4b99a24ec9679",
+    "summarize.py": "247ed6433a981186c47d18e15d16977f9b916f95bbf5acb208de3181fe79d8f9",
+    "supplement.py": "ff667f52ca87e70b204935e3136f02ef19351c0c680d8d526f33277948d8be6b",
+    "verify.py": "7976b25cb0d2675974eec33efd698be08c95a044c6169b5571373d2a13719273",
+    "intercept-v2.c": "33bcf68c82e22172b9178077ce18f30172ce0d0ee4f2884766b6414bf985a28f",
+    "probe-v2.c": "076439bc8971848ac0e24d5baf43d3d31d0de7d140878e6c78bf0bc7a2d47035",
+    "experiment-v2.py": "a8271706935f098c2782d81aab64d77b427024606546cba792d7d1aa7a59f2e9",
+    "benchmarks-v2.py": "8d8b98341474ba4ccef0ccf56cb47ad83e454685cf86def989a4234d6989bd86",
+    "races-v2.py": "27e1cfde44c1e5f26a1f62726def121786628dae1a460275ad49f91bfcf80589",
+    "supplement-v2.py": "366a8160dc550c5d454bcd30d5e5d21d432c23b44d36e00020fe6bd1b3e0ff19",
+    "timings-v2.py": "f8a0743649d710910c4d79d45b0b0d91b431f1359036bef8a57eba21e6d86a8c"
+  }
+}

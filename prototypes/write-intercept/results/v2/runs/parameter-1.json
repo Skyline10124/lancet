@@ -1,0 +1,84 @@
+{
+  "name": "parameter-1",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/parameter-1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/parameter-1",
+    "60",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "race",
+    "200"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/v2-parameter-1.control"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.14432204503100365,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.143044105,
+    "code": 0,
+    "calls": 201,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 201,
+    "workers": 201,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 200,
+    "digest_s": 0.0006738100200891495
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/parameter-1/race-safe",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 723537448,
+      "nlink": 1,
+      "link": "",
+      "relative": "race-safe",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 723537448,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "4b68ab3847feda7d6c62c1fbcbeebfa35eab7351ed5e78f4ddadea5df64b8015"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      },
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "changes": [
+    "race-safe"
+  ],
+  "stdout": "{\"safe_hits\":200,\"evil_hits\":0,\"failed\":0}\n{\"case\":\"race\",\"rc\":200,\"errno\":0,\"seconds\":0.140457245}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "safe_hits": 200,
+      "evil_hits": 0,
+      "failed": 0
+    },
+    {
+      "case": "race",
+      "rc": 200,
+      "errno": 0,
+      "seconds": 0.140457245
+    }
+  ]
+}

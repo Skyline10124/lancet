@@ -1,0 +1,50 @@
+{
+  "name": "coverage-ns-vfork",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-vfork",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-vfork",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "vfork"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0036143700126558542,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00260977,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.100140020251274e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000064030}\n{\"case\":\"vfork\",\"rc\":0,\"errno\":0,\"seconds\":0.000628750}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "child-write",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 6.403e-05
+    },
+    {
+      "case": "vfork",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00062875
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "name": "build-incremental-B2v2-2",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/build-incremental-B2v2-2",
+    "1200",
+    "--",
+    "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/cargo",
+    "build",
+    "--offline",
+    "--workspace"
+  ],
+  "environment": {
+    "CARGO_HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/cargo-home",
+    "RUSTC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustc",
+    "RUSTDOC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustdoc",
+    "RUSTUP_HOME": "/home/gcp-vegas/.rustup",
+    "HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/home-v2",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "TMPDIR": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/tmp",
+    "LC_ALL": "C",
+    "PATH": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.codex/tmp/arg0-linux/codex-arg0zpJKuE:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/bin:/home/gcp-vegas/.cargo/bin:/home/gcp-vegas/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+  },
+  "returncode": 0,
+  "process_wall_s": 8.021399196935818,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 8.020264757,
+    "code": 0,
+    "calls": 379,
+    "registered": 5,
+    "clones": 5,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 368,
+    "workers": 379,
+    "link_calls": 5,
+    "link_success": 5,
+    "inode_checks": 101,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.7522813869873062
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/debug/deps/libnet_guard-d2bbd1e8c98f905d.rlib",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 756437565,
+      "nlink": 2,
+      "link": "",
+      "relative": "target/debug/deps/libnet_guard-d2bbd1e8c98f905d.rlib",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 320235160,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "7e7c2a2442d81ec0ec2d2086904c2f38b36fe129fbb9621c18b3f44d85a749ac"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "6321816c42361edae91824a314c29589d66541381fdae116d5c1b50f69ec903f"
+      },
+      "clone_sha256": "6321816c42361edae91824a314c29589d66541381fdae116d5c1b50f69ec903f"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/debug/deps/liblattice_llm-a229d6fa685d9172.rlib",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 135365345,
+      "nlink": 2,
+      "link": "",
+      "relative": "target/debug/deps/liblattice_llm-a229d6fa685d9172.rlib",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 403694098,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "b327b62946daf9d9d80f750ae87acae1e1fae4459b4a49d3a42177e0df949e51"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "b327b62946daf9d9d80f750ae87acae1e1fae4459b4a49d3a42177e0df949e51"
+      },
+      "clone_sha256": "b327b62946daf9d9d80f750ae87acae1e1fae4459b4a49d3a42177e0df949e51"
+    },
+    {
+      "index": 2,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/debug/deps/liblattice_agent-28c9c3e393a79672.rlib",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 101702972,
+      "nlink": 2,
+      "link": "",
+      "relative": "target/debug/deps/liblattice_agent-28c9c3e393a79672.rlib",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371963421,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "64c4ab9e414ab7daa2975496e43bdafd8dbda851e5d007b730e69be4790ea7b1"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "64c4ab9e414ab7daa2975496e43bdafd8dbda851e5d007b730e69be4790ea7b1"
+      },
+      "clone_sha256": "64c4ab9e414ab7daa2975496e43bdafd8dbda851e5d007b730e69be4790ea7b1"
+    },
+    {
+      "index": 3,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/debug/deps/liblattice_server-483d011fbb8fabde.rlib",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 206477052,
+      "nlink": 2,
+      "link": "",
+      "relative": "target/debug/deps/liblattice_server-483d011fbb8fabde.rlib",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 488580927,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "7f80c9534380335c607e7ae8abd43595892570d49cdd4b4f3fabff1edc480116"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "7f80c9534380335c607e7ae8abd43595892570d49cdd4b4f3fabff1edc480116"
+      },
+      "clone_sha256": "7f80c9534380335c607e7ae8abd43595892570d49cdd4b4f3fabff1edc480116"
+    },
+    {
+      "index": 4,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/debug/deps/lattice-c0fe96177cf14916",
+      "before": "file",
+      "mode": 33261,
+      "dev": 66306,
+      "ino": 271339372,
+      "nlink": 2,
+      "link": "",
+      "relative": "target/debug/deps/lattice-c0fe96177cf14916",
+      "after": {
+        "mode": 493,
+        "dev": 66306,
+        "ino": 271811916,
+        "nlink": 2,
+        "type": "file",
+        "sha256": "98e2fd5e699c2e3f261bff80fc34e20a9000b47ec6d6877dcbb8e0c3fe58b99f"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 493,
+        "sha256": "98e2fd5e699c2e3f261bff80fc34e20a9000b47ec6d6877dcbb8e0c3fe58b99f"
+      },
+      "clone_sha256": "98e2fd5e699c2e3f261bff80fc34e20a9000b47ec6d6877dcbb8e0c3fe58b99f"
+    }
+  ],
+  "changes": [
+    "target/debug/deps/libnet_guard-d2bbd1e8c98f905d.rlib"
+  ],
+  "stdout": "",
+  "stderr": "   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/net-guard)\n   Compiling lattice-llm v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-llm)\n   Compiling lattice-agent v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-agent)\n   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)\n   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)\n    Finished `dev` profile [unoptimized] target(s) in 7.96s\n",
+  "observations": []
+}

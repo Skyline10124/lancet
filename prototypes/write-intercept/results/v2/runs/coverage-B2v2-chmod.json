@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-chmod",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-chmod",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-chmod",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "chmod"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.008948659989982843,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00747438,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0028201299719512463
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-chmod/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 822931517,
+      "nlink": 1,
+      "link": "",
+      "relative": "a",
+      "after": {
+        "mode": 384,
+        "dev": 66306,
+        "ino": 822931517,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [
+    "a"
+  ],
+  "stdout": "{\"case\":\"chmod\",\"rc\":0,\"errno\":0,\"seconds\":0.004482300}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "chmod",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.0044823
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "coverage-ns-unlink",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-ns-unlink",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-ns-unlink",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "unlink"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.00454065902158618,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.00295115,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.4994445741176605e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"unlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000034310}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "unlink",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 3.431e-05
+    }
+  ]
+}

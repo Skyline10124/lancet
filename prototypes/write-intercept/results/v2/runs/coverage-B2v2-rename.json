@@ -1,0 +1,99 @@
+{
+  "name": "coverage-B2v2-rename",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-rename",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-rename",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "rename"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.010511109954677522,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00903248,
+    "code": 0,
+    "calls": 1,
+    "registered": 2,
+    "clones": 2,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 1,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0012512800749391317
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-rename/b",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 305276979,
+      "nlink": 1,
+      "link": "",
+      "relative": "b",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 305276978,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+      },
+      "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-rename/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 305276978,
+      "nlink": 1,
+      "link": "",
+      "relative": "a",
+      "after": {
+        "type": "Absent"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [
+    "b",
+    "a"
+  ],
+  "stdout": "{\"case\":\"rename\",\"rc\":0,\"errno\":0,\"seconds\":0.006121240}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "rename",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00612124
+    }
+  ]
+}

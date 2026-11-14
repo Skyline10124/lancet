@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-fallocate",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-fallocate",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-fallocate",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "fallocate"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007237549987621605,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00617676,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0013393900590017438
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-fallocate/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 371962663,
+      "nlink": 1,
+      "link": "",
+      "relative": "a",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 371962663,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [
+    "a"
+  ],
+  "stdout": "{\"case\":\"fallocate\",\"rc\":0,\"errno\":0,\"seconds\":0.003888420}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "fallocate",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00388842
+    }
+  ]
+}

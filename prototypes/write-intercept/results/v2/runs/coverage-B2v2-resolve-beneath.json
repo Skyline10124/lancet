@@ -1,0 +1,78 @@
+{
+  "name": "coverage-B2v2-resolve-beneath",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-resolve-beneath",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-resolve-beneath",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "resolve-beneath"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007736339932307601,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00658274,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0007036500610411167
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-resolve-beneath/sub/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 540814927,
+      "nlink": 1,
+      "link": "",
+      "relative": "sub/a",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 540814927,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "62e7617cee267aaa62bf302922a616ec53d533bd18b582fd17d4ca7983cfe835"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+      },
+      "clone_sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+    }
+  ],
+  "changes": [
+    "sub/a"
+  ],
+  "stdout": "{\"case\":\"resolve-beneath\",\"rc\":6,\"errno\":0,\"seconds\":0.004329610}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "resolve-beneath",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00432961
+    }
+  ]
+}

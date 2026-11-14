@@ -1,0 +1,50 @@
+{
+  "name": "coverage-B2v2-hidden-link",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-hidden-link",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-hidden-link",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "hidden-link"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.003868569969199598,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00271856,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 1,
+    "errors": 0,
+    "emulated": 0,
+    "workers": 1,
+    "link_calls": 1,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.1990930438041687e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"hidden-link\",\"rc\":-1,\"errno\":13,\"seconds\":0.000581310}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "hidden-link",
+      "rc": -1,
+      "errno": 13,
+      "seconds": 0.00058131
+    }
+  ]
+}

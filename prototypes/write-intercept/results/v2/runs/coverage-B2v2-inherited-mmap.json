@@ -1,0 +1,51 @@
+{
+  "name": "coverage-B2v2-inherited-mmap",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-inherited-mmap",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-inherited-mmap",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "inherited-mmap",
+    "3"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0033062000293284655,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00215536,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 0,
+    "workers": 0,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.50060111284256e-07
+  },
+  "ledger": [],
+  "changes": [],
+  "stdout": "{\"case\":\"inherited-mmap\",\"rc\":-1,\"errno\":9,\"seconds\":0.000012890}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "inherited-mmap",
+      "rc": -1,
+      "errno": 9,
+      "seconds": 1.289e-05
+    }
+  ]
+}

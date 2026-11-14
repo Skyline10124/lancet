@@ -1,0 +1,90 @@
+{
+  "name": "git-commit-B2v2-1",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/git-commit-B2v2-1",
+    "1200",
+    "--",
+    "git",
+    "-c",
+    "user.name=bench",
+    "-c",
+    "user.email=bench@example.invalid",
+    "-c",
+    "commit.gpgsign=false",
+    "commit",
+    "--allow-empty",
+    "-m",
+    "bench: write intercept v2"
+  ],
+  "environment": {
+    "CARGO_HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/cargo-home",
+    "RUSTC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustc",
+    "RUSTDOC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustdoc",
+    "RUSTUP_HOME": "/home/gcp-vegas/.rustup",
+    "HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/home-v2",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "TMPDIR": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/target/tmp",
+    "LC_ALL": "C",
+    "PATH": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.codex/tmp/arg0-linux/codex-arg0zpJKuE:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/bin:/home/gcp-vegas/.cargo/bin:/home/gcp-vegas/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.02805391908623278,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.027102089,
+    "code": 0,
+    "calls": 28,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 28,
+    "workers": 28,
+    "link_calls": 1,
+    "link_success": 1,
+    "inode_checks": 8,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0006609599804505706
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/lattice/.git/objects/7d/tmp_obj_buZoQZ",
+      "before": "file",
+      "mode": 33060,
+      "dev": 66306,
+      "ino": 256378038,
+      "nlink": 2,
+      "link": "",
+      "relative": ".git/objects/7d/tmp_obj_buZoQZ",
+      "after": {
+        "type": "Absent"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 292,
+        "sha256": "9235173f604814ec8544c8c9bbeeafbfd759f8ff5f982da9934b7a74100dbeb7"
+      },
+      "clone_sha256": "9235173f604814ec8544c8c9bbeeafbfd759f8ff5f982da9934b7a74100dbeb7"
+    }
+  ],
+  "changes": [
+    ".git/objects/7d/tmp_obj_buZoQZ"
+  ],
+  "stdout": "[wi-v2-final-B2v2-1 7d9faf72] bench: write intercept v2\n",
+  "stderr": "",
+  "observations": []
+}

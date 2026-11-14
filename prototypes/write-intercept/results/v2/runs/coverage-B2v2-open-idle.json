@@ -1,0 +1,76 @@
+{
+  "name": "coverage-B2v2-open-idle",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-open-idle",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-open-idle",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "open-idle"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.017544449889101088,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.01613086,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0015353499911725521
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-open-idle/a",
+      "before": "file",
+      "mode": 33188,
+      "dev": 66306,
+      "ino": 271336582,
+      "nlink": 1,
+      "link": "",
+      "relative": "a",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 271336582,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "prestate": {
+        "type": "file",
+        "mode": 420,
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+      },
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "changes": [],
+  "stdout": "{\"case\":\"open-idle\",\"rc\":3,\"errno\":0,\"seconds\":0.008979910}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "open-idle",
+      "rc": 3,
+      "errno": 0,
+      "seconds": 0.00897991
+    }
+  ]
+}

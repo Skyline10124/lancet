@@ -1,0 +1,23 @@
+| 用例 | 替换方式 | 检出 / 次数 | evil 被改 |
+| --- | --- | ---: | ---: |
+| link | remove-old | 20/20 | 0 |
+| link | rename-old | 20/20 | 0 |
+| linkat | remove-old | 20/20 | 0 |
+| linkat | rename-old | 20/20 | 0 |
+| open | rename-old | 0/20 | 0 |
+| open-inside | rename-old | 0/20 | 0 |
+| rename | remove-old | 20/20 | 0 |
+| rename | rename-old | 20/20 | 0 |
+| renameat | remove-old | 20/20 | 0 |
+| renameat | rename-old | 20/20 | 0 |
+| renameat2 | remove-old | 20/20 | 0 |
+| renameat2 | rename-old | 20/20 | 0 |
+| rmdir | remove-old | 0/20 | 0 |
+| rmdir | rename-old | 20/20 | 0 |
+| unlink | remove-old | 0/20 | 0 |
+| unlink | rename-old | 20/20 | 0 |
+| unlinkat | remove-old | 0/20 | 0 |
+| unlinkat | rename-old | 20/20 | 0 |
+| rename-destination | destination | 0/20 | — |
+| symlink-aba | post-execution | 0/20 | — |
+| symlinkat-aba | post-execution | 0/20 | — |

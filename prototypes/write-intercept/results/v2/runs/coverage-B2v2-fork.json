@@ -1,0 +1,81 @@
+{
+  "name": "coverage-B2v2-fork",
+  "mode": "B2v2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/intercept-v2",
+    "B2v2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-fork",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/states-v2/coverage-B2v2-fork",
+    "30",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/probe-v2",
+    "fork"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006981809972785413,
+  "stats": {
+    "mode": "B2v2",
+    "wall_s": 0.00595328,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "emulated": 1,
+    "workers": 1,
+    "link_calls": 0,
+    "link_success": 0,
+    "inode_checks": 0,
+    "mismatches": 0,
+    "reply_failures": 0,
+    "indeterminate": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00017374998424202204
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-1a91fe2c/prototypes/write-intercept/.scratch/fixtures-v2/coverage-B2v2-fork/child",
+      "before": "Absent",
+      "mode": 0,
+      "dev": 0,
+      "ino": 0,
+      "nlink": 0,
+      "link": "",
+      "relative": "child",
+      "after": {
+        "mode": 420,
+        "dev": 66306,
+        "ino": 520933263,
+        "nlink": 1,
+        "type": "file",
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      },
+      "prestate": {
+        "type": "Absent"
+      }
+    }
+  ],
+  "changes": [
+    "child"
+  ],
+  "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.002931490}\n{\"case\":\"fork\",\"rc\":0,\"errno\":0,\"seconds\":0.003622310}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "child-write",
+      "rc": 6,
+      "errno": 0,
+      "seconds": 0.00293149
+    },
+    {
+      "case": "fork",
+      "rc": 0,
+      "errno": 0,
+      "seconds": 0.00362231
+    }
+  ]
+}
