@@ -1,0 +1,45 @@
+{
+  "name": "B2-open-excl-fail",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-open-excl-fail",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-open-excl-fail",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "open-excl-fail"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.005693390034139156,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.00483349,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 9.874999523162842e-05
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-open-excl-fail/a",
+      "before": "file",
+      "mono_s": 618492.255150633,
+      "relative": "a",
+      "after": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "stdout": "{\"case\":\"open-excl-fail\",\"rc\":-1,\"errno\":17,\"seconds\":0.002940680}\n",
+  "stderr": ""
+}

@@ -1,0 +1,45 @@
+{
+  "name": "B1-fallocate",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-fallocate",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-fallocate",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "fallocate"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006186148966662586,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.005290099,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00010859000030905008
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-fallocate/a",
+      "before": "file",
+      "mono_s": 618489.467738829,
+      "relative": "a",
+      "after": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "stdout": "{\"case\":\"fallocate\",\"rc\":0,\"errno\":0,\"seconds\":0.003420929}\n",
+  "stderr": ""
+}

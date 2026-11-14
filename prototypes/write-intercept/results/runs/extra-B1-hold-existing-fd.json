@@ -1,0 +1,38 @@
+{
+  "name": "extra-B1-hold-existing-fd",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-B1-hold-existing-fd",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/extra-B1-hold-existing-fd",
+    "60",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hold-existing-fd",
+    "3"
+  ],
+  "environment": {
+    "WI_CLOSE_AFTER": "1"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.0029401700012385845,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.00196742,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 3.00002284348011e-07
+  },
+  "ledger": [],
+  "stdout": "{\"existing_fd_write\":6}\n{\"case\":\"hold-existing-fd\",\"rc\":-1,\"errno\":38,\"seconds\":0.000080640}\n",
+  "stderr": ""
+}

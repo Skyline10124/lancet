@@ -1,0 +1,45 @@
+{
+  "name": "B1-truncate",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-truncate",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-truncate",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "truncate"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007977258996106684,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.006878649,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0001779699232429266
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-truncate/a",
+      "before": "file",
+      "mono_s": 618489.305712184,
+      "relative": "a",
+      "after": "bfc622d4a6d410f26be3d72dd4f04e47bf434f76c655134adb76fef3a083c3a8",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "stdout": "{\"case\":\"truncate\",\"rc\":0,\"errno\":0,\"seconds\":0.004712829}\n",
+  "stderr": ""
+}

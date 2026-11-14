@@ -1,0 +1,53 @@
+{
+  "name": "test-subset-ns-1",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/test-subset-ns-1",
+    "600",
+    "--",
+    "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/cargo",
+    "test",
+    "--offline",
+    "-p",
+    "net-guard"
+  ],
+  "environment": {
+    "CARGO_HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/cargo-home",
+    "RUSTC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustc",
+    "RUSTDOC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustdoc",
+    "RUSTUP_HOME": "/home/gcp-vegas/.rustup",
+    "HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/home",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "TMPDIR": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/target/tmp",
+    "LC_ALL": "C",
+    "PATH": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.codex/tmp/arg0-linux/codex-arg0zpJKuE:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/bin:/home/gcp-vegas/.cargo/bin:/home/gcp-vegas/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+  },
+  "returncode": 0,
+  "process_wall_s": 4.3152696510078385,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 4.314118771,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.2991949915885925e-07
+  },
+  "ledger": [],
+  "stdout": "\nrunning 4 tests\ntest tests::classify_reserved_and_embedded_private_ranges ... ok\ntest tests::static_base_url_accepts_public_hosts_and_loopback_without_resolving ... ok\ntest tests::base_url_rejects_unsafe_targets ... ok\ntest tests::static_base_url_byte_limit_is_inclusive ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling smallvec v1.15.2\n   Compiling syn v2.0.117\n   Compiling percent-encoding v2.3.2\n   Compiling form_urlencoded v1.2.2\n   Compiling synstructure v0.13.2\n   Compiling zerofrom-derive v0.1.7\n   Compiling yoke-derive v0.8.2\n   Compiling zerovec-derive v0.11.3\n   Compiling displaydoc v0.2.6\n   Compiling zerofrom v0.1.8\n   Compiling yoke v0.8.3\n   Compiling zerovec v0.11.6\n   Compiling zerotrie v0.2.4\n   Compiling tinystr v0.8.3\n   Compiling potential_utf v0.1.5\n   Compiling icu_collections v2.2.0\n   Compiling icu_locale_core v2.2.0\n   Compiling icu_provider v2.2.0\n   Compiling icu_properties v2.2.0\n   Compiling icu_normalizer v2.2.0\n   Compiling idna_adapter v1.2.2\n   Compiling idna v1.1.0\n   Compiling url v2.5.8\n   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)\n    Finished `test` profile [unoptimized] target(s) in 4.26s\n     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)\n   Doc-tests net_guard\n"
+}

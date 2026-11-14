@@ -1,0 +1,35 @@
+{
+  "name": "A-io-uring",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-io-uring",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-io-uring",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "io-uring"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0028804499888792634,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00201228,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 7,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.5995465219020844e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"io-uring\",\"rc\":-1,\"errno\":38,\"seconds\":0.000005200}\n",
+  "stderr": ""
+}

@@ -1,0 +1,44 @@
+{
+  "name": "A-orphan",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-orphan",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-orphan",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "orphan"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.10600389703176916,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.105032777,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 14,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00013852003030478954
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-orphan/child",
+      "before": "Absent",
+      "mono_s": 618482.893663492,
+      "relative": "child",
+      "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+    }
+  ],
+  "stdout": "{\"case\":\"orphan\",\"rc\":0,\"errno\":0,\"seconds\":0.000318930}\n",
+  "stderr": ""
+}

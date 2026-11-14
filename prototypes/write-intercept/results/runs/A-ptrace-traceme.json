@@ -1,0 +1,35 @@
+{
+  "name": "A-ptrace-traceme",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-ptrace-traceme",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-ptrace-traceme",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "ptrace-traceme"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0034323500003665686,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00242417,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 10,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4004763215780258e-07
+  },
+  "ledger": [],
+  "stdout": "{\"ptrace_rc\":-1,\"ptrace_errno\":1}\n{\"case\":\"ptrace-traceme\",\"rc\":0,\"errno\":0,\"seconds\":0.000270860}\n",
+  "stderr": ""
+}

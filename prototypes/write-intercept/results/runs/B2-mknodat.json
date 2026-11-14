@@ -1,0 +1,35 @@
+{
+  "name": "B2-mknodat",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-mknodat",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-mknodat",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "mknodat"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0027396000223234296,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.00190497,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.5995465219020844e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"mknodat\",\"rc\":0,\"errno\":0,\"seconds\":0.000038130}\n",
+  "stderr": ""
+}

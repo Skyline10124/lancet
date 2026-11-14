@@ -1,0 +1,3581 @@
+[
+  {
+    "name": "extra-A-dangling-symlink",
+    "mode": "A",
+    "case": "dangling-symlink",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574646922,
+        "ctime_ns": 1794660461574646922,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574984952,
+        "ctime_ns": 1794660461574984952,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574715502,
+        "ctime_ns": 1794660461574715502,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574984952,
+        "ctime_ns": 1794660461574984952,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574873492,
+        "ctime_ns": 1794660461574873492,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574984952,
+        "ctime_ns": 1794660461574984952,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574933482,
+        "ctime_ns": 1794660461574933482,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574715502,
+        "ctime_ns": 1794660461574715502,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574773622,
+        "ctime_ns": 1794660461574773622,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574646922,
+        "ctime_ns": 1794660461574646922,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574984952,
+        "ctime_ns": 1794660461574984952,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574715502,
+        "ctime_ns": 1794660461574715502,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574984952,
+        "ctime_ns": 1794660461574984952,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "not-yet": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461579613970,
+        "ctime_ns": 1794660461579613970,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574873492,
+        "ctime_ns": 1794660461574873492,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574984952,
+        "ctime_ns": 1794660461574984952,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574933482,
+        "ctime_ns": 1794660461574933482,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574715502,
+        "ctime_ns": 1794660461574715502,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461574773622,
+        "ctime_ns": 1794660461574773622,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461573613975,
+        "ctime_ns": 1794660461573613975,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "A",
+      "wall_s": 0.00256015,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 8,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 2.50060111284256e-07
+    },
+    "ledger": [],
+    "stdout": "{\"case\":\"dangling-symlink\",\"rc\":6,\"errno\":0,\"seconds\":0.000234010}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-A-umask",
+    "mode": "A",
+    "case": "umask",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583123742,
+        "ctime_ns": 1794660461583123742,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583402442,
+        "ctime_ns": 1794660461583402442,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583189092,
+        "ctime_ns": 1794660461583189092,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583402442,
+        "ctime_ns": 1794660461583402442,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583297392,
+        "ctime_ns": 1794660461583297392,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583402442,
+        "ctime_ns": 1794660461583402442,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583353722,
+        "ctime_ns": 1794660461583353722,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583189092,
+        "ctime_ns": 1794660461583189092,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583245782,
+        "ctime_ns": 1794660461583245782,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583123742,
+        "ctime_ns": 1794660461583123742,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583402442,
+        "ctime_ns": 1794660461583402442,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583189092,
+        "ctime_ns": 1794660461583189092,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583402442,
+        "ctime_ns": 1794660461583402442,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "new": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33152,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461588613963,
+        "ctime_ns": 1794660461588613963,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583297392,
+        "ctime_ns": 1794660461583297392,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583402442,
+        "ctime_ns": 1794660461583402442,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583353722,
+        "ctime_ns": 1794660461583353722,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583189092,
+        "ctime_ns": 1794660461583189092,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461583245782,
+        "ctime_ns": 1794660461583245782,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461582613968,
+        "ctime_ns": 1794660461582613968,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "A",
+      "wall_s": 0.00469946,
+      "code": 0,
+      "calls": 1,
+      "registered": 1,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 8,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 0.00011008000001311302
+    },
+    "ledger": [
+      {
+        "index": 0,
+        "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-A-umask/new",
+        "before": "Absent",
+        "mono_s": 618609.446601306,
+        "relative": "new",
+        "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      }
+    ],
+    "stdout": "{\"case\":\"umask\",\"rc\":6,\"errno\":0,\"seconds\":0.002590440}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-A-fs-race",
+    "mode": "A",
+    "case": "fs-race",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593113021,
+        "ctime_ns": 1794660461593113021,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593383901,
+        "ctime_ns": 1794660461593383901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593171381,
+        "ctime_ns": 1794660461593171381,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593383901,
+        "ctime_ns": 1794660461593383901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593287451,
+        "ctime_ns": 1794660461593287451,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593383901,
+        "ctime_ns": 1794660461593383901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593336231,
+        "ctime_ns": 1794660461593336231,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593171381,
+        "ctime_ns": 1794660461593171381,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593236721,
+        "ctime_ns": 1794660461593236721,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593113021,
+        "ctime_ns": 1794660461593113021,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593383901,
+        "ctime_ns": 1794660461593383901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593171381,
+        "ctime_ns": 1794660461593171381,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593383901,
+        "ctime_ns": 1794660461593383901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593287451,
+        "ctime_ns": 1794660461593287451,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461601613953,
+        "ctime_ns": 1794660461601613953,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-old": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593336231,
+        "ctime_ns": 1794660461601613953,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "link": "race-evil",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461601613953,
+        "ctime_ns": 1794660461601613953,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593171381,
+        "ctime_ns": 1794660461593171381,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461593236721,
+        "ctime_ns": 1794660461593236721,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461592613960,
+        "ctime_ns": 1794660461592613960,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "A",
+      "wall_s": 0.00696795,
+      "code": 0,
+      "calls": 1,
+      "registered": 1,
+      "clones": 1,
+      "denied": 0,
+      "errors": 0,
+      "events": 8,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 1,
+      "digest_s": 8.014007471501827e-05
+    },
+    "ledger": [
+      {
+        "index": 0,
+        "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-A-fs-race/race-safe",
+        "before": "file",
+        "mono_s": 618609.460209346,
+        "relative": "race-safe",
+        "after": "symlink:race-evil",
+        "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      }
+    ],
+    "stdout": "{\"case\":\"fs-race\",\"rc\":6,\"errno\":0,\"seconds\":0.004839460}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-A-hold-existing-fd",
+    "mode": "A",
+    "case": "hold-existing-fd",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607471901,
+        "ctime_ns": 1794660461607471901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607738991,
+        "ctime_ns": 1794660461607738991,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607530771,
+        "ctime_ns": 1794660461607530771,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607738991,
+        "ctime_ns": 1794660461607738991,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607638181,
+        "ctime_ns": 1794660461607638181,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607738991,
+        "ctime_ns": 1794660461607738991,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607689311,
+        "ctime_ns": 1794660461607689311,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607530771,
+        "ctime_ns": 1794660461607530771,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607585491,
+        "ctime_ns": 1794660461607585491,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607471901,
+        "ctime_ns": 1794660461607471901,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607738991,
+        "ctime_ns": 1794660461607738991,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607530771,
+        "ctime_ns": 1794660461607530771,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607738991,
+        "ctime_ns": 1794660461607738991,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607638181,
+        "ctime_ns": 1794660461607638181,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607738991,
+        "ctime_ns": 1794660461607738991,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607689311,
+        "ctime_ns": 1794660461607689311,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607530771,
+        "ctime_ns": 1794660461607530771,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461607585491,
+        "ctime_ns": 1794660461607585491,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461606613949,
+        "ctime_ns": 1794660461606613949,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "digest_s": 2.50060111284256e-07
+    },
+    "ledger": [],
+    "stdout": "",
+    "returncode": 88
+  },
+  {
+    "name": "extra-B1-dangling-symlink",
+    "mode": "B1",
+    "case": "dangling-symlink",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614621791,
+        "ctime_ns": 1794660461614621791,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615093351,
+        "ctime_ns": 1794660461615093351,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614719951,
+        "ctime_ns": 1794660461614719951,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615093351,
+        "ctime_ns": 1794660461615093351,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614918601,
+        "ctime_ns": 1794660461614918601,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615093351,
+        "ctime_ns": 1794660461615093351,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615008761,
+        "ctime_ns": 1794660461615008761,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614719951,
+        "ctime_ns": 1794660461614719951,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614829151,
+        "ctime_ns": 1794660461614829151,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614621791,
+        "ctime_ns": 1794660461614621791,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615093351,
+        "ctime_ns": 1794660461615093351,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614719951,
+        "ctime_ns": 1794660461614719951,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615093351,
+        "ctime_ns": 1794660461615093351,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "not-yet": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461619613938,
+        "ctime_ns": 1794660461619613938,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614918601,
+        "ctime_ns": 1794660461614918601,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615093351,
+        "ctime_ns": 1794660461615093351,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461615008761,
+        "ctime_ns": 1794660461615008761,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614719951,
+        "ctime_ns": 1794660461614719951,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461614829151,
+        "ctime_ns": 1794660461614829151,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461613613943,
+        "ctime_ns": 1794660461613613943,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B1",
+      "wall_s": 0.00219945,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 3.100140020251274e-07
+    },
+    "ledger": [],
+    "stdout": "{\"case\":\"dangling-symlink\",\"rc\":6,\"errno\":0,\"seconds\":0.000245350}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B1-umask",
+    "mode": "B1",
+    "case": "umask",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623349730,
+        "ctime_ns": 1794660461623349730,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623769450,
+        "ctime_ns": 1794660461623769450,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623431470,
+        "ctime_ns": 1794660461623431470,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623769450,
+        "ctime_ns": 1794660461623769450,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623599760,
+        "ctime_ns": 1794660461623599760,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623769450,
+        "ctime_ns": 1794660461623769450,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623679000,
+        "ctime_ns": 1794660461623679000,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623431470,
+        "ctime_ns": 1794660461623431470,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623516830,
+        "ctime_ns": 1794660461623516830,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623349730,
+        "ctime_ns": 1794660461623349730,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623769450,
+        "ctime_ns": 1794660461623769450,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623431470,
+        "ctime_ns": 1794660461623431470,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623769450,
+        "ctime_ns": 1794660461623769450,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "new": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33152,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461630613929,
+        "ctime_ns": 1794660461630613929,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623599760,
+        "ctime_ns": 1794660461623599760,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623769450,
+        "ctime_ns": 1794660461623769450,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623679000,
+        "ctime_ns": 1794660461623679000,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623431470,
+        "ctime_ns": 1794660461623431470,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461623516830,
+        "ctime_ns": 1794660461623516830,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461622613936,
+        "ctime_ns": 1794660461622613936,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B1",
+      "wall_s": 0.00476682,
+      "code": 0,
+      "calls": 1,
+      "registered": 1,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 0.00017398002091795206
+    },
+    "ledger": [
+      {
+        "index": 0,
+        "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-B1-umask/new",
+        "before": "Absent",
+        "mono_s": 618609.487759705,
+        "relative": "new",
+        "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      }
+    ],
+    "stdout": "{\"case\":\"umask\",\"rc\":6,\"errno\":0,\"seconds\":0.002773650}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B1-fs-race",
+    "mode": "B1",
+    "case": "fs-race",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461633613927,
+        "ctime_ns": 1794660461633613927,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461634955910,
+        "ctime_ns": 1794660461634955910,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635380510,
+        "ctime_ns": 1794660461635380510,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635041970,
+        "ctime_ns": 1794660461635041970,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635380510,
+        "ctime_ns": 1794660461635380510,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461634613926,
+        "ctime_ns": 1794660461634613926,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461633613927,
+        "ctime_ns": 1794660461633613927,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635205770,
+        "ctime_ns": 1794660461635205770,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635380510,
+        "ctime_ns": 1794660461635380510,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635297050,
+        "ctime_ns": 1794660461635297050,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635041970,
+        "ctime_ns": 1794660461635041970,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635126990,
+        "ctime_ns": 1794660461635126990,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461633613927,
+        "ctime_ns": 1794660461633613927,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461633613927,
+        "ctime_ns": 1794660461633613927,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461634955910,
+        "ctime_ns": 1794660461634955910,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635380510,
+        "ctime_ns": 1794660461635380510,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635041970,
+        "ctime_ns": 1794660461635041970,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635380510,
+        "ctime_ns": 1794660461635380510,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461634613926,
+        "ctime_ns": 1794660461634613926,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461633613927,
+        "ctime_ns": 1794660461633613927,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635205770,
+        "ctime_ns": 1794660461635205770,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461643613919,
+        "ctime_ns": 1794660461643613919,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-old": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635297050,
+        "ctime_ns": 1794660461643613919,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "link": "race-evil",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461643613919,
+        "ctime_ns": 1794660461643613919,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635041970,
+        "ctime_ns": 1794660461635041970,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461635126990,
+        "ctime_ns": 1794660461635126990,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461633613927,
+        "ctime_ns": 1794660461633613927,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B1",
+      "wall_s": 0.00576452,
+      "code": 0,
+      "calls": 1,
+      "registered": 1,
+      "clones": 1,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 1,
+      "digest_s": 0.00012049998622387648
+    },
+    "ledger": [
+      {
+        "index": 0,
+        "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-B1-fs-race/race-safe",
+        "before": "file",
+        "mono_s": 618609.501705595,
+        "relative": "race-safe",
+        "after": "symlink:race-evil",
+        "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      }
+    ],
+    "stdout": "{\"case\":\"fs-race\",\"rc\":6,\"errno\":0,\"seconds\":0.003739520}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B1-hold-existing-fd",
+    "mode": "B1",
+    "case": "hold-existing-fd",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648204460,
+        "ctime_ns": 1794660461648204460,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648621290,
+        "ctime_ns": 1794660461648621290,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648287510,
+        "ctime_ns": 1794660461648287510,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648621290,
+        "ctime_ns": 1794660461648621290,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648461110,
+        "ctime_ns": 1794660461648461110,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648621290,
+        "ctime_ns": 1794660461648621290,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648539560,
+        "ctime_ns": 1794660461648539560,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648287510,
+        "ctime_ns": 1794660461648287510,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648376040,
+        "ctime_ns": 1794660461648376040,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648204460,
+        "ctime_ns": 1794660461648204460,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648621290,
+        "ctime_ns": 1794660461648621290,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461652613912,
+        "ctime_ns": 1794660461652613912,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648621290,
+        "ctime_ns": 1794660461648621290,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648461110,
+        "ctime_ns": 1794660461648461110,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648621290,
+        "ctime_ns": 1794660461648621290,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648539560,
+        "ctime_ns": 1794660461648539560,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648287510,
+        "ctime_ns": 1794660461648287510,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461648376040,
+        "ctime_ns": 1794660461648376040,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461647613916,
+        "ctime_ns": 1794660461647613916,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B1",
+      "wall_s": 0.00196742,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 3.00002284348011e-07
+    },
+    "ledger": [],
+    "stdout": "{\"existing_fd_write\":6}\n{\"case\":\"hold-existing-fd\",\"rc\":-1,\"errno\":38,\"seconds\":0.000080640}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B2-dangling-symlink",
+    "mode": "B2",
+    "case": "dangling-symlink",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656397999,
+        "ctime_ns": 1794660461656397999,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656762159,
+        "ctime_ns": 1794660461656762159,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656471709,
+        "ctime_ns": 1794660461656471709,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656762159,
+        "ctime_ns": 1794660461656762159,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656619409,
+        "ctime_ns": 1794660461656619409,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656762159,
+        "ctime_ns": 1794660461656762159,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656691889,
+        "ctime_ns": 1794660461656691889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656471709,
+        "ctime_ns": 1794660461656471709,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656551469,
+        "ctime_ns": 1794660461656551469,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656397999,
+        "ctime_ns": 1794660461656397999,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656762159,
+        "ctime_ns": 1794660461656762159,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656471709,
+        "ctime_ns": 1794660461656471709,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656762159,
+        "ctime_ns": 1794660461656762159,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "not-yet": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461660613905,
+        "ctime_ns": 1794660461660613905,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656619409,
+        "ctime_ns": 1794660461656619409,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656762159,
+        "ctime_ns": 1794660461656762159,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656691889,
+        "ctime_ns": 1794660461656691889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656471709,
+        "ctime_ns": 1794660461656471709,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461656551469,
+        "ctime_ns": 1794660461656551469,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461655613909,
+        "ctime_ns": 1794660461655613909,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B2",
+      "wall_s": 0.00216039,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 1,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 3.100140020251274e-07
+    },
+    "ledger": [],
+    "stdout": "{\"case\":\"dangling-symlink\",\"rc\":6,\"errno\":0,\"seconds\":0.000215960}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B2-umask",
+    "mode": "B2",
+    "case": "umask",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664596029,
+        "ctime_ns": 1794660461664596029,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664989079,
+        "ctime_ns": 1794660461664989079,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664669089,
+        "ctime_ns": 1794660461664669089,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664989079,
+        "ctime_ns": 1794660461664989079,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664847379,
+        "ctime_ns": 1794660461664847379,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664989079,
+        "ctime_ns": 1794660461664989079,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664921499,
+        "ctime_ns": 1794660461664921499,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664669089,
+        "ctime_ns": 1794660461664669089,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664748259,
+        "ctime_ns": 1794660461664748259,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664596029,
+        "ctime_ns": 1794660461664596029,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664989079,
+        "ctime_ns": 1794660461664989079,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664669089,
+        "ctime_ns": 1794660461664669089,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664989079,
+        "ctime_ns": 1794660461664989079,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "new": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461670613897,
+        "ctime_ns": 1794660461670613897,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664847379,
+        "ctime_ns": 1794660461664847379,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664989079,
+        "ctime_ns": 1794660461664989079,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664921499,
+        "ctime_ns": 1794660461664921499,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664669089,
+        "ctime_ns": 1794660461664669089,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461664748259,
+        "ctime_ns": 1794660461664748259,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461663613903,
+        "ctime_ns": 1794660461663613903,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B2",
+      "wall_s": 0.00459673,
+      "code": 0,
+      "calls": 1,
+      "registered": 1,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 1,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 0.00017077999655157328
+    },
+    "ledger": [
+      {
+        "index": 0,
+        "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-B2-umask/new",
+        "before": "Absent",
+        "mono_s": 618609.528527334,
+        "relative": "new",
+        "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+      }
+    ],
+    "stdout": "{\"case\":\"umask\",\"rc\":6,\"errno\":0,\"seconds\":0.002552220}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B2-fs-race",
+    "mode": "B2",
+    "case": "fs-race",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675141539,
+        "ctime_ns": 1794660461675141539,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675432889,
+        "ctime_ns": 1794660461675432889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675222309,
+        "ctime_ns": 1794660461675222309,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675432889,
+        "ctime_ns": 1794660461675432889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675336939,
+        "ctime_ns": 1794660461675336939,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675432889,
+        "ctime_ns": 1794660461675432889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675386439,
+        "ctime_ns": 1794660461675386439,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675222309,
+        "ctime_ns": 1794660461675222309,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675283939,
+        "ctime_ns": 1794660461675283939,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675141539,
+        "ctime_ns": 1794660461675141539,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675432889,
+        "ctime_ns": 1794660461675432889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675222309,
+        "ctime_ns": 1794660461675222309,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675432889,
+        "ctime_ns": 1794660461675432889,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675336939,
+        "ctime_ns": 1794660461675336939,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461683613887,
+        "ctime_ns": 1794660461683613887,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-old": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675386439,
+        "ctime_ns": 1794660461683613887,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "link": "race-evil",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461683613887,
+        "ctime_ns": 1794660461683613887,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675222309,
+        "ctime_ns": 1794660461675222309,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461675283939,
+        "ctime_ns": 1794660461675283939,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461674613894,
+        "ctime_ns": 1794660461674613894,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B2",
+      "wall_s": 0.005874419,
+      "code": 0,
+      "calls": 1,
+      "registered": 1,
+      "clones": 1,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 1,
+      "timeout": 0,
+      "race_handshakes": 1,
+      "digest_s": 9.021989535540342e-05
+    },
+    "ledger": [
+      {
+        "index": 0,
+        "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-B2-fs-race/race-safe",
+        "before": "file",
+        "mono_s": 618609.541936193,
+        "relative": "race-safe",
+        "after": "symlink:race-evil",
+        "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+      }
+    ],
+    "stdout": "{\"case\":\"fs-race\",\"rc\":6,\"errno\":0,\"seconds\":0.003472039}\n",
+    "returncode": 0
+  },
+  {
+    "name": "extra-B2-hold-existing-fd",
+    "mode": "B2",
+    "case": "hold-existing-fd",
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688340228,
+        "ctime_ns": 1794660461688340228,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688694268,
+        "ctime_ns": 1794660461688694268,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688413248,
+        "ctime_ns": 1794660461688413248,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688694268,
+        "ctime_ns": 1794660461688694268,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688550248,
+        "ctime_ns": 1794660461688550248,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688694268,
+        "ctime_ns": 1794660461688694268,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688619628,
+        "ctime_ns": 1794660461688619628,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688413248,
+        "ctime_ns": 1794660461688413248,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688480758,
+        "ctime_ns": 1794660461688480758,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688340228,
+        "ctime_ns": 1794660461688340228,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688694268,
+        "ctime_ns": 1794660461688694268,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461692613880,
+        "ctime_ns": 1794660461692613880,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "dangling": {
+        "link": "not-yet",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688694268,
+        "ctime_ns": 1794660461688694268,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688550248,
+        "ctime_ns": 1794660461688550248,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688694268,
+        "ctime_ns": 1794660461688694268,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688619628,
+        "ctime_ns": 1794660461688619628,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688413248,
+        "ctime_ns": 1794660461688413248,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461688480758,
+        "ctime_ns": 1794660461688480758,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794660461687613884,
+        "ctime_ns": 1794660461687613884,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "stats": {
+      "mode": "B2",
+      "wall_s": 0.00225756,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 3.100140020251274e-07
+    },
+    "ledger": [],
+    "stdout": "{\"existing_fd_write\":6}\n{\"case\":\"hold-existing-fd\",\"rc\":-1,\"errno\":38,\"seconds\":0.000086050}\n",
+    "returncode": 0
+  }
+]

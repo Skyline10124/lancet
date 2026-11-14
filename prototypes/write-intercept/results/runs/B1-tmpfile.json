@@ -1,0 +1,44 @@
+{
+  "name": "B1-tmpfile",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-tmpfile",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-tmpfile",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "tmpfile"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.00473970000166446,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.00388042,
+    "code": 0,
+    "calls": 2,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00010480009950697422
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-tmpfile/new",
+      "before": "Absent",
+      "mono_s": 618485.511567771,
+      "relative": "new",
+      "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+    }
+  ],
+  "stdout": "{\"case\":\"tmpfile\",\"rc\":0,\"errno\":0,\"seconds\":0.001989830}\n",
+  "stderr": ""
+}

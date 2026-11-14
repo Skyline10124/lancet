@@ -1,0 +1,35 @@
+{
+  "name": "A-unlinkat-dir",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-unlinkat-dir",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-unlinkat-dir",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "unlinkat-dir"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0031932300189509988,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.0022494,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4994293451309204e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"unlinkat-dir\",\"rc\":0,\"errno\":0,\"seconds\":0.000142300}\n",
+  "stderr": ""
+}

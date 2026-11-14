@@ -1,0 +1,36 @@
+{
+  "name": "A-inherited-ftruncate",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-inherited-ftruncate",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-inherited-ftruncate",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "inherited-ftruncate",
+    "3"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.003681530011817813,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00274496,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 7,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.5005934983491898e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"inherited-ftruncate\",\"rc\":0,\"errno\":0,\"seconds\":0.000599620}\n",
+  "stderr": ""
+}

@@ -1,0 +1,36 @@
+{
+  "name": "micro-B1-1",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/micro-B1-1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/micro-B1-1",
+    "60",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "micro",
+    "20000"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 1.161541264038533,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 1.160467264,
+    "code": 0,
+    "calls": 20000,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.400483936071396e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"micro\",\"rc\":20000,\"errno\":0,\"seconds\":1.158214294}\n",
+  "stderr": ""
+}

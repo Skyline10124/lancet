@@ -1,0 +1,44 @@
+{
+  "name": "B2-thread-exec",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-thread-exec",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-thread-exec",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "thread-exec"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.005490588955581188,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.004574339,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00011134997475892305
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-thread-exec/child",
+      "before": "Absent",
+      "mono_s": 618496.524637132,
+      "relative": "child",
+      "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+    }
+  ],
+  "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.002144540}\n",
+  "stderr": ""
+}

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-14T13:08:21.242232+00:00",
+  "checks": [
+    "234 个基础运行：已留存的前态均与 oracle 相同；3 个 deadline=124，其余 runner=0；外部文件均未登记",
+    "三种机制各 600 次实际 fd inode 观测：A/B1 绕过，B2 抵御此次内存改写",
+    "3 个真实节点 SIGKILL：写前 clone 有效；B 仍可向旧 fd 写入，A 不写入",
+    "90 个工作负载运行：75 个成功，15 个 git commit 前置失败；15 个微基准成功，均为五配置各三次",
+    "未发现本实验 intercept/probe 存活进程；已结束的命名空间随进程回收",
+    "README、REPORT 与性能表的相对链接目标存在；无本地锚点待核对",
+    "原型顶层源码/文档无行尾空白"
+  ],
+  "remaining_processes": [],
+  "files_sha256": {
+    ".gitignore": "5a65acdbf8e972619754cda4463a814b4959d3fc058dc29fff6de577f9249426",
+    "Makefile": "05ea3c2f61c770e1ba98337cf614d52b908ba008e9f077b211311f002aba3b53",
+    "README.md": "2637a658fd5a6df831f952fb599735bc605befedaa933d7b13a634a95f2ee731",
+    "benchmarks.py": "d870b4b857de32d03457ed96e7015002f35c059e2381953b97d8735d3f6706bd",
+    "crash.py": "20696f0e9a3bff6209b0576ca98c58c146c5da70ed3acc1620ef6fd54e8db7bc",
+    "experiment.py": "af7b31d5ee5fc1efc7683a5f22c99f1069f110d6bd22111532568564b72c1428",
+    "intercept.c": "18d728eb424e1c374f708b352e92ca38a15ca682c6f516d0489d545370a4d918",
+    "probe.c": "e36815ec3876d0a1e11fe065dc0e00e9e2ae7b9212e6c9aaffb4b99a24ec9679",
+    "summarize.py": "247ed6433a981186c47d18e15d16977f9b916f95bbf5acb208de3181fe79d8f9",
+    "supplement.py": "ff667f52ca87e70b204935e3136f02ef19351c0c680d8d526f33277948d8be6b",
+    "verify.py": "7976b25cb0d2675974eec33efd698be08c95a044c6169b5571373d2a13719273",
+    ".scratch/intercept": "b56202286c00f5c77a780970f8a36e9d547e875595deeb1b307caaeb51fbe975",
+    ".scratch/probe": "fac7a4884a7a878d4c98559671b3627a6554f14b0b66777603d41f66c9ef8b64"
+  },
+  "product_acceptance": false,
+  "unresolved": [
+    "三种原型均有覆盖缺口，详见 REPORT.md",
+    "git commit 未完成，bot-run 前置失败"
+  ],
+  "docs_check": 0,
+  "tracked_diff_check": 0
+}

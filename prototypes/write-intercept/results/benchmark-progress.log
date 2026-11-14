@@ -1,0 +1,362 @@
+Cloning into '/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice'...
+done.
+build-full-none-0 0 {'mode': 'none', 'wall_s': 60.688994917, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.300374373793602e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 00s
+
+build-incremental-none-0 0 {'mode': 'none', 'wall_s': 8.792148529, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.200257197022438e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.74s
+
+test-subset-none-0 0 {'mode': 'none', 'wall_s': 5.257659717, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.300374373793602e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 5.21s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-none-0 0 {'mode': 'none', 'wall_s': 0.029167669, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} 
+git-checkout-none-0 0 {'mode': 'none', 'wall_s': 0.00428291, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.300374373793602e-07} Switched to a new branch 'wi-none-0'
+
+git-commit-none-0 1 {'mode': 'none', 'wall_s': 0.031175739, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-ns-0 0 {'mode': 'ns', 'wall_s': 59.31557497, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 59.26s
+
+build-incremental-ns-0 0 {'mode': 'ns', 'wall_s': 9.493565317, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.8998980522155762e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 9.44s
+
+test-subset-ns-0 0 {'mode': 'ns', 'wall_s': 4.22109603, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.17s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-ns-0 0 {'mode': 'ns', 'wall_s': 0.026624909, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} 
+git-checkout-ns-0 0 {'mode': 'ns', 'wall_s': 0.00478274, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} Switched to a new branch 'wi-ns-0'
+
+git-commit-ns-0 1 {'mode': 'ns', 'wall_s': 0.031468819, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-A-0 0 {'mode': 'A', 'wall_s': 57.607503906, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 28362, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 57.55s
+
+build-incremental-A-0 0 {'mode': 'A', 'wall_s': 7.634364064, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 502, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.58s
+
+test-subset-A-0 0 {'mode': 'A', 'wall_s': 4.32364063, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 1574, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} zer v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.27s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-A-0 0 {'mode': 'A', 'wall_s': 0.036828739, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} 
+git-checkout-A-0 0 {'mode': 'A', 'wall_s': 0.00651676, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 31, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.100140020251274e-07} Switched to a new branch 'wi-A-0'
+
+git-commit-A-0 1 {'mode': 'A', 'wall_s': 0.031796599, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-B1-0 0 {'mode': 'B1', 'wall_s': 61.901079423, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 01s
+
+build-incremental-B1-0 0 {'mode': 'B1', 'wall_s': 7.929088674, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.86s
+
+test-subset-B1-0 0 {'mode': 'B1', 'wall_s': 5.543899621, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 5.299225449562073e-07} zer v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 5.49s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B1-0 0 {'mode': 'B1', 'wall_s': 0.026630219, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+git-checkout-B1-0 0 {'mode': 'B1', 'wall_s': 0.0070306, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} Switched to a new branch 'wi-B1-0'
+
+git-commit-B1-0 1 {'mode': 'B1', 'wall_s': 0.031943989, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-B2-0 0 {'mode': 'B2', 'wall_s': 65.144920869, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 11995, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.6996789276599884e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 05s
+
+build-incremental-B2-0 0 {'mode': 'B2', 'wall_s': 8.555511314, 'code': 0, 'calls': 262, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 262, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.2992026060819626e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.50s
+
+test-subset-B2-0 0 {'mode': 'B2', 'wall_s': 4.776934266, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 736, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.71s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2-0 0 {'mode': 'B2', 'wall_s': 0.040004228, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.4994445741176605e-07} 
+git-checkout-B2-0 0 {'mode': 'B2', 'wall_s': 0.00986431, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 24, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.200257197022438e-07} Switched to a new branch 'wi-B2-0'
+
+git-commit-B2-0 1 {'mode': 'B2', 'wall_s': 0.080054257, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.00003045797348e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-ns-1 0 {'mode': 'ns', 'wall_s': 61.826160016, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 01s
+
+build-incremental-ns-1 0 {'mode': 'ns', 'wall_s': 8.34777464, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.100140020251274e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.30s
+
+test-subset-ns-1 0 {'mode': 'ns', 'wall_s': 4.314118771, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.2991949915885925e-07} zer v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.26s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-ns-1 0 {'mode': 'ns', 'wall_s': 0.026655609, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.200249582529068e-07} 
+git-checkout-ns-1 0 {'mode': 'ns', 'wall_s': 0.00466376, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} Switched to a new branch 'wi-ns-1'
+
+git-commit-ns-1 1 {'mode': 'ns', 'wall_s': 0.031524709, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-A-1 0 {'mode': 'A', 'wall_s': 65.876904265, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 28364, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 05s
+
+build-incremental-A-1 0 {'mode': 'A', 'wall_s': 8.509852036, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 502, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.899905666708946e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.25s
+
+test-subset-A-1 0 {'mode': 'A', 'wall_s': 4.993994469, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 1574, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} zer v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.94s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-A-1 0 {'mode': 'A', 'wall_s': 0.026989429, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 5.200272426009178e-07} 
+git-checkout-A-1 0 {'mode': 'A', 'wall_s': 0.007036219, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 31, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.5995465219020844e-07} Switched to a new branch 'wi-A-1'
+
+git-commit-A-1 1 {'mode': 'A', 'wall_s': 0.032531379, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.00001522898674e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-B1-1 0 {'mode': 'B1', 'wall_s': 65.74050819, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 05s
+
+build-incremental-B1-1 0 {'mode': 'B1', 'wall_s': 8.314270182, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.26s
+
+test-subset-B1-1 0 {'mode': 'B1', 'wall_s': 4.682928729, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.62s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B1-1 0 {'mode': 'B1', 'wall_s': 0.046013388, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} 
+git-checkout-B1-1 0 {'mode': 'B1', 'wall_s': 0.0136433, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} Switched to a new branch 'wi-B1-1'
+
+git-commit-B1-1 1 {'mode': 'B1', 'wall_s': 0.046173429, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.6996789276599884e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-B2-1 0 {'mode': 'B2', 'wall_s': 65.182623307, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 11995, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 05s
+
+build-incremental-B2-1 0 {'mode': 'B2', 'wall_s': 8.459796227, 'code': 0, 'calls': 262, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 262, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.39s
+
+test-subset-B2-1 0 {'mode': 'B2', 'wall_s': 4.310800521, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 736, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4994293451309204e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.26s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2-1 0 {'mode': 'B2', 'wall_s': 0.026465049, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+git-checkout-B2-1 0 {'mode': 'B2', 'wall_s': 0.006991119, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 24, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4004763215780258e-07} Switched to a new branch 'wi-B2-1'
+
+git-commit-B2-1 1 {'mode': 'B2', 'wall_s': 0.031859959, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-none-1 0 {'mode': 'none', 'wall_s': 58.335022348, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.1990854293107986e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 58.29s
+
+build-incremental-none-1 0 {'mode': 'none', 'wall_s': 7.331909664, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.28s
+
+test-subset-none-1 0 {'mode': 'none', 'wall_s': 4.106441137, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.06s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-none-1 0 {'mode': 'none', 'wall_s': 0.024530329, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+git-checkout-none-1 0 {'mode': 'none', 'wall_s': 0.00353453, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.2991949915885925e-07} Switched to a new branch 'wi-none-1'
+
+git-commit-none-1 1 {'mode': 'none', 'wall_s': 0.030431189, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-A-2 0 {'mode': 'A', 'wall_s': 54.981201406, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 28359, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 54.93s
+
+build-incremental-A-2 0 {'mode': 'A', 'wall_s': 7.520902668, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 502, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.3993197828531265e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 7.47s
+
+test-subset-A-2 0 {'mode': 'A', 'wall_s': 4.169738076, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 1574, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.12s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-A-2 0 {'mode': 'A', 'wall_s': 0.026809519, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.7997961044311523e-07} 
+git-checkout-A-2 0 {'mode': 'A', 'wall_s': 0.00639321, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 31, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 1.4994293451309204e-07} Switched to a new branch 'wi-A-2'
+
+git-commit-A-2 1 {'mode': 'A', 'wall_s': 0.031277929, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 8, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-B1-2 0 {'mode': 'B1', 'wall_s': 60.799880099, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.100132405757904e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 00s
+
+build-incremental-B1-2 0 {'mode': 'B1', 'wall_s': 8.610360542, 'code': 0, 'calls': 258, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} pt/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 8.55s
+
+test-subset-B1-2 0 {'mode': 'B1', 'wall_s': 5.27090952, 'code': 0, 'calls': 736, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 5.19s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B1-2 0 {'mode': 'B1', 'wall_s': 0.041815949, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} 
+git-checkout-B1-2 0 {'mode': 'B1', 'wall_s': 0.01477223, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} Switched to a new branch 'wi-B1-2'
+
+git-commit-B1-2 1 {'mode': 'B1', 'wall_s': 0.032819339, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.300366759300232e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-B2-2 0 {'mode': 'B2', 'wall_s': 75.266912632, 'code': 0, 'calls': 11995, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 11995, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 15s
+
+build-incremental-B2-2 0 {'mode': 'B2', 'wall_s': 10.451378323, 'code': 0, 'calls': 257, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 257, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 10.38s
+
+test-subset-B2-2 0 {'mode': 'B2', 'wall_s': 4.95371998, 'code': 0, 'calls': 740, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 740, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.3993273973464966e-07} zer v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.90s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-B2-2 0 {'mode': 'B2', 'wall_s': 0.035394139, 'code': 0, 'calls': 1, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 1, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.600718289613724e-07} 
+git-checkout-B2-2 0 {'mode': 'B2', 'wall_s': 0.00755031, 'code': 0, 'calls': 24, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 24, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.100140020251274e-07} Switched to a new branch 'wi-B2-2'
+
+git-commit-B2-2 1 {'mode': 'B2', 'wall_s': 0.032004269, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-none-2 0 {'mode': 'none', 'wall_s': 80.509805574, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 20s
+
+build-incremental-none-2 0 {'mode': 'none', 'wall_s': 10.633673931, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.7997884899377823e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 10.57s
+
+test-subset-none-2 0 {'mode': 'none', 'wall_s': 4.681579789, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.100147634744644e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.63s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-none-2 0 {'mode': 'none', 'wall_s': 0.02490888, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.6996713131666183e-07} 
+git-checkout-none-2 0 {'mode': 'none', 'wall_s': 0.00355833, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} Switched to a new branch 'wi-none-2'
+
+git-commit-none-2 1 {'mode': 'none', 'wall_s': 0.029786409, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 4.4994521886110306e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+
+build-full-ns-2 0 {'mode': 'ns', 'wall_s': 80.384398037, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.50060111284256e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 1m 20s
+
+build-incremental-ns-2 0 {'mode': 'ns', 'wall_s': 10.237552499, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.4994369596242905e-07} t/.scratch/lattice/crates/lattice-agent)
+   Compiling lattice-server v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-server)
+   Compiling lattice-cli v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/lattice-cli)
+    Finished `dev` profile [unoptimized] target(s) in 10.19s
+
+test-subset-ns-2 0 {'mode': 'ns', 'wall_s': 4.527949584, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.5995541363954544e-07} ies v2.2.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling net-guard v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/crates/net-guard)
+    Finished `test` profile [unoptimized] target(s) in 4.48s
+     Running unittests src/lib.rs (target/debug/deps/net_guard-4b5ed4fdc6a7336a)
+   Doc-tests net_guard
+
+git-status-ns-2 0 {'mode': 'ns', 'wall_s': 0.026343999, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 2.400483936071396e-07} 
+git-checkout-ns-2 0 {'mode': 'ns', 'wall_s': 0.00472757, 'code': 0, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.700843080878258e-07} Switched to a new branch 'wi-ns-2'
+
+git-commit-ns-2 1 {'mode': 'ns', 'wall_s': 0.031689129, 'code': 1, 'calls': 0, 'registered': 0, 'clones': 0, 'denied': 0, 'errors': 0, 'events': 0, 'emulated': 0, 'timeout': 0, 'race_handshakes': 0, 'digest_s': 3.00002284348011e-07} bot-run: 请先安装 github-app-token 到 ~/.local/bin/，并赋予执行权限。
+

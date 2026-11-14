@@ -1,0 +1,45 @@
+{
+  "name": "A-external-window",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-external-window",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-external-window",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "external-window"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.30710053094662726,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.305836482,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0001400801120325923
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-external-window/a",
+      "before": "file",
+      "mono_s": 618485.23160517,
+      "relative": "a",
+      "after": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "stdout": "{\"case\":\"external-window\",\"rc\":6,\"errno\":0,\"seconds\":0.303483782}\n",
+  "stderr": ""
+}

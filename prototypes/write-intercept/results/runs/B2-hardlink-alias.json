@@ -1,0 +1,35 @@
+{
+  "name": "B2-hardlink-alias",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-hardlink-alias",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-hardlink-alias",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hardlink-alias"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0029044190887361765,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.002037869,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.7008278518915176e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"hardlink-alias\",\"rc\":6,\"errno\":0,\"seconds\":0.000132900}\n",
+  "stderr": ""
+}

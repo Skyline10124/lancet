@@ -1,0 +1,35 @@
+{
+  "name": "A-utimensat",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-utimensat",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-utimensat",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "utimensat"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0029432500014081597,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00208478,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 7,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.300359144806862e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"utimensat\",\"rc\":0,\"errno\":0,\"seconds\":0.000013540}\n",
+  "stderr": ""
+}

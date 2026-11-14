@@ -1,0 +1,35 @@
+{
+  "name": "A-hidden-open",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-hidden-open",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-hidden-open",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hidden-open"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0030053899390622973,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00209888,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 1,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.6996636986732483e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"hidden-open\",\"rc\":-1,\"errno\":13,\"seconds\":0.000139050}\n",
+  "stderr": ""
+}

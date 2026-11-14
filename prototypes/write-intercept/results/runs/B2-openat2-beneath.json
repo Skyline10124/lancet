@@ -1,0 +1,45 @@
+{
+  "name": "B2-openat2-beneath",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-openat2-beneath",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-openat2-beneath",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "openat2-beneath"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0055732299806550145,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.00468258,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00010798010043799877
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-openat2-beneath/a",
+      "before": "file",
+      "mono_s": 618492.296662042,
+      "relative": "a",
+      "after": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "stdout": "{\"case\":\"openat2-beneath\",\"rc\":-1,\"errno\":95,\"seconds\":0.002727830}\n",
+  "stderr": ""
+}

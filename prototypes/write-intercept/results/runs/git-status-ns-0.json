@@ -1,0 +1,52 @@
+{
+  "name": "git-status-ns-0",
+  "mode": "ns",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "ns",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/git-status-ns-0",
+    "600",
+    "--",
+    "git",
+    "--no-optional-locks",
+    "status",
+    "--porcelain"
+  ],
+  "environment": {
+    "CARGO_HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/cargo-home",
+    "RUSTC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustc",
+    "RUSTDOC": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin/rustdoc",
+    "RUSTUP_HOME": "/home/gcp-vegas/.rustup",
+    "HOME": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/home",
+    "CARGO_BUILD_JOBS": "4",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "TMPDIR": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/lattice/target/tmp",
+    "LC_ALL": "C",
+    "PATH": "/home/gcp-vegas/.rustup/toolchains/1.96.0-x86_64-unknown-linux-gnu/bin:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/.codex/tmp/arg0-linux/codex-arg0zpJKuE:/home/gcp-vegas/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/codex-path:/home/gcp-vegas/.opencode/bin:/home/gcp-vegas/.local/bin:/home/gcp-vegas/bin:/home/gcp-vegas/.cargo/bin:/home/gcp-vegas/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+  },
+  "returncode": 0,
+  "process_wall_s": 0.027675058925524354,
+  "stats": {
+    "mode": "ns",
+    "wall_s": 0.026624909,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.300366759300232e-07
+  },
+  "ledger": [],
+  "stdout": " M crates/net-guard/src/lib.rs\n",
+  "stderr": ""
+}

@@ -1,0 +1,87 @@
+{
+  "name": "A-rename-dir",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-rename-dir",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "rename-dir"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.011686409008689225,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.010775899,
+    "code": 0,
+    "calls": 1,
+    "registered": 6,
+    "clones": 3,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0004942100495100021
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir/dir/f0000",
+      "before": "file",
+      "mono_s": 618478.584877255,
+      "relative": "dir/f0000",
+      "after": "Absent",
+      "clone_sha256": "4b52a82edbedfdf62f7b8f69980820db3a7111ae85ebfa38d750a276cb180582"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir/moved/f0000",
+      "before": "Absent",
+      "mono_s": 618478.586110815,
+      "relative": "moved/f0000",
+      "after": "4b52a82edbedfdf62f7b8f69980820db3a7111ae85ebfa38d750a276cb180582"
+    },
+    {
+      "index": 2,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir/dir/f0001",
+      "before": "file",
+      "mono_s": 618478.588297415,
+      "relative": "dir/f0001",
+      "after": "Absent",
+      "clone_sha256": "116fa15d7cf65ce302f90753c6ee7285214317d1718a2a2e0ec7b979561b7d36"
+    },
+    {
+      "index": 3,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir/moved/f0001",
+      "before": "Absent",
+      "mono_s": 618478.588990705,
+      "relative": "moved/f0001",
+      "after": "116fa15d7cf65ce302f90753c6ee7285214317d1718a2a2e0ec7b979561b7d36"
+    },
+    {
+      "index": 4,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir/dir/f0002",
+      "before": "file",
+      "mono_s": 618478.590746185,
+      "relative": "dir/f0002",
+      "after": "Absent",
+      "clone_sha256": "3fd2660f1bda00fe397c3d1f4c0de2886ab92a14a78c0a28115625d60a465baf"
+    },
+    {
+      "index": 5,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-dir/moved/f0002",
+      "before": "Absent",
+      "mono_s": 618478.591501805,
+      "relative": "moved/f0002",
+      "after": "3fd2660f1bda00fe397c3d1f4c0de2886ab92a14a78c0a28115625d60a465baf"
+    }
+  ],
+  "stdout": "{\"case\":\"rename-dir\",\"rc\":0,\"errno\":0,\"seconds\":0.008656079}\n",
+  "stderr": ""
+}

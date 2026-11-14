@@ -1,0 +1,35 @@
+{
+  "name": "A-filter-bypass",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-filter-bypass",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-filter-bypass",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "filter-bypass"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0030689500272274017,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00220095,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 9,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4994293451309204e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"filter-bypass\",\"rc\":6,\"errno\":0,\"seconds\":0.000195690}\n",
+  "stderr": ""
+}

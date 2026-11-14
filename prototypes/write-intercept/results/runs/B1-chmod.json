@@ -1,0 +1,35 @@
+{
+  "name": "B1-chmod",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-chmod",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-chmod",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "chmod"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0028058300958946347,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.00188388,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4994293451309204e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"chmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000011500}\n",
+  "stderr": ""
+}

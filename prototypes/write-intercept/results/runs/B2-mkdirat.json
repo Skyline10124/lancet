@@ -1,0 +1,35 @@
+{
+  "name": "B2-mkdirat",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-mkdirat",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-mkdirat",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "mkdirat"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0027371199103072286,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.00187087,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.5005934983491898e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"mkdirat\",\"rc\":0,\"errno\":0,\"seconds\":0.000040470}\n",
+  "stderr": ""
+}

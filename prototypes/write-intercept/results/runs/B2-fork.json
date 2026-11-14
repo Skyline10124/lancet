@@ -1,0 +1,44 @@
+{
+  "name": "B2-fork",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-fork",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-fork",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "fork"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006403999053873122,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.005564299,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0001084599643945694
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-fork/child",
+      "before": "Absent",
+      "mono_s": 618496.495638633,
+      "relative": "child",
+      "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+    }
+  ],
+  "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.003068699}\n{\"case\":\"fork\",\"rc\":0,\"errno\":0,\"seconds\":0.003747690}\n",
+  "stderr": ""
+}

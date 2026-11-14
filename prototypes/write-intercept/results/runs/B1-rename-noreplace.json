@@ -1,0 +1,54 @@
+{
+  "name": "B1-rename-noreplace",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-rename-noreplace",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-rename-noreplace",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "rename-noreplace"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007297418895177543,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.006394959,
+    "code": 0,
+    "calls": 1,
+    "registered": 2,
+    "clones": 2,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0002671100664883852
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-rename-noreplace/a",
+      "before": "file",
+      "mono_s": 618485.663555987,
+      "relative": "a",
+      "after": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-rename-noreplace/b",
+      "before": "file",
+      "mono_s": 618485.665416636,
+      "relative": "b",
+      "after": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+      "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+    }
+  ],
+  "stdout": "{\"case\":\"rename-noreplace\",\"rc\":-1,\"errno\":17,\"seconds\":0.004455079}\n",
+  "stderr": ""
+}

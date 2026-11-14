@@ -1,0 +1,25 @@
+{
+  "name": "failure-A",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/failure-A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/failure-A",
+    "10",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hold"
+  ],
+  "environment": {
+    "WI_CRASH_AFTER": "1"
+  },
+  "returncode": 88,
+  "process_wall_s": 0.0028398899594321847,
+  "stats": {
+    "digest_s": 1.3993121683597565e-07
+  },
+  "ledger": [],
+  "stdout": "",
+  "stderr": ""
+}

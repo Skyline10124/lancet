@@ -1,0 +1,45 @@
+{
+  "name": "B1-cwd",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-cwd",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-cwd",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "cwd"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.005472369026392698,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.004609589,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.0001428999239578843
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-cwd/sub/a",
+      "before": "file",
+      "mono_s": 618485.469291963,
+      "relative": "sub/a",
+      "after": "62e7617cee267aaa62bf302922a616ec53d533bd18b582fd17d4ca7983cfe835",
+      "clone_sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f"
+    }
+  ],
+  "stdout": "{\"case\":\"cwd\",\"rc\":6,\"errno\":0,\"seconds\":0.002712879}\n",
+  "stderr": ""
+}

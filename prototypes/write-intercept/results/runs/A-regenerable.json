@@ -1,0 +1,35 @@
+{
+  "name": "A-regenerable",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-regenerable",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-regenerable",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "regenerable"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0031073599820956588,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00222441,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4004763215780258e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"regenerable\",\"rc\":6,\"errno\":0,\"seconds\":0.000191640}\n",
+  "stderr": ""
+}

@@ -1,0 +1,35 @@
+{
+  "name": "A-hidden-mkdir",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-hidden-mkdir",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-hidden-mkdir",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hidden-mkdir"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.003008859930559993,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00217895,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 7,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.7008278518915176e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"hidden-mkdir\",\"rc\":0,\"errno\":0,\"seconds\":0.000046110}\n",
+  "stderr": ""
+}

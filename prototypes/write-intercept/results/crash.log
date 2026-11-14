@@ -1,0 +1,7 @@
+A -9 
+B1 -9 {"existing_fd_write":6}
+{"case":"hold-existing-fd","rc":-1,"errno":38,"seconds":0.014994980}
+
+B2 -9 {"existing_fd_write":6}
+{"case":"hold-existing-fd","rc":-1,"errno":38,"seconds":0.010748529}
+

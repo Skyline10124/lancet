@@ -1,0 +1,44 @@
+{
+  "name": "A-symlink",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-symlink",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-symlink",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "symlink"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0043936800211668015,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.0035471,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 8.598994463682175e-05
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-symlink/new",
+      "before": "Absent",
+      "mono_s": 618482.527684043,
+      "relative": "new",
+      "after": "symlink:a"
+    }
+  ],
+  "stdout": "{\"case\":\"symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.001539470}\n",
+  "stderr": ""
+}

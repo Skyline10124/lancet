@@ -1,0 +1,35 @@
+{
+  "name": "extra-A-dangling-symlink",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-A-dangling-symlink",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/extra-A-dangling-symlink",
+    "60",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "dangling-symlink"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.004468130064196885,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00256015,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.50060111284256e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"dangling-symlink\",\"rc\":6,\"errno\":0,\"seconds\":0.000234010}\n",
+  "stderr": ""
+}

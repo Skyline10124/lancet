@@ -1,0 +1,35 @@
+{
+  "name": "A-hidden-link",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-hidden-link",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-hidden-link",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hidden-link"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0030187100637704134,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00216603,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 1,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.4994293451309204e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"hidden-link\",\"rc\":-1,\"errno\":13,\"seconds\":0.000162360}\n",
+  "stderr": ""
+}

@@ -1,0 +1,881 @@
+[
+  {
+    "mode": "A",
+    "killed": [
+      {
+        "node_pid": 1231009,
+        "processes": [
+          1231009,
+          1231010,
+          1231011
+        ]
+      }
+    ],
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963119293,
+        "ctime_ns": 1794661065963119293,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963409473,
+        "ctime_ns": 1794661065963409473,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963193123,
+        "ctime_ns": 1794661065963193123,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963304463,
+        "ctime_ns": 1794661065963304463,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963409473,
+        "ctime_ns": 1794661065963409473,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963358903,
+        "ctime_ns": 1794661065963358903,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963193123,
+        "ctime_ns": 1794661065963193123,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963249163,
+        "ctime_ns": 1794661065963249163,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963119293,
+        "ctime_ns": 1794661065963119293,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963409473,
+        "ctime_ns": 1794661065963409473,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963193123,
+        "ctime_ns": 1794661065963193123,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963304463,
+        "ctime_ns": 1794661065963304463,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963409473,
+        "ctime_ns": 1794661065963409473,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963358903,
+        "ctime_ns": 1794661065963358903,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963193123,
+        "ctime_ns": 1794661065963193123,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065963249163,
+        "ctime_ns": 1794661065963249163,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065962129751,
+        "ctime_ns": 1794661065962129751,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "result": {
+      "name": "crash-A",
+      "mode": "A",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+        "A",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-A",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/crash-A",
+        "10",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+        "hold-existing-fd",
+        "3"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/crash-A.control"
+      },
+      "returncode": -9,
+      "process_wall_s": 0.02033108996693045,
+      "stats": {
+        "digest_s": 0.00028856005519628525
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-A/race-safe",
+          "before": "file",
+          "mono_s": 619213.831640317,
+          "relative": "race-safe",
+          "after": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+          "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+        }
+      ],
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  {
+    "mode": "B1",
+    "killed": [
+      {
+        "node_pid": 1231015,
+        "processes": [
+          1231015,
+          1231016,
+          1231017
+        ]
+      }
+    ],
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990637512,
+        "ctime_ns": 1794661065990637512,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065991099122,
+        "ctime_ns": 1794661065991099122,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990734962,
+        "ctime_ns": 1794661065990734962,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990944222,
+        "ctime_ns": 1794661065990944222,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065991099122,
+        "ctime_ns": 1794661065991099122,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065991025942,
+        "ctime_ns": 1794661065991025942,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990734962,
+        "ctime_ns": 1794661065990734962,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990850872,
+        "ctime_ns": 1794661065990850872,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990637512,
+        "ctime_ns": 1794661065990637512,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065991099122,
+        "ctime_ns": 1794661065991099122,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066011129712,
+        "ctime_ns": 1794661066011129712,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990944222,
+        "ctime_ns": 1794661065990944222,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065991099122,
+        "ctime_ns": 1794661065991099122,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065991025942,
+        "ctime_ns": 1794661065991025942,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990734962,
+        "ctime_ns": 1794661065990734962,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065990850872,
+        "ctime_ns": 1794661065990850872,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661065989129729,
+        "ctime_ns": 1794661065989129729,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "result": {
+      "name": "crash-B1",
+      "mode": "B1",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+        "B1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-B1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/crash-B1",
+        "10",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+        "hold-existing-fd",
+        "3"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/crash-B1.control"
+      },
+      "returncode": -9,
+      "process_wall_s": 0.019603298977017403,
+      "stats": {
+        "digest_s": 0.0002657200675457716
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-B1/race-safe",
+          "before": "file",
+          "mono_s": 619213.858649956,
+          "relative": "race-safe",
+          "after": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+          "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+        }
+      ],
+      "stdout": "{\"existing_fd_write\":6}\n{\"case\":\"hold-existing-fd\",\"rc\":-1,\"errno\":38,\"seconds\":0.014994980}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "mode": "B2",
+    "killed": [
+      {
+        "node_pid": 1231021,
+        "processes": [
+          1231021,
+          1231022,
+          1231023
+        ]
+      }
+    ],
+    "before": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017343951,
+        "ctime_ns": 1794661066017343951,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017772481,
+        "ctime_ns": 1794661066017772481,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017422511,
+        "ctime_ns": 1794661066017422511,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017602831,
+        "ctime_ns": 1794661066017602831,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017772481,
+        "ctime_ns": 1794661066017772481,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017691781,
+        "ctime_ns": 1794661066017691781,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017422511,
+        "ctime_ns": 1794661066017422511,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017514261,
+        "ctime_ns": 1794661066017514261,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "after": {
+      ".git": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "a": {
+        "sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017343951,
+        "ctime_ns": 1794661066017343951,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "alias": {
+        "link": "a",
+        "mode": 41471,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017772481,
+        "ctime_ns": 1794661066017772481,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "b": {
+        "sha256": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066033129694,
+        "ctime_ns": 1794661066033129694,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "empty": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "hidden": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "outside": {
+        "sha256": "9574cc05f842f3e07b09fd3fcc568f4db35e314cf90b479984dd89823353d13a",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017602831,
+        "ctime_ns": 1794661066017602831,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-evil": {
+        "sha256": "94c5b5bcbf857fec397c848b3dbdbf3e0e60c77bd8ced901c127df7d2a6bf030",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017772481,
+        "ctime_ns": 1794661066017772481,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "race-safe": {
+        "sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017691781,
+        "ctime_ns": 1794661066017691781,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "sub": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017422511,
+        "ctime_ns": 1794661066017422511,
+        "nlink": 2,
+        "xattrs": {}
+      },
+      "sub/a": {
+        "sha256": "5438b2c71ea3bd384ee562be37e64653f13cf2bcc70534001394ad279c5e2a9f",
+        "mode": 33188,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066017514261,
+        "ctime_ns": 1794661066017514261,
+        "nlink": 1,
+        "xattrs": {}
+      },
+      "target": {
+        "kind": "directory",
+        "mode": 16877,
+        "uid": 1000,
+        "gid": 1005,
+        "mtime_ns": 1794661066016129708,
+        "ctime_ns": 1794661066016129708,
+        "nlink": 2,
+        "xattrs": {}
+      }
+    },
+    "result": {
+      "name": "crash-B2",
+      "mode": "B2",
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+        "B2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-B2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/crash-B2",
+        "10",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+        "hold-existing-fd",
+        "3"
+      ],
+      "environment": {
+        "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/crash-B2.control"
+      },
+      "returncode": -9,
+      "process_wall_s": 0.014847518992610276,
+      "stats": {
+        "digest_s": 0.0001759100705385208
+      },
+      "ledger": [
+        {
+          "index": 0,
+          "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-B2/race-safe",
+          "before": "file",
+          "mono_s": 619213.884889816,
+          "relative": "race-safe",
+          "after": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+          "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+        }
+      ],
+      "stdout": "{\"existing_fd_write\":6}\n{\"case\":\"hold-existing-fd\",\"rc\":-1,\"errno\":38,\"seconds\":0.010748529}\n",
+      "stderr": ""
+    }
+  }
+]

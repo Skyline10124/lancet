@@ -1,0 +1,36 @@
+{
+  "name": "crash-A",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/crash-A",
+    "10",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hold-existing-fd",
+    "3"
+  ],
+  "environment": {
+    "WI_RACE_CONTROL": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/crash-A.control"
+  },
+  "returncode": -9,
+  "process_wall_s": 0.02033108996693045,
+  "stats": {
+    "digest_s": 0.00028856005519628525
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/crash-A/race-safe",
+      "before": "file",
+      "mono_s": 619213.831640317,
+      "relative": "race-safe",
+      "after": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3",
+      "clone_sha256": "85e00c41779d9d0849b258bfccbbf622bd802aba535ec03ff638d9244f432fe3"
+    }
+  ],
+  "stdout": "",
+  "stderr": ""
+}

@@ -1,0 +1,14 @@
+extra-A-dangling-symlink {"case":"dangling-symlink","rc":6,"errno":0,"seconds":0.000234010}
+extra-A-umask {"case":"umask","rc":6,"errno":0,"seconds":0.002590440}
+extra-A-fs-race {"case":"fs-race","rc":6,"errno":0,"seconds":0.004839460}
+extra-A-hold-existing-fd 
+extra-B1-dangling-symlink {"case":"dangling-symlink","rc":6,"errno":0,"seconds":0.000245350}
+extra-B1-umask {"case":"umask","rc":6,"errno":0,"seconds":0.002773650}
+extra-B1-fs-race {"case":"fs-race","rc":6,"errno":0,"seconds":0.003739520}
+extra-B1-hold-existing-fd {"existing_fd_write":6}
+{"case":"hold-existing-fd","rc":-1,"errno":38,"seconds":0.000080640}
+extra-B2-dangling-symlink {"case":"dangling-symlink","rc":6,"errno":0,"seconds":0.000215960}
+extra-B2-umask {"case":"umask","rc":6,"errno":0,"seconds":0.002552220}
+extra-B2-fs-race {"case":"fs-race","rc":6,"errno":0,"seconds":0.003472039}
+extra-B2-hold-existing-fd {"existing_fd_write":6}
+{"case":"hold-existing-fd","rc":-1,"errno":38,"seconds":0.000086050}

@@ -1,0 +1,35 @@
+{
+  "name": "B2-unlink-symlink",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-unlink-symlink",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-unlink-symlink",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "unlink-symlink"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.0029886700212955475,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.00210859,
+    "code": 0,
+    "calls": 1,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.6007106751203537e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"unlink-symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000142500}\n",
+  "stderr": ""
+}

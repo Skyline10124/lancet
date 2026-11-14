@@ -1,0 +1,45 @@
+{
+  "name": "B2-filter-allow",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-filter-allow",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-filter-allow",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "filter-allow"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.006257129949517548,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.00538447,
+    "code": 0,
+    "calls": 1,
+    "registered": 1,
+    "clones": 1,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 1,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00010710000060498714
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-filter-allow/a",
+      "before": "file",
+      "mono_s": 618498.786607172,
+      "relative": "a",
+      "after": "04d33bf89ea1aca1964f746834c7a1242015af5370be51cf812e37c9059dadbc",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    }
+  ],
+  "stdout": "{\"case\":\"filter-allow\",\"rc\":6,\"errno\":0,\"seconds\":0.003417820}\n",
+  "stderr": ""
+}

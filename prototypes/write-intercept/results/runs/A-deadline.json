@@ -1,0 +1,44 @@
+{
+  "name": "A-deadline",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-deadline",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-deadline",
+    "2",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "deadline"
+  ],
+  "environment": {},
+  "returncode": 124,
+  "process_wall_s": 2.00180085899774,
+  "stats": {
+    "mode": "A",
+    "wall_s": 2.000681019,
+    "code": 137,
+    "calls": 1,
+    "registered": 1,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 12,
+    "emulated": 0,
+    "timeout": 1,
+    "race_handshakes": 0,
+    "digest_s": 0.00017361005302518606
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-deadline/child",
+      "before": "Absent",
+      "mono_s": 618483.114102764,
+      "relative": "child",
+      "after": "a7b70603afa9575af9458adc5edccac707a5bcb8d311f62ec3fcde4dbbe3f9b7"
+    }
+  ],
+  "stdout": "{\"case\":\"deadline\",\"rc\":0,\"errno\":0,\"seconds\":0.000381450}\n",
+  "stderr": ""
+}

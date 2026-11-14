@@ -1,0 +1,35 @@
+{
+  "name": "B1-fchmod",
+  "mode": "B1",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B1",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B1-fchmod",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B1-fchmod",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "fchmod"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.002788810059428215,
+  "stats": {
+    "mode": "B1",
+    "wall_s": 0.001895,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.300366759300232e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"fchmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000018770}\n",
+  "stderr": ""
+}

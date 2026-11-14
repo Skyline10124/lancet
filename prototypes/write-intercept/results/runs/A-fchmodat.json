@@ -1,0 +1,35 @@
+{
+  "name": "A-fchmodat",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-fchmodat",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-fchmodat",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "fchmodat"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.002990510081872344,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.00209857,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 7,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.5995541363954544e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"fchmodat\",\"rc\":0,\"errno\":0,\"seconds\":0.000013160}\n",
+  "stderr": ""
+}

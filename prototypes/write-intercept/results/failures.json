@@ -1,0 +1,101 @@
+[
+  {
+    "name": "failure-A",
+    "mode": "A",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+      "A",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/failure-A",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/failure-A",
+      "10",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+      "hold"
+    ],
+    "environment": {
+      "WI_CRASH_AFTER": "1"
+    },
+    "returncode": 88,
+    "process_wall_s": 0.0028398899594321847,
+    "stats": {
+      "digest_s": 1.3993121683597565e-07
+    },
+    "ledger": [],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "name": "failure-B1",
+    "mode": "B1",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+      "B1",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/failure-B1",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/failure-B1",
+      "10",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+      "hold"
+    ],
+    "environment": {
+      "WI_CLOSE_AFTER": "1"
+    },
+    "returncode": 0,
+    "process_wall_s": 1.0033614290878177,
+    "stats": {
+      "mode": "B1",
+      "wall_s": 1.002398749,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 3.00002284348011e-07
+    },
+    "ledger": [],
+    "stdout": "{\"case\":\"hold\",\"rc\":-1,\"errno\":38,\"seconds\":1.000123999}\n",
+    "stderr": ""
+  },
+  {
+    "name": "failure-B2",
+    "mode": "B2",
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+      "B2",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/failure-B2",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/failure-B2",
+      "10",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+      "hold"
+    ],
+    "environment": {
+      "WI_CLOSE_AFTER": "1"
+    },
+    "returncode": 0,
+    "process_wall_s": 1.0035397779429331,
+    "stats": {
+      "mode": "B2",
+      "wall_s": 1.002454968,
+      "code": 0,
+      "calls": 1,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 2.600718289613724e-07
+    },
+    "ledger": [],
+    "stdout": "{\"case\":\"hold\",\"rc\":-1,\"errno\":38,\"seconds\":1.000105018}\n",
+    "stderr": ""
+  }
+]

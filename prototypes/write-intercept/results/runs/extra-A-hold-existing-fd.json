@@ -1,0 +1,26 @@
+{
+  "name": "extra-A-hold-existing-fd",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/extra-A-hold-existing-fd",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/extra-A-hold-existing-fd",
+    "60",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "hold-existing-fd",
+    "3"
+  ],
+  "environment": {
+    "WI_CRASH_AFTER": "1"
+  },
+  "returncode": 88,
+  "process_wall_s": 0.0027129100635647774,
+  "stats": {
+    "digest_s": 2.50060111284256e-07
+  },
+  "ledger": [],
+  "stdout": "",
+  "stderr": ""
+}

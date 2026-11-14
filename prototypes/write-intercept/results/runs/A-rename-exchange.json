@@ -1,0 +1,54 @@
+{
+  "name": "A-rename-exchange",
+  "mode": "A",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "A",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-exchange",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/A-rename-exchange",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "rename-exchange"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.007205149042420089,
+  "stats": {
+    "mode": "A",
+    "wall_s": 0.006247679,
+    "code": 0,
+    "calls": 1,
+    "registered": 2,
+    "clones": 2,
+    "denied": 0,
+    "errors": 0,
+    "events": 8,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 0.00021382002159953117
+  },
+  "ledger": [
+    {
+      "index": 0,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-exchange/a",
+      "before": "file",
+      "mono_s": 618478.558527816,
+      "relative": "a",
+      "after": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e",
+      "clone_sha256": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e"
+    },
+    {
+      "index": 1,
+      "path": "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/A-rename-exchange/b",
+      "before": "file",
+      "mono_s": 618478.560309315,
+      "relative": "b",
+      "after": "0c2c7475e7e918b7f14fd71e95e124ffa751a3f2c4be822e1ce129bfa491770e",
+      "clone_sha256": "c7ca2c6564bc38490a7b9f2d1b60953456a269415797983cb9a153036cfe9c0e"
+    }
+  ],
+  "stdout": "{\"case\":\"rename-exchange\",\"rc\":0,\"errno\":0,\"seconds\":0.004037899}\n",
+  "stderr": ""
+}

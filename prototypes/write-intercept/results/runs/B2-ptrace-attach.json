@@ -1,0 +1,35 @@
+{
+  "name": "B2-ptrace-attach",
+  "mode": "B2",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/intercept",
+    "B2",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/fixtures/B2-ptrace-attach",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/states/B2-ptrace-attach",
+    "20",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-cabb1e26/prototypes/write-intercept/.scratch/probe",
+    "ptrace-attach"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "process_wall_s": 0.013127580052241683,
+  "stats": {
+    "mode": "B2",
+    "wall_s": 0.01227351,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 2.50060111284256e-07
+  },
+  "ledger": [],
+  "stdout": "{\"case\":\"ptrace-attach\",\"rc\":0,\"errno\":0,\"seconds\":0.010247810}\n",
+  "stderr": ""
+}
