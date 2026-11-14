@@ -48,6 +48,7 @@ status: proposed
 | 节点进程内复用 `wasmtime::Engine` 实例化解释器组件与 API 工具组件的耗时；上面的数字来自命令行，含进程启动 | 第 4 节 |
 | 以 `wasmtime` 49 的 `ResourceLimiter` 与 epoch 中断对单次组件调用施加内存上限与截止中断，超限后回收该实例、节点继续服务 | 第 4 节 |
 | 第 6 节代执行规则的第三轮验证：Landlock 与 `CONTINUE` 的组合（检查之后被换成常规路径的调用由内核拒绝）、按目录加锁后沙箱内写者的竞态、硬链接持久锚点的还原、同类别目录改名的结构化记录、前态合并落盘、放宽后的失效联动、常驻 worker 下按子进程上下文代执行的正确性，以及第 6 节的性能要求 | 第 6 节 |
+| 显式 `commit()` 语义下模型遗漏 `commit()` 的比例、`rollback` 任务中误提交的比例，以及撤销提示进入上下文后模型在下一次 `act` 补上 `commit()` 的比例 | 第 3 节 |
 
 ## 决策
 
@@ -112,7 +113,7 @@ effect、co-effect、句柄、`residue` 与 `seam` 的定义见 [ADR 0001 第 4 
   - 节点不提供跨轮次的脚本栈内挂起断点，也不在每次 `edit` 落盘前强制暂停：模型需要先阅读文件内容再推理修改方案时，拆为“第一轮 `act` 读取并筛出上下文，第二轮 `act` 执行修改与验证”两次调用。
   - `fs.edit(dir, path, old, new, all = False)` 默认要求旧片段在目标文件中精确出现且仅出现 1 次；`all = True` 时替换全部出现位置且要求至少匹配 1 次；不满足时立即报错中止，防止批量循环在未进入上下文的文件上误改。
   - 脚本可通过目录句柄调用 `status()`、`diff()` 检查本次调用相对于写前检查点基线的改动，或用 `reset(path)` 原地撤回个别文件的试探性修改。
-  - 全局内置 `commit()` 标记保留本次 `act` 对工作目录的修改：只读脚本无需调用；产生了检查点范围内的文件变更时，须显式调用 `commit()` 才会在脚本正常 `return` 后保留变更并在 `receipt_summary` 中填入变更文件列表与裁剪后 unified diff。若脚本未调用 `commit()` 即正常 `return`（例如单测失败后直接返回诊断信息），节点自动按检查点原地施加 $\varepsilon^{-1}$ 还原已改文件，结局仍为 `Succeeded`，`receipt_summary` 标明 `uncommitted_reverted`。
+  - 全局内置 `commit()` 标记保留本次 `act` 对工作目录的修改：只读脚本无需调用；产生了检查点范围内的文件变更时，须显式调用 `commit()` 才会在脚本正常 `return` 后保留变更并在 `receipt_summary` 中填入变更文件列表与裁剪后 unified diff。若脚本未调用 `commit()` 即正常 `return`（例如单测失败后直接返回诊断信息），节点自动按检查点原地施加 $\varepsilon^{-1}$ 还原已改文件，结局仍为 `Succeeded`，`receipt_summary` 标明 `uncommitted_reverted`，并在交回模型的 `content` 末尾附一行撤销提示，写明被撤销的文件数，提醒需要保留改动时调用 `commit()`。节点为这行提示预留固定字节数并计入 `output_limit`，提示本身不会让结局变为 `OutputLimitExceeded`。
 
 脚本编排形态示意：
 
@@ -290,7 +291,7 @@ act 结束时:
             else:                   原地还原无冲突项 -> Failed(Conflict)
         else:                       # 产生了文件变更但未调用 commit()
             按检查点原地施加 ε⁻¹ 还原已改文件
-            if 无外部写者冲突:       Succeeded { content, receipt_summary }  # 标明 uncommitted_reverted
+            if 无外部写者冲突:       Succeeded { content, receipt_summary }  # content 附撤销提示，receipt_summary 标明 uncommitted_reverted
             else:                   Failed(Conflict)
     elif 序列化字节数 > output_limit: 按检查点原地还原 -> Failed(OutputLimitExceeded)
     elif 子调用的 seam 询问被拒:     按检查点原地还原 -> Failed(SeamBlocked)  # 审批上线后
