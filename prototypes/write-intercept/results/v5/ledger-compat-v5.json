@@ -1,0 +1,11 @@
+{
+  "returncode": 0,
+  "stdout": "{\n  \"outcome\": \"Restored\",\n  \"restored\": [\n    \"/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-ledger-compat/a\"\n  ],\n  \"conflicts\": [],\n  \"errors\": [],\n  \"trace\": [\n    {\n      \"action\": \"object\",\n      \"path\": \"/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-ledger-compat/a\"\n    }\n  ],\n  \"recovery_pid\": 2916200\n}\n",
+  "stderr": "",
+  "difference": [],
+  "projection_required": [
+    "ledger.jsonl",
+    "poststate.json",
+    "index.clone"
+  ]
+}

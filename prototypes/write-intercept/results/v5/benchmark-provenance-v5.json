@@ -1,0 +1,23 @@
+{
+  "main_tables": {
+    "binary_sha256": "27c66bbb64c27518780cd504dbccdad72e405a9ab9f8344ad80a07c2bf3d3ae1",
+    "source_sha256": "47790a5857f4c92c9128acaf024a1b44067eff704fcfe5e6199b2bcf49409950",
+    "driver_sha256": "9858e1db3ec1936ed8858fad730caecee6810bd54b9f8c777b821bbd3e3af041",
+    "datasets": [
+      "builds-v5.json",
+      "checkouts-v5.json",
+      "micro-v5.json"
+    ],
+    "observer_isolation": "All cached S2 nodes are closed before timing any other mode."
+  },
+  "other_tables": {
+    "binary_sha256": "a40baf1520fe2fe16dafd92e3bdb3178a1545c0b5c61bc48c0e7294c82cfd860",
+    "source_sha256": "6a1194c17ddea0f2c9d1e43d0c10f6b9a6f00106d011c851617cf35badc0acb6",
+    "note": "补充最后核对报冲突时的临时文件清理；成功提交与性能路径未变，另复跑窗口与覆盖。"
+  },
+  "excluded_trials": [
+    "*-before-fix-v5.json",
+    "*-with-observer-v5.json",
+    "runs-with-observer-v5/"
+  ]
+}

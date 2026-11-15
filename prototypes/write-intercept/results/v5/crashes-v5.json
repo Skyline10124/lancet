@@ -1,0 +1,2142 @@
+[
+  {
+    "stage": "before-log",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008214149042032659,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-log-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-log-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [],
+    "expected_phases": []
+  },
+  {
+    "stage": "before-log",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006793509935960174,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-log-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-log-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [],
+    "expected_phases": []
+  },
+  {
+    "stage": "before-log",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006866510026156902,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-log-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-log-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [],
+    "expected_phases": []
+  },
+  {
+    "stage": "before-log",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006678110104985535,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-log-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-log-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [],
+    "expected_phases": []
+  },
+  {
+    "stage": "before-log",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006762949982658029,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-log-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-log-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [],
+    "expected_phases": []
+  },
+  {
+    "stage": "after-log",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006674329983070493,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-log-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-log-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-log",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006833950057625771,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-log-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-log-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-log",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006685229949653149,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-log-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-log-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-log",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006671309005469084,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-log-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-log-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-log",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007010449073277414,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-log-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-log-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007343690027482808,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-pre-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-pre-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006780469906516373,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-pre-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-pre-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006895320024341345,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-pre-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-pre-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006920809973962605,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-pre-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-pre-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-pre-sync",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006828200072050095,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-pre-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-pre-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006706429994665086,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-pre-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-pre-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006765110068954527,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-pre-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-pre-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0066462799441069365,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-pre-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-pre-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006573789985850453,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-pre-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-pre-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-pre-sync",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006779669085517526,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-pre-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-pre-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-ready",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0067708989372476935,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-ready-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-ready-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-ready",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006746309925802052,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-ready-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-ready-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-ready",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006695439922623336,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-ready-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-ready-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-ready",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0070746500277891755,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-ready-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-ready-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-ready",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0068020999897271395,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-ready-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-ready-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-1",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007045679027214646,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-1-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-1-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-1",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006570540019311011,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-1-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-1-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-1",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006855849991552532,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-1-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-1-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-1",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006767819984816015,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-1-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-1-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-1",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006821720045991242,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-1-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-1-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-4",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006701839971356094,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-4-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-4-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-4",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006835968932136893,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-4-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-4-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-4",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006832340033724904,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-4-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-4-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-4",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006645769928582013,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-4-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-4-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "apply-4",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006703749997541308,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-apply-4-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-apply-4-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006797869922593236,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-post-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-post-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006767359911464155,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-post-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-post-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006704260013066232,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-post-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-post-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006804599892348051,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-post-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-post-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006871770019643009,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-before-post-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-before-post-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007241448969580233,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-post-sync-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-post-sync-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007112569990567863,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-post-sync-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-post-sync-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0067167499801144,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-post-sync-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-post-sync-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006788160069845617,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-post-sync-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-post-sync-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006742449011653662,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-post-sync-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-post-sync-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-complete",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006681580096483231,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-complete-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-complete-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "complete"
+    ],
+    "expected_phases": [
+      "complete"
+    ]
+  },
+  {
+    "stage": "after-complete",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006772270076908171,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-complete-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-complete-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "complete"
+    ],
+    "expected_phases": [
+      "complete"
+    ]
+  },
+  {
+    "stage": "after-complete",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0067805799189955,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-complete-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-complete-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "complete"
+    ],
+    "expected_phases": [
+      "complete"
+    ]
+  },
+  {
+    "stage": "after-complete",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006798648973926902,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-complete-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-complete-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "complete"
+    ],
+    "expected_phases": [
+      "complete"
+    ]
+  },
+  {
+    "stage": "after-complete",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006809159996919334,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-complete-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-complete-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "complete"
+    ],
+    "expected_phases": [
+      "complete"
+    ]
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006756009999662638,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-inplace-partial-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-inplace-partial-0",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006954109994694591,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-inplace-partial-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-inplace-partial-1",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006797738955356181,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-inplace-partial-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-inplace-partial-2",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006710810004733503,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-inplace-partial-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-inplace-partial-3",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006781829986721277,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-inplace-partial-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-inplace-partial-4",
+        "--",
+        "sh",
+        "-c",
+        "printf changed > a; printf changed > b; rm outside; mkdir newdir; printf new > newdir/new; ln -s a newlink"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-rename",
+    "rep": 0,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005762020009569824,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-rename-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-rename-0",
+        "--",
+        "sh",
+        "-c",
+        "mv dir moved; echo edit > moved/x"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-rename",
+    "rep": 1,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004894149024039507,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-rename-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-rename-1",
+        "--",
+        "sh",
+        "-c",
+        "mv dir moved; echo edit > moved/x"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-rename",
+    "rep": 2,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00483372004237026,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-rename-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-rename-2",
+        "--",
+        "sh",
+        "-c",
+        "mv dir moved; echo edit > moved/x"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-rename",
+    "rep": 3,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004823770024813712,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-rename-3",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-rename-3",
+        "--",
+        "sh",
+        "-c",
+        "mv dir moved; echo edit > moved/x"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  },
+  {
+    "stage": "after-rename",
+    "rep": 4,
+    "killed": true,
+    "difference": [],
+    "shadow_difference": [],
+    "next_result": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004748410079628229,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-research-crash-after-rename-4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-crash-after-rename-4",
+        "--",
+        "sh",
+        "-c",
+        "mv dir moved; echo edit > moved/x"
+      ]
+    },
+    "pass": true,
+    "ledger_phases": [
+      "rolled-back"
+    ],
+    "expected_phases": [
+      "rolled-back"
+    ]
+  }
+]

@@ -1,0 +1,677 @@
+[
+  {
+    "stage": "before-log",
+    "rep": 0,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.007971139,
+      "pid": 2756258,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.003629230079241097,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00829837005585432,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-before-log-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-before-log-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232537.474814Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.475506Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000947,
+          "t_rel": 6.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232537.474814Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.475512Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000954,
+          "t_rel": 7.1e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "before-log",
+    "rep": 1,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.020566809,
+      "pid": 2756319,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0028074400033801794,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009169270051643252,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-before-log-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-before-log-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232537.569476Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.570263Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001017,
+          "t_rel": 0.000143,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232537.569476Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.570269Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001023,
+          "t_rel": 0.000149,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "before-log",
+    "rep": 2,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.00758781,
+      "pid": 2756745,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0038531499449163675,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.011527180089615285,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-before-log-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-before-log-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232537.697008Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.698050Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001371,
+          "t_rel": 0.000201,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232537.697008Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.698059Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00138,
+          "t_rel": 0.00021,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "after-ready",
+    "rep": 0,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.010260589,
+      "pid": 2756773,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0032984199933707714,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.011096419068053365,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-after-ready-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-after-ready-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232537.803815Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.804861Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001383,
+          "t_rel": 0.000227,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232537.803815Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.804872Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001395,
+          "t_rel": 0.000239,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "after-ready",
+    "rep": 1,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.01010168,
+      "pid": 2756815,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.003657439025118947,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.013007979956455529,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-after-ready-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-after-ready-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232537.911868Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.913019Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001515,
+          "t_rel": 0.000235,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232537.911868Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:37.913030Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001527,
+          "t_rel": 0.000247,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "after-ready",
+    "rep": 2,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.015815619,
+      "pid": 2756885,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.003036310081370175,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009915299946442246,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-after-ready-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-after-ready-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232538.037826Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.038574Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001059,
+          "t_rel": 7.1e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232538.037826Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.038580Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001066,
+          "t_rel": 7.8e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "after-complete",
+    "rep": 0,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.00472415,
+      "pid": 2757058,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002561969915404916,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009105499950237572,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-after-complete-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-after-complete-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232538.159247Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.160098Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001096,
+          "t_rel": 0.00015,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232538.159247Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.160103Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001102,
+          "t_rel": 0.000156,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "after-complete",
+    "rep": 1,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.004892329,
+      "pid": 2757083,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0029195399256423116,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009308679029345512,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-after-complete-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-after-complete-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232538.268833Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.269662Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001121,
+          "t_rel": 0.000151,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232538.268833Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.269668Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001127,
+          "t_rel": 0.000157,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "after-complete",
+    "rep": 2,
+    "restart": {
+      "entries": 20,
+      "git_recovery": "Indeterminate",
+      "init_s": 0.0058554,
+      "pid": 2757129,
+      "real_watches": 11,
+      "shadow_watches": 11
+    },
+    "head_restored": false,
+    "status": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002610330004245043,
+      "trace": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00869935005903244,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-crash-after-complete-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-crash-after-complete-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: interrupted"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232538.375692Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.376573Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001122,
+          "t_rel": 0.000182,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232538.375692Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:25:38.376581Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001129,
+          "t_rel": 0.000189,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    }
+  }
+]

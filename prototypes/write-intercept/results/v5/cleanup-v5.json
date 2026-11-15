@@ -1,0 +1,5 @@
+{
+  "clean": true,
+  "remaining_task_processes": [],
+  "scope": "Same UID; every executable or cwd in this worktree scratch, plus v5 Python task drivers in worktree root. No processes outside this worktree were terminated."
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "mode": "S",
+    "files": 3000,
+    "rep": 0,
+    "init_s": 3.3390882490202785,
+    "sync_s": 3.339018568978645,
+    "synced": 3100,
+    "entries": 3100,
+    "allocated": 12701696,
+    "apparent": 1116480,
+    "state_allocated": 17502208
+  },
+  {
+    "mode": "S",
+    "files": 3000,
+    "rep": 1,
+    "init_s": 3.2378227239241824,
+    "sync_s": 3.2377667640103027,
+    "synced": 3100,
+    "entries": 3100,
+    "allocated": 12701696,
+    "apparent": 1116480,
+    "state_allocated": 17502208
+  },
+  {
+    "mode": "S",
+    "files": 3000,
+    "rep": 2,
+    "init_s": 3.307258741930127,
+    "sync_s": 3.3067930119577795,
+    "synced": 3100,
+    "entries": 3100,
+    "allocated": 12701696,
+    "apparent": 1116480,
+    "state_allocated": 17502208
+  },
+  {
+    "mode": "S",
+    "files": 10000,
+    "rep": 0,
+    "init_s": 11.038772759959102,
+    "sync_s": 11.037670430028811,
+    "synced": 10100,
+    "entries": 10100,
+    "allocated": 41783296,
+    "apparent": 3804480,
+    "state_allocated": 57528320
+  },
+  {
+    "mode": "S",
+    "files": 10000,
+    "rep": 1,
+    "init_s": 11.076556073036045,
+    "sync_s": 11.075489293085411,
+    "synced": 10100,
+    "entries": 10100,
+    "allocated": 41783296,
+    "apparent": 3804480,
+    "state_allocated": 57520128
+  },
+  {
+    "mode": "S",
+    "files": 10000,
+    "rep": 2,
+    "init_s": 11.224058115039952,
+    "sync_s": 11.22313411498908,
+    "synced": 10100,
+    "entries": 10100,
+    "allocated": 41783296,
+    "apparent": 3804480,
+    "state_allocated": 57520128
+  },
+  {
+    "mode": "S",
+    "files": 100000,
+    "rep": 0,
+    "init_s": 102.054998879903,
+    "sync_s": 102.05267099000048,
+    "synced": 100100,
+    "entries": 100100,
+    "allocated": 414519296,
+    "apparent": 41244480,
+    "state_allocated": 570970112
+  },
+  {
+    "mode": "S",
+    "files": 100000,
+    "rep": 1,
+    "init_s": 101.80818110797554,
+    "sync_s": 101.80646377801895,
+    "synced": 100100,
+    "entries": 100100,
+    "allocated": 414519296,
+    "apparent": 41244480,
+    "state_allocated": 570970112
+  },
+  {
+    "mode": "S",
+    "files": 100000,
+    "rep": 2,
+    "init_s": 100.00622345402371,
+    "sync_s": 100.00388413399924,
+    "synced": 100100,
+    "entries": 100100,
+    "allocated": 414519296,
+    "apparent": 41244480,
+    "state_allocated": 570970112
+  }
+]

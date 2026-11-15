@@ -1,0 +1,182 @@
+[
+  {
+    "files": 3000,
+    "rep": 0,
+    "process_init_s": 1.695796348969452,
+    "entries": 3100,
+    "git_recovery": "None",
+    "init_s": 1.694215359,
+    "pid": 2800058,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 3100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800058\nNgid:\t0\nPid:\t2800058\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800058\nNSpid:\t2800058\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  204560 kB\nVmSize:\t  146472 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   12404 kB\nVmRSS:\t   11300 kB\nRssAnon:\t    8688 kB\nRssFile:\t    2612 kB\nRssShmem:\t       0 kB\nVmData:\t   12640 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t      92 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t3020\nnonvoluntary_ctxt_switches:\t5\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 12701696,
+    "apparent": 1116480,
+    "state_allocated": 14340096
+  },
+  {
+    "files": 3000,
+    "rep": 1,
+    "process_init_s": 1.672422890085727,
+    "entries": 3100,
+    "git_recovery": "None",
+    "init_s": 1.67066669,
+    "pid": 2800164,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 3100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800164\nNgid:\t0\nPid:\t2800164\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800164\nNSpid:\t2800164\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  204560 kB\nVmSize:\t  146472 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   12412 kB\nVmRSS:\t   11316 kB\nRssAnon:\t    8688 kB\nRssFile:\t    2628 kB\nRssShmem:\t       0 kB\nVmData:\t   12640 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t      80 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t3019\nnonvoluntary_ctxt_switches:\t2\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 12701696,
+    "apparent": 1116480,
+    "state_allocated": 14340096
+  },
+  {
+    "files": 3000,
+    "rep": 2,
+    "process_init_s": 1.6834452499169856,
+    "entries": 3100,
+    "git_recovery": "None",
+    "init_s": 1.68179038,
+    "pid": 2800177,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 3100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800177\nNgid:\t0\nPid:\t2800177\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800177\nNSpid:\t2800177\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  204560 kB\nVmSize:\t  146472 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   12504 kB\nVmRSS:\t   11468 kB\nRssAnon:\t    8692 kB\nRssFile:\t    2776 kB\nRssShmem:\t       0 kB\nVmData:\t   12640 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t      72 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t3019\nnonvoluntary_ctxt_switches:\t1\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 12701696,
+    "apparent": 1116480,
+    "state_allocated": 14340096
+  },
+  {
+    "files": 10000,
+    "rep": 0,
+    "process_init_s": 6.224581282935105,
+    "entries": 10100,
+    "git_recovery": "None",
+    "init_s": 6.221927773,
+    "pid": 2800194,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 10100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800194\nNgid:\t0\nPid:\t2800194\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800194\nNSpid:\t2800194\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  204560 kB\nVmSize:\t  164344 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   35456 kB\nVmRSS:\t   30756 kB\nRssAnon:\t   28136 kB\nRssFile:\t    2620 kB\nRssShmem:\t       0 kB\nVmData:\t   32212 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t     116 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t10074\nnonvoluntary_ctxt_switches:\t7\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 41783296,
+    "apparent": 3804480,
+    "state_allocated": 55545856
+  },
+  {
+    "files": 10000,
+    "rep": 1,
+    "process_init_s": 6.328605790040456,
+    "entries": 10100,
+    "git_recovery": "None",
+    "init_s": 6.32600689,
+    "pid": 2800326,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 10100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800326\nNgid:\t0\nPid:\t2800326\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800326\nNSpid:\t2800326\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  204560 kB\nVmSize:\t  164344 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   36372 kB\nVmRSS:\t   30904 kB\nRssAnon:\t   28132 kB\nRssFile:\t    2772 kB\nRssShmem:\t       0 kB\nVmData:\t   32212 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t     124 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t10089\nnonvoluntary_ctxt_switches:\t2\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 41783296,
+    "apparent": 3804480,
+    "state_allocated": 55480320
+  },
+  {
+    "files": 10000,
+    "rep": 2,
+    "process_init_s": 6.475079715019092,
+    "entries": 10100,
+    "git_recovery": "None",
+    "init_s": 6.472439025,
+    "pid": 2800366,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 10100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800366\nNgid:\t0\nPid:\t2800366\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800366\nNSpid:\t2800366\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  172540 kB\nVmSize:\t  164344 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   37248 kB\nVmRSS:\t   30896 kB\nRssAnon:\t   28136 kB\nRssFile:\t    2760 kB\nRssShmem:\t       0 kB\nVmData:\t   32212 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t     112 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t10082\nnonvoluntary_ctxt_switches:\t6\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 41783296,
+    "apparent": 3804480,
+    "state_allocated": 55480320
+  },
+  {
+    "files": 100000,
+    "rep": 0,
+    "process_init_s": 80.62288290692959,
+    "entries": 100100,
+    "git_recovery": "None",
+    "init_s": 80.605823008,
+    "pid": 2800381,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 100100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2800381\nNgid:\t0\nPid:\t2800381\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2800381\nNSpid:\t2800381\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  451808 kB\nVmSize:\t  378196 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  326140 kB\nVmRSS:\t  266840 kB\nRssAnon:\t  264072 kB\nRssFile:\t    2768 kB\nRssShmem:\t       0 kB\nVmData:\t  267980 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t     584 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t100179\nnonvoluntary_ctxt_switches:\t250\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 414519296,
+    "apparent": 41244480,
+    "state_allocated": 523374592
+  },
+  {
+    "files": 100000,
+    "rep": 1,
+    "process_init_s": 80.15328831097577,
+    "entries": 100100,
+    "git_recovery": "None",
+    "init_s": 80.136951601,
+    "pid": 2801011,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 100100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2801011\nNgid:\t0\nPid:\t2801011\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2801011\nNSpid:\t2801011\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  451808 kB\nVmSize:\t  378196 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  327340 kB\nVmRSS:\t  266788 kB\nRssAnon:\t  264076 kB\nRssFile:\t    2712 kB\nRssShmem:\t       0 kB\nVmData:\t  267980 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t     588 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t23/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t100089\nnonvoluntary_ctxt_switches:\t39\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 414519296,
+    "apparent": 41244480,
+    "state_allocated": 523374592
+  },
+  {
+    "files": 100000,
+    "rep": 2,
+    "process_init_s": 80.59988827991765,
+    "entries": 100100,
+    "git_recovery": "None",
+    "init_s": 80.583179181,
+    "pid": 2801204,
+    "real_watches": 101,
+    "shadow_watches": 101,
+    "stats": {
+      "entries": 100100,
+      "real_watches": 101,
+      "shadow_watches": 101,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2801204\nNgid:\t0\nPid:\t2801204\nPPid:\t2777051\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2801204\nNSpid:\t2801204\nNSpgid:\t2774084\nNSsid:\t2774084\nKthread:\t0\nVmPeak:\t  451808 kB\nVmSize:\t  378196 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  327332 kB\nVmRSS:\t  266916 kB\nRssAnon:\t  264076 kB\nRssFile:\t    2840 kB\nRssShmem:\t       0 kB\nVmData:\t  267980 kB\nVmStk:\t     132 kB\nVmExe:\t     932 kB\nVmLib:\t    1648 kB\nVmPTE:\t     580 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t22/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t100136\nnonvoluntary_ctxt_switches:\t43\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    },
+    "allocated": 414519296,
+    "apparent": 41244480,
+    "state_allocated": 523374592
+  }
+]

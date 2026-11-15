@@ -1,0 +1,5 @@
+{
+  "binary_sha256": "a40baf1520fe2fe16dafd92e3bdb3178a1545c0b5c61bc48c0e7294c82cfd860",
+  "source_sha256": "6a1194c17ddea0f2c9d1e43d0c10f6b9a6f00106d011c851617cf35badc0acb6",
+  "final_only_change": "补充最后核对报冲突时的临时文件清理；成功提交与性能路径未变，另复跑窗口与覆盖。"
+}

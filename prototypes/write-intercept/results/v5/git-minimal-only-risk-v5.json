@@ -1,0 +1,17 @@
+{
+  "minimal": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_s": 0.0032285499619320035,
+    "trace": []
+  },
+  "default_independent": {
+    "returncode": 0,
+    "stdout": " M d000/f000000\n",
+    "stderr": "",
+    "wall_s": 0.002754988963715732,
+    "trace": []
+  },
+  "bytes_changed": true
+}

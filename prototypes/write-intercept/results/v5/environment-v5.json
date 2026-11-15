@@ -1,0 +1,115 @@
+{
+  "kernel": {
+    "command": [
+      "uname",
+      "-a"
+    ],
+    "code": 0,
+    "stdout": "Linux gcp 6.12.0-211.68.1+2.1.el10_2_ciq.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Oct 31 02:03:16 UTC 2026 x86_64 GNU/Linux\n",
+    "stderr": ""
+  },
+  "os": {
+    "command": [
+      "cat",
+      "/etc/os-release"
+    ],
+    "code": 0,
+    "stdout": "NAME=\"Rocky Linux\"\nVERSION=\"10.2 (Red Quartz)\"\nRELEASE_TYPE=\"stable\"\nID=\"rocky\"\nID_LIKE=\"rhel centos fedora\"\nVERSION_ID=\"10.2\"\nPLATFORM_ID=\"platform:el10\"\nPRETTY_NAME=\"Rocky Linux 10.2 (Red Quartz)\"\nANSI_COLOR=\"0;32\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:rocky:rocky:10::baseos\"\nHOME_URL=\"https://rockylinux.org/\"\nVENDOR_NAME=\"RESF\"\nVENDOR_URL=\"https://resf.org/\"\nBUG_REPORT_URL=\"https://bugs.rockylinux.org/\"\nSUPPORT_END=\"2035-05-31\"\nROCKY_SUPPORT_PRODUCT=\"Rocky-Linux-10\"\nROCKY_SUPPORT_PRODUCT_VERSION=\"10.2\"\nREDHAT_SUPPORT_PRODUCT=\"Rocky Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"10.2\"\n",
+    "stderr": ""
+  },
+  "rust": {
+    "command": [
+      "rustc",
+      "--version"
+    ],
+    "code": 0,
+    "stdout": "rustc 1.96.0 (ac68faa20 2026-05-25)\n",
+    "stderr": ""
+  },
+  "git": {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "code": 0,
+    "stdout": "git version 2.52.0\n",
+    "stderr": ""
+  },
+  "selinux": {
+    "command": [
+      "getenforce"
+    ],
+    "code": 0,
+    "stdout": "Enforcing\n",
+    "stderr": ""
+  },
+  "ptrace": {
+    "command": [
+      "cat",
+      "/proc/sys/kernel/yama/ptrace_scope"
+    ],
+    "code": 0,
+    "stdout": "0\n",
+    "stderr": ""
+  },
+  "deny_ptrace": {
+    "command": [
+      "getsebool",
+      "deny_ptrace"
+    ],
+    "code": 0,
+    "stdout": "deny_ptrace --> off\n",
+    "stderr": ""
+  },
+  "inotify": {
+    "command": [
+      "sh",
+      "-c",
+      "cat /proc/sys/fs/inotify/max_user_watches /proc/sys/fs/inotify/max_user_instances /proc/sys/fs/inotify/max_queued_events"
+    ],
+    "code": 0,
+    "stdout": "250895\n128\n16384\n",
+    "stderr": ""
+  },
+  "filesystem": {
+    "command": [
+      "stat",
+      "-f",
+      "-c",
+      "%T",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept",
+      "/tmp"
+    ],
+    "code": 0,
+    "stdout": "xfs\nxfs\n",
+    "stderr": ""
+  },
+  "cpu": {
+    "command": [
+      "lscpu"
+    ],
+    "code": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           52 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  8\nOn-line CPU(s) list:                     0-7\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9B14\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      2\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5199.99\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr wbnoinvd arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               128 KiB (4 instances)\nL1i cache:                               128 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-7\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; Safe RET\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Mitigation; Clear CPU buffers\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "stderr": ""
+  },
+  "memory": {
+    "command": [
+      "free",
+      "-b"
+    ],
+    "code": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\nMem:     33376649216  7636340736  3869294592    76435456 22796017664 25740308480\nSwap:              0           0           0\n",
+    "stderr": ""
+  },
+  "source": {
+    "command": [
+      "git",
+      "--no-optional-locks",
+      "rev-parse",
+      "origin/exp/write-intercept"
+    ],
+    "code": 0,
+    "stdout": "2c854dda35552f43d0527cf55819b8bd796927b1\n",
+    "stderr": ""
+  }
+}

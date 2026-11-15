@@ -1,0 +1,5894 @@
+[
+  {
+    "operation": "checkout",
+    "interference": "none",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00231589,
+      "overflow": false,
+      "sync_s": 0.00237452,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005555659998208284,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-none-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-none-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232106.875606Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:06.876520Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001155,
+          "t_rel": 0.000177,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232106.875606Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:06.876526Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001161,
+          "t_rel": 0.000183,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00030785,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00022855,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00601907,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00251032,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "none",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00233445,
+      "overflow": false,
+      "sync_s": 0.00239282,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005745259928517044,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-none-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-none-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232106.969502Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:06.970443Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001189,
+          "t_rel": 0.000172,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232106.969502Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:06.970449Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001196,
+          "t_rel": 0.000179,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029253,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00023596,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00580256,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00250334,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "none",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00230611,
+      "overflow": false,
+      "sync_s": 0.00236685,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005688819917850196,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-none-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-none-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.054731Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.055661Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001176,
+          "t_rel": 0.000175,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.054731Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.055667Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001182,
+          "t_rel": 0.000181,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028408,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00025132,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00655389,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00311807,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "after-end-index",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00278862,
+      "overflow": false,
+      "sync_s": 0.00284223,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005857009906321764,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-after-end-index-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-after-end-index-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.148217Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.149192Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00125,
+          "t_rel": 0.00018,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.148217Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.149197Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001258,
+          "t_rel": 0.000188,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00027762,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00022435,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00374843,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00048362,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": false,
+    "status_before": "",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": false,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0025696699740365148,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "after-end-index",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00312565,
+      "overflow": false,
+      "sync_s": 0.00319021,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005957550019957125,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-after-end-index-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-after-end-index-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.242355Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.243335Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001262,
+          "t_rel": 0.000186,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.242355Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.243341Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00127,
+          "t_rel": 0.000194,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00030132,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.0002418,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.0040196,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00050329,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": false,
+    "status_before": "",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": false,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0026348200626671314,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "after-end-index",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00309946,
+      "overflow": false,
+      "sync_s": 0.00315385,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00598044996149838,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-after-end-index-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-after-end-index-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.338036Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.338981Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001229,
+          "t_rel": 0.000202,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.338036Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.338991Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001241,
+          "t_rel": 0.000214,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.0002818,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00023622,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00447555,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00053649,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": false,
+    "status_before": "",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": false,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0026289699599146843,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "during-act-refresh",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00268711,
+      "overflow": false,
+      "sync_s": 0.00274647,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005784810055047274,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-during-act-refresh-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-during-act-refresh-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.433923Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.434876Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001225,
+          "t_rel": 0.000202,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.433923Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.434886Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001235,
+          "t_rel": 0.000212,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00027915,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00027205,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.005888389,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.002645429,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002682909951545298,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "during-act-refresh",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00302022,
+      "overflow": false,
+      "sync_s": 0.00308203,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005714519997127354,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-during-act-refresh-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-during-act-refresh-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.531194Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.532117Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001178,
+          "t_rel": 0.000178,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.531194Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.532123Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001184,
+          "t_rel": 0.000184,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.000280839,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00026778,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.0063933,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00286775,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002537180087529123,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "during-act-refresh",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.0027847,
+      "overflow": false,
+      "sync_s": 0.00283839,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005929279956035316,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-during-act-refresh-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-during-act-refresh-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.628891Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.629855Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001259,
+          "t_rel": 0.000204,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.628891Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.629866Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00127,
+          "t_rel": 0.000215,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029861,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00023764,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00656641,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00287123,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002670800080522895,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "during-act-stage",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.003060119,
+      "overflow": false,
+      "sync_s": 0.003107159,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005806250032037497,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-during-act-stage-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-during-act-stage-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.728074Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.729032Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00121,
+          "t_rel": 0.000185,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.728074Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.729038Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001219,
+          "t_rel": 0.000194,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028336,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00026702,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.01054451,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00303699,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0025279700057581067,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "during-act-stage",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00245257,
+      "overflow": false,
+      "sync_s": 0.00251335,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005875290022231638,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-during-act-stage-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-during-act-stage-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.831833Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.832741Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001182,
+          "t_rel": 0.000186,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.831833Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.832747Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00119,
+          "t_rel": 0.000194,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029699,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00023559,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00783007,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.0032825,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0025336500257253647,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "checkout",
+    "interference": "during-act-stage",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00395071,
+      "overflow": false,
+      "sync_s": 0.00401681,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.006115240044891834,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-checkout-during-act-stage-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout-during-act-stage-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "checkout",
+        "--quiet",
+        "other"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232107.934582Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.935577Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001268,
+          "t_rel": 0.000194,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232107.934582Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:07.935583Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001276,
+          "t_rel": 0.000202,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029844,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00024194,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00760903,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.0029589,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002708878950215876,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "none",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00283395,
+      "overflow": false,
+      "sync_s": 0.00288764,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008153220056556165,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-none-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-none-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.039757Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.040580Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001048,
+          "t_rel": 0.000167,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.039757Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.040587Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001056,
+          "t_rel": 0.000175,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00030151,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00025042,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00694335,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00323021,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "none",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00325101,
+      "overflow": false,
+      "sync_s": 0.0033071,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008180600008927286,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-none-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-none-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.147057Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.147885Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001054,
+          "t_rel": 0.000201,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.147057Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.147895Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001067,
+          "t_rel": 0.000214,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028471,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00029188,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.007248669,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.003474239,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "none",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00304386,
+      "overflow": false,
+      "sync_s": 0.00309502,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008294970029965043,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-none-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-none-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.254296Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.255110Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001044,
+          "t_rel": 0.000174,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.254296Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.255116Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001052,
+          "t_rel": 0.000182,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028964,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00025993,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00741413,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00346074,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "after-end-index",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00344493,
+      "overflow": false,
+      "sync_s": 0.00351022,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009152570040896535,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-after-end-index-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-after-end-index-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.362930Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.363884Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00126,
+          "t_rel": 0.000217,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.362930Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.363894Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001271,
+          "t_rel": 0.000228,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00040606,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 2,
+      "overflow": false,
+      "scan_s": 0.00033085,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.005121719,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00071396,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": false,
+    "status_before": "",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": false,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0032055600313469768,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "after-end-index",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00818735,
+      "overflow": false,
+      "sync_s": 0.00824384,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00917270896025002,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-after-end-index-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-after-end-index-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.468798Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.469918Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00145,
+          "t_rel": 0.000299,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.468798Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.469931Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001463,
+          "t_rel": 0.000312,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00036104,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00033698,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00671528,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00070158,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": false,
+    "status_before": "",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": false,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0026721199974417686,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "after-end-index",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00569097,
+      "overflow": false,
+      "sync_s": 0.00574633,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009293620008975267,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-after-end-index-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-after-end-index-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.582889Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.583912Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001387,
+          "t_rel": 0.000223,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.582889Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.583922Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001397,
+          "t_rel": 0.000233,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00031383,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00028418,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00419896,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00057129,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": false,
+    "status_before": "",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": false,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0029626190662384033,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "during-act-refresh",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.003027359,
+      "overflow": false,
+      "sync_s": 0.003111019,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.010172559996135533,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-during-act-refresh-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-during-act-refresh-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.696358Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.697470Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001417,
+          "t_rel": 0.000221,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.696358Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.697478Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001425,
+          "t_rel": 0.000229,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028502,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00026874,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.007432,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00351375,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0027129000518471003,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "during-act-refresh",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00370308,
+      "overflow": false,
+      "sync_s": 0.00375913,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008500868920236826,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-during-act-refresh-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-during-act-refresh-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.812872Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.813705Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001092,
+          "t_rel": 0.000183,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.812872Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.813711Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001099,
+          "t_rel": 0.00019,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.0003128,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00027866,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00844337,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00402245,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002612899988889694,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "during-act-refresh",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00317606,
+      "overflow": false,
+      "sync_s": 0.00323596,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008719859994016588,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-during-act-refresh-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-during-act-refresh-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232108.924604Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.925475Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001114,
+          "t_rel": 0.00018,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232108.924604Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:08.925481Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001121,
+          "t_rel": 0.000187,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00030947,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00025627,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.008167199,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.003415719,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0026919199153780937,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "during-act-stage",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00356207,
+      "overflow": false,
+      "sync_s": 0.00361655,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008085599984042346,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-during-act-stage-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-during-act-stage-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.039076Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.039910Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001057,
+          "t_rel": 0.000208,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.039076Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.039920Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001068,
+          "t_rel": 0.000219,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00027704,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00025041,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.008941529,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00381937,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002345719956792891,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "during-act-stage",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00324848,
+      "overflow": false,
+      "sync_s": 0.0033028,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008127698907628655,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-during-act-stage-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-during-act-stage-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.148920Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.149708Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001052,
+          "t_rel": 0.000177,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.148920Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.149714Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001058,
+          "t_rel": 0.000183,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028402,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00025647,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00831357,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00331214,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002381460042670369,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "commit",
+    "interference": "during-act-stage",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00314552,
+      "overflow": false,
+      "sync_s": 0.00319816,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008238520007580519,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-commit-during-act-stage-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit-during-act-stage-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: sandbox"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.258249Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.259073Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001065,
+          "t_rel": 0.000177,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.258249Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.259079Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001071,
+          "t_rel": 0.000183,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "9"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029278,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.0002857,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.007986619,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.0034958,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0024830600013956428,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "none",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00551886,
+      "overflow": false,
+      "sync_s": 0.00560217,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.015745299053378403,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-none-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-none-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.365530Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.366253Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001006,
+          "t_rel": 0.000198,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.365530Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.366261Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001014,
+          "t_rel": 0.000206,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.365530Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.366911Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001664,
+          "t_rel": 1e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.365530Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.366917Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00167,
+          "t_rel": 1.6e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.365530Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.367631Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002383,
+          "t_rel": 1.1e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.365530Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.367637Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00239,
+          "t_rel": 1.8e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.0002942,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00041472,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.01022576,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00590906,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "none",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00601074,
+      "overflow": false,
+      "sync_s": 0.0060638,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.016149068949744105,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-none-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-none-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.489844Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.490540Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001046,
+          "t_rel": 0.000197,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.489844Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.490547Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001053,
+          "t_rel": 0.000204,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.489844Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.491142Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001648,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.489844Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.491147Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001654,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.489844Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.491897Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002403,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.489844Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.491904Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00241,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00035934,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00034686,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00948291,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00527538,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "none",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00601254,
+      "overflow": false,
+      "sync_s": 0.00606748,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.01479468890465796,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-none-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-none-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.605959Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.606622Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000981,
+          "t_rel": 0.000193,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.605959Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.606628Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000988,
+          "t_rel": 0.0002,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.605959Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.607189Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001549,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.605959Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.607195Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001554,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.605959Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.607928Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002288,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.605959Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.607936Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002295,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00031776,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00027779,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00989277,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00578193,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "after-end-index",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.005196,
+      "overflow": false,
+      "sync_s": 0.00524667,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.014797340030781925,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-after-end-index-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-after-end-index-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.724173Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.724857Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000971,
+          "t_rel": 0.000221,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.724173Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.724867Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000982,
+          "t_rel": 0.000232,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.724173Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.725392Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001506,
+          "t_rel": 7e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.724173Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.725397Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001512,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.724173Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.726139Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002253,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.724173Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.726145Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00226,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029531,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00028671,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00488023,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00058216,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0028338590636849403,
+      "trace": []
+    },
+    "stash": "stash@{0}: On main: bench: stash\n"
+  },
+  {
+    "operation": "stash",
+    "interference": "after-end-index",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.004047919,
+      "overflow": false,
+      "sync_s": 0.004114799,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.014714990044012666,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-after-end-index-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-after-end-index-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.841570Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.842234Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000942,
+          "t_rel": 0.000191,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.841570Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.842241Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000949,
+          "t_rel": 0.000198,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.841570Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.842762Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001471,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.841570Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.842768Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001477,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.841570Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.843501Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002209,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.841570Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.843507Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002216,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028019,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00029995,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00483589,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00060178,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0027084200410172343,
+      "trace": []
+    },
+    "stash": "stash@{0}: On main: bench: stash\n"
+  },
+  {
+    "operation": "stash",
+    "interference": "after-end-index",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.007779439,
+      "overflow": false,
+      "sync_s": 0.007838039,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.014747190056368709,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-after-end-index-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-after-end-index-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232109.960646Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.961320Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000956,
+          "t_rel": 0.000196,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.960646Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.961327Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000963,
+          "t_rel": 0.000203,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.960646Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.961867Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001502,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.960646Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.961872Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001508,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.960646Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.962574Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002209,
+          "t_rel": 1.2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232109.960646Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:09.962580Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002216,
+          "t_rel": 1.9e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00038486,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00039576,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00533834,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00080898,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.0027428099419921637,
+      "trace": []
+    },
+    "stash": "stash@{0}: On main: bench: stash\n"
+  },
+  {
+    "operation": "stash",
+    "interference": "during-act-refresh",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00520304,
+      "overflow": false,
+      "sync_s": 0.00524671,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.015110669075511396,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-during-act-refresh-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-during-act-refresh-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232110.080517Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.081185Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000953,
+          "t_rel": 0.00019,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.080517Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.081191Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00096,
+          "t_rel": 0.000197,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.080517Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.081730Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001498,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.080517Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.081736Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001504,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.080517Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.082461Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002229,
+          "t_rel": 1.2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.080517Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.082468Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002236,
+          "t_rel": 1.9e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00029202,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00027288,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.01026108,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00497137,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002840390079654753,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "during-act-refresh",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.0046851,
+      "overflow": false,
+      "sync_s": 0.00474957,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.015633029048331082,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-during-act-refresh-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-during-act-refresh-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232110.199878Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.200537Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001032,
+          "t_rel": 0.000193,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.199878Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.200544Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001038,
+          "t_rel": 0.000199,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.199878Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.201142Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001636,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.199878Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.201149Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001643,
+          "t_rel": 1.5e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.199878Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.202012Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002506,
+          "t_rel": 1.5e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.199878Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.202020Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002514,
+          "t_rel": 2.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028613,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00026449,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00849272,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00429639,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002891859970986843,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "during-act-refresh",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00472494,
+      "overflow": false,
+      "sync_s": 0.00479282,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.014754708972759545,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-during-act-refresh-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-during-act-refresh-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232110.318499Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.319153Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000937,
+          "t_rel": 0.000185,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.318499Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.319160Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000944,
+          "t_rel": 0.000192,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.318499Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.319675Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001459,
+          "t_rel": 7e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.318499Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.319681Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001465,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.318499Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.320416Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.0022,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.318499Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.320423Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002207,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028312,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00034108,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00741336,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00390536,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": " M d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.002876310027204454,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "during-act-stage",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00472469,
+      "overflow": false,
+      "sync_s": 0.00477145,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.015265379915945232,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-during-act-stage-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-during-act-stage-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232110.435252Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.435917Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00093,
+          "t_rel": 0.000213,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.435252Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.435928Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000941,
+          "t_rel": 0.000224,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.435252Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.436458Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00147,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.435252Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.436464Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001476,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.435252Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.437180Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002192,
+          "t_rel": 1.2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.435252Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.437186Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002199,
+          "t_rel": 1.9e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028549,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.0002865,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.008967549,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.004142829,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0026410900754854083,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "during-act-stage",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00557735,
+      "overflow": false,
+      "sync_s": 0.00564048,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.014931040001101792,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-during-act-stage-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-during-act-stage-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232110.554781Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.555465Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00096,
+          "t_rel": 0.000196,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.554781Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.555471Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000967,
+          "t_rel": 0.000203,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.554781Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.556017Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.001513,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.554781Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.556023Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001519,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.554781Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.556726Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002221,
+          "t_rel": 1.2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.554781Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.556733Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.002229,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028235,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00029281,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.010141969,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00441975,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002669889945536852,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "stash",
+    "interference": "during-act-stage",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.007059379,
+      "overflow": false,
+      "sync_s": 0.007102569,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.014871299965307117,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-stash-during-act-stage-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-stash-during-act-stage-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "stash",
+        "push",
+        "--quiet",
+        "-m",
+        "bench: stash"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232110.677070Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.677728Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.000956,
+          "t_rel": 0.000194,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.677070Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.677734Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.000962,
+          "t_rel": 0.0002,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "10"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.677070Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.678282Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.00151,
+          "t_rel": 8e-06,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.677070Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.678287Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.001516,
+          "t_rel": 1.4e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.677070Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.679135Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.002363,
+          "t_rel": 1.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "1"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232110.677070Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:21:10.679142Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.00237,
+          "t_rel": 2e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "1"
+        }
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "d000/f000000"
+        ],
+        "full_scan_s": 0.00028303,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 4,
+      "overflow": false,
+      "scan_s": 0.00027619,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.011379309,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.006793749,
+        "restored": [
+          "index",
+          "logs/HEAD",
+          "logs/refs/stash",
+          "refs/stash"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": " M d000/f000000\n",
+    "status_after": " M d000/f000000\n",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0026272600516676903,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "none",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00777202,
+      "overflow": false,
+      "sync_s": 0.00784609,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004535460029728711,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-none-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-none-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00031766,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.0002458,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.008402139,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.006480879,
+        "restored": [
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "none",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00565371,
+      "overflow": false,
+      "sync_s": 0.00573902,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0047148000448942184,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-none-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-none-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00030013,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00023913,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00614423,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.003969589,
+        "restored": [
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "none",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00600213,
+      "overflow": false,
+      "sync_s": 0.00607489,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005928940023295581,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-none-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-none-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00042553,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00032166,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00685479,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00439384,
+        "restored": [
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": null,
+    "host_staging_preserved": false,
+    "interference_result": null,
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "after-end-index",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.004781369,
+      "overflow": false,
+      "sync_s": 0.004827969,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004402550053782761,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-after-end-index-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-after-end-index-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00029127,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00023217,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00328606,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.0006612,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0027307700365781784,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "after-end-index",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00243312,
+      "overflow": false,
+      "sync_s": 0.00250151,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004243999952450395,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-after-end-index-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-after-end-index-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00029454,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00023198,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00299261,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00053547,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0026933389017358422,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "after-end-index",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00296092,
+      "overflow": false,
+      "sync_s": 0.003019,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0043136200401932,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-after-end-index-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-after-end-index-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00032264,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00023124,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00303254,
+      "git": {
+        "conflicts": [
+          "index"
+        ],
+        "git_restore_s": 0.00053177,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": false,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0026143700815737247,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "during-act-refresh",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00539181,
+      "overflow": false,
+      "sync_s": 0.00543476,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004357720026746392,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-during-act-refresh-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-during-act-refresh-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00029039,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00024668,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00732425,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00471314,
+        "restored": [
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0026025898987427354,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "during-act-refresh",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.0030718,
+      "overflow": false,
+      "sync_s": 0.00313385,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004806188982911408,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-during-act-refresh-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-during-act-refresh-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00036383,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00024861,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00465059,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00276122,
+        "restored": [
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.003005460021086037,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "during-act-refresh",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00531292,
+      "overflow": false,
+      "sync_s": 0.00538107,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004744559992104769,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-during-act-refresh-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-during-act-refresh-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00030858,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00025341,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00537692,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00354981,
+        "restored": [
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": true,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0031375590479001403,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "during-act-stage",
+    "rep": 0,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00328319,
+      "overflow": false,
+      "sync_s": 0.00333392,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004341229912824929,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-during-act-stage-0-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-during-act-stage-0",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00028935,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00023978,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00618764,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00269893,
+        "restored": [
+          "index",
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002585159963928163,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "during-act-stage",
+    "rep": 1,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00368841,
+      "overflow": false,
+      "sync_s": 0.00374814,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0042816599598154426,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-during-act-stage-1-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-during-act-stage-1",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00030507,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00023975,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.006819439,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.003116159,
+        "restored": [
+          "index",
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002681259997189045,
+      "trace": []
+    },
+    "stash": ""
+  },
+  {
+    "operation": "packed-refs",
+    "interference": "during-act-stage",
+    "rep": 2,
+    "begin": {
+      "entries": 20,
+      "events": 0,
+      "git_snapshot_s": 0.00307391,
+      "overflow": false,
+      "sync_s": 0.0031301,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004237469984218478,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-discard-packed-refs-during-act-stage-2-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-packed-refs-during-act-stage-2",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "pack-refs",
+        "--all",
+        "--prune"
+      ],
+      "trace": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00029743,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00021684,
+      "uncertain_history": false,
+      "watches": 11
+    },
+    "result": {
+      "discard_s": 0.00747588,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00346536,
+        "restored": [
+          "index",
+          "logs/refs/heads/sandbox-new",
+          "packed-refs"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_restored": true,
+    "status_before": "",
+    "status_after": "",
+    "status_consistent": true,
+    "index_restored": true,
+    "external_index_preserved": false,
+    "host_staging_preserved": false,
+    "interference_result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0024556899443268776,
+      "trace": []
+    },
+    "stash": ""
+  }
+]

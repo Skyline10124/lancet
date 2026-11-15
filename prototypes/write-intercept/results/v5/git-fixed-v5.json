@@ -1,0 +1,206 @@
+[
+  {
+    "files": 10000,
+    "rep": 0,
+    "wall_s": 0.01511954003944993,
+    "begin": {
+      "entries": 10100,
+      "events": 0,
+      "git_snapshot_s": 0.0112277,
+      "overflow": false,
+      "sync_s": 0.01131543,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00072785,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "index_bytes": 803127
+  },
+  {
+    "files": 10000,
+    "rep": 1,
+    "wall_s": 0.008092059986665845,
+    "begin": {
+      "entries": 10100,
+      "events": 0,
+      "git_snapshot_s": 0.00547749,
+      "overflow": false,
+      "sync_s": 0.00556149,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00072158,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "index_bytes": 803127
+  },
+  {
+    "files": 10000,
+    "rep": 2,
+    "wall_s": 0.007009939989075065,
+    "begin": {
+      "entries": 10100,
+      "events": 0,
+      "git_snapshot_s": 0.0044015,
+      "overflow": false,
+      "sync_s": 0.00447009,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00072648,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "index_bytes": 803127
+  },
+  {
+    "files": 100000,
+    "rep": 0,
+    "wall_s": 0.06699323793873191,
+    "begin": {
+      "entries": 100100,
+      "events": 0,
+      "git_snapshot_s": 0.040087928,
+      "overflow": false,
+      "sync_s": 0.040217818,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00569696,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "index_bytes": 8003226
+  },
+  {
+    "files": 100000,
+    "rep": 1,
+    "wall_s": 0.016399789950810373,
+    "begin": {
+      "entries": 100100,
+      "events": 0,
+      "git_snapshot_s": 0.00880534,
+      "overflow": false,
+      "sync_s": 0.00888693,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00552651,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "index_bytes": 8003226
+  },
+  {
+    "files": 100000,
+    "rep": 2,
+    "wall_s": 0.016366678988561034,
+    "begin": {
+      "entries": 100100,
+      "events": 0,
+      "git_snapshot_s": 0.00878532,
+      "overflow": false,
+      "sync_s": 0.00885779,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00547685,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "index_bytes": 8003226
+  }
+]

@@ -1,0 +1,653 @@
+[
+  {
+    "same": false,
+    "commit": false,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.2234995539765805,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-False-False-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-False-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00026802,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.0001406,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "discard_s": 0.00232619,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 3.548e-05,
+        "restored": []
+      },
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": false,
+    "commit": false,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.2235583340516314,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-False-False-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-False-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00027674,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.000137489,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "discard_s": 0.0025467,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 3.691e-05,
+        "restored": []
+      },
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": false,
+    "commit": false,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22346756397746503,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-False-False-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-False-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00026539,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00016751,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "discard_s": 0.0026994,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 3.518e-05,
+        "restored": []
+      },
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": false,
+    "commit": true,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22347205400001258,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-False-True-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-True-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.000270819,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00016669,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "applied": 1,
+      "apply_s": 0.003858200000000001,
+      "check_to_rename_ns": [
+        33460
+      ],
+      "commit_s": 0.00967385,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        39660
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.00581607,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-True-0/transactions/1794700215125864429"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": false,
+    "commit": true,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22375050303526223,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-False-True-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-True-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.000270751,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00013095,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "applied": 1,
+      "apply_s": 0.00390764,
+      "check_to_rename_ns": [
+        36610
+      ],
+      "commit_s": 0.010055379,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        40600
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.006148149,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-True-1/transactions/1794700215391531432"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": false,
+    "commit": true,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22331657307222486,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-False-True-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-True-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00026397,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00014157,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "applied": 1,
+      "apply_s": 0.00341491,
+      "check_to_rename_ns": [
+        28650
+      ],
+      "commit_s": 0.00902947,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        39000
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.00561501,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-False-True-2/transactions/1794700215648527234"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": true,
+    "commit": false,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22352678200695664,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-True-False-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-True-False-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00029599,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00014424,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "discard_s": 0.00192272,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 3.507e-05,
+        "restored": []
+      },
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": true,
+    "commit": false,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22360216302331537,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-True-False-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-True-False-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00028066,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00015328,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "discard_s": 0.00234601,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 3.498e-05,
+        "restored": []
+      },
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": true,
+    "commit": false,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22348539298400283,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-True-False-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-True-False-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.0002695,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00014493,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "discard_s": 0.00187775,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 3.602e-05,
+        "restored": []
+      },
+      "outcome": "discarded"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": false
+  },
+  {
+    "same": true,
+    "commit": true,
+    "rep": 0,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22351568297017366,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-True-True-0",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-True-True-0",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00026331,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00016909,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "commit_s": 1.899e-05,
+      "conflicts": [
+        "a"
+      ],
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": true,
+    "commit": true,
+    "rep": 1,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.22364889294840395,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-True-True-1",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-True-True-1",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00026725,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.0001492,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "commit_s": 1.77e-05,
+      "conflicts": [
+        "a"
+      ],
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  },
+  {
+    "same": true,
+    "commit": true,
+    "rep": 2,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.2233594929566607,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-external-True-True-2",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/external-True-True-2",
+        "--",
+        "python3",
+        "-c",
+        "from pathlib import Path;import time;Path('a').write_text('sandbox');Path('target/ready').touch();time.sleep(.2)"
+      ]
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ],
+        "full_scan_s": 0.00029101,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "overflow": false,
+      "scan_s": 0.00013701,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "result": {
+      "commit_s": 1.856e-05,
+      "conflicts": [
+        "a"
+      ],
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "external_not_in_epsilon": true,
+    "shadow_start_restored": null
+  }
+]

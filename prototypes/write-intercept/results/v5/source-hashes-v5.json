@@ -1,0 +1,15 @@
+{
+  "prototypes/write-intercept/REPORT-v5.md": "0337171fe61c397068ea5d59e54701b7c84ba4b80c776a8f950b17c42ba184fe",
+  "prototypes/write-intercept/audit-v5.py": "d26d575df85c25652cc0b266b3518eca91a53543175be132ca25e0242feeb030",
+  "prototypes/write-intercept/benchmarks-v5.py": "9858e1db3ec1936ed8858fad730caecee6810bd54b9f8c777b821bbd3e3af041",
+  "prototypes/write-intercept/docs-check-v5.py": "f5262e3b1cb72634eea5cfc9e20cb7169181555daa5835503fe50dbfad8d8f76",
+  "prototypes/write-intercept/git-regression-v5.py": "4e53e7976951e686e642ae1adfa5bbb6e0e951f987ae5cd732c0b6c7a5507f93",
+  "prototypes/write-intercept/git-v5.py": "3c888ba28ad35c8ed6148407084466e623222e7b10512b04ae2b6e45e4a3e80e",
+  "prototypes/write-intercept/research-v5.py": "a5171984a9506b5acf31c9c5dd8417011581f67fbf46c32a8de74c416323242d",
+  "prototypes/write-intercept/shadow-v5/Cargo.lock": "5e8fc44150613e20f6c10dc4e97d17f6d90ad58bff22d946e9c8524da66a0fb6",
+  "prototypes/write-intercept/shadow-v5/Cargo.toml": "ec3d348dc4b5d3247a4f7341b306dc8b7078dddb93c81a2733f165c4a2fe4da4",
+  "prototypes/write-intercept/shadow-v5/src/main-v5.rs": "47790a5857f4c92c9128acaf024a1b44067eff704fcfe5e6199b2bcf49409950",
+  "prototypes/write-intercept/shadow-v5.py": "710571e4ed4226e01214a6ac914b78d8b4e4ece3eb2ea813f7fa8c2d856b3c85",
+  "prototypes/write-intercept/summarize-v5.py": "be8e6efe5358bb501659be53cbbc01aaccca8db21a28af48592110b95863e6a0",
+  "prototypes/write-intercept/verify-v5.py": "b519b10a5864156ceb124516583e6813b35f79d9944014908225e8322c33772c"
+}

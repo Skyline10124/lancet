@@ -1,0 +1,118 @@
+{
+  "execution": {
+    "returncode": 0,
+    "stdout": "[{\"op\": \"link\", \"source\": \"a\", \"target\": \"target/new\", \"errno\": 18}, {\"op\": \"rename\", \"source\": \"a\", \"target\": \"target/new\", \"errno\": 18}, {\"op\": \"link\", \"source\": \"a\", \"target\": \".git/new\", \"errno\": 18}, {\"op\": \"rename\", \"source\": \"a\", \"target\": \".git/new\", \"errno\": 18}, {\"op\": \"link\", \"source\": \"target/a\", \"target\": \".git/new\", \"errno\": 18}, {\"op\": \"rename\", \"source\": \"target/a\", \"target\": \".git/new\", \"errno\": 18}, {\"op\": \"link\", \"source\": \"target/a\", \"target\": \"normal-new\", \"errno\": 18}, {\"op\": \"rename\", \"source\": \"target/a\", \"target\": \"normal-new\", \"errno\": 18}, {\"op\": \"link\", \"source\": \".git/a\", \"target\": \"normal-new\", \"errno\": 18}, {\"op\": \"rename\", \"source\": \".git/a\", \"target\": \"normal-new\", \"errno\": 18}, {\"op\": \"link\", \"source\": \".git/a\", \"target\": \"target/new\", \"errno\": 18}, {\"op\": \"rename\", \"source\": \".git/a\", \"target\": \"target/new\", \"errno\": 18}, {\"op\": \"open\", \"target\": \"hidden/new\", \"errno\": 13}, {\"op\": \"mkdir\", \"target\": \"hidden/new\", \"errno\": 13}, {\"op\": \"symlink\", \"target\": \"hidden/new\", \"errno\": 13}, {\"op\": \"link\", \"target\": \"hidden/new\", \"errno\": 13}, {\"op\": \"rename\", \"target\": \"hidden/new\", \"errno\": 13}]\n",
+    "stderr": "",
+    "exec_s": 0.019383348990231752,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-boundaries",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/boundaries",
+      "--",
+      "python3",
+      "-c",
+      "import os,json\nrows=[]\nfor a,b in [('a','target/new'),('a','.git/new'),('target/a','.git/new'),('target/a','normal-new'),('.git/a','normal-new'),('.git/a','target/new')]:\n for op in ['link','rename']:\n  try:getattr(os,op)(a,b);e=0\n  except OSError as ex:e=ex.errno\n  rows.append(dict(op=op,source=a,target=b,errno=e))\nfor op in ['open','mkdir','symlink','link','rename']:\n try:\n  if op=='open':open('hidden/new','w').close()\n  elif op=='mkdir':os.mkdir('hidden/new')\n  elif op=='symlink':os.symlink('a','hidden/new')\n  else:getattr(os,op)('a','hidden/new')\n  e=0\n except OSError as ex:e=ex.errno\n rows.append(dict(op=op,target='hidden/new',errno=e))\nprint(json.dumps(rows))\n"
+    ]
+  },
+  "rows": [
+    {
+      "op": "link",
+      "source": "a",
+      "target": "target/new",
+      "errno": 18
+    },
+    {
+      "op": "rename",
+      "source": "a",
+      "target": "target/new",
+      "errno": 18
+    },
+    {
+      "op": "link",
+      "source": "a",
+      "target": ".git/new",
+      "errno": 18
+    },
+    {
+      "op": "rename",
+      "source": "a",
+      "target": ".git/new",
+      "errno": 18
+    },
+    {
+      "op": "link",
+      "source": "target/a",
+      "target": ".git/new",
+      "errno": 18
+    },
+    {
+      "op": "rename",
+      "source": "target/a",
+      "target": ".git/new",
+      "errno": 18
+    },
+    {
+      "op": "link",
+      "source": "target/a",
+      "target": "normal-new",
+      "errno": 18
+    },
+    {
+      "op": "rename",
+      "source": "target/a",
+      "target": "normal-new",
+      "errno": 18
+    },
+    {
+      "op": "link",
+      "source": ".git/a",
+      "target": "normal-new",
+      "errno": 18
+    },
+    {
+      "op": "rename",
+      "source": ".git/a",
+      "target": "normal-new",
+      "errno": 18
+    },
+    {
+      "op": "link",
+      "source": ".git/a",
+      "target": "target/new",
+      "errno": 18
+    },
+    {
+      "op": "rename",
+      "source": ".git/a",
+      "target": "target/new",
+      "errno": 18
+    },
+    {
+      "op": "open",
+      "target": "hidden/new",
+      "errno": 13
+    },
+    {
+      "op": "mkdir",
+      "target": "hidden/new",
+      "errno": 13
+    },
+    {
+      "op": "symlink",
+      "target": "hidden/new",
+      "errno": 13
+    },
+    {
+      "op": "link",
+      "target": "hidden/new",
+      "errno": 13
+    },
+    {
+      "op": "rename",
+      "target": "hidden/new",
+      "errno": 13
+    }
+  ],
+  "cross_all_exdev": true,
+  "hidden_all_denied": true
+}

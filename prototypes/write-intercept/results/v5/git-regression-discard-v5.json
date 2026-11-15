@@ -1,0 +1,306 @@
+[
+  {
+    "operation": "checkout",
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.37737520900554955,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-regression-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-checkout",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "8cb884295b671f019998273c7e79f661cfaf40a6"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232832.855695Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:32.859157Z",
+          "file": "preload-index.c",
+          "line": 177,
+          "t_abs": 0.003735,
+          "t_rel": 0.001896,
+          "nesting": 2,
+          "category": "index",
+          "key": "preload/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232832.855695Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:32.860734Z",
+          "file": "preload-index.c",
+          "line": 177,
+          "t_abs": 0.005312,
+          "t_rel": 0.001557,
+          "nesting": 2,
+          "category": "index",
+          "key": "preload/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232832.855695Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:32.917731Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.062309,
+          "t_rel": 0.056972,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232832.855695Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:32.917757Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.062335,
+          "t_rel": 0.056998,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "4485"
+        }
+      ]
+    },
+    "epsilon_count": 4000,
+    "discard": {
+      "discard_s": 2.331829872,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.213399893,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_before": "cdd0e85c0fa46a8f12e669271cb9a934d383ebfe\n",
+    "head_after": "cdd0e85c0fa46a8f12e669271cb9a934d383ebfe\n",
+    "head_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.04583179799374193,
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232835.725596Z-Hfc1aa7ef-P002a4ecc",
+          "thread": "main",
+          "time": "2026-11-14T23:28:35.730586Z",
+          "file": "preload-index.c",
+          "line": 177,
+          "t_abs": 0.005221,
+          "t_rel": 0.001992,
+          "nesting": 2,
+          "category": "index",
+          "key": "preload/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232835.725596Z-Hfc1aa7ef-P002a4ecc",
+          "thread": "main",
+          "time": "2026-11-14T23:28:35.765392Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.040026,
+          "t_rel": 0.034784,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "4000"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232835.725596Z-Hfc1aa7ef-P002a4ecc",
+          "thread": "main",
+          "time": "2026-11-14T23:28:35.765411Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.040047,
+          "t_rel": 0.034805,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    },
+    "changed_lines": 0
+  },
+  {
+    "operation": "commit",
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.07216296799015254,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-regression-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-discard-commit",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "commit",
+        "--quiet",
+        "-m",
+        "bench: discarded act"
+      ],
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232838.127672Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.130936Z",
+          "file": "preload-index.c",
+          "line": 177,
+          "t_abs": 0.003497,
+          "t_rel": 0.001885,
+          "nesting": 2,
+          "category": "index",
+          "key": "preload/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232838.127672Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.132568Z",
+          "file": "preload-index.c",
+          "line": 177,
+          "t_abs": 0.005129,
+          "t_rel": 0.001559,
+          "nesting": 2,
+          "category": "index",
+          "key": "preload/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232838.127672Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.189817Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.062376,
+          "t_rel": 0.05722,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232838.127672Z-Hfc1aa7ef-P00000002",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.189836Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.062397,
+          "t_rel": 0.057241,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "4484"
+        }
+      ]
+    },
+    "epsilon_count": 1,
+    "discard": {
+      "discard_s": 0.01158996,
+      "git": {
+        "conflicts": [],
+        "git_restore_s": 0.00718384,
+        "restored": [
+          "HEAD",
+          "index",
+          "logs/HEAD"
+        ]
+      },
+      "outcome": "discarded"
+    },
+    "head_before": "cdd0e85c0fa46a8f12e669271cb9a934d383ebfe\n",
+    "head_after": "cdd0e85c0fa46a8f12e669271cb9a934d383ebfe\n",
+    "head_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.009472168982028961,
+      "trace": [
+        {
+          "event": "data",
+          "sid": "20261114T232838.289105Z-Hfc1aa7ef-P002a4fa3",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.294417Z",
+          "file": "preload-index.c",
+          "line": 177,
+          "t_abs": 0.005574,
+          "t_rel": 0.001964,
+          "nesting": 2,
+          "category": "index",
+          "key": "preload/sum_lstat",
+          "value": "4485"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232838.289105Z-Hfc1aa7ef-P002a4fa3",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.294489Z",
+          "file": "read-cache.c",
+          "line": 1595,
+          "t_abs": 0.005646,
+          "t_rel": 5.3e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_lstat",
+          "value": "0"
+        },
+        {
+          "event": "data",
+          "sid": "20261114T232838.289105Z-Hfc1aa7ef-P002a4fa3",
+          "thread": "main",
+          "time": "2026-11-14T23:28:38.294494Z",
+          "file": "read-cache.c",
+          "line": 1596,
+          "t_abs": 0.005652,
+          "t_rel": 5.9e-05,
+          "nesting": 2,
+          "category": "index",
+          "key": "refresh/sum_scan",
+          "value": "0"
+        }
+      ]
+    },
+    "changed_lines": 0
+  }
+]

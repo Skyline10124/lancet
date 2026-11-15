@@ -1,0 +1,218 @@
+[
+  {
+    "injection": "before-expected",
+    "rep": 0,
+    "result": {
+      "commit_s": 0.009325459,
+      "error": "逐文件冲突：a",
+      "outcome": "Conflict",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-before-expected-0/transactions/1794700203302298247"
+    },
+    "external_preserved": true,
+    "final": "external-window-v5",
+    "temporary_files": []
+  },
+  {
+    "injection": "before-expected",
+    "rep": 1,
+    "result": {
+      "commit_s": 0.00961961,
+      "error": "逐文件冲突：a",
+      "outcome": "Conflict",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-before-expected-1/transactions/1794700203344640755"
+    },
+    "external_preserved": true,
+    "final": "external-window-v5",
+    "temporary_files": []
+  },
+  {
+    "injection": "before-expected",
+    "rep": 2,
+    "result": {
+      "commit_s": 0.00953167,
+      "error": "逐文件冲突：a",
+      "outcome": "Conflict",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-before-expected-2/transactions/1794700203388947994"
+    },
+    "external_preserved": true,
+    "final": "external-window-v5",
+    "temporary_files": []
+  },
+  {
+    "injection": "after-ready",
+    "rep": 0,
+    "result": {
+      "commit_s": 0.00892399,
+      "error": "逐文件冲突：a",
+      "outcome": "Conflict",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-after-ready-0/transactions/1794700203432202033"
+    },
+    "external_preserved": true,
+    "final": "external-window-v5",
+    "temporary_files": []
+  },
+  {
+    "injection": "after-ready",
+    "rep": 1,
+    "result": {
+      "commit_s": 0.008588809,
+      "error": "逐文件冲突：a",
+      "outcome": "Conflict",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-after-ready-1/transactions/1794700203474555362"
+    },
+    "external_preserved": true,
+    "final": "external-window-v5",
+    "temporary_files": []
+  },
+  {
+    "injection": "after-ready",
+    "rep": 2,
+    "result": {
+      "commit_s": 0.00856191,
+      "error": "逐文件冲突：a",
+      "outcome": "Conflict",
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-after-ready-2/transactions/1794700203518222900"
+    },
+    "external_preserved": true,
+    "final": "external-window-v5",
+    "temporary_files": []
+  },
+  {
+    "injection": "after-check",
+    "rep": 0,
+    "result": {
+      "applied": 1,
+      "apply_s": 0.00381293,
+      "check_to_rename_ns": [
+        444590
+      ],
+      "commit_s": 0.00889717,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        357400
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.00508466,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-after-check-0/transactions/1794700203559585609"
+    },
+    "external_preserved": false,
+    "final": "sandbox",
+    "temporary_files": []
+  },
+  {
+    "injection": "after-check",
+    "rep": 1,
+    "result": {
+      "applied": 1,
+      "apply_s": 0.00454155,
+      "check_to_rename_ns": [
+        643760
+      ],
+      "commit_s": 0.009075289,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        524120
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.004534109,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-after-check-1/transactions/1794700203599844028"
+    },
+    "external_preserved": false,
+    "final": "sandbox",
+    "temporary_files": []
+  },
+  {
+    "injection": "after-check",
+    "rep": 2,
+    "result": {
+      "applied": 1,
+      "apply_s": 0.00436933,
+      "check_to_rename_ns": [
+        465290
+      ],
+      "commit_s": 0.00902014,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        369680
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.00465119,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-after-check-2/transactions/1794700203640047346"
+    },
+    "external_preserved": false,
+    "final": "sandbox",
+    "temporary_files": []
+  },
+  {
+    "injection": null,
+    "rep": 0,
+    "result": {
+      "applied": 1,
+      "apply_s": 0.0033906400000000003,
+      "check_to_rename_ns": [
+        28580
+      ],
+      "commit_s": 0.00824205,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        38420
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.00485177,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-None-0/transactions/1794700203683138595"
+    },
+    "external_preserved": false,
+    "final": "sandbox",
+    "temporary_files": []
+  },
+  {
+    "injection": null,
+    "rep": 1,
+    "result": {
+      "applied": 1,
+      "apply_s": 0.0035739400000000003,
+      "check_to_rename_ns": [
+        28560
+      ],
+      "commit_s": 0.00797715,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        38270
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.00440362,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-None-1/transactions/1794700203725525604"
+    },
+    "external_preserved": false,
+    "final": "sandbox",
+    "temporary_files": []
+  },
+  {
+    "injection": null,
+    "rep": 2,
+    "result": {
+      "applied": 1,
+      "apply_s": 0.003323080000000001,
+      "check_to_rename_ns": [
+        29500
+      ],
+      "commit_s": 0.008050189,
+      "conflicts": [],
+      "guard_interval_upper_ns": [
+        39390
+      ],
+      "outcome": "Committed",
+      "prepare_s": 0.004727499,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-window-None-2/transactions/1794700203767242203"
+    },
+    "external_preserved": false,
+    "final": "sandbox",
+    "temporary_files": []
+  }
+]

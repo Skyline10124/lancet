@@ -1,0 +1,704 @@
+[
+  {
+    "files": 3000,
+    "changed": 10,
+    "rep": 0,
+    "begin": {
+      "entries": 3100,
+      "events": 29,
+      "git_snapshot_s": 8.168e-05,
+      "overflow": false,
+      "sync_s": 0.013471999,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.042349459,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 5.404e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 3000,
+    "changed": 10,
+    "rep": 1,
+    "begin": {
+      "entries": 3100,
+      "events": 28,
+      "git_snapshot_s": 7.673e-05,
+      "overflow": false,
+      "sync_s": 0.010447749,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.041687439,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 5.345e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 3000,
+    "changed": 10,
+    "rep": 2,
+    "begin": {
+      "entries": 3100,
+      "events": 30,
+      "git_snapshot_s": 8.559e-05,
+      "overflow": false,
+      "sync_s": 0.00909515,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.041406599,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.566e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 3000,
+    "changed": 1000,
+    "rep": 0,
+    "begin": {
+      "entries": 3100,
+      "events": 2999,
+      "git_snapshot_s": 0.000137459,
+      "overflow": false,
+      "sync_s": 0.572970182,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.042667009,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00011357,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 3000,
+    "changed": 1000,
+    "rep": 1,
+    "begin": {
+      "entries": 3100,
+      "events": 2998,
+      "git_snapshot_s": 0.00011478,
+      "overflow": false,
+      "sync_s": 0.569674503,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.042485049,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 6.011e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 3000,
+    "changed": 1000,
+    "rep": 2,
+    "begin": {
+      "entries": 3100,
+      "events": 2999,
+      "git_snapshot_s": 0.000125631,
+      "overflow": false,
+      "sync_s": 0.556204984,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.042841928,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 5.837e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 10000,
+    "changed": 10,
+    "rep": 0,
+    "begin": {
+      "entries": 10100,
+      "events": 29,
+      "git_snapshot_s": 8.196e-05,
+      "overflow": false,
+      "sync_s": 0.012277899,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.139300106,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.569e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 10000,
+    "changed": 10,
+    "rep": 1,
+    "begin": {
+      "entries": 10100,
+      "events": 29,
+      "git_snapshot_s": 8.154e-05,
+      "overflow": false,
+      "sync_s": 0.008961099,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.137891396,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.033e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 10000,
+    "changed": 10,
+    "rep": 2,
+    "begin": {
+      "entries": 10100,
+      "events": 30,
+      "git_snapshot_s": 8.237e-05,
+      "overflow": false,
+      "sync_s": 0.00967151,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.137918366,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.545e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 10000,
+    "changed": 1000,
+    "rep": 0,
+    "begin": {
+      "entries": 10100,
+      "events": 2998,
+      "git_snapshot_s": 0.00012565,
+      "overflow": false,
+      "sync_s": 0.569739652,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.138411636,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00012443,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 10000,
+    "changed": 1000,
+    "rep": 1,
+    "begin": {
+      "entries": 10100,
+      "events": 2995,
+      "git_snapshot_s": 0.00010908,
+      "overflow": false,
+      "sync_s": 0.562761413,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.141624336,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00010029,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 10000,
+    "changed": 1000,
+    "rep": 2,
+    "begin": {
+      "entries": 10100,
+      "events": 2958,
+      "git_snapshot_s": 9.98e-05,
+      "overflow": false,
+      "sync_s": 0.554829883,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.139178266,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.0001104,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 100000,
+    "changed": 10,
+    "rep": 0,
+    "begin": {
+      "entries": 100100,
+      "events": 29,
+      "git_snapshot_s": 8.103e-05,
+      "overflow": false,
+      "sync_s": 0.021614329,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 33.826823243,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.287e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 100000,
+    "changed": 10,
+    "rep": 1,
+    "begin": {
+      "entries": 100100,
+      "events": 29,
+      "git_snapshot_s": 8.302e-05,
+      "overflow": false,
+      "sync_s": 0.01474026,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 1.3904678879999999,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 5.014e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 100000,
+    "changed": 10,
+    "rep": 2,
+    "begin": {
+      "entries": 100100,
+      "events": 29,
+      "git_snapshot_s": 8.283e-05,
+      "overflow": false,
+      "sync_s": 0.01057205,
+      "synced": 10,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 1.412162397,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.448e-05,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 100000,
+    "changed": 1000,
+    "rep": 0,
+    "begin": {
+      "entries": 100100,
+      "events": 2999,
+      "git_snapshot_s": 0.0001121,
+      "overflow": false,
+      "sync_s": 0.595870333,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 1.386659758,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00013335,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 100000,
+    "changed": 1000,
+    "rep": 1,
+    "begin": {
+      "entries": 100100,
+      "events": 2997,
+      "git_snapshot_s": 0.00010823,
+      "overflow": false,
+      "sync_s": 0.619128501,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 1.403228388,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00011936,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  },
+  {
+    "files": 100000,
+    "changed": 1000,
+    "rep": 2,
+    "begin": {
+      "entries": 100100,
+      "events": 2997,
+      "git_snapshot_s": 0.00012473,
+      "overflow": false,
+      "sync_s": 0.598628352,
+      "synced": 1000,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 1.385059398,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00011553,
+      "uncertain_history": false,
+      "watches": 101
+    },
+    "commit": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    }
+  }
+]

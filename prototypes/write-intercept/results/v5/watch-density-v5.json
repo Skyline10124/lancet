@@ -1,0 +1,36 @@
+[
+  {
+    "directories": 1000,
+    "initial": {
+      "entries": 2015,
+      "git_recovery": "None",
+      "init_s": 0.764669215,
+      "pid": 2702215,
+      "real_watches": 1006,
+      "shadow_watches": 1006
+    },
+    "stats": {
+      "entries": 2015,
+      "real_watches": 1006,
+      "shadow_watches": 1006,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2702215\nNgid:\t0\nPid:\t2702215\nPPid:\t2700322\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2702215\nNSpid:\t2702215\nNSpgid:\t2700318\nNSsid:\t2700318\nKthread:\t0\nVmPeak:\t  204572 kB\nVmSize:\t  142724 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t    7756 kB\nVmRSS:\t    7576 kB\nRssAnon:\t    4936 kB\nRssFile:\t    2640 kB\nRssShmem:\t       0 kB\nVmData:\t    8792 kB\nVmStk:\t     132 kB\nVmExe:\t     940 kB\nVmLib:\t    1648 kB\nVmPTE:\t      68 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t12/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t1025\nnonvoluntary_ctxt_switches:\t2\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    }
+  },
+  {
+    "directories": 10000,
+    "initial": {
+      "entries": 20015,
+      "git_recovery": "None",
+      "init_s": 8.620931923,
+      "pid": 2702518,
+      "real_watches": 10006,
+      "shadow_watches": 10006
+    },
+    "stats": {
+      "entries": 20015,
+      "real_watches": 10006,
+      "shadow_watches": 10006,
+      "status": "Name:\tshadow-v5\nUmask:\t0022\nState:\tR (running)\nTgid:\t2702518\nNgid:\t0\nPid:\t2702518\nPPid:\t2700322\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1005\t1005\t1005\t1005\nFDSize:\t64\nGroups:\t4 39 1000 1001 1002 1003 1004 1005 \nNStgid:\t2702518\nNSpid:\t2702518\nNSpgid:\t2700318\nNSsid:\t2700318\nKthread:\t0\nVmPeak:\t  205104 kB\nVmSize:\t  176148 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   54492 kB\nVmRSS:\t   46196 kB\nRssAnon:\t   43516 kB\nRssFile:\t    2680 kB\nRssShmem:\t       0 kB\nVmData:\t   47496 kB\nVmStk:\t     132 kB\nVmExe:\t     940 kB\nVmLib:\t    1648 kB\nVmPTE:\t     148 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t3\nSigQ:\t12/126946\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000100000440\nCapInh:\t0000000800000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t10107\nnonvoluntary_ctxt_switches:\t9\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+    }
+  }
+]

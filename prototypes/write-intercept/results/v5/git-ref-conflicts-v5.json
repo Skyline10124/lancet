@@ -1,0 +1,221 @@
+[
+  {
+    "kind": "HEAD",
+    "rep": 0,
+    "result": {
+      "discard_s": 0.00436795,
+      "git": {
+        "conflicts": [
+          "HEAD"
+        ],
+        "git_restore_s": 0.00037583,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002118899952620268,
+      "trace": []
+    }
+  },
+  {
+    "kind": "HEAD",
+    "rep": 1,
+    "result": {
+      "discard_s": 0.00465652,
+      "git": {
+        "conflicts": [
+          "HEAD"
+        ],
+        "git_restore_s": 0.00034532,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0020881600212305784,
+      "trace": []
+    }
+  },
+  {
+    "kind": "HEAD",
+    "rep": 2,
+    "result": {
+      "discard_s": 0.004849309,
+      "git": {
+        "conflicts": [
+          "HEAD"
+        ],
+        "git_restore_s": 0.00035594,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0020019999938085675,
+      "trace": []
+    }
+  },
+  {
+    "kind": "ref",
+    "rep": 0,
+    "result": {
+      "discard_s": 0.00554101,
+      "git": {
+        "conflicts": [
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ],
+        "git_restore_s": 0.00037311,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002324259956367314,
+      "trace": []
+    }
+  },
+  {
+    "kind": "ref",
+    "rep": 1,
+    "result": {
+      "discard_s": 0.004829939,
+      "git": {
+        "conflicts": [
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ],
+        "git_restore_s": 0.00035497,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002255060011520982,
+      "trace": []
+    }
+  },
+  {
+    "kind": "ref",
+    "rep": 2,
+    "result": {
+      "discard_s": 0.00465535,
+      "git": {
+        "conflicts": [
+          "logs/HEAD",
+          "logs/refs/heads/main",
+          "refs/heads/main"
+        ],
+        "git_restore_s": 0.00035721,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0022559099597856402,
+      "trace": []
+    }
+  },
+  {
+    "kind": "packed-refs",
+    "rep": 0,
+    "result": {
+      "discard_s": 0.00500868,
+      "git": {
+        "conflicts": [
+          "logs/refs/heads/external",
+          "packed-refs",
+          "refs/heads/main"
+        ],
+        "git_restore_s": 0.00052496,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002428938983939588,
+      "trace": []
+    }
+  },
+  {
+    "kind": "packed-refs",
+    "rep": 1,
+    "result": {
+      "discard_s": 0.00582459,
+      "git": {
+        "conflicts": [
+          "logs/refs/heads/external",
+          "packed-refs",
+          "refs/heads/main"
+        ],
+        "git_restore_s": 0.00061355,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.002477240050211549,
+      "trace": []
+    }
+  },
+  {
+    "kind": "packed-refs",
+    "rep": 2,
+    "result": {
+      "discard_s": 0.00513175,
+      "git": {
+        "conflicts": [
+          "logs/refs/heads/external",
+          "packed-refs",
+          "refs/heads/main"
+        ],
+        "git_restore_s": 0.00059428,
+        "restored": []
+      },
+      "outcome": "Conflict"
+    },
+    "external_preserved": true,
+    "host": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_s": 0.0024356800131499767,
+      "trace": []
+    }
+  }
+]

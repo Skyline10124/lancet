@@ -1,0 +1,30 @@
+{
+  "initial_bytes": 6800,
+  "added_bytes": 498,
+  "added_lines": 1,
+  "result": {
+    "applied": 1,
+    "apply_s": 0.0043215300000000005,
+    "check_to_rename_ns": [
+      29660
+    ],
+    "commit_s": 0.00919896,
+    "conflicts": [],
+    "guard_interval_upper_ns": [
+      39470
+    ],
+    "outcome": "Committed",
+    "prepare_s": 0.00487782,
+    "rename_syscalls": 0,
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/research-index-recovery/transactions/1794700203805807401"
+  },
+  "torn_tail_rebuilt": true,
+  "difference": [],
+  "next_result": {
+    "apply_s": 0.0,
+    "commit_s": 0.0,
+    "conflicts": [],
+    "outcome": "Unchanged",
+    "prepare_s": 0.0
+  }
+}

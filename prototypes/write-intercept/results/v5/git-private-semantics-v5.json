@@ -1,0 +1,74 @@
+[
+  {
+    "files": 10000,
+    "host": {
+      "returncode": 0,
+      "stdout": "d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.00341988995205611,
+      "trace": []
+    },
+    "private": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0053419399773702025,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-index-10000-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-index-10000",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "diff",
+        "--cached",
+        "--name-only"
+      ],
+      "trace": []
+    },
+    "staging_equal": false
+  },
+  {
+    "files": 100000,
+    "host": {
+      "returncode": 0,
+      "stdout": "d000/f000000\n",
+      "stderr": "",
+      "wall_s": 0.008539470029063523,
+      "trace": []
+    },
+    "private": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009355989983305335,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/git-index-100000-v5",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/git-index-100000",
+        "--",
+        "git",
+        "-c",
+        "user.name=bench",
+        "-c",
+        "user.email=bench@example.invalid",
+        "-c",
+        "commit.gpgsign=false",
+        "-c",
+        "gc.auto=0",
+        "diff",
+        "--cached",
+        "--name-only"
+      ],
+      "trace": []
+    },
+    "staging_equal": false
+  }
+]

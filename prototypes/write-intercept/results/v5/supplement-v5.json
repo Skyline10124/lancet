@@ -1,0 +1,131 @@
+[
+  {
+    "case": "external-sync",
+    "sync": {
+      "entries": 20,
+      "events": 14,
+      "git_snapshot_s": 9.728e-05,
+      "overflow": false,
+      "sync_s": 0.00725847,
+      "synced": 13,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "difference": []
+  },
+  {
+    "case": "initial-metadata",
+    "difference": []
+  },
+  {
+    "case": "multi-act-revert",
+    "reverts": [
+      {
+        "code": 0,
+        "stdout": "{\"outcome\":\"Restored\"}\n",
+        "stderr": ""
+      },
+      {
+        "code": 0,
+        "stdout": "{\"outcome\":\"Restored\"}\n",
+        "stderr": ""
+      }
+    ],
+    "difference": []
+  },
+  {
+    "case": "hardlink-inode",
+    "before": 555156880,
+    "after": 555156880,
+    "reverted": 555156880,
+    "hard": 555156880,
+    "code": 0
+  },
+  {
+    "case": "revert-conflict",
+    "result": {
+      "conflicts": [
+        "a"
+      ],
+      "outcome": "Conflict"
+    },
+    "external_preserved": true
+  },
+  {
+    "case": "hardlink-alias",
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"hardlink-alias\",\"rc\":6,\"errno\":0,\"seconds\":0.000028040}\n",
+      "stderr": "",
+      "exec_s": 0.0028675399953499436,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-v5-hardlink-alias",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/v5-hardlink-alias",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/probe-v3",
+        "hardlink-alias"
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.0002793,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 9.143e-05,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "real_changed": true,
+    "shadow_xattrs": [
+      "security.selinux"
+    ]
+  },
+  {
+    "case": "setxattr",
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"setxattr\",\"rc\":0,\"errno\":0,\"seconds\":0.000019170}\n",
+      "stderr": "",
+      "exec_s": 0.002812869963236153,
+      "command": [
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/namespace-v4",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/fixtures-v3/v5-v5-setxattr",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/states-v5/v5-setxattr",
+        "--",
+        "/home/gcp-vegas/.t3/worktrees/lancet/t3-08714b01/prototypes/write-intercept/.scratch/probe-v3",
+        "setxattr"
+      ]
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [],
+        "full_scan_s": 0.00024887,
+        "missed_state": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "overflow": false,
+      "scan_s": 0.00010194,
+      "uncertain_history": false,
+      "watches": 6
+    },
+    "real_changed": false,
+    "shadow_xattrs": [
+      "security.selinux",
+      "user.probe"
+    ]
+  }
+]
