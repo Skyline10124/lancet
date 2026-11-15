@@ -1,0 +1,1193 @@
+[
+  {
+    "stage": "before-log",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00568446,
+      "pid": 3621047,
+      "recovery": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.010606658994220197
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00545366,
+      "pid": 3621119,
+      "recovery": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.010169829009100795
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00837946,
+      "pid": 3621191,
+      "recovery": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009210390038788319
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00980832,
+      "pid": 3621263,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": []
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009246179950423539
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00915898,
+      "pid": 3621335,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": []
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009029828943312168
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009342309,
+      "pid": 3621407,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": []
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009124179952777922
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009054779,
+      "pid": 3621479,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008919939980842173
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00905818,
+      "pid": 3621551,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009192010038532317
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00848776,
+      "pid": 3621623,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00924051005858928
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00947011,
+      "pid": 3621695,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00906599999871105
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.008855499,
+      "pid": 3621767,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008748308988288045
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "apply-4",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.008840909,
+      "pid": 3621839,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008933829027228057
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00900004,
+      "pid": 3621911,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir/new",
+            "newlink",
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00907405000180006
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00942993,
+      "pid": 3621983,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir/new",
+            "newlink",
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009087000042200089
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00893428,
+      "pid": 3622055,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir/new",
+            "newlink",
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.010010039899498224
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.008841599,
+      "pid": 3622127,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir/new",
+            "newlink",
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008776708971709013
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00980502,
+      "pid": 3622199,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir/new",
+            "newlink",
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009072629967704415
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-post-sync",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009837369,
+      "pid": 3622271,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "newdir/new",
+            "newlink",
+            "newdir",
+            "b",
+            "a",
+            "outside"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.009079399053007364
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 0,
+    "killed": true,
+    "equals_before": false,
+    "equals_after": true,
+    "before_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "after_diff": [],
+    "initial": {
+      "entries": 17,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00547389,
+      "pid": 3622343,
+      "recovery": [
+        {
+          "outcome": "Committed"
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008983729989267886
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 1,
+    "killed": true,
+    "equals_before": false,
+    "equals_after": true,
+    "before_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "after_diff": [],
+    "initial": {
+      "entries": 17,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00577305,
+      "pid": 3622415,
+      "recovery": [
+        {
+          "outcome": "Committed"
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008959900005720556
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 2,
+    "killed": true,
+    "equals_before": false,
+    "equals_after": true,
+    "before_diff": [
+      "a",
+      "b",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "after_diff": [],
+    "initial": {
+      "entries": 17,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00556227,
+      "pid": 3622487,
+      "recovery": [
+        {
+          "outcome": "Committed"
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008945930050686002
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 0,
+    "killed": false,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 16,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00577069,
+      "pid": 3622559,
+      "recovery": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00927280995529145
+    },
+    "policy_conflict": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 1,
+    "killed": false,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 16,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.006111469,
+      "pid": 3622631,
+      "recovery": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00893632904626429
+    },
+    "policy_conflict": true,
+    "pass": true
+  },
+  {
+    "stage": "inplace-partial",
+    "rep": 2,
+    "killed": false,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "a",
+      "b",
+      "hard",
+      "newdir",
+      "newdir/new",
+      "newlink",
+      "outside"
+    ],
+    "initial": {
+      "entries": 16,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.0058494,
+      "pid": 3622703,
+      "recovery": []
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.008859039982780814
+    },
+    "policy_conflict": true,
+    "pass": true
+  },
+  {
+    "stage": "after-rename",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/x"
+    ],
+    "initial": {
+      "entries": 19,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00930517,
+      "pid": 3622774,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "dir"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007041650009341538
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-rename",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/x"
+    ],
+    "initial": {
+      "entries": 19,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00992157,
+      "pid": 3622845,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "dir"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007013539900071919
+    },
+    "policy_conflict": false,
+    "pass": true
+  },
+  {
+    "stage": "after-rename",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "before_diff": [],
+    "after_diff": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/x"
+    ],
+    "initial": {
+      "entries": 19,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00942988,
+      "pid": 3622916,
+      "recovery": [
+        {
+          "conflicts": [],
+          "irreversible": [],
+          "outcome": "Restored",
+          "restored": [
+            "dir"
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00708947004750371
+    },
+    "policy_conflict": false,
+    "pass": true
+  }
+]

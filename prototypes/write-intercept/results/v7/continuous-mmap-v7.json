@@ -1,0 +1,122 @@
+[
+  {
+    "rep": 0,
+    "error": null,
+    "delay_s": 0.07712374802213162,
+    "exact": true
+  },
+  {
+    "rep": 1,
+    "error": null,
+    "delay_s": 0.07697739696595818,
+    "exact": true
+  },
+  {
+    "rep": 2,
+    "error": null,
+    "delay_s": 0.07906090805772692,
+    "exact": true
+  },
+  {
+    "rep": 3,
+    "error": null,
+    "delay_s": 0.07242603797931224,
+    "exact": true
+  },
+  {
+    "rep": 4,
+    "error": null,
+    "delay_s": 0.07690550794359297,
+    "exact": true
+  },
+  {
+    "rep": 5,
+    "error": null,
+    "delay_s": 0.07697998790536076,
+    "exact": true
+  },
+  {
+    "rep": 6,
+    "error": null,
+    "delay_s": 0.0789045070996508,
+    "exact": true
+  },
+  {
+    "rep": 7,
+    "error": null,
+    "delay_s": 0.07264830800704658,
+    "exact": true
+  },
+  {
+    "rep": 8,
+    "error": null,
+    "delay_s": 0.07714495796244591,
+    "exact": true
+  },
+  {
+    "rep": 9,
+    "error": null,
+    "delay_s": 0.07904894801322371,
+    "exact": true
+  },
+  {
+    "rep": 10,
+    "error": null,
+    "delay_s": 0.07261614804156125,
+    "exact": true
+  },
+  {
+    "rep": 11,
+    "error": null,
+    "delay_s": 0.07706457702443004,
+    "exact": true
+  },
+  {
+    "rep": 12,
+    "error": null,
+    "delay_s": 0.07686492707580328,
+    "exact": true
+  },
+  {
+    "rep": 13,
+    "error": null,
+    "delay_s": 0.07719017809722573,
+    "exact": true
+  },
+  {
+    "rep": 14,
+    "error": null,
+    "delay_s": 0.07716963801067322,
+    "exact": true
+  },
+  {
+    "rep": 15,
+    "error": null,
+    "delay_s": 0.07695085706654936,
+    "exact": true
+  },
+  {
+    "rep": 16,
+    "error": null,
+    "delay_s": 0.07908452802803367,
+    "exact": true
+  },
+  {
+    "rep": 17,
+    "error": null,
+    "delay_s": 0.07266026805154979,
+    "exact": true
+  },
+  {
+    "rep": 18,
+    "error": null,
+    "delay_s": 0.07695714698638767,
+    "exact": true
+  },
+  {
+    "rep": 19,
+    "error": null,
+    "delay_s": 0.07876480708364397,
+    "exact": true
+  }
+]

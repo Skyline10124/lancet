@@ -1,0 +1,18 @@
+[package]
+name = "shadow-v7"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+
+[[bin]]
+name = "shadow-v7"
+path = "src/main-v7.rs"
+
+[dependencies]
+anyhow = "=1.0.104"
+libc = "=0.2.186"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+gix = { version = "=0.85.0", default-features = false, features = ["sha1"] }

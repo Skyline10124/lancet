@@ -1,0 +1,30 @@
+{
+  "worktree": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2",
+  "baseline": {
+    "code": 0,
+    "stdout": "9c68ea946718bd00155a4143b25a26b1c270ba85",
+    "stderr": ""
+  },
+  "kernel": "6.12.0-211.68.1+2.1.el10_2_ciq.x86_64",
+  "os_release": "NAME=\"Rocky Linux\"\nVERSION=\"10.2 (Red Quartz)\"\nRELEASE_TYPE=\"stable\"\nID=\"rocky\"\nID_LIKE=\"rhel centos fedora\"\nVERSION_ID=\"10.2\"\nPLATFORM_ID=\"platform:el10\"\nPRETTY_NAME=\"Rocky Linux 10.2 (Red Quartz)\"\nANSI_COLOR=\"0;32\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:rocky:rocky:10::baseos\"\nHOME_URL=\"https://rockylinux.org/\"\nVENDOR_NAME=\"RESF\"\nVENDOR_URL=\"https://resf.org/\"\nBUG_REPORT_URL=\"https://bugs.rockylinux.org/\"\nSUPPORT_END=\"2035-05-31\"\nROCKY_SUPPORT_PRODUCT=\"Rocky-Linux-10\"\nROCKY_SUPPORT_PRODUCT_VERSION=\"10.2\"\nREDHAT_SUPPORT_PRODUCT=\"Rocky Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"10.2\"\n",
+  "rustc": {
+    "code": 0,
+    "stdout": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+    "stderr": ""
+  },
+  "selinux": {
+    "code": 0,
+    "stdout": "Enforcing",
+    "stderr": ""
+  },
+  "inotify": {
+    "max_user_watches": "250895",
+    "max_queued_events": "16384"
+  },
+  "io_uring_disabled": "2",
+  "source_workload": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch",
+  "copy_flags": [
+    "-a",
+    "--reflink=always"
+  ]
+}

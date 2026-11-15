@@ -1,0 +1,23 @@
+{
+  "execution": {
+    "returncode": 0,
+    "stdout": "{\"object_write_errno\": 30, \"ordinary_ino\": 421428060, \"git_config_ino\": 371546418}\n",
+    "stderr": "",
+    "exec_s": 0.026946678990498185
+  },
+  "observation": {
+    "object_write_errno": 30,
+    "ordinary_ino": 421428060,
+    "git_config_ino": 371546418
+  },
+  "discard": {
+    "discard_s": 2.798e-05,
+    "outcome": "discarded",
+    "uncommitted_reverted": []
+  },
+  "host_target_unchanged": true,
+  "host_object_unchanged": true,
+  "ordinary_isolated": true,
+  "git_private": true,
+  "cache_retained_across_restart": true
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "rep": 0,
+    "killed": true,
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          "a"
+        ]
+      }
+    ],
+    "pass_": true
+  },
+  {
+    "rep": 1,
+    "killed": true,
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          "a"
+        ]
+      }
+    ],
+    "pass_": true
+  },
+  {
+    "rep": 2,
+    "killed": true,
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          "a"
+        ]
+      }
+    ],
+    "pass_": true
+  }
+]

@@ -1,0 +1,207 @@
+{
+  "checks": [
+    {
+      "name": "coverage",
+      "pass_": true,
+      "detail": {
+        "passed": 126,
+        "total": 126
+      }
+    },
+    {
+      "name": "randomized",
+      "pass_": true,
+      "detail": {
+        "passed": 200,
+        "total": 200
+      }
+    },
+    {
+      "name": "synchronization",
+      "pass_": true,
+      "detail": {
+        "passed": 45,
+        "total": 45
+      }
+    },
+    {
+      "name": "continuous-mmap",
+      "pass_": true,
+      "detail": {
+        "passed": 20,
+        "total": 20
+      }
+    },
+    {
+      "name": "crashes",
+      "pass_": true,
+      "detail": {
+        "passed": 27,
+        "total": 27
+      }
+    },
+    {
+      "name": "git-crashes",
+      "pass_": true,
+      "detail": {
+        "passed": 18,
+        "total": 18
+      }
+    },
+    {
+      "name": "git-matrix",
+      "pass_": true,
+      "detail": {
+        "passed": 96,
+        "total": 96
+      }
+    },
+    {
+      "name": "git-extra",
+      "pass_": true,
+      "detail": {
+        "passed": 18,
+        "total": 18
+      }
+    },
+    {
+      "name": "isolation",
+      "pass_": true,
+      "detail": {
+        "passed": 7,
+        "total": 7
+      }
+    },
+    {
+      "name": "rename-links-policy",
+      "pass_": true,
+      "detail": {
+        "passed": 4,
+        "total": 4
+      }
+    },
+    {
+      "name": "exchange-crashes",
+      "pass_": true,
+      "detail": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "name": "concurrency",
+      "pass_": true,
+      "detail": 69
+    },
+    {
+      "name": "self-writes",
+      "pass_": true,
+      "detail": {
+        "result": {
+          "apply_s": 0.003258639,
+          "check_to_replace_ns": [
+            70630
+          ],
+          "commit_s": 0.009223229,
+          "conflicts": [],
+          "git": {
+            "conflicts": [],
+            "locks": [],
+            "paths": []
+          },
+          "index_s": 1.535e-05,
+          "outcome": "Committed",
+          "partial_visible_s": 7.182e-05,
+          "prepare_s": 0.00594707,
+          "rebuild_s": 0.0,
+          "rename_syscalls": 0,
+          "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/self-write/transactions/1794750280959348942"
+        },
+        "shadow_inode_preserved": true,
+        "background_digest_delta": 0,
+        "pass_": true
+      }
+    },
+    {
+      "name": "scan-fairness",
+      "pass_": true,
+      "detail": {
+        "acts": 324,
+        "delay_s": 0.10093585797585547,
+        "exact": true
+      }
+    },
+    {
+      "name": "host-git-sync",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "git-matrix-stage",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "git-extra-stage",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "git-protected",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "aio",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "builds",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "cache",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "seed",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "warm-index",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "final-fixed-count",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "initial-count",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "report-links",
+      "pass_": true,
+      "detail": []
+    },
+    {
+      "name": "baseline-unchanged",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "adr-unchanged",
+      "pass_": true,
+      "detail": null
+    }
+  ],
+  "passed": 28,
+  "total": 28
+}

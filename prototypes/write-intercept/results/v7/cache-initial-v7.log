@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/cache-v7.py", line 12, in <module>
+    before_src=(cache/'registry/src').exists();e=dict(os.environ,**env(),CARGO_HOME=str(cache));start=time.monotonic()
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'CARGO_HOME'

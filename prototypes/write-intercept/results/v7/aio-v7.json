@@ -1,0 +1,34 @@
+[
+ {
+  "full_content_complete_after_reap": true,
+  "mode": "aio",
+  "rep": 1,
+  "submit_to_reap_ms": 997.2,
+  "samples": 17,
+  "landed_at_reap": 17,
+  "landing_timeline_ms_after_reap": [
+   [
+    0.0,
+    17
+   ]
+  ],
+  "inotify_batches_by_reap": 1,
+  "inotify_after_reap_ms": []
+ },
+ {
+  "full_content_complete_after_reap": true,
+  "mode": "aio",
+  "rep": 2,
+  "submit_to_reap_ms": 1555.9,
+  "samples": 17,
+  "landed_at_reap": 17,
+  "landing_timeline_ms_after_reap": [
+   [
+    0.0,
+    17
+   ]
+  ],
+  "inotify_batches_by_reap": 1,
+  "inotify_after_reap_ms": []
+ }
+]

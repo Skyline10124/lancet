@@ -1,0 +1,25 @@
+{
+  "result": {
+    "apply_s": 0.003258639,
+    "check_to_replace_ns": [
+      70630
+    ],
+    "commit_s": 0.009223229,
+    "conflicts": [],
+    "git": {
+      "conflicts": [],
+      "locks": [],
+      "paths": []
+    },
+    "index_s": 1.535e-05,
+    "outcome": "Committed",
+    "partial_visible_s": 7.182e-05,
+    "prepare_s": 0.00594707,
+    "rebuild_s": 0.0,
+    "rename_syscalls": 0,
+    "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/self-write/transactions/1794750280959348942"
+  },
+  "shadow_inode_preserved": true,
+  "background_digest_delta": 0,
+  "pass_": true
+}

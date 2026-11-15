@@ -1,0 +1,1361 @@
+[
+  {
+    "case": "long-lived-mmap",
+    "rep": 0,
+    "delay_s": 0.10226691700518131,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 1,
+        "scan_s": 0.00168362,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 18
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.851e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 1,
+    "delay_s": 0.10048861696850508,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00063979,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 19
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.986e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 2,
+    "delay_s": 0.10014745802618563,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0005306,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 20
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.941e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 3,
+    "delay_s": 0.09998306690249592,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00066548,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 21
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.928e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 4,
+    "delay_s": 0.10007091704756021,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00067365,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 22
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.895e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 5,
+    "delay_s": 0.10009234701283276,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00063516,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 23
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.962e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 6,
+    "delay_s": 0.09994262701366097,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00065648,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 24
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.011e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 7,
+    "delay_s": 0.10010406700894237,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00068275,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 25
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.85e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 8,
+    "delay_s": 0.10006745695136487,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0006654,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 26
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.901e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 9,
+    "delay_s": 0.10018117702566087,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00065038,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 27
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.076e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 10,
+    "delay_s": 0.10003091697581112,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00064256,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 28
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 4.588e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 11,
+    "delay_s": 0.10002646793145686,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00066697,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 29
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.891e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 12,
+    "delay_s": 0.09999744698870927,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00061833,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 30
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.912e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 13,
+    "delay_s": 0.09995243698358536,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00071876,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 31
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.045e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 14,
+    "delay_s": 0.09999028698075563,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00066784,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 32
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.916e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 15,
+    "delay_s": 0.10000163700897247,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00064253,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 33
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.993e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 16,
+    "delay_s": 0.10003384691663086,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00058405,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 34
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.984e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 17,
+    "delay_s": 0.09992230695206672,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00058978,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 35
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.979e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 18,
+    "delay_s": 0.09995526704005897,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00063709,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 36
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.927e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 19,
+    "delay_s": 0.10009397706016898,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00064417,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 37
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.901e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 20,
+    "delay_s": 0.10034635604824871,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00066364,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 38
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.244e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 21,
+    "delay_s": 0.0999614269239828,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00058776,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 39
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.321e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 22,
+    "delay_s": 0.10003673704341054,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.000647201,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 40
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.913e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 23,
+    "delay_s": 0.09996946796309203,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00058745,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 41
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.882e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 24,
+    "delay_s": 0.10024064697790891,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0006669,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 42
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.337e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 25,
+    "delay_s": 0.10003312700428069,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00067745,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 43
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.347e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 26,
+    "delay_s": 0.10039763699751347,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00066294,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 44
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.06e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 27,
+    "delay_s": 0.1002762969583273,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00067879,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 45
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.211e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 28,
+    "delay_s": 0.10002886701840907,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00056445,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 46
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 2.985e-05
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 29,
+    "delay_s": 0.1006373860873282,
+    "exact": true,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00058894,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 47
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "scan_s": 3.559e-05
+    }
+  },
+  {
+    "case": "outside-hardlink",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.10874244698788971,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009368679,
+      "pid": 3616108,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00069514,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "outside-hardlink",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.10840983700472862,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009304819,
+      "pid": 3616154,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 1,
+        "scan_s": 0.00097372,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "scan_digests": 18
+    }
+  },
+  {
+    "case": "outside-hardlink",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.1096744469832629,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00923388,
+      "pid": 3616200,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0005945,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "editor-rename",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.11152652697637677,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00913825,
+      "pid": 3616257,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00052748,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "editor-rename",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.10933121608104557,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00912879,
+      "pid": 3616316,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00064149,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "editor-rename",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.10771139594726264,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00875297,
+      "pid": 3616364,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 1,
+        "scan_s": 0.00106853,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 18
+    }
+  },
+  {
+    "case": "tmpfile-linkat",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.10634670697618276,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009183159,
+      "pid": 3616410,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 1,
+        "scan_s": 0.001104,
+        "synced": 1
+      },
+      "entries": 16,
+      "external_aliases": [],
+      "scan_digests": 18
+    }
+  },
+  {
+    "case": "tmpfile-linkat",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.11116425704676658,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00830093,
+      "pid": 3616457,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0006479,
+        "synced": 1
+      },
+      "entries": 16,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "tmpfile-linkat",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.10735857603140175,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00858836,
+      "pid": 3616504,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00064081,
+        "synced": 1
+      },
+      "entries": 16,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "same-tick",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.10803213599137962,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009563549,
+      "pid": 3616551,
+      "recovery": []
+    },
+    "same_tick": false,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0006528,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "same-tick",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.10821162699721754,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.009354959,
+      "pid": 3616597,
+      "recovery": []
+    },
+    "same_tick": false,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00076474,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "same-tick",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.1076119770295918,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00889946,
+      "pid": 3616643,
+      "recovery": []
+    },
+    "same_tick": false,
+    "stats": {
+      "background": {
+        "rearmed": 1,
+        "scan_s": 0.00122346,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 18
+    }
+  },
+  {
+    "case": "fake-mtime",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.10819229704793543,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00862135,
+      "pid": 3616689,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 2,
+        "scan_s": 0.00117045,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 19
+    }
+  },
+  {
+    "case": "fake-mtime",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.10778300696983933,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00865726,
+      "pid": 3616735,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00065631,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 17
+    }
+  },
+  {
+    "case": "fake-mtime",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.10853223595768213,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00870476,
+      "pid": 3616781,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "rearmed": 1,
+        "scan_s": 0.0012462,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [],
+      "scan_digests": 18
+    }
+  }
+]

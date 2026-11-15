@@ -1,0 +1,29 @@
+[
+  {
+    "rep": 0,
+    "seed_s": 0.17214464501012117,
+    "source_absent_before": true,
+    "metadata_and_first_extract_s": 4.785631175036542,
+    "returncode": 0,
+    "stderr": "",
+    "source_directories": 488
+  },
+  {
+    "rep": 1,
+    "seed_s": 0.18631325394380838,
+    "source_absent_before": true,
+    "metadata_and_first_extract_s": 4.752733407076448,
+    "returncode": 0,
+    "stderr": "",
+    "source_directories": 488
+  },
+  {
+    "rep": 2,
+    "seed_s": 0.17911258398089558,
+    "source_absent_before": true,
+    "metadata_and_first_extract_s": 4.721492117037997,
+    "returncode": 0,
+    "stderr": "",
+    "source_directories": 488
+  }
+]

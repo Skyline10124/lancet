@@ -1,0 +1,188 @@
+[
+  {
+    "case": "mounts",
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"sentinel_visible\": false, \"ro_hidden_visible\": false, \"links\": [[\"a\", \"target/link\", 18], [\"a\", \".git/link\", 18], [\"target/source\", \"regular-target\", 18], [\".git/source\", \"regular-git\", 18], [\"target/source\", \".git/cache-link\", 18], [\".git/source\", \"target/git-link\", 18]], \"writes\": [[\"/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fake-home-v7/rw-alias\", 0], [\"/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fake-home-v7/ro-alias\", 0], [\"/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7/a\", 30]], \"mountinfo\": \"292 61 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/root / ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n318 292 259:2 /usr /usr ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n319 292 259:2 /etc /etc ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n321 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/home /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fake-home-v7 rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n322 292 259:2 /home/gcp-vegas/.rustup /home/gcp-vegas/.rustup ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n323 292 259:2 /home/gcp-vegas/.cargo/bin /home/gcp-vegas/.cargo/bin ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n324 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/probe-v3 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/probe-v3 ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n326 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7 ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n327 326 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/mask /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7/hidden ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n328 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/shadow /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-mount-rules rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n329 328 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/shadow/target /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-mount-rules/target rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n330 328 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/shadow/.git /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-mount-rules/.git rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n331 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/tmp /tmp rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n332 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/dev /dev rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\\n548 332 0:6 /null /dev/null rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\\n577 332 0:6 /zero /dev/zero rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\\n578 332 0:6 /random /dev/random rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\\n579 332 0:6 /urandom /dev/urandom rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\\n580 292 0:47 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw\\n\"}\n",
+      "stderr": "",
+      "exec_s": 0.02762071997858584
+    },
+    "observations": {
+      "sentinel_visible": false,
+      "ro_hidden_visible": false,
+      "links": [
+        [
+          "a",
+          "target/link",
+          18
+        ],
+        [
+          "a",
+          ".git/link",
+          18
+        ],
+        [
+          "target/source",
+          "regular-target",
+          18
+        ],
+        [
+          ".git/source",
+          "regular-git",
+          18
+        ],
+        [
+          "target/source",
+          ".git/cache-link",
+          18
+        ],
+        [
+          ".git/source",
+          "target/git-link",
+          18
+        ]
+      ],
+      "writes": [
+        [
+          "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fake-home-v7/rw-alias",
+          0
+        ],
+        [
+          "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fake-home-v7/ro-alias",
+          0
+        ],
+        [
+          "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7/a",
+          30
+        ]
+      ],
+      "mountinfo": "292 61 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/root / ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n318 292 259:2 /usr /usr ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n319 292 259:2 /etc /etc ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n321 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/home /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fake-home-v7 rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n322 292 259:2 /home/gcp-vegas/.rustup /home/gcp-vegas/.rustup ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n323 292 259:2 /home/gcp-vegas/.cargo/bin /home/gcp-vegas/.cargo/bin ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n324 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/probe-v3 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/probe-v3 ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n326 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7 ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n327 326 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/mask /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/readonly-v7/hidden ro,nosuid,nodev,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n328 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/shadow /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-mount-rules rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n329 328 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/shadow/target /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-mount-rules/target rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n330 328 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/shadow/.git /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-mount-rules/.git rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n331 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/tmp /tmp rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n332 292 259:2 /home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/mount-rules/dev /dev rw,relatime - xfs /dev/nvme0n1p2 rw,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota\n548 332 0:6 /null /dev/null rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\n577 332 0:6 /zero /dev/zero rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\n578 332 0:6 /random /dev/random rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\n579 332 0:6 /urandom /dev/urandom rw,nosuid - devtmpfs devtmpfs rw,seclabel,size=16269176k,nr_inodes=4067294,mode=755,inode64\n580 292 0:47 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw\n"
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 0.00012496
+    },
+    "result": {
+      "commit_s": 0.00075155,
+      "conflicts": [
+        "a"
+      ],
+      "outcome": "Conflict",
+      "reason": "hidden 或宿主多链接文件",
+      "rebuild_s": 0.00074921
+    },
+    "pass_": true
+  },
+  {
+    "case": "hidden",
+    "absent_initially": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.007573239039629698
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hidden",
+          "hidden/new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hidden",
+          "hidden/new"
+        ]
+      },
+      "events": 6,
+      "fallback": true,
+      "overflow": false,
+      "scan_s": 0.00046847
+    },
+    "result": {
+      "commit_s": 0.00088983,
+      "conflicts": [
+        "hidden",
+        "hidden/new"
+      ],
+      "outcome": "Conflict",
+      "reason": "hidden 或宿主多链接文件",
+      "rebuild_s": 0.00087932
+    },
+    "pass_": true
+  },
+  {
+    "case": "real-overflow",
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 16384,
+      "fallback": true,
+      "overflow": true,
+      "scan_s": 0.00745663
+    },
+    "result": {
+      "discard_s": 0.00079998,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "pass_": true
+  },
+  {
+    "case": "reject-writable-host-source",
+    "returncode": 1,
+    "stderr": "Error: 可写挂载来源不在状态目录：/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/fixtures-v3/v7-bad-mount\n",
+    "pass_": true
+  },
+  {
+    "case": "reject-default-home-symlink",
+    "returncode": 1,
+    "stderr": "Error: 可写挂载来源不在状态目录：home\n",
+    "pass_": true
+  },
+  {
+    "case": "reject-home-config-symlink",
+    "pass_": true
+  },
+  {
+    "case": "proc-lifetime",
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005877970019355416
+    },
+    "pass_": true
+  }
+]

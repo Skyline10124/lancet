@@ -1,0 +1,76 @@
+checkout A none b 0 0.251076312 None
+checkout A none b 1 0.249376852 None
+checkout A none b 2 0.262290712 None
+checkout B none a 0 0.253500122 None
+checkout B none b 0 0.247533722 None
+checkout B none a 1 0.242047062 None
+checkout B none b 1 0.245973052 None
+checkout B none a 2 0.243388033 None
+checkout B none b 2 0.221013323 None
+checkout A ns b 0 0.273971152 None
+checkout A ns b 1 0.271862772 None
+checkout A ns b 2 0.276773352 None
+checkout B ns a 0 0.252994933 None
+checkout B ns b 0 0.248929722 None
+checkout B ns a 1 0.244580022 None
+checkout B ns b 1 0.236895193 None
+checkout B ns a 2 0.245822052 None
+checkout B ns b 2 0.245301963 None
+checkout A S3 b 0 5.119069525040686 Committed
+checkout A S3 b 1 4.849456508061849 Committed
+checkout A S3 b 2 4.8076139150653034 Committed
+checkout B S3 a 0 2.171696924022399 Committed
+checkout B S3 b 0 1.831313505070284 Committed
+checkout B S3 a 1 1.858707134029828 Committed
+checkout B S3 b 1 1.88101143296808 Committed
+checkout B S3 a 2 1.8713894829852507 Committed
+checkout B S3 b 2 1.9422485909890383 Committed
+micro done
+scale 3000 0
+scale 3000 1
+scale 3000 2
+scale 10000 0
+scale 10000 1
+scale 10000 2
+scale 100000 0
+scale 100000 1
+scale 100000 2
+merge S3 1 0 Committed 0.016749589
+merge S3 1 1 Committed 0.00671488
+merge S3 1 2 Committed 0.00736409
+merge S3 100 0 Committed 0.031196479
+merge S3 100 1 Committed 0.071366587
+merge S3 100 2 Committed 0.065898428
+merge S3 4000 0 Committed 0.99349003
+merge S3 4000 1 Committed 0.889670283
+merge S3 4000 2 Committed 0.951484131
+rename 1000 none 0 0.00146795
+rename 1000 none 1 0.00130227
+rename 1000 none 2 0.00131789
+rename 1000 ns 0 0.00247398
+rename 1000 ns 1 0.00250434
+rename 1000 ns 2 0.002422
+rename 1000 S3 0 0.3359841590281576
+rename 1000 S3 1 0.33708874008152634
+rename 1000 S3 2 0.3407595600001514
+rename 10000 none 0 0.00150711
+rename 10000 none 1 0.00132781
+rename 10000 none 2 0.00133424
+rename 10000 ns 0 0.00249998
+rename 10000 ns 1 0.00230167
+rename 10000 ns 2 0.00233541
+rename 10000 S3 0 3.3650771479588
+rename 10000 S3 1 3.5625627419212833
+rename 10000 S3 2 3.5993357410188764
+.begin();out=o.execute(command,env=env);b=o.finish(audit=False);c=o.commit() if out['returncode']==0 else o.discard()
+                                              ^^^^^^^^^
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/shadow-v7.py", line 41, in begin
+    def begin(self,full=False):return self.call('begin',full=full)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/shadow-v7.py", line 40, in call
+    self.proc.stdin.write(json.dumps(dict(op=op,**kw))+'\n');self.proc.stdin.flush();return self.read()
+                                                                                            ^^^^^^^^^^^
+  File "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/shadow-v7.py", line 34, in read
+    line=self.proc.stdout.readline()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

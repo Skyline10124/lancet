@@ -1,0 +1,1105 @@
+[
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 0,
+    "wall_s": 0.0006610589334741235,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.011975589
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00032065
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 5.2429e-05
+    },
+    "commit": {
+      "commit_s": 7.88e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 1,
+    "wall_s": 0.000417069997638464,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.01154902
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012149
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.326e-05
+    },
+    "commit": {
+      "commit_s": 7.28e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 2,
+    "wall_s": 0.0004629200557246804,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.01122893
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00013262
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.977e-05
+    },
+    "commit": {
+      "commit_s": 8.05e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 3,
+    "wall_s": 0.00045257003512233496,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.011270679
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00013
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.944e-05
+    },
+    "commit": {
+      "commit_s": 7.71e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 4,
+    "wall_s": 0.00042558007407933474,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.011135269
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00011854
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.75e-05
+    },
+    "commit": {
+      "commit_s": 7.45e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 5,
+    "wall_s": 0.00045657006558030844,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.011453419
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00011434
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.919e-05
+    },
+    "commit": {
+      "commit_s": 7.47e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 6,
+    "wall_s": 0.0004417099989950657,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.01153057
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012248
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.842e-05
+    },
+    "commit": {
+      "commit_s": 7.19e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 7,
+    "wall_s": 0.0004425300285220146,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.0112375
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012259
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.928e-05
+    },
+    "commit": {
+      "commit_s": 7.15e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 8,
+    "wall_s": 0.00047243002336472273,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.011167659
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00014599
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.935e-05
+    },
+    "commit": {
+      "commit_s": 7.27e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 0,
+    "wall_s": 0.0031108889961615205,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.030926119
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00063651
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 0.001272639
+    },
+    "commit": {
+      "commit_s": 7.98e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 1,
+    "wall_s": 0.0005066200392320752,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00011937
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 4.285e-05
+    },
+    "commit": {
+      "commit_s": 8.04e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 2,
+    "wall_s": 0.000489570084027946,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.028482969
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00014157
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 4.439e-05
+    },
+    "commit": {
+      "commit_s": 7.75e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 3,
+    "wall_s": 0.0004507600096985698,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.028482089
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00014585
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.031e-05
+    },
+    "commit": {
+      "commit_s": 7.19e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 4,
+    "wall_s": 0.00043911999091506004,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.028104939
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012625
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.578e-05
+    },
+    "commit": {
+      "commit_s": 7.36e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 5,
+    "wall_s": 0.00043122994247823954,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.02847846
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012428
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.578e-05
+    },
+    "commit": {
+      "commit_s": 7.08e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 6,
+    "wall_s": 0.0004320699954405427,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.028423079
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012748
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.756e-05
+    },
+    "commit": {
+      "commit_s": 6.58e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 7,
+    "wall_s": 0.0004347199574112892,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.028423079
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.554e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.201e-05
+    },
+    "commit": {
+      "commit_s": 8.91e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 8,
+    "wall_s": 0.0008026199648156762,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.028685828
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.278e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 2.933e-05
+    },
+    "commit": {
+      "commit_s": 7.5e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 0,
+    "wall_s": 0.004839639994315803,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.298334481
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00449249
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 5.174e-05
+    },
+    "commit": {
+      "commit_s": 7.92e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 1,
+    "wall_s": 0.0004286200273782015,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.298334481
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00011534
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 4.11e-05
+    },
+    "commit": {
+      "commit_s": 7.73e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 2,
+    "wall_s": 0.00045733992010354996,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.298334481
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00013711
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 4.115e-05
+    },
+    "commit": {
+      "commit_s": 8.04e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 3,
+    "wall_s": 0.0004922299413010478,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.290920631
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00014009
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 4.274e-05
+    },
+    "commit": {
+      "commit_s": 7.52e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 4,
+    "wall_s": 0.0004073799354955554,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.290920631
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.455e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 2.941e-05
+    },
+    "commit": {
+      "commit_s": 7.76e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 5,
+    "wall_s": 0.00042487005703151226,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.290920631
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.716e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 2.869e-05
+    },
+    "commit": {
+      "commit_s": 7.39e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 6,
+    "wall_s": 0.0023105100262910128,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00104703
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.007e-05
+    },
+    "commit": {
+      "commit_s": 7.76e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 7,
+    "wall_s": 0.00041662994772195816,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00010197
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 3.059e-05
+    },
+    "commit": {
+      "commit_s": 6.99e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 8,
+    "wall_s": 0.0032862399239093065,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00204311
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 2.98e-05
+    },
+    "commit": {
+      "commit_s": 7.71e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  }
+]

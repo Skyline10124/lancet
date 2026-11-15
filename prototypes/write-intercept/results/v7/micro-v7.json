@@ -1,0 +1,714 @@
+[
+  {
+    "name": "micro-none-null-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.068791388,
+    "process_wall_s": 0.06984675792045891,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067865868,\"us_per_call\":3.393293}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.068791388,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.7997808754444122e-07
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067865868,
+      "us_per_call": 3.393293
+    }
+  },
+  {
+    "name": "micro-none-null-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.068458598,
+    "process_wall_s": 0.06951497797854245,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067505238,\"us_per_call\":3.375262}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.068458598,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.7997808754444122e-07
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067505238,
+      "us_per_call": 3.375262
+    }
+  },
+  {
+    "name": "micro-none-null-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.068891657,
+    "process_wall_s": 0.06996378698386252,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067959387,\"us_per_call\":3.397969}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.068891657,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.8998980522155762e-07
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067959387,
+      "us_per_call": 3.397969
+    }
+  },
+  {
+    "name": "micro-none-a-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.064887558,
+    "process_wall_s": 0.06593659694772214,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.064001828,\"us_per_call\":3.200091}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.064887558,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4004763215780258e-07
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.064001828,
+      "us_per_call": 3.200091
+    }
+  },
+  {
+    "name": "micro-none-a-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.064629768,
+    "process_wall_s": 0.06570182798895985,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063667929,\"us_per_call\":3.183396}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.064629768,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.300359144806862e-07
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063667929,
+      "us_per_call": 3.183396
+    }
+  },
+  {
+    "name": "micro-none-a-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.064673758,
+    "process_wall_s": 0.0657411681022495,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063745448,\"us_per_call\":3.187272}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.064673758,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5995465219020844e-07
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063745448,
+      "us_per_call": 3.187272
+    }
+  },
+  {
+    "name": "micro-ns-null-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.070437888,
+    "process_wall_s": 0.07152784802019596,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068216598,\"us_per_call\":3.410830}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.070437888,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 5.700858309864998e-07
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068216598,
+      "us_per_call": 3.41083
+    }
+  },
+  {
+    "name": "micro-ns-null-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.070113388,
+    "process_wall_s": 0.07124920806381851,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067934388,\"us_per_call\":3.396719}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.070113388,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.2991949915885925e-07
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067934388,
+      "us_per_call": 3.396719
+    }
+  },
+  {
+    "name": "micro-ns-null-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.070166338,
+    "process_wall_s": 0.07135469804052263,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068001818,\"us_per_call\":3.400091}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.070166338,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.8998980522155762e-07
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068001818,
+      "us_per_call": 3.400091
+    }
+  },
+  {
+    "name": "micro-ns-a-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.065615218,
+    "process_wall_s": 0.0666767880320549,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063480648,\"us_per_call\":3.174032}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.065615218,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063480648,
+      "us_per_call": 3.174032
+    }
+  },
+  {
+    "name": "micro-ns-a-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.065973408,
+    "process_wall_s": 0.0670565579785034,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063802138,\"us_per_call\":3.190107}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.065973408,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.7008278518915176e-07
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063802138,
+      "us_per_call": 3.190107
+    }
+  },
+  {
+    "name": "micro-ns-a-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.065461828,
+    "process_wall_s": 0.06654357793740928,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063326808,\"us_per_call\":3.166340}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.065461828,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063326808,
+      "us_per_call": 3.16634
+    }
+  },
+  {
+    "name": "micro-S3-null-0",
+    "mode": "S3",
+    "wall_s": 0.07272884796839207,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067971608,\"us_per_call\":3.398580}\n",
+    "stderr": "",
+    "exec_s": 0.07224929798394442,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.331e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 8.612e-05
+    },
+    "settlement": {
+      "commit_s": 1.75e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067971608,
+      "us_per_call": 3.39858
+    }
+  },
+  {
+    "name": "micro-S3-null-1",
+    "mode": "S3",
+    "wall_s": 0.07291687792167068,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068105218,\"us_per_call\":3.405261}\n",
+    "stderr": "",
+    "exec_s": 0.07245972810778767,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.761e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 6.888e-05
+    },
+    "settlement": {
+      "commit_s": 1.418e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068105218,
+      "us_per_call": 3.405261
+    }
+  },
+  {
+    "name": "micro-S3-null-2",
+    "mode": "S3",
+    "wall_s": 0.07265158696100116,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067942628,\"us_per_call\":3.397131}\n",
+    "stderr": "",
+    "exec_s": 0.0722357570193708,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00046289
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.248e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 5.782e-05
+    },
+    "settlement": {
+      "commit_s": 1.191e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067942628,
+      "us_per_call": 3.397131
+    }
+  },
+  {
+    "name": "micro-S3-a-0",
+    "mode": "S3",
+    "wall_s": 0.09676384704653174,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.091917227,\"us_per_call\":4.595861}\n",
+    "stderr": "",
+    "exec_s": 0.09629540692549199,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00045068
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.043e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11839,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 8.922e-05
+    },
+    "settlement": {
+      "commit_s": 8.58e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.091917227,
+      "us_per_call": 4.595861
+    }
+  },
+  {
+    "name": "micro-S3-a-1",
+    "mode": "S3",
+    "wall_s": 0.10233418690040708,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.097502047,\"us_per_call\":4.875102}\n",
+    "stderr": "",
+    "exec_s": 0.10184817702975124,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00044733
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.763e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11081,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 0.00011108
+    },
+    "settlement": {
+      "commit_s": 1.228e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.097502047,
+      "us_per_call": 4.875102
+    }
+  },
+  {
+    "name": "micro-S3-a-2",
+    "mode": "S3",
+    "wall_s": 0.10007182706613094,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.095098257,\"us_per_call\":4.754913}\n",
+    "stderr": "",
+    "exec_s": 0.0995684169465676,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.00045556
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.786e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 10242,
+      "fallback": false,
+      "overflow": false,
+      "scan_s": 9.167e-05
+    },
+    "settlement": {
+      "commit_s": 8.98e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.095098257,
+      "us_per_call": 4.754913
+    }
+  }
+]

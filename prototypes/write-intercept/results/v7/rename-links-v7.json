@@ -1,0 +1,306 @@
+[
+  {
+    "edit": false,
+    "outside": false,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 0.00033111
+    },
+    "result": {
+      "commit_s": 0.00252433,
+      "conflicts": [
+        "dir/one",
+        "dir/two"
+      ],
+      "outcome": "Conflict",
+      "reason": "hidden 或宿主多链接文件",
+      "rebuild_s": 0.00248818
+    },
+    "difference": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "dir/one",
+      "dir/two",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/one",
+      "moved/two"
+    ],
+    "inode_preserved": false,
+    "pass": false
+  },
+  {
+    "edit": false,
+    "outside": true,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 0.00033033
+    },
+    "result": {
+      "commit_s": 0.00282793,
+      "conflicts": [
+        "dir/one",
+        "dir/two",
+        "outside-hard"
+      ],
+      "outcome": "Conflict",
+      "reason": "hidden 或宿主多链接文件",
+      "rebuild_s": 0.00279217
+    },
+    "difference": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "dir/one",
+      "dir/two",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/one",
+      "moved/two",
+      "outside-hard"
+    ],
+    "inode_preserved": false,
+    "pass": false
+  },
+  {
+    "edit": true,
+    "outside": false,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "events": 6,
+      "fallback": false,
+      "scan_s": 0.00030816
+    },
+    "result": {
+      "commit_s": 0.00248421,
+      "conflicts": [
+        "dir/one",
+        "dir/two"
+      ],
+      "outcome": "Conflict",
+      "reason": "hidden 或宿主多链接文件",
+      "rebuild_s": 0.00244766
+    },
+    "difference": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "dir/one",
+      "dir/two",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/one",
+      "moved/two"
+    ],
+    "inode_preserved": false,
+    "pass": false
+  },
+  {
+    "edit": true,
+    "outside": true,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "events": 6,
+      "fallback": false,
+      "scan_s": 0.00031643
+    },
+    "result": {
+      "commit_s": 0.00289107,
+      "conflicts": [
+        "dir/one",
+        "dir/two",
+        "outside-hard"
+      ],
+      "outcome": "Conflict",
+      "reason": "hidden 或宿主多链接文件",
+      "rebuild_s": 0.00285527
+    },
+    "difference": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "dir/one",
+      "dir/two",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002",
+      "moved/one",
+      "moved/two",
+      "outside-hard"
+    ],
+    "inode_preserved": false,
+    "pass": false
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "name": "micro-none-a-1-v7",
+  "mode": "none",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/intercept-v3",
+    "none",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/micro-v7",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v3/micro-none-a-1-v7",
+    "1200",
+    "--",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/probe-v3",
+    "micro-path",
+    "a",
+    "20000"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 3644446,
+  "process_wall_s": 0.06570182798895985,
+  "stats": {
+    "mode": "none",
+    "wall_s": 0.064629768,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.300359144806862e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063667929,\"us_per_call\":3.183396}\n",
+  "stderr": "",
+  "observations": [
+    {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063667929,
+      "us_per_call": 3.183396
+    }
+  ]
+}

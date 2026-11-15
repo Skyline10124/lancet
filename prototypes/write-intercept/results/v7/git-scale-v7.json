@@ -1,0 +1,404 @@
+[
+  {
+    "files": 10000,
+    "rep": 0,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0006421499419957399,
+        "index_bytes": 830072,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.037408479
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 0.00014234
+    },
+    "commit": {
+      "apply_s": 0.0035619699999999976,
+      "check_to_replace_ns": [
+        94710,
+        42070,
+        614140
+      ],
+      "commit_s": 0.204469384,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.15317551500629634,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "index_s": 3.141e-05,
+      "outcome": "Committed",
+      "partial_visible_s": 0.00078165,
+      "prepare_s": 0.200872004,
+      "rebuild_s": 0.0,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/git-scale-10000/transactions/1794749532967945733"
+    },
+    "status": "",
+    "index_bytes": 830029
+  },
+  {
+    "files": 10000,
+    "rep": 1,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.030272819
+      },
+      "events": 2,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0817864170530811,
+        "index_bytes": 830072,
+        "index_rebuilt": true
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.116856527
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 9.536e-05
+    },
+    "commit": {
+      "apply_s": 0.0035049199999999947,
+      "check_to_replace_ns": [
+        101230,
+        53300,
+        606201
+      ],
+      "commit_s": 0.177094774,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.12751695595216006,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "index_s": 1.942e-05,
+      "outcome": "Committed",
+      "partial_visible_s": 0.000794811,
+      "prepare_s": 0.173566354,
+      "rebuild_s": 0.0,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/git-scale-10000/transactions/1794749533412663160"
+    },
+    "status": "",
+    "index_bytes": 830029
+  },
+  {
+    "files": 10000,
+    "rep": 2,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.030357839,
+        "synced": 1
+      },
+      "events": 2,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.07972099806647748,
+        "index_bytes": 830072,
+        "index_rebuilt": true
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.114985966
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 0.00011614
+    },
+    "commit": {
+      "apply_s": 0.0033076800000000073,
+      "check_to_replace_ns": [
+        94700,
+        41330,
+        614840
+      ],
+      "commit_s": 0.179366865,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.12955833598971367,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "index_s": 1.727e-05,
+      "outcome": "Committed",
+      "partial_visible_s": 0.00078054,
+      "prepare_s": 0.176037525,
+      "rebuild_s": 0.0,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/git-scale-10000/transactions/1794749533861530286"
+    },
+    "status": "",
+    "index_bytes": 830029
+  },
+  {
+    "files": 100000,
+    "rep": 0,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0008228800725191832,
+        "index_bytes": 8031073,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.044404899
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 2,
+      "fallback": false,
+      "scan_s": 0.00014317
+    },
+    "commit": {
+      "apply_s": 0.013685108999999862,
+      "check_to_replace_ns": [
+        65210,
+        47450,
+        5700920
+      ],
+      "commit_s": 4.880223063,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.4984012650093064,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "index_s": 1.757e-05,
+      "outcome": "Committed",
+      "partial_visible_s": 0.00584336,
+      "prepare_s": 4.866515684,
+      "rebuild_s": 0.0,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/git-scale-100000/transactions/1794749648762293522"
+    },
+    "status": "",
+    "index_bytes": 8031028
+  },
+  {
+    "files": 100000,
+    "rep": 1,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.32053692
+      },
+      "events": 2,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.26964701106771827,
+        "index_bytes": 8031073,
+        "index_rebuilt": true
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.30863204
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 9.606e-05
+    },
+    "commit": {
+      "apply_s": 0.01362075000000007,
+      "check_to_replace_ns": [
+        74530,
+        41670,
+        5584430
+      ],
+      "commit_s": 0.722730619,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.4938110349467024,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "index_s": 1.804e-05,
+      "outcome": "Committed",
+      "partial_visible_s": 0.0057313,
+      "prepare_s": 0.709087359,
+      "rebuild_s": 0.0,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/git-scale-100000/transactions/1794749655072218202"
+    },
+    "status": "",
+    "index_bytes": 8031028
+  },
+  {
+    "files": 100000,
+    "rep": 2,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.30028105,
+        "synced": 1
+      },
+      "events": 2,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.23786070302594453,
+        "index_bytes": 8031073,
+        "index_rebuilt": true
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.276314341
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "d000/f000000"
+        ]
+      },
+      "events": 3,
+      "fallback": false,
+      "scan_s": 8.934e-05
+    },
+    "commit": {
+      "apply_s": 0.013453018999999955,
+      "check_to_replace_ns": [
+        62270,
+        40700,
+        5538179
+      ],
+      "commit_s": 0.552479203,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.47118797595612705,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "index_s": 1.82e-05,
+      "outcome": "Committed",
+      "partial_visible_s": 0.005670609,
+      "prepare_s": 0.539003314,
+      "rebuild_s": 0.0,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-dda7fff2/prototypes/write-intercept/.scratch/states-v7/git-scale-100000/transactions/1794749657158715859"
+    },
+    "status": "",
+    "index_bytes": 8031028
+  }
+]

@@ -1,0 +1,10 @@
+{
+ "kernel": "6.12.0-211.68.1+2.1.el10_2_ciq.x86_64",
+ "scratch": "/tmp/claude-1000/-home-gcp-vegas-Dev-lancet/f548fe51-123a-43a5-9193-b30d9556e855/scratchpad/syncfs-probe",
+ "syncfs_quiet_ms": 0.5,
+ "fsync_small_quiet_ms": 1.2,
+ "syncfs_after_1GiB_unrelated_ms": 7244.9,
+ "fsync_small_after_1GiB_unrelated_ms": 117.4,
+ "syncfs_after_2GiB_unrelated_ms": 14528.6,
+ "fsync_small_after_2GiB_unrelated_ms": 183.7
+}

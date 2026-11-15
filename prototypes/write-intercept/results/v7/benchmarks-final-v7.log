@@ -1,0 +1,64 @@
+checkout A none b 0 0.250646953 None
+checkout A none b 1 0.251748502 None
+checkout A none b 2 0.250207782 None
+checkout B none a 0 0.232997343 None
+checkout B none b 0 0.244769603 None
+checkout B none a 1 0.246103903 None
+checkout B none b 1 0.243812643 None
+checkout B none a 2 0.245152393 None
+checkout B none b 2 0.248221393 None
+checkout A ns b 0 0.279613332 None
+checkout A ns b 1 0.274859022 None
+checkout A ns b 2 0.277825272 None
+checkout B ns a 0 0.257800122 None
+checkout B ns b 0 0.220077173 None
+checkout B ns a 1 0.251377742 None
+checkout B ns b 1 0.250967053 None
+checkout B ns a 2 0.247005643 None
+checkout B ns b 2 0.246313262 None
+checkout A S3 b 0 5.017621418926865 Committed
+checkout A S3 b 1 5.430902534979396 Committed
+checkout A S3 b 2 4.80983673396986 Committed
+checkout B S3 a 0 3.089703515986912 Committed
+checkout B S3 b 0 2.004335999954492 Committed
+checkout B S3 a 1 1.8243767049862072 Committed
+checkout B S3 b 1 1.7934121459256858 Committed
+checkout B S3 a 2 1.8220098749734461 Committed
+checkout B S3 b 2 1.8163292750250548 Committed
+micro done
+merge S3 1 0 Committed 0.306790791
+merge S3 1 1 Committed 0.164914775
+merge S3 1 2 Committed 0.01037778
+merge S3 100 0 Committed 0.041874109
+merge S3 100 1 Committed 0.075688288
+merge S3 100 2 Committed 0.071186148
+merge S3 4000 0 Committed 0.888819003
+merge S3 4000 1 Committed 3.441552366
+merge S3 4000 2 Committed 5.189091835
+rename 1000 none 0 0.00150014
+rename 1000 none 1 0.00134233
+rename 1000 none 2 0.00137395
+rename 1000 ns 0 0.00248416
+rename 1000 ns 1 0.002378179
+rename 1000 ns 2 0.002270869
+rename 1000 S3 0 0.09888567705638707
+rename 1000 S3 1 0.09603031701408327
+rename 1000 S3 2 0.09792974696028978
+rename 10000 none 0 0.00175354
+rename 10000 none 1 0.0014009
+rename 10000 none 2 0.00133349
+rename 10000 ns 0 0.00246634
+rename 10000 ns 1 0.00238617
+rename 10000 ns 2 0.00234209
+rename 10000 S3 0 0.877826513024047
+rename 10000 S3 1 1.1310405950061977
+rename 10000 S3 2 1.1361159259686247
+build none 0 0 55.377460287
+build none 1 0 54.077734406
+build none 2 0 53.843485703
+build ns 0 0 53.944576309
+build ns 1 0 53.872405521
+build ns 2 0 53.449270545
+build S3 0 0 54.67445607599802
+build S3 1 0 54.17647044197656
+build S3 2 0 54.57674233103171

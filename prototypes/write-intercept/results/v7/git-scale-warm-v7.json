@@ -1,0 +1,131 @@
+[
+  {
+    "files": 10000,
+    "rep": 0,
+    "rpc_s": 0.03468756889924407,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.037771999
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0006344299763441086,
+        "index_bytes": 830072,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.034547949
+    }
+  },
+  {
+    "files": 10000,
+    "rep": 1,
+    "rpc_s": 0.03400511899963021,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0006335590733215213,
+        "index_bytes": 830072,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.033866779
+    }
+  },
+  {
+    "files": 10000,
+    "rep": 2,
+    "rpc_s": 0.03342340898234397,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0006003299495205283,
+        "index_bytes": 830072,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.033303359
+    }
+  },
+  {
+    "files": 100000,
+    "rep": 0,
+    "rpc_s": 0.04002935905009508,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.419354998
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0006638499908149242,
+        "index_bytes": 8031073,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.039657659
+    }
+  },
+  {
+    "files": 100000,
+    "rep": 1,
+    "rpc_s": 0.041639389004558325,
+    "begin": {
+      "background": {
+        "rearmed": 0,
+        "scan_s": 0.299946571
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.0008178899297490716,
+        "index_bytes": 8031073,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.041500949
+    }
+  },
+  {
+    "files": 100000,
+    "rep": 2,
+    "rpc_s": 0.04214037908241153,
+    "begin": {
+      "background": {
+        "error": "扫描让出合并窗口"
+      },
+      "events": 0,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.000829370110295713,
+        "index_bytes": 8031073,
+        "index_rebuilt": false
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.041980669
+    }
+  }
+]
