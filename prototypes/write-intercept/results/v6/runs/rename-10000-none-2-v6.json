@@ -1,0 +1,40 @@
+{
+  "name": "rename-10000-none-2-v6",
+  "mode": "none",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/intercept-v3",
+    "none",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/rename-10000-v6",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v3/rename-10000-none-2-v6",
+    "1200",
+    "--",
+    "mv",
+    "dir",
+    "moved"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 3422162,
+  "process_wall_s": 0.0022634799825027585,
+  "stats": {
+    "mode": "none",
+    "wall_s": 0.00130991,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.3993121683597565e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "",
+  "stderr": "",
+  "observations": []
+}

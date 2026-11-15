@@ -1,0 +1,38 @@
+{
+  "name": "fixed-100000-none-2-v6",
+  "mode": "none",
+  "command": [
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/intercept-v3",
+    "none",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-100000-0-v6",
+    "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v3/fixed-100000-none-2-v6",
+    "1200",
+    "--",
+    "true"
+  ],
+  "environment": {},
+  "returncode": 0,
+  "node_pid": 3398233,
+  "process_wall_s": 0.0016176500357687473,
+  "stats": {
+    "mode": "none",
+    "wall_s": 0.00075423,
+    "code": 0,
+    "calls": 0,
+    "registered": 0,
+    "clones": 0,
+    "denied": 0,
+    "errors": 0,
+    "events": 0,
+    "emulated": 0,
+    "timeout": 0,
+    "race_handshakes": 0,
+    "digest_s": 1.5005934983491898e-07
+  },
+  "ledger": [],
+  "moves": [],
+  "changes": [],
+  "stdout": "",
+  "stderr": "",
+  "observations": []
+}

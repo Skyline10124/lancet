@@ -1,0 +1,61 @@
+build none 0 0 56.068936376
+build none 1 0 53.743434846
+build none 2 0 53.662726239
+build ns 0 0 53.804559655
+build ns 1 0 53.838740704
+build ns 2 0 53.925294482
+build B3 0 0 54.897473482
+build B3 1 0 55.097306766
+build B3 2 0 54.879277073
+build S2 0 0 54.28810516092926
+build S2 1 0 53.86879207298625
+build S2 2 0 55.27810201002285
+build S3 0 0 54.483949124929495
+build S3 1 0 53.90934957109857
+build S3 2 0 54.015544348047115
+checkout A none b 0 0.251787932 None
+checkout A none b 1 0.224090663 None
+checkout A none b 2 0.249445863 None
+checkout B none a 0 0.254867263 None
+checkout B none b 0 0.246221803 None
+checkout B none a 1 0.247767923 None
+checkout B none b 1 0.245020962 None
+checkout B none a 2 0.244141323 None
+checkout B none b 2 0.246730823 None
+checkout A ns b 0 0.272996362 None
+checkout A ns b 1 0.274362031 None
+checkout A ns b 2 0.274428432 None
+checkout B ns a 0 0.217913724 None
+checkout B ns b 0 0.243030913 None
+checkout B ns a 1 0.243855353 None
+checkout B ns b 1 0.248993613 None
+checkout B ns a 2 0.244711262 None
+checkout B ns b 2 0.245991503 None
+checkout A B3 b 0 14.806419404 None
+checkout A B3 b 1 12.736273205 None
+checkout A B3 b 2 13.801717204 None
+checkout B B3 a 0 12.560764271 None
+checkout B B3 b 0 12.505268762 None
+checkout B B3 a 1 12.474659973 None
+checkout B B3 b 1 12.671173018 None
+checkout B B3 a 2 12.817306763 None
+checkout B B3 b 2 13.296620968 None
+checkout A S2 b 0 5.601940673892386 Committed
+checkout A S2 b 1 5.553041348932311 Committed
+checkout A S2 b 2 5.624896012945101 Committed
+checkout B S2 a 0 3.2069123049732298 Committed
+checkout B S2 b 0 3.2788935840362683 Committed
+checkout B S2 a 1 3.282328963978216 Committed
+checkout B S2 b 1 3.1486787679605186 Committed
+checkout B S2 a 2 3.1876215849770233 Committed
+checkout B S2 b 2 3.248423703946173 Committed
+checkout A S3 b 0 11.02801044692751 Committed
+checkout A S3 b 1 7.350943604949862 Committed
+checkout A S3 b 2 7.193204040057026 Committed
+checkout B S3 a 0 5.222443950013258 Committed
+checkout B S3 b 0 7.636559088947251 Committed
+checkout B S3 a 1 5.106413457076997 Committed
+checkout B S3 b 1 5.123748198035173 Committed
+checkout B S3 a 2 5.077945942990482 Committed
+checkout B S3 b 2 5.145228231092915 Committed
+micro done

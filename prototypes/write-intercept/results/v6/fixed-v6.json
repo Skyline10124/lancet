@@ -1,0 +1,2342 @@
+[
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 0,
+    "runrep": 0,
+    "wall_s": 0.010203349986113608,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.021e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00892677
+    },
+    "commit": {
+      "commit_s": 1.54e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 0,
+    "runrep": 1,
+    "wall_s": 0.009998719091527164,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.062e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.008963609
+    },
+    "commit": {
+      "commit_s": 9.75e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 0,
+    "runrep": 2,
+    "wall_s": 0.009843249921686947,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.439e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00877555
+    },
+    "commit": {
+      "commit_s": 8.65e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "name": "fixed-3000-none-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00080777,
+    "process_wall_s": 0.002919450053013861,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00080777,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 2.00001522898674e-07
+    },
+    "files": 3000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-3000-none-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00077087,
+    "process_wall_s": 0.0016560700023546815,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00077087,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.6996636986732483e-07
+    },
+    "files": 3000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-3000-none-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00073617,
+    "process_wall_s": 0.0015776499640196562,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00073617,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4994293451309204e-07
+    },
+    "files": 3000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-3000-ns-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00193122,
+    "process_wall_s": 0.002847019932232797,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00193122,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.300359144806862e-07
+    },
+    "files": 3000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-3000-ns-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00179411,
+    "process_wall_s": 0.0026778699830174446,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00179411,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 3000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-3000-ns-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00176629,
+    "process_wall_s": 0.0026935600908473134,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00176629,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.300359144806862e-07
+    },
+    "files": 3000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-3000-B3-0",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00244956,
+    "process_wall_s": 0.003406379953958094,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00244956,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.2991949915885925e-07
+    },
+    "files": 3000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-3000-B3-1",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00239929,
+    "process_wall_s": 0.003328719991259277,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00239929,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.4004763215780258e-07
+    },
+    "files": 3000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-3000-B3-2",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00236502,
+    "process_wall_s": 0.003244939958676696,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00236502,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.3993121683597565e-07
+    },
+    "files": 3000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-3000-S2-0",
+    "mode": "S2",
+    "wall_s": 0.003318629926070571,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.002730450010858476,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-3000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-3000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 4000,
+      "events": 0,
+      "git_snapshot_s": 0.00011462,
+      "overflow": false,
+      "sync_s": 0.00034234,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.512e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 3000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-3000-S2-1",
+    "mode": "S2",
+    "wall_s": 0.0025984899839386344,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.0022722799330949783,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-3000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-3000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 4000,
+      "events": 0,
+      "git_snapshot_s": 7.537e-05,
+      "overflow": false,
+      "sync_s": 0.00013713,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.033e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 3000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-3000-S2-2",
+    "mode": "S2",
+    "wall_s": 0.00258842995390296,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.0022547499975189567,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-3000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-3000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 4000,
+      "events": 0,
+      "git_snapshot_s": 7.663e-05,
+      "overflow": false,
+      "sync_s": 0.00014878,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 3.911e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 3000,
+    "rep": 2
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 1,
+    "runrep": 0,
+    "wall_s": 0.01031520904507488,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.22e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00903611
+    },
+    "commit": {
+      "commit_s": 1.059e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 1,
+    "runrep": 1,
+    "wall_s": 0.009948109975084662,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.707e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00890991
+    },
+    "commit": {
+      "commit_s": 9.95e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 1,
+    "runrep": 2,
+    "wall_s": 0.009822289925068617,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.729e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00876974
+    },
+    "commit": {
+      "commit_s": 1.009e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 2,
+    "runrep": 0,
+    "wall_s": 0.010225009988062084,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.116e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00896778
+    },
+    "commit": {
+      "commit_s": 1.756e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 2,
+    "runrep": 1,
+    "wall_s": 0.00988718995358795,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.744e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00887104
+    },
+    "commit": {
+      "commit_s": 1.066e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 3000,
+    "rep": 2,
+    "runrep": 2,
+    "wall_s": 0.009951889980584383,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.12e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00881214
+    },
+    "commit": {
+      "commit_s": 1.158e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 0,
+    "runrep": 0,
+    "wall_s": 0.02596983895637095,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.927e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.022578319
+    },
+    "commit": {
+      "commit_s": 6.428e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 0,
+    "runrep": 1,
+    "wall_s": 0.026078779017552733,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.144e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.022692779
+    },
+    "commit": {
+      "commit_s": 1.96e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 0,
+    "runrep": 2,
+    "wall_s": 0.02595569903496653,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.628e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.02260591
+    },
+    "commit": {
+      "commit_s": 1.762e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "name": "fixed-10000-none-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00081094,
+    "process_wall_s": 0.0019474399741739035,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00081094,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 10000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-10000-none-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.0007545,
+    "process_wall_s": 0.001681820023804903,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.0007545,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 10000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-10000-none-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00077144,
+    "process_wall_s": 0.0016147600254043937,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00077144,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.3993121683597565e-07
+    },
+    "files": 10000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-10000-ns-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00193658,
+    "process_wall_s": 0.002817810047417879,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00193658,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4004763215780258e-07
+    },
+    "files": 10000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-10000-ns-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00178206,
+    "process_wall_s": 0.0026461100205779076,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00178206,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 2.300366759300232e-07
+    },
+    "files": 10000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-10000-ns-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00172045,
+    "process_wall_s": 0.0026443200185894966,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00172045,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4004763215780258e-07
+    },
+    "files": 10000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-10000-B3-0",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00242859,
+    "process_wall_s": 0.0032976700458675623,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00242859,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 10000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-10000-B3-1",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.0023226,
+    "process_wall_s": 0.0031948400428518653,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.0023226,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.300359144806862e-07
+    },
+    "files": 10000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-10000-B3-2",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00237136,
+    "process_wall_s": 0.0032629199558869004,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00237136,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.6996636986732483e-07
+    },
+    "files": 10000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-10000-S2-0",
+    "mode": "S2",
+    "wall_s": 0.003596539027057588,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.002807589014992118,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-10000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-10000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 11000,
+      "events": 0,
+      "git_snapshot_s": 6.9e-05,
+      "overflow": false,
+      "sync_s": 0.00054239,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.84e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 10000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-10000-S2-1",
+    "mode": "S2",
+    "wall_s": 0.0027001999551430345,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.0023669200018048286,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-10000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-10000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 11000,
+      "events": 0,
+      "git_snapshot_s": 7.6e-05,
+      "overflow": false,
+      "sync_s": 0.00013773,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.67e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 10000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-10000-S2-2",
+    "mode": "S2",
+    "wall_s": 0.002624379936605692,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.002296179998666048,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-10000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-10000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 11000,
+      "events": 0,
+      "git_snapshot_s": 7.201e-05,
+      "overflow": false,
+      "sync_s": 0.00013899,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.413e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 10000,
+    "rep": 2
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 1,
+    "runrep": 0,
+    "wall_s": 0.02561959996819496,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.618e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.02219008
+    },
+    "commit": {
+      "commit_s": 2.639e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 1,
+    "runrep": 1,
+    "wall_s": 0.025145319057628512,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.55e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.021950479
+    },
+    "commit": {
+      "commit_s": 2.893e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 1,
+    "runrep": 2,
+    "wall_s": 0.025006009032949805,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.184e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.021757949
+    },
+    "commit": {
+      "commit_s": 1.506e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 2,
+    "runrep": 0,
+    "wall_s": 0.025288939010351896,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.547e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.021887999
+    },
+    "commit": {
+      "commit_s": 1.623e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 2,
+    "runrep": 1,
+    "wall_s": 0.026181648951023817,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.712e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.022954709
+    },
+    "commit": {
+      "commit_s": 1.762e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 10000,
+    "rep": 2,
+    "runrep": 2,
+    "wall_s": 0.02583164907991886,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00010355
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.022283679
+    },
+    "commit": {
+      "commit_s": 1.693e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 0,
+    "runrep": 0,
+    "wall_s": 0.6537837500218302,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.148131475,
+        "sync_s": 0.31462713,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00014867
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.238223653
+    },
+    "commit": {
+      "commit_s": 0.00031271,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 0,
+    "runrep": 1,
+    "wall_s": 0.6490929200081155,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.147742155,
+        "sync_s": 0.31344108,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00015862
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.240533203
+    },
+    "commit": {
+      "commit_s": 3.161e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 0,
+    "runrep": 2,
+    "wall_s": 0.6340045710094273,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.139269406,
+        "sync_s": 0.305317381,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00013063
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.235840963
+    },
+    "commit": {
+      "commit_s": 2.514e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "name": "fixed-100000-none-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00081495,
+    "process_wall_s": 0.001961439964361489,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00081495,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.6996636986732483e-07
+    },
+    "files": 100000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-100000-none-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00074843,
+    "process_wall_s": 0.0016148400027304888,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00074843,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.6996636986732483e-07
+    },
+    "files": 100000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-100000-none-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.00075423,
+    "process_wall_s": 0.0016176500357687473,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.00075423,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 100000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-100000-ns-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00191406,
+    "process_wall_s": 0.0027943099848926067,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00191406,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 100000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-100000-ns-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00174944,
+    "process_wall_s": 0.002642689971253276,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00174944,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 3.300374373793602e-07
+    },
+    "files": 100000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-100000-ns-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.00173321,
+    "process_wall_s": 0.0025958099868148565,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.00173321,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 100000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-100000-B3-0",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00244043,
+    "process_wall_s": 0.003297940012998879,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00244043,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 2.3993197828531265e-07
+    },
+    "files": 100000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-100000-B3-1",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00235738,
+    "process_wall_s": 0.003252049908041954,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00235738,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.2991949915885925e-07
+    },
+    "files": 100000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-100000-B3-2",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.00237358,
+    "process_wall_s": 0.0032399200135841966,
+    "stdout": "",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.00237358,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "files": 100000,
+    "rep": 2
+  },
+  {
+    "name": "fixed-100000-S2-0",
+    "mode": "S2",
+    "wall_s": 0.011329910019412637,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.0029327700613066554,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-100000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-100000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 101000,
+      "events": 0,
+      "git_snapshot_s": 8.951e-05,
+      "overflow": false,
+      "sync_s": 0.00804334,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 6.191e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 100000,
+    "rep": 0
+  },
+  {
+    "name": "fixed-100000-S2-1",
+    "mode": "S2",
+    "wall_s": 0.0028309900080785155,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.0023935299832373857,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-100000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-100000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 101000,
+      "events": 0,
+      "git_snapshot_s": 8.281e-05,
+      "overflow": false,
+      "sync_s": 0.00016434,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.591e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 100000,
+    "rep": 1
+  },
+  {
+    "name": "fixed-100000-S2-2",
+    "mode": "S2",
+    "wall_s": 0.003254879033192992,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "exec_s": 0.002724118996411562,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/scale-100000-0-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-scale-100000-0-v6",
+      "--",
+      "true"
+    ],
+    "begin": {
+      "entries": 101000,
+      "events": 0,
+      "git_snapshot_s": 0.00011074,
+      "overflow": false,
+      "sync_s": 0.00021908,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 4.97e-05,
+      "uncertain_history": false,
+      "watches": 1001
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "files": 100000,
+    "rep": 2
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 1,
+    "runrep": 0,
+    "wall_s": 0.6582515500485897,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.145026156,
+        "sync_s": 0.310755771,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012624
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.240891443
+    },
+    "commit": {
+      "commit_s": 2.192e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 1,
+    "runrep": 1,
+    "wall_s": 0.6892500290414318,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.147094526,
+        "sync_s": 0.33138131,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.0001417
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.260926703
+    },
+    "commit": {
+      "commit_s": 3.676e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 1,
+    "runrep": 2,
+    "wall_s": 0.6515274610137567,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.144732286,
+        "sync_s": 0.314995051,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012827
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.238417343
+    },
+    "commit": {
+      "commit_s": 4.319e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 2,
+    "runrep": 0,
+    "wall_s": 0.6616158899851143,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.139851526,
+        "sync_s": 0.308052401,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00014231
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.258301232
+    },
+    "commit": {
+      "commit_s": 2.372e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 2,
+    "runrep": 1,
+    "wall_s": 0.6587968899402767,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.150646095,
+        "sync_s": 0.32337551,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00015316
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.239139233
+    },
+    "commit": {
+      "commit_s": 2.724e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  },
+  {
+    "mode": "S3",
+    "files": 100000,
+    "rep": 2,
+    "runrep": 2,
+    "wall_s": 0.6460833901073784,
+    "begin": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.147024815,
+        "sync_s": 0.31256092,
+        "synced": 0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00012245
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.237886742
+    },
+    "commit": {
+      "commit_s": 3.114e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    }
+  }
+]

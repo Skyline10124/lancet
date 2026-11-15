@@ -1,0 +1,15 @@
+{
+  "shadow-v6/src/base-v6.rs": "114215c5c212323c10d1bb96f7309c12b540b5acddb02f956dbad2a867610cb5",
+  "shadow-v6/src/main-v6.rs": "f2b005e28a5b05ae772bdc1a743dc5d9b8ef3d7b1a0256b80f85c08189735028",
+  "shadow-v6/src/scan-v6.rs": "647757aa5971a727e4afeaea6ad7eea1495100ecc606d1691f9ba63c68b5339f",
+  "shadow-v6/src/transaction-v6.rs": "78299afb3a2017c11914021f439bc2f1a810b924631a3b5f19f5d24dc9d58271",
+  "shadow-v6/Cargo.toml": "0af832b83b3eba1eba148d641c200355fc984fc9c51c591e9bf033ac46a0a8c6",
+  "shadow-v6/Cargo.lock": "ec6d26aa9d87104a935d6cf433bd200a8812f7ea46b91f7523347cb1dd01045d",
+  "git-v6.py": "fe302b743c0ffc1b16d99bb5ab3c14e6509e1c8fdc2d7cbbc0542849368f7d37",
+  "namespace-v6.c": "cb330d2d6d0c0e12f0201472c141a51f5984fc97699ef19f54dd2d2f00816e57",
+  ".scratch/rust-target-v6/release/shadow-v6": "8a2a46798dc9e218f6f2e068a7f00d4e52476bcfea53c0f15b5b1839a0ef3f77",
+  ".scratch/rust-target-v5/release/shadow-v5": "27c66bbb64c27518780cd504dbccdad72e405a9ab9f8344ad80a07c2bf3d3ae1",
+  ".scratch/intercept-v3": "d413be375e9003e4854583485f0abe0e268663d9e0460518b3b4a1227ce8f3d6",
+  ".scratch/namespace-v4": "542b73d1d7150adcdac26f5360105b6242e6f3be099d14f17ea5d3b6b2927b53",
+  ".scratch/namespace-v6": "6c27cea5e51317c0c9a018f40e1ea0224c8bc3c9174c4eba36092bd0f0a5e260"
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "command": [
+      "uname",
+      "-a"
+    ],
+    "code": 0,
+    "stdout": "Linux gcp 6.12.0-211.68.1+2.1.el10_2_ciq.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Oct 31 02:03:16 UTC 2026 x86_64 GNU/Linux\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "rustc",
+      "--version"
+    ],
+    "code": 0,
+    "stdout": "rustc 1.96.0 (ac68faa20 2026-05-25)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "code": 0,
+    "stdout": "git version 2.52.0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "getenforce"
+    ],
+    "code": 0,
+    "stdout": "Enforcing\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "df",
+      "-T",
+      "prototypes/write-intercept"
+    ],
+    "code": 0,
+    "stdout": "Filesystem     Type 1K-blocks      Used Available Use% Mounted on\n/dev/nvme0n1p2 xfs  261871664 188921320  72950344  73% /\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nproc"
+    ],
+    "code": 0,
+    "stdout": "8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "cat",
+      "/proc/sys/fs/inotify/max_user_watches"
+    ],
+    "code": 0,
+    "stdout": "250895\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "cat",
+      "/proc/sys/fs/inotify/max_queued_events"
+    ],
+    "code": 0,
+    "stdout": "16384\n",
+    "stderr": ""
+  }
+]

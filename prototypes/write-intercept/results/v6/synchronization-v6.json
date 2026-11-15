@@ -1,0 +1,1433 @@
+[
+  {
+    "case": "long-lived-mmap",
+    "rep": 0,
+    "delay_s": 0.10540770692750812,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 4,
+        "scan_s": 0.00173509,
+        "sync_s": 0.00449629,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.0008808
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 1,
+    "delay_s": 0.10047125699929893,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.0006251,
+        "sync_s": 0.00322627,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00086928
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 2,
+    "delay_s": 0.10204614698886871,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00067639,
+        "sync_s": 0.00339019,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00077315
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 3,
+    "delay_s": 0.10295651701744646,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00056007,
+        "sync_s": 0.00594387,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00087912
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 4,
+    "delay_s": 0.10297610692214221,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.000598799,
+        "sync_s": 0.005674619,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00092119
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 5,
+    "delay_s": 0.10305855702608824,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00098317,
+        "sync_s": 0.00580406,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00072762
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 6,
+    "delay_s": 0.09861052711494267,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00062952,
+        "sync_s": 0.00283832,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00091878
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 7,
+    "delay_s": 0.10305540694389492,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00055697,
+        "sync_s": 0.00578755,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00066296
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 8,
+    "delay_s": 0.10107728699222207,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00053233,
+        "sync_s": 0.00416316,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.000858559
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 9,
+    "delay_s": 0.1011802569264546,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00064868,
+        "sync_s": 0.00272099,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00065554
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 10,
+    "delay_s": 0.10000119695905596,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00059729,
+        "sync_s": 0.00447603,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00077417
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 11,
+    "delay_s": 0.10126128699630499,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00065494,
+        "sync_s": 0.00574125,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00075378
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 12,
+    "delay_s": 0.10026774695143104,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00064567,
+        "sync_s": 0.00291423,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00078527
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 13,
+    "delay_s": 0.10230411705560982,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00059903,
+        "sync_s": 0.00458677,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00063817
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 14,
+    "delay_s": 0.10697248706128448,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00064048,
+        "sync_s": 0.00959156,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00075503
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 15,
+    "delay_s": 0.09973753697704524,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00077894,
+        "sync_s": 0.00286168,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00067158
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 16,
+    "delay_s": 0.09973132703453302,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00105826,
+        "sync_s": 0.0030707,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00075342
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 17,
+    "delay_s": 0.09962928702589124,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00075861,
+        "sync_s": 0.00266434,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00069649
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 18,
+    "delay_s": 0.10146874596830457,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00060683,
+        "sync_s": 0.00282849,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.0006369
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 19,
+    "delay_s": 0.10105240694247186,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00074865,
+        "sync_s": 0.00252168,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00084615
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 20,
+    "delay_s": 0.10065387701615691,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00060957,
+        "sync_s": 0.00269159,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00074032
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 21,
+    "delay_s": 0.1024494570447132,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00071316,
+        "sync_s": 0.00510305,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00088231
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 22,
+    "delay_s": 0.10250300704501569,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00058975,
+        "sync_s": 0.00531891,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00084678
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 23,
+    "delay_s": 0.1002812460064888,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.0005728,
+        "sync_s": 0.00320198,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00062886
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 24,
+    "delay_s": 0.10048117698170245,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00057319,
+        "sync_s": 0.00264848,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00070554
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 25,
+    "delay_s": 0.09872546698898077,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00055662,
+        "sync_s": 0.00240414,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00077414
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 26,
+    "delay_s": 0.10013799706939608,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00061981,
+        "sync_s": 0.00276311,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00081807
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 27,
+    "delay_s": 0.10260023700539023,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.0005904,
+        "sync_s": 0.00541627,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00069063
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 28,
+    "delay_s": 0.10283514705952257,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00066533,
+        "sync_s": 0.00438099,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00079057
+    }
+  },
+  {
+    "case": "long-lived-mmap",
+    "rep": 29,
+    "delay_s": 0.10092251596506685,
+    "exact": true,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00055277,
+        "sync_s": 0.00266535,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    },
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00086412
+    }
+  },
+  {
+    "case": "outside-hardlink",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.11142836592625827,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00857988,
+      "pid": 3320274,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [
+          {
+            "inside_names": 1,
+            "nlink": 2,
+            "outside_names": 1,
+            "paths": [
+              "a"
+            ]
+          }
+        ],
+        "rearmed": 0,
+        "scan_s": 0.00119414,
+        "sync_s": 0.00427776,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "outside-hardlink",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.11406019690912217,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.007424789,
+      "pid": 3320395,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [
+          {
+            "inside_names": 1,
+            "nlink": 2,
+            "outside_names": 1,
+            "paths": [
+              "a"
+            ]
+          }
+        ],
+        "rearmed": 1,
+        "scan_s": 0.0009762,
+        "sync_s": 0.00424,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "outside-hardlink",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.10887948691379279,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00663105,
+      "pid": 3320497,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [
+          {
+            "inside_names": 1,
+            "nlink": 2,
+            "outside_names": 1,
+            "paths": [
+              "a"
+            ]
+          }
+        ],
+        "rearmed": 8,
+        "scan_s": 0.0012184,
+        "sync_s": 0.00334436,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": [
+        {
+          "inside_names": 1,
+          "nlink": 2,
+          "outside_names": 1,
+          "paths": [
+            "a"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "editor-rename",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.11192705703433603,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00761616,
+      "pid": 3320614,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00065929,
+        "sync_s": 0.00518643,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "editor-rename",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.11129551602061838,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00766249,
+      "pid": 3320709,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00064118,
+        "sync_s": 0.00386382,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "editor-rename",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.11129820591304451,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00868601,
+      "pid": 3320745,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.002092549,
+        "sync_s": 0.006011729,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "tmpfile-linkat",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.11237355694174767,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.0114873,
+      "pid": 3320830,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.00064433,
+        "sync_s": 0.00433422,
+        "synced": 1
+      },
+      "entries": 16,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "tmpfile-linkat",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.10979871603194624,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.0076097,
+      "pid": 3320909,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 0,
+        "scan_s": 0.0007208,
+        "sync_s": 0.00386449,
+        "synced": 1
+      },
+      "entries": 16,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "tmpfile-linkat",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.11000395601149648,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00713852,
+      "pid": 3320971,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 8,
+        "scan_s": 0.00132167,
+        "sync_s": 0.004278029,
+        "synced": 1
+      },
+      "entries": 16,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "same-tick",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.10850952693726867,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00728436,
+      "pid": 3321026,
+      "recovery": []
+    },
+    "same_tick": false,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 2,
+        "scan_s": 0.00103999,
+        "sync_s": 0.0039082,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "same-tick",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.1083584469743073,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.006979409,
+      "pid": 3321083,
+      "recovery": []
+    },
+    "same_tick": false,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 6,
+        "scan_s": 0.00122041,
+        "sync_s": 0.0043088,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "same-tick",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.11152346595190465,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00681534,
+      "pid": 3321132,
+      "recovery": []
+    },
+    "same_tick": false,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 8,
+        "scan_s": 0.00232591,
+        "sync_s": 0.00508855,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "fake-mtime",
+    "rep": 0,
+    "exact": true,
+    "delay_s": 0.11262349609751254,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00689843,
+      "pid": 3321174,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 8,
+        "scan_s": 0.00218984,
+        "sync_s": 0.00485789,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "fake-mtime",
+    "rep": 1,
+    "exact": true,
+    "delay_s": 0.10964680602774024,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00668349,
+      "pid": 3321216,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 8,
+        "scan_s": 0.001249469,
+        "sync_s": 0.005969109,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  },
+  {
+    "case": "fake-mtime",
+    "rep": 2,
+    "exact": true,
+    "delay_s": 0.11833953601308167,
+    "initial": {
+      "entries": 15,
+      "external_aliases": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "init_s": 0.00662729,
+      "pid": 3321264,
+      "recovery": []
+    },
+    "same_tick": null,
+    "stats": {
+      "background": {
+        "external_aliases": [],
+        "rearmed": 5,
+        "scan_s": 0.00147949,
+        "sync_s": 0.007181379,
+        "synced": 1
+      },
+      "entries": 15,
+      "external_aliases": []
+    }
+  }
+]

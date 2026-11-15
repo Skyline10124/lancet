@@ -1,0 +1,8498 @@
+[
+  {
+    "case": "open",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open\",\"rc\":6,\"errno\":0,\"seconds\":0.000066170}\n",
+      "stderr": "",
+      "exec_s": 0.004382758983410895
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.446e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00163433
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00107733,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open\",\"rc\":6,\"errno\":0,\"seconds\":0.000043580}\n",
+      "stderr": "",
+      "exec_s": 0.0038318289443850517
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00011494
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001694269
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00219685,
+      "check_to_replace_ns": [
+        71370
+      ],
+      "commit_s": 0.00861237,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 7.287e-05,
+      "prepare_s": 0.00581753,
+      "rebuild_s": 0.00059514,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-open-True/transactions/1794731577894496488"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-rdwr",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-rdwr\",\"rc\":6,\"errno\":0,\"seconds\":0.000038530}\n",
+      "stderr": "",
+      "exec_s": 0.002493250067345798
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.97e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00164252
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00117072,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-rdwr",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-rdwr\",\"rc\":6,\"errno\":0,\"seconds\":0.000040300}\n",
+      "stderr": "",
+      "exec_s": 0.0026825499953702092
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.335e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00135854
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.002028109,
+      "check_to_replace_ns": [
+        43270
+      ],
+      "commit_s": 0.00823373,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.431e-05,
+      "prepare_s": 0.00555602,
+      "rebuild_s": 0.000647171,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-open-rdwr-True/transactions/1794731578079459973"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-append",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-append\",\"rc\":6,\"errno\":0,\"seconds\":0.000030500}\n",
+      "stderr": "",
+      "exec_s": 0.002575889928266406
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.621e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00134207
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00065395,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-append",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-append\",\"rc\":6,\"errno\":0,\"seconds\":0.000035030}\n",
+      "stderr": "",
+      "exec_s": 0.002566859940998256
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.691e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00144442
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0023095599999999996,
+      "check_to_replace_ns": [
+        54040
+      ],
+      "commit_s": 0.0072974,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.533e-05,
+      "prepare_s": 0.00432802,
+      "rebuild_s": 0.0006577,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-open-append-True/transactions/1794731578238823558"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-trunc-readonly",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-trunc-readonly\",\"rc\":3,\"errno\":0,\"seconds\":0.000056230}\n",
+      "stderr": "",
+      "exec_s": 0.0026812399737536907
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.405e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00112632
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0006507,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-trunc-readonly",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-trunc-readonly\",\"rc\":3,\"errno\":0,\"seconds\":0.000069170}\n",
+      "stderr": "",
+      "exec_s": 0.0025833100080490112
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.285e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00103654
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00209567,
+      "check_to_replace_ns": [
+        47920
+      ],
+      "commit_s": 0.00688759,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.921e-05,
+      "prepare_s": 0.00455432,
+      "rebuild_s": 0.00023501,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-open-trunc-readonly-True/transactions/1794731578395035603"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-readonly",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-readonly\",\"rc\":3,\"errno\":0,\"seconds\":0.000006880}\n",
+      "stderr": "",
+      "exec_s": 0.0023417399497702718
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.491e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00106628
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 4.807e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-readonly",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-readonly\",\"rc\":3,\"errno\":0,\"seconds\":0.000008810}\n",
+      "stderr": "",
+      "exec_s": 0.0023760900367051363
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.83e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00160358
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 1.04e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-create",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-create\",\"rc\":6,\"errno\":0,\"seconds\":0.000068620}\n",
+      "stderr": "",
+      "exec_s": 0.002501480048522353
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.128e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00126116
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0001091,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-create",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-create\",\"rc\":6,\"errno\":0,\"seconds\":0.000064270}\n",
+      "stderr": "",
+      "exec_s": 0.002503030002117157
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.393e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.0013482
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.002036510000000001,
+      "check_to_replace_ns": [
+        26290
+      ],
+      "commit_s": 0.00900773,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.74e-05,
+      "prepare_s": 0.00640766,
+      "rebuild_s": 0.00056126,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-open-create-True/transactions/1794731578625823246"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-excl-fail",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-excl-fail\",\"rc\":-1,\"errno\":17,\"seconds\":0.000005720}\n",
+      "stderr": "",
+      "exec_s": 0.002382259932346642
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.078e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00107481
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 4.443e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-excl-fail",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-excl-fail\",\"rc\":-1,\"errno\":17,\"seconds\":0.000005810}\n",
+      "stderr": "",
+      "exec_s": 0.0023819099878892303
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.931e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00107684
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 9.64e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-idle",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-idle\",\"rc\":3,\"errno\":0,\"seconds\":0.000010980}\n",
+      "stderr": "",
+      "exec_s": 0.0023271699901670218
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.893e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00101067
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 3.797e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "open-idle",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"open-idle\",\"rc\":3,\"errno\":0,\"seconds\":0.000010720}\n",
+      "stderr": "",
+      "exec_s": 0.0023166900500655174
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.259e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00129355
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 1.321e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"openat\",\"rc\":6,\"errno\":0,\"seconds\":0.000033760}\n",
+      "stderr": "",
+      "exec_s": 0.002363970037549734
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.845e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "sub/a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "sub/a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00156041
+    },
+    "expected_paths": [
+      "sub/a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.000787,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "sub/a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"openat\",\"rc\":6,\"errno\":0,\"seconds\":0.000041770}\n",
+      "stderr": "",
+      "exec_s": 0.002453770022839308
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.227e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "sub/a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "sub/a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00150988
+    },
+    "expected_paths": [
+      "sub/a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00191572,
+      "check_to_replace_ns": [
+        59990
+      ],
+      "commit_s": 0.007740049,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 6.116e-05,
+      "prepare_s": 0.005177119,
+      "rebuild_s": 0.00064498,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-openat-True/transactions/1794731578975604046"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"sub/a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cwd",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"cwd\",\"rc\":6,\"errno\":0,\"seconds\":0.000035810}\n",
+      "stderr": "",
+      "exec_s": 0.002353570074774325
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.808e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "sub/a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "sub/a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00146537
+    },
+    "expected_paths": [
+      "sub/a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0005776,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "sub/a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cwd",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"cwd\",\"rc\":6,\"errno\":0,\"seconds\":0.000032710}\n",
+      "stderr": "",
+      "exec_s": 0.0023489900631830096
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.691e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "sub/a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "sub/a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00215226
+    },
+    "expected_paths": [
+      "sub/a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0021571099999999994,
+      "check_to_replace_ns": [
+        38380
+      ],
+      "commit_s": 0.00732443,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.942e-05,
+      "prepare_s": 0.00460153,
+      "rebuild_s": 0.00056348,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-cwd-True/transactions/1794731579130695481"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"sub/a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"openat2\",\"rc\":6,\"errno\":0,\"seconds\":0.000037500}\n",
+      "stderr": "",
+      "exec_s": 0.0024339399533346295
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.714e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00157067
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00068198,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"openat2\",\"rc\":6,\"errno\":0,\"seconds\":0.000036630}\n",
+      "stderr": "",
+      "exec_s": 0.002447709906846285
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.341e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00150909
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0019165200000000005,
+      "check_to_replace_ns": [
+        40880
+      ],
+      "commit_s": 0.0069466,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.192e-05,
+      "prepare_s": 0.00455827,
+      "rebuild_s": 0.00046971,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-openat2-True/transactions/1794731579285954576"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2-beneath",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"openat2-beneath\",\"rc\":6,\"errno\":0,\"seconds\":0.000033600}\n",
+      "stderr": "",
+      "exec_s": 0.0023960800608620048
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.846e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00156727
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00059943,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "openat2-beneath",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"openat2-beneath\",\"rc\":6,\"errno\":0,\"seconds\":0.000035190}\n",
+      "stderr": "",
+      "exec_s": 0.002421280019916594
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.817e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00146722
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0018982399999999998,
+      "check_to_replace_ns": [
+        40200
+      ],
+      "commit_s": 0.006874209,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.143e-05,
+      "prepare_s": 0.004404389,
+      "rebuild_s": 0.00056937,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-openat2-beneath-True/transactions/1794731579441221072"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "creat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"creat\",\"rc\":6,\"errno\":0,\"seconds\":0.000133270}\n",
+      "stderr": "",
+      "exec_s": 0.0025106800021603703
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.35e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001094659
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00076653,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "creat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"creat\",\"rc\":6,\"errno\":0,\"seconds\":0.000120530}\n",
+      "stderr": "",
+      "exec_s": 0.002496910048648715
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.415e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00144179
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00196799,
+      "check_to_replace_ns": [
+        42790
+      ],
+      "commit_s": 0.00774264,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.386e-05,
+      "prepare_s": 0.00522799,
+      "rebuild_s": 0.00054398,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-creat-True/transactions/1794731579595181277"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"tmpfile\",\"rc\":0,\"errno\":0,\"seconds\":0.000102460}\n",
+      "stderr": "",
+      "exec_s": 0.002503170049749315
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.321e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00115449
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 9.484e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"tmpfile\",\"rc\":0,\"errno\":0,\"seconds\":0.000105340}\n",
+      "stderr": "",
+      "exec_s": 0.002549709053710103
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.525e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00115063
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00172354,
+      "check_to_replace_ns": [
+        30070
+      ],
+      "commit_s": 0.00714833,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.133e-05,
+      "prepare_s": 0.00470522,
+      "rebuild_s": 0.00071761,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-tmpfile-True/transactions/1794731579749355102"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile-empty",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"tmpfile-empty\",\"rc\":0,\"errno\":0,\"seconds\":0.000075940}\n",
+      "stderr": "",
+      "exec_s": 0.0024581500329077244
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.783e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00108984
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 9.174e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "tmpfile-empty",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"tmpfile-empty\",\"rc\":0,\"errno\":0,\"seconds\":0.000066050}\n",
+      "stderr": "",
+      "exec_s": 0.0024356800131499767
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.096e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00116765
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0020487199999999995,
+      "check_to_replace_ns": [
+        29290
+      ],
+      "commit_s": 0.00813428,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.052e-05,
+      "prepare_s": 0.00544034,
+      "rebuild_s": 0.00064295,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-tmpfile-empty-True/transactions/1794731579895498928"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "opath",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"opath\",\"rc\":6,\"errno\":0,\"seconds\":0.000059690}\n",
+      "stderr": "",
+      "exec_s": 0.002430149936117232
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.504e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00139638
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00059261,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "opath",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"opath\",\"rc\":6,\"errno\":0,\"seconds\":0.000053810}\n",
+      "stderr": "",
+      "exec_s": 0.002394370036199689
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.925e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001251889
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022879999999999992,
+      "check_to_replace_ns": [
+        39130
+      ],
+      "commit_s": 0.00904925,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.017e-05,
+      "prepare_s": 0.00614618,
+      "rebuild_s": 0.00061276,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-opath-True/transactions/1794731580043462363"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-cwd",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"proc-cwd\",\"rc\":6,\"errno\":0,\"seconds\":0.000039850}\n",
+      "stderr": "",
+      "exec_s": 0.0023439800133928657
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.595e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001275321
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00061511,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-cwd",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"proc-cwd\",\"rc\":6,\"errno\":0,\"seconds\":0.000044850}\n",
+      "stderr": "",
+      "exec_s": 0.0024634100263938308
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.154e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00123902
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0019366499999999998,
+      "check_to_replace_ns": [
+        46710
+      ],
+      "commit_s": 0.00787142,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.771e-05,
+      "prepare_s": 0.0053811,
+      "rebuild_s": 0.00055166,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-proc-cwd-True/transactions/1794731580192091099"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-root",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"proc-root\",\"rc\":6,\"errno\":0,\"seconds\":0.000050680}\n",
+      "stderr": "",
+      "exec_s": 0.0024039100389927626
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.717e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00149598
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0007604,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "proc-root",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"proc-root\",\"rc\":6,\"errno\":0,\"seconds\":0.000059000}\n",
+      "stderr": "",
+      "exec_s": 0.002413120004348457
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.8e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00139125
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0024374900000000005,
+      "check_to_replace_ns": [
+        43280
+      ],
+      "commit_s": 0.007900069,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.45e-05,
+      "prepare_s": 0.004844899,
+      "rebuild_s": 0.00061542,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-proc-root-True/transactions/1794731580333250465"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink-alias",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"symlink-alias\",\"rc\":6,\"errno\":0,\"seconds\":0.000033580}\n",
+      "stderr": "",
+      "exec_s": 0.002304989960975945
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.246e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.0012312
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00069035,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink-alias",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"symlink-alias\",\"rc\":6,\"errno\":0,\"seconds\":0.000032430}\n",
+      "stderr": "",
+      "exec_s": 0.0023713100235909224
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.525e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001224
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00216461,
+      "check_to_replace_ns": [
+        49860
+      ],
+      "commit_s": 0.00805768,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.097e-05,
+      "prepare_s": 0.00524767,
+      "rebuild_s": 0.00064343,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-symlink-alias-True/transactions/1794731580488465260"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "dangling-symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"dangling-symlink\",\"rc\":6,\"errno\":0,\"seconds\":0.000059440}\n",
+      "stderr": "",
+      "exec_s": 0.0024699700297787786
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.019e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new-target"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new-target"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00191224
+    },
+    "expected_paths": [
+      "new-target"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 9.969e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new-target"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "dangling-symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"dangling-symlink\",\"rc\":6,\"errno\":0,\"seconds\":0.000065470}\n",
+      "stderr": "",
+      "exec_s": 0.0023949099704623222
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.092e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new-target"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new-target"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00111794
+    },
+    "expected_paths": [
+      "new-target"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022587500000000003,
+      "check_to_replace_ns": [
+        27830
+      ],
+      "commit_s": 0.00896983,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.904e-05,
+      "prepare_s": 0.00563085,
+      "rebuild_s": 0.00107789,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-dangling-symlink-True/transactions/1794731580644946015"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new-target\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "umask",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"umask\",\"rc\":6,\"errno\":0,\"seconds\":0.000069440}\n",
+      "stderr": "",
+      "exec_s": 0.002464169985614717
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.494e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.0012709
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00010352,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "umask",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"umask\",\"rc\":6,\"errno\":0,\"seconds\":0.000060250}\n",
+      "stderr": "",
+      "exec_s": 0.0023640600265935063
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.011e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00120993
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00203217,
+      "check_to_replace_ns": [
+        24840
+      ],
+      "commit_s": 0.00773407,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.614e-05,
+      "prepare_s": 0.00505847,
+      "rebuild_s": 0.00064116,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-umask-True/transactions/1794731580802626740"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "hardlink-normal",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"hardlink-normal\",\"rc\":6,\"errno\":0,\"seconds\":0.000031610}\n",
+      "stderr": "",
+      "exec_s": 0.002386098960414529
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.565e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "events": 2,
+      "rearmed": 9,
+      "scan_s": 0.00147675
+    },
+    "expected_paths": [
+      "a",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00082818,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "hard"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "hardlink-normal",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"hardlink-normal\",\"rc\":6,\"errno\":0,\"seconds\":0.000030950}\n",
+      "stderr": "",
+      "exec_s": 0.0024204900255426764
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.906e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "events": 2,
+      "rearmed": 9,
+      "scan_s": 0.00174055
+    },
+    "expected_paths": [
+      "a",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00316224,
+      "check_to_replace_ns": [
+        165120,
+        586031
+      ],
+      "commit_s": 0.009518789,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.000777311,
+      "prepare_s": 0.005561319,
+      "rebuild_s": 0.00079321,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-hardlink-normal-True/transactions/1794731580960538436"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"hard\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000028680}\n",
+      "stderr": "",
+      "exec_s": 0.0024360499810427427
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.302e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 7,
+      "scan_s": 0.00105248
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00057135,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000022280}\n",
+      "stderr": "",
+      "exec_s": 0.002382189966738224
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.865e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 7,
+      "scan_s": 0.00114664
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00209711,
+      "check_to_replace_ns": [
+        43320
+      ],
+      "commit_s": 0.00659623,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.442e-05,
+      "prepare_s": 0.00442078,
+      "rebuild_s": 7.659e-05,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-unlink-True/transactions/1794731581119905761"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlinkat\",\"rc\":0,\"errno\":0,\"seconds\":0.000029250}\n",
+      "stderr": "",
+      "exec_s": 0.0024380700197070837
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.911e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 7,
+      "scan_s": 0.00098512
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00054838,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlinkat\",\"rc\":0,\"errno\":0,\"seconds\":0.000029200}\n",
+      "stderr": "",
+      "exec_s": 0.002378080040216446
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.044e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 7,
+      "scan_s": 0.00108019
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022323199999999994,
+      "check_to_replace_ns": [
+        49300
+      ],
+      "commit_s": 0.00669254,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.055e-05,
+      "prepare_s": 0.00438597,
+      "rebuild_s": 7.242e-05,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-unlinkat-True/transactions/1794731581266474476"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rmdir",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rmdir\",\"rc\":0,\"errno\":0,\"seconds\":0.000030420}\n",
+      "stderr": "",
+      "exec_s": 0.002446139929816127
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.902e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "empty"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "empty"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00107385
+    },
+    "expected_paths": [
+      "empty"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00012708,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "empty"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rmdir",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rmdir\",\"rc\":0,\"errno\":0,\"seconds\":0.000031040}\n",
+      "stderr": "",
+      "exec_s": 0.002461930038407445
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.467e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "empty"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "empty"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00121891
+    },
+    "expected_paths": [
+      "empty"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0017389199999999997,
+      "check_to_replace_ns": [
+        28120
+      ],
+      "commit_s": 0.00613152,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.931e-05,
+      "prepare_s": 0.00432169,
+      "rebuild_s": 6.905e-05,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-rmdir-True/transactions/1794731581411168632"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"empty\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat-dir",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlinkat-dir\",\"rc\":0,\"errno\":0,\"seconds\":0.000026760}\n",
+      "stderr": "",
+      "exec_s": 0.0023581399582326412
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.31e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "empty"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "empty"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00109075
+    },
+    "expected_paths": [
+      "empty"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0001355,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "empty"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlinkat-dir",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlinkat-dir\",\"rc\":0,\"errno\":0,\"seconds\":0.000033760}\n",
+      "stderr": "",
+      "exec_s": 0.002430539927445352
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.546e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "empty"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "empty"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001156389
+    },
+    "expected_paths": [
+      "empty"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00222535,
+      "check_to_replace_ns": [
+        34590
+      ],
+      "commit_s": 0.00670363,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.58e-05,
+      "prepare_s": 0.00440033,
+      "rebuild_s": 7.577e-05,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-unlinkat-dir-True/transactions/1794731581564523917"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"empty\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename\",\"rc\":0,\"errno\":0,\"seconds\":0.000032440}\n",
+      "stderr": "",
+      "exec_s": 0.0026060700183734298
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.587e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b"
+        ]
+      },
+      "events": 2,
+      "rearmed": 7,
+      "scan_s": 0.0011624
+    },
+    "expected_paths": [
+      "a",
+      "b"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00126966,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "b"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename\",\"rc\":0,\"errno\":0,\"seconds\":0.000039340}\n",
+      "stderr": "",
+      "exec_s": 0.0024718199856579304
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.685e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b"
+        ]
+      },
+      "events": 2,
+      "rearmed": 7,
+      "scan_s": 0.00109628
+    },
+    "expected_paths": [
+      "a",
+      "b"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0021222590000000005,
+      "check_to_replace_ns": [
+        41240,
+        28730
+      ],
+      "commit_s": 0.007787759,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 8.829e-05,
+      "prepare_s": 0.00504666,
+      "rebuild_s": 0.00061661,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-rename-True/transactions/1794731581720066803"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"b\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "renameat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"renameat\",\"rc\":0,\"errno\":0,\"seconds\":0.000033090}\n",
+      "stderr": "",
+      "exec_s": 0.002383699989877641
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.842e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b"
+        ]
+      },
+      "events": 2,
+      "rearmed": 7,
+      "scan_s": 0.00129768
+    },
+    "expected_paths": [
+      "a",
+      "b"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.001187589,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "b"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "renameat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"renameat\",\"rc\":0,\"errno\":0,\"seconds\":0.000033670}\n",
+      "stderr": "",
+      "exec_s": 0.002389890025369823
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.702e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b"
+        ]
+      },
+      "events": 2,
+      "rearmed": 7,
+      "scan_s": 0.00190365
+    },
+    "expected_paths": [
+      "a",
+      "b"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022914999999999993,
+      "check_to_replace_ns": [
+        42310,
+        29610
+      ],
+      "commit_s": 0.00845693,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 9.124e-05,
+      "prepare_s": 0.0055567,
+      "rebuild_s": 0.00060669,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-renameat-True/transactions/1794731581878854248"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"b\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-exchange",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-exchange\",\"rc\":0,\"errno\":0,\"seconds\":0.000022970}\n",
+      "stderr": "",
+      "exec_s": 0.0023705499479547143
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.365e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b"
+        ]
+      },
+      "events": 4,
+      "rearmed": 8,
+      "scan_s": 0.00109377
+    },
+    "expected_paths": [
+      "a",
+      "b"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00105209,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "b"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-exchange",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-exchange\",\"rc\":0,\"errno\":0,\"seconds\":0.000025720}\n",
+      "stderr": "",
+      "exec_s": 0.002344829961657524
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.928e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b"
+        ]
+      },
+      "events": 4,
+      "rearmed": 8,
+      "scan_s": 0.00100364
+    },
+    "expected_paths": [
+      "a",
+      "b"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0018647999999999998,
+      "check_to_replace_ns": [
+        40120,
+        29240
+      ],
+      "commit_s": 0.00771531,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 8.685e-05,
+      "prepare_s": 0.00480725,
+      "rebuild_s": 0.00104133,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-rename-exchange-True/transactions/1794731582036606033"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"b\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-noreplace",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-noreplace\",\"rc\":-1,\"errno\":17,\"seconds\":0.000005980}\n",
+      "stderr": "",
+      "exec_s": 0.0023310899268835783
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.645e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00126972
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 4.035e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-noreplace",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-noreplace\",\"rc\":-1,\"errno\":17,\"seconds\":0.000005700}\n",
+      "stderr": "",
+      "exec_s": 0.002271809964440763
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.535e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00132519
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 8.35e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-dir",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-dir\",\"rc\":0,\"errno\":0,\"seconds\":0.000031340}\n",
+      "stderr": "",
+      "exec_s": 0.002379940007813275
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.739e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00118143
+    },
+    "expected_paths": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00186025,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "dir",
+        "dir/f0000",
+        "dir/f0001",
+        "dir/f0002",
+        "moved",
+        "moved/f0000",
+        "moved/f0001",
+        "moved/f0002"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-dir",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-dir\",\"rc\":0,\"errno\":0,\"seconds\":0.000026700}\n",
+      "stderr": "",
+      "exec_s": 0.0023458099458366632
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.75e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00117487
+    },
+    "expected_paths": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0027538300000000005,
+      "check_to_replace_ns": [
+        809440
+      ],
+      "commit_s": 0.01148436,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00081022,
+      "prepare_s": 0.00676241,
+      "rebuild_s": 0.00196597,
+      "rename_syscalls": 1,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-rename-dir-True/transactions/1794731582303413005"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"dir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "truncate",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"truncate\",\"rc\":0,\"errno\":0,\"seconds\":0.000034060}\n",
+      "stderr": "",
+      "exec_s": 0.002517599961720407
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.531e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00136984
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00066102,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "truncate",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"truncate\",\"rc\":0,\"errno\":0,\"seconds\":0.000028680}\n",
+      "stderr": "",
+      "exec_s": 0.0024177799932658672
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.12e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00121577
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0020044800000000003,
+      "check_to_replace_ns": [
+        41420
+      ],
+      "commit_s": 0.00744779,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.27e-05,
+      "prepare_s": 0.00486418,
+      "rebuild_s": 0.00057697,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-truncate-True/transactions/1794731582470680320"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "link",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"link\",\"rc\":0,\"errno\":0,\"seconds\":0.000023950}\n",
+      "stderr": "",
+      "exec_s": 0.0029374100267887115
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.297e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00120432
+    },
+    "expected_paths": [
+      "a",
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00081415,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "link",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"link\",\"rc\":0,\"errno\":0,\"seconds\":0.000023230}\n",
+      "stderr": "",
+      "exec_s": 0.002737469971179962
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.772e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00134332
+    },
+    "expected_paths": [
+      "a",
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00180926,
+      "check_to_replace_ns": [
+        42500,
+        19610
+      ],
+      "commit_s": 0.00808055,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 7.939e-05,
+      "prepare_s": 0.00550428,
+      "rebuild_s": 0.00076462,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-link-True/transactions/1794731582632071245"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "linkat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"linkat\",\"rc\":0,\"errno\":0,\"seconds\":0.000023340}\n",
+      "stderr": "",
+      "exec_s": 0.0024398500099778175
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.00010013
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00115574
+    },
+    "expected_paths": [
+      "a",
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00080497,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "linkat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"linkat\",\"rc\":0,\"errno\":0,\"seconds\":0.000020030}\n",
+      "stderr": "",
+      "exec_s": 0.002391900052316487
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.997e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00122319
+    },
+    "expected_paths": [
+      "a",
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0018875100000000002,
+      "check_to_replace_ns": [
+        44480,
+        20970
+      ],
+      "commit_s": 0.00800432,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 8.259e-05,
+      "prepare_s": 0.00546343,
+      "rebuild_s": 0.00065126,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-linkat-True/transactions/1794731582787697860"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000040210}\n",
+      "stderr": "",
+      "exec_s": 0.0024701100774109364
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.006e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00114905
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 7.831e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000047690}\n",
+      "stderr": "",
+      "exec_s": 0.002519860048778355
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.065e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00136683
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0020134800000000007,
+      "check_to_replace_ns": [
+        30830
+      ],
+      "commit_s": 0.007129719,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.223e-05,
+      "prepare_s": 0.004940849,
+      "rebuild_s": 0.00017309,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-symlink-True/transactions/1794731582949268986"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlinkat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"symlinkat\",\"rc\":0,\"errno\":0,\"seconds\":0.000075980}\n",
+      "stderr": "",
+      "exec_s": 0.0025961300125345588
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.979e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00118786
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 8.585e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "symlinkat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"symlinkat\",\"rc\":0,\"errno\":0,\"seconds\":0.000049400}\n",
+      "stderr": "",
+      "exec_s": 0.0026598199037835
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.957e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "new"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00121705
+    },
+    "expected_paths": [
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022713300000000002,
+      "check_to_replace_ns": [
+        36370
+      ],
+      "commit_s": 0.01012358,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.743e-05,
+      "prepare_s": 0.00765153,
+      "rebuild_s": 0.00019731,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-symlinkat-True/transactions/1794731583116853130"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlink-symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000021390}\n",
+      "stderr": "",
+      "exec_s": 0.0023677099961787462
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.745e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "alias"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "alias"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00118238
+    },
+    "expected_paths": [
+      "alias"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00013311,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "alias"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlink-symlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000026990}\n",
+      "stderr": "",
+      "exec_s": 0.0024857500102370977
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.498e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "alias"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "alias"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00135892
+    },
+    "expected_paths": [
+      "alias"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00212664,
+      "check_to_replace_ns": [
+        40530
+      ],
+      "commit_s": 0.006410999,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.144e-05,
+      "prepare_s": 0.004208809,
+      "rebuild_s": 7.369e-05,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-unlink-symlink-True/transactions/1794731583279391646"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"alias\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdir",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mkdir\",\"rc\":0,\"errno\":0,\"seconds\":0.000036620}\n",
+      "stderr": "",
+      "exec_s": 0.002411340014077723
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.797e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "newdir"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "newdir"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00152921
+    },
+    "expected_paths": [
+      "newdir"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 6.948e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "newdir"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdir",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mkdir\",\"rc\":0,\"errno\":0,\"seconds\":0.000041620}\n",
+      "stderr": "",
+      "exec_s": 0.002334960037842393
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.016e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "newdir"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "newdir"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00110663
+    },
+    "expected_paths": [
+      "newdir"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0026717499999999996,
+      "check_to_replace_ns": [
+        30780
+      ],
+      "commit_s": 0.007957839,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.193e-05,
+      "prepare_s": 0.005162769,
+      "rebuild_s": 0.00012106,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-mkdir-True/transactions/1794731583445580341"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"newdir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdirat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mkdirat\",\"rc\":0,\"errno\":0,\"seconds\":0.000053580}\n",
+      "stderr": "",
+      "exec_s": 0.0025592599995434284
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.648e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "newdir"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "newdir"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00118921
+    },
+    "expected_paths": [
+      "newdir"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00011269,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "newdir"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mkdirat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mkdirat\",\"rc\":0,\"errno\":0,\"seconds\":0.000039240}\n",
+      "stderr": "",
+      "exec_s": 0.002345999935641885
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.755e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "newdir"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "newdir"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00203344
+    },
+    "expected_paths": [
+      "newdir"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022090799999999996,
+      "check_to_replace_ns": [
+        28360
+      ],
+      "commit_s": 0.00759383,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.93e-05,
+      "prepare_s": 0.0052931,
+      "rebuild_s": 8.993e-05,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-mkdirat-True/transactions/1794731583612557795"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"newdir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "chmod",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"chmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000014760}\n",
+      "stderr": "",
+      "exec_s": 0.0025949300033971667
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.79e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00136699
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00065666,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "chmod",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"chmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000012890}\n",
+      "stderr": "",
+      "exec_s": 0.0028437100118026137
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.544e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.001821989
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022606399999999995,
+      "check_to_replace_ns": [
+        41670
+      ],
+      "commit_s": 0.00834327,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.267e-05,
+      "prepare_s": 0.00553131,
+      "rebuild_s": 0.00054861,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-chmod-True/transactions/1794731583783760180"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmod",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fchmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000019910}\n",
+      "stderr": "",
+      "exec_s": 0.0024215899175032973
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.492e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00135454
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00066517,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmod",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fchmod\",\"rc\":0,\"errno\":0,\"seconds\":0.000019630}\n",
+      "stderr": "",
+      "exec_s": 0.002409180044196546
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.61e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.001088901
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00202849,
+      "check_to_replace_ns": [
+        42520
+      ],
+      "commit_s": 0.00745336,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.359e-05,
+      "prepare_s": 0.00489049,
+      "rebuild_s": 0.00053213,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-fchmod-True/transactions/1794731583949329195"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fchmodat\",\"rc\":0,\"errno\":0,\"seconds\":0.000014960}\n",
+      "stderr": "",
+      "exec_s": 0.0026842099614441395
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.428e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00140195
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00076231,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fchmodat\",\"rc\":0,\"errno\":0,\"seconds\":0.000015980}\n",
+      "stderr": "",
+      "exec_s": 0.002513769082725048
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.233e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.001259
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022216599999999994,
+      "check_to_replace_ns": [
+        42990
+      ],
+      "commit_s": 0.00850605,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.403e-05,
+      "prepare_s": 0.00572058,
+      "rebuild_s": 0.00056147,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-fchmodat-True/transactions/1794731584119554380"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat2",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fchmodat2\",\"rc\":0,\"errno\":0,\"seconds\":0.000014240}\n",
+      "stderr": "",
+      "exec_s": 0.002494820044375956
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.54e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00141995
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00060019,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fchmodat2",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fchmodat2\",\"rc\":0,\"errno\":0,\"seconds\":0.000014010}\n",
+      "stderr": "",
+      "exec_s": 0.003142429981380701
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.21e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00148122
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00214577,
+      "check_to_replace_ns": [
+        57440
+      ],
+      "commit_s": 0.0078594,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.86e-05,
+      "prepare_s": 0.00508598,
+      "rebuild_s": 0.00062548,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-fchmodat2-True/transactions/1794731584291717475"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknod",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mknod\",\"rc\":0,\"errno\":0,\"seconds\":0.000064780}\n",
+      "stderr": "",
+      "exec_s": 0.0026854900643229485
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.404e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "fifo"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "fifo"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00124289
+    },
+    "expected_paths": [
+      "fifo"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 7.773e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "fifo"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknod",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mknod\",\"rc\":0,\"errno\":0,\"seconds\":0.000045200}\n",
+      "stderr": "",
+      "exec_s": 0.0024210800183936954
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.003e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "fifo"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "fifo"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00129209
+    },
+    "expected_paths": [
+      "fifo"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0019394199999999999,
+      "check_to_replace_ns": [
+        31040
+      ],
+      "commit_s": 0.00692059,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.243e-05,
+      "prepare_s": 0.00483231,
+      "rebuild_s": 0.00014651,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-mknod-True/transactions/1794731584455997300"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"fifo\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknodat",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mknodat\",\"rc\":0,\"errno\":0,\"seconds\":0.000049680}\n",
+      "stderr": "",
+      "exec_s": 0.00268633000086993
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.689e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "fifo"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "fifo"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00169116
+    },
+    "expected_paths": [
+      "fifo"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 8.508e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "fifo"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mknodat",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mknodat\",\"rc\":0,\"errno\":0,\"seconds\":0.000057310}\n",
+      "stderr": "",
+      "exec_s": 0.002748080063611269
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.595e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "fifo"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "fifo"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00133653
+    },
+    "expected_paths": [
+      "fifo"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0019494000000000004,
+      "check_to_replace_ns": [
+        33330
+      ],
+      "commit_s": 0.00802054,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.445e-05,
+      "prepare_s": 0.00589451,
+      "rebuild_s": 0.0001735,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-mknodat-True/transactions/1794731584627338505"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"fifo\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "ftruncate",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"ftruncate\",\"rc\":0,\"errno\":0,\"seconds\":0.000117060}\n",
+      "stderr": "",
+      "exec_s": 0.0032587599707767367
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.601e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00304827
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00056775,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "ftruncate",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"ftruncate\",\"rc\":0,\"errno\":0,\"seconds\":0.000168230}\n",
+      "stderr": "",
+      "exec_s": 0.00281660002656281
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.257e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00172075
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00259864,
+      "check_to_replace_ns": [
+        50640
+      ],
+      "commit_s": 0.00762266,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.184e-05,
+      "prepare_s": 0.00444549,
+      "rebuild_s": 0.00057616,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-ftruncate-True/transactions/1794731584818075459"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fallocate",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fallocate\",\"rc\":0,\"errno\":0,\"seconds\":0.000114589}\n",
+      "stderr": "",
+      "exec_s": 0.0026931699831038713
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.0001298
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00210887
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00088073,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fallocate",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"fallocate\",\"rc\":0,\"errno\":0,\"seconds\":0.000089180}\n",
+      "stderr": "",
+      "exec_s": 0.0024808100424706936
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.426e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00153859
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0022171200000000004,
+      "check_to_replace_ns": [
+        50130
+      ],
+      "commit_s": 0.009964389,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.119e-05,
+      "prepare_s": 0.007446749,
+      "rebuild_s": 0.00029704,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-fallocate-True/transactions/1794731584998109264"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mmap",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mmap\",\"rc\":0,\"errno\":0,\"seconds\":0.001090800}\n",
+      "stderr": "",
+      "exec_s": 0.0036852399352937937
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.909e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00146361
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00073871,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "mmap",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"mmap\",\"rc\":0,\"errno\":0,\"seconds\":0.001190790}\n",
+      "stderr": "",
+      "exec_s": 0.0042074990924447775
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.406e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00209495
+    },
+    "expected_paths": [
+      "a"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0025463300000000003,
+      "check_to_replace_ns": [
+        77380
+      ],
+      "commit_s": 0.01010491,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 7.894e-05,
+      "prepare_s": 0.00696674,
+      "rebuild_s": 0.00058791,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-mmap-True/transactions/1794731585182840778"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "nofollow",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"nofollow\",\"rc\":-1,\"errno\":40,\"seconds\":0.000005040}\n",
+      "stderr": "",
+      "exec_s": 0.0035481100203469396
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.066e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00147567
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 2.858e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "nofollow",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"nofollow\",\"rc\":-1,\"errno\":40,\"seconds\":0.000003960}\n",
+      "stderr": "",
+      "exec_s": 0.0027737399796023965
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.125e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00158688
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 1.108e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "excl-symlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"excl-symlink\",\"rc\":-1,\"errno\":17,\"seconds\":0.000004930}\n",
+      "stderr": "",
+      "exec_s": 0.0027669400442391634
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.927e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.001634609
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 4.44e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "excl-symlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"excl-symlink\",\"rc\":-1,\"errno\":17,\"seconds\":0.000004340}\n",
+      "stderr": "",
+      "exec_s": 0.0026071900501847267
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.735e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 8,
+      "scan_s": 0.00182797
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 1.224e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cloexec",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"cloexec\",\"rc\":1,\"errno\":0,\"seconds\":0.000013630}\n",
+      "stderr": "",
+      "exec_s": 0.002680329023860395
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.079e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00132749
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 3.729e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "cloexec",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"cloexec\",\"rc\":1,\"errno\":0,\"seconds\":0.000019070}\n",
+      "stderr": "",
+      "exec_s": 0.0034447599900886416
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.665e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.0011855
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 9.54e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "not-cloexec",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"not-cloexec\",\"rc\":0,\"errno\":0,\"seconds\":0.000016130}\n",
+      "stderr": "",
+      "exec_s": 0.0025768899358808994
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.655e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00125164
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 5.089e-05,
+      "outcome": "discarded",
+      "uncommitted_reverted": []
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "not-cloexec",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"not-cloexec\",\"rc\":0,\"errno\":0,\"seconds\":0.000014320}\n",
+      "stderr": "",
+      "exec_s": 0.0024224299704656005
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.265e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": []
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00110353
+    },
+    "expected_paths": [],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "commit_s": 8.97e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "commit_difference": [],
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fork",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000061870}\n{\"case\":\"fork\",\"rc\":0,\"errno\":0,\"seconds\":0.000769000}\n",
+      "stderr": "",
+      "exec_s": 0.003115899977274239
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.755e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00101524
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00011359,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "child"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "fork",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000058980}\n{\"case\":\"fork\",\"rc\":0,\"errno\":0,\"seconds\":0.000714350}\n",
+      "stderr": "",
+      "exec_s": 0.0031826699851080775
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.937e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00100986
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0016523400000000004,
+      "check_to_replace_ns": [
+        25340
+      ],
+      "commit_s": 0.00751427,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.625e-05,
+      "prepare_s": 0.00525812,
+      "rebuild_s": 0.00060099,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-fork-True/transactions/1794731585776321280"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"child\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "vfork",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000065680}\n{\"case\":\"vfork\",\"rc\":0,\"errno\":0,\"seconds\":0.000692040}\n",
+      "stderr": "",
+      "exec_s": 0.0030810300959274173
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.574e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00133321
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00010763,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "child"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "vfork",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000053720}\n{\"case\":\"vfork\",\"rc\":0,\"errno\":0,\"seconds\":0.000605310}\n",
+      "stderr": "",
+      "exec_s": 0.0030566100031137466
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.9e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00117935
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0019912800000000007,
+      "check_to_replace_ns": [
+        25020
+      ],
+      "commit_s": 0.0091774,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 2.643e-05,
+      "prepare_s": 0.00640798,
+      "rebuild_s": 0.0007758,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-vfork-True/transactions/1794731585943892515"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"child\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"thread\",\"rc\":0,\"errno\":0,\"seconds\":0.000165230}\n",
+      "stderr": "",
+      "exec_s": 0.002765629906207323
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.958e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00157593
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00011264,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "child"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"thread\",\"rc\":0,\"errno\":0,\"seconds\":0.000176730}\n",
+      "stderr": "",
+      "exec_s": 0.0032231799559667706
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.78e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00155056
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0035686400000000005,
+      "check_to_replace_ns": [
+        37910
+      ],
+      "commit_s": 0.01145262,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.964e-05,
+      "prepare_s": 0.00703155,
+      "rebuild_s": 0.00084842,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-thread-True/transactions/1794731586134561279"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"child\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread-exec",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000056640}\n",
+      "stderr": "",
+      "exec_s": 0.003080260008573532
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.435e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00134754
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00010505,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "child"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "thread-exec",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"child-write\",\"rc\":6,\"errno\":0,\"seconds\":0.000059400}\n",
+      "stderr": "",
+      "exec_s": 0.002976739895530045
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.293e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "child"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "child"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00119462
+    },
+    "expected_paths": [
+      "child"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00170513,
+      "check_to_replace_ns": [
+        29920
+      ],
+      "commit_s": 0.00662774,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.102e-05,
+      "prepare_s": 0.00440976,
+      "rebuild_s": 0.00051104,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-thread-exec-True/transactions/1794731586308584594"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"child\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-hardlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlink-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000020510}\n",
+      "stderr": "",
+      "exec_s": 0.0025258699897676706
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.986e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00134014
+    },
+    "expected_paths": [
+      "a",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00085118,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "hard"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "unlink-hardlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"unlink-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000017970}\n",
+      "stderr": "",
+      "exec_s": 0.0025351300137117505
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.015e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "events": 1,
+      "rearmed": 8,
+      "scan_s": 0.00139765
+    },
+    "expected_paths": [
+      "a",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00247586,
+      "check_to_replace_ns": [
+        49550,
+        164750
+      ],
+      "commit_s": 0.00818107,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00023482,
+      "prepare_s": 0.0049785,
+      "rebuild_s": 0.00072454,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-unlink-hardlink-True/transactions/1794731586481595949"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"hard\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-hardlink",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000026820}\n",
+      "stderr": "",
+      "exec_s": 0.0024308100109919906
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.22e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard",
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard",
+          "new"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.001134291
+    },
+    "expected_paths": [
+      "a",
+      "hard",
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00070637,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "hard",
+        "new"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-hardlink",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"case\":\"rename-hardlink\",\"rc\":0,\"errno\":0,\"seconds\":0.000026900}\n",
+      "stderr": "",
+      "exec_s": 0.002386830048635602
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.209e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard",
+          "new"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard",
+          "new"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.0014024
+    },
+    "expected_paths": [
+      "a",
+      "hard",
+      "new"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00270101,
+      "check_to_replace_ns": [
+        43950,
+        184820,
+        23510
+      ],
+      "commit_s": 0.010245639,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00029737,
+      "prepare_s": 0.006784069,
+      "rebuild_s": 0.00075838,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-rename-hardlink-True/transactions/1794731586652286594"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"new\",\"hard\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.00234757992438972
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.609e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "events": 2,
+      "rearmed": 7,
+      "scan_s": 0.0012808
+    },
+    "expected_paths": [
+      "a",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00116336,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "hard"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-unlink-all",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.002698009950108826
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.381e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "hard"
+        ]
+      },
+      "events": 2,
+      "rearmed": 7,
+      "scan_s": 0.001281861
+    },
+    "expected_paths": [
+      "a",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.002122990000000001,
+      "check_to_replace_ns": [
+        61410,
+        35590
+      ],
+      "commit_s": 0.00808829,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00012172,
+      "prepare_s": 0.0058606,
+      "rebuild_s": 0.00010227,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-anchor-unlink-all-True/transactions/1794731586828218828"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"hard\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.0023521099938079715
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.096e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b",
+          "hard"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00121085
+    },
+    "expected_paths": [
+      "a",
+      "b",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.0012566,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "b",
+        "hard"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "anchor-overwrite",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.002436329028569162
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.35e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "b",
+          "hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "b",
+          "hard"
+        ]
+      },
+      "events": 2,
+      "rearmed": 8,
+      "scan_s": 0.00125407
+    },
+    "expected_paths": [
+      "a",
+      "b",
+      "hard"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.0027019600000000006,
+      "check_to_replace_ns": [
+        45250,
+        163530,
+        32320
+      ],
+      "commit_s": 0.01028459,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.0002795,
+      "prepare_s": 0.00641238,
+      "rebuild_s": 0.00116811,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-anchor-overwrite-True/transactions/1794731586998305773"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"hard\",\"b\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-edit",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"rc\":6,\"seconds\":0.000147500}\n",
+      "stderr": "",
+      "exec_s": 0.0026497800135985017
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 4.553e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "events": 5,
+      "rearmed": 8,
+      "scan_s": 0.00241869
+    },
+    "expected_paths": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00189177,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "dir",
+        "dir/f0000",
+        "dir/f0001",
+        "dir/f0002",
+        "moved",
+        "moved/f0000",
+        "moved/f0001",
+        "moved/f0002"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "rename-edit",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "{\"rc\":6,\"seconds\":0.000191930}\n",
+      "stderr": "",
+      "exec_s": 0.0025623299879953265
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.591e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002"
+        ]
+      },
+      "events": 6,
+      "rearmed": 8,
+      "scan_s": 0.00123372
+    },
+    "expected_paths": [
+      "dir",
+      "dir/f0000",
+      "dir/f0001",
+      "dir/f0002",
+      "moved",
+      "moved/f0000",
+      "moved/f0001",
+      "moved/f0002"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.003655989000000001,
+      "check_to_replace_ns": [
+        818459,
+        40940
+      ],
+      "commit_s": 0.012757839,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.000861669,
+      "prepare_s": 0.00718582,
+      "rebuild_s": 0.00191303,
+      "rename_syscalls": 1,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-rename-edit-True/transactions/1794731587181842188"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"moved/f0000\",\"dir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-file-dir",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005443250061944127
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.793e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "a/x"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "a/x"
+        ]
+      },
+      "events": 5,
+      "rearmed": 7,
+      "scan_s": 0.00213072
+    },
+    "expected_paths": [
+      "a",
+      "a/x"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00078496,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "a",
+        "a/x"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-file-dir",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.005394279956817627
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.327e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "a",
+          "a/x"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "a",
+          "a/x"
+        ]
+      },
+      "events": 5,
+      "rearmed": 7,
+      "scan_s": 0.00118424
+    },
+    "expected_paths": [
+      "a",
+      "a/x"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.00238468,
+      "check_to_replace_ns": [
+        43170,
+        18640
+      ],
+      "commit_s": 0.00810313,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 8.033e-05,
+      "prepare_s": 0.00492968,
+      "rebuild_s": 0.0007863,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-type-file-dir-True/transactions/1794731587367544132"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"a/x\",\"a\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-dir-file",
+    "commit": false,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004200190072879195
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 9.399e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "empty"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "empty"
+        ]
+      },
+      "events": 5,
+      "rearmed": 9,
+      "scan_s": 0.00167947
+    },
+    "expected_paths": [
+      "empty"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "discard_result": {
+      "discard_s": 0.00016866,
+      "outcome": "discarded",
+      "uncommitted_reverted": [
+        "empty"
+      ]
+    },
+    "restored_difference": [],
+    "shadow_restored_difference": [],
+    "pass": true
+  },
+  {
+    "case": "type-dir-file",
+    "commit": true,
+    "execution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "exec_s": 0.004362959996797144
+    },
+    "sync": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.9e-05
+    },
+    "epsilon": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "empty"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [],
+        "paths": [
+          "empty"
+        ]
+      },
+      "events": 5,
+      "rearmed": 9,
+      "scan_s": 0.00181599
+    },
+    "expected_paths": [
+      "empty"
+    ],
+    "precommit_real_difference": [],
+    "namespace_equivalent": true,
+    "namespace_code": 0,
+    "epsilon_exact": true,
+    "commit_result": {
+      "apply_s": 0.003354329999999999,
+      "check_to_replace_ns": [
+        34930
+      ],
+      "commit_s": 0.008946619,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 3.614e-05,
+      "prepare_s": 0.004893899,
+      "rebuild_s": 0.00069544,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/coverage-type-dir-file-True/transactions/1794731587549521817"
+    },
+    "commit_difference": [],
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"irreversible\":[],\"outcome\":\"Restored\",\"restored\":[\"empty\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  }
+]

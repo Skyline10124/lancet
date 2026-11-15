@@ -1,0 +1,22 @@
+[
+  {
+    "case": "normal-exit",
+    "close_write_event": true,
+    "event_bytes": 32
+  },
+  {
+    "case": "mmap-fd-closed",
+    "close_write_event": true,
+    "event_bytes": 32
+  },
+  {
+    "case": "unwatched-alias",
+    "close_write_event": false,
+    "event_bytes": 0
+  },
+  {
+    "case": "readonly-truncate",
+    "close_write_event": false,
+    "event_bytes": 0
+  }
+]

@@ -1,0 +1,698 @@
+[
+  {
+    "case": "host-commit",
+    "rep": 0,
+    "result": {
+      "commit_s": 0.087539948,
+      "conflicts": [
+        ".git/HEAD",
+        ".git/refs/heads/main"
+      ],
+      "git": {
+        "blocked": [],
+        "conflicts": [
+          ".git/HEAD",
+          ".git/refs/heads/main"
+        ],
+        "git_prepare_s": 0.03930928907357156,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [],
+        "staged_not_merged": []
+      },
+      "outcome": "Conflict",
+      "rebuild_s": 0.00177774
+    },
+    "status": "",
+    "expected_status": "",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-commit",
+    "rep": 1,
+    "result": {
+      "commit_s": 0.081345877,
+      "conflicts": [
+        ".git/HEAD",
+        ".git/refs/heads/main"
+      ],
+      "git": {
+        "blocked": [],
+        "conflicts": [
+          ".git/HEAD",
+          ".git/refs/heads/main"
+        ],
+        "git_prepare_s": 0.0323760190512985,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [],
+        "staged_not_merged": []
+      },
+      "outcome": "Conflict",
+      "rebuild_s": 0.00069585
+    },
+    "status": "",
+    "expected_status": "",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-commit",
+    "rep": 2,
+    "result": {
+      "commit_s": 0.086909027,
+      "conflicts": [
+        ".git/HEAD",
+        ".git/refs/heads/main"
+      ],
+      "git": {
+        "blocked": [],
+        "conflicts": [
+          ".git/HEAD",
+          ".git/refs/heads/main"
+        ],
+        "git_prepare_s": 0.03438563900999725,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [],
+        "staged_not_merged": []
+      },
+      "outcome": "Conflict",
+      "rebuild_s": 0.00073131
+    },
+    "status": "",
+    "expected_status": "",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-other",
+    "rep": 0,
+    "result": {
+      "apply_s": 0.0021088290000000065,
+      "check_to_replace_ns": [
+        54460,
+        30730,
+        35410
+      ],
+      "commit_s": 0.129300866,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.06556487805210054,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00015478,
+      "prepare_s": 0.126522107,
+      "rebuild_s": 0.00066448,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-host-stage-other0/transactions/1794731632359645933"
+    },
+    "status": "M  d001/f000001\n",
+    "expected_status": "M  d001/f000001\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-other",
+    "rep": 1,
+    "result": {
+      "apply_s": 0.0025916900000000076,
+      "check_to_replace_ns": [
+        48600,
+        30570,
+        33950
+      ],
+      "commit_s": 0.135907336,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.07248695800080895,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00014655,
+      "prepare_s": 0.130517896,
+      "rebuild_s": 0.00279259,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-host-stage-other1/transactions/1794731632758346591"
+    },
+    "status": "M  d001/f000001\n",
+    "expected_status": "M  d001/f000001\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-other",
+    "rep": 2,
+    "result": {
+      "apply_s": 0.00241992000000002,
+      "check_to_replace_ns": [
+        131180,
+        33270,
+        34870
+      ],
+      "commit_s": 0.148692015,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.07779557793401182,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00023416,
+      "prepare_s": 0.142116265,
+      "rebuild_s": 0.0041493,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-host-stage-other2/transactions/1794731633188554968"
+    },
+    "status": "M  d001/f000001\n",
+    "expected_status": "M  d001/f000001\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-same",
+    "rep": 0,
+    "result": {
+      "commit_s": 0.081711858,
+      "conflicts": [
+        ".git/index:d000/f000000",
+        "d000/f000000"
+      ],
+      "git": {
+        "blocked": [],
+        "conflicts": [
+          ".git/index:d000/f000000"
+        ],
+        "git_prepare_s": 0.03166732902172953,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [],
+        "staged_not_merged": []
+      },
+      "outcome": "Conflict",
+      "rebuild_s": 0.00062291
+    },
+    "status": "M  d000/f000000\n",
+    "expected_status": "M  d000/f000000\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-same",
+    "rep": 1,
+    "result": {
+      "commit_s": 0.087535917,
+      "conflicts": [
+        ".git/index:d000/f000000",
+        "d000/f000000"
+      ],
+      "git": {
+        "blocked": [],
+        "conflicts": [
+          ".git/index:d000/f000000"
+        ],
+        "git_prepare_s": 0.03110855899285525,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [],
+        "staged_not_merged": []
+      },
+      "outcome": "Conflict",
+      "rebuild_s": 0.00075502
+    },
+    "status": "M  d000/f000000\n",
+    "expected_status": "M  d000/f000000\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-same",
+    "rep": 2,
+    "result": {
+      "commit_s": 0.080143877,
+      "conflicts": [
+        ".git/index:d000/f000000",
+        "d000/f000000"
+      ],
+      "git": {
+        "blocked": [],
+        "conflicts": [
+          ".git/index:d000/f000000"
+        ],
+        "git_prepare_s": 0.03172116901259869,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [],
+        "staged_not_merged": []
+      },
+      "outcome": "Conflict",
+      "rebuild_s": 0.00075814
+    },
+    "status": "M  d000/f000000\n",
+    "expected_status": "M  d000/f000000\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "hooks-config",
+    "rep": 0,
+    "result": {
+      "apply_s": 0.0026207000000000036,
+      "check_to_replace_ns": [
+        53020,
+        31890,
+        35440
+      ],
+      "commit_s": 0.144322375,
+      "conflicts": [],
+      "git": {
+        "blocked": [
+          "config",
+          "hooks/pre-commit"
+        ],
+        "conflicts": [],
+        "git_prepare_s": 0.07360409700777382,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00015459,
+      "prepare_s": 0.140752146,
+      "rebuild_s": 0.000943629,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-hooks-config0/transactions/1794731634696893082"
+    },
+    "status": "",
+    "expected_status": "",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "hooks-config",
+    "rep": 1,
+    "result": {
+      "apply_s": 0.002436700000000014,
+      "check_to_replace_ns": [
+        52590,
+        31200,
+        34790
+      ],
+      "commit_s": 0.133860746,
+      "conflicts": [],
+      "git": {
+        "blocked": [
+          "config",
+          "hooks/pre-commit"
+        ],
+        "conflicts": [],
+        "git_prepare_s": 0.06570504803676158,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00018627,
+      "prepare_s": 0.130725386,
+      "rebuild_s": 0.00069255,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-hooks-config1/transactions/1794731635123875119"
+    },
+    "status": "",
+    "expected_status": "",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "hooks-config",
+    "rep": 2,
+    "result": {
+      "apply_s": 0.002697000000000005,
+      "check_to_replace_ns": [
+        50620,
+        30840,
+        34320
+      ],
+      "commit_s": 0.132039326,
+      "conflicts": [],
+      "git": {
+        "blocked": [
+          "config",
+          "hooks/pre-commit"
+        ],
+        "conflicts": [],
+        "git_prepare_s": 0.0713290780549869,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00014897,
+      "prepare_s": 0.128594336,
+      "rebuild_s": 0.00074293,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-hooks-config2/transactions/1794731635533451237"
+    },
+    "status": "",
+    "expected_status": "",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "stage-only",
+    "rep": 0,
+    "result": {
+      "apply_s": 0.002123,
+      "check_to_replace_ns": [
+        49500
+      ],
+      "commit_s": 0.071719748,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.014306889032013714,
+        "locks": [],
+        "paths": [],
+        "staged_not_merged": [
+          "d000/f000000"
+        ]
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 5.075e-05,
+      "prepare_s": 0.068883808,
+      "rebuild_s": 0.0007086,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-stage-only0/transactions/1794731635856895417"
+    },
+    "status": " M d000/f000000\n",
+    "expected_status": " M d000/f000000\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "stage-only",
+    "rep": 1,
+    "result": {
+      "apply_s": 0.003539170000000008,
+      "check_to_replace_ns": [
+        46490
+      ],
+      "commit_s": 0.072865828,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.014237808994948864,
+        "locks": [],
+        "paths": [],
+        "staged_not_merged": [
+          "d000/f000000"
+        ]
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.772e-05,
+      "prepare_s": 0.068670238,
+      "rebuild_s": 0.0006518,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-stage-only1/transactions/1794731636194052077"
+    },
+    "status": " M d000/f000000\n",
+    "expected_status": " M d000/f000000\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "stage-only",
+    "rep": 2,
+    "result": {
+      "apply_s": 0.0021847399999999906,
+      "check_to_replace_ns": [
+        46360
+      ],
+      "commit_s": 0.079508898,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.01886467006988823,
+        "locks": [],
+        "paths": [],
+        "staged_not_merged": [
+          "d000/f000000"
+        ]
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 4.769e-05,
+      "prepare_s": 0.076738758,
+      "rebuild_s": 0.00058111,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-stage-only2/transactions/1794731636543474046"
+    },
+    "status": " M d000/f000000\n",
+    "expected_status": " M d000/f000000\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-before",
+    "rep": 0,
+    "result": {
+      "apply_s": 0.005250959999999999,
+      "check_to_replace_ns": [
+        260680,
+        30750,
+        35190
+      ],
+      "commit_s": 0.120957396,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.06224934896454215,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00036294,
+      "prepare_s": 0.115090936,
+      "rebuild_s": 0.00060981,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-host-stage-before0/transactions/1794731636907186345"
+    },
+    "status": "M  d001/f000001\n",
+    "expected_status": "M  d001/f000001\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-before",
+    "rep": 1,
+    "result": {
+      "apply_s": 0.0023527200000000026,
+      "check_to_replace_ns": [
+        38580,
+        30010,
+        27450
+      ],
+      "commit_s": 0.110559366,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.056737298029474914,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00012583,
+      "prepare_s": 0.107525116,
+      "rebuild_s": 0.00067673,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-host-stage-before1/transactions/1794731637260490025"
+    },
+    "status": "M  d001/f000001\n",
+    "expected_status": "M  d001/f000001\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  },
+  {
+    "case": "host-stage-before",
+    "rep": 2,
+    "result": {
+      "apply_s": 0.002223050000000004,
+      "check_to_replace_ns": [
+        44070,
+        34440,
+        33890
+      ],
+      "commit_s": 0.104911417,
+      "conflicts": [],
+      "git": {
+        "blocked": [],
+        "conflicts": [],
+        "git_prepare_s": 0.05768718896433711,
+        "locks": [
+          ".git/HEAD.lock",
+          ".git/index.lock",
+          ".git/packed-refs.lock",
+          ".git/refs/heads/main.lock"
+        ],
+        "paths": [
+          ".git/refs/heads/main",
+          ".git/index"
+        ],
+        "staged_not_merged": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00014607,
+      "prepare_s": 0.102113077,
+      "rebuild_s": 0.0005716,
+      "rename_syscalls": 0,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/git-extra-host-stage-before2/transactions/1794731637593153215"
+    },
+    "status": "M  d001/f000001\n",
+    "expected_status": "M  d001/f000001\n",
+    "status_consistent": true,
+    "host_stage_preserved": true,
+    "config_preserved": true,
+    "hooks_preserved": true
+  }
+]

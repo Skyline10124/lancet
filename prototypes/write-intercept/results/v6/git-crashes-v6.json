@@ -1,0 +1,323 @@
+[
+  {
+    "stage": "before-log",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [],
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [],
+    "pass": true
+  },
+  {
+    "stage": "before-log",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [],
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": []
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": []
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "after-ready",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": []
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "apply-1",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "apply-2",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          ".git/refs/heads/main",
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "apply-2",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          ".git/refs/heads/main",
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "apply-2",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          ".git/refs/heads/main",
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 0,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          ".git/index",
+          ".git/refs/heads/main",
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 1,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          ".git/index",
+          ".git/refs/heads/main",
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "before-post-sync",
+    "rep": 2,
+    "killed": true,
+    "equals_before": true,
+    "equals_after": false,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "conflicts": [],
+        "irreversible": [],
+        "outcome": "Restored",
+        "restored": [
+          ".git/index",
+          ".git/refs/heads/main",
+          "d000/f000000"
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 0,
+    "killed": true,
+    "equals_before": false,
+    "equals_after": true,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "outcome": "Committed"
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 1,
+    "killed": true,
+    "equals_before": false,
+    "equals_after": true,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "outcome": "Committed"
+      }
+    ],
+    "pass": true
+  },
+  {
+    "stage": "after-complete",
+    "rep": 2,
+    "killed": true,
+    "equals_before": false,
+    "equals_after": true,
+    "status": "",
+    "locks": [],
+    "recovery": [
+      {
+        "outcome": "Committed"
+      }
+    ],
+    "pass": true
+  }
+]

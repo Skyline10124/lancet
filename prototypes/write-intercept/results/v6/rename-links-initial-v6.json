@@ -1,0 +1,316 @@
+[
+  {
+    "edit": false,
+    "outside": false,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "events": 3,
+      "rearmed": 8,
+      "scan_s": 0.00092641
+    },
+    "result": {
+      "apply_s": 0.00350884,
+      "check_to_replace_ns": [
+        1507010
+      ],
+      "commit_s": 0.01184639,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00150838,
+      "prepare_s": 0.00394336,
+      "rebuild_s": 0.00439009,
+      "rename_syscalls": 1,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/v5-rename-links-False-False/transactions/1794731571041121425"
+    },
+    "difference": [],
+    "inode_preserved": true,
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"outcome\":\"Restored\",\"restored\":[\"dir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "edit": false,
+    "outside": true,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "events": 3,
+      "rearmed": 9,
+      "scan_s": 0.00209749
+    },
+    "result": {
+      "apply_s": 0.005008609999999999,
+      "check_to_replace_ns": [
+        1761510,
+        294520
+      ],
+      "commit_s": 0.01385152,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00205933,
+      "prepare_s": 0.00520126,
+      "rebuild_s": 0.00363848,
+      "rename_syscalls": 1,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/v5-rename-links-False-True/transactions/1794731571106765393"
+    },
+    "difference": [],
+    "inode_preserved": true,
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"outcome\":\"Restored\",\"restored\":[\"dir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  },
+  {
+    "edit": true,
+    "outside": false,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two"
+        ]
+      },
+      "events": 6,
+      "rearmed": 8,
+      "scan_s": 0.00117839
+    },
+    "result": {
+      "apply_s": 0.0052220700000000005,
+      "check_to_replace_ns": [
+        1743250,
+        32380,
+        34530
+      ],
+      "commit_s": 0.01434316,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00182762,
+      "prepare_s": 0.0055291,
+      "rebuild_s": 0.00358846,
+      "rename_syscalls": 1,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/v5-rename-links-True-False/transactions/1794731571179683981"
+    },
+    "difference": [],
+    "inode_preserved": false,
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"outcome\":\"Restored\",\"restored\":[\"moved/two\",\"moved/one\",\"dir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": false
+  },
+  {
+    "edit": true,
+    "outside": true,
+    "finish": {
+      "audit": {
+        "exact": true,
+        "full_paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "epsilon": {
+        "directory_renames": [
+          {
+            "from": "dir",
+            "to": "moved"
+          }
+        ],
+        "paths": [
+          "dir",
+          "dir/f0000",
+          "dir/f0001",
+          "dir/f0002",
+          "dir/one",
+          "dir/two",
+          "moved",
+          "moved/f0000",
+          "moved/f0001",
+          "moved/f0002",
+          "moved/one",
+          "moved/two",
+          "outside-hard"
+        ]
+      },
+      "events": 5,
+      "rearmed": 9,
+      "scan_s": 0.0025566
+    },
+    "result": {
+      "apply_s": 0.007999339999999999,
+      "check_to_replace_ns": [
+        1918860,
+        200940,
+        1066830,
+        21570
+      ],
+      "commit_s": 0.01760992,
+      "conflicts": [],
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Committed",
+      "partial_visible_s": 0.00324919,
+      "prepare_s": 0.0058212,
+      "rebuild_s": 0.00378553,
+      "rename_syscalls": 1,
+      "transaction": "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/v5-rename-links-True-True/transactions/1794731571247954849"
+    },
+    "difference": [],
+    "inode_preserved": true,
+    "recovery": {
+      "code": 0,
+      "stdout": "{\"conflicts\":[],\"outcome\":\"Restored\",\"restored\":[\"moved/two\",\"moved/one\",\"outside-hard\",\"dir\"]}\n",
+      "stderr": ""
+    },
+    "restored_difference": [],
+    "pass": true
+  }
+]

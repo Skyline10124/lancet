@@ -1,0 +1,11 @@
+{
+  "shadow-v6/src/base-v6.rs": "114215c5c212323c10d1bb96f7309c12b540b5acddb02f956dbad2a867610cb5",
+  "shadow-v6/src/main-v6.rs": "b1bd9e7c7fec2a5ca1087e4949072015c622078d006a6859bac14b6f1568c1e0",
+  "shadow-v6/src/scan-v6.rs": "312c239660235eacba102be343e96da1da37e3986116b63b1f504a5b77e7f110",
+  "shadow-v6/src/transaction-v6.rs": "25b96306908f93eeeeeaed3fb8e969597ddc9ef62a59d97f950065d4fd9488f7",
+  "shadow-v6/Cargo.toml": "0af832b83b3eba1eba148d641c200355fc984fc9c51c591e9bf033ac46a0a8c6",
+  "shadow-v6/Cargo.lock": "ec6d26aa9d87104a935d6cf433bd200a8812f7ea46b91f7523347cb1dd01045d",
+  "git-v6.py": "d08953aa5d6473a0f88da3c4250129667998b9be5c74a2363ceff09d17076bec",
+  "namespace-v6.c": "cb330d2d6d0c0e12f0201472c141a51f5984fc97699ef19f54dd2d2f00816e57",
+  ".scratch/rust-target-v6/release/shadow-v6": "acd8372e5131f24c23f3894f66cea09de1db809343037fc7d5e0c8dbb0dcf218"
+}

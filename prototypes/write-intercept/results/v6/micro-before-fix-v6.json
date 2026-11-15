@@ -1,0 +1,1310 @@
+[
+  {
+    "name": "micro-none-null-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.069691418,
+    "process_wall_s": 0.07084562804084271,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068645098,\"us_per_call\":3.432255}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.069691418,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.200241968035698e-07
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068645098,
+      "us_per_call": 3.432255
+    }
+  },
+  {
+    "name": "micro-none-null-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.068891548,
+    "process_wall_s": 0.06999583798460662,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067958978,\"us_per_call\":3.397949}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.068891548,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.6996636986732483e-07
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067958978,
+      "us_per_call": 3.397949
+    }
+  },
+  {
+    "name": "micro-none-null-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.068857548,
+    "process_wall_s": 0.06993603799492121,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067938228,\"us_per_call\":3.396911}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.068857548,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.300359144806862e-07
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067938228,
+      "us_per_call": 3.396911
+    }
+  },
+  {
+    "name": "micro-none-a-0",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.065071508,
+    "process_wall_s": 0.06608456803951412,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.064142078,\"us_per_call\":3.207104}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.065071508,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4004763215780258e-07
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.064142078,
+      "us_per_call": 3.207104
+    }
+  },
+  {
+    "name": "micro-none-a-1",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.065439458,
+    "process_wall_s": 0.06646635802462697,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.064525629,\"us_per_call\":3.226281}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.065439458,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.3993121683597565e-07
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.064525629,
+      "us_per_call": 3.226281
+    }
+  },
+  {
+    "name": "micro-none-a-2",
+    "mode": "none",
+    "returncode": 0,
+    "wall_s": 0.064652588,
+    "process_wall_s": 0.06577620794996619,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063680859,\"us_per_call\":3.184043}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "none",
+      "wall_s": 0.064652588,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4994293451309204e-07
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063680859,
+      "us_per_call": 3.184043
+    }
+  },
+  {
+    "name": "micro-ns-null-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.070227487,
+    "process_wall_s": 0.07131949707400054,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067981728,\"us_per_call\":3.399086}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.070227487,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.3993121683597565e-07
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067981728,
+      "us_per_call": 3.399086
+    }
+  },
+  {
+    "name": "micro-ns-null-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.070011628,
+    "process_wall_s": 0.07111370796337724,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067883248,\"us_per_call\":3.394162}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.070011628,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.7997808754444122e-07
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067883248,
+      "us_per_call": 3.394162
+    }
+  },
+  {
+    "name": "micro-ns-null-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.070090708,
+    "process_wall_s": 0.0711828179191798,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067862698,\"us_per_call\":3.393135}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.070090708,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067862698,
+      "us_per_call": 3.393135
+    }
+  },
+  {
+    "name": "micro-ns-a-0",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.066516588,
+    "process_wall_s": 0.06756430794484913,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.064428968,\"us_per_call\":3.221448}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.066516588,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.8998980522155762e-07
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.064428968,
+      "us_per_call": 3.221448
+    }
+  },
+  {
+    "name": "micro-ns-a-1",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.065690468,
+    "process_wall_s": 0.06679690803866833,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063557308,\"us_per_call\":3.177865}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.065690468,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.4994293451309204e-07
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063557308,
+      "us_per_call": 3.177865
+    }
+  },
+  {
+    "name": "micro-ns-a-2",
+    "mode": "ns",
+    "returncode": 0,
+    "wall_s": 0.065229478,
+    "process_wall_s": 0.0662931080441922,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.063101948,\"us_per_call\":3.155097}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "ns",
+      "wall_s": 0.065229478,
+      "code": 0,
+      "calls": 0,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "events": 0,
+      "emulated": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "digest_s": 1.8998980522155762e-07
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.063101948,
+      "us_per_call": 3.155097
+    }
+  },
+  {
+    "name": "micro-B3-null-0",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.581543462,
+    "process_wall_s": 0.5826921720290557,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.578540482,\"us_per_call\":28.927024}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.581543462,
+      "code": 0,
+      "calls": 20000,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 20000,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.5005934983491898e-07
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.578540482,
+      "us_per_call": 28.927024
+    }
+  },
+  {
+    "name": "micro-B3-null-1",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.583047473,
+    "process_wall_s": 0.5841902130050585,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.579966653,\"us_per_call\":28.998333}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.583047473,
+      "code": 0,
+      "calls": 20000,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 20000,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.4004763215780258e-07
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.579966653,
+      "us_per_call": 28.998333
+    }
+  },
+  {
+    "name": "micro-B3-null-2",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 0.581286753,
+    "process_wall_s": 0.5824554020073265,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.578365913,\"us_per_call\":28.918296}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 0.581286753,
+      "code": 0,
+      "calls": 20000,
+      "registered": 0,
+      "clones": 0,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 0,
+      "continued": 20000,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 0,
+      "max_batch": 0,
+      "digest_s": 1.8009450286626816e-07
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.578365913,
+      "us_per_call": 28.918296
+    }
+  },
+  {
+    "name": "micro-B3-a-0",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 3.325917239,
+    "process_wall_s": 3.327447958989069,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":3.322945999,\"us_per_call\":166.147300}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 3.325917239,
+      "code": 0,
+      "calls": 20000,
+      "registered": 1,
+      "clones": 1,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 20000,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 1,
+      "max_batch": 1,
+      "digest_s": 0.0009486500639468431
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 3.322945999,
+      "us_per_call": 166.1473
+    }
+  },
+  {
+    "name": "micro-B3-a-1",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 3.446396676,
+    "process_wall_s": 3.4479092260589823,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":3.443468766,\"us_per_call\":172.173438}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 3.446396676,
+      "code": 0,
+      "calls": 20000,
+      "registered": 1,
+      "clones": 1,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 20000,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 1,
+      "max_batch": 1,
+      "digest_s": 0.0008982800645753741
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 3.443468766,
+      "us_per_call": 172.173438
+    }
+  },
+  {
+    "name": "micro-B3-a-2",
+    "mode": "B3",
+    "returncode": 0,
+    "wall_s": 3.468783295,
+    "process_wall_s": 3.470349715091288,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":3.465831085,\"us_per_call\":173.291554}\n",
+    "stderr": "",
+    "stats": {
+      "mode": "B3",
+      "wall_s": 3.468783295,
+      "code": 0,
+      "calls": 20000,
+      "registered": 1,
+      "clones": 1,
+      "denied": 0,
+      "errors": 0,
+      "emulated": 20000,
+      "continued": 0,
+      "workers": 1,
+      "worker_threads": 8,
+      "inode_checks": 0,
+      "mismatches": 0,
+      "reply_failures": 0,
+      "indeterminate": 0,
+      "timeout": 0,
+      "race_handshakes": 0,
+      "landlock_abi": 6,
+      "lock_waits": 0,
+      "anchors": 0,
+      "moves": 0,
+      "batches": 1,
+      "max_batch": 1,
+      "digest_s": 0.0007256399840116501
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 3.465831085,
+      "us_per_call": 173.291554
+    }
+  },
+  {
+    "name": "micro-S2-null-0",
+    "mode": "S2",
+    "wall_s": 0.07124164700508118,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068044208,\"us_per_call\":3.402210}\n",
+    "stderr": "",
+    "exec_s": 0.07078409800305963,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/micro-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-micro-v6",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/probe-v3",
+      "micro-path",
+      "/dev/null",
+      "20000"
+    ],
+    "begin": {
+      "entries": 1,
+      "events": 0,
+      "git_snapshot_s": 6.694e-05,
+      "overflow": false,
+      "sync_s": 0.00012654,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 0.00012228,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068044208,
+      "us_per_call": 3.40221
+    }
+  },
+  {
+    "name": "micro-S2-null-1",
+    "mode": "S2",
+    "wall_s": 0.07140344695653766,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068141978,\"us_per_call\":3.407099}\n",
+    "stderr": "",
+    "exec_s": 0.07091583695728332,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/micro-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-micro-v6",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/probe-v3",
+      "micro-path",
+      "/dev/null",
+      "20000"
+    ],
+    "begin": {
+      "entries": 1,
+      "events": 0,
+      "git_snapshot_s": 0.00010814,
+      "overflow": false,
+      "sync_s": 0.00019297,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 9.346e-05,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068141978,
+      "us_per_call": 3.407099
+    }
+  },
+  {
+    "name": "micro-S2-null-2",
+    "mode": "S2",
+    "wall_s": 0.07111300795804709,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067875018,\"us_per_call\":3.393751}\n",
+    "stderr": "",
+    "exec_s": 0.07062381797004491,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/micro-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-micro-v6",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/probe-v3",
+      "micro-path",
+      "/dev/null",
+      "20000"
+    ],
+    "begin": {
+      "entries": 1,
+      "events": 0,
+      "git_snapshot_s": 0.00010954,
+      "overflow": false,
+      "sync_s": 0.00018407,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "overflow": false,
+      "scan_s": 9.11e-05,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067875018,
+      "us_per_call": 3.393751
+    }
+  },
+  {
+    "name": "micro-S2-a-0",
+    "mode": "S2",
+    "wall_s": 0.09600318700540811,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.092667047,\"us_per_call\":4.633352}\n",
+    "stderr": "",
+    "exec_s": 0.09547244699206203,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/micro-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-micro-v6",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/probe-v3",
+      "micro-path",
+      "a",
+      "20000"
+    ],
+    "begin": {
+      "entries": 1,
+      "events": 0,
+      "git_snapshot_s": 0.00010151,
+      "overflow": false,
+      "sync_s": 0.00016746,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11200,
+      "overflow": false,
+      "scan_s": 0.00013479,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.092667047,
+      "us_per_call": 4.633352
+    }
+  },
+  {
+    "name": "micro-S2-a-1",
+    "mode": "S2",
+    "wall_s": 0.09811770694795996,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.094697427,\"us_per_call\":4.734871}\n",
+    "stderr": "",
+    "exec_s": 0.09757551702205092,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/micro-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-micro-v6",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/probe-v3",
+      "micro-path",
+      "a",
+      "20000"
+    ],
+    "begin": {
+      "entries": 1,
+      "events": 0,
+      "git_snapshot_s": 0.00010835,
+      "overflow": false,
+      "sync_s": 0.00018563,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11550,
+      "overflow": false,
+      "scan_s": 0.00012854,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.094697427,
+      "us_per_call": 4.734871
+    }
+  },
+  {
+    "name": "micro-S2-a-2",
+    "mode": "S2",
+    "wall_s": 0.09706025698687881,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.093669867,\"us_per_call\":4.683493}\n",
+    "stderr": "",
+    "exec_s": 0.0965532569680363,
+    "command": [
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/namespace-v4",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/micro-v6",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/states-v6/bench-S2-micro-v6",
+      "--",
+      "/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/.scratch/probe-v3",
+      "micro-path",
+      "a",
+      "20000"
+    ],
+    "begin": {
+      "entries": 1,
+      "events": 0,
+      "git_snapshot_s": 0.0001122,
+      "overflow": false,
+      "sync_s": 0.00016428,
+      "synced": 0,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11586,
+      "overflow": false,
+      "scan_s": 0.00013627,
+      "uncertain_history": false,
+      "watches": 1
+    },
+    "settlement": {
+      "apply_s": 0.0,
+      "commit_s": 0.0,
+      "conflicts": [],
+      "outcome": "Unchanged",
+      "prepare_s": 0.0
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.093669867,
+      "us_per_call": 4.683493
+    }
+  },
+  {
+    "name": "micro-S3-null-0",
+    "mode": "S3",
+    "wall_s": 0.07226271799299866,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.068302198,\"us_per_call\":3.415110}\n",
+    "stderr": "",
+    "exec_s": 0.07099210796877742,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 5.451e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 1,
+      "scan_s": 0.00093752
+    },
+    "settlement": {
+      "commit_s": 8.85e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "/dev/null",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.068302198,
+      "us_per_call": 3.41511
+    }
+  },
+  {
+    "name": "micro-S3-null-1",
+    "mode": "S3",
+    "wall_s": 0.07134697702713311,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067724338,\"us_per_call\":3.386217}\n",
+    "stderr": "",
+    "exec_s": 0.07049463700968772,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 8.089e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00047307
+    },
+    "settlement": {
+      "commit_s": 9.22e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "/dev/null",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067724338,
+      "us_per_call": 3.386217
+    }
+  },
+  {
+    "name": "micro-S3-null-2",
+    "mode": "S3",
+    "wall_s": 0.07139496703166515,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.067864668,\"us_per_call\":3.393233}\n",
+    "stderr": "",
+    "exec_s": 0.07059341704007238,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.891e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 0,
+      "rearmed": 0,
+      "scan_s": 0.00044223
+    },
+    "settlement": {
+      "commit_s": 9.07e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "/dev/null",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.067864668,
+      "us_per_call": 3.393233
+    }
+  },
+  {
+    "name": "micro-S3-a-0",
+    "mode": "S3",
+    "wall_s": 0.09592243703082204,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.092327817,\"us_per_call\":4.616391}\n",
+    "stderr": "",
+    "exec_s": 0.09513421705923975,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.39e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11915,
+      "rearmed": 0,
+      "scan_s": 0.00043135
+    },
+    "settlement": {
+      "commit_s": 9.97e-06,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "a",
+    "rep": 0,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.092327817,
+      "us_per_call": 4.616391
+    }
+  },
+  {
+    "name": "micro-S3-a-1",
+    "mode": "S3",
+    "wall_s": 0.09687738702632487,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.093276747,\"us_per_call\":4.663837}\n",
+    "stderr": "",
+    "exec_s": 0.09610967698972672,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 7.683e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 12016,
+      "rearmed": 0,
+      "scan_s": 0.00040357
+    },
+    "settlement": {
+      "commit_s": 1.053e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "a",
+    "rep": 1,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.093276747,
+      "us_per_call": 4.663837
+    }
+  },
+  {
+    "name": "micro-S3-a-2",
+    "mode": "S3",
+    "wall_s": 0.0986850269837305,
+    "returncode": 0,
+    "stdout": "{\"case\":\"micro-path\",\"iterations\":20000,\"failed\":0,\"seconds\":0.095148357,\"us_per_call\":4.757418}\n",
+    "stderr": "",
+    "exec_s": 0.09793843701481819,
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 0,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 6.446e-05
+    },
+    "finish": {
+      "epsilon": {
+        "directory_renames": [],
+        "paths": []
+      },
+      "events": 11536,
+      "rearmed": 0,
+      "scan_s": 0.00038975
+    },
+    "settlement": {
+      "commit_s": 1.036e-05,
+      "git": {
+        "conflicts": [],
+        "locks": [],
+        "paths": []
+      },
+      "outcome": "Unchanged"
+    },
+    "path": "a",
+    "rep": 2,
+    "observation": {
+      "case": "micro-path",
+      "iterations": 20000,
+      "failed": 0,
+      "seconds": 0.095148357,
+      "us_per_call": 4.757418
+    }
+  }
+]

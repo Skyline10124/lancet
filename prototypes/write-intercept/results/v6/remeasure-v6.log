@@ -1,0 +1,13 @@
+build S3 0 0 54.62224522896577
+build S3 1 0 54.127087334985845
+build S3 2 0 54.05754686705768
+checkout A S3 b 0 9.876279121963307 Committed
+checkout A S3 b 1 10.213362902053632 Committed
+checkout A S3 b 2 10.254295420018025 Committed
+checkout B S3 a 0 5.105189556023106 Committed
+checkout B S3 b 0 5.152955423924141 Committed
+checkout B S3 a 1 5.266136890044436 Committed
+checkout B S3 b 1 5.35335147799924 Committed
+checkout B S3 a 2 5.2284391219727695 Committed
+checkout B S3 b 2 5.180129052023403 Committed
+micro done

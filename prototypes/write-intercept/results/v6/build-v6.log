@@ -1,0 +1,23 @@
+   Compiling shadow-v6 v0.1.0 (/home/gcp-vegas/.t3/worktrees/lancet/t3-ed9fe41d/prototypes/write-intercept/shadow-v6)
+warning: variant `Count` is never constructed
+   --> src/base-v6.rs:285:5
+    |
+283 | enum WatchCmd {
+    |      -------- variant in this enum
+284 |     Flush(mpsc::Sender<Result<Events, String>>),
+285 |     Count(mpsc::Sender<usize>),
+    |     ^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `count` is never used
+   --> src/base-v6.rs:379:8
+    |
+293 | impl Watch {
+    | ---------- method in this implementation
+...
+379 |     fn count(&self) -> Result<usize> {
+    |        ^^^^^
+
+warning: `shadow-v6` (bin "shadow-v6") generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 4.23s

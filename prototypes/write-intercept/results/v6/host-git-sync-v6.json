@@ -1,0 +1,170 @@
+[
+  {
+    "rep": 0,
+    "branch": "other",
+    "sync": {
+      "external_aliases": [],
+      "rearmed": 0,
+      "scan_s": 0.00052387,
+      "sync_s": 0.00440794,
+      "synced": 2
+    },
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 4,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.025937589001841843,
+        "index_bytes": 1157
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.060055408
+    },
+    "exact": true,
+    "head_equal": true
+  },
+  {
+    "rep": 0,
+    "branch": "main",
+    "sync": {
+      "external_aliases": [],
+      "rearmed": 1,
+      "scan_s": 0.00176367,
+      "sync_s": 0.00484681,
+      "synced": 2
+    },
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 6,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.02651005901861936,
+        "index_bytes": 1157
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.060923908
+    },
+    "exact": true,
+    "head_equal": true
+  },
+  {
+    "rep": 1,
+    "branch": "other",
+    "sync": {
+      "external_aliases": [],
+      "rearmed": 0,
+      "scan_s": 0.00058807,
+      "sync_s": 0.00395174,
+      "synced": 2
+    },
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 4,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.025861128931865096,
+        "index_bytes": 1157
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.059841048
+    },
+    "exact": true,
+    "head_equal": true
+  },
+  {
+    "rep": 1,
+    "branch": "main",
+    "sync": {
+      "external_aliases": [],
+      "rearmed": 1,
+      "scan_s": 0.00138364,
+      "sync_s": 0.00466096,
+      "synced": 2
+    },
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 6,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.024981479975394905,
+        "index_bytes": 1157
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.059046128
+    },
+    "exact": true,
+    "head_equal": true
+  },
+  {
+    "rep": 2,
+    "branch": "other",
+    "sync": {
+      "external_aliases": [],
+      "rearmed": 0,
+      "scan_s": 0.00058897,
+      "sync_s": 0.00409214,
+      "synced": 2
+    },
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 4,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.026470068958587945,
+        "index_bytes": 1157
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.060124868
+    },
+    "exact": true,
+    "head_equal": true
+  },
+  {
+    "rep": 2,
+    "branch": "main",
+    "sync": {
+      "external_aliases": [],
+      "rearmed": 1,
+      "scan_s": 0.00141235,
+      "sync_s": 0.00441882,
+      "synced": 2
+    },
+    "begin": {
+      "background": {
+        "scan_s": 0.0
+      },
+      "events": 6,
+      "git": {
+        "enabled": true,
+        "git_sync_s": 0.02571906999219209,
+        "index_bytes": 1157
+      },
+      "sync": {
+        "synced": 0
+      },
+      "sync_s": 0.059746409
+    },
+    "exact": true,
+    "head_equal": true
+  }
+]

@@ -1,0 +1,136 @@
+{
+  "coverage": {
+    "samples": 126,
+    "expected_samples": 126,
+    "successful": 126
+  },
+  "randomized": {
+    "samples": 200,
+    "expected_samples": 200,
+    "successful": 200
+  },
+  "synchronization": {
+    "samples": 45,
+    "expected_samples": 45,
+    "successful": 45
+  },
+  "continuous-mmap": {
+    "samples": 20,
+    "expected_samples": 20,
+    "successful": 20
+  },
+  "git-matrix": {
+    "samples": 96,
+    "expected_samples": 96,
+    "successful": 96
+  },
+  "git-extra": {
+    "samples": 18,
+    "expected_samples": 18,
+    "successful": 18
+  },
+  "git-crashes": {
+    "samples": 18,
+    "expected_samples": 18,
+    "successful": 18
+  },
+  "rename-links": {
+    "samples": 4,
+    "expected_samples": 4,
+    "successful": 4
+  },
+  "host-git-sync": {
+    "samples": 6,
+    "expected_samples": 6,
+    "successful": 6
+  },
+  "builds": {
+    "samples": 15
+  },
+  "checkouts": {
+    "samples": 45
+  },
+  "micro": {
+    "samples": 30
+  },
+  "initial": {
+    "samples": 9
+  },
+  "scan": {
+    "samples": 81
+  },
+  "fixed": {
+    "samples": 63
+  },
+  "merges": {
+    "samples": 18
+  },
+  "renames": {
+    "samples": 30
+  },
+  "git-scale": {
+    "samples": 6
+  },
+  "known_crash_failures": [
+    {
+      "stage": "inplace-partial",
+      "rep": 0,
+      "recovery": [
+        {
+          "conflicts": [
+            "hard",
+            "a"
+          ],
+          "irreversible": [],
+          "outcome": "Indeterminate",
+          "restored": [
+            "outside"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "inplace-partial",
+      "rep": 1,
+      "recovery": [
+        {
+          "conflicts": [
+            "hard",
+            "a"
+          ],
+          "irreversible": [],
+          "outcome": "Indeterminate",
+          "restored": [
+            "outside"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "inplace-partial",
+      "rep": 2,
+      "recovery": [
+        {
+          "conflicts": [
+            "hard",
+            "a"
+          ],
+          "irreversible": [],
+          "outcome": "Indeterminate",
+          "restored": [
+            "outside"
+          ]
+        }
+      ]
+    }
+  ],
+  "baseline": {
+    "files": 2456,
+    "mismatches": []
+  },
+  "report_links": {
+    "missing": []
+  },
+  "all_targets_passed": false,
+  "artifact_consistency_passed": true
+}

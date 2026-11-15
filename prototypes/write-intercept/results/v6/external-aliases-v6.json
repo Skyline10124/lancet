@@ -1,0 +1,34 @@
+[
+  {
+    "readonly": false,
+    "detected": [
+      {
+        "inside_names": 1,
+        "nlink": 2,
+        "outside_names": 1,
+        "paths": [
+          "a"
+        ]
+      }
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "host_changed": true
+  },
+  {
+    "readonly": true,
+    "detected": [
+      {
+        "inside_names": 1,
+        "nlink": 2,
+        "outside_names": 1,
+        "paths": [
+          "a"
+        ]
+      }
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "host_changed": true
+  }
+]

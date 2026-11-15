@@ -1,0 +1,16 @@
+[
+  {
+    "case": "per-item",
+    "result": {
+      "conflicts": [
+        "a"
+      ],
+      "outcome": "Conflict",
+      "restored": [
+        "b"
+      ]
+    },
+    "a_preserved": true,
+    "b_restored": true
+  }
+]
