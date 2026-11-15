@@ -16,6 +16,6 @@ LANCET 是独立工具执行运行时 `lancet-node`，对外提供 `act` 工具�
 _Avoid_: in-process LancetRuntime, CEP host, embedded tool runner
 
 **act**:
-`lancet-node` 对外提供的单一工具面；具体协议、脚本模型与回执结构随架构合同与 ADR 0001 定稿后补入。
+`lancet-node` 对外提供的单一工具面；具体协议、脚本模型与回执结构随架构合同及 ADR 0001、ADR 0002 定稿后补入。
 见 [README.md](../../README.md#定位与状态)。
 _Avoid_: multi-tool CEP catalog, raw shell tool, untyped command string

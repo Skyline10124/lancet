@@ -18,6 +18,10 @@
 
 - [工程规范](development/engineering.md)：设计中的归属、代码可读性、测试判定、TDD 与验证范围。
 
+## 架构决策
+
+- [ADR 0001](adr/0001-lancet-protocol.md)（accepted）：以 `lancet-protocol` 定义外部上下文节点协议（连接、零重放、五态结局与回执）。
+
 ## 参考资料
 
 - [领域术语](reference/glossary.md)：项目唯一术语表，保留英文名称、中文定义、易混淆称呼及合同章节入口。
