@@ -38,7 +38,7 @@ _Avoid_: display_name, 节点路径, 进程 id
 _Avoid_: 工具列表版本号, schema hash
 
 **回执（`Receipt`）**:
-节点为每次受理的 `execute` 持久生成的记录：调用身份、标签、最终结局、子步骤摘要、effect 条目（每个变更项带 `residue`）与 `seam` 跨越记录。回包只附紧凑的 `receipt_summary`，完整回执经 `receipt` 查询；交回模型的 `content` 不是回执。
+节点为每次受理的 `execute` 持久生成的记录：调用身份、标签、最终结局、子步骤摘要与 effect 条目（每个变更项带 `residue`）。回包只附紧凑的 `receipt_summary`，完整回执经 `receipt` 查询；交回模型的 `content` 不是回执。
 见[外部上下文节点协议](../architecture/lancet-protocol.md#effectco-effect-与回执)。
 _Avoid_: content, 执行日志, trace
 

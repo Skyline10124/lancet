@@ -22,7 +22,7 @@ status: active
 | effect（ε） | 调用结束后仍可被观察到的改变 | 回执的 effect 条目 | 随回执 |
 | co-effect（κ） | 调用需要的句柄及其使用模式 | 节点的操作声明 | 随节点版本 |
 | `residue` | 变更项中没有逆、或逆所需材料未被保留的部分 | 回执的变更项 | 随回执 |
-| `seam` | 跨句柄连接 effect 与 co-effect 的边 | 边集在环境简述中；跨越记录在回执中 | 边集随配置；跨越记录随回执 |
+| `seam` | 跨句柄连接 effect 与 co-effect 的边 | 环境简述中的边集 | 随配置、授权与节点版本 |
 | 调用记录 | 每个 `invocation_id` 的持久记录 | 节点的记录账本 | 见[调用记录](#调用记录) |
 | 回执（`Receipt`） | 一次受理的 `execute` 的完整记录 | 节点状态存储 | 结算时写成；明细在保留期满后清理 |
 | `receipt_summary` | 回执的紧凑摘要 | `execute_result` 回包 | 单次回包 |
@@ -108,7 +108,7 @@ Seam   = { from: 句柄名, to: 句柄名, direction: Integrity | Confidentialit
 | --- | --- | --- | --- |
 | 形状 | 解码 `describe_ok` 时由 `lancet-protocol` 类型校验：`name` 非空且唯一；枚举字段取值合法；`seam` 两端指向已列出的句柄；序列化字节数不超上限 | 调用方 | `describe` 失败，本轮不挂载该节点 |
 | 与声明一致 | 环境简述等于配置与操作声明推出的结果 | 节点 | 由单一构造入口保证 |
-| 与实际行为一致 | 回执每条 effect 条目的句柄与种类在本轮环境简述中被允许；每条跨越对应环境简述中的一条边 | 调用方 | 协议错误：调用方把该节点标为不可信并报告 |
+| 与实际行为一致 | 回执每条 effect 条目的句柄与种类在本轮环境简述中被允许 | 调用方 | 协议错误：调用方把该节点标为不可信并报告 |
 | 语义 | `kind` 与 `attributes` 的含义 | 无 | 不检查，调用方因此不依赖它们 |
 
 ### `execute` 的受理与结局
@@ -170,10 +170,7 @@ call : arguments → result ! ε @ κ
 
 句柄有 `name` 与 `kind`，种类与属性由节点实现规定（`lancet-node` 见[宿主资源](lancet-node/host-resources.md)）。
 
-节点为每次受理的 `execute` 持久生成回执，内容为调用身份、`labels`、最终结局、子步骤摘要、effect 条目与 `seam` 跨越记录：
-
-- **effect 条目**写明句柄名、effect 种类与变更项列表；每个变更项各带一个 `residue` 取值。effect 种类只给出 `residue` 的可能范围，实际取值逐项记录。
-- **`seam` 跨越**：节点的 `seam` 闸口按完整性方向的边放行一次跨越时记一条，写明边与跨越的变更项数量。闸口拒绝时，该次调用以 `Failed { ToolError { code: SeamBlocked } }` 结束。
+节点为每次受理的 `execute` 持久生成回执，内容为调用身份、`labels`、最终结局、子步骤摘要与 effect 条目。每条 effect 条目写明句柄名、effect 种类与变更项列表；每个变更项各带一个 `residue` 取值。effect 种类只给出 `residue` 的可能范围，实际取值逐项记录。
 
 | `residue` | 含义 | 出现在 |
 | --- | --- | --- |
@@ -190,12 +187,14 @@ call : arguments → result ! ε @ κ
 | 完整性（`Integrity`） | 句柄 A 上的 `Write` 成为句柄 B 上 `Exec` 所依赖的上下文：写入的内容被执行 |
 | 机密性（`Confidentiality`） | 经 `Uses<A>` 读到的上下文可经句柄 B 上的 `Emit` 外发 |
 
+节点的 `seam` 闸口按边的 `policy` 处置跨越：`Allow` 放行；`Deny` 拒绝，该次调用以 `Failed { ToolError { code: SeamBlocked } }` 结束。跨越不记入回执。
+
 | 概念 | 读取方 | 据此作的决定 |
 | --- | --- | --- |
 | co-effect | 节点受理 | κ 中的句柄与模式必须已被授予，否则拒绝该次调用 |
 | effect | 节点（中断处置、`seam` 闸口）；调用方（审批与展示、回执核对） | 中断后还剩哪些 effect；是否放行跨越；回执是否越出环境简述 |
 | `residue` | 调用方与用户 | 哪些改变还能撤回，如实报告撤不回的项 |
-| `seam` | 节点（闸口）；调用方（审批与展示） | 放行并记录跨越，或拒绝 |
+| `seam` | 节点（闸口）；调用方（展示给用户） | 闸口按 `policy` 放行或拒绝跨越；用户据此决定是否保留相应的授权 |
 
 ### 对账
 
@@ -297,6 +296,7 @@ ReceiptLookup = NeverExecuted                       # 确定未执行，同 id �
 | 事项 | 现状 |
 | --- | --- |
 | 远程字节流传输的认证与加密封装 | 待裁决，见 [ADR 0001 待裁决](../adr/0001-lancet-protocol.md#待裁决) |
+| 审批：依据什么、在哪里询问用户，`policy` 是否增加取值 | 待设计审批时裁决 |
 | 单帧字节上限的取值，以及 `ToolSpec`、`ToolError`、`ReceiptSummary`、`Receipt`、`labels` 与协议版本标识的字段 | 由 [#4](https://github.com/Skyline10124/lancet/issues/4) 在 `lancet-protocol` 中确定 |
 | 完整回执超过单帧字节上限时怎样经 `receipt` 返回（如一次发布大量文件时的完整 diff） | 待定，随 #4 确定单帧上限时一并决定 |
 

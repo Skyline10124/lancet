@@ -60,10 +60,10 @@ stateDiagram-v2
 | --- | --- | --- |
 | 系统目录（`/usr`、`/etc` 等） | 宿主 | 只读 |
 | `$HOME`（宿主家目录的原路径） | 节点状态目录中的私有家目录；其中的 `.gitconfig` 由节点生成，只含 `user.name` 与 `user.email` | 可写 |
-| 工具链（如 `~/.rustup`、`~/.cargo/bin`，由配置列出） | 宿主，挂进私有家目录中的原路径 | 只读 |
-| 包缓存（如 `~/.cargo/registry`、`~/.npm`，由配置列出） | 私有家目录中的副本，首次从宿主缓存 reflink 复制；cargo 只复制 `registry/cache` 与 `registry/index`，源码由 cargo 在私有目录中重新解压 | 可写 |
-| 可写工作目录（真实路径） | [影子](shadow-workspace.md)；`regenerable` 目录与 `.git/` 各自单独挂载 | 可写 |
-| 只读工作目录 | 宿主；已存在的 `hidden` 路径以空文件或空目录遮蔽 | 只读 |
+| 工具链（`[[env]]` 的 `tools` 列出的路径，如 `~/.rustup`、`~/.cargo/bin`） | 宿主，挂进私有家目录中的原路径 | 只读 |
+| 包缓存（`caches` 列出的路径，如 `~/.cargo/registry`、`~/.npm`） | 私有家目录中的副本，首次从宿主缓存 reflink 复制；cargo 只复制 `registry/cache` 与 `registry/index`，源码由 cargo 在私有目录中重新解压 | 可写 |
+| `mounts` 中的可写工作目录（真实路径） | [影子](shadow-workspace.md)；`regenerable` 目录与 `.git/` 各自单独挂载 | 可写 |
+| `mounts` 中的只读工作目录 | 宿主；已存在的 `hidden` 路径以空文件或空目录遮蔽 | 只读 |
 | 影子 `.git/` 引用的宿主对象 | 宿主的 `.git/objects` | 只读 |
 | `/tmp` | 节点状态目录中的私有临时目录 | 可写 |
 | `/proc`、`/dev` | 新 PID 命名空间的 `proc`；`/dev` 只含 `null`、`zero`、`random`、`urandom` | — |
@@ -95,7 +95,7 @@ sequenceDiagram
 | 外发控制层 | 手段 | 读取方与决定 |
 | --- | --- | --- |
 | 出口清单 | 网络出口句柄限定允许访问的主机域名 | 出口代理逐个请求放行或拒绝 |
-| 组合展示 | 推出的机密性边写入环境简述（[`seam` 边集](config.md#环境简述与-seam-边集)） | 调用方展示给用户；机器所有者不接受某个组合时，撤掉相应的句柄 |
+| 组合展示 | 推出的机密性边写入环境简述（[`seam` 边集](config.md#环境简述与-seam-边集)） | 调用方展示给用户；机器所有者据此在配置中收窄授权 |
 | 回执 | 每次外发记 `External { host }` | 调用方核对，用户事后审计 |
 
 已接受的残余风险：首阶段不做 TLS 中间人解包，被允许的主机本身能接收任意数据（如 issue、gist 或查询串载荷）时，域名清单拦不住。
@@ -120,7 +120,7 @@ sequenceDiagram
 | 跨调用保留的执行环境与后台进程 | 不提供；每次 `proc.*` 结束即终止执行环境 |
 | 按命令白名单限制可运行的程序 | 不提供；边界由挂载表、网络出口与内存上限承担 |
 | TLS 中间人解包 | 不做，见上文的残余风险 |
-| `Emit` 前的审批 | 推后，见 [`lancet-node` 尚未承接](README.md#尚未承接) |
+| 审批 | 推后，见 [`lancet-node` 尚未承接](README.md#尚未承接) |
 | `act` 交回的 `content` 离开节点后的去向 | 调用方 |
 
 ## 尚未承接
@@ -128,6 +128,7 @@ sequenceDiagram
 | 事项 | 现状 |
 | --- | --- |
 | 执行环境的进程数与磁盘占用上限 | 待裁决，第一个版本只设内存上限，见 [ADR 0002 待裁决](../../adr/0002-lancet-node-api-tools-and-act.md#待裁决) |
+| 执行环境固定挂载的系统目录清单；`tools` 能否列出家目录以外的路径 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定 |
 | 杀掉进程时内核对 io_uring 已提交写入的处理 | 尚未核实：开发主机已全局禁用 io_uring；已核实的是内核等 AIO 写完才回收进程 |
 
 ## 验证

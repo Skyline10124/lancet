@@ -32,7 +32,7 @@ status: active
 | `[[dir]]` | `regenerable` | 可再生路径的规则列表 |
 | `[[dir]]` | `hidden` | 排除路径的规则列表 |
 | `[[env]]` | `name` | 执行环境句柄名 |
-| `[[env]]` | `mounts` | 挂载进执行环境的工作目录及挂载方式：`{ dir, access }` |
+| `[[env]]` | `mounts` | 挂进执行环境的工作目录名；挂载方式跟随目录自己的 `access`，见[挂载表](host-resources.md#挂载表) |
 | `[[env]]` | `tools` | 只读挂载的工具链路径 |
 | `[[env]]` | `caches` | 包缓存路径；执行环境使用节点私有的副本 |
 | `[[env]]` | `egress` | 执行环境持有的网络出口名 |
@@ -58,7 +58,7 @@ access = "read"
 
 [[env]]
 name = "dev"
-mounts = [{ dir = "lancet", access = "write" }, { dir = "lattice", access = "read" }]
+mounts = ["lancet", "lattice"]          # 挂载方式跟随各目录的 access
 tools = ["~/.rustup", "~/.cargo/bin"]   # 只读挂载
 caches = ["~/.cargo/registry"]          # 节点私有副本
 egress = "crates"
@@ -118,15 +118,21 @@ hosts = ["index.crates.io", "static.crates.io"]
 `seam` 边集由授权推出，不在配置中声明：
 
 ```text
-for 每个执行环境 e, for 每个以可写方式挂载进 e 的目录 d:
+for 每个执行环境 e, for 每个挂进 e 的可写目录 d:
     integrity        d ⇒ e     # d 上的 Write 成为 e 中 Exec 的上下文
 for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环境挂载）:
     confidentiality  d ⇒ n     # 经 Uses<d> 读到的内容可经 n 上的 Emit 外发
 ```
 
-- 第一个版本每条边的 `policy` 都是 `Allow`。授予可读目录、执行环境与网络出口，就是确认它们之间的组合；机器所有者不接受某个组合时，撤掉相应的句柄。
+第一个版本每条边的 `policy` 都是 `Allow`：授予可读目录、执行环境与网络出口，就是确认它们之间的组合。机器所有者不接受某个组合时，在配置中收窄授权：
+
+| 要去掉的边 | 配置中的做法 |
+| --- | --- |
+| 完整性 `d ⇒ e` | 不把 `d` 列进 `e` 的 `mounts`，或把 `d` 的 `access` 改为 `"read"` |
+| 机密性 `d ⇒ n` | 不授予 `d`，或不授予 `n` |
+
 - 机密性边不限于同一次 `act`：第一次 `act` 读到的内容交回模型后，模型可以把它写进下一次 `act` 的外发请求。授权组合里同时有可读目录与网络出口，就成立一条边。
-- 第一个版本不在运行时拦截跨越，也不记录跨越。回执照常记录变更的文件与外发的主机，供调用方核对与用户事后审计。
+- 边全是 `Allow`，闸口放行全部跨越，节点不在运行时拦截（闸口的规则见[协议合同](../lancet-protocol.md#effectco-effect-与回执)）。回执照常记录变更的文件与外发的主机，供调用方核对与用户事后审计。
 
 ## 保证
 
@@ -141,7 +147,7 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 | 职责 | 承担方 |
 | --- | --- |
 | 编辑与分发节点配置 | 机器所有者 |
-| 审批上线后的询问配置 | 待裁决，见 [`lancet-node` 尚未承接](README.md#尚未承接) |
+| 审批 | 推后，见 [`lancet-node` 尚未承接](README.md#尚未承接) |
 
 ## 尚未承接
 

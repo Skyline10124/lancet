@@ -38,10 +38,10 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 | --- | --- | --- |
 | `borrow<read-dir>` | `Uses<d, Read>` | 无 |
 | `borrow<write-dir>` | `Uses<d, ReadWrite>` | `Write<d>` |
-| `borrow<exec-env>` | `Uses<e>` 与 `mounts(e)` | `Exec<e>`，以及派生的 `Write<d>`（`d` 以可写方式挂载）与 `Emit<n>`（`e` 持有出口） |
+| `borrow<exec-env>` | `Uses<e>` 与 `mounts(e)` | `Exec<e>`，以及派生的 `Write<d>`（`d` 是挂进 `e` 的可写目录）与 `Emit<n>`（`e` 持有出口） |
 | `borrow<egress>` | `Uses<n>` | `Emit<n>` |
 
-`d`、`e`、`n` 为该参数；`mounts(e)` 为 `e` 挂载的目录及其模式。
+`d`、`e`、`n` 为该参数；`mounts(e)` 为 `e` 挂载的目录及其读写级别。
 
 ## 声明加载
 
@@ -155,7 +155,7 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 | 职责 | 现状 |
 | --- | --- |
 | 第三方工具的安装、分发与信任配置 | 推后；第一个版本只发布首批工具 |
-| 审批与 `seam` 询问 | 推后，见 [`lancet-node` 尚未承接](README.md#尚未承接) |
+| 审批 | 推后，见 [`lancet-node` 尚未承接](README.md#尚未承接) |
 
 ## 尚未承接
 

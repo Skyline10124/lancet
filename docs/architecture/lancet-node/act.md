@@ -165,7 +165,6 @@ commit()  # 或 discard()
 
 | 事项 | 现状 |
 | --- | --- |
-| 审批上线后，子调用的 `seam` 询问被拒时以 `Failed(SeamBlocked)` 结束 | 随审批上线写入，见 [ADR 0002 第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布)的结局映射 |
 | 结局不是 `Succeeded`（没有 `content`）时，待定提示放在哪里；`output_limit` 小于提示的预留字节时怎样处理 | 待定，随 [#5](https://github.com/Skyline10124/lancet/issues/5)、[#7](https://github.com/Skyline10124/lancet/issues/7) 决定 |
 
 ## 验证
