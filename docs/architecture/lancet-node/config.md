@@ -33,9 +33,11 @@ status: active
 | `[[dir]]` | `hidden` | 排除路径的规则列表 |
 | `[[env]]` | `name` | 执行环境句柄名 |
 | `[[env]]` | `mounts` | 挂进执行环境的工作目录名；挂载方式跟随目录自己的 `access`，见[挂载表](host-resources.md#挂载表) |
-| `[[env]]` | `tools` | 只读挂载的工具链路径 |
+| `[[env]]` | `tools` | 只读挂载的宿主路径（目录或单个文件），如工具链；按原路径挂载 |
 | `[[env]]` | `caches` | 包缓存路径；执行环境使用节点私有的副本 |
 | `[[env]]` | `egress` | 执行环境持有的网络出口名 |
+| `[[env]]` | `path` | 追加到执行环境 `PATH` 的目录，可省略；见[环境变量](host-resources.md#环境变量) |
+| `[[env]]` | `vars` | 执行环境中的其他环境变量，显式列出，可省略 |
 | `[[egress]]` | `name` | 网络出口句柄名 |
 | `[[egress]]` | `hosts` | 允许访问的主机域名 |
 
@@ -61,6 +63,8 @@ name = "dev"
 mounts = ["lancet", "lattice"]          # 挂载方式跟随各目录的 access
 tools = ["~/.rustup", "~/.cargo/bin"]   # 只读挂载
 caches = ["~/.cargo/registry"]          # 节点私有副本
+path = ["~/.cargo/bin"]                 # 追加到 PATH
+vars = { LANG = "C.UTF-8" }             # 其他环境变量
 egress = "crates"
 
 [[egress]]
@@ -71,6 +75,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 #   integrity        lancet ⇒ dev       lancet 上的写入会在 dev 中被执行
 #   confidentiality  lancet ⇒ crates    lancet 的可读内容可经 crates 外发
 #   confidentiality  lattice ⇒ crates
+#   confidentiality  dev ⇒ crates       dev 挂载的工具链、缓存与私有家目录可经 crates 外发
 ```
 
 ## 路径规则
@@ -93,6 +98,8 @@ hosts = ["index.crates.io", "static.crates.io"]
 | 可写工作目录、影子、私有缓存与节点状态目录同处一个支持 `FICLONE`（reflink）的文件系统 | 总是 |
 | 主机有可用的 `bubblewrap`，以及非特权的用户、挂载、PID、网络命名空间与 cgroup 委派 | 配置授予了执行环境 |
 | 执行环境的全部可写挂载的来源都在节点状态目录内 | 配置授予了执行环境 |
+| `tools` 与 `caches` 的路径不是宿主家目录，也不是它的上级目录 | 配置授予了执行环境 |
+| `tools` 与 `caches` 的路径不与任何工作目录重叠；工作目录只经 `mounts` 挂入 | 配置授予了执行环境 |
 
 ## 节点状态目录
 
@@ -113,15 +120,18 @@ hosts = ["index.crates.io", "static.crates.io"]
 | `name` | 配置中的句柄名 |
 | `kind` | 对应的类型存根名：`ReadDir`、`WriteDir`、`ExecEnv`、`Egress` |
 | `effects`、`modes` | 由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明) |
-| `attributes` | 目录：`hidden`、`regenerable`；执行环境：挂载；网络出口：允许的主机 |
+| `attributes` | 目录：`hidden`、`regenerable`；执行环境：挂载的工作目录与 `tools` 列出的路径；网络出口：允许的主机 |
 
 `seam` 边集由授权推出，不在配置中声明：
 
 ```text
 for 每个执行环境 e, for 每个挂进 e 的可写目录 d:
     integrity        d ⇒ e     # d 上的 Write 成为 e 中 Exec 的上下文
-for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环境挂载）:
-    confidentiality  d ⇒ n     # 经 Uses<d> 读到的内容可经 n 上的 Emit 外发
+for 每个网络出口 n:
+    for 每个可读的目录 d（目录句柄或执行环境挂载）:
+        confidentiality  d ⇒ n     # 经 Uses<d> 读到的内容可经 n 上的 Emit 外发
+    for 每个执行环境 e:
+        confidentiality  e ⇒ n     # e 自己挂载的工具链、缓存与私有家目录可经 n 外发
 ```
 
 第一个版本每条边的 `policy` 都是 `Allow`：授予可读目录、执行环境与网络出口，就是确认它们之间的组合。机器所有者不接受某个组合时，在配置中收窄授权：
@@ -130,8 +140,9 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 | --- | --- |
 | 完整性 `d ⇒ e` | 不把 `d` 列进 `e` 的 `mounts`，或把 `d` 的 `access` 改为 `"read"` |
 | 机密性 `d ⇒ n` | 不授予 `d`，或不授予 `n` |
+| 机密性 `e ⇒ n` | 不授予 `e`，或不授予 `n`；要缩小 `e` 暴露的内容，只在 `tools` 中列需要的路径 |
 
-- 机密性边不限于同一次 `act`：第一次 `act` 读到的内容交回模型后，模型可以把它写进下一次 `act` 的外发请求。授权组合里同时有可读目录与网络出口，就成立一条边。
+- 机密性边不限于同一次 `act`：第一次 `act` 读到的内容交回模型后，模型可以把它写进下一次 `act` 的外发请求。授权组合里同时有可读目录（或执行环境）与网络出口，就成立一条边；执行环境里进程的输出同样可以经模型中转，所以 `e ⇒ n` 不限于 `e` 自己持有的出口。
 - 边全是 `Allow`，闸口放行全部跨越，节点不在运行时拦截（闸口的规则见[协议合同](../lancet-protocol.md#effectco-effect-与回执)）。回执照常记录变更的文件与外发的主机，供调用方核对与用户事后审计。
 
 ## 保证
