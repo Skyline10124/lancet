@@ -1,0 +1,15 @@
+[package]
+name = "notes-tool"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+# 把 effect 清单经 `#[link_section]` 放进核心模块，用来观察它在组件中的位置。
+embed-manifest = []
+
+[dependencies]
+wit-bindgen = "=0.60.0"

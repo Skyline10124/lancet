@@ -1,0 +1,3 @@
+[workspace]
+members = ["node", "tools/notes", "tools/stale-host"]
+resolver = "3"

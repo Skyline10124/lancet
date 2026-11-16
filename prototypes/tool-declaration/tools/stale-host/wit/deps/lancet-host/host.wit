@@ -1,0 +1,34 @@
+package lancet:host@0.1.0;
+
+/// 节点交给 API 工具的句柄。句柄的种类与模式各是一种资源类型。
+interface handles {
+  /// 只读目录：一个工作目录的只读视图。
+  resource read-dir {
+    /// 读取文件字节（与节点不一致的旧签名）。
+    read: func(path: string) -> result<list<u8>, string>;
+    /// 列出目录下的文件，返回相对路径。
+    entries: func(path: string) -> result<list<string>, string>;
+  }
+
+  /// 可写目录：写入成为待定改动。
+  resource write-dir {
+    /// 读取 UTF-8 文本文件。
+    read: func(path: string) -> result<string, string>;
+    /// 列出目录下的文件，返回相对路径。
+    entries: func(path: string) -> result<list<string>, string>;
+    /// 整文件写入。
+    write: func(path: string, content: string) -> result<_, string>;
+  }
+
+  /// 执行环境。
+  resource exec-env {
+    /// 以参数数组运行单个进程，返回退出码。
+    run: func(argv: list<string>) -> result<s32, string>;
+  }
+
+  /// 网络出口。
+  resource egress {
+    /// 经出口发起 GET 请求，返回响应体。
+    fetch: func(url: string) -> result<string, string>;
+  }
+}

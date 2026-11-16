@@ -1,0 +1,14 @@
+package acme:stale@0.1.0;
+
+/// 按与节点不一致的旧宿主接口编译的工具。
+interface tool {
+  use lancet:host/handles@0.1.0.{read-dir};
+
+  /// 读取文件字节。
+  peek: func(root: borrow<read-dir>, path: string) -> result<list<u8>, string>;
+}
+
+world stale {
+  import lancet:host/handles@0.1.0;
+  export tool;
+}

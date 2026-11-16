@@ -1,0 +1,33 @@
+package acme:notes@0.1.0;
+
+/// 第三方示例工具：在目录中搜索、追加笔记、抓取网页。
+interface tool {
+  use lancet:host/handles@0.1.0.{read-dir, write-dir, egress};
+
+  /// 一处匹配。
+  record hit {
+    /// 相对路径。
+    path: string,
+    /// 行号，从 1 开始。
+    line: u32,
+    /// 该行文本。
+    text: string,
+  }
+
+  /// 在目录中按子串搜索，最多返回 max-hits 条。
+  grep: func(root: borrow<read-dir>, needle: string, max-hits: option<u32>) -> result<list<hit>, string>;
+
+  /// 在文件末尾追加一行，返回追加后的行数。
+  append-note: func(root: borrow<write-dir>, path: string, text: string) -> result<u32, string>;
+
+  /// 经出口抓取 URL，写入目录中的文件，返回字节数。
+  fetch-into: func(net: borrow<egress>, root: borrow<write-dir>, url: string, path: string) -> result<u32, string>;
+
+  /// 测试用：把只读句柄的编号当作可写句柄使用。
+  forge: func(root: borrow<read-dir>) -> result<_, string>;
+}
+
+world notes {
+  import lancet:host/handles@0.1.0;
+  export tool;
+}

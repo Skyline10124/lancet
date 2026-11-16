@@ -1,0 +1,19 @@
+[package]
+name = "lancet-decl"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+allocative = "0.3"
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+starlark = "=0.14.2"
+starlark_derive = "=0.14.2"
+starlark_map = "=0.14.2"
+wasmparser = "=0.258.3"
+wasmtime = "=49.0.5"
+wit-component = "=0.258.3"
+wit-parser = "=0.258.3"

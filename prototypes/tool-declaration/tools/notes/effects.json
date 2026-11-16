@@ -1,0 +1,22 @@
+{
+  "format": 1,
+  "export": "acme:notes/tool@0.1.0",
+  "functions": {
+    "grep": {
+      "effects": [],
+      "coeffects": ["Uses<root, Read>"]
+    },
+    "append-note": {
+      "effects": ["Write<root>"],
+      "coeffects": ["Uses<root, ReadWrite>"]
+    },
+    "fetch-into": {
+      "effects": ["Emit<net>", "Write<root>"],
+      "coeffects": ["Uses<net>", "Uses<root, ReadWrite>"]
+    },
+    "forge": {
+      "effects": [],
+      "coeffects": ["Uses<root, Read>"]
+    }
+  }
+}

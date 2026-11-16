@@ -1,0 +1,38 @@
+# wasm-tools objdump target/artifacts/notes.packed.wasm（节选：模块与自定义段）
+  module                                 |      0x159 -     0xa96e |     43029 bytes | 1 count
+    ------ start module 0 -------------
+    custom "name"                        |     0x8862 -     0xa85a |      8184 bytes | 1 count
+    custom "producers"                   |     0xa866 -     0xa8d7 |       113 bytes | 1 count
+    custom "target_features"             |     0xa8ea -     0xa96e |       132 bytes | 1 count
+    ------ end module 0 -------------
+  module                                 |     0xa971 -     0xaa45 |       212 bytes | 1 count
+    ------ start module 1 -------------
+    custom "producers"                   |     0xaa20 -     0xaa45 |        37 bytes | 1 count
+    ------ end module 1 -------------
+  module                                 |     0xaa48 -     0xaacc |       132 bytes | 1 count
+    ------ start module 2 -------------
+    custom "producers"                   |     0xaaa7 -     0xaacc |        37 bytes | 1 count
+    ------ end module 2 -------------
+  custom "component-name"                |     0xb35f -     0xb99b |      1596 bytes | 1 count
+  custom "producers"                     |     0xb9a7 -     0xb9cc |        37 bytes | 1 count
+  custom "lancet:effects"                |     0xb9de -     0xbbbe |       480 bytes | 1 count
+  custom "lancet:wit"                    |     0xbbcc -     0xc33e |      1906 bytes | 1 count
+
+# wasm-tools objdump target/artifacts/notes.linksection.component.wasm（节选）
+  module                                 |      0x159 -     0xad46 |     44013 bytes | 1 count
+    ------ start module 0 -------------
+    custom "lancet:effects"              |     0x8a4c -     0x8c2c |       480 bytes | 1 count
+    custom "name"                        |     0x8c34 -     0xac32 |      8190 bytes | 1 count
+    custom "producers"                   |     0xac3e -     0xacaf |       113 bytes | 1 count
+    custom "target_features"             |     0xacc2 -     0xad46 |       132 bytes | 1 count
+    ------ end module 0 -------------
+  module                                 |     0xad49 -     0xae1d |       212 bytes | 1 count
+    ------ start module 1 -------------
+    custom "producers"                   |     0xadf8 -     0xae1d |        37 bytes | 1 count
+    ------ end module 1 -------------
+  module                                 |     0xae20 -     0xaea4 |       132 bytes | 1 count
+    ------ start module 2 -------------
+    custom "producers"                   |     0xae7f -     0xaea4 |        37 bytes | 1 count
+    ------ end module 2 -------------
+  custom "component-name"                |     0xb737 -     0xbd73 |      1596 bytes | 1 count
+  custom "producers"                     |     0xbd7f -     0xbda4 |        37 bytes | 1 count

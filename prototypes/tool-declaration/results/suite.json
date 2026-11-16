@@ -1,0 +1,659 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "exports": [
+          "acme:notes/tool@0.1.0"
+        ],
+        "imports": [
+          "lancet:host/handles@0.1.0"
+        ],
+        "signature": [
+          "record hit { path: string, line: u32, text: string }",
+          "grep(root: borrow<read-dir>, needle: string, max-hits: option<u32>) -> result<list<hit>, string>",
+          "append-note(root: borrow<write-dir>, path: string, text: string) -> result<u32, string>",
+          "fetch-into(net: borrow<egress>, root: borrow<write-dir>, url: string, path: string) -> result<u32, string>",
+          "forge(root: borrow<read-dir>) -> result<_, string>"
+        ]
+      },
+      "id": "D1",
+      "pass": true,
+      "title": "wit-component 从组件解出导出接口：函数、参数名、参数与返回类型、记录"
+    },
+    {
+      "detail": {
+        "doc_entries": 0
+      },
+      "id": "D2",
+      "pass": null,
+      "title": "组件解码结果里 WIT 文档注释的条目数（源文件中有 9 条）"
+    },
+    {
+      "detail": {
+        "doc_entries": 9,
+        "section_bytes": 1906,
+        "signature_equal": true
+      },
+      "id": "D3",
+      "pass": true,
+      "title": "从 lancet:wit 段解出带文档的 WIT 包；签名与组件导出接口一致，文档 9 条"
+    },
+    {
+      "detail": {
+        "foreign_imports": 13,
+        "imports": [
+          "lancet:host/handles@0.1.0",
+          "wasi:io/poll@0.2.6",
+          "wasi:io/error@0.2.6",
+          "wasi:io/streams@0.2.6",
+          "wasi:cli/environment@0.2.6",
+          "wasi:cli/exit@0.2.6",
+          "wasi:cli/stdin@0.2.6",
+          "wasi:cli/stdout@0.2.6",
+          "wasi:cli/stderr@0.2.6",
+          "wasi:cli/terminal-input@0.2.6",
+          "wasi:cli/terminal-output@0.2.6",
+          "wasi:cli/terminal-stdin@0.2.6",
+          "wasi:cli/terminal-stdout@0.2.6",
+          "wasi:cli/terminal-stderr@0.2.6"
+        ]
+      },
+      "id": "D4",
+      "pass": true,
+      "title": "导入名单核对拒绝 wasm32-wasip2 构建：同一源码多出 WASI 导入"
+    },
+    {
+      "detail": {
+        "derived": {
+          "append-note": {
+            "coeffects": [
+              "Uses<root, ReadWrite>"
+            ],
+            "effects": [
+              "Write<root>"
+            ]
+          },
+          "fetch-into": {
+            "coeffects": [
+              "Uses<net>",
+              "Uses<root, ReadWrite>"
+            ],
+            "effects": [
+              "Write<root>",
+              "Emit<net>"
+            ]
+          },
+          "forge": {
+            "coeffects": [
+              "Uses<root, Read>"
+            ],
+            "effects": []
+          },
+          "grep": {
+            "coeffects": [
+              "Uses<root, Read>"
+            ],
+            "effects": []
+          }
+        },
+        "errors": [],
+        "templates": {
+          "append-note": {
+            "coeffects": [
+              "Uses<root, ReadWrite>"
+            ],
+            "effects": [
+              "Write<root>"
+            ]
+          },
+          "fetch-into": {
+            "coeffects": [
+              "Uses<net>",
+              "Uses<root, ReadWrite>"
+            ],
+            "effects": [
+              "Write<root>",
+              "Emit<net>"
+            ]
+          },
+          "forge": {
+            "coeffects": [
+              "Uses<root, Read>"
+            ],
+            "effects": []
+          },
+          "grep": {
+            "coeffects": [
+              "Uses<root, Read>"
+            ],
+            "effects": []
+          }
+        }
+      },
+      "id": "M1",
+      "pass": true,
+      "title": "从组件顶层读出清单并通过 R1–R10；清单模板与由参数类型推出的模板相同"
+    },
+    {
+      "detail": {
+        "errors": [
+          "R1 组件顶层没有 lancet:effects 段"
+        ],
+        "expected_rule": "R1",
+        "extra": null
+      },
+      "id": "M2",
+      "pass": true,
+      "title": "未打包的组件：顶层没有清单段"
+    },
+    {
+      "detail": {
+        "errors": [
+          "R1 组件顶层没有 lancet:effects 段；嵌套模块中有 1 个（深度 [2]），不采信"
+        ],
+        "expected_rule": "R1",
+        "extra": {
+          "section_depths": [
+            2
+          ]
+        }
+      },
+      "id": "M3",
+      "pass": true,
+      "title": "经 #[link_section] 写入的清单落在嵌套核心模块中，顶层读不到"
+    },
+    {
+      "detail": {
+        "all": {
+          "effects_sections": 0,
+          "errors": [
+            "R1 组件顶层没有 lancet:effects 段"
+          ],
+          "wit_sections": 0
+        },
+        "default": {
+          "effects_sections": 0,
+          "errors": [
+            "R1 组件顶层没有 lancet:effects 段"
+          ],
+          "wit_sections": 0
+        }
+      },
+      "id": "M4",
+      "pass": null,
+      "title": "wasm-tools strip 之后：默认参数与 --all"
+    },
+    {
+      "detail": {
+        "errors": [
+          "R1 组件顶层有 2 个 lancet:effects 段"
+        ],
+        "expected_rule": "R1",
+        "extra": null
+      },
+      "id": "M5",
+      "pass": true,
+      "title": "顶层有两个清单段"
+    },
+    {
+      "detail": [
+        {
+          "errors": [
+            "R2 清单解析失败：EOF while parsing a value at line 1 column 13"
+          ],
+          "expected_rule": "R2",
+          "id": "N1",
+          "title": "JSON 截断"
+        },
+        {
+          "errors": [
+            "R2 不支持的清单格式 2"
+          ],
+          "expected_rule": "R2",
+          "id": "N2",
+          "rejected_as_expected": true,
+          "title": "不支持的格式版本"
+        },
+        {
+          "errors": [
+            "R2 清单解析失败：unknown field `pure`, expected `effects` or `coeffects` at line 1 column 357"
+          ],
+          "expected_rule": "R2",
+          "id": "N3",
+          "rejected_as_expected": true,
+          "title": "未知字段"
+        },
+        {
+          "errors": [
+            "R3 组件没有导出接口 acme:notes/other@0.1.0"
+          ],
+          "expected_rule": "R3",
+          "id": "N4",
+          "rejected_as_expected": true,
+          "title": "清单指向组件没有导出的接口"
+        },
+        {
+          "errors": [
+            "R4 缺少导出函数 forge 的条目"
+          ],
+          "expected_rule": "R4",
+          "id": "N5",
+          "rejected_as_expected": true,
+          "title": "缺少导出函数 forge 的条目"
+        },
+        {
+          "errors": [
+            "R4 条目 delete-all 不对应任何导出函数"
+          ],
+          "expected_rule": "R4",
+          "id": "N6",
+          "rejected_as_expected": true,
+          "title": "多出不存在的函数 delete-all"
+        },
+        {
+          "errors": [
+            "R5 grep: 模板 `Uses(root, Read)` 缺少 `<`",
+            "R9 grep: 句柄参数 root 应有 1 个 Uses 模板，实有 0 个"
+          ],
+          "expected_rule": "R5",
+          "id": "N7",
+          "rejected_as_expected": true,
+          "title": "模板语法错误 Uses(root, Read)"
+        },
+        {
+          "errors": [
+            "R5 grep: Uses<root, Read> 放错了列表"
+          ],
+          "expected_rule": "R5",
+          "id": "N8",
+          "rejected_as_expected": true,
+          "title": "Uses 模板写进 effect 列表"
+        },
+        {
+          "errors": [
+            "R6 grep: Uses<dir, Read> 引用的参数 dir 不存在",
+            "R9 grep: 句柄参数 root 应有 1 个 Uses 模板，实有 0 个"
+          ],
+          "expected_rule": "R6",
+          "id": "N9",
+          "rejected_as_expected": true,
+          "title": "引用不存在的参数 dir"
+        },
+        {
+          "errors": [
+            "R7 grep: Uses<needle, Read> 引用的参数 needle 不是句柄（string）"
+          ],
+          "expected_rule": "R7",
+          "id": "N10",
+          "rejected_as_expected": true,
+          "title": "引用非句柄参数 needle"
+        },
+        {
+          "errors": [
+            "R8 grep: Uses<root, ReadWrite> 与参数 root 的类型 borrow<read-dir> 不符"
+          ],
+          "expected_rule": "R8",
+          "id": "N11",
+          "rejected_as_expected": true,
+          "title": "只读目录参数声明 ReadWrite"
+        },
+        {
+          "errors": [
+            "R8 grep: Write<root> 与参数 root 的类型 borrow<read-dir> 不符"
+          ],
+          "expected_rule": "R8",
+          "id": "N12",
+          "rejected_as_expected": true,
+          "title": "只读目录参数声明 Write"
+        },
+        {
+          "errors": [
+            "R8 fetch-into: Emit<root> 与参数 root 的类型 borrow<write-dir> 不符",
+            "R10 fetch-into: 参数 net 的类型 borrow<egress> 给出了 Emit<net> 的能力，effect 模板没有覆盖"
+          ],
+          "expected_rule": "R8",
+          "id": "N13",
+          "rejected_as_expected": true,
+          "title": "Emit 指向目录参数"
+        },
+        {
+          "errors": [
+            "R9 fetch-into: 句柄参数 net 应有 1 个 Uses 模板，实有 0 个"
+          ],
+          "expected_rule": "R9",
+          "id": "N14",
+          "rejected_as_expected": true,
+          "title": "出口参数没有 Uses 模板"
+        },
+        {
+          "errors": [
+            "R10 append-note: 参数 root 的类型 borrow<write-dir> 给出了 Write<root> 的能力，effect 模板没有覆盖"
+          ],
+          "expected_rule": "R10",
+          "id": "N15",
+          "rejected_as_expected": true,
+          "title": "可写目录参数不声明 Write"
+        }
+      ],
+      "id": "M6",
+      "pass": true,
+      "title": "15 种错误清单都被拒绝，且命中预期的规则"
+    },
+    {
+      "detail": {
+        "accepted_and_equal": 54,
+        "accepted_but_different": 0,
+        "rejected_and_different": 2016,
+        "rejected_but_equal": 0,
+        "single_toggles": 66
+      },
+      "id": "M7",
+      "pass": true,
+      "title": "变异全集：清单通过当且仅当它等于由参数类型推出的模板"
+    },
+    {
+      "detail": {
+        "component_bytes_identical_across_builds": true,
+        "digest": "028f05d04ff847ffbffca4e6881cc0456215598bbae405d74d3ab47102a936e5",
+        "manifest_bytes": [
+          480,
+          353
+        ]
+      },
+      "id": "M8",
+      "pass": true,
+      "title": "声明摘要只随签名与模板变化：另一目录重建、清单改格式后摘要不变，且等于由类型推出时的摘要"
+    },
+    {
+      "detail": {
+        "compile_ms": 11.814138999999999,
+        "error": null
+      },
+      "id": "W1",
+      "pass": true,
+      "title": "链接器只提供 lancet:host/handles，打包后的组件实例化成功（自定义段不影响加载）"
+    },
+    {
+      "detail": {
+        "error": "component imports instance `wasi:io/poll@0.2.6`, but a matching implementation was not found in the linker: instance export `pollable` has the wrong type: resource implementation is missing"
+      },
+      "id": "W2",
+      "pass": true,
+      "title": "wasm32-wasip2 构建在同一链接器下实例化失败"
+    },
+    {
+      "detail": {
+        "error": "component imports instance `lancet:host/handles@0.1.0`, but a matching implementation was not found in the linker: instance export `[method]read-dir.read` has the wrong type: type mismatch with results: expected `string` found `list`"
+      },
+      "id": "W3",
+      "pass": true,
+      "title": "按旧宿主接口签名编译的组件在实例化时被拒绝"
+    },
+    {
+      "detail": {
+        "epsilon": [],
+        "error": null,
+        "kappa": [],
+        "result": {
+          "ok": [
+            {
+              "line": 1,
+              "path": "a.md",
+              "text": "TODO: one"
+            },
+            {
+              "line": 2,
+              "path": "b.md",
+              "text": "TODO: two"
+            }
+          ]
+        }
+      },
+      "id": "W4",
+      "pass": true,
+      "title": "动态调用 grep：返回 2 条匹配；实际 effect ⊆ 模板"
+    },
+    {
+      "detail": {
+        "epsilon": [
+          "Write<root>"
+        ],
+        "error": null,
+        "kappa": [
+          "Write<root>"
+        ],
+        "result": {
+          "ok": 2
+        }
+      },
+      "id": "W5",
+      "pass": true,
+      "title": "动态调用 append-note：写入发生，实际 effect ⊆ 模板"
+    },
+    {
+      "detail": {
+        "epsilon": [
+          "Emit<net>",
+          "Write<root>"
+        ],
+        "error": null,
+        "kappa": [
+          "Emit<net>",
+          "Write<root>"
+        ],
+        "result": {
+          "ok": 33
+        }
+      },
+      "id": "W6",
+      "pass": true,
+      "title": "动态调用 fetch-into：Emit 与 Write 都发生，实际 effect ⊆ 模板"
+    },
+    {
+      "detail": {
+        "error": "type mismatch: expected string, found u32",
+        "host_calls": 0
+      },
+      "id": "W7",
+      "pass": true,
+      "title": "参数类型不符（needle 传 u32）：调用前报错，组件未执行"
+    },
+    {
+      "detail": {
+        "error": "expected 3 argument(s), got 2"
+      },
+      "id": "W8",
+      "pass": true,
+      "title": "参数个数不符：调用前报错"
+    },
+    {
+      "detail": {
+        "error": "mismatched resource types"
+      },
+      "id": "W9",
+      "pass": true,
+      "title": "把可写目录资源传给 borrow<read-dir> 参数：资源类型不符，调用前报错"
+    },
+    {
+      "detail": {
+        "error": "error while executing at wasm backtrace:\n    0:   0xaa10 - <unknown>!<wasm function 4>\n    1:    0xba1 - notes_tool.wasm!notes_tool::exports::acme::notes::tool::_export_forge_cabi::hcd7bb160c5e83dd5\n    2:   0x22f0 - notes_tool.wasm!acme:notes/tool@0.1.0#forge: handle index 1 used with the wrong type, expected guest-defined resource but found a different guest-defined resource",
+        "write_calls": 0
+      },
+      "id": "W10",
+      "pass": true,
+      "title": "组件把只读句柄的编号当作可写句柄调用 write：陷入，宿主写函数未被调用"
+    },
+    {
+      "detail": {
+        "cwasm_bytes": 132968,
+        "has_manifest_text": false,
+        "has_param_names": true,
+        "has_section_name": false,
+        "has_wit_docs": false,
+        "precompile_ms": 8.951819
+      },
+      "id": "W11",
+      "pass": null,
+      "title": "预编译产物中是否保留清单与 WIT 包"
+    },
+    {
+      "detail": {
+        "call": {
+          "ok": [
+            {
+              "line": 1,
+              "path": "a.md",
+              "text": "TODO: one"
+            }
+          ]
+        },
+        "exports": [
+          "acme:notes/tool@0.1.0#grep(root: borrow<resource>, needle: string, max-hits: option<u32>) -> result<list<record>, string>",
+          "acme:notes/tool@0.1.0#append-note(root: borrow<resource>, path: string, text: string) -> result<u32, string>",
+          "acme:notes/tool@0.1.0#fetch-into(net: borrow<resource>, root: borrow<resource>, url: string, path: string) -> result<u32, string>",
+          "acme:notes/tool@0.1.0#forge(root: borrow<resource>) -> result<_, string>"
+        ],
+        "imports": [
+          "lancet:host/handles@0.1.0"
+        ]
+      },
+      "id": "W12",
+      "pass": true,
+      "title": "预编译产物的组件类型给出同样的导入、导出函数与参数名，且可实例化调用"
+    },
+    {
+      "detail": [
+        {
+          "as_expected": true,
+          "errors": [],
+          "expect_ok": true,
+          "id": "S1",
+          "script": "hits = docs.grep(\"TODO\")\nn = lancet.append_note(\"notes.md\", \"checked\")\npaths = [h.path for h in hits]\nreturn {\"paths\": paths, \"lines\": n + 1}",
+          "title": "合法脚本：搜索、追加、推导、算术"
+        },
+        {
+          "as_expected": true,
+          "errors": [],
+          "expect_ok": true,
+          "id": "S2",
+          "script": "hits = lancet.grep(\"TODO\", 5)\nreturn [h.line for h in hits]",
+          "title": "合法脚本：可选参数按位置传入；可写目录调用只读目录的方法"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: Expected type `str` but got `int`\n --> act.star:2:22\n  |\n2 |     return docs.grep(42)\n  |                      ^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S3",
+          "script": "return docs.grep(42)",
+          "title": "参数类型错误"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: Unexpected parameter named `pattern`\n --> act.star:2:22\n  |\n2 |     return docs.grep(pattern = \"TODO\")\n  |                      ^^^^^^^^^^^^^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S4",
+          "script": "return docs.grep(pattern = \"TODO\")",
+          "title": "参数名错误"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: The attribute `append_note` is not available on the type `ReadDir`\n --> act.star:2:17\n  |\n2 |     return docs.append_note(\"notes.md\", \"x\")\n  |                 ^^^^^^^^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S5",
+          "script": "return docs.append_note(\"notes.md\", \"x\")",
+          "title": "对只读目录调用写方法"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: The attribute `lien` is not available on the type `Hit`\n --> act.star:2:15\n  |\n2 |     return [h.lien for h in docs.grep(\"TODO\")]\n  |               ^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S6",
+          "script": "return [h.lien for h in docs.grep(\"TODO\")]",
+          "title": "记录字段拼写错误"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: Binary operator `+` is not available on the types `int` and `str`\n --> act.star:2:12\n  |\n2 |     return lancet.append_note(\"a.md\", \"b\") + \"x\"\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S7",
+          "script": "return lancet.append_note(\"a.md\", \"b\") + \"x\"",
+          "title": "返回值类型误用（int + str）"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: Expected type `WriteDir` but got `ReadDir`\n --> act.star:2:27\n  |\n2 |     return net.fetch_into(docs, \"https://example.com\", \"a.md\")\n  |                           ^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S8",
+          "script": "return net.fetch_into(docs, \"https://example.com\", \"a.md\")",
+          "title": "把只读目录传给要求可写目录的参数"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: The attribute `grepp` is not available on the type `ReadDir`\n --> act.star:2:17\n  |\n2 |     return docs.grepp(\"TODO\")\n  |                 ^^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S9",
+          "script": "return docs.grepp(\"TODO\")",
+          "title": "不存在的方法"
+        },
+        {
+          "as_expected": true,
+          "errors": [
+            "error: Missing required parameter `text`\n --> act.star:2:12\n  |\n2 |     return lancet.append_note(\"a.md\")\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n"
+          ],
+          "expect_ok": false,
+          "id": "S10",
+          "script": "return lancet.append_note(\"a.md\")",
+          "title": "缺少必需参数"
+        }
+      ],
+      "id": "S",
+      "pass": true,
+      "title": "由 WIT 在运行时构造 Starlark 类型：2 个合法脚本通过，8 个错误脚本在执行前报错"
+    },
+    {
+      "detail": {
+        "from_component": {
+          "docstrings": 0,
+          "lines": 24
+        },
+        "with_wit_docs": {
+          "docstrings": 8,
+          "lines": 28
+        }
+      },
+      "id": "P1",
+      "pass": null,
+      "title": "渲染 .pyi：只用组件 / 加上 lancet:wit 段的文档"
+    },
+    {
+      "detail": {
+        "component_bytes": 49982,
+        "max_us": 579.79,
+        "median_us": 387.38,
+        "p95_us": 424.38000000000005
+      },
+      "id": "T1",
+      "pass": null,
+      "title": "加载一个工具声明的耗时（解码接口、读清单并核对、读文档、渲染 .pyi、构造 Starlark 全局类型），200 次"
+    }
+  ],
+  "summary": {
+    "checks": 22,
+    "observations": 5,
+    "passed": 22
+  }
+}

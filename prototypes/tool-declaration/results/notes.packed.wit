@@ -1,0 +1,46 @@
+# wasm-tools component wit target/artifacts/notes.packed.wasm
+package root:component;
+
+world root {
+  import lancet:host/handles@0.1.0;
+
+  export acme:notes/tool@0.1.0;
+}
+package lancet:host@0.1.0 {
+  interface handles {
+    resource egress {
+      fetch: func(url: string) -> result<string, string>;
+    }
+
+    resource read-dir {
+      read: func(path: string) -> result<string, string>;
+      entries: func(path: string) -> result<list<string>, string>;
+    }
+
+    resource write-dir {
+      read: func(path: string) -> result<string, string>;
+      write: func(path: string, content: string) -> result<_, string>;
+    }
+  }
+}
+
+
+package acme:notes@0.1.0 {
+  interface tool {
+    use lancet:host/handles@0.1.0.{read-dir, write-dir, egress};
+
+    record hit {
+      path: string,
+      line: u32,
+      text: string,
+    }
+
+    grep: func(root: borrow<read-dir>, needle: string, max-hits: option<u32>) -> result<list<hit>, string>;
+
+    append-note: func(root: borrow<write-dir>, path: string, text: string) -> result<u32, string>;
+
+    fetch-into: func(net: borrow<egress>, root: borrow<write-dir>, url: string, path: string) -> result<u32, string>;
+
+    forge: func(root: borrow<read-dir>) -> result<_, string>;
+  }
+}
