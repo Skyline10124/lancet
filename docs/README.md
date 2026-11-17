@@ -18,6 +18,11 @@
 
 - [工程规范](development/engineering.md)：设计中的归属、代码可读性、测试判定、TDD 与验证范围。
 
+## 架构合同
+
+- [外部上下文节点协议](architecture/lancet-protocol.md)：连接与握手、五个操作、受理与结局、effect 与回执、调用记录与对账。
+- [`lancet-node`](architecture/lancet-node/README.md)：能力、组件与一次 `act` 的执行；子合同为节点配置与工作区、API 工具与工具基座、`act` 与 Starlark 编排、宿主资源、影子工作区与发布。
+
 ## 架构决策
 
 - [ADR 0001](adr/0001-lancet-protocol.md)（accepted）：以 `lancet-protocol` 定义外部上下文节点协议（连接、零重放、五态结局与回执）。
