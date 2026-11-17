@@ -107,7 +107,7 @@ act 结束时:
         if 脚本调用过 commit() 且存在待定改动:
             发布全部待定改动
             if 全部发布:       Succeeded { content, receipt_summary }   # 列出已发布的文件与 diff
-            elif 一项也没发布: Failed(Conflict)                         # 列出冲突路径，待定改动保留
+            elif 一项也没发布: Failed(Conflict)                         # 列出冲突及原因，待定改动保留
             else:              Indeterminate { reason }                 # 撤回时宿主又改了已发布的文件
         else:                  Succeeded { content, receipt_summary }   # 仍有待定改动时 content 末尾附提示
     elif 序列化字节数 > output_limit:  Failed(OutputLimitExceeded)
