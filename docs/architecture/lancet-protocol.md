@@ -127,7 +127,7 @@ Seam   = { from: 句柄名, to: 句柄名, direction: Integrity | Confidentialit
 
 ```text
 execute 的回复 = execute_result { outcome: ExecuteOutcome }   # 已受理：id 已持久登记，节点必定生成回执
-              | rejected { code: RejectCode, message }        # 未受理：未登记 id，未发生任何 effect，没有回执
+              | rejected { code: RejectCode, message }        # 未受理：本次投递不执行、不改动调用记录、不生成回执
 RejectCode    = DuplicateInvocation | CatalogMismatch | InvalidRequest
 
 ExecuteOutcome = Succeeded     { content: Value, receipt_summary: ReceiptSummary }
@@ -240,7 +240,9 @@ ReceiptLookup = NeverExecuted                       # 确定未执行，同 id �
 ```
 
 - **围栏。** 调用方查询时，同 id 的 `execute` 可能仍在传输中，随后才到达节点。节点查询未知 id 时登记围栏，此后到达的同 id 请求一律被拒绝，`NeverExecuted` 因此是确定事实。
-- **受理前拒绝不建记录。** 以 `rejected` 回复的请求不登记 id、不生成回执；之后查询该 id 得到 `NeverExecuted`，并登记围栏。
+- **受理前拒绝不改动调用记录。** 以 `rejected` 回复的投递不执行、不生成回执，也不新建或改动调用记录。之后查询该 id，按上表中它的记录返回：
+  - `CatalogMismatch`、`InvalidRequest`：受理检查先核对重复，被拒时该 id 没有记录，查询得到 `NeverExecuted`，并登记围栏；
+  - `DuplicateInvocation`：该 id 已有记录（已受理或已围栏），记录保持原样，查询返回它的当前状态，例如已结算调用的原回执。
 - **重启后不留 `Pending`。** 节点重启后、响应任何 `hello` 之前，按自身的恢复机制结算全部遗留的 `Pending` 记录；无法断定 effect 是否发生的记录结算为 `Indeterminate`，并写明原因。
 - **断连后限时结算。** 断连按[连接与握手](#连接与握手)视为取消，节点在 `settle_grace_ms` 内结算对应的记录。
 
@@ -257,7 +259,7 @@ ReceiptLookup = NeverExecuted                       # 确定未执行，同 id �
 | --- | --- | --- | --- |
 | 同一个 `invocation_id` 至多执行一次 | 每个 id，不随时间失效 | 账本条目永久保留；登记、围栏与结算串行 | [ADR 0001 第 3 节](../adr/0001-lancet-protocol.md#3-五个协议操作)、[第 5 节](../adr/0001-lancet-protocol.md#5-调用记录的生命周期与对账) |
 | `receipt` 返回 `NeverExecuted` 之后，同 id 永不执行 | 每次 `receipt` 查询 | 围栏在回复之前持久登记 | ADR 0001 第 5 节 |
-| 受理的调用必有回执；以 `rejected` 回复的调用没有发生 effect | 每次 `execute` | 受理检查全部通过之后才登记 id 并开始执行 | ADR 0001 第 3 节 |
+| 受理的调用必有回执；以 `rejected` 回复的投递不执行、不产生 effect，也不改动调用记录 | 每次 `execute` | 受理检查全部通过之后才登记 id 并开始执行 | ADR 0001 第 3 节 |
 | 节点只执行与调用方本轮目录一致的调用 | 每次 `execute` | `catalog_digest` 覆盖操作定义、环境简述与当前授权 | ADR 0001 第 3 节 |
 | 预算耗尽、取消或断连之后，调用在 `settle_grace_ms` 内结算 | 每次受理的 `execute` | 节点的内部活动与最终提交临界区都在这段时间内结束 | ADR 0001 第 3 节 |
 | 调用方等待一次 `execute` 的时间有上限 | 调用方适配器 | 本地单调时钟计时 | ADR 0001 第 3 节 |

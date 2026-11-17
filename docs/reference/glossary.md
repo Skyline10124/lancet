@@ -125,6 +125,6 @@ _Avoid_: overlay, 草稿层, sandbox
 _Avoid_: 草稿, 暂存区, staged changes
 
 **发布**:
-脚本调用过 `commit()` 并正常 `return` 后，节点把全部待定改动作为一批写进宿主工作目录：先核对，再逐文件克隆到宿主目录并交换，后面的文件冲突时撤回已发布的项。发布后不保留前态，对应 `residue` 为 `NotRetained`。
+脚本调用过 `commit()` 并正常 `return`、交回载荷不超过 `output_limit` 时，节点把全部待定改动作为一批写进宿主工作目录：先核对，再逐文件克隆到宿主目录并交换，后面的文件冲突时撤回已发布的项。发布后不保留前态，对应 `residue` 为 `NotRetained`。
 见[发布](../architecture/lancet-node/shadow-workspace.md#发布)。
 _Avoid_: 合并, git commit, 同步

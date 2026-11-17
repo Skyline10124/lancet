@@ -83,7 +83,7 @@ sequenceDiagram
         N-->>I: 结果对象（受单次返回窗口上限约束）
     end
     I-->>N: 脚本 return 值与 print 缓冲（或错误）
-    opt 脚本调用过 commit() 且正常 return
+    opt 脚本调用过 commit() 并正常 return，交回载荷不超过 output_limit，且有待定改动
         N->>H: 发布全部待定改动
     end
     N-->>C: ExecuteOutcome 与 receipt_summary
