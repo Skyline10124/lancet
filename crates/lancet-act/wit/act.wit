@@ -1,0 +1,15 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:act;
+
+interface interpreter {
+    enum phase { parse, check, eval }
+    record payload { value-json: string, printed: string }
+    record diagnostic { phase: phase, line: option<u32>, message: string }
+    run: func(script: string) -> result<payload, diagnostic>;
+}
+
+world act {
+    export interpreter;
+}

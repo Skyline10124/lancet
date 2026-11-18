@@ -58,6 +58,24 @@ pub fn run(_args: CiArgs) -> anyhow::Result<()> {
         )
     })?;
 
+    step("clippy (wasm32-wasip2)", || {
+        run_cargo(
+            &root,
+            &[
+                "clippy",
+                "-p",
+                "lancet-act",
+                "--target",
+                "wasm32-wasip2",
+                "--lib",
+                "--",
+                "-D",
+                "warnings",
+            ],
+            &build_jobs,
+        )
+    })?;
+
     step("test", || run_tests(&root, &build_jobs))?;
 
     println!();
