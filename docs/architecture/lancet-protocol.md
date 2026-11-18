@@ -67,7 +67,7 @@ sequenceDiagram
 | 规则 | 内容 |
 | --- | --- |
 | 传输 | 双向有序字节流。本地为 Unix 域套接字；远程可承载于 SSH 隧道或 TLS 连接 |
-| 帧 | 4 字节大端长度前缀，后接 UTF-8 JSON 负载。负载有单帧字节上限，接收方不为超限的帧分配内存 |
+| 帧 | 4 字节大端 `u32` 长度前缀，后接 UTF-8 JSON 负载。单帧负载上限 `MAX_FRAME_BYTES` 为 8 MiB（`8 * 1024 * 1024` 字节，不含 4 字节前缀）；接收方读取前缀后先核对上限，不为超限的帧分配正文内存 |
 | 多路复用 | 每个请求帧带连接内唯一的 `request_id`，回复帧带同一个 `request_id`。`execute` 等待完成期间，调用方可在同一连接上并发发送 `cancel` 与 `receipt` |
 | 握手 | 建连后的首个请求是 `hello`：调用方给出支持的协议版本列表，节点选定一个版本，返回 `node_id`、`display_name` 与 `capabilities`。版本协商完成之前收到其他请求，或没有双方都支持的版本时，节点立即关闭连接；调用方发现 `node_id` 与挂载时绑定的不一致时，调用方立即关闭连接 |
 | 断连 | 连接意外断开时，节点把这条连接上尚未进入最终提交临界区的在途 `execute` 视为收到 `cancel` |
@@ -84,17 +84,47 @@ sequenceDiagram
 | `cancel` | `invocation_id` | `cancel_ok` | 幂等地请求中止进行中的调用；目标不存在或已结束时同样返回 `cancel_ok` |
 | `receipt` | `invocation_id` | `ReceiptLookup` | 查询调用记录；查询节点从未受理的 id 时登记围栏，见[调用记录](#调用记录) |
 
+线缆数据形状与公共字段：
+
+```text
+Frame<T>        = { request_id: u64, message: T }
+ProtocolVersion = u32                                # 当前版本为 1；列表可含未知版本用于协商
+Capabilities    = { settle_grace_ms: u64, receipt_retention_ms: u64 }
+Labels          = Map<String, Value>                 # 按键排序的映射，值对节点不透明
+
+Request  (tag = "type", snake_case):
+    hello    { supported_versions: Vec<ProtocolVersion> }
+  | describe
+  | execute  { invocation_id, catalog_digest, tool, arguments: Value, remaining_ms: u64, output_limit: u64, labels }
+  | cancel   { invocation_id }
+  | receipt  { invocation_id }
+
+Response (tag = "type", snake_case):
+    hello_ok       { version: ProtocolVersion, node_id, display_name, capabilities: Capabilities }
+  | describe_ok    { catalog_digest, environment_summary: EnvironmentSummary, tools: Vec<ToolSpec> }
+  | execute_result { outcome: ExecuteOutcome }
+  | rejected       { code: RejectCode, message: String }
+  | cancel_ok
+  | receipt_result { lookup: ReceiptLookup }
+```
+
 ### `describe` 与环境简述
 
 ```text
 EnvironmentSummary = { handles: Vec<Handle>, seams: Vec<Seam> }
-Handle = { name, kind: String, effects: Vec<EffectKind>, modes: Vec<Mode>, attributes: Map<String, Value> }
-Seam   = { from: 句柄名, to: 句柄名, direction: Integrity | Confidentiality, policy: Allow | Deny }
+Handle   = { name, kind: String, effects: Vec<EffectKind>, modes: Vec<Mode>, attributes: Map<String, Value> }
+Seam     = { from: 句柄名, to: 句柄名, direction: Integrity | Confidentiality, policy: Allow | Deny }
+ToolSpec = { name: String, description: String, input_schema: Value, effects: Vec<Effect>, coeffects: Vec<CoEffect> }
+Effect   = { handle: String, kind: EffectKind }
+CoEffect = { handle: String, mode?: Mode }           # mode 省略或为 null 时表示 Uses<h>
 ```
 
 - 节点只经单一构造入口，由节点配置与操作声明推出环境简述。环境简述只随配置、授权与节点版本变化，不含随调用变化的内容（如文件树）。
-- 环境简述序列化后不超过 4 KiB。
-- `catalog_digest` 是操作定义、环境简述与当前授权的规范摘要：与 JSON 字段顺序和空白无关，三者任一变化时随之变化。
+- 环境简述紧凑 JSON 序列化后不超过 4 KiB（`4096` 字节）。
+- `catalog_digest` 是操作定义、环境简述与当前授权的规范摘要：与 JSON 字段顺序和空白无关，三者任一变化时随之变化。输出为 64 位小写十六进制 SHA-256 字符串：
+  - 输入为固定包含 `"tools"`、`"environment_summary"` 与 `"authorization"` 三个顶层键的 JSON 对象；
+  - 递归对所有 JSON 对象按键的 UTF-8 字节序（即 Unicode 码位序）排序输出无空白紧凑 UTF-8 JSON，显式不依赖 `serde_json` 底层 map 的实现特征；
+  - 数组保留原顺序（不做集合重排序），字符串与数值按 `serde_json` 标准表示编码；该规范化算法不等同于完整的 RFC 8785 (JCS)。
 
 | 内容 | 说明什么 | 随什么变化 | 使用方式 |
 | --- | --- | --- | --- |
@@ -129,12 +159,17 @@ Seam   = { from: 句柄名, to: 句柄名, direction: Integrity | Confidentialit
 execute 的回复 = execute_result { outcome: ExecuteOutcome }   # 已受理：id 已持久登记，节点必定生成回执
               | rejected { code: RejectCode, message }        # 未受理：本次投递不执行、不改动调用记录、不生成回执
 RejectCode    = DuplicateInvocation | CatalogMismatch | InvalidRequest
+ToolError     = { code: String, message: String }             # 开放节点错误码，可表达 SeamBlocked 与拒绝映射
+OutcomeKind   = Succeeded | Failed | Cancelled | Deadline | Indeterminate
 
-ExecuteOutcome = Succeeded     { content: Value, receipt_summary: ReceiptSummary }
-               | Failed        { error: ToolError, receipt_summary: Option<ReceiptSummary> }
-               | Cancelled     { receipt_summary: Option<ReceiptSummary> }
-               | Deadline      { receipt_summary: Option<ReceiptSummary> }
-               | Indeterminate { reason: String, receipt_summary: Option<ReceiptSummary> }
+ExecuteOutcome (tag = "kind") =
+    Succeeded     { content: Value, receipt_summary: ReceiptSummary }
+  | Failed        { error: ToolError, receipt_summary?: ReceiptSummary }
+  | Cancelled     { receipt_summary?: ReceiptSummary }
+  | Deadline      { receipt_summary?: ReceiptSummary }
+  | Indeterminate { reason: String, receipt_summary?: ReceiptSummary }
+
+ReceiptSummary = { steps: Vec<StepSummary>, effects: Vec<EffectEntry>, truncated: bool }
 ```
 
 - **严格零重放。** 同一个 `invocation_id` 第二次到达时，节点以 `DuplicateInvocation` 拒绝，不再执行；调用方需要找回结局时调用 `receipt`。
@@ -142,7 +177,7 @@ ExecuteOutcome = Succeeded     { content: Value, receipt_summary: ReceiptSummary
 - **相对时限。** `remaining_ms` 是剩余的毫秒预算，不传绝对时间戳。预算耗尽时，节点中止内部活动，进入安全状态，返回 `Deadline`。
 - **结算时限。** 节点在 `hello` 中声明 `settle_grace_ms`：预算耗尽、收到 `cancel` 或连接断开之后，节点最迟在这段时间内结束内部活动（包括最终提交临界区）并结算调用记录。
 - **调用方等待上限。** 调用方从发出 `execute` 起用本地单调时钟计时，等待上限为 `remaining_ms + settle_grace_ms`，再加调用方配置的传输余量。到期仍未收到回复时，调用方停止等待，本地判定为 `Indeterminate`，随后按[对账](#对账)收敛。是否同时关闭连接由调用方决定；关闭连接会按断连规则取消同一连接上的其他在途调用。
-- **载荷与回执分开。** `content` 序列化后不超过 `output_limit`。完整的执行轨迹与外部连接明细保存在节点；回包只附 `receipt_summary`，序列化后不超过 16 KiB，超出时节点裁剪 diff 等摘要，并标明完整内容经 `receipt` 查询。
+- **载荷与回执分开。** `content` 序列化后不超过 `output_limit`。完整的执行轨迹与外部连接明细保存在节点；回包只附 `receipt_summary`，紧凑 JSON 序列化后不超过 16 KiB（`16384` 字节）。超出时由摘要构造入口优先裁剪变更项 `diff`（置 `diff_truncated = true`）、再裁剪摘要条目，并置 `truncated = true` 标明完整内容须以同一 `invocation_id` 调用 `receipt` 获取，原完整回执不变；反序列化时对超限摘要直接拒绝。
 - **`Indeterminate` 有两类来源。** 连接中断、进程崩溃或超过等待上限仍未收到回复时，由调用方本地判定，可经对账收敛；节点驱动的下游硬件或外部桥接器丢失确认、无法断定 effect 是否发生时，由节点在结局中返回。
 
 调用方把回复映射为五种结局：
@@ -171,6 +206,23 @@ call : arguments → result ! ε @ κ
 句柄有 `name` 与 `kind`，种类与属性由节点实现规定（`lancet-node` 见[宿主资源](lancet-node/host-resources.md)）。
 
 节点为每次受理的 `execute` 持久生成回执，内容为调用身份、`labels`、最终结局、子步骤摘要与 effect 条目。每条 effect 条目写明句柄名、effect 种类与变更项列表；每个变更项各带一个 `residue` 取值。effect 种类只给出 `residue` 的可能范围，实际取值逐项记录。
+
+```text
+Receipt       = { invocation_id, tool, catalog_digest, labels: Labels, outcome: ReceiptOutcome, steps: Vec<StepSummary>, effects: Vec<EffectEntry>, truncated: bool }
+ReceiptOutcome (tag = "kind") =
+    Succeeded     { content: Value }
+  | Failed        { error: ToolError }
+  | Cancelled
+  | Deadline
+  | Indeterminate { reason: String }        # OutcomeKind 由结局推导，不另存冗余字段
+StepSummary   = { tool: String, outcome: OutcomeKind }
+EffectEntry   = { handle: String, kind: EffectKind, changes: Vec<Change> }
+Change        = { target: String, action: String, diff?: String, diff_truncated: bool, residue: Residue }
+```
+
+- `External` 须提供非空的 `target` 与 `action` 描述。
+- **完整回执不超过单帧上限。** `receipt` 回复的帧负载不超过 8 MiB，回复与帧的包装计入其中。完整回执超出时，节点按与 `receipt_summary` 相同的顺序（见[`execute` 的受理与结局](#execute-的受理与结局)）截断 `steps` 与 `effects`：先裁剪变更项的 `diff`，仍超出时再从尾部截去条目，并置 `truncated = true`。调用身份、`labels` 与结局原样保留。协议不分页，被截去的内容不能经 `receipt` 取回。
+- `diff_truncated = true` 表示该变更项的 `diff` 不完整：被截短，或整段去掉。
 
 | `residue` | 含义 | 出现在 |
 | --- | --- | --- |
@@ -233,10 +285,11 @@ stateDiagram-v2
 | `Expired` | 已结算，回执明细已清理，账本仍保留结局种类 | 同上 | `Expired { outcome }` |
 
 ```text
-ReceiptLookup = NeverExecuted                       # 确定未执行，同 id 此后也不会被执行
-              | Pending                             # 已受理，尚未结算
-              | Settled { receipt: Receipt }
-              | Expired { outcome: OutcomeKind }    # 五种结局之一
+ReceiptLookup (tag = "kind") =
+    NeverExecuted                                   # 确定未执行，同 id 此后也不会被执行
+  | Pending                                         # 已受理，尚未结算
+  | Settled { receipt: Receipt }
+  | Expired { outcome: OutcomeKind }                # 五种结局之一
 ```
 
 - **围栏。** 调用方查询时，同 id 的 `execute` 可能仍在传输中，随后才到达节点。节点查询未知 id 时登记围栏，此后到达的同 id 请求一律被拒绝，`NeverExecuted` 因此是确定事实。
@@ -257,18 +310,19 @@ ReceiptLookup = NeverExecuted                       # 确定未执行，同 id �
 
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
-| 同一个 `invocation_id` 至多执行一次 | 每个 id，不随时间失效 | 账本条目永久保留；登记、围栏与结算串行 | [ADR 0001 第 3 节](../adr/0001-lancet-protocol.md#3-五个协议操作)、[第 5 节](../adr/0001-lancet-protocol.md#5-调用记录的生命周期与对账) |
-| `receipt` 返回 `NeverExecuted` 之后，同 id 永不执行 | 每次 `receipt` 查询 | 围栏在回复之前持久登记 | ADR 0001 第 5 节 |
-| 受理的调用必有回执；以 `rejected` 回复的投递不执行、不产生 effect，也不改动调用记录 | 每次 `execute` | 受理检查全部通过之后才登记 id 并开始执行 | ADR 0001 第 3 节 |
-| 节点只执行与调用方本轮目录一致的调用 | 每次 `execute` | `catalog_digest` 覆盖操作定义、环境简述与当前授权 | ADR 0001 第 3 节 |
-| 预算耗尽、取消或断连之后，调用在 `settle_grace_ms` 内结算 | 每次受理的 `execute` | 节点的内部活动与最终提交临界区都在这段时间内结束 | ADR 0001 第 3 节 |
+| 同一个 `invocation_id` 至多执行一次 | 每个 id，不随时间失效 | 账本条目永久保留；登记、围栏与结算串行 | [ADR 0001 第 3 节](../adr/0001-lancet-protocol.md#3-五个协议操作)、[第 5 节](../adr/0001-lancet-protocol.md#5-调用记录的生命周期与对账)（节点运行时零重放待 #5 验证） |
+| `receipt` 返回 `NeverExecuted` 之后，同 id 永不执行 | 每次 `receipt` 查询 | 围栏在回复之前持久登记 | ADR 0001 第 5 节（节点围栏待 #5 验证） |
+| 受理的调用必有回执；以 `rejected` 回复的投递不执行、不产生 effect，也不改动调用记录 | 每次 `execute` | 受理检查全部通过之后才登记 id 并开始执行 | ADR 0001 第 3 节（节点受理行为待 #5 验证） |
+| 节点只执行与调用方本轮目录一致的调用 | 每次 `execute` | `catalog_digest` 覆盖操作定义、环境简述与当前授权 | ADR 0001 第 3 节；`crates/lancet-protocol/src/digest.rs::tests::invariant_to_nested_object_key_order_and_whitespace`、`sensitive_to_each_input_and_array_order`、`matches_pinned_canonical_sha256_vector`（协议单测只覆盖摘要计算，节点比对仍待 #5） |
+| 预算耗尽、取消或断连之后，调用在 `settle_grace_ms` 内结算 | 每次受理的 `execute` | 节点的内部活动与最终提交临界区都在这段时间内结束 | ADR 0001 第 3 节（节点时限结算待 #5 验证） |
 | 调用方等待一次 `execute` 的时间有上限 | 调用方适配器 | 本地单调时钟计时 | ADR 0001 第 3 节 |
-| 节点响应 `hello` 时没有遗留的 `Pending` 记录 | 每次重启 | 节点先完成恢复结算 | ADR 0001 第 5 节 |
+| 节点响应 `hello` 时没有遗留的 `Pending` 记录 | 每次重启 | 节点先完成恢复结算 | ADR 0001 第 5 节（恢复结算待 #5 验证） |
 | 本地判定的 `Indeterminate` 经对账取得节点记录的结局（节点结算为 `Indeterminate` 时仍为不确定）；满 `settle_grace_ms` 后仍为 `Pending` 的，作为节点故障报告 | 调用方适配器 | 能重新连上节点，且 `node_id` 一致 | ADR 0001 第 5 节 |
-| 环境简述等于配置与操作声明推出的结果 | 每次 `describe` | 单一构造入口 | [ADR 0001 第 4 节](../adr/0001-lancet-protocol.md#4-effectco-effect回执与-residue) |
-| `Succeeded` 的 `content` 不超过 `output_limit` | 每次回包 | 节点在回包前核对 | ADR 0001 第 3 节 |
-| `receipt_summary` 不超过 16 KiB | 每次回包 | 超出时节点裁剪并标明 | ADR 0001 第 3 节 |
-| 挂载的节点的环境简述不超过 4 KiB | 每次 `describe` | 调用方的形状校验 | ADR 0001 第 4 节 |
+| 环境简述等于配置与操作声明推出的结果 | 每次 `describe` | 单一构造入口 | [ADR 0001 第 4 节](../adr/0001-lancet-protocol.md#4-effectco-effect回执与-residue)（节点配置推导待 #5） |
+| `Succeeded` 的 `content` 不超过 `output_limit` | 每次回包 | 节点在回包前核对 | ADR 0001 第 3 节（节点核对待 #5 验证） |
+| `receipt_summary` 不超过 16 KiB | 每次回包 | 超出时节点裁剪并标明 | ADR 0001 第 3 节；`crates/lancet-protocol/src/receipt.rs::tests::receipt_summary_lossless_when_small_and_truncates_large_diff_preserving_original`、`receipt_summary_exact_16384_boundary_many_entries_and_deserialize_limit`（协议单测只覆盖摘要裁剪与解码上限，节点回包仍待 #5） |
+| `receipt` 回复的帧负载不超过 8 MiB | 每次 `receipt` 查询 | 超出时节点截断 `steps` 与 `effects` 并标明；其余字段（调用身份、`labels` 与结局）合计放得进一帧 | `crates/lancet-protocol/src/receipt.rs::tests::receipt_truncate_to_frame_keeps_fitting_receipt_and_cuts_diffs_before_entries`、`receipt_truncate_to_frame_exact_frame_boundary_and_entries_beyond_frame`（协议单测只覆盖截断规则与帧上限，节点回包仍待 #5） |
+| 挂载的节点的环境简述不超过 4 KiB | 每次 `describe` | 调用方的形状校验 | ADR 0001 第 4 节；`crates/lancet-protocol/src/environment.rs::tests::enforces_4096_byte_limit_including_multibyte_via_describe_ok`、`rejects_empty_and_duplicate_handle_names_via_describe_ok`、`rejects_unknown_enums_and_dangling_seam_endpoints_via_describe_ok`（协议单测只覆盖形状与字节上限校验） |
 
 ## 范围之外
 
@@ -299,10 +353,9 @@ ReceiptLookup = NeverExecuted                       # 确定未执行，同 id �
 | --- | --- |
 | 远程字节流传输的认证与加密封装 | 待裁决，见 [ADR 0001 待裁决](../adr/0001-lancet-protocol.md#待裁决) |
 | 审批：依据什么、在哪里询问用户，`policy` 是否增加取值 | 待设计审批时裁决 |
-| 单帧字节上限的取值，以及 `ToolSpec`、`ToolError`、`ReceiptSummary`、`Receipt`、`labels` 与协议版本标识的字段 | 由 [#4](https://github.com/Skyline10124/lancet/issues/4) 在 `lancet-protocol` 中确定 |
-| 完整回执超过单帧字节上限时怎样经 `receipt` 返回（如一次发布大量文件时的完整 diff） | 待定，随 #4 确定单帧上限时一并决定 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- 保证表中的各项由 `crates/lancet-protocol` 的单元测试与节点的协议级集成测试锁定。测试随 [#4](https://github.com/Skyline10124/lancet/issues/4)、[#5](https://github.com/Skyline10124/lancet/issues/5) 建立，建立后写入“依据或验证”一列。
+- `cargo test -p lancet-protocol`：验证帧编解码与 8 MiB 上限、`describe_ok` 形状与 4 KiB 上限、`ReceiptSummary` 16 KiB 裁剪与解码上限、完整回执按单帧上限截断、`residue` 合法范围及 `catalog_digest` 规范摘要计算（随 [#4](https://github.com/Skyline10124/lancet/issues/4) 建立；协议单测不覆盖节点零重放、时限结算等运行时行为）。
+- 节点的协议级集成测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，建立后写入“依据或验证”一列；协调层适配器的验证由后续接线任务承接。

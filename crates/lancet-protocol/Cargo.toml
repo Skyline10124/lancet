@@ -1,0 +1,16 @@
+# Copyright 2026 Ast Rin
+# SPDX-License-Identifier: Apache-2.0
+
+[package]
+name = "lancet-protocol"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+description = "LANCET 外部上下文节点协议纯协议库"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
