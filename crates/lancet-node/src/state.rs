@@ -22,6 +22,13 @@ impl StateDir {
     pub fn path(&self) -> &Path {
         &self.path
     }
+
+    /// 刷盘节点状态目录元数据。
+    pub fn sync(&self) -> anyhow::Result<()> {
+        self.dir_file
+            .sync_all()
+            .with_context(|| format!("无法刷盘节点状态目录：{}", self.path.display()))
+    }
 }
 
 /// 打开节点状态目录，不存在时以权限 `0o700` 创建。

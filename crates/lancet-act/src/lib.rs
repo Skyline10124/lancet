@@ -22,6 +22,10 @@ impl Guest for Interpreter {
         let globals = globals::build_globals();
         script::run_script(&script, &globals)
     }
+
+    fn builtin_stub() -> String {
+        globals::builtin_stub()
+    }
 }
 
 export!(Interpreter);

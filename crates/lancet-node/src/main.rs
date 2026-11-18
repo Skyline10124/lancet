@@ -3,13 +3,16 @@
 
 //! LANCET 外部上下文节点进程入口。
 
+mod calls;
 mod config;
+mod execute;
 mod server;
 mod state;
 
 use std::path::PathBuf;
 use std::process::ExitCode;
 
+use lancet_node::act::ActRuntime;
 use lancet_protocol::Capabilities;
 
 fn main() -> ExitCode {
@@ -23,11 +26,14 @@ fn main() -> ExitCode {
 fn run() -> anyhow::Result<()> {
     let config_arg = parse_args()?;
     let loaded = config::load(&config_arg)?;
-    let catalog = config::catalog::build(&loaded.config)?;
+    let runtime = ActRuntime::load()?;
+    let act_stub = runtime.builtin_stub()?;
+    let catalog = config::catalog::build(&loaded.config, act_stub)?;
     config::startup::check_paths(&loaded)?;
     let state_dir = state::open(&loaded.config.node.state_dir)?;
     config::startup::check_ficlone(&loaded.config)?;
     let node_id = state::load_or_create_node_id(&state_dir)?;
+    let ledger = calls::Ledger::open(&state_dir, loaded.config.node.receipt_retention_ms)?;
 
     let view = server::NodeView {
         node_id,
@@ -39,6 +45,8 @@ fn run() -> anyhow::Result<()> {
         catalog_digest: catalog.digest,
         environment_summary: catalog.summary,
         tools: catalog.tools,
+        runtime,
+        ledger,
     };
 
     server::serve(state_dir.path(), view)

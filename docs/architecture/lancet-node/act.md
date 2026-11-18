@@ -36,7 +36,8 @@ status: active
 
 ## `act` 的说明与全局环境
 
-- `describe` 中 `act` 的 `description` 是节点由 API 工具声明与解释器内置类型渲染的紧凑 `.pyi` 类型存根，只随节点版本变化。存根区分只读目录类型 `ReadDir` 与可写目录类型 `WriteDir`，并含 `ExecEnv`、`Egress`、`TextView` 与各返回记录类型。
+- `describe` 中 `act` 的 `description` 是节点由 API 工具声明与解释器内置类型渲染的紧凑 `.pyi` 类型存根，只随节点版本变化。存根列出下表中的内置扩展、`sum`、`regex`、`text` 与 `TextView` 的签名，由解释器从注册的函数与类型生成；标准 Starlark 内置不列入。句柄类型（区分只读目录类型 `ReadDir` 与可写目录类型 `WriteDir`，以及 `ExecEnv`、`Egress`）、它们的方法与各返回记录类型由 API 工具声明渲染；没有 API 工具时，存根只含上述内置部分。
+- `act` 的 `arguments` 是只含字符串字段 `script` 的 JSON 对象；`input_schema` 不允许其他字段。
 - 节点按配置向全局环境注入授权句柄，并在句柄对象上直接绑定对应的 API 工具：`lancet.read(...)` 等价于 `fs.read(lancet, ...)`，`dev.run(...)` 等价于 `proc.run(dev, ...)`。
 - 全局环境中下表的内容不带句柄，没有 effect：
 
@@ -100,7 +101,7 @@ act(script):
 | 单次返回窗口（MiB 级，见[分发](tools.md#分发)） | 一次 API 工具交回脚本的数据 | 见 [API 工具与工具基座的尚未承接](tools.md#尚未承接) |
 | `execute.output_limit`（如 64 KiB） | `return` 值与 `print` 缓冲序列化后的合计 | `Failed(OutputLimitExceeded)` |
 
-`return` 值按 JSON 序列化，`None` 为 `null`；不能序列化的返回值按运行期错误处理。
+`return` 值按 JSON 序列化，`None` 为 `null`；不能序列化的返回值按运行期错误处理。`content` 是对象 `{"value": <return 值>, "printed": <print 缓冲>}`，两个键始终存在；`output_limit` 按整个 `content` 的紧凑 UTF-8 JSON 字节数核对，等于上限时成功。
 
 ## 结局
 
@@ -114,11 +115,15 @@ act 结束时:
             else:              Indeterminate { reason }                 # 撤回时宿主又改了已发布的文件
         else:                  Succeeded { content, receipt_summary }   # 仍有待定改动时 content 末尾附提示
     elif 序列化字节数 > output_limit:  Failed(OutputLimitExceeded)
-    elif 脚本 fail 或子调用报错:       Failed(ScriptOrToolError)
+    elif 脚本 fail 或子调用报错:       Failed(ScriptOrToolError)  # 含超出解释器内存上限
     elif 调用方 cancel 或连接断开:     Cancelled
     elif remaining_ms 耗尽:           Deadline
 # 发布之外的各分支都不写宿主工作目录，待定改动原样保留
 ```
+
+节点自身的故障结算为 `Failed(InternalError)`，消息写明失败环节：解释器组件陷入、组件交回的值不是合法 JSON，以及节点在结算前重启。重启前在途的调用不重新执行；没有 effect 的调用结算为 `Failed(InternalError)`，原因为“节点在调用结算前重启，未保存执行结果”。
+
+`ScriptOrToolError` 的诊断消息超过 16,384 字节时，在不超过该长度的 UTF-8 字符边界截断，并注明已截断，使失败回复与回执都能装进一帧。
 
 ## 示意
 
@@ -150,11 +155,11 @@ commit()  # 或 discard()
 
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
-| 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`（组件级；经 `execute` 的验证待 #5） |
+| 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`；`crates/lancet-node/tests/node/calls.rs::execute_reports_script_diagnostics_before_evaluation` |
 | 只有调用过 `commit()` 并正常 `return`、载荷不超限的 `act` 写宿主工作目录 | 每次 `act` | 其余分支不发布 | ADR 0002 第 3 节、[第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布) |
 | 出错、取消、超时与载荷超限的 `act` 保留全部待定改动 | 每次 `act` | 待定改动只由 `commit()` 后的发布、`discard()` 与 `reset(path)` 消除 | ADR 0002 第 3 节 |
 | 待定提示不会让结局变为 `OutputLimitExceeded` | 每次 `act` | 提示的字节数预留并计入 `output_limit` | ADR 0002 第 3 节 |
-| 解释器超出内存上限，或因 `remaining_ms` 耗尽、`cancel` 被中断时，只终止该实例，节点继续服务 | 每次 `act` | 组件运行时的内存上限与截止中断 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`（同一运行时上的解释器实例；`remaining_ms`、`cancel` 与断连经协议的接入待 #5 验证） |
+| 解释器超出内存上限，或因 `remaining_ms` 耗尽、`cancel` 被中断时，只终止该实例，节点继续服务 | 每次 `act` | 组件运行时的内存上限与截止中断 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`；`crates/lancet-node/tests/node/calls.rs::memory_limit_leaves_node_serving`、`deadline_settles_within_advertised_grace`、`cancel_multiplexes_with_receipt`、`disconnect_cancels_only_its_connection` |
 
 ## 范围之外
 
@@ -174,4 +179,5 @@ commit()  # 或 discard()
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、内存上限、截止与取消。
-- `act` 的协议级测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，待定改动与结局的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立；建立后写入保证表。
+- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连。
+- 待定改动与结局的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立；建立后写入保证表。

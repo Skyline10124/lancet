@@ -10,7 +10,11 @@ use serde::{Deserialize, Serialize};
 
 use crate::digest::CatalogDigest;
 use crate::environment::{EffectKind, EnvironmentSummary, Mode};
-use crate::receipt::{Receipt, ReceiptSummary};
+use crate::frame::MAX_FRAME_BYTES;
+use crate::receipt::{MAX_RECEIPT_SUMMARY_BYTES, Receipt, ReceiptSummary};
+
+/// `execute.output_limit` 允许的最大字节数：8 MiB 单帧上限减去 16 KiB 摘要上限，再减去 `request_id = u64::MAX` 时成功回复帧的 132 字节固定 JSON 包装。
+pub const MAX_OUTPUT_LIMIT: u64 = MAX_FRAME_BYTES as u64 - MAX_RECEIPT_SUMMARY_BYTES as u64 - 132;
 
 /// 记账标签映射，节点对值保持不透明并原样写入回执。
 pub type Labels = BTreeMap<String, serde_json::Value>;
@@ -334,6 +338,84 @@ mod tests {
                 .get("seam_crossings")
                 .is_none(),
             "回执中不得记录 seam 跨越"
+        );
+    }
+
+    #[test]
+    fn max_output_limit_fits_largest_success_frame() {
+        use crate::frame::{Frame, FrameError, MAX_FRAME_BYTES, write_frame};
+        use crate::receipt::{MAX_RECEIPT_SUMMARY_BYTES, ReceiptOutcome, StepSummary};
+
+        let digest = CatalogDigest::from_sha256_bytes([0x11; 32]);
+        let probe_receipt = Receipt {
+            invocation_id: "inv".to_owned(),
+            tool: "act".to_owned(),
+            catalog_digest: digest.clone(),
+            labels: Labels::new(),
+            outcome: ReceiptOutcome::Cancelled,
+            steps: vec![StepSummary {
+                tool: String::new(),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            effects: vec![],
+            truncated: false,
+        };
+        let probe_summary = ReceiptSummary::from_receipt(&probe_receipt);
+        let probe_len = serde_json::to_vec(&probe_summary).unwrap().len();
+        let exact_receipt = Receipt {
+            steps: vec![StepSummary {
+                tool: "t".repeat(MAX_RECEIPT_SUMMARY_BYTES - probe_len),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            ..probe_receipt
+        };
+        let exact_summary = ReceiptSummary::from_receipt(&exact_receipt);
+        assert_eq!(
+            serde_json::to_vec(&exact_summary).unwrap().len(),
+            MAX_RECEIPT_SUMMARY_BYTES
+        );
+        assert!(!exact_summary.is_truncated());
+
+        // 构造紧凑 JSON 恰好占 MAX_OUTPUT_LIMIT 字节的字符串内容（含首尾双引号）。
+        let exact_content = serde_json::Value::String("a".repeat(MAX_OUTPUT_LIMIT as usize - 2));
+        assert_eq!(
+            serde_json::to_vec(&exact_content).unwrap().len(),
+            MAX_OUTPUT_LIMIT as usize
+        );
+
+        let exact_frame = Frame {
+            request_id: u64::MAX,
+            message: Response::ExecuteResult {
+                outcome: ExecuteOutcome::Succeeded {
+                    content: exact_content,
+                    receipt_summary: exact_summary.clone(),
+                },
+            },
+        };
+        let mut wire = Vec::new();
+        write_frame(&mut wire, &exact_frame).expect("MAX_OUTPUT_LIMIT 恰好应放进最大成功回复帧");
+        assert_eq!(
+            wire.len() - 4,
+            MAX_FRAME_BYTES,
+            "负载应恰好等于 8 MiB 单帧上限"
+        );
+
+        let over_content = serde_json::Value::String("a".repeat(MAX_OUTPUT_LIMIT as usize - 1));
+        let over_frame = Frame {
+            request_id: u64::MAX,
+            message: Response::ExecuteResult {
+                outcome: ExecuteOutcome::Succeeded {
+                    content: over_content,
+                    receipt_summary: exact_summary,
+                },
+            },
+        };
+        let mut over_wire = Vec::new();
+        let err = write_frame(&mut over_wire, &over_frame)
+            .expect_err("超出 MAX_OUTPUT_LIMIT 1 字节时成功回复帧应超过 8 MiB");
+        assert!(
+            matches!(err, FrameError::FrameTooLarge { .. }),
+            "应返回 FrameTooLarge，实际为：{err:?}"
         );
     }
 }

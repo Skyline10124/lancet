@@ -29,8 +29,8 @@ pub struct Catalog {
     pub digest: CatalogDigest,
 }
 
-/// 由解析后的配置构造节点目录（唯一构造入口）。
-pub fn build(config: &Config) -> anyhow::Result<Catalog> {
+/// 由解析后的配置与 `act` 类型存根构造节点目录（唯一构造入口）。
+pub fn build(config: &Config, act_description: String) -> anyhow::Result<Catalog> {
     let mut handles = Vec::with_capacity(config.dir.len() + config.env.len() + config.egress.len());
 
     for dir in &config.dir {
@@ -107,7 +107,20 @@ pub fn build(config: &Config) -> anyhow::Result<Catalog> {
     }
 
     let summary = EnvironmentSummary::new(handles, seams).context("构造环境简述失败")?;
-    let tools = Vec::new();
+    let tools = vec![ToolSpec {
+        name: "act".to_owned(),
+        description: act_description,
+        input_schema: json!({
+            "type": "object",
+            "properties": {
+                "script": { "type": "string" }
+            },
+            "required": ["script"],
+            "additionalProperties": false
+        }),
+        effects: Vec::new(),
+        coeffects: Vec::new(),
+    }];
     let authorization = serde_json::to_value(Authorization {
         dir: &config.dir,
         env: &config.env,
