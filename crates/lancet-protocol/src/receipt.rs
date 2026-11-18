@@ -1,7 +1,7 @@
 // Copyright 2026 Ast Rin
 // SPDX-License-Identifier: Apache-2.0
 
-//! 完整回执、`residue` 约束与 16 KiB 回执摘要裁剪。
+//! 完整回执与单帧上限截断、`residue` 约束与 16 KiB 回执摘要裁剪。
 
 use std::fmt;
 
@@ -9,8 +9,8 @@ use serde::{Deserialize, Deserializer, Serialize};
 
 use crate::digest::CatalogDigest;
 use crate::environment::EffectKind;
-use crate::frame::json_len_within;
-use crate::message::{Labels, OutcomeKind, ToolError};
+use crate::frame::{Frame, MAX_FRAME_BYTES, json_len_within};
+use crate::message::{Labels, OutcomeKind, ReceiptLookup, Response, ToolError};
 
 /// `receipt_summary` 紧凑 JSON 序列化的最大字节数（16 KiB）。
 pub const MAX_RECEIPT_SUMMARY_BYTES: usize = 16 * 1024;
@@ -177,6 +177,8 @@ pub struct Receipt {
     pub outcome: ReceiptOutcome,
     pub steps: Vec<StepSummary>,
     pub effects: Vec<EffectEntry>,
+    /// 为 `true` 时表示回执已按单帧上限截断，被截去的内容不能经 `receipt` 取回。
+    pub truncated: bool,
 }
 
 impl Receipt {
@@ -184,6 +186,72 @@ impl Receipt {
     pub const fn outcome_kind(&self) -> OutcomeKind {
         self.outcome.kind()
     }
+
+    /// 使 `receipt` 回复的帧负载不超过 [`MAX_FRAME_BYTES`]。
+    ///
+    /// 放得下时原样返回；超出时按与 [`ReceiptSummary::from_receipt`] 相同的顺序截断 `steps`
+    /// 与 `effects`（先裁剪 `diff`，再裁剪条目），并置 `truncated = true`。调用身份、`labels`
+    /// 与结局原样保留；它们本身超过上限时，返回的回执仍会被 [`crate::write_frame`] 拒绝编码。
+    pub fn truncate_to_frame(self) -> Self {
+        let max_len = max_receipt_len();
+        if json_len_within(&self, max_len)
+            .expect("回执序列化不应失败")
+            .is_some()
+        {
+            return self;
+        }
+
+        let Self {
+            invocation_id,
+            tool,
+            catalog_digest,
+            labels,
+            outcome,
+            steps,
+            effects,
+            truncated: _,
+        } = self;
+        let mut fitted = Self {
+            invocation_id,
+            tool,
+            catalog_digest,
+            labels,
+            outcome,
+            steps: Vec::new(),
+            effects: Vec::new(),
+            // 与摘要相同，按较长的 false 预留标记空间。
+            truncated: false,
+        };
+        let budget = max_len.saturating_sub(exact_json_len(&fitted));
+        (fitted.steps, fitted.effects) = trim_steps_and_effects(&steps, &effects, budget);
+        fitted.truncated = true;
+        fitted
+    }
+}
+
+/// 完整回执紧凑 JSON 的最大字节数：单帧上限减去 `receipt_result` 回复与帧的包装。
+///
+/// 回执原样嵌套在帧中，包装的字节数与回执内容无关；按最长的 `request_id` 计算，
+/// 使任一请求编号下的帧都不超限。
+fn max_receipt_len() -> usize {
+    let probe = Receipt {
+        invocation_id: String::new(),
+        tool: String::new(),
+        catalog_digest: CatalogDigest::from_sha256_bytes([0; 32]),
+        labels: Labels::new(),
+        outcome: ReceiptOutcome::Cancelled,
+        steps: Vec::new(),
+        effects: Vec::new(),
+        truncated: false,
+    };
+    let receipt_len = exact_json_len(&probe);
+    let frame_len = exact_json_len(&Frame {
+        request_id: u64::MAX,
+        message: Response::ReceiptResult {
+            lookup: ReceiptLookup::Settled { receipt: probe },
+        },
+    });
+    MAX_FRAME_BYTES - (frame_len - receipt_len)
 }
 
 /// 随 `execute_result` 返回的紧凑回执摘要，紧凑 JSON 序列化不超过 16 KiB。
@@ -489,6 +557,45 @@ fn fill_diffs_within_budget(
     }
 }
 
+/// 把 `steps` 与 `effects` 裁进 `budget` 字节（两个列表各项的紧凑 JSON 及项间逗号合计）。
+///
+/// 条目不带 `diff` 能放下时保留全部条目，再按顺序填回 `diff`：放得下的完整保留，第一个放不下的
+/// 截短，其后的去掉。条目本身也放不下时去掉全部 `diff`，优先完整保留较小的一侧，其余空间分给
+/// 另一侧，各自按顺序保留前缀条目。去掉或截短的 `diff` 置 `diff_truncated = true`。
+fn trim_steps_and_effects(
+    steps: &[StepSummary],
+    effects: &[EffectEntry],
+    budget: usize,
+) -> (Vec<StepSummary>, Vec<EffectEntry>) {
+    let steps_fit = measure_steps_within(steps, budget);
+    let effects_fit = measure_effects_no_diff_within(effects, budget);
+
+    if let (Some(sb), Some(eb)) = (steps_fit, effects_fit)
+        && sb + eb <= budget
+    {
+        let mut kept_effects: Vec<EffectEntry> = effects
+            .iter()
+            .map(|entry| EffectEntry {
+                handle: entry.handle.clone(),
+                kind: entry.kind,
+                changes: entry.changes.iter().map(strip_change_diff).collect(),
+            })
+            .collect();
+        fill_diffs_within_budget(effects, &mut kept_effects, budget - sb - eb);
+        return (steps.to_vec(), kept_effects);
+    }
+
+    // 条目本身也超出预算：优先保证较小一侧完整保留，其余空间分配给另一侧。
+    let steps_budget = match (steps_fit, effects_fit) {
+        (Some(sb), _) if sb <= budget / 2 => sb,
+        (_, Some(eb)) if eb <= budget / 2 => budget - eb,
+        _ => budget / 2,
+    };
+    let (kept_steps, used_steps, _) = take_steps_within(steps, steps_budget);
+    let (kept_effects, _, _) = take_effects_no_diff_within(effects, budget - used_steps);
+    (kept_steps, kept_effects)
+}
+
 impl ReceiptSummary {
     /// 从完整 [`Receipt`] 构造紧凑摘要，优先裁剪 `diff` 再裁剪摘要条目，确保紧凑 JSON 不超 16 KiB。
     pub fn from_receipt(receipt: &Receipt) -> Self {
@@ -514,43 +621,11 @@ impl ReceiptSummary {
             effects: &[],
             truncated: false,
         });
-        let total_budget = MAX_RECEIPT_SUMMARY_BYTES - skeleton_len;
-
-        let steps_fit = measure_steps_within(&receipt.steps, total_budget);
-        let effects_fit = measure_effects_no_diff_within(&receipt.effects, total_budget);
-
-        if let (Some(sb), Some(eb)) = (steps_fit, effects_fit)
-            && sb + eb <= total_budget
-        {
-            let steps = receipt.steps.clone();
-            let mut effects: Vec<EffectEntry> = receipt
-                .effects
-                .iter()
-                .map(|entry| EffectEntry {
-                    handle: entry.handle.clone(),
-                    kind: entry.kind,
-                    changes: entry.changes.iter().map(strip_change_diff).collect(),
-                })
-                .collect();
-            let remaining = total_budget - sb - eb;
-            fill_diffs_within_budget(&receipt.effects, &mut effects, remaining);
-            return Self {
-                steps,
-                effects,
-                truncated: true,
-            };
-        }
-
-        // 条目本身也超出预算：优先保证较小一侧完整保留，其余空间分配给另一侧。
-        let steps_budget = match (steps_fit, effects_fit) {
-            (Some(sb), _) if sb <= total_budget / 2 => sb,
-            (_, Some(eb)) if eb <= total_budget / 2 => total_budget - eb,
-            _ => total_budget / 2,
-        };
-        let (steps, used_steps, _) = take_steps_within(&receipt.steps, steps_budget);
-        let effects_budget = total_budget - used_steps;
-        let (effects, _, _) = take_effects_no_diff_within(&receipt.effects, effects_budget);
-
+        let (steps, effects) = trim_steps_and_effects(
+            &receipt.steps,
+            &receipt.effects,
+            MAX_RECEIPT_SUMMARY_BYTES - skeleton_len,
+        );
         Self {
             steps,
             effects,
@@ -609,6 +684,7 @@ impl<'de> Deserialize<'de> for ReceiptSummary {
 mod tests {
     use super::*;
     use crate::digest::CatalogDigest;
+    use crate::frame::{FrameError, write_frame};
     use std::collections::BTreeMap;
 
     fn sample_receipt(steps: Vec<StepSummary>, effects: Vec<EffectEntry>) -> Receipt {
@@ -622,6 +698,36 @@ mod tests {
             },
             steps,
             effects,
+            truncated: false,
+        }
+    }
+
+    fn write_entry(changes: Vec<Change>) -> EffectEntry {
+        EffectEntry::new("ws", EffectKind::Write, changes).unwrap()
+    }
+
+    /// 按最长的 `request_id` 编码 `receipt` 回复，返回帧负载字节数；超过单帧上限时返回编码错误。
+    fn receipt_result_payload_len(receipt: &Receipt) -> Result<usize, FrameError> {
+        let frame = Frame {
+            request_id: u64::MAX,
+            message: Response::ReceiptResult {
+                lookup: ReceiptLookup::Settled {
+                    receipt: receipt.clone(),
+                },
+            },
+        };
+        let mut encoded = Vec::new();
+        write_frame(&mut encoded, &frame)?;
+        Ok(encoded.len() - 4)
+    }
+
+    /// 去掉 `steps`、`effects` 与 `truncated` 后的回执，用于核对截断不触及其余字段。
+    fn without_lists(receipt: &Receipt) -> Receipt {
+        Receipt {
+            steps: Vec::new(),
+            effects: Vec::new(),
+            truncated: false,
+            ..receipt.clone()
         }
     }
 
@@ -921,5 +1027,151 @@ mod tests {
         let mb_decoded: ReceiptSummary =
             serde_json::from_slice(&mb_bytes).expect("裁剪后的多字节摘要应可正常反序列化");
         assert_eq!(mb_decoded, mb_summary);
+    }
+
+    #[test]
+    fn receipt_truncate_to_frame_keeps_fitting_receipt_and_cuts_diffs_before_entries() {
+        let small = sample_receipt(
+            vec![StepSummary {
+                tool: "fs.edit".to_owned(),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            vec![write_entry(vec![Change {
+                target: "src/lib.rs".to_owned(),
+                action: "edit".to_owned(),
+                diff: Some("+1\n".to_owned()),
+                diff_truncated: false,
+                residue: Residue::NotRetained,
+            }])],
+        );
+        assert_eq!(
+            small.clone().truncate_to_frame(),
+            small,
+            "放得进单帧的回执应原样返回"
+        );
+
+        // 三个变更项各带 3 MiB diff，合计超过 8 MiB 单帧上限；不带 diff 的条目远小于上限。
+        let diff = "x".repeat(3 * 1024 * 1024);
+        let changes = (0..3)
+            .map(|i| Change {
+                target: format!("src/gen_{i}.rs"),
+                action: "write".to_owned(),
+                diff: Some(diff.clone()),
+                diff_truncated: false,
+                residue: Residue::NotRetained,
+            })
+            .collect();
+        let large = sample_receipt(
+            vec![StepSummary {
+                tool: "fs.write".to_owned(),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            vec![write_entry(changes)],
+        );
+        assert!(
+            matches!(
+                receipt_result_payload_len(&large),
+                Err(FrameError::FrameTooLarge { .. })
+            ),
+            "未截断的回执应超过单帧上限"
+        );
+
+        let fitted = large.clone().truncate_to_frame();
+        let payload_len = receipt_result_payload_len(&fitted).expect("截断后的回执应能编码成一帧");
+        assert!(payload_len <= MAX_FRAME_BYTES);
+        assert!(fitted.truncated, "截断后必须标明 truncated=true");
+        assert!(
+            without_lists(&fitted) == without_lists(&large),
+            "调用身份、labels 与结局不截断"
+        );
+        assert_eq!(
+            fitted.steps, large.steps,
+            "只裁 diff 就能放下时保留全部子步骤"
+        );
+        let kept = fitted.effects[0].changes();
+        let original = large.effects[0].changes();
+        assert_eq!(kept.len(), 3, "只裁 diff 就能放下时保留全部变更项");
+        assert!(
+            kept[0] == original[0] && kept[1] == original[1],
+            "预算内的 diff 按顺序完整保留"
+        );
+        let cut = kept[2]
+            .diff
+            .as_deref()
+            .expect("剩余预算应保留第三项 diff 的前缀");
+        assert!(cut.len() < diff.len() && diff.starts_with(cut));
+        assert!(
+            kept[2].diff_truncated,
+            "被裁剪 diff 的变更项应标记 diff_truncated=true"
+        );
+    }
+
+    #[test]
+    fn receipt_truncate_to_frame_exact_frame_boundary_and_entries_beyond_frame() {
+        // 1) 帧负载（按最长的 request_id 计）恰好 8 MiB 时原样返回，多 1 字节即截断。
+        let probe = sample_receipt(
+            vec![StepSummary {
+                tool: String::new(),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            vec![],
+        );
+        let exact_tool_len = MAX_FRAME_BYTES - receipt_result_payload_len(&probe).unwrap();
+        let exact = sample_receipt(
+            vec![StepSummary {
+                tool: "t".repeat(exact_tool_len),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            vec![],
+        );
+        assert_eq!(receipt_result_payload_len(&exact).unwrap(), MAX_FRAME_BYTES);
+        assert!(
+            exact.clone().truncate_to_frame() == exact,
+            "恰好 8 MiB 的回执应原样返回"
+        );
+
+        let over_one = sample_receipt(
+            vec![StepSummary {
+                tool: "t".repeat(exact_tool_len + 1),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            vec![],
+        );
+        assert!(receipt_result_payload_len(&over_one).is_err());
+        let fitted = over_one.truncate_to_frame();
+        assert!(fitted.truncated, "超过 1 字节必须截断");
+        assert!(fitted.steps.is_empty(), "放不下的子步骤整条截去");
+        assert!(receipt_result_payload_len(&fitted).unwrap() <= MAX_FRAME_BYTES);
+
+        // 2) 不带 diff 的条目本身超过单帧上限时，按顺序保留前缀条目。
+        let changes = (0..120_000)
+            .map(|i| Change {
+                target: format!("src/file_{i:06}.rs"),
+                action: "write".to_owned(),
+                diff: None,
+                diff_truncated: false,
+                residue: Residue::NotRetained,
+            })
+            .collect();
+        let many = sample_receipt(
+            vec![StepSummary {
+                tool: "fs.write".to_owned(),
+                outcome: OutcomeKind::Succeeded,
+            }],
+            vec![write_entry(changes)],
+        );
+        assert!(receipt_result_payload_len(&many).is_err());
+        let fitted = many.clone().truncate_to_frame();
+        assert!(fitted.truncated);
+        assert!(receipt_result_payload_len(&fitted).unwrap() <= MAX_FRAME_BYTES);
+        assert_eq!(fitted.steps, many.steps, "较小的一侧完整保留");
+        let kept = fitted.effects[0].changes();
+        let all = many.effects[0].changes();
+        assert!(
+            !kept.is_empty() && kept.len() < all.len(),
+            "应保留部分变更项，保留 {} 项",
+            kept.len()
+        );
+        assert!(kept == &all[..kept.len()], "按顺序保留前缀条目");
     }
 }

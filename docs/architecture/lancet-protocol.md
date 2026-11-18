@@ -208,7 +208,7 @@ call : arguments → result ! ε @ κ
 节点为每次受理的 `execute` 持久生成回执，内容为调用身份、`labels`、最终结局、子步骤摘要与 effect 条目。每条 effect 条目写明句柄名、effect 种类与变更项列表；每个变更项各带一个 `residue` 取值。effect 种类只给出 `residue` 的可能范围，实际取值逐项记录。
 
 ```text
-Receipt       = { invocation_id, tool, catalog_digest, labels: Labels, outcome: ReceiptOutcome, steps: Vec<StepSummary>, effects: Vec<EffectEntry> }
+Receipt       = { invocation_id, tool, catalog_digest, labels: Labels, outcome: ReceiptOutcome, steps: Vec<StepSummary>, effects: Vec<EffectEntry>, truncated: bool }
 ReceiptOutcome (tag = "kind") =
     Succeeded     { content: Value }
   | Failed        { error: ToolError }
@@ -221,7 +221,8 @@ Change        = { target: String, action: String, diff?: String, diff_truncated:
 ```
 
 - `External` 须提供非空的 `target` 与 `action` 描述。
-- `diff_truncated` 用于逐项标明 diff 是否已被裁剪（含将来完整回执按条目裁剪 diff 的情形；完整回执超帧上限策略暂未确定）。
+- **完整回执不超过单帧上限。** `receipt` 回复的帧负载不超过 8 MiB，回复与帧的包装计入其中。完整回执超出时，节点按与 `receipt_summary` 相同的顺序（见[`execute` 的受理与结局](#execute-的受理与结局)）截断 `steps` 与 `effects`：先裁剪变更项的 `diff`，仍超出时再从尾部截去条目，并置 `truncated = true`。调用身份、`labels` 与结局原样保留。协议不分页，被截去的内容不能经 `receipt` 取回。
+- `diff_truncated = true` 表示该变更项的 `diff` 不完整：被截短，或整段去掉。
 
 | `residue` | 含义 | 出现在 |
 | --- | --- | --- |
@@ -320,6 +321,7 @@ ReceiptLookup (tag = "kind") =
 | 环境简述等于配置与操作声明推出的结果 | 每次 `describe` | 单一构造入口 | [ADR 0001 第 4 节](../adr/0001-lancet-protocol.md#4-effectco-effect回执与-residue)（节点配置推导待 #5） |
 | `Succeeded` 的 `content` 不超过 `output_limit` | 每次回包 | 节点在回包前核对 | ADR 0001 第 3 节（节点核对待 #5 验证） |
 | `receipt_summary` 不超过 16 KiB | 每次回包 | 超出时节点裁剪并标明 | ADR 0001 第 3 节；`crates/lancet-protocol/src/receipt.rs::tests::receipt_summary_lossless_when_small_and_truncates_large_diff_preserving_original`、`receipt_summary_exact_16384_boundary_many_entries_and_deserialize_limit`（协议单测只覆盖摘要裁剪与解码上限，节点回包仍待 #5） |
+| `receipt` 回复的帧负载不超过 8 MiB | 每次 `receipt` 查询 | 超出时节点截断 `steps` 与 `effects` 并标明；其余字段（调用身份、`labels` 与结局）合计放得进一帧 | `crates/lancet-protocol/src/receipt.rs::tests::receipt_truncate_to_frame_keeps_fitting_receipt_and_cuts_diffs_before_entries`、`receipt_truncate_to_frame_exact_frame_boundary_and_entries_beyond_frame`（协议单测只覆盖截断规则与帧上限，节点回包仍待 #5） |
 | 挂载的节点的环境简述不超过 4 KiB | 每次 `describe` | 调用方的形状校验 | ADR 0001 第 4 节；`crates/lancet-protocol/src/environment.rs::tests::enforces_4096_byte_limit_including_multibyte_via_describe_ok`、`rejects_empty_and_duplicate_handle_names_via_describe_ok`、`rejects_unknown_enums_and_dangling_seam_endpoints_via_describe_ok`（协议单测只覆盖形状与字节上限校验） |
 
 ## 范围之外
@@ -351,10 +353,9 @@ ReceiptLookup (tag = "kind") =
 | --- | --- |
 | 远程字节流传输的认证与加密封装 | 待裁决，见 [ADR 0001 待裁决](../adr/0001-lancet-protocol.md#待裁决) |
 | 审批：依据什么、在哪里询问用户，`policy` 是否增加取值 | 待设计审批时裁决 |
-| 完整回执超过单帧字节上限时怎样经 `receipt` 返回（如一次发布大量文件时的完整 diff） | 待定（单帧上限已确定为 8 MiB，完整回执超限策略尚未决定） |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- `cargo test -p lancet-protocol`：验证帧编解码与 8 MiB 上限、`describe_ok` 形状与 4 KiB 上限、`ReceiptSummary` 16 KiB 裁剪与解码上限、`residue` 合法范围及 `catalog_digest` 规范摘要计算（随 [#4](https://github.com/Skyline10124/lancet/issues/4) 建立；协议单测不覆盖节点零重放、时限结算等运行时行为）。
+- `cargo test -p lancet-protocol`：验证帧编解码与 8 MiB 上限、`describe_ok` 形状与 4 KiB 上限、`ReceiptSummary` 16 KiB 裁剪与解码上限、完整回执按单帧上限截断、`residue` 合法范围及 `catalog_digest` 规范摘要计算（随 [#4](https://github.com/Skyline10124/lancet/issues/4) 建立；协议单测不覆盖节点零重放、时限结算等运行时行为）。
 - 节点的协议级集成测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，建立后写入“依据或验证”一列；协调层适配器的验证由后续接线任务承接。

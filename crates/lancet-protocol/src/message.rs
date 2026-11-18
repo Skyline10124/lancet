@@ -290,6 +290,7 @@ mod tests {
                 outcome: OutcomeKind::Failed,
             }],
             effects: vec![],
+            truncated: false,
         };
         assert_eq!(receipt.outcome_kind(), OutcomeKind::Failed);
 
