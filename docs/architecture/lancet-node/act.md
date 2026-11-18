@@ -31,6 +31,7 @@ status: active
 
 - 脚本的求值是确定的、有限步终止的，脚本自身不产生 effect；实际的运行时间由下面的中断约束。
 - 解释器组件不持有任何宿主资源，只导入调用节点子工具分发的接口（[分发](tools.md#分发)）。
+- Rust 标准库为 `wasm32-wasip2` 引入的 WASI 接口由组件内的本地适配满足：环境变量为空，时钟与非安全随机种子为固定值，终端查询返回无终端，其余操作陷入。组合后的组件不导入 WASI。
 - 节点为解释器设置内存上限，并在 `remaining_ms` 耗尽或收到 `cancel` 时中断它（[组件运行时](tools.md#组件运行时)）。`starlark` 自带的堆上限与取消检查只是尽力而为，用于尽早返回可读的错误，不作为边界。
 
 ## `act` 的说明与全局环境
@@ -42,13 +43,13 @@ status: active
 | 名称 | 内容 |
 | --- | --- |
 | 内置扩展 | `starlark` 的 `Json`、`SetType`、`StructType`、`Map`、`Filter` 与 `Print` |
-| `sum` | 求和 |
-| `regex` | `match`、`findall`、`replace` |
-| `text(s)` | 文本视图，基于 Rust `regex`：`text(s).grep(pattern, before = 0, after = 0).head(n).tail(n)`，拆行方法与字符串一致，为 `.splitlines()`；所有字符串结果都可按自左向右的顺序筛选 |
+| `sum` | 求和：对可迭代的数值按 Starlark 加法累加，空输入为 `0` |
+| `regex` | `match(pattern, s)` 从开头匹配，返回布尔值；`findall(pattern, s)` 返回自左向右、不重叠的完整匹配；`replace(pattern, replacement, s)` 替换全部匹配，替换串可用 `$1`、`${name}`。无效的模式在求值时报错 |
+| `text(s)` | 文本视图，基于 Rust `regex`：`text(s).grep(pattern, before = 0, after = 0).head(n).tail(n)`，拆行方法与字符串一致，为 `.splitlines()`；所有字符串结果都可按自左向右的顺序筛选。`grep` 按行匹配并带上前后文，重叠的上下文按原顺序合并、不重复；视图序列化为它的文本，选中的行保留原行结束符 |
 
 - 内置函数 `commit()` 与 `discard()` 决定待定改动的去留，见[待定改动](#待定改动)；`discard()` 是对影子的写入，记入所在 `act` 的回执（[effect 与 `residue`](tools.md#effect-与-residue)）。
-- 全局环境不含反射与宿主系统库。
-- `print` 经自定义 `PrintHandler` 写入本次 `act` 的内存缓冲，不写节点的标准错误流。
+- 全局环境不含反射与宿主系统库：标准全局中的 `dir`、`getattr`、`hasattr` 与 `type` 不提供。
+- `print` 经自定义 `PrintHandler` 写入本次 `act` 的内存缓冲，每次追加一行，不写节点的标准错误流。
 
 ## 执行流程
 
@@ -66,8 +67,8 @@ act(script):
 
 `Failed(X)` 指 `Failed { error: ToolError { code: X } }`。
 
-- 包裹进单一入口函数后，脚本可以在顶层直接写 `return value` 交回结果；没写 `return` 时交回 `None`。解析、静态检查与运行期报错的行号都映射回原脚本。
-- 静态检查在执行第一条语句之前拦下未定义的标识符、参数名错误、字段名拼写错误，以及对 `ReadDir` 调用写方法。
+- 包裹进单一入口函数后，脚本可以在顶层直接写 `return value` 交回结果；没写 `return` 时交回 `None`。包裹时多行字符串内部的行保持原样。解析、静态检查与运行期报错的行号都映射回原脚本。
+- 静态检查在执行第一条语句之前拦下未定义的标识符；对类型可静态确定的值，还拦下参数名错误、字段名拼写错误，以及对 `ReadDir` 调用写方法。类型在静态检查时未知的值（例如经无类型的函数参数传入）上的这类错误，在求值到该处时立即失败（见[快速失败](#快速失败)）。
 - 修复提示覆盖的语法差异：无括号生成器、`import`、`is None`、花括号集合推导。
 
 ## 快速失败
@@ -98,6 +99,8 @@ act(script):
 | --- | --- | --- |
 | 单次返回窗口（MiB 级，见[分发](tools.md#分发)） | 一次 API 工具交回脚本的数据 | 见 [API 工具与工具基座的尚未承接](tools.md#尚未承接) |
 | `execute.output_limit`（如 64 KiB） | `return` 值与 `print` 缓冲序列化后的合计 | `Failed(OutputLimitExceeded)` |
+
+`return` 值按 JSON 序列化，`None` 为 `null`；不能序列化的返回值按运行期错误处理。
 
 ## 结局
 
@@ -147,11 +150,11 @@ commit()  # 或 discard()
 
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
-| 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败) |
+| 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`（组件级；经 `execute` 的验证待 #5） |
 | 只有调用过 `commit()` 并正常 `return`、载荷不超限的 `act` 写宿主工作目录 | 每次 `act` | 其余分支不发布 | ADR 0002 第 3 节、[第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布) |
 | 出错、取消、超时与载荷超限的 `act` 保留全部待定改动 | 每次 `act` | 待定改动只由 `commit()` 后的发布、`discard()` 与 `reset(path)` 消除 | ADR 0002 第 3 节 |
 | 待定提示不会让结局变为 `OutputLimitExceeded` | 每次 `act` | 提示的字节数预留并计入 `output_limit` | ADR 0002 第 3 节 |
-| 解释器超出内存上限，或因 `remaining_ms` 耗尽、`cancel` 被中断时，只终止该实例，节点继续服务 | 每次 `act` | 组件运行时的内存上限与截止中断 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；尚未核实（[ADR 0002 尚未核实](../../adr/0002-lancet-node-api-tools-and-act.md#尚未核实)） |
+| 解释器超出内存上限，或因 `remaining_ms` 耗尽、`cancel` 被中断时，只终止该实例，节点继续服务 | 每次 `act` | 组件运行时的内存上限与截止中断 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`（同一运行时上的解释器实例；`remaining_ms`、`cancel` 与断连经协议的接入待 #5 验证） |
 
 ## 范围之外
 
@@ -170,4 +173,5 @@ commit()  # 或 discard()
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- 解释器的组件级测试与 `act` 的协议级测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，待定改动与结局的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立；建立后写入保证表。
+- `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、内存上限、截止与取消。
+- `act` 的协议级测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，待定改动与结局的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立；建立后写入保证表。

@@ -87,6 +87,10 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 
 - 节点只加载预编译产物；每次调用现编译的开销在秒级。
 - 节点为每次组件调用设置内存上限，并在截止时间到达时中断该次调用。超限或超时只终止这一个实例，节点继续服务。
+- 解释器组件在构建时预编译，产物内嵌在 `lancet-node` 的库中；`ActRuntime::load()` 反序列化它，之后的调用复用同一个 `Engine`。每次调用新建 `Store` 与实例。
+- 解释器调用的 `Store` 中，全部线性内存合计上限为 128 MiB（134,217,728 字节），含初始分配；超出时该次调用立即失败。
+- 计时线程按 10 ms 周期推进 epoch。实例运行到随后的 epoch 检查点时，读取本次调用的截止时间与取消标志，决定是否中断。
+- 实测（2026-11-18，AMD EPYC 9B14，Linux 6.12，`wasmtime` 49.0.5，release 构建）：每次解释器调用（新建 `Store`、实例化并运行 `return 1`，100 次）p50 3.77 ms、p95 3.86 ms；取消从置位到返回（30 次）p50 10.09 ms、最大 10.15 ms；截止超出预算（30 次）最大 7.31 ms。同一运行时上，持有 62 个约 1 MiB 字符串的脚本正常返回，63 个时得到 `MemoryLimit`，随后的调用正常返回。
 - 解释器组件的中断时机与它自带的资源限制见[解释器](act.md#解释器)。
 
 ## 首批 API 工具
@@ -148,7 +152,7 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 | 工具只能触及本次调用注入的句柄，并且只能按参数类型使用它们 | 每次 API 工具调用 | 链接器只定义 `lancet:host`；`wasmtime` 在实例化与调用时核对类型 | [ADR 0002 第 2 节](../../adr/0002-lancet-node-api-tools-and-act.md#2-唯一的定义单元是-api-工具对外唯一工具是-act)、[第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；实验 4（[已核实的事实](../../adr/0002-lancet-node-api-tools-and-act.md#已核实的事实)） |
 | 模板、类型存根、环境简述与 `catalog_digest` 都与工具声明一致 | 每个加载的工具 | 都由声明推出；签名对不上的组件拒绝加载 | ADR 0002 第 2 节；实验 4 |
 | 回执记录的 ε 不越出模板；越出时本次 `act` 以 `Failed` 结束 | 每次 API 工具调用 | 分发层逐次核对 | [ADR 0002 第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方) |
-| 组件超出内存上限或截止时间时只终止该实例，节点继续服务 | 每次组件调用 | `wasmtime` 的 `ResourceLimiter` 与 epoch 中断 | ADR 0002 第 4 节；尚未核实（[ADR 0002 尚未核实](../../adr/0002-lancet-node-api-tools-and-act.md#尚未核实)） |
+| 组件超出内存上限或截止时间时只终止该实例，节点继续服务 | 每次组件调用 | `wasmtime` 的 `ResourceLimiter` 与 epoch 中断 | ADR 0002 第 4 节；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`（解释器组件；API 工具组件随 [#6](https://github.com/Skyline10124/lancet/issues/6) 验证） |
 
 ## 范围之外
 
@@ -161,10 +165,12 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 
 | 事项 | 现状 |
 | --- | --- |
-| 单次返回窗口的取值与超出时的处置；组件内存上限的取值 | 由 [#5](https://github.com/Skyline10124/lancet/issues/5)、[#6](https://github.com/Skyline10124/lancet/issues/6) 确定 |
-| 复用 `wasmtime::Engine` 时实例化组件的耗时 | 尚未核实，由 #5 实测 |
+| 单次返回窗口的取值与超出时的处置；API 工具组件的内存上限取值 | 由 [#6](https://github.com/Skyline10124/lancet/issues/6) 确定 |
+| 复用 `wasmtime::Engine` 时实例化 API 工具组件的耗时 | 由 [#6](https://github.com/Skyline10124/lancet/issues/6) 实测 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
+- `cargo test -p lancet-node --test act`：解释器组件的内存上限、截止与取消。
+- `cargo test --release -p lancet-node --test act measure_component_runtime -- --ignored --nocapture --test-threads=1`：实测解释器每次调用的开销与中断时延，结果见[组件运行时](#组件运行时)。
 - 声明加载的拒绝情形、模板推导、句柄收窄与 ε 核对的测试随 [#6](https://github.com/Skyline10124/lancet/issues/6) 建立，覆盖[实验 4](https://github.com/Skyline10124/lancet/blob/6dd0416d15ff4b49e95ec00c787643c8c590e376/prototypes/tool-declaration/REPORT.md) 的拒绝情形；建立后写入保证表。

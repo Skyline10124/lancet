@@ -6,7 +6,7 @@ name = "lancet-node"
 version.workspace = true
 license.workspace = true
 edition.workspace = true
-rust-version.workspace = true
+rust-version = "1.96"
 authors.workspace = true
 description = "LANCET 外部上下文节点服务"
 
@@ -18,6 +18,10 @@ serde = { workspace = true }
 serde_json = { workspace = true }
 toml = { workspace = true }
 uuid = { workspace = true }
+wasmtime = { workspace = true, features = ["runtime", "std", "component-model", "anyhow"] }
+
+[build-dependencies]
+wasmtime = { workspace = true, features = ["cranelift", "component-model", "std"] }
 
 [dev-dependencies]
 tempfile = { workspace = true }
