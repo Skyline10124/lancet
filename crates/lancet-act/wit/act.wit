@@ -8,6 +8,7 @@ interface interpreter {
     record payload { value-json: string, printed: string }
     record diagnostic { phase: phase, line: option<u32>, message: string }
     run: func(script: string) -> result<payload, diagnostic>;
+    builtin-stub: func() -> string;
 }
 
 world act {

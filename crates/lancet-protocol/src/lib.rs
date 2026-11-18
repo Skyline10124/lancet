@@ -20,8 +20,8 @@ pub use environment::{
 };
 pub use frame::{Frame, FrameError, MAX_FRAME_BYTES, read_frame, write_frame};
 pub use message::{
-    Capabilities, CoEffect, Effect, ExecuteOutcome, Labels, OutcomeKind, ProtocolVersion,
-    ReceiptLookup, RejectCode, Request, Response, ToolError, ToolSpec,
+    Capabilities, CoEffect, Effect, ExecuteOutcome, Labels, MAX_OUTPUT_LIMIT, OutcomeKind,
+    ProtocolVersion, ReceiptLookup, RejectCode, Request, Response, ToolError, ToolSpec,
 };
 pub use receipt::{
     Change, EffectEntry, EffectEntryError, MAX_RECEIPT_SUMMARY_BYTES, Receipt, ReceiptOutcome,

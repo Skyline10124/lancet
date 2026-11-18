@@ -258,7 +258,86 @@ hosts = ["pypi.org"]
     );
 
     let (_, environment_summary, tools) = describe(&mut stream, 22);
-    assert!(tools.is_empty(), "2a 阶段 tools 应为空列表");
+    assert_eq!(tools.len(), 1, "tools 应恰为一个 act 工具");
+    let act_tool = &tools[0];
+    assert_eq!(act_tool.name, "act");
+    assert_eq!(
+        act_tool.input_schema,
+        serde_json::json!({
+            "type": "object",
+            "properties": {
+                "script": { "type": "string" }
+            },
+            "required": ["script"],
+            "additionalProperties": false
+        }),
+        "act 的 input_schema 不符"
+    );
+    assert!(act_tool.effects.is_empty(), "act 的 effects 应为空");
+    assert!(act_tool.coeffects.is_empty(), "act 的 coeffects 应为空");
+    for expected in [
+        "sum",
+        "regex",
+        "match",
+        "findall",
+        "replace",
+        "text",
+        "TextView",
+        "grep",
+        "head",
+        "tail",
+        "splitlines",
+        "json",
+        "set",
+        "struct",
+        "map",
+        "filter",
+        "print",
+        "before: int = 0",
+        "after: int = 0",
+        "keepends: bool = False",
+    ] {
+        assert!(
+            act_tool.description.contains(expected),
+            "act.description 应包含 `{expected}`，实际为：\n{}",
+            act_tool.description
+        );
+    }
+    assert!(
+        !act_tool.description.contains("def len("),
+        "紧凑存根不应包含标准内置 `def len(`，实际为：\n{}",
+        act_tool.description
+    );
+    assert!(
+        act_tool
+            .description
+            .lines()
+            .any(|line| line == "    def head(self, n: int) -> TextView:"),
+        "TextView 方法应带 self 且签名匹配，实际为：\n{}",
+        act_tool.description
+    );
+    let set_block = act_tool
+        .description
+        .split("\n\n")
+        .find(|block| block.starts_with("class set:\n"))
+        .expect("存根应包含 `class set:` 块");
+    assert!(
+        set_block.contains("\n    def __init__(self"),
+        "`class set:` 内应包含带 self 的 `__init__`，实际为：\n{set_block}"
+    );
+    assert!(
+        !act_tool.description.contains("struct(..)"),
+        "存根不应包含非法返回类型 `struct(..)`，实际为：\n{}",
+        act_tool.description
+    );
+    assert!(
+        !act_tool
+            .description
+            .lines()
+            .any(|line| line.starts_with("def set(")),
+        "存根行首不应再单独出现 `def set(`，实际为：\n{}",
+        act_tool.description
+    );
 
     let handles = environment_summary.handles();
     let names: Vec<&str> = handles.iter().map(|h| h.name.as_str()).collect();
@@ -825,3 +904,6 @@ egress = "missing_egress"
         "应写明条目名与引用名，实际标准错误：\n{err_egress}"
     );
 }
+
+#[path = "node/calls.rs"]
+mod calls;

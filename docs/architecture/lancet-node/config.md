@@ -44,7 +44,7 @@ status: active
 | `[[egress]]` | `name` | 网络出口句柄名 |
 | `[[egress]]` | `hosts` | 允许访问的主机域名 |
 
-执行环境的内存上限也由节点配置设置，键名见[尚未承接](#尚未承接)。
+执行环境的内存上限也由节点配置设置，键名见[尚未承接](#尚未承接)。`hello_ok.capabilities` 中的 `settle_grace_ms` 由节点实现固定为 5000 毫秒，不可配置。
 
 节点以 `lancet-node <配置文件路径>` 启动，按下列规则读取配置：
 
@@ -127,7 +127,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 | --- | --- |
 | `node_id`，存于文件 `node_id` | [协议合同](../lancet-protocol.md#概念) |
 | 协议服务的 Unix 域套接字 `node.sock` | [协议合同](../lancet-protocol.md#连接与握手) |
-| 调用记录账本与回执 | [协议合同](../lancet-protocol.md#调用记录) |
+| 调用记录账本与回执，存于 `calls/` | [协议合同](../lancet-protocol.md#调用记录) |
 | 每个可写工作目录的影子，含私有 `.git/` | [影子工作区](shadow-workspace.md) |
 | 发布日志与换出的宿主 inode | [发布](shadow-workspace.md#发布) |
 | 执行环境的私有家目录、私有包缓存与私有临时目录 | [执行环境](host-resources.md#执行环境) |
@@ -136,6 +136,10 @@ hosts = ["index.crates.io", "static.crates.io"]
 - 同一节点状态目录同一时间只由一个节点进程使用：节点启动时对它取独占锁，取不到时报错退出。
 - 文件 `node_id` 保存一行小写、带连字符的 UUID。文件不存在时，节点生成 UUID v4，写入并落盘后才开始服务；文件无法解析时，节点报错退出。
 - 节点绑定 `node.sock` 之前删除同名的旧文件。
+- `calls/` 中每个 `invocation_id` 一个记录文件，文件名为 id 的 UTF-8 字节的 SHA-256 小写十六进制加 `.json`。每次状态迁移写临时文件、落盘后改名替换，再对目录落盘。
+- 回执保留期自结算时刻起按节点本地时钟计算；节点在响应 `receipt` 查询与启动时，把到期的记录迁移为 `Expired`。
+- 节点启动时，在监听 `node.sock` 之前结算全部遗留的 `Pending` 记录，结局见[`act` 的结局](act.md#结局)。
+- 调用记录读写失败时，节点报错退出，重启后由上一条收敛。
 
 ## 环境简述与 `seam` 边集
 

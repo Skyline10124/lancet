@@ -3,9 +3,13 @@
 
 //! `act` 解释器全局环境构建与扩展函数。
 
+use std::collections::BTreeMap;
+
 use regex::Regex;
+use starlark::docs::{DocFunction, DocItem, DocMember, DocModule, DocParam, DocReturn, DocType};
 use starlark::environment::{Globals, GlobalsBuilder, LibraryExtension};
 use starlark::starlark_module;
+use starlark::typing::Ty;
 use starlark::values::Heap;
 use starlark::values::ValueOfUnchecked;
 use starlark::values::float::UnpackFloat;
@@ -15,25 +19,161 @@ use crate::text::TextView;
 
 /// 移除反思与元编程全局函数后构造 `act` 使用的纯计算全局环境。
 pub fn build_globals() -> Globals {
-    let base = Globals::extended_by(&[
+    let standard = Globals::standard();
+
+    let mut builder = GlobalsBuilder::new();
+    builder.frozen_heap().add_reference(standard.heap());
+    for (name, value) in standard.iter() {
+        if !matches!(name, "dir" | "getattr" | "hasattr" | "type") {
+            builder.set(name, value);
+        }
+    }
+    register_act_globals(&mut builder);
+    builder.build()
+}
+
+/// 从 `act` 扩展、新增全局与 `TextView` 的文档生成紧凑、按名称排序的 `.pyi` 类型存根（不含标准内置）。
+pub fn builtin_stub() -> String {
+    let mut builder = GlobalsBuilder::new();
+    register_act_globals(&mut builder);
+    let docs = builder.build().documentation();
+    let mut entries: BTreeMap<&str, String> = BTreeMap::new();
+
+    for (name, item) in &docs.members {
+        if let Some(rendered) = render_doc_item(name, item) {
+            entries.insert(name.as_str(), rendered);
+        }
+    }
+
+    let text_view = DocType::from_starlark_value::<TextView>();
+    if let Some(rendered) = render_doc_type("TextView", &text_view) {
+        entries.insert("TextView", rendered);
+    }
+
+    entries.into_values().collect::<Vec<_>>().join("\n\n")
+}
+
+fn register_act_globals(builder: &mut GlobalsBuilder) {
+    for ext in [
         LibraryExtension::Json,
         LibraryExtension::SetType,
         LibraryExtension::StructType,
         LibraryExtension::Map,
         LibraryExtension::Filter,
         LibraryExtension::Print,
-    ]);
+    ] {
+        ext.add(builder);
+    }
+    register_core_helpers(builder);
+    register_regex(builder);
+}
 
-    let mut builder = GlobalsBuilder::new();
-    builder.frozen_heap().add_reference(base.heap());
-    for (name, value) in base.iter() {
-        if !matches!(name, "dir" | "getattr" | "hasattr" | "type") {
-            builder.set(name, value);
+fn render_doc_item(name: &str, item: &DocItem) -> Option<String> {
+    match item {
+        DocItem::Member(member) => Some(render_doc_member(name, member)),
+        DocItem::Module(module) => render_doc_module(name, module),
+        DocItem::Type(ty) => render_doc_type(name, ty),
+    }
+}
+
+fn render_doc_member(name: &str, member: &DocMember) -> String {
+    match member {
+        DocMember::Function(func) => render_function(name, func),
+        DocMember::Property(prop) => format!("{name}: {}", prop.typ),
+    }
+}
+
+fn render_function(name: &str, func: &DocFunction) -> String {
+    render_doc_function(name, func, false, None)
+}
+
+fn render_doc_function(
+    name: &str,
+    func: &DocFunction,
+    with_self: bool,
+    ret_override: Option<Ty>,
+) -> String {
+    let mut params = func.params.clone();
+    if with_self {
+        let self_param = DocParam {
+            name: "self".to_owned(),
+            docs: None,
+            typ: Ty::any(),
+            default_value: None,
+        };
+        if params.pos_only.is_empty() {
+            params.pos_or_named.insert(0, self_param);
+        } else {
+            params.pos_only.insert(0, self_param);
         }
     }
-    register_core_helpers(&mut builder);
-    register_regex(&mut builder);
-    builder.build()
+
+    let rendered = DocFunction {
+        docs: None,
+        params,
+        ret: DocReturn {
+            docs: None,
+            typ: ret_override.unwrap_or_else(|| func.ret.typ.clone()),
+        },
+    }
+    .render_as_code(name);
+    if func.ret.typ.to_string().contains("struct(..)") {
+        rendered.replace("struct(..)", "struct")
+    } else {
+        rendered
+    }
+}
+
+fn render_doc_module(name: &str, module: &DocModule) -> Option<String> {
+    let members: BTreeMap<&str, &DocItem> = module
+        .members
+        .iter()
+        .map(|(k, v)| (k.as_str(), v))
+        .collect();
+    if members.is_empty() {
+        return None;
+    }
+
+    let mut out = format!("class {name}:");
+    for (member_name, item) in members {
+        if let Some(rendered) = render_doc_item(member_name, item) {
+            out.push('\n');
+            out.push_str(&indent_block(&rendered));
+        }
+    }
+    Some(out)
+}
+
+fn render_doc_type(name: &str, ty: &DocType) -> Option<String> {
+    let members: BTreeMap<&str, &DocMember> =
+        ty.members.iter().map(|(k, v)| (k.as_str(), v)).collect();
+    if ty.constructor.is_none() && members.is_empty() {
+        return None;
+    }
+
+    let mut class_block = format!("class {name}:");
+    if let Some(ctor) = &ty.constructor {
+        let rendered = render_doc_function("__init__", ctor, true, Some(Ty::none()));
+        class_block.push('\n');
+        class_block.push_str(&indent_block(&rendered));
+    }
+    for (member_name, member) in members {
+        let rendered = match member {
+            DocMember::Function(func) => render_doc_function(member_name, func, true, None),
+            DocMember::Property(prop) => format!("{member_name}: {}", prop.typ),
+        };
+        class_block.push('\n');
+        class_block.push_str(&indent_block(&rendered));
+    }
+    Some(class_block)
+}
+
+fn indent_block(block: &str) -> String {
+    block
+        .lines()
+        .map(|line| format!("    {line}"))
+        .collect::<Vec<_>>()
+        .join("\n")
 }
 
 #[starlark_module]

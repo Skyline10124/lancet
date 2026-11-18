@@ -173,6 +173,24 @@ impl ActRuntime {
         }
     }
 
+    /// 实例化组件一次并读取 `act` 内置全局环境的 `.pyi` 类型存根。
+    pub fn builtin_stub(&self) -> anyhow::Result<String> {
+        let mut store = self.new_store(
+            Instant::now() + Duration::from_secs(5),
+            Arc::new(AtomicBool::new(false)),
+        );
+        let bindings = self
+            .pre
+            .instantiate(&mut store)
+            .map_err(anyhow::Error::from)
+            .context("实例化 act 组件以读取 builtin-stub 失败")?;
+        bindings
+            .lancet_act_interpreter()
+            .call_builtin_stub(&mut store)
+            .map_err(anyhow::Error::from)
+            .context("调用 act 组件 builtin-stub 失败")
+    }
+
     fn new_store(&self, deadline: Instant, cancelled: Arc<AtomicBool>) -> Store<StoreState> {
         let mut store = Store::new(
             &self.engine,
@@ -183,7 +201,7 @@ impl ActRuntime {
             },
         );
         store.limiter(|state| &mut state.memory);
-        store.set_epoch_deadline(1);
+        store.set_epoch_deadline(0);
         store.epoch_deadline_callback(|cx| {
             let state = cx.data();
             if state.cancelled.load(Ordering::Relaxed) {
