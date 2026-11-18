@@ -313,12 +313,12 @@ ReceiptLookup (tag = "kind") =
 | 同一个 `invocation_id` 至多执行一次 | 每个 id，不随时间失效 | 账本条目永久保留；登记、围栏与结算串行 | [ADR 0001 第 3 节](../adr/0001-lancet-protocol.md#3-五个协议操作)、[第 5 节](../adr/0001-lancet-protocol.md#5-调用记录的生命周期与对账)（节点运行时零重放待 #5 验证） |
 | `receipt` 返回 `NeverExecuted` 之后，同 id 永不执行 | 每次 `receipt` 查询 | 围栏在回复之前持久登记 | ADR 0001 第 5 节（节点围栏待 #5 验证） |
 | 受理的调用必有回执；以 `rejected` 回复的投递不执行、不产生 effect，也不改动调用记录 | 每次 `execute` | 受理检查全部通过之后才登记 id 并开始执行 | ADR 0001 第 3 节（节点受理行为待 #5 验证） |
-| 节点只执行与调用方本轮目录一致的调用 | 每次 `execute` | `catalog_digest` 覆盖操作定义、环境简述与当前授权 | ADR 0001 第 3 节；`crates/lancet-protocol/src/digest.rs::tests::invariant_to_nested_object_key_order_and_whitespace`、`sensitive_to_each_input_and_array_order`、`matches_pinned_canonical_sha256_vector`（协议单测只覆盖摘要计算，节点比对仍待 #5） |
+| 节点只执行与调用方本轮目录一致的调用 | 每次 `execute` | `catalog_digest` 覆盖操作定义、环境简述与当前授权 | ADR 0001 第 3 节；`crates/lancet-protocol/src/digest.rs::tests::invariant_to_nested_object_key_order_and_whitespace`、`sensitive_to_each_input_and_array_order`、`matches_pinned_canonical_sha256_vector`（协议单测只覆盖摘要计算）；`crates/lancet-node/tests/node.rs::digest_tracks_non_displayed_grants`（只改不在环境简述中的 `env.egress` 时摘要随之变化；`execute` 时的比对仍待 #5） |
 | 预算耗尽、取消或断连之后，调用在 `settle_grace_ms` 内结算 | 每次受理的 `execute` | 节点的内部活动与最终提交临界区都在这段时间内结束 | ADR 0001 第 3 节（节点时限结算待 #5 验证） |
 | 调用方等待一次 `execute` 的时间有上限 | 调用方适配器 | 本地单调时钟计时 | ADR 0001 第 3 节 |
 | 节点响应 `hello` 时没有遗留的 `Pending` 记录 | 每次重启 | 节点先完成恢复结算 | ADR 0001 第 5 节（恢复结算待 #5 验证） |
 | 本地判定的 `Indeterminate` 经对账取得节点记录的结局（节点结算为 `Indeterminate` 时仍为不确定）；满 `settle_grace_ms` 后仍为 `Pending` 的，作为节点故障报告 | 调用方适配器 | 能重新连上节点，且 `node_id` 一致 | ADR 0001 第 5 节 |
-| 环境简述等于配置与操作声明推出的结果 | 每次 `describe` | 单一构造入口 | [ADR 0001 第 4 节](../adr/0001-lancet-protocol.md#4-effectco-effect回执与-residue)（节点配置推导待 #5） |
+| 环境简述等于配置与操作声明推出的结果 | 每次 `describe` | 单一构造入口 | [ADR 0001 第 4 节](../adr/0001-lancet-protocol.md#4-effectco-effect回执与-residue)；`crates/lancet-node/tests/node.rs::hello_describe_matches_config`（尚无操作声明，只覆盖由配置推出的部分） |
 | `Succeeded` 的 `content` 不超过 `output_limit` | 每次回包 | 节点在回包前核对 | ADR 0001 第 3 节（节点核对待 #5 验证） |
 | `receipt_summary` 不超过 16 KiB | 每次回包 | 超出时节点裁剪并标明 | ADR 0001 第 3 节；`crates/lancet-protocol/src/receipt.rs::tests::receipt_summary_lossless_when_small_and_truncates_large_diff_preserving_original`、`receipt_summary_exact_16384_boundary_many_entries_and_deserialize_limit`（协议单测只覆盖摘要裁剪与解码上限，节点回包仍待 #5） |
 | `receipt` 回复的帧负载不超过 8 MiB | 每次 `receipt` 查询 | 超出时节点截断 `steps` 与 `effects` 并标明；其余字段（调用身份、`labels` 与结局）合计放得进一帧 | `crates/lancet-protocol/src/receipt.rs::tests::receipt_truncate_to_frame_keeps_fitting_receipt_and_cuts_diffs_before_entries`、`receipt_truncate_to_frame_exact_frame_boundary_and_entries_beyond_frame`（协议单测只覆盖截断规则与帧上限，节点回包仍待 #5） |
@@ -358,4 +358,5 @@ ReceiptLookup (tag = "kind") =
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-protocol`：验证帧编解码与 8 MiB 上限、`describe_ok` 形状与 4 KiB 上限、`ReceiptSummary` 16 KiB 裁剪与解码上限、完整回执按单帧上限截断、`residue` 合法范围及 `catalog_digest` 规范摘要计算（随 [#4](https://github.com/Skyline10124/lancet/issues/4) 建立；协议单测不覆盖节点零重放、时限结算等运行时行为）。
-- 节点的协议级集成测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，建立后写入“依据或验证”一列；协调层适配器的验证由后续接线任务承接。
+- `cargo test -p lancet-node`：节点进程级集成测试，覆盖握手（首个请求须为 `hello`、版本协商）与 `describe`。
+- `execute`、`cancel`、`receipt` 与调用记录的节点测试随 [#5](https://github.com/Skyline10124/lancet/issues/5) 建立，建立后写入“依据或验证”一列；协调层适配器的验证由后续接线任务承接。
