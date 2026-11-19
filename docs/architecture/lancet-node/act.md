@@ -42,6 +42,7 @@ status: active
   - 每种句柄类型是一个类，方法是以该类型为接收者的工具，签名去掉接收者，WIT 注释作为文档字符串。`WriteDir` 同时列出 `ReadDir` 的方法；需要 `ReadDir` 的参数写作 `ReadDir | WriteDir`。
   - 末尾连续的 `option` 参数写成 `= None`；返回类型 `result<T, string>` 写成 `T`。
 - `act` 的 `arguments` 是只含字符串字段 `script` 的 JSON 对象；`input_schema` 不允许其他字段。
+- `act` 的 `ToolSpec` 中 `effects` 与 `coeffects` 为空：脚本自身不产生、也不声明 effect 与 co-effect；每次子调用的 κ 与 ε 见[分发](tools.md#分发)。
 - 节点按配置向全局环境注入授权句柄，并在句柄对象上直接绑定对应的 API 工具：`lancet.read(...)` 等价于 `fs.read(lancet, ...)`，`dev.run(...)` 等价于 `proc.run(dev, ...)`。
   - 句柄对象只带槽位编号与类型，不持有宿主资源；脚本不能构造句柄。
   - 方法名为工具的函数名，见[工具声明](tools.md#工具声明)。实参可按位置或关键字传递；末尾连续的 `option` 参数可以省略，省略即 `None`。
@@ -105,7 +106,7 @@ act(script):
 
 | 上限 | 约束对象 | 超出时 |
 | --- | --- | --- |
-| 单次返回窗口（MiB 级，见[分发](tools.md#分发)） | 一次 API 工具交回脚本的数据 | 见 [API 工具与工具基座的尚未承接](tools.md#尚未承接) |
+| 单次返回窗口（见[分发](tools.md#分发)） | 一次 API 工具交回脚本的成功值 | 该次调用报错，`Failed(ScriptOrToolError)` |
 | `execute.output_limit`（如 64 KiB） | `return` 值与 `print` 缓冲序列化后的合计 | `Failed(OutputLimitExceeded)` |
 
 `return` 值按 JSON 序列化，`None` 为 `null`；不能序列化的返回值按运行期错误处理。`content` 是对象 `{"value": <return 值>, "printed": <print 缓冲>}`，两个键始终存在；`output_limit` 按整个 `content` 的紧凑 UTF-8 JSON 字节数核对，等于上限时成功。
@@ -122,7 +123,7 @@ act 结束时:
             else:              Indeterminate { reason }                 # 撤回时宿主又改了已发布的文件
         else:                  Succeeded { content, receipt_summary }   # 仍有待定改动时 content 末尾附提示
     elif 序列化字节数 > output_limit:  Failed(OutputLimitExceeded)
-    elif 脚本 fail 或子调用报错:       Failed(ScriptOrToolError)  # 含超出解释器内存上限
+    elif 脚本 fail 或子调用报错:       Failed(ScriptOrToolError)  # 含超出解释器内存上限，以及 API 工具陷入或超出内存上限
     elif 调用方 cancel 或连接断开:     Cancelled
     elif remaining_ms 耗尽:           Deadline
 # 发布之外的各分支都不写宿主工作目录，待定改动原样保留
@@ -163,7 +164,7 @@ commit()  # 或 discard()
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
 | 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`、`checks_bound_methods_before_first_dispatch`；`crates/lancet-node/tests/node/calls.rs::execute_reports_script_diagnostics_before_evaluation` |
-| 脚本只经授权句柄调用 API 工具；解释器交给分发层的句柄只是槽位编号 | 每次 API 工具调用 | 句柄对象由节点注入，脚本不能构造；分发接口是解释器唯一的导入 | `crates/lancet-node/tests/act.rs::bound_method_round_trips_arguments_records_and_errors` |
+| 脚本只经授权句柄调用 API 工具；解释器交给分发层的句柄只是槽位编号 | 每次 API 工具调用 | 句柄对象由节点注入，脚本不能构造；分发接口是解释器唯一的导入 | `crates/lancet-node/tests/act.rs::bound_method_round_trips_arguments_records_and_errors`；`crates/lancet-node/tests/node/calls.rs::execute_runs_read_list_and_search` |
 | 只有调用过 `commit()` 并正常 `return`、载荷不超限的 `act` 写宿主工作目录 | 每次 `act` | 其余分支不发布 | ADR 0002 第 3 节、[第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布) |
 | 出错、取消、超时与载荷超限的 `act` 保留全部待定改动 | 每次 `act` | 待定改动只由 `commit()` 后的发布、`discard()` 与 `reset(path)` 消除 | ADR 0002 第 3 节 |
 | 待定提示不会让结局变为 `OutputLimitExceeded` | 每次 `act` | 提示的字节数预留并计入 `output_limit` | ADR 0002 第 3 节 |
@@ -181,11 +182,12 @@ commit()  # 或 discard()
 
 | 事项 | 现状 |
 | --- | --- |
+| 可写目录、执行环境与网络出口的句柄 | 分别随 [#7](https://github.com/Skyline10124/lancet/issues/7)、[#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 注入；在此之前全局环境只含 `access = "read"` 的工作目录句柄 |
 | 结局不是 `Succeeded`（没有 `content`）时，待定提示放在哪里；`output_limit` 小于提示的预留字节时怎样处理 | 待定，随 [#5](https://github.com/Skyline10124/lancet/issues/5)、[#7](https://github.com/Skyline10124/lancet/issues/7) 决定 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、句柄方法的绑定与运行期校验、内存上限、截止与取消。
-- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连。
+- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及首批只读工具的调用与回执步骤。
 - 待定改动与结局的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立；建立后写入保证表。

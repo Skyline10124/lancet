@@ -34,6 +34,18 @@ pub fn build_globals(context: &ActContext) -> Globals {
     builder.build()
 }
 
+/// 校验句柄名是否为合法 Starlark 标识符且不与内置全局或包装入口函数重名。
+pub fn check_handle_name(name: &str) -> Result<(), String> {
+    if starlark_syntax::lexer::lex_exactly_one_identifier(name).as_deref() != Some(name) {
+        return Err(format!("`{name}` 不是合法的 Starlark 标识符"));
+    }
+    let globals = build_globals(&ActContext::default());
+    if name == crate::script::ENTRY_FN || globals.names().any(|g| g.as_str() == name) {
+        return Err(format!("`{name}` 与内置全局重名"));
+    }
+    Ok(())
+}
+
 /// 从 `act` 扩展、新增全局与 `TextView` 的文档生成紧凑、按名称排序的 `.pyi` 类型存根（不含标准内置）。
 pub fn builtin_stub() -> String {
     let mut builder = GlobalsBuilder::new();

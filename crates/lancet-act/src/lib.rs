@@ -31,6 +31,10 @@ impl Guest for Interpreter {
     fn builtin_stub() -> String {
         globals::builtin_stub()
     }
+
+    fn check_handle_name(name: String) -> Result<(), String> {
+        globals::check_handle_name(&name)
+    }
 }
 
 export!(Interpreter);

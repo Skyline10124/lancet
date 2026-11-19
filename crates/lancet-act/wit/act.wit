@@ -18,6 +18,7 @@ interface interpreter {
     record diagnostic { phase: phase, line: option<u32>, message: string }
     run: func(script: string, context-json: string) -> result<payload, diagnostic>;
     builtin-stub: func() -> string;
+    check-handle-name: func(name: string) -> result<_, string>;
 }
 
 world act {

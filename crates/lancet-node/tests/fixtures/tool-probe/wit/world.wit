@@ -1,0 +1,22 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:tool-probe@0.1.0;
+
+interface probe {
+    use lancet:host/handles@0.1.0.{read-dir};
+
+    /// 回显收到的各类型参数。
+    echo: func(dir: borrow<read-dir>, a: u8, b: s32, c: u64, d: f32, e: list<u8>) -> string;
+    /// 误将只读句柄当作可写句柄释放，触发组件陷入。
+    misuse: func(dir: borrow<read-dir>);
+    /// 分配超过 128 MiB 线性内存，触发内存上限中断。
+    grow: func(dir: borrow<read-dir>);
+    /// 进入死循环，用于测试截止时间与取消中断。
+    spin: func(dir: borrow<read-dir>);
+}
+
+world tool-probe {
+    import lancet:host/handles@0.1.0;
+    export probe;
+}

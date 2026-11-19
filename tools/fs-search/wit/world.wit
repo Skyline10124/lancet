@@ -1,0 +1,27 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-search@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{read-dir};
+
+    /// 文本搜索命中记录。
+    record search-hit {
+        /// 相对于目录根的文件路径。
+        path: string,
+        /// 命中行号（从 1 开始）。
+        line-no: u32,
+        /// 命中的整行文本（不含 LF 或 CRLF）。
+        text: string,
+    }
+
+    /// 在目录 dir 中按正则表达式 pattern 递归搜索文本文件。
+    /// glob 为可选的区分大小写路径模式（`/` 分隔，`*` 不跨 `/`，`**` 可跨目录）；省略时搜索全部候选文件。
+    search: func(dir: borrow<read-dir>, pattern: string, glob: option<string>) -> result<list<search-hit>, string>;
+}
+
+world fs-search {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

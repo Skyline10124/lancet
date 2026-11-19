@@ -3,13 +3,14 @@
 
 //! 由配置推出环境简述、`seam` 边集、`tools` 与 `catalog_digest` 的唯一构造入口。
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 use anyhow::Context as _;
 use lancet_protocol::{
-    CatalogDigest, EnvironmentSummary, Handle, Seam, SeamDirection, SeamPolicy, ToolSpec,
-    catalog_digest,
+    CatalogDigest, EffectKind, EnvironmentSummary, Handle, Mode, Seam, SeamDirection, SeamPolicy,
+    ToolSpec, catalog_digest,
 };
+use lancet_tool_decl::{CoEffectItem, EffectItem, HandleKind, ToolDecl, WitType};
 use serde::Serialize;
 use serde_json::json;
 
@@ -29,20 +30,26 @@ pub struct Catalog {
     pub digest: CatalogDigest,
 }
 
-/// 由解析后的配置与 `act` 类型存根构造节点目录（唯一构造入口）。
-pub fn build(config: &Config, act_description: String) -> anyhow::Result<Catalog> {
+/// 由解析后的配置、`act` 类型存根与工具声明构造节点目录（唯一构造入口）。
+pub fn build(
+    config: &Config,
+    act_description: String,
+    tool_decls: &[ToolDecl],
+) -> anyhow::Result<Catalog> {
+    let (read_dir_modes, read_dir_effects) =
+        summarize_handle_usage(HandleKind::ReadDir, tool_decls);
     let mut handles = Vec::with_capacity(config.dir.len() + config.env.len() + config.egress.len());
 
     for dir in &config.dir {
-        let kind = match dir.access {
-            DirAccess::Read => "ReadDir",
-            DirAccess::Write => "WriteDir",
+        let (kind, modes, effects) = match dir.access {
+            DirAccess::Read => ("ReadDir", read_dir_modes.clone(), read_dir_effects.clone()),
+            DirAccess::Write => ("WriteDir", Vec::new(), Vec::new()),
         };
         handles.push(Handle {
             name: dir.name.clone(),
             kind: kind.to_owned(),
-            effects: Vec::new(),
-            modes: Vec::new(),
+            effects,
+            modes,
             attributes: BTreeMap::from([
                 ("hidden".to_owned(), json!(dir.hidden)),
                 ("regenerable".to_owned(), json!(dir.regenerable)),
@@ -134,4 +141,48 @@ pub fn build(config: &Config, act_description: String) -> anyhow::Result<Catalog
         tools,
         digest,
     })
+}
+
+fn summarize_handle_usage(
+    handle_kind: HandleKind,
+    tool_decls: &[ToolDecl],
+) -> (Vec<Mode>, Vec<EffectKind>) {
+    let mut modes = BTreeSet::new();
+    let mut effects = BTreeSet::new();
+
+    for decl in tool_decls {
+        let param_accepts = |idx: usize| -> bool {
+            decl.params.get(idx).is_some_and(|p| match p.ty {
+                WitType::Handle { kind, borrow: true } => kind.accepts(handle_kind),
+                _ => false,
+            })
+        };
+
+        for item in &decl.templates.coeffects {
+            if let CoEffectItem::Uses(idx, Some(mode)) = *item
+                && param_accepts(idx)
+            {
+                let proto_mode = match mode {
+                    lancet_tool_decl::Mode::Read => Mode::Read,
+                    lancet_tool_decl::Mode::ReadWrite => Mode::ReadWrite,
+                };
+                modes.insert(proto_mode);
+            }
+        }
+
+        for item in &decl.templates.effects {
+            if let EffectItem::Effect(idx, kind) = *item
+                && param_accepts(idx)
+            {
+                let proto_kind = match kind {
+                    lancet_tool_decl::EffectKind::Write => EffectKind::Write,
+                    lancet_tool_decl::EffectKind::Exec => EffectKind::Exec,
+                    lancet_tool_decl::EffectKind::Emit => EffectKind::Emit,
+                };
+                effects.insert(proto_kind);
+            }
+        }
+    }
+
+    (modes.into_iter().collect(), effects.into_iter().collect())
 }

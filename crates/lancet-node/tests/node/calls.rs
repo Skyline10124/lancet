@@ -2,14 +2,18 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use std::collections::BTreeMap;
-use std::os::unix::net::UnixStream;
-use std::path::PathBuf;
+use std::ffi::OsStr;
+use std::io::Read as _;
+use std::os::unix::ffi::OsStrExt as _;
+use std::os::unix::net::{UnixListener, UnixStream};
+use std::path::{Path, PathBuf};
 use std::thread;
 use std::time::{Duration, Instant};
 
 use lancet_protocol::{
-    CatalogDigest, ExecuteOutcome, Frame, Labels, MAX_OUTPUT_LIMIT, OutcomeKind, Receipt,
-    ReceiptLookup, ReceiptOutcome, RejectCode, Request, Response, read_frame, write_frame,
+    CatalogDigest, ExecuteOutcome, Frame, FrameError, Labels, MAX_FRAME_BYTES, MAX_OUTPUT_LIMIT,
+    OutcomeKind, Receipt, ReceiptLookup, ReceiptOutcome, RejectCode, Request, Response, read_frame,
+    write_frame,
 };
 use serde_json::json;
 use tempfile::TempDir;
@@ -67,6 +71,19 @@ impl TestNode {
             state_dir,
             process: Some(process),
         }
+    }
+
+    fn start_custom(dir_defs: impl FnOnce(&Path) -> String) -> (TempDir, PathBuf, NodeProcess) {
+        let (root, home) = temp_env();
+        let state_dir = root.path().join("state");
+        let config_path = root.path().join("node.toml");
+        let dirs_toml = dir_defs(root.path());
+        let toml_content = format!(
+            "[node]\ndisplay_name = \"只读工具测试节点\"\nstate_dir = {state_dir:?}\n\n{dirs_toml}",
+            state_dir = state_dir.to_str().unwrap(),
+        );
+        let process = NodeProcess::start(&config_path, &toml_content, &state_dir, &home);
+        (root, state_dir, process)
     }
 
     fn connect_hello(&self) -> (UnixStream, HelloInfo, CatalogDigest) {
@@ -1100,4 +1117,863 @@ fn expired_receipt_keeps_outcome_and_replay_fence() {
         RejectCode::DuplicateInvocation,
         "回执过期后零重放围栏仍须生效"
     );
+}
+
+fn connect_process(process: &NodeProcess) -> (UnixStream, CatalogDigest) {
+    let mut stream = process.connect();
+    stream
+        .set_read_timeout(Some(WAIT_TIMEOUT))
+        .expect("设置读取超时失败");
+    stream
+        .set_write_timeout(Some(WAIT_TIMEOUT))
+        .expect("设置写入超时失败");
+    let _ = hello_v1(&mut stream, 1);
+    let (digest, _, _) = describe(&mut stream, 2);
+    (stream, digest)
+}
+
+#[test]
+fn execute_runs_read_list_and_search() {
+    let (_root, _state_dir, process) = TestNode::start_custom(|root_path| {
+        let ro_a = root_path.join("ro_a");
+        let ro_b = root_path.join("ro_b");
+        let rw = root_path.join("rw");
+        for d in [&ro_a, &ro_b, &rw] {
+            std::fs::create_dir(d).unwrap();
+        }
+        std::fs::write(ro_a.join("same.txt"), "from a").unwrap();
+        std::fs::write(ro_b.join("same.txt"), "from b").unwrap();
+        std::fs::write(rw.join("same.txt"), "from rw").unwrap();
+
+        std::fs::create_dir(ro_a.join("empty")).unwrap();
+        std::fs::create_dir_all(ro_a.join("tree/sub")).unwrap();
+        std::fs::write(ro_a.join("tree/a.txt"), "match once\nother\n").unwrap();
+        std::fs::write(
+            ro_a.join("tree/b.txt"),
+            "first\r\nmatch line match again\r\nsecond\r\n",
+        )
+        .unwrap();
+        std::fs::write(ro_a.join("tree/sub/deep.txt"), "match deep\n").unwrap();
+        std::os::unix::fs::symlink("a.txt", ro_a.join("tree/c_link")).unwrap();
+
+        format!(
+            r#"
+[[dir]]
+name = "ro_a"
+path = {ro_a:?}
+access = "read"
+
+[[dir]]
+name = "rw"
+path = {rw:?}
+access = "write"
+
+[[dir]]
+name = "ro_b"
+path = {ro_b:?}
+access = "read"
+"#,
+            ro_a = ro_a.to_str().unwrap(),
+            rw = rw.to_str().unwrap(),
+            ro_b = ro_b.to_str().unwrap(),
+        )
+    });
+    let (mut stream, digest) = connect_process(&process);
+
+    // 1. 槽位与基本 read / list / search。
+    let ok = run_act(
+        &mut stream,
+        10,
+        "inv-read-ok",
+        &digest,
+        r#"
+entries = ro_a.list("tree")
+hits_all = ro_a.search("match")
+hits_shallow = ro_a.search("match", glob = "tree/*.txt")
+hits_globstar = ro_a.search("match", glob = "tree/**/*.txt")
+return {
+    "slots": [ro_a.read("same.txt"), ro_b.read("same.txt")],
+    "empty": ro_a.list("empty"),
+    "missing_list": ro_a.list("absent", missing_ok = True),
+    "entries": entries,
+    "hits_all": hits_all,
+    "hits_shallow": hits_shallow,
+    "hits_globstar": hits_globstar,
+}
+"#,
+    );
+    let content = match ok {
+        ExecuteOutcome::Succeeded { content, .. } => content,
+        other => panic!("期望成功，实际：{other:?}"),
+    };
+    let val = &content["value"];
+    assert_eq!(val["slots"], json!(["from a", "from b"]));
+    assert_eq!(val["empty"], json!([]));
+    assert_eq!(val["missing_list"], json!(null));
+    assert_eq!(
+        val["entries"],
+        json!([
+            {"name": "a.txt", "is_dir": false, "is_link": false},
+            {"name": "b.txt", "is_dir": false, "is_link": false},
+            {"name": "c_link", "is_dir": false, "is_link": true},
+            {"name": "sub", "is_dir": true, "is_link": false},
+        ])
+    );
+    assert_eq!(
+        val["hits_all"],
+        json!([
+            {"path": "tree/a.txt", "line_no": 1, "text": "match once"},
+            {"path": "tree/b.txt", "line_no": 2, "text": "match line match again"},
+            {"path": "tree/c_link", "line_no": 1, "text": "match once"},
+            {"path": "tree/sub/deep.txt", "line_no": 1, "text": "match deep"},
+        ])
+    );
+    assert_eq!(
+        val["hits_shallow"],
+        json!([
+            {"path": "tree/a.txt", "line_no": 1, "text": "match once"},
+            {"path": "tree/b.txt", "line_no": 2, "text": "match line match again"},
+        ])
+    );
+    assert_eq!(
+        val["hits_globstar"],
+        json!([
+            {"path": "tree/a.txt", "line_no": 1, "text": "match once"},
+            {"path": "tree/b.txt", "line_no": 2, "text": "match line match again"},
+            {"path": "tree/sub/deep.txt", "line_no": 1, "text": "match deep"},
+        ])
+    );
+
+    // 2. 可写目录在本切片未注入句柄，check 阶段失败且无步骤。
+    let rw_res = run_act(
+        &mut stream,
+        11,
+        "inv-rw-check",
+        &digest,
+        "return rw.read(\"same.txt\")",
+    );
+    match rw_res {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(error.message.contains("check"), "{}", error.message);
+        }
+        other => panic!("可写目录调用应在 check 阶段失败，实际：{other:?}"),
+    }
+    let rw_receipt = match query_receipt(&mut stream, 12, "inv-rw-check") {
+        ReceiptLookup::Settled { receipt } => receipt,
+        other => panic!("期望 Settled 回执，实际：{other:?}"),
+    };
+    assert!(rw_receipt.steps.is_empty());
+    assert!(rw_receipt.effects.is_empty());
+
+    // 3. list 缺失目录默认报错；无效正则报错。
+    for (idx, bad_script) in ["return ro_a.list(\"absent\")", "return ro_a.search(\"[\")"]
+        .into_iter()
+        .enumerate()
+    {
+        let res = run_act(
+            &mut stream,
+            20 + idx as u64,
+            &format!("inv-bad-call-{idx}"),
+            &digest,
+            bad_script,
+        );
+        match res {
+            ExecuteOutcome::Failed { error, .. } => assert_eq!(error.code, "ScriptOrToolError"),
+            other => panic!("预期脚本失败，实际：{other:?}"),
+        }
+    }
+
+    // 4. 先成功、后失败的两次调用留下两条步骤，effects 为空。
+    let two_steps = run_act(
+        &mut stream,
+        30,
+        "inv-two-steps",
+        &digest,
+        "a = ro_a.read(\"same.txt\")\nb = ro_a.read(\"missing.txt\")\nreturn [a, b]\n",
+    );
+    assert!(matches!(two_steps, ExecuteOutcome::Failed { .. }));
+    let receipt = match query_receipt(&mut stream, 31, "inv-two-steps") {
+        ReceiptLookup::Settled { receipt } => receipt,
+        other => panic!("期望 Settled 回执，实际：{other:?}"),
+    };
+    assert_eq!(
+        receipt.steps,
+        vec![
+            lancet_protocol::StepSummary {
+                tool: "fs.read".to_owned(),
+                outcome: OutcomeKind::Succeeded,
+            },
+            lancet_protocol::StepSummary {
+                tool: "fs.read".to_owned(),
+                outcome: OutcomeKind::Failed,
+            },
+        ]
+    );
+    assert!(receipt.effects.is_empty());
+}
+
+#[test]
+fn hidden_paths_are_invisible_to_all_read_tools() {
+    let (_root, _state_dir, process) = TestNode::start_custom(|root_path| {
+        let ro = root_path.join("ro");
+        std::fs::create_dir_all(ro.join("secrets/deep")).unwrap();
+        std::fs::create_dir_all(ro.join("nested")).unwrap();
+        std::fs::create_dir_all(ro.join("docs")).unwrap();
+        std::fs::write(ro.join(".gitignore"), "from_gitignore.txt\n").unwrap();
+        std::fs::write(ro.join("from_gitignore.txt"), "visible gitignored").unwrap();
+        std::fs::write(ro.join("secrets/key.txt"), "secret key").unwrap();
+        std::fs::write(ro.join("secrets/unignored.txt"), "still hidden").unwrap();
+        std::fs::write(ro.join("secrets/present.txt"), "present secret").unwrap();
+        std::fs::write(ro.join("nested/secret.txt"), "nested secret").unwrap();
+        std::fs::write(ro.join("docs/public.txt"), "public doc").unwrap();
+        std::os::unix::fs::symlink("public.txt", ro.join("docs/secretlink")).unwrap();
+        std::os::unix::fs::symlink("loop", ro.join("docs/loop")).unwrap();
+        std::fs::write(ro.join("name"), "target content").unwrap();
+        std::fs::write(ro.join("notes"), "not a dir").unwrap();
+        std::fs::write(ro.join("app.log"), "hidden log").unwrap();
+        std::fs::write(ro.join("keep.log"), "kept log").unwrap();
+        std::fs::write(ro.join("visible.txt"), "ok").unwrap();
+
+        std::os::unix::fs::symlink("docs", ro.join("alias")).unwrap();
+        std::os::unix::fs::symlink("omitted/../name", ro.join("via_omitted")).unwrap();
+        std::os::unix::fs::symlink("secrets/present.txt", ro.join("peek_present")).unwrap();
+        std::os::unix::fs::symlink("secrets/maybe.txt", ro.join("peek_missing")).unwrap();
+
+        format!(
+            r#"
+[[dir]]
+name = "ro"
+path = {ro:?}
+access = "read"
+hidden = ["secrets/", "!secrets/unignored.txt", "**/secret.txt", "*.log", "!keep.log", "notes/", "docs/secretlink", "omitted/", "alias/loop", "vault/"]
+"#,
+            ro = ro.to_str().unwrap(),
+        )
+    });
+    let (mut stream, digest) = connect_process(&process);
+
+    let ok = run_act(
+        &mut stream,
+        10,
+        "inv-hidden-visible",
+        &digest,
+        r#"
+return {
+    "gitignored": ro.read("from_gitignore.txt"),
+    "kept": ro.read("keep.log"),
+    "notes": ro.read("notes"),
+    "docs_public": ro.read("docs/public.txt"),
+    "root_list": [e.name for e in ro.list(".")],
+    "nested_list": [e.name for e in ro.list("nested")],
+    "docs_list": [e.name for e in ro.list("docs")],
+    "alias_list": [e.name for e in ro.list("alias")],
+    "search": ro.search("visible|kept|secret|hidden"),
+}
+"#,
+    );
+    let val = match ok {
+        ExecuteOutcome::Succeeded { content, .. } => content["value"].clone(),
+        other => panic!("可见内容访问应成功，实际：{other:?}"),
+    };
+    assert_eq!(val["gitignored"], "visible gitignored");
+    assert_eq!(val["kept"], "kept log");
+    assert_eq!(val["notes"], "not a dir");
+    assert_eq!(val["docs_public"], "public doc");
+    assert_eq!(
+        val["root_list"],
+        json!([
+            ".gitignore",
+            "alias",
+            "docs",
+            "from_gitignore.txt",
+            "keep.log",
+            "name",
+            "nested",
+            "notes",
+            "visible.txt"
+        ])
+    );
+    assert_eq!(val["nested_list"], json!([]));
+    assert_eq!(val["docs_list"], json!(["public.txt"]));
+    assert_eq!(val["alias_list"], json!(["public.txt"]));
+    assert_eq!(
+        val["search"],
+        json!([
+            {"path": "from_gitignore.txt", "line_no": 1, "text": "visible gitignored"},
+            {"path": "keep.log", "line_no": 1, "text": "kept log"},
+        ])
+    );
+
+    let non_dir_parent = run_act(
+        &mut stream,
+        15,
+        "inv-hidden-non-dir-parent",
+        &digest,
+        r#"return ro.read("notes/chapter")"#,
+    );
+    match non_dir_parent {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(
+                error.message.contains("上级不是目录"),
+                "经普通文件 notes 继续向下访问应报上级不是目录，实际：{}",
+                error.message
+            );
+        }
+        other => panic!("经普通文件 notes 继续向下访问应报错，实际：{other:?}"),
+    }
+
+    let hidden_probes = [
+        r#"return ro.read("secrets/key.txt", missing_ok = True)"#,
+        r#"return ro.read("secrets/unignored.txt", missing_ok = True)"#,
+        r#"return ro.read("secrets/nonexistent.txt", missing_ok = True)"#,
+        r#"return ro.read("nested/secret.txt", missing_ok = True)"#,
+        r#"return ro.read("app.log", missing_ok = True)"#,
+        r#"return ro.read("docs/secretlink", missing_ok = True)"#,
+        r#"return ro.read("alias/secretlink", missing_ok = True)"#,
+        r#"return ro.read("via_omitted", missing_ok = True)"#,
+        r#"return ro.read("alias/loop", missing_ok = True)"#,
+        r#"return ro.read("peek_present", missing_ok = True)"#,
+        r#"return ro.read("peek_missing", missing_ok = True)"#,
+        r#"return ro.list("vault", missing_ok = True)"#,
+        r#"return ro.read("vault", missing_ok = True)"#,
+        r#"return ro.list("secrets", missing_ok = True)"#,
+        r#"return ro.read("secrets", missing_ok = True)"#,
+        r#"return ro.list("secrets/missing", missing_ok = True)"#,
+    ];
+    for (idx, script) in hidden_probes.into_iter().enumerate() {
+        let res = run_act(
+            &mut stream,
+            20 + idx as u64,
+            &format!("inv-hidden-probe-{idx}"),
+            &digest,
+            script,
+        );
+        match res {
+            ExecuteOutcome::Failed { error, .. } => {
+                assert_eq!(error.code, "ScriptOrToolError");
+                assert!(
+                    error.message.contains("命中 hidden 规则"),
+                    "脚本 `{script}` 应报命中 hidden 规则错误，实际：{}",
+                    error.message
+                );
+                assert!(
+                    !error.message.contains("层数过多"),
+                    "脚本 `{script}` 不应报符号链接层数过多，实际：{}",
+                    error.message
+                );
+            }
+            other => panic!("隐藏探测 `{script}` 必须报错，实际：{other:?}"),
+        }
+    }
+
+    // omitted 作为真实目录存在后，via_omitted 同样应报 hidden（与 omitted 不存在时一致）。
+    std::fs::create_dir_all(_root.path().join("ro/omitted")).unwrap();
+    let res = run_act(
+        &mut stream,
+        40,
+        "inv-hidden-omitted-exists",
+        &digest,
+        r#"return ro.read("via_omitted", missing_ok = True)"#,
+    );
+    match res {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(
+                error.message.contains("命中 hidden 规则"),
+                "omitted 存在后 via_omitted 仍应报命中 hidden 规则错误，实际：{}",
+                error.message
+            );
+        }
+        other => panic!("omitted 存在后 via_omitted 必须报错，实际：{other:?}"),
+    }
+}
+
+#[test]
+fn symlinks_follow_only_within_dir() {
+    let (_root, _state_dir, process) = TestNode::start_custom(|root_path| {
+        let ro = root_path.join("ro");
+        let outside = root_path.join("outside");
+        std::fs::create_dir_all(ro.join("subdir")).unwrap();
+        std::fs::create_dir_all(ro.join("secrets")).unwrap();
+        std::fs::create_dir_all(&outside).unwrap();
+
+        std::fs::write(ro.join("real.txt"), "inside target\n").unwrap();
+        std::fs::write(ro.join("subdir/inside.txt"), "inside sub\n").unwrap();
+        std::fs::write(ro.join(".env"), "TOP_SECRET=1\n").unwrap();
+        std::fs::write(ro.join("secrets/s.txt"), "hidden dir\n").unwrap();
+        std::fs::write(outside.join("escape.txt"), "outside\n").unwrap();
+
+        std::os::unix::fs::symlink("real.txt", ro.join("link_file")).unwrap();
+        std::os::unix::fs::symlink("subdir", ro.join("link_dir")).unwrap();
+        std::os::unix::fs::symlink("../outside/escape.txt", ro.join("link_escape_rel")).unwrap();
+        std::os::unix::fs::symlink(outside.join("escape.txt"), ro.join("link_escape_abs")).unwrap();
+        std::os::unix::fs::symlink(".env", ro.join("link_hidden_file")).unwrap();
+        std::os::unix::fs::symlink("secrets", ro.join("link_hidden_dir")).unwrap();
+        drop(UnixListener::bind(ro.join("sock")).unwrap());
+        std::os::unix::fs::symlink("sock", ro.join("link_sock")).unwrap();
+
+        // 构造恰好需要 40 跳符号链接才能到达的目录 `chain/hop40`。
+        std::fs::create_dir_all(ro.join("chain/target")).unwrap();
+        std::fs::write(ro.join("chain/target/leaf.txt"), "hop leaf\n").unwrap();
+        std::os::unix::fs::symlink("leaf.txt", ro.join("chain/target/leaf_link")).unwrap();
+        std::os::unix::fs::symlink("target", ro.join("chain/hop01")).unwrap();
+        for i in 2..=40 {
+            let prev = format!("hop{:02}", i - 1);
+            let cur = format!("hop{i:02}");
+            std::os::unix::fs::symlink(prev, ro.join("chain").join(cur)).unwrap();
+        }
+
+        format!(
+            r#"
+[[dir]]
+name = "ro"
+path = {ro:?}
+access = "read"
+hidden = ["secrets/", ".env"]
+"#,
+            ro = ro.to_str().unwrap(),
+        )
+    });
+    let (mut stream, digest) = connect_process(&process);
+
+    let ok = run_act(
+        &mut stream,
+        10,
+        "inv-sym-ok",
+        &digest,
+        r#"
+return {
+    "link_file": ro.read("link_file"),
+    "link_dir_entries": ro.list("link_dir"),
+    "root_entries": ro.list("."),
+    "hop39_entries": ro.list("chain/hop39"),
+    "hop39_link": ro.read("chain/hop39/leaf_link"),
+    "hop40_entries": ro.list("chain/hop40"),
+    "hop40_leaf": ro.read("chain/hop40/leaf.txt"),
+    "search_file": ro.search("inside target"),
+    "search_sub": ro.search("inside sub"),
+}
+"#,
+    );
+    let val = match ok {
+        ExecuteOutcome::Succeeded { content, .. } => content["value"].clone(),
+        other => panic!("目录内合法符号链接操作应成功，实际：{other:?}"),
+    };
+    assert_eq!(val["link_file"], "inside target\n");
+    assert_eq!(
+        val["link_dir_entries"],
+        json!([{"name": "inside.txt", "is_dir": false, "is_link": false}])
+    );
+    assert_eq!(
+        val["root_entries"],
+        json!([
+            {"name": "chain", "is_dir": true, "is_link": false},
+            {"name": "link_dir", "is_dir": true, "is_link": true},
+            {"name": "link_file", "is_dir": false, "is_link": true},
+            {"name": "real.txt", "is_dir": false, "is_link": false},
+            {"name": "subdir", "is_dir": true, "is_link": false},
+        ])
+    );
+    assert_eq!(
+        val["hop39_entries"],
+        json!([
+            {"name": "leaf.txt", "is_dir": false, "is_link": false},
+            {"name": "leaf_link", "is_dir": false, "is_link": true},
+        ])
+    );
+    assert_eq!(val["hop39_link"], "hop leaf\n");
+    // 经 40 跳到达的目录中，`leaf_link` 会触发第 41 跳，因此 list 略去它且 read 也会失败。
+    assert_eq!(
+        val["hop40_entries"],
+        json!([{"name": "leaf.txt", "is_dir": false, "is_link": false}])
+    );
+    assert_eq!(val["hop40_leaf"], "hop leaf\n");
+    assert_eq!(
+        val["search_file"],
+        json!([
+            {"path": "link_file", "line_no": 1, "text": "inside target"},
+            {"path": "real.txt", "line_no": 1, "text": "inside target"},
+        ])
+    );
+    assert_eq!(
+        val["search_sub"],
+        json!([{"path": "subdir/inside.txt", "line_no": 1, "text": "inside sub"}])
+    );
+
+    let err_cases = [
+        (
+            "相对越界链接",
+            "return ro.read(\"link_escape_rel\")",
+            "越出",
+        ),
+        (
+            "绝对越界链接",
+            "return ro.read(\"link_escape_abs\")",
+            "越出",
+        ),
+        (
+            "第 41 跳子链接",
+            "return ro.read(\"chain/hop40/leaf_link\")",
+            "层数过多",
+        ),
+        (
+            "指向隐藏文件的链接",
+            "return ro.read(\"link_hidden_file\")",
+            "命中 hidden 规则",
+        ),
+        (
+            "经隐藏目录链接读不存在路径",
+            "return ro.read(\"link_hidden_dir/absent\", missing_ok = True)",
+            "命中 hidden 规则",
+        ),
+        (
+            "经隐藏目录链接列不存在路径",
+            "return ro.list(\"link_hidden_dir/absent\", missing_ok = True)",
+            "命中 hidden 规则",
+        ),
+        ("Unix socket", "return ro.read(\"sock\")", "不是普通文件"),
+        (
+            "指向 Unix socket 的链接",
+            "return ro.read(\"link_sock\")",
+            "不是普通文件",
+        ),
+        (
+            "路径含 ..",
+            "return ro.read(\"../outside/escape.txt\")",
+            "越出",
+        ),
+        ("绝对路径", "return ro.list(\"/tmp\")", "越出"),
+    ];
+    for (idx, (case_name, script, needle)) in err_cases.into_iter().enumerate() {
+        let res = run_act(
+            &mut stream,
+            20 + idx as u64,
+            &format!("inv-sym-err-{idx}"),
+            &digest,
+            script,
+        );
+        match res {
+            ExecuteOutcome::Failed { error, .. } => {
+                assert_eq!(error.code, "ScriptOrToolError");
+                assert!(
+                    error.message.contains(needle),
+                    "`{case_name}` 报错应包含 `{needle}`，实际：{}",
+                    error.message
+                );
+            }
+            other => panic!("`{case_name}` 应失败，实际：{other:?}"),
+        }
+    }
+}
+
+#[test]
+fn read_tools_report_encoding_errors() {
+    let (_root, _state_dir, process) = TestNode::start_custom(|root_path| {
+        let ro = root_path.join("ro");
+        let bad_dir = root_path.join("bad_names");
+        std::fs::create_dir_all(&ro).unwrap();
+        std::fs::create_dir_all(&bad_dir).unwrap();
+        std::fs::write(ro.join("good.txt"), "hello world\n").unwrap();
+        std::fs::write(ro.join("bad.bin"), [0xffu8, 0xfe, 0xfd]).unwrap();
+        std::fs::write(bad_dir.join(OsStr::from_bytes(b"bad-\xff.txt")), "ok").unwrap();
+
+        format!(
+            r#"
+[[dir]]
+name = "ro"
+path = {ro:?}
+access = "read"
+
+[[dir]]
+name = "bad_names"
+path = {bad_dir:?}
+access = "read"
+"#,
+            ro = ro.to_str().unwrap(),
+            bad_dir = bad_dir.to_str().unwrap(),
+        )
+    });
+    let (mut stream, digest) = connect_process(&process);
+
+    // 1. 非 UTF-8 文件使 read 报错。
+    match run_act(
+        &mut stream,
+        10,
+        "inv-enc-read",
+        &digest,
+        "return ro.read(\"bad.bin\")",
+    ) {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(error.message.contains("UTF-8"), "{}", error.message);
+        }
+        other => panic!("非 UTF-8 read 应失败，实际：{other:?}"),
+    }
+
+    // 2. 省略 glob 的 search 因 bad.bin 失败并写明路径。
+    match run_act(
+        &mut stream,
+        11,
+        "inv-enc-search-all",
+        &digest,
+        "return ro.search(\"hello\")",
+    ) {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(error.message.contains("bad.bin"), "{}", error.message);
+        }
+        other => panic!("未排除 bad.bin 的 search 应失败，实际：{other:?}"),
+    }
+
+    // 3. glob 排除 bad.bin 时 search 成功。
+    match run_act(
+        &mut stream,
+        12,
+        "inv-enc-search-glob",
+        &digest,
+        "return ro.search(\"hello\", glob = \"*.txt\")",
+    ) {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(
+                content["value"],
+                json!([{"path": "good.txt", "line_no": 1, "text": "hello world"}])
+            );
+        }
+        other => panic!("glob 排除非 UTF-8 文件后 search 应成功，实际：{other:?}"),
+    }
+
+    // 4. 名称不是 UTF-8 的条目使 list 报错。
+    match run_act(
+        &mut stream,
+        13,
+        "inv-enc-list",
+        &digest,
+        "return bad_names.list(\".\")",
+    ) {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(error.message.contains("UTF-8"), "{}", error.message);
+        }
+        other => panic!("非 UTF-8 文件名 list 应失败，实际：{other:?}"),
+    }
+}
+
+#[test]
+fn tool_result_window_uses_compact_json_bytes() {
+    // 包含需要 JSON 转义的字符（'"' 1->2、'\\' 1->2、'\n' 1->2）与多字节 UTF-8 字符（'é'，2 字节计 1 字符）。
+    let prefix = "\"\\\né";
+    let prefix_json_len = serde_json::to_string(prefix).unwrap().len(); // 包含两侧引号的字节数
+    let pad_exact = 8 * 1024 * 1024 - prefix_json_len;
+    let exact = format!("{prefix}{}", "a".repeat(pad_exact));
+    assert_eq!(
+        serde_json::to_string(&exact).unwrap().len(),
+        8 * 1024 * 1024
+    );
+    let expected_chars = exact.chars().count();
+    let over = format!("{exact}b");
+    assert_eq!(
+        serde_json::to_string(&over).unwrap().len(),
+        8 * 1024 * 1024 + 1
+    );
+
+    let (_root, _state_dir, process) = TestNode::start_custom(move |root_path| {
+        let ro = root_path.join("ro");
+        std::fs::create_dir(&ro).unwrap();
+
+        std::fs::write(ro.join("exact.txt"), &exact).unwrap();
+        std::fs::write(ro.join("over.txt"), &over).unwrap();
+
+        format!(
+            r#"
+[[dir]]
+name = "ro"
+path = {ro:?}
+access = "read"
+"#,
+            ro = ro.to_str().unwrap(),
+        )
+    });
+    let (mut stream, digest) = connect_process(&process);
+
+    let ok = run_execute(
+        &mut stream,
+        10,
+        execute_req(
+            "inv-win-exact",
+            &digest,
+            "act",
+            json!({"script": "return len(ro.read(\"exact.txt\"))"}),
+            10_000,
+            1024,
+            Labels::new(),
+        ),
+    );
+    match ok {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(content["value"], json!(expected_chars));
+        }
+        other => panic!("恰好 8 MiB 返回窗口应成功，实际：{other:?}"),
+    }
+
+    let over = run_execute(
+        &mut stream,
+        11,
+        execute_req(
+            "inv-win-over",
+            &digest,
+            "act",
+            json!({"script": "return len(ro.read(\"over.txt\"))"}),
+            10_000,
+            1024,
+            Labels::new(),
+        ),
+    );
+    match over {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(
+                error.message.contains("8388608") && error.message.contains("proc.pipe"),
+                "超窗报错应含上限与 proc.pipe 提示，实际：{}",
+                error.message
+            );
+        }
+        other => panic!("多 1 字节应超出返回窗口并报错，实际：{other:?}"),
+    }
+}
+
+#[test]
+fn receipt_truncates_real_read_steps_to_one_frame() {
+    let (_root, state_dir, process) = TestNode::start_custom(|root_path| {
+        let ro = root_path.join("ro");
+        std::fs::create_dir(&ro).unwrap();
+        format!(
+            r#"
+[[dir]]
+name = "ro"
+path = {ro:?}
+access = "read"
+"#,
+            ro = ro.to_str().unwrap(),
+        )
+    });
+    let (mut stream, digest) = connect_process(&process);
+
+    let envelope_len = serde_json::to_vec(&json!({"value": "", "printed": ""}))
+        .unwrap()
+        .len();
+    let payload_str_len = MAX_OUTPUT_LIMIT as usize - envelope_len;
+    let script = format!(
+        "ro.list(\".\")\nfor _ in range(511):\n    ro.read(\"absent\", missing_ok = True)\nreturn \"a\" * {payload_str_len}\n"
+    );
+
+    let labels = BTreeMap::from([
+        ("session".to_owned(), json!("s-trunc")),
+        ("turn".to_owned(), json!(7)),
+    ]);
+
+    let outcome = run_execute(
+        &mut stream,
+        10,
+        execute_req(
+            "inv-trunc-512",
+            &digest,
+            "act",
+            json!({ "script": script }),
+            30_000,
+            MAX_OUTPUT_LIMIT,
+            labels.clone(),
+        ),
+    );
+    assert!(
+        matches!(outcome, ExecuteOutcome::Succeeded { .. }),
+        "512 步加最大载荷应成功，实际：{outcome:?}"
+    );
+
+    // 读取节点调用记录中的完整回执。
+    let call_files: Vec<_> = std::fs::read_dir(state_dir.join("calls"))
+        .unwrap()
+        .map(|entry| entry.unwrap().path())
+        .collect();
+    assert_eq!(call_files.len(), 1);
+    let record_json: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&call_files[0]).unwrap()).unwrap();
+    let stored: Receipt = serde_json::from_value(record_json["receipt"].clone()).unwrap();
+    assert_eq!(stored.invocation_id, "inv-trunc-512");
+    assert_eq!(stored.steps.len(), 512);
+    assert!(stored.effects.is_empty());
+    assert!(!stored.truncated);
+
+    // 去掉 steps 时放得进一帧；带上 steps 时超出单帧上限。
+    let mut no_steps = stored.clone();
+    no_steps.steps.clear();
+    let mut wire_check = Vec::new();
+    write_frame(
+        &mut wire_check,
+        &Frame {
+            request_id: 99,
+            message: Response::ReceiptResult {
+                lookup: ReceiptLookup::Settled { receipt: no_steps },
+            },
+        },
+    )
+    .expect("去掉 steps 时回执应放得进一帧");
+
+    wire_check.clear();
+    let err_with_steps = write_frame(
+        &mut wire_check,
+        &Frame {
+            request_id: 99,
+            message: Response::ReceiptResult {
+                lookup: ReceiptLookup::Settled {
+                    receipt: stored.clone(),
+                },
+            },
+        },
+    )
+    .expect_err("带上 512 条 steps 时应超出单帧上限");
+    assert!(matches!(err_with_steps, FrameError::FrameTooLarge { .. }));
+
+    // 直接读线上的 4 字节长度前缀核对 receipt 回复帧负载不超过 8 MiB。
+    send_only(
+        &mut stream,
+        99,
+        Request::Receipt {
+            invocation_id: "inv-trunc-512".to_owned(),
+        },
+    );
+    let mut prefix = [0u8; 4];
+    stream.read_exact(&mut prefix).unwrap();
+    let wire_len = u32::from_be_bytes(prefix) as usize;
+    assert!(
+        wire_len <= MAX_FRAME_BYTES,
+        "receipt 帧负载 {wire_len} 不应超过 {MAX_FRAME_BYTES}"
+    );
+    let mut payload_buf = vec![0u8; wire_len];
+    stream.read_exact(&mut payload_buf).unwrap();
+    let frame: Frame<Response> = serde_json::from_slice(&payload_buf).unwrap();
+    assert_eq!(frame.request_id, 99);
+    let truncated_receipt = match frame.message {
+        Response::ReceiptResult {
+            lookup: ReceiptLookup::Settled { receipt },
+        } => receipt,
+        other => panic!("期望 Settled 回执，实际：{other:?}"),
+    };
+
+    assert!(truncated_receipt.truncated);
+    assert!(!truncated_receipt.steps.is_empty());
+    assert!(truncated_receipt.steps.len() < stored.steps.len());
+    assert_eq!(stored.steps[0].tool, "fs.list");
+    assert_eq!(truncated_receipt.steps[0].tool, "fs.list");
+    assert_eq!(
+        truncated_receipt.steps,
+        stored.steps[..truncated_receipt.steps.len()]
+    );
+    assert_eq!(truncated_receipt.invocation_id, stored.invocation_id);
+    assert_eq!(truncated_receipt.tool, stored.tool);
+    assert_eq!(truncated_receipt.catalog_digest, stored.catalog_digest);
+    assert_eq!(truncated_receipt.labels, stored.labels);
+    assert_eq!(truncated_receipt.outcome, stored.outcome);
+    assert!(truncated_receipt.effects.is_empty());
 }

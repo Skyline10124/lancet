@@ -77,7 +77,7 @@ pub fn build_and_precompile(
     lib_stem: &str,
     tool_dir: &Path,
     output_stem: &str,
-) {
+) -> Vec<lancet_tool_decl::ToolDecl> {
     let wasm_target_dir = out_dir.join("wasm-target");
     let core_wasm = build_wasm_artifact(
         workspace_root,
@@ -98,6 +98,7 @@ pub fn build_and_precompile(
         .unwrap_or_else(|e| panic!("写入 {output_stem}.decl.json 失败：{e}"));
 
     precompile_to_cwasm(out_dir, output_stem, &packed_bytes);
+    decls
 }
 
 fn componentize(core_wasm: &Path, out_dir: &Path, output_stem: &str) -> PathBuf {

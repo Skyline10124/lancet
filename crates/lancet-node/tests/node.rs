@@ -10,8 +10,8 @@ use std::thread;
 use std::time::Duration;
 
 use lancet_protocol::{
-    Capabilities, CatalogDigest, EnvironmentSummary, Frame, ProtocolVersion, Request, Response,
-    Seam, SeamDirection, SeamPolicy, ToolSpec, read_frame, write_frame,
+    Capabilities, CatalogDigest, EnvironmentSummary, Frame, Mode, ProtocolVersion, Request,
+    Response, Seam, SeamDirection, SeamPolicy, ToolSpec, read_frame, write_frame,
 };
 use tempfile::TempDir;
 
@@ -338,6 +338,29 @@ hosts = ["pypi.org"]
         "存根行首不应再单独出现 `def set(`，实际为：\n{}",
         act_tool.description
     );
+    for expected in [
+        "class Entry:",
+        "is_link: bool",
+        "class SearchHit:",
+        "line_no: int",
+    ] {
+        assert!(
+            act_tool.description.contains(expected),
+            "act.description 应包含 `{expected}`，实际为：\n{}",
+            act_tool.description
+        );
+    }
+    let read_dir_block = act_tool
+        .description
+        .split("\n\n")
+        .find(|block| block.starts_with("class ReadDir:\n"))
+        .expect("存根应包含 `class ReadDir:` 块");
+    for method in ["def read(", "def list(", "def search("] {
+        assert!(
+            read_dir_block.contains(method),
+            "`class ReadDir:` 应包含 `{method}`，实际为：\n{read_dir_block}"
+        );
+    }
 
     let handles = environment_summary.handles();
     let names: Vec<&str> = handles.iter().map(|h| h.name.as_str()).collect();
@@ -345,7 +368,16 @@ hosts = ["pypi.org"]
 
     for h in handles {
         assert!(h.effects.is_empty(), "句柄 {} 的 effects 应为空", h.name);
-        assert!(h.modes.is_empty(), "句柄 {} 的 modes 应为空", h.name);
+        if h.kind == "ReadDir" {
+            assert_eq!(
+                h.modes,
+                vec![Mode::Read],
+                "只读目录句柄 {} 的 modes 应为 [Read]",
+                h.name
+            );
+        } else {
+            assert!(h.modes.is_empty(), "未注入句柄 {} 的 modes 应为空", h.name);
+        }
     }
 
     assert_eq!(handles[0].kind, "WriteDir");
@@ -903,6 +935,66 @@ egress = "missing_egress"
         err_egress.contains("runner") && err_egress.contains("missing_egress"),
         "应写明条目名与引用名，实际标准错误：\n{err_egress}"
     );
+}
+
+#[test]
+fn startup_rejects_invalid_handle_names() {
+    let (root, home) = temp_env();
+    let ro_dir = root.path().join("ro");
+    std::fs::create_dir(&ro_dir).expect("创建 ro 失败");
+
+    let invalid_cases = [
+        ("dir_1abc", "dir", "1abc"),
+        ("dir_spaces", "dir", " app "),
+        ("env_keyword", "env", "for"),
+        ("env_builtin", "env", "len"),
+        ("egress_ext", "egress", "regex"),
+        ("egress_entry", "egress", "lancet_act_entry__"),
+    ];
+
+    for (case_name, table, bad_name) in invalid_cases {
+        let state_dir = root.path().join(format!("state-{case_name}"));
+        let config_path = root.path().join(format!("{case_name}.toml"));
+        let extra = match table {
+            "dir" => format!(
+                "[[dir]]\nname = {bad_name:?}\npath = {ro_dir:?}\naccess = \"read\"\n",
+                ro_dir = ro_dir.to_str().unwrap(),
+            ),
+            "env" => format!("[[env]]\nname = {bad_name:?}\n"),
+            "egress" => format!("[[egress]]\nname = {bad_name:?}\nhosts = [\"example.com\"]\n"),
+            _ => unreachable!(),
+        };
+        let toml_content = format!(
+            "[node]\ndisplay_name = \"句柄名校验\"\nstate_dir = {state_dir:?}\n\n{extra}",
+            state_dir = state_dir.to_str().unwrap(),
+        );
+        let stderr = run_expect_failure(&config_path, &toml_content, &home);
+        assert!(
+            stderr.contains(bad_name) && stderr.contains(table),
+            "用例 `{case_name}` 报错应写明表 `{table}` 与条目名 `{bad_name}`，实际标准错误：\n{stderr}"
+        );
+    }
+
+    // 正例：已移除的内置名 `dir` 可以作为句柄名正常启动。
+    let ok_state = root.path().join("state-dir-ok");
+    let ok_cfg = root.path().join("dir-ok.toml");
+    let ok_toml = format!(
+        r#"
+[node]
+display_name = "dir 允许启动"
+state_dir = {state_dir:?}
+
+[[dir]]
+name = "dir"
+path = {ro_dir:?}
+access = "read"
+"#,
+        state_dir = ok_state.to_str().unwrap(),
+        ro_dir = ro_dir.to_str().unwrap(),
+    );
+    let node = NodeProcess::start(&ok_cfg, &ok_toml, &ok_state, &home);
+    let mut stream = node.connect();
+    let _ = hello_v1(&mut stream, 1);
 }
 
 #[path = "node/calls.rs"]

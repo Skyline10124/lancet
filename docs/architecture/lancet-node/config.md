@@ -53,6 +53,7 @@ status: active
 - 宿主路径（`state_dir`、`dir.path`、`env.tools`、`env.caches`、`env.path`）写成绝对路径，或以 `~/` 开头；`~/` 表示节点进程的 `HOME`。
 - `dir.path` 必须是已存在的目录。
 - `env.mounts` 中的名称必须是某个 `[[dir]]` 的 `name`；`env.egress` 必须是某个 `[[egress]]` 的 `name`。
+- `dir.name`、`env.name` 与 `egress.name` 是脚本中的句柄名：必须是合法的 Starlark 标识符（不是关键字，不含空白），且不与 `act` 全局环境中的内置名称重名，也不是解释器包装脚本用的保留名 `lancet_act_entry__`。违反时节点报错退出，错误写明表名与条目名。
 - 配置中出现上表以外的键（`vars` 中的变量名除外），或违反上面任一条时，节点报错退出。
 
 配置形态示意：
@@ -149,7 +150,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 | --- | --- |
 | `name` | 配置中的句柄名 |
 | `kind` | 对应的类型存根名：`ReadDir`、`WriteDir`、`ExecEnv`、`Egress` |
-| `effects`、`modes` | 由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明) |
+| `effects`、`modes` | 注入脚本的句柄：由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明)。没有注入脚本的句柄为空：可写目录、执行环境与网络出口分别随 [#7](https://github.com/Skyline10124/lancet/issues/7)、[#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 注入 |
 | `attributes` | 目录：`hidden`、`regenerable`，取配置中的模式原文与顺序；执行环境：`mounts`（挂载的工作目录名）与 `tools`（展开 `~/` 后的路径）；网络出口：`hosts` |
 
 句柄依次列出全部 `[[dir]]`、`[[env]]` 与 `[[egress]]`，各组内按配置中的顺序。
@@ -191,7 +192,7 @@ for 每个网络出口 n:
 
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
-| 环境简述、`seam` 边集与 `catalog_digest` 只随配置、授权与节点版本变化 | 每次启动与 `describe` | 单一构造入口，输入只有配置与声明 | [ADR 0002 第 5 节](../../adr/0002-lancet-node-api-tools-and-act.md#5-工作区与节点配置)、[第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方)；`crates/lancet-node/tests/node.rs::hello_describe_matches_config`、`restart_preserves_identity_and_catalog`、`digest_tracks_non_displayed_grants`（尚无 API 工具声明，只覆盖由配置推出的部分） |
+| 环境简述、`seam` 边集与 `catalog_digest` 只随配置、授权与节点版本变化 | 每次启动与 `describe` | 单一构造入口，输入只有配置与声明 | [ADR 0002 第 5 节](../../adr/0002-lancet-node-api-tools-and-act.md#5-工作区与节点配置)、[第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方)；`crates/lancet-node/tests/node.rs::hello_describe_matches_config`、`restart_preserves_identity_and_catalog`、`digest_tracks_non_displayed_grants`（含由首批 API 工具声明推出的 `modes`） |
 | 违反任一启动校验时，节点不提供服务 | 每次启动 | 校验先于监听协议连接 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)、第 5 节、[第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布)；`crates/lancet-node/tests/node.rs::startup_rejects_overlapping_dirs`、`startup_keeps_config_and_state_outside_dirs`、`startup_requires_shared_reflink_filesystem`（覆盖总是适用的三项；授予执行环境时适用的四项待 [#8](https://github.com/Skyline10124/lancet/issues/8)） |
 | 授权、路径规则与网络出口清单只能由机器所有者修改 | 节点运行期间 | 协议没有修改它们的操作；配置文件在所有工作目录之外，脚本拿不到它的句柄 | ADR 0002 第 5 节；`crates/lancet-node/tests/node.rs::startup_keeps_config_and_state_outside_dirs`（配置文件位于工作目录内时节点拒绝启动） |
 
@@ -212,4 +213,4 @@ for 每个网络出口 n:
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- `cargo test -p lancet-node`：节点进程级集成测试，覆盖配置读取、总是适用的三项启动校验、`node_id` 的持久化与状态目录独占、环境简述、`seam` 边集与 `catalog_digest`。
+- `cargo test -p lancet-node`：节点进程级集成测试，覆盖配置读取、句柄名校验、总是适用的三项启动校验、`node_id` 的持久化与状态目录独占、环境简述、`seam` 边集与 `catalog_digest`。

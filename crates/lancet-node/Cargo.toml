@@ -12,11 +12,12 @@ description = "LANCET 外部上下文节点服务"
 
 [dependencies]
 anyhow = { workspace = true }
+ignore = { workspace = true }
 lancet-protocol = { path = "../lancet-protocol" }
 lancet-tool-decl = { path = "../lancet-tool-decl" }
 rustix = { workspace = true }
 serde = { workspace = true }
-serde_json = { workspace = true }
+serde_json = { workspace = true, features = ["float_roundtrip"] }
 sha2 = { workspace = true }
 toml = { workspace = true }
 uuid = { workspace = true }

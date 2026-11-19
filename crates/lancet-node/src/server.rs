@@ -12,6 +12,7 @@ use std::time::Instant;
 
 use anyhow::Context as _;
 use lancet_node::act::ActRuntime;
+use lancet_node::dispatch::Dispatcher;
 use lancet_protocol::{
     Capabilities, CatalogDigest, EnvironmentSummary, Frame, ProtocolVersion, ReceiptLookup,
     Request, Response, ToolSpec, read_frame, write_frame,
@@ -32,6 +33,7 @@ pub struct NodeView {
     pub environment_summary: EnvironmentSummary,
     pub tools: Vec<ToolSpec>,
     pub runtime: ActRuntime,
+    pub dispatcher: Dispatcher,
     pub ledger: Ledger,
 }
 
@@ -181,6 +183,7 @@ fn dispatch_request(
                                 output_limit,
                                 deadline,
                                 &shared_bg.runtime,
+                                &shared_bg.dispatcher,
                                 &shared_bg.ledger,
                                 &writer_bg,
                                 request_id,

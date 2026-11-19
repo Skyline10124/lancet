@@ -53,8 +53,11 @@ fn run_script_err(rt: &ActRuntime, script: &str) -> Diagnostic {
     }
 }
 
-fn unexpected_dispatch(_: &str, _: &[DispatchArgument]) -> Result<String, String> {
-    Err("无工具调用预期".to_owned())
+fn unexpected_dispatch(
+    _: &str,
+    _: &[DispatchArgument],
+) -> wasmtime::Result<Result<String, String>> {
+    Ok(Err("无工具调用预期".to_owned()))
 }
 
 #[test]
@@ -820,7 +823,7 @@ fn checks_bound_methods_before_first_dispatch() {
         &ctx,
         move |_, _| {
             rw_counter.fetch_add(1, Ordering::Relaxed);
-            Ok("null".to_owned())
+            Ok(Ok("null".to_owned()))
         },
         Instant::now() + Duration::from_secs(5),
         Arc::new(AtomicBool::new(false)),
@@ -861,7 +864,7 @@ fn checks_bound_methods_before_first_dispatch() {
             &ctx,
             move |_, _| {
                 counter.fetch_add(1, Ordering::Relaxed);
-                Ok("null".to_owned())
+                Ok(Ok("null".to_owned()))
             },
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
@@ -921,17 +924,17 @@ return {
                 match tool_id {
                     "lancet:fs-read/fs@0.1.0#read" => match &args[1] {
                         DispatchArgument::ValueJson(s) if s == "\"absent.txt\"" => {
-                            Ok("null".to_owned())
+                            Ok(Ok("null".to_owned()))
                         }
-                        _ => Ok("\"fn main() {}\"".to_owned()),
+                        _ => Ok(Ok("\"fn main() {}\"".to_owned())),
                     },
                     "lancet:fs-search/fs@0.1.0#search" => {
-                        Ok(r#"[{"path":"src/main.rs","line-no":12}]"#.to_owned())
+                        Ok(Ok(r#"[{"path":"src/main.rs","line-no":12}]"#.to_owned()))
                     }
                     "lancet:fs-read/fs@0.1.0#diff-dirs"
                     | "lancet:fs-write/fs@0.1.0#sync-from"
-                    | "lancet:fs-write/fs@0.1.0#write-file" => Ok("null".to_owned()),
-                    other => Err(format!("意外的工具 ID：{other}")),
+                    | "lancet:fs-write/fs@0.1.0#write-file" => Ok(Ok("null".to_owned())),
+                    other => Ok(Err(format!("意外的工具 ID：{other}"))),
                 }
             },
             Instant::now() + Duration::from_secs(5),
@@ -1021,7 +1024,7 @@ return {
     let err_res = rt.run(
         "x = 1\nro.read(\"secret.txt\")\n",
         &ctx,
-        |_, _| Err("路径越出根目录".to_owned()),
+        |_, _| Ok(Err("路径越出根目录".to_owned())),
         Instant::now() + Duration::from_secs(5),
         Arc::new(AtomicBool::new(false)),
     );
@@ -1055,7 +1058,7 @@ return {
             &ctx,
             move |_, _| {
                 dyn_counter.fetch_add(1, Ordering::Relaxed);
-                Ok("null".to_owned())
+                Ok(Ok("null".to_owned()))
             },
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
