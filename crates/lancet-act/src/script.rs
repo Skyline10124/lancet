@@ -21,7 +21,7 @@ use starlark_syntax::span_display::span_display;
 use crate::exports::lancet::act::interpreter::{Diagnostic, Payload, Phase};
 
 /// 包裹用户脚本的保留入口函数名（不以下划线开头，以便 `Module::get` 按公开符号读取）。
-const ENTRY_FN: &str = "lancet_act_entry__";
+pub(crate) const ENTRY_FN: &str = "lancet_act_entry__";
 
 /// 诊断信息中的虚拟脚本文件名。
 const SCRIPT_NAME: &str = "act.star";

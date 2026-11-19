@@ -1,0 +1,17 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-list@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{read-dir, entry};
+
+    /// 列出目录 dir 中 path 处的直接子项（按名称 UTF-8 字节序排序）。
+    /// missing-ok 为 true 时，目录不存在返回 None；否则不存在即报错。
+    %list: func(dir: borrow<read-dir>, path: string, missing-ok: option<bool>) -> result<option<list<entry>>, string>;
+}
+
+world fs-list {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

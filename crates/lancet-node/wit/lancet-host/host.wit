@@ -4,12 +4,12 @@
 package lancet:host@0.1.0;
 
 interface handles {
-    record entry { name: string, is-dir: bool }
+    record entry { name: string, is-dir: bool, is-link: bool }
 
     resource read-dir {
-        /// 读取文本文件；目标不存在（ENOENT）时返回 none。
+        /// 读取目录内 path 处的文本文件（大小不超过 128 MiB 的有效 UTF-8 文本）；跟随目录内符号链接，越界或命中 hidden 规则时报错；目标不存在（ENOENT）且路径未命中 hidden 规则时返回 none。
         read: func(path: string) -> result<option<string>, string>;
-        /// 列出目录的直接子项；目标不存在（ENOENT）时返回 none。
+        /// 列出目录内 path 处目录的直接子项（按名称 UTF-8 字节序排序）；过滤 hidden、越界或悬空符号链接与非普通文件/目录，保留指向文件或目录的符号链接；目标不存在（ENOENT）且路径未命中 hidden 规则时返回 none。
         entries: func(path: string) -> result<option<list<entry>>, string>;
     }
     resource write-dir;

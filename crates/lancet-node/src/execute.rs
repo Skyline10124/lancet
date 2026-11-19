@@ -4,15 +4,15 @@
 //! `act` 执行、交回载荷组装、字节上限核对、结局映射与回执构造。
 
 use std::os::unix::net::UnixStream;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
 use lancet_node::act::{ACT_MEMORY_LIMIT_BYTES, ActError, ActRuntime, Diagnostic, Payload, Phase};
+use lancet_node::dispatch::Dispatcher;
 use lancet_protocol::{
     CatalogDigest, ExecuteOutcome, Frame, MAX_OUTPUT_LIMIT, Receipt, ReceiptOutcome,
     ReceiptSummary, RejectCode, Response, ToolError, write_frame,
 };
-use lancet_tool_decl::ActContext;
 
 use crate::calls::{AdmittedCall, Ledger};
 
@@ -81,31 +81,40 @@ pub fn compute_deadline(received_at: Instant, remaining_ms: u64) -> Instant {
 }
 
 /// 在执行线程运行已受理的 `act` 调用，先持久结算再向连接写入 `execute_result`。
+#[allow(clippy::too_many_arguments)]
 pub fn run_admitted(
     admitted: AdmittedCall,
     output_limit: u64,
     deadline: Instant,
     runtime: &ActRuntime,
+    dispatcher: &Dispatcher,
     ledger: &Ledger,
     writer: &Mutex<UnixStream>,
     request_id: u64,
 ) {
-    let empty_context = ActContext::default();
+    let steps = Arc::new(Mutex::new(Vec::new()));
+    let steps_bg = Arc::clone(&steps);
+    let dispatcher_bg = dispatcher.clone();
+    let cancel_bg = Arc::clone(&admitted.cancelled);
+
     let run_res = runtime.run(
         &admitted.script,
-        &empty_context,
-        |_, _| Err("没有可调用的 API 工具".to_owned()),
+        dispatcher.context(),
+        move |tool_id, args| {
+            dispatcher_bg.call(tool_id, args, deadline, Arc::clone(&cancel_bg), &steps_bg)
+        },
         deadline,
         admitted.cancelled,
     );
     let outcome = map_run_outcome(run_res, output_limit);
+    let recorded_steps = std::mem::take(&mut *steps.lock().expect("步骤互斥锁不应中毒"));
     let receipt = Receipt {
         invocation_id: admitted.invocation_id,
         tool: admitted.tool,
         catalog_digest: admitted.catalog_digest,
         labels: admitted.labels,
         outcome,
-        steps: Vec::new(),
+        steps: recorded_steps,
         effects: Vec::new(),
         truncated: false,
     };

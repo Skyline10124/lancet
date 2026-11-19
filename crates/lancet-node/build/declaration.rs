@@ -65,6 +65,54 @@ pub fn load_tool_declarations(
     Ok(decls)
 }
 
+/// 校验工具集合跨组件不发生绑定方法重名或同名记录定义不一致。
+pub fn check_tool_conflicts(tools: &[ToolDecl]) -> Result<()> {
+    // 1. 方法不重名：对每种 HandleKind，接收者种类 accepts(kind) 的工具按 method_name 不重复。
+    for kind in HandleKind::ALL {
+        let mut seen_methods: BTreeMap<String, &ToolDecl> = BTreeMap::new();
+        for tool in tools {
+            let Some((_, recv_kind)) = tool.receiver() else {
+                continue;
+            };
+            if !recv_kind.accepts(kind) {
+                continue;
+            }
+            let method = tool.method_name();
+            if let Some(prev) = seen_methods.get(&method) {
+                bail!(
+                    "句柄类型 `{}` 上的方法 `{}` 重名：工具 `{}` 与 `{}` 冲突",
+                    kind.stub_name(),
+                    method,
+                    prev.wit_export(),
+                    tool.wit_export()
+                );
+            }
+            seen_methods.insert(method, tool);
+        }
+    }
+
+    // 2. 同名记录一致：名称相同的记录在全部工具中定义一致。
+    let mut seen_records: BTreeMap<&str, (&RecordDecl, &ToolDecl)> = BTreeMap::new();
+    for tool in tools {
+        for record in &tool.records {
+            if let Some((prev_rec, prev_tool)) = seen_records.get(record.name.as_str()) {
+                if *prev_rec != record {
+                    bail!(
+                        "记录 `{}` 在工具 `{}` 与 `{}` 中的定义不一致",
+                        record.name,
+                        prev_tool.wit_export(),
+                        tool.wit_export()
+                    );
+                }
+            } else {
+                seen_records.insert(record.name.as_str(), (record, tool));
+            }
+        }
+    }
+
+    Ok(())
+}
+
 fn inspect_top_level_component<'a>(
     component_name: &str,
     component_bytes: &'a [u8],

@@ -7,10 +7,10 @@ mod declaration;
 mod engine;
 
 use lancet_node::act::ActRuntime;
-use lancet_node::tools::render_act_stub;
+use lancet_node::tools::{embedded_tools, render_act_stub};
 use lancet_tool_decl::{
-    CoEffectItem, EffectItem, EffectKind, HandleKind, Mode, ParamDecl, ReturnType, ToolDecl,
-    WitType,
+    CoEffectItem, EffectItem, EffectKind, FieldDecl, HandleKind, Mode, ParamDecl, RecordDecl,
+    ReturnType, Templates, ToolDecl, WitType,
 };
 use wasm_encoder::{ComponentSection as _, CustomSection, Encode as _};
 use wit_component::{ComponentEncoder, StringEncoding, dummy_module, embed_component_metadata};
@@ -774,4 +774,275 @@ fn maps_type_aliases_and_rejects_unrepresentable_types() {
             );
         }
     }
+}
+
+#[test]
+fn product_read_tools_match_templates() {
+    let tools = embedded_tools();
+    let names: Vec<&str> = tools.iter().map(|t| t.script_name.as_str()).collect();
+    assert_eq!(names, ["fs.read", "fs.list", "fs.search"]);
+
+    let read = &tools[0];
+    assert_eq!(read.wit_interface, "lancet:fs-read/fs@0.1.0");
+    assert_eq!(read.wit_function, "read");
+    assert_eq!(
+        read.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
+    );
+    assert!(read.templates.effects.is_empty());
+
+    let list = &tools[1];
+    assert_eq!(list.wit_interface, "lancet:fs-list/fs@0.1.0");
+    assert_eq!(list.wit_function, "list");
+    assert!(
+        list.docs
+            .as_deref()
+            .is_some_and(|d| d.contains("列出目录") && d.contains("missing-ok")),
+        "fs.list 应保留注释：{:?}",
+        list.docs
+    );
+    assert_eq!(
+        list.params,
+        vec![
+            ParamDecl {
+                name: "dir".to_owned(),
+                ty: WitType::Handle {
+                    kind: HandleKind::ReadDir,
+                    borrow: true,
+                },
+            },
+            ParamDecl {
+                name: "path".to_owned(),
+                ty: WitType::String,
+            },
+            ParamDecl {
+                name: "missing-ok".to_owned(),
+                ty: WitType::Option(Box::new(WitType::Bool)),
+            },
+        ]
+    );
+    assert_eq!(
+        list.result,
+        ReturnType::Result {
+            ok: Some(WitType::Option(Box::new(WitType::List(Box::new(
+                WitType::Record("entry".to_owned())
+            ))))),
+        }
+    );
+    assert_eq!(
+        list.records,
+        vec![RecordDecl {
+            name: "entry".to_owned(),
+            fields: vec![
+                FieldDecl {
+                    name: "name".to_owned(),
+                    ty: WitType::String,
+                    docs: None,
+                },
+                FieldDecl {
+                    name: "is-dir".to_owned(),
+                    ty: WitType::Bool,
+                    docs: None,
+                },
+                FieldDecl {
+                    name: "is-link".to_owned(),
+                    ty: WitType::Bool,
+                    docs: None,
+                },
+            ],
+            docs: None,
+        }]
+    );
+    assert_eq!(
+        list.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
+    );
+    assert!(list.templates.effects.is_empty());
+
+    let search = &tools[2];
+    assert_eq!(search.wit_interface, "lancet:fs-search/fs@0.1.0");
+    assert_eq!(search.wit_function, "search");
+    assert!(
+        search
+            .docs
+            .as_deref()
+            .is_some_and(|d| d.contains("正则表达式") && d.contains("glob")),
+        "fs.search 应保留注释：{:?}",
+        search.docs
+    );
+    assert_eq!(
+        search.params,
+        vec![
+            ParamDecl {
+                name: "dir".to_owned(),
+                ty: WitType::Handle {
+                    kind: HandleKind::ReadDir,
+                    borrow: true,
+                },
+            },
+            ParamDecl {
+                name: "pattern".to_owned(),
+                ty: WitType::String,
+            },
+            ParamDecl {
+                name: "glob".to_owned(),
+                ty: WitType::Option(Box::new(WitType::String)),
+            },
+        ]
+    );
+    assert_eq!(
+        search.result,
+        ReturnType::Result {
+            ok: Some(WitType::List(Box::new(WitType::Record(
+                "search-hit".to_owned()
+            )))),
+        }
+    );
+    assert_eq!(search.records.len(), 1);
+    let hit = &search.records[0];
+    assert_eq!(hit.name, "search-hit");
+    assert!(hit.docs.is_some(), "search-hit 记录应保留注释");
+    assert_eq!(
+        hit.fields
+            .iter()
+            .map(|f| (f.name.as_str(), &f.ty))
+            .collect::<Vec<_>>(),
+        vec![
+            ("path", &WitType::String),
+            ("line-no", &WitType::Int),
+            ("text", &WitType::String),
+        ]
+    );
+    assert!(
+        hit.fields.iter().all(|f| f.docs.is_some()),
+        "search-hit 各字段应保留注释：{:?}",
+        hit.fields
+    );
+    assert_eq!(
+        search.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
+    );
+    assert!(search.templates.effects.is_empty());
+}
+
+fn make_tool_decl(
+    wit_interface: &str,
+    wit_function: &str,
+    recv_kind: HandleKind,
+    records: Vec<RecordDecl>,
+) -> ToolDecl {
+    ToolDecl {
+        script_name: format!(
+            "{}.{}",
+            wit_interface
+                .split('@')
+                .next()
+                .unwrap()
+                .rsplit('/')
+                .next()
+                .unwrap(),
+            wit_function.replace('-', "_")
+        ),
+        wit_interface: wit_interface.to_owned(),
+        wit_function: wit_function.to_owned(),
+        docs: None,
+        params: vec![ParamDecl {
+            name: "dir".to_owned(),
+            ty: WitType::Handle {
+                kind: recv_kind,
+                borrow: true,
+            },
+        }],
+        result: ReturnType::Unit,
+        records,
+        templates: Templates::default(),
+    }
+}
+
+#[test]
+fn rejects_method_and_record_conflicts_across_components() {
+    // 1. 两个工具在 ReadDir 上重名。
+    let ro_a = make_tool_decl("lancet:a/fs@0.1.0", "read", HandleKind::ReadDir, vec![]);
+    let ro_b = make_tool_decl("lancet:b/fs@0.1.0", "read", HandleKind::ReadDir, vec![]);
+    let err_ro = declaration::check_tool_conflicts(&[ro_a.clone(), ro_b])
+        .expect_err("ReadDir 上重名的方法应被拒绝");
+    let msg_ro = format!("{err_ro:#}");
+    assert!(
+        msg_ro.contains("ReadDir")
+            && msg_ro.contains("read")
+            && msg_ro.contains(&ro_a.wit_export())
+            && msg_ro.contains("lancet:b/fs@0.1.0#read"),
+        "ReadDir 方法冲突应写明句柄类型、方法名与双方：{msg_ro}"
+    );
+
+    // 2. 一个 write-dir 工具与一个 read-dir 工具同名，在 WriteDir 上重名。
+    let rw_same = make_tool_decl("lancet:w/fs@0.1.0", "read", HandleKind::WriteDir, vec![]);
+    let err_rw = declaration::check_tool_conflicts(&[ro_a.clone(), rw_same.clone()])
+        .expect_err("ReadDir 方法复制到 WriteDir 后与 WriteDir 同名方法应冲突");
+    let msg_rw = format!("{err_rw:#}");
+    assert!(
+        msg_rw.contains("WriteDir")
+            && msg_rw.contains("read")
+            && msg_rw.contains(&ro_a.wit_export())
+            && msg_rw.contains(&rw_same.wit_export()),
+        "WriteDir 方法冲突应写明句柄类型、方法名与双方：{msg_rw}"
+    );
+
+    // 3. 同名记录的字段不同。
+    let rec_a = RecordDecl {
+        name: "entry".to_owned(),
+        fields: vec![FieldDecl {
+            name: "name".to_owned(),
+            ty: WitType::String,
+            docs: None,
+        }],
+        docs: None,
+    };
+    let rec_b = RecordDecl {
+        name: "entry".to_owned(),
+        fields: vec![
+            FieldDecl {
+                name: "name".to_owned(),
+                ty: WitType::String,
+                docs: None,
+            },
+            FieldDecl {
+                name: "is-dir".to_owned(),
+                ty: WitType::Bool,
+                docs: None,
+            },
+        ],
+        docs: None,
+    };
+    let t_rec_a = make_tool_decl(
+        "lancet:a/fs@0.1.0",
+        "list-a",
+        HandleKind::ReadDir,
+        vec![rec_a.clone()],
+    );
+    let t_rec_b = make_tool_decl(
+        "lancet:b/fs@0.1.0",
+        "list-b",
+        HandleKind::ReadDir,
+        vec![rec_b],
+    );
+    let err_rec = declaration::check_tool_conflicts(&[t_rec_a.clone(), t_rec_b.clone()])
+        .expect_err("同名记录字段不同应被拒绝");
+    let msg_rec = format!("{err_rec:#}");
+    assert!(
+        msg_rec.contains("entry")
+            && msg_rec.contains(&t_rec_a.wit_export())
+            && msg_rec.contains(&t_rec_b.wit_export()),
+        "记录定义冲突应写明记录名与双方：{msg_rec}"
+    );
+
+    // 4. 同名且定义相同的记录通过。
+    let t_rec_same = make_tool_decl(
+        "lancet:c/fs@0.1.0",
+        "list-c",
+        HandleKind::ReadDir,
+        vec![rec_a],
+    );
+    declaration::check_tool_conflicts(&[t_rec_a, t_rec_same])
+        .expect("同名且定义完全一致的记录应通过检查");
 }

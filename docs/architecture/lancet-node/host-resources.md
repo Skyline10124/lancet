@@ -26,7 +26,7 @@ status: active
 
 | 组件 | 持有的状态 | 执行的规则 | 对外接口 |
 | --- | --- | --- | --- |
-| 目录资源 | 无（可写工作目录的状态在影子中） | 只读目录读宿主，可写目录读写影子；过滤 `hidden` 路径 | `read-dir`、`write-dir` 的方法 |
+| 目录资源 | 只读目录：根目录的 fd 与编译后的 `hidden` 规则；可写工作目录的状态在影子中 | 只读目录读宿主，可写目录读写影子；过滤 `hidden` 路径 | `read-dir`、`write-dir` 的方法 |
 | 执行环境资源 | 执行环境实例 | 按挂载表建立私有根，设 `memory.max`，在终止时机终止整个 PID 命名空间 | `exec-env` 的方法 |
 | 出口代理 | 代理的监听与连接 | 对照 `egress.hosts` 放行，每次外发记入回执 | `egress` 的方法；执行环境内的代理端口 |
 
@@ -35,6 +35,32 @@ status: active
 - 只读工作目录直接读宿主；可写工作目录的读写都落在[影子工作区](shadow-workspace.md)上。
 - 目录资源在这一层过滤配置中的 `hidden` 路径：`fs.*` 访问 `hidden` 路径时报错，列举与搜索的结果不含它们。
 - `fs.*` 只能拿到工作目录的句柄；[环境目录](config.md#概念)只在执行环境中可见。
+
+只读目录资源按下面的规则解析工具给出的路径：
+
+```text
+解析 path:
+    if path 是绝对路径，或含 ..:                      报错：越出目录
+    自根逐个分量解析，内核不跟随符号链接:
+        经过的真实位置命中 hidden:                    报错   # 符号链接本身按文件判定
+        遇到符号链接:                                 读出目标，接在其余分量之前继续解析
+            目标是绝对路径，或其中的 .. 越过根:       报错：越出目录
+        其他解析错误:                                 先按已确定的类型判定访问路径，命中即报 hidden，否则报该错误
+    if 目标不存在:                                    # ENOENT
+        if 访问路径命中 hidden，
+           或已到达的真实位置逐个接上未解析的分量后命中 hidden:  报错   # 先判定，再处理 ..
+        返回 none
+    if 访问路径命中 hidden:                           报错
+    按方法读取或列举
+```
+
+- 路径相对工作目录的根，`""` 与 `"."` 都表示根。访问路径是调用者给出的路径；真实位置是解析时实际经过的目录项，含符号链接本身。
+- 判定 `hidden` 时自根向下逐个前缀匹配，被排除的目录下的内容一律隐藏。目标不存在时末项的类型未知，按文件与目录各判定一次，任一命中即视为隐藏。`missing_ok = True` 也探测不到隐藏路径，经符号链接也不行。
+- 每个分量都从根目录的 fd 以 `RESOLVE_BENEATH | RESOLVE_NO_SYMLINKS` 打开，在同一个 fd 上取类型、读出链接目标。一次解析最多跟随 40 个符号链接，超出即报错。
+- 列举中的符号链接子项，按“列举目录的访问路径加子项名”从根解析，与直接访问的结论一致。
+- 报错写明调用者给出的路径与原因，不写出链接目标或宿主绝对路径。
+- `read` 只读取普通文件；内容须是 UTF-8 文本，大小不超过工具实例的内存上限 128 MiB（[组件运行时](tools.md#组件运行时)）。
+- `entries` 只列出按上面的规则可以访问的普通文件、目录与指向它们的链接。以下子项不列出：取不到类型的子项；解析失败、越出目录或经过 `hidden` 位置的链接；FIFO、套接字与设备文件。可见子项的名称不是 UTF-8 时，`entries` 报错。
 
 ## 执行环境
 
@@ -127,7 +153,8 @@ sequenceDiagram
 | 内存超出 `memory.max` 时只终止该执行环境内的进程，节点继续服务 | 每个执行环境 | 单独的 cgroup | ADR 0002 第 4 节；尚未核实（[ADR 0002 尚未核实](../../adr/0002-lancet-node-api-tools-and-act.md#尚未核实)） |
 | 挂载表由 `bubblewrap` 建立 | 每个执行环境 | 主机有可用的 `bubblewrap` | ADR 0002 第 4 节；尚未核实（第七轮原型用自带的 C 启动器建立） |
 | 子进程只能经出口代理出网，每次外发都记入回执 | 持有网络出口的执行环境 | 隔离网络命名空间只有 `lo`；代理放行时记录 | ADR 0002 第 4 节；已核实 `SCM_RIGHTS` 跨命名空间传递监听 fd |
-| `hidden` 路径经 `fs.*` 不可见 | 每个目录句柄 | 目录资源过滤 | ADR 0002 第 4 节 |
+| `hidden` 路径经 `fs.*` 不可见，经符号链接也一样 | 每个目录句柄 | 目录资源按访问路径与解析后的真实路径过滤 | ADR 0002 第 4 节；`crates/lancet-node/tests/node/calls.rs::hidden_paths_are_invisible_to_all_read_tools`、`symlinks_follow_only_within_dir`（只读目录；可写目录随 [#7](https://github.com/Skyline10124/lancet/issues/7)） |
+| 只读目录句柄读不到工作目录以外的内容 | 每个只读目录句柄 | 每个分量都从根目录的 fd 以 `RESOLVE_BENEATH` 与 `RESOLVE_NO_SYMLINKS` 打开；符号链接由节点解析，`..` 不越过根，绝对路径的链接报越界 | `crates/lancet-node/tests/node/calls.rs::symlinks_follow_only_within_dir` |
 
 ## 范围之外
 
@@ -144,10 +171,12 @@ sequenceDiagram
 | 事项 | 现状 |
 | --- | --- |
 | 执行环境的进程数与磁盘占用上限 | 待裁决，第一个版本只设内存上限，见 [ADR 0002 待裁决](../../adr/0002-lancet-node-api-tools-and-act.md#待裁决) |
+| 可写工作目录的句柄与读取 | 随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的影子提供；在此之前只对 `access = "read"` 的目录注入句柄，含可写目录的配置照常启动 |
 | 执行环境固定挂载的系统目录清单，以及 `PATH` 中系统路径的取值 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定 |
 | 杀掉进程时内核对 io_uring 已提交写入的处理 | 尚未核实：开发主机已全局禁用 io_uring；已核实的是内核等 AIO 写完才回收进程 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- 目录资源与 `hidden` 过滤的测试随 [#6](https://github.com/Skyline10124/lancet/issues/6) 建立，执行环境的隔离用例随 [#8](https://github.com/Skyline10124/lancet/issues/8) 建立，网络出口的测试随 [#9](https://github.com/Skyline10124/lancet/issues/9) 建立；建立后写入保证表。
+- `cargo test -p lancet-node --test node`：只读目录资源的路径解析、符号链接与 `hidden` 过滤。
+- 执行环境的隔离用例随 [#8](https://github.com/Skyline10124/lancet/issues/8) 建立，网络出口的测试随 [#9](https://github.com/Skyline10124/lancet/issues/9) 建立；建立后写入保证表。

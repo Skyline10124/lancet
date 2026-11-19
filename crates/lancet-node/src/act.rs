@@ -19,6 +19,9 @@ wasmtime::component::bindgen!({
     world: "act",
     path: "../lancet-act/wit",
     additional_derives: [PartialEq, Eq],
+    imports: {
+        "lancet:act/dispatch.call": trappable,
+    },
 });
 
 pub use exports::lancet::act::interpreter::{Diagnostic, Payload, Phase};
@@ -55,7 +58,7 @@ pub enum ActError {
 }
 
 #[derive(Debug)]
-enum Interrupt {
+pub(crate) enum Interrupt {
     MemoryLimit,
     Cancelled,
     Deadline,
@@ -64,25 +67,26 @@ enum Interrupt {
 impl fmt::Display for Interrupt {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            Self::MemoryLimit => write!(
-                f,
-                "解释器组件超出线性内存上限（{ACT_MEMORY_LIMIT_BYTES} 字节）"
-            ),
-            Self::Cancelled => f.write_str("解释器组件已被取消"),
-            Self::Deadline => f.write_str("解释器组件到达截止时间"),
+            Self::MemoryLimit => write!(f, "组件超出线性内存上限"),
+            Self::Cancelled => f.write_str("组件已被取消"),
+            Self::Deadline => f.write_str("组件到达截止时间"),
         }
     }
 }
 
 impl std::error::Error for Interrupt {}
 
-struct MemoryBudget {
+pub(crate) struct MemoryBudget {
     allocated_bytes: usize,
+    limit_bytes: usize,
 }
 
 impl MemoryBudget {
-    fn new() -> Self {
-        Self { allocated_bytes: 0 }
+    pub(crate) fn new(limit_bytes: usize) -> Self {
+        Self {
+            allocated_bytes: 0,
+            limit_bytes,
+        }
     }
 }
 
@@ -95,7 +99,7 @@ impl ResourceLimiter for MemoryBudget {
     ) -> wasmtime::Result<bool> {
         let delta = desired.saturating_sub(current);
         let total = self.allocated_bytes.saturating_add(delta);
-        if total > ACT_MEMORY_LIMIT_BYTES {
+        if total > self.limit_bytes {
             return Err(wasmtime::Error::new(Interrupt::MemoryLimit));
         }
         self.allocated_bytes = total;
@@ -112,7 +116,21 @@ impl ResourceLimiter for MemoryBudget {
     }
 }
 
-type DispatchFn = Box<dyn FnMut(&str, &[DispatchArgument]) -> Result<String, String> + Send>;
+pub(crate) fn check_epoch_interrupt(
+    deadline: Instant,
+    cancelled: &AtomicBool,
+) -> wasmtime::Result<UpdateDeadline> {
+    if cancelled.load(Ordering::Relaxed) {
+        return Err(wasmtime::Error::new(Interrupt::Cancelled));
+    }
+    if Instant::now() >= deadline {
+        return Err(wasmtime::Error::new(Interrupt::Deadline));
+    }
+    Ok(UpdateDeadline::Continue(1))
+}
+
+type DispatchFn =
+    Box<dyn FnMut(&str, &[DispatchArgument]) -> wasmtime::Result<Result<String, String>> + Send>;
 
 struct StoreState {
     memory: MemoryBudget,
@@ -122,7 +140,11 @@ struct StoreState {
 }
 
 impl lancet::act::dispatch::Host for StoreState {
-    fn call(&mut self, tool_id: String, args: Vec<DispatchArgument>) -> Result<String, String> {
+    fn call(
+        &mut self,
+        tool_id: String,
+        args: Vec<DispatchArgument>,
+    ) -> wasmtime::Result<Result<String, String>> {
         (self.dispatch)(&tool_id, &args)
     }
 }
@@ -166,12 +188,19 @@ impl ActRuntime {
         Ok(Self { engine, pre })
     }
 
+    /// 返回与解释器共用的 `wasmtime::Engine`（由同一 epoch 计时线程驱动）。
+    pub fn engine(&self) -> &Engine {
+        &self.engine
+    }
+
     /// 在独立 `Store` 中执行一次 Starlark 脚本，施加内存上限、截止时间、取消控制与子调用分发。
     pub fn run(
         &self,
         script: &str,
         context: &ActContext,
-        dispatch: impl FnMut(&str, &[DispatchArgument]) -> Result<String, String> + Send + 'static,
+        dispatch: impl FnMut(&str, &[DispatchArgument]) -> wasmtime::Result<Result<String, String>>
+        + Send
+        + 'static,
         deadline: Instant,
         cancelled: Arc<AtomicBool>,
     ) -> Result<Payload, ActError> {
@@ -195,7 +224,7 @@ impl ActRuntime {
     /// 实例化组件一次并读取 `act` 内置全局环境的 `.pyi` 类型存根。
     pub fn builtin_stub(&self) -> anyhow::Result<String> {
         let mut store = self.new_store(
-            Box::new(|_, _| Err("builtin-stub 不支持子调用分发".to_owned())),
+            Box::new(|_, _| Ok(Err("builtin-stub 不支持子调用分发".to_owned()))),
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
         );
@@ -211,6 +240,26 @@ impl ActRuntime {
             .context("调用 act 组件 builtin-stub 失败")
     }
 
+    /// 校验配置中的句柄名是否为合法 Starlark 标识符且不与内置全局或包装入口重名。
+    pub fn check_handle_name(&self, name: &str) -> anyhow::Result<()> {
+        let mut store = self.new_store(
+            Box::new(|_, _| Ok(Err("check-handle-name 不支持子调用分发".to_owned()))),
+            Instant::now() + Duration::from_secs(5),
+            Arc::new(AtomicBool::new(false)),
+        );
+        let bindings = self
+            .pre
+            .instantiate(&mut store)
+            .map_err(anyhow::Error::from)
+            .context("实例化 act 组件以校验句柄名称失败")?;
+        let res = bindings
+            .lancet_act_interpreter()
+            .call_check_handle_name(&mut store, name)
+            .map_err(anyhow::Error::from)
+            .context("调用 act 组件 check-handle-name 失败")?;
+        res.map_err(anyhow::Error::msg)
+    }
+
     fn new_store(
         &self,
         dispatch: DispatchFn,
@@ -220,7 +269,7 @@ impl ActRuntime {
         let mut store = Store::new(
             &self.engine,
             StoreState {
-                memory: MemoryBudget::new(),
+                memory: MemoryBudget::new(ACT_MEMORY_LIMIT_BYTES),
                 deadline,
                 cancelled,
                 dispatch,
@@ -230,13 +279,7 @@ impl ActRuntime {
         store.set_epoch_deadline(0);
         store.epoch_deadline_callback(|cx| {
             let state = cx.data();
-            if state.cancelled.load(Ordering::Relaxed) {
-                return Err(wasmtime::Error::new(Interrupt::Cancelled));
-            }
-            if Instant::now() >= state.deadline {
-                return Err(wasmtime::Error::new(Interrupt::Deadline));
-            }
-            Ok(UpdateDeadline::Continue(1))
+            check_epoch_interrupt(state.deadline, &state.cancelled)
         });
         store
     }

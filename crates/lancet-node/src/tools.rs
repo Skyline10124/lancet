@@ -11,12 +11,40 @@ use lancet_tool_decl::{
     wit_to_type_name,
 };
 
-/// 构建时内嵌的产品 API 工具声明（当前为空列表）。
-const EMBEDDED_TOOL_DECLS_JSON: &str = include_str!(concat!(env!("OUT_DIR"), "/tools.decl.json"));
+/// 构建时打包的产品工具组件条目。
+pub struct EmbeddedComponent {
+    pub name: &'static str,
+    pub decls_json: &'static str,
+    pub cwasm: &'static [u8],
+}
+
+/// 构建时生成的产品 API 工具组件清单（`fs-read`、`fs-list`、`fs-search`）。
+pub const EMBEDDED_COMPONENTS: &[EmbeddedComponent] =
+    &include!(concat!(env!("OUT_DIR"), "/product_tools.rs"));
+
+fn parse_component_decls(component: &EmbeddedComponent) -> Vec<ToolDecl> {
+    serde_json::from_str(component.decls_json)
+        .unwrap_or_else(|e| panic!("内嵌工具 `{}` 声明 JSON 应合法：{e}", component.name))
+}
 
 /// 返回本版本内嵌的产品 API 工具声明列表。
 pub fn embedded_tools() -> Vec<ToolDecl> {
-    serde_json::from_str(EMBEDDED_TOOL_DECLS_JSON).expect("内嵌工具声明 JSON 应合法")
+    EMBEDDED_COMPONENTS
+        .iter()
+        .flat_map(parse_component_decls)
+        .collect()
+}
+
+/// 返回本版本内嵌的产品工具组件声明与预编译产物。
+pub fn embedded_artifacts() -> Vec<crate::dispatch::ComponentArtifact<'static>> {
+    EMBEDDED_COMPONENTS
+        .iter()
+        .map(|component| crate::dispatch::ComponentArtifact {
+            name: component.name,
+            decls: parse_component_decls(component),
+            cwasm: component.cwasm,
+        })
+        .collect()
 }
 
 /// 由解释器内置存根与 API 工具声明合成 `act` 的 `.pyi` 说明。

@@ -12,7 +12,10 @@ mod state;
 use std::path::PathBuf;
 use std::process::ExitCode;
 
+use anyhow::Context as _;
 use lancet_node::act::ActRuntime;
+use lancet_node::dispatch::Dispatcher;
+use lancet_node::read_dir::ReadDir;
 use lancet_protocol::Capabilities;
 
 fn main() -> ExitCode {
@@ -23,14 +26,41 @@ fn main() -> ExitCode {
     ExitCode::SUCCESS
 }
 
+fn validate_handle_names(runtime: &ActRuntime, cfg: &config::Config) -> anyhow::Result<()> {
+    let entries = cfg
+        .dir
+        .iter()
+        .map(|d| ("dir", d.name.as_str()))
+        .chain(cfg.env.iter().map(|e| ("env", e.name.as_str())))
+        .chain(cfg.egress.iter().map(|e| ("egress", e.name.as_str())));
+    for (table, name) in entries {
+        runtime
+            .check_handle_name(name)
+            .with_context(|| format!("配置 [[{table}]] 中的句柄名 `{name}` 无效"))?;
+    }
+    Ok(())
+}
+
 fn run() -> anyhow::Result<()> {
     let config_arg = parse_args()?;
     let loaded = config::load(&config_arg)?;
     let runtime = ActRuntime::load()?;
+    validate_handle_names(&runtime, &loaded.config)?;
     let builtin_stub = runtime.builtin_stub()?;
     let embedded_tools = lancet_node::tools::embedded_tools();
     let act_stub = lancet_node::tools::render_act_stub(&builtin_stub, &embedded_tools);
-    let catalog = config::catalog::build(&loaded.config, act_stub)?;
+    let catalog = config::catalog::build(&loaded.config, act_stub, &embedded_tools)?;
+
+    let mut read_dirs = Vec::new();
+    for dir in &loaded.config.dir {
+        if dir.access == config::DirAccess::Read {
+            read_dirs.push(ReadDir::open(&dir.name, &dir.path, &dir.hidden)?);
+        }
+    }
+    let artifacts = lancet_node::tools::embedded_artifacts();
+    // SAFETY: `embedded_artifacts()` 中的 `.cwasm` 均由同一构建、相同的 `engine_config()` 预编译。
+    let dispatcher = unsafe { Dispatcher::new(runtime.engine(), &artifacts, read_dirs) }?;
+
     config::startup::check_paths(&loaded)?;
     let state_dir = state::open(&loaded.config.node.state_dir)?;
     config::startup::check_ficlone(&loaded.config)?;
@@ -48,6 +78,7 @@ fn run() -> anyhow::Result<()> {
         environment_summary: catalog.summary,
         tools: catalog.tools,
         runtime,
+        dispatcher,
         ledger,
     };
 

@@ -3,9 +3,12 @@ resolver = "3"
 members = [
     "crates/lancet-act",
     "crates/lancet-node",
+    "crates/lancet-node/tests/fixtures/tool-probe",
     "crates/lancet-protocol",
     "crates/lancet-tool-decl",
+    "tools/fs-list",
     "tools/fs-read",
+    "tools/fs-search",
     "xtask",
 ]
 
@@ -21,6 +24,8 @@ allocative = "0.3"
 anyhow = "1"
 cargo_metadata = "0.19"
 clap = { version = "4", features = ["derive", "env"] }
+globset = "0.4"
+ignore = "0.4"
 regex = "1"
 rustix = { version = "1", features = ["fs"] }
 serde = { version = "1", features = ["derive"] }
