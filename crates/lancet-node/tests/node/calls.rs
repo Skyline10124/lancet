@@ -1056,9 +1056,11 @@ fn restart_settles_pending_before_first_hello() {
 
 #[test]
 fn expired_receipt_keeps_outcome_and_replay_fence() {
-    let node = TestNode::start(Some(200));
+    // 保留期留出足够余量，使负载下结算到首次查询的延迟不会让回执提前过期。
+    const RETENTION_MS: u64 = 2_000;
+    let node = TestNode::start(Some(RETENTION_MS));
     let (mut stream, hello, digest) = node.connect_hello();
-    assert_eq!(hello.capabilities.receipt_retention_ms, 200);
+    assert_eq!(hello.capabilities.receipt_retention_ms, RETENTION_MS);
 
     let outcome = run_act(&mut stream, 10, "inv-expire", &digest, "return 123\n");
     assert!(matches!(outcome, ExecuteOutcome::Succeeded { .. }));
@@ -1071,7 +1073,7 @@ fn expired_receipt_keeps_outcome_and_replay_fence() {
         "保留期内查询应返回完整 Settled 回执"
     );
 
-    thread::sleep(Duration::from_millis(250));
+    thread::sleep(Duration::from_millis(RETENTION_MS + 100));
     assert_eq!(
         query_receipt(&mut stream, 12, "inv-expire"),
         ReceiptLookup::Expired {
