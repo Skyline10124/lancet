@@ -37,8 +37,15 @@ status: active
 ## `act` 的说明与全局环境
 
 - `describe` 中 `act` 的 `description` 是节点由 API 工具声明与解释器内置类型渲染的紧凑 `.pyi` 类型存根，只随节点版本变化。存根列出下表中的内置扩展、`sum`、`regex`、`text` 与 `TextView` 的签名，由解释器从注册的函数与类型生成；标准 Starlark 内置不列入。句柄类型（区分只读目录类型 `ReadDir` 与可写目录类型 `WriteDir`，以及 `ExecEnv`、`Egress`）、它们的方法与各返回记录类型由 API 工具声明渲染；没有 API 工具时，存根只含上述内置部分。
+- 存根中由声明渲染的部分：
+  - 工具用到的每个记录类型是一个类，字段带 WIT 注释。
+  - 每种句柄类型是一个类，方法是以该类型为接收者的工具，签名去掉接收者，WIT 注释作为文档字符串。`WriteDir` 同时列出 `ReadDir` 的方法；需要 `ReadDir` 的参数写作 `ReadDir | WriteDir`。
+  - 末尾连续的 `option` 参数写成 `= None`；返回类型 `result<T, string>` 写成 `T`。
 - `act` 的 `arguments` 是只含字符串字段 `script` 的 JSON 对象；`input_schema` 不允许其他字段。
 - 节点按配置向全局环境注入授权句柄，并在句柄对象上直接绑定对应的 API 工具：`lancet.read(...)` 等价于 `fs.read(lancet, ...)`，`dev.run(...)` 等价于 `proc.run(dev, ...)`。
+  - 句柄对象只带槽位编号与类型，不持有宿主资源；脚本不能构造句柄。
+  - 方法名为工具的函数名，见[工具声明](tools.md#工具声明)。实参可按位置或关键字传递；末尾连续的 `option` 参数可以省略，省略即 `None`。
+  - 方法的结果按声明转为 Starlark 值：记录转为字段可点取、可序列化为 JSON 的 `struct`，字段名中的连字符写作下划线；`none` 为 `None`。工具报错时，脚本在该调用处中止（[快速失败](#快速失败)）。
 - 全局环境中下表的内容不带句柄，没有 effect：
 
 | 名称 | 内容 |
@@ -69,7 +76,7 @@ act(script):
 `Failed(X)` 指 `Failed { error: ToolError { code: X } }`。
 
 - 包裹进单一入口函数后，脚本可以在顶层直接写 `return value` 交回结果；没写 `return` 时交回 `None`。包裹时多行字符串内部的行保持原样。解析、静态检查与运行期报错的行号都映射回原脚本。
-- 静态检查在执行第一条语句之前拦下未定义的标识符；对类型可静态确定的值，还拦下参数名错误、字段名拼写错误，以及对 `ReadDir` 调用写方法。类型在静态检查时未知的值（例如经无类型的函数参数传入）上的这类错误，在求值到该处时立即失败（见[快速失败](#快速失败)）。
+- 静态检查在执行第一条语句之前拦下未定义的标识符；对类型可静态确定的值，还拦下参数名错误、缺少参数、参数类型错误、字段名拼写错误、对 `ReadDir` 调用写方法，以及把 `ReadDir` 传给需要 `WriteDir` 的参数。类型在静态检查时未知的值（例如经无类型的函数参数传入）上的这类错误，在求值到该处时立即失败，不发出子调用（见[快速失败](#快速失败)）。
 - 修复提示覆盖的语法差异：无括号生成器、`import`、`is None`、花括号集合推导。
 
 ## 快速失败
@@ -155,7 +162,8 @@ commit()  # 或 discard()
 
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
-| 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`；`crates/lancet-node/tests/node/calls.rs::execute_reports_script_diagnostics_before_evaluation` |
+| 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`、`checks_bound_methods_before_first_dispatch`；`crates/lancet-node/tests/node/calls.rs::execute_reports_script_diagnostics_before_evaluation` |
+| 脚本只经授权句柄调用 API 工具；解释器交给分发层的句柄只是槽位编号 | 每次 API 工具调用 | 句柄对象由节点注入，脚本不能构造；分发接口是解释器唯一的导入 | `crates/lancet-node/tests/act.rs::bound_method_round_trips_arguments_records_and_errors` |
 | 只有调用过 `commit()` 并正常 `return`、载荷不超限的 `act` 写宿主工作目录 | 每次 `act` | 其余分支不发布 | ADR 0002 第 3 节、[第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布) |
 | 出错、取消、超时与载荷超限的 `act` 保留全部待定改动 | 每次 `act` | 待定改动只由 `commit()` 后的发布、`discard()` 与 `reset(path)` 消除 | ADR 0002 第 3 节 |
 | 待定提示不会让结局变为 `OutputLimitExceeded` | 每次 `act` | 提示的字节数预留并计入 `output_limit` | ADR 0002 第 3 节 |
@@ -178,6 +186,6 @@ commit()  # 或 discard()
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、内存上限、截止与取消。
+- `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、句柄方法的绑定与运行期校验、内存上限、截止与取消。
 - `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连。
 - 待定改动与结局的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立；建立后写入保证表。

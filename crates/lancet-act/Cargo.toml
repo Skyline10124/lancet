@@ -16,8 +16,10 @@ crate-type = ["cdylib"]
 [dependencies]
 allocative = { workspace = true }
 anyhow = { workspace = true }
+lancet-tool-decl = { path = "../lancet-tool-decl" }
 regex = { workspace = true }
 serde = { workspace = true }
+serde_json = { workspace = true }
 starlark = { workspace = true }
 starlark_syntax = { workspace = true }
 wit-bindgen = { workspace = true }

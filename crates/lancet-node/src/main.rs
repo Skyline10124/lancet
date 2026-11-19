@@ -27,7 +27,9 @@ fn run() -> anyhow::Result<()> {
     let config_arg = parse_args()?;
     let loaded = config::load(&config_arg)?;
     let runtime = ActRuntime::load()?;
-    let act_stub = runtime.builtin_stub()?;
+    let builtin_stub = runtime.builtin_stub()?;
+    let embedded_tools = lancet_node::tools::embedded_tools();
+    let act_stub = lancet_node::tools::render_act_stub(&builtin_stub, &embedded_tools);
     let catalog = config::catalog::build(&loaded.config, act_stub)?;
     config::startup::check_paths(&loaded)?;
     let state_dir = state::open(&loaded.config.node.state_dir)?;

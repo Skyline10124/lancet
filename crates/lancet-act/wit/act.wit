@@ -3,14 +3,24 @@
 
 package lancet:act;
 
+interface dispatch {
+    variant argument {
+        handle-ref(u32),
+        value-json(string),
+    }
+
+    call: func(tool-id: string, args: list<argument>) -> result<string, string>;
+}
+
 interface interpreter {
     enum phase { parse, check, eval }
     record payload { value-json: string, printed: string }
     record diagnostic { phase: phase, line: option<u32>, message: string }
-    run: func(script: string) -> result<payload, diagnostic>;
+    run: func(script: string, context-json: string) -> result<payload, diagnostic>;
     builtin-stub: func() -> string;
 }
 
 world act {
+    import dispatch;
     export interpreter;
 }

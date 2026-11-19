@@ -7,8 +7,8 @@
 
 ## 职责与边界
 
-- **承担**：实现 [act.wit](wit/act.wit) 导出的 `lancet:act/interpreter.run` 与 `builtin-stub` 接口、顶层 `return` 自动包裹与行号映射、解析修复提示、`AstModule::typecheck` 预检查、每次调用隔离的 `print` 缓冲、纯计算全局环境（移除 `dir`/`getattr`/`hasattr`/`type`，提供 `sum`、`regex`、`text` 与 `TextView`）及其紧凑 `.pyi` 类型存根生成，以及无导入的本地 WASI 适配器 [wasi-local.wat](wasi-local.wat)。
-- **不承担**：宿主侧资源上限、epoch 超时或取消控制（由 [lancet-node](../lancet-node/AGENTS.md) 的 `ActRuntime` 负责）；文件 I/O、环境变量读取、真实时钟或外部工具调用。
+- **承担**：实现 [act.wit](wit/act.wit) 导出的 `lancet:act/interpreter.run` 与 `builtin-stub` 接口、由 `context-json` 构造名义句柄/记录类型与绑定方法（静态检查与运行期校验）并经 `lancet:act/dispatch.call` 发出子调用、顶层 `return` 自动包裹与行号映射、解析修复提示、`AstModule::typecheck` 预检查、每次调用隔离的 `print` 缓冲、纯计算全局环境（移除 `dir`/`getattr`/`hasattr`/`type`，提供 `sum`、`regex`、`text` 与 `TextView`）及其紧凑 `.pyi` 类型存根生成，以及本地 WASI 适配器 [wasi-local.wat](wasi-local.wat)。
+- **不承担**：宿主侧资源上限、epoch 超时、取消控制或真实工具实例化（由 [lancet-node](../lancet-node/AGENTS.md) 的 `ActRuntime` 与分发层负责）；文件 I/O、环境变量读取、真实时钟或直接系统调用。
 
 ## 阅读顺序
 
@@ -23,11 +23,12 @@
 
 | 文件 | 职责 |
 | --- | --- |
-| `wit/act.wit` | `lancet:act/interpreter` 组件接口定义（`phase`、`payload`、`diagnostic`、`run`、`builtin-stub`） |
-| `wasi-local.wat` | 与 `wasm-tools compose --no-imports` 组合使用的纯确定性/trap 本地 WASI 适配器 |
-| `src/lib.rs` | 导出组件接口 `Guest` 实现并串联全局环境构建、类型存根生成与脚本执行 |
+| `wit/act.wit` | `lancet:act` 接口定义（导入 `dispatch`，导出 `interpreter` 的 `run(script, context-json)` 与 `builtin-stub`） |
+| `wasi-local.wat` | 与 `wasm-tools compose` 组合使用的纯确定性/trap 本地 WASI 适配器（保留 `lancet:act/dispatch` 导入由宿主链接） |
+| `src/lib.rs` | 导出组件接口 `Guest` 实现并解析 `context-json`、串联全局环境构建、类型存根生成与脚本执行 |
+| `src/handles.rs` | 由 `ActContext` 构造名义句柄类型与记录类型、`HandleValue` / `BoundMethod` 值实现及 `dispatch.call` 参数/返回值编解码 |
 | `src/script.rs` | 脚本包裹与行/列映射、解析修复提示、`AstModule::typecheck` 检查、逐次 `print` 缓冲与求值 |
-| `src/globals.rs` | 构建并裁剪 Starlark 纯计算全局环境，注册 `sum`、`text` 与 `regex`，并从文档生成紧凑 `.pyi` 存根 |
+| `src/globals.rs` | 构建并裁剪 Starlark 全局环境（注入句柄方法与纯计算内置）、注册 `sum`/`text`/`regex` 并从文档生成内置 `.pyi` 存根 |
 | `src/text.rs` | `TextView` 只读文本视图及其 `.grep` / `.head` / `.tail` / `.splitlines` 方法与 JSON 序列化 |
 
 ## 验证命令

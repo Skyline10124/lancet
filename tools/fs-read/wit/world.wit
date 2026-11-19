@@ -1,0 +1,16 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-read@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{read-dir};
+    /// 读取目录 dir 中 path 处的文本文件。
+    /// missing-ok 为 true 时，文件不存在返回 None；否则不存在即报错。
+    read: func(dir: borrow<read-dir>, path: string, missing-ok: option<bool>) -> result<option<string>, string>;
+}
+
+world fs-read {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}
