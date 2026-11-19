@@ -1,11 +1,15 @@
 // Copyright 2026 Ast Rin
 // SPDX-License-Identifier: Apache-2.0
 
-use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::{Arc, OnceLock};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+use std::sync::{Arc, Mutex, OnceLock};
 use std::time::{Duration, Instant};
 
-use lancet_node::act::{ActError, ActRuntime, Diagnostic, Payload, Phase};
+use lancet_node::act::{ActError, ActRuntime, Diagnostic, DispatchArgument, Payload, Phase};
+use lancet_tool_decl::{
+    ActContext, FieldDecl, HandleGrant, HandleKind, ParamDecl, RecordDecl, ReturnType, Templates,
+    ToolDecl, WitType,
+};
 
 const OOM_SCRIPT: &str = r#"
 chunk = "x" * 1048576
@@ -24,8 +28,11 @@ return acc
 "#;
 
 fn run_ok(rt: &ActRuntime, script: &str) -> Payload {
+    let empty_ctx = ActContext::default();
     rt.run(
         script,
+        &empty_ctx,
+        unexpected_dispatch,
         Instant::now() + Duration::from_secs(5),
         Arc::new(AtomicBool::new(false)),
     )
@@ -33,14 +40,21 @@ fn run_ok(rt: &ActRuntime, script: &str) -> Payload {
 }
 
 fn run_script_err(rt: &ActRuntime, script: &str) -> Diagnostic {
+    let empty_ctx = ActContext::default();
     match rt.run(
         script,
+        &empty_ctx,
+        unexpected_dispatch,
         Instant::now() + Duration::from_secs(5),
         Arc::new(AtomicBool::new(false)),
     ) {
         Err(ActError::Script(diag)) => diag,
         other => panic!("脚本预期返回 Script 诊断，实际为：{other:?}\n脚本：\n{script}"),
     }
+}
+
+fn unexpected_dispatch(_: &str, _: &[DispatchArgument]) -> Result<String, String> {
+    Err("无工具调用预期".to_owned())
 }
 
 #[test]
@@ -386,6 +400,8 @@ fn memory_limit_terminates_only_its_store() {
         let handle_oom = scope.spawn(move || {
             rt_oom.run(
                 OOM_SCRIPT,
+                &ActContext::default(),
+                unexpected_dispatch,
                 Instant::now() + Duration::from_secs(10),
                 Arc::new(AtomicBool::new(false)),
             )
@@ -395,6 +411,8 @@ fn memory_limit_terminates_only_its_store() {
         let handle_ok = scope.spawn(move || {
             rt_ok.run(
                 "return sum(range(100))\n",
+                &ActContext::default(),
+                unexpected_dispatch,
                 Instant::now() + Duration::from_secs(10),
                 Arc::new(AtomicBool::new(false)),
             )
@@ -424,6 +442,8 @@ fn deadline_interrupts_busy_store() {
     let started = Instant::now();
     let res = rt.run(
         BUSY_SCRIPT,
+        &ActContext::default(),
+        unexpected_dispatch,
         started + Duration::from_millis(50),
         Arc::new(AtomicBool::new(false)),
     );
@@ -467,7 +487,13 @@ return acc
         let flag_a = Arc::clone(&cancel_a);
         let handle_a = scope.spawn(move || {
             let started = Instant::now();
-            let res = rt_a.run(BUSY_SCRIPT, started + Duration::from_secs(10), flag_a);
+            let res = rt_a.run(
+                BUSY_SCRIPT,
+                &ActContext::default(),
+                unexpected_dispatch,
+                started + Duration::from_secs(10),
+                flag_a,
+            );
             (res, started.elapsed(), Instant::now())
         });
 
@@ -476,6 +502,8 @@ return acc
         let handle_b = scope.spawn(move || {
             let res = rt_b.run(
                 finite_script,
+                &ActContext::default(),
+                unexpected_dispatch,
                 Instant::now() + Duration::from_secs(10),
                 flag_b,
             );
@@ -524,11 +552,14 @@ fn measure_component_runtime() {
         assert_eq!(payload.value_json, "1");
     }
     let mut call_samples = Vec::with_capacity(100);
+    let empty_ctx = ActContext::default();
     for _ in 0..100 {
         let t0 = Instant::now();
         let payload = rt
             .run(
                 "return 1",
+                &empty_ctx,
+                unexpected_dispatch,
                 Instant::now() + Duration::from_secs(5),
                 Arc::new(AtomicBool::new(false)),
             )
@@ -541,7 +572,13 @@ fn measure_component_runtime() {
     let mut deadline_samples = Vec::with_capacity(30);
     for _ in 0..30 {
         let deadline = Instant::now() + Duration::from_millis(50);
-        let res = rt.run(BUSY_SCRIPT, deadline, Arc::new(AtomicBool::new(false)));
+        let res = rt.run(
+            BUSY_SCRIPT,
+            &empty_ctx,
+            unexpected_dispatch,
+            deadline,
+            Arc::new(AtomicBool::new(false)),
+        );
         let finished = Instant::now();
         assert!(matches!(res, Err(ActError::Deadline)));
         deadline_samples.push(finished.saturating_duration_since(deadline));
@@ -562,6 +599,8 @@ fn measure_component_runtime() {
             });
             let res = rt.run(
                 BUSY_SCRIPT,
+                &empty_ctx,
+                unexpected_dispatch,
                 Instant::now() + Duration::from_secs(10),
                 Arc::clone(&cancelled),
             );
@@ -596,4 +635,442 @@ fn measure_component_runtime() {
         percentile_ms(&cancel_samples, 95, 100),
         cancel_samples.iter().max().expect("非空样本").as_secs_f64() * 1_000.0
     );
+}
+
+fn sample_tool_context() -> ActContext {
+    let hit_record = RecordDecl {
+        name: "search-hit".to_owned(),
+        fields: vec![
+            FieldDecl {
+                name: "path".to_owned(),
+                ty: WitType::String,
+                docs: None,
+            },
+            FieldDecl {
+                name: "line-no".to_owned(),
+                ty: WitType::Int,
+                docs: None,
+            },
+        ],
+        docs: None,
+    };
+
+    ActContext {
+        tools: vec![
+            ToolDecl {
+                script_name: "fs.read".to_owned(),
+                wit_interface: "lancet:fs-read/fs@0.1.0".to_owned(),
+                wit_function: "read".to_owned(),
+                docs: None,
+                params: vec![
+                    ParamDecl {
+                        name: "dir".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::ReadDir,
+                            borrow: true,
+                        },
+                    },
+                    ParamDecl {
+                        name: "path".to_owned(),
+                        ty: WitType::String,
+                    },
+                    ParamDecl {
+                        name: "missing-ok".to_owned(),
+                        ty: WitType::Option(Box::new(WitType::Bool)),
+                    },
+                ],
+                result: ReturnType::Result {
+                    ok: Some(WitType::Option(Box::new(WitType::String))),
+                },
+                records: Vec::new(),
+                templates: Templates::default(),
+            },
+            ToolDecl {
+                script_name: "fs.search".to_owned(),
+                wit_interface: "lancet:fs-search/fs@0.1.0".to_owned(),
+                wit_function: "search".to_owned(),
+                docs: None,
+                params: vec![
+                    ParamDecl {
+                        name: "query".to_owned(),
+                        ty: WitType::String,
+                    },
+                    ParamDecl {
+                        name: "dir".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::ReadDir,
+                            borrow: true,
+                        },
+                    },
+                    ParamDecl {
+                        name: "limit".to_owned(),
+                        ty: WitType::Option(Box::new(WitType::Int)),
+                    },
+                ],
+                result: ReturnType::Result {
+                    ok: Some(WitType::List(Box::new(WitType::Record(
+                        "search-hit".to_owned(),
+                    )))),
+                },
+                records: vec![hit_record],
+                templates: Templates::default(),
+            },
+            ToolDecl {
+                script_name: "fs.write".to_owned(),
+                wit_interface: "lancet:fs-write/fs@0.1.0".to_owned(),
+                wit_function: "write-file".to_owned(),
+                docs: None,
+                params: vec![
+                    ParamDecl {
+                        name: "dir".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::WriteDir,
+                            borrow: true,
+                        },
+                    },
+                    ParamDecl {
+                        name: "path".to_owned(),
+                        ty: WitType::String,
+                    },
+                    ParamDecl {
+                        name: "content".to_owned(),
+                        ty: WitType::String,
+                    },
+                ],
+                result: ReturnType::Result { ok: None },
+                records: Vec::new(),
+                templates: Templates::default(),
+            },
+            ToolDecl {
+                script_name: "fs.sync".to_owned(),
+                wit_interface: "lancet:fs-write/fs@0.1.0".to_owned(),
+                wit_function: "sync-from".to_owned(),
+                docs: None,
+                params: vec![
+                    ParamDecl {
+                        name: "src".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::ReadDir,
+                            borrow: true,
+                        },
+                    },
+                    ParamDecl {
+                        name: "dst".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::WriteDir,
+                            borrow: true,
+                        },
+                    },
+                ],
+                result: ReturnType::Result { ok: None },
+                records: Vec::new(),
+                templates: Templates::default(),
+            },
+            ToolDecl {
+                script_name: "fs.diff_dirs".to_owned(),
+                wit_interface: "lancet:fs-read/fs@0.1.0".to_owned(),
+                wit_function: "diff-dirs".to_owned(),
+                docs: None,
+                params: vec![
+                    ParamDecl {
+                        name: "left".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::ReadDir,
+                            borrow: true,
+                        },
+                    },
+                    ParamDecl {
+                        name: "right".to_owned(),
+                        ty: WitType::Handle {
+                            kind: HandleKind::ReadDir,
+                            borrow: true,
+                        },
+                    },
+                ],
+                result: ReturnType::Result { ok: None },
+                records: Vec::new(),
+                templates: Templates::default(),
+            },
+        ],
+        handles: vec![
+            HandleGrant {
+                name: "ro".to_owned(),
+                kind: HandleKind::ReadDir,
+                slot: 3,
+            },
+            HandleGrant {
+                name: "rw".to_owned(),
+                kind: HandleKind::WriteDir,
+                slot: 8,
+            },
+        ],
+    }
+}
+
+#[test]
+fn checks_bound_methods_before_first_dispatch() {
+    let rt = ActRuntime::load().expect("加载 act 运行时失败");
+    let ctx = sample_tool_context();
+
+    // 对照：同一写方法在 WriteDir 上合法并通过 check 与分发。
+    let rw_calls = Arc::new(AtomicUsize::new(0));
+    let rw_counter = Arc::clone(&rw_calls);
+    rt.run(
+        "rw.write_file(\"a.txt\", \"hi\")\n",
+        &ctx,
+        move |_, _| {
+            rw_counter.fetch_add(1, Ordering::Relaxed);
+            Ok("null".to_owned())
+        },
+        Instant::now() + Duration::from_secs(5),
+        Arc::new(AtomicBool::new(false)),
+    )
+    .expect("对照：WriteDir 调用写方法应通过检查并正常分发");
+    assert_eq!(rw_calls.load(Ordering::Relaxed), 1);
+
+    let cases = [
+        (
+            "参数名错误",
+            "ro.read(\"probe\")\nro.read(path = \"a.txt\", allow_missing = True)\n",
+            2,
+        ),
+        ("参数类型错误", "ro.read(\"probe\")\nro.read(123)\n", 2),
+        ("缺少参数", "ro.read(\"probe\")\nro.read()\n", 2),
+        (
+            "对 ReadDir 调用 WriteDir 写方法",
+            "ro.read(\"probe\")\nro.write_file(\"a.txt\", \"hi\")\n",
+            2,
+        ),
+        (
+            "记录字段名拼写错误",
+            "hits = ro.search(\"needle\")\nreturn hits[0].line_num\n",
+            2,
+        ),
+        (
+            "把 ReadDir 传给需要 WriteDir 的参数",
+            "ro.read(\"probe\")\nro.sync_from(ro)\n",
+            2,
+        ),
+    ];
+
+    for (name, script, expected_line) in cases {
+        let dispatch_calls = Arc::new(AtomicUsize::new(0));
+        let counter = Arc::clone(&dispatch_calls);
+        let res = rt.run(
+            script,
+            &ctx,
+            move |_, _| {
+                counter.fetch_add(1, Ordering::Relaxed);
+                Ok("null".to_owned())
+            },
+            Instant::now() + Duration::from_secs(5),
+            Arc::new(AtomicBool::new(false)),
+        );
+        assert_eq!(
+            dispatch_calls.load(Ordering::Relaxed),
+            0,
+            "用例 `{name}` 静态检查失败前不得触发任何分发调用"
+        );
+        match res {
+            Err(ActError::Script(diag)) => {
+                assert_eq!(
+                    diag.phase,
+                    Phase::Check,
+                    "用例 `{name}` 应在 check 阶段失败，实际：{diag:?}"
+                );
+                assert_eq!(
+                    diag.line,
+                    Some(expected_line),
+                    "用例 `{name}` 行号错误，实际：{diag:?}"
+                );
+            }
+            other => panic!("用例 `{name}` 预期 check 阶段失败，实际：{other:?}"),
+        }
+    }
+}
+
+#[test]
+fn bound_method_round_trips_arguments_records_and_errors() {
+    let rt = ActRuntime::load().expect("加载 act 运行时失败");
+    let ctx = sample_tool_context();
+
+    let recorded = Arc::new(Mutex::new(Vec::<(String, Vec<DispatchArgument>)>::new()));
+    let recorded_ref = Arc::clone(&recorded);
+    let script = r#"
+text_a = ro.read("Cargo.toml")
+missing = rw.read("absent.txt", True)
+hits = ro.search("fn main", 5)
+rw.sync_from(rw)
+ro.diff_dirs(rw)
+rw.write_file("out.txt", hits[0].path + ":" + str(hits[0].line_no))
+return {
+    "text_a": text_a,
+    "missing": missing,
+    "hit_json": hits[0],
+}
+"#;
+    let payload = rt
+        .run(
+            script,
+            &ctx,
+            move |tool_id, args| {
+                recorded_ref
+                    .lock()
+                    .unwrap()
+                    .push((tool_id.to_owned(), args.to_vec()));
+                match tool_id {
+                    "lancet:fs-read/fs@0.1.0#read" => match &args[1] {
+                        DispatchArgument::ValueJson(s) if s == "\"absent.txt\"" => {
+                            Ok("null".to_owned())
+                        }
+                        _ => Ok("\"fn main() {}\"".to_owned()),
+                    },
+                    "lancet:fs-search/fs@0.1.0#search" => {
+                        Ok(r#"[{"path":"src/main.rs","line-no":12}]"#.to_owned())
+                    }
+                    "lancet:fs-read/fs@0.1.0#diff-dirs"
+                    | "lancet:fs-write/fs@0.1.0#sync-from"
+                    | "lancet:fs-write/fs@0.1.0#write-file" => Ok("null".to_owned()),
+                    other => Err(format!("意外的工具 ID：{other}")),
+                }
+            },
+            Instant::now() + Duration::from_secs(5),
+            Arc::new(AtomicBool::new(false)),
+        )
+        .expect("绑定方法与记录往返应成功");
+
+    let calls = recorded.lock().unwrap();
+    assert_eq!(calls.len(), 6, "应按脚本顺序发出 6 次分发调用：{calls:?}");
+    assert_eq!(
+        calls[0],
+        (
+            "lancet:fs-read/fs@0.1.0#read".to_owned(),
+            vec![
+                DispatchArgument::HandleRef(3),
+                DispatchArgument::ValueJson("\"Cargo.toml\"".to_owned()),
+                DispatchArgument::ValueJson("null".to_owned()),
+            ]
+        )
+    );
+    assert_eq!(
+        calls[1],
+        (
+            "lancet:fs-read/fs@0.1.0#read".to_owned(),
+            vec![
+                DispatchArgument::HandleRef(8),
+                DispatchArgument::ValueJson("\"absent.txt\"".to_owned()),
+                DispatchArgument::ValueJson("true".to_owned()),
+            ]
+        )
+    );
+    assert_eq!(
+        calls[2],
+        (
+            "lancet:fs-search/fs@0.1.0#search".to_owned(),
+            vec![
+                DispatchArgument::ValueJson("\"fn main\"".to_owned()),
+                DispatchArgument::HandleRef(3),
+                DispatchArgument::ValueJson("5".to_owned()),
+            ]
+        ),
+        "当 receiver 不在参数 0 时，HandleRef 仍应按 params 声明顺序放在对应位置"
+    );
+    assert_eq!(
+        calls[3],
+        (
+            "lancet:fs-write/fs@0.1.0#sync-from".to_owned(),
+            vec![
+                DispatchArgument::HandleRef(8),
+                DispatchArgument::HandleRef(8),
+            ]
+        ),
+        "WriteDir 实参应可传给需要 borrow<read-dir> 的形参位置"
+    );
+    assert_eq!(
+        calls[4],
+        (
+            "lancet:fs-read/fs@0.1.0#diff-dirs".to_owned(),
+            vec![
+                DispatchArgument::HandleRef(3),
+                DispatchArgument::HandleRef(8),
+            ]
+        ),
+        "WriteDir(8) 实参应可传给普通 borrow<read-dir> 第二形参位置"
+    );
+    assert_eq!(
+        calls[5],
+        (
+            "lancet:fs-write/fs@0.1.0#write-file".to_owned(),
+            vec![
+                DispatchArgument::HandleRef(8),
+                DispatchArgument::ValueJson("\"out.txt\"".to_owned()),
+                DispatchArgument::ValueJson("\"src/main.rs:12\"".to_owned()),
+            ]
+        )
+    );
+
+    let result_json: serde_json::Value = serde_json::from_str(&payload.value_json).unwrap();
+    assert_eq!(result_json["text_a"], "fn main() {}");
+    assert_eq!(result_json["missing"], serde_json::Value::Null);
+    assert_eq!(
+        result_json["hit_json"],
+        serde_json::json!({"path": "src/main.rs", "line_no": 12})
+    );
+
+    // 1. 分发层返回错误时应在 eval 阶段以调用行中止脚本。
+    let err_res = rt.run(
+        "x = 1\nro.read(\"secret.txt\")\n",
+        &ctx,
+        |_, _| Err("路径越出根目录".to_owned()),
+        Instant::now() + Duration::from_secs(5),
+        Arc::new(AtomicBool::new(false)),
+    );
+    match err_res {
+        Err(ActError::Script(diag)) => {
+            assert_eq!(diag.phase, Phase::Eval);
+            assert_eq!(diag.line, Some(2));
+            assert!(
+                diag.message.contains("路径越出根目录"),
+                "错误信息应包含分发层返回文本，实际：{diag:?}"
+            );
+        }
+        other => panic!("分发错误应在 eval 阶段中止，实际：{other:?}"),
+    }
+
+    // 2. 经无类型形参绕过静态检查后，运行期实参错误与句柄误用应在发出分发前拦截并中止。
+    for (case_name, bad_script) in [
+        (
+            "运行期实参类型错误",
+            "def f(h):\n    return h.read(123)\nreturn f(ro)\n",
+        ),
+        (
+            "运行期把 ReadDir 传给 WriteDir",
+            "def f(h, w):\n    return h.sync_from(w)\nreturn f(ro, ro)\n",
+        ),
+    ] {
+        let dyn_calls = Arc::new(AtomicUsize::new(0));
+        let dyn_counter = Arc::clone(&dyn_calls);
+        let dyn_res = rt.run(
+            bad_script,
+            &ctx,
+            move |_, _| {
+                dyn_counter.fetch_add(1, Ordering::Relaxed);
+                Ok("null".to_owned())
+            },
+            Instant::now() + Duration::from_secs(5),
+            Arc::new(AtomicBool::new(false)),
+        );
+        assert_eq!(
+            dyn_calls.load(Ordering::Relaxed),
+            0,
+            "`{case_name}` 在运行期类型校验失败时不得发出分发调用"
+        );
+        match dyn_res {
+            Err(ActError::Script(diag)) => {
+                assert_eq!(diag.phase, Phase::Eval, "`{case_name}`：{diag:?}");
+                assert_eq!(diag.line, Some(2), "`{case_name}`：{diag:?}");
+            }
+            other => panic!("`{case_name}` 预期 eval 阶段报错，实际：{other:?}"),
+        }
+    }
 }

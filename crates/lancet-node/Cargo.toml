@@ -13,6 +13,7 @@ description = "LANCET 外部上下文节点服务"
 [dependencies]
 anyhow = { workspace = true }
 lancet-protocol = { path = "../lancet-protocol" }
+lancet-tool-decl = { path = "../lancet-tool-decl" }
 rustix = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
@@ -22,7 +23,18 @@ uuid = { workspace = true }
 wasmtime = { workspace = true, features = ["runtime", "std", "component-model", "anyhow"] }
 
 [build-dependencies]
+anyhow = { workspace = true }
+lancet-tool-decl = { path = "../lancet-tool-decl" }
+serde_json = { workspace = true }
+wasm-encoder = { workspace = true }
+wasmparser = { workspace = true }
 wasmtime = { workspace = true, features = ["cranelift", "component-model", "std"] }
+wit-component = { workspace = true }
+wit-parser = { workspace = true }
 
 [dev-dependencies]
 tempfile = { workspace = true }
+wasm-encoder = { workspace = true }
+wasmparser = { workspace = true }
+wit-component = { workspace = true, features = ["dummy-module"] }
+wit-parser = { workspace = true }

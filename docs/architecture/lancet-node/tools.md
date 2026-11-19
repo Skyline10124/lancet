@@ -28,11 +28,14 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 
 ## 工具声明
 
-- 参数与返回类型签名是工具组件导出的 WIT 接口。工具组件只导入宿主接口 `lancet:host`；句柄的种类与模式各是其中的一种资源类型：`read-dir`、`write-dir`、`exec-env`、`egress`。资源类型的方法由 `lancet-node` 源码中的 `lancet:host` WIT 包定义。
+- 参数与返回类型签名是工具组件导出的 WIT 接口。工具组件只导入宿主接口 `lancet:host`；句柄的种类与模式各是其中的一种资源类型：`read-dir`、`write-dir`、`exec-env`、`egress`。资源类型的方法由 `lancet-node` 源码中的 `lancet:host` WIT 包定义，见[宿主接口](#宿主接口)。
 - effect 与 co-effect 模板由句柄参数的类型推出（见下表），工具不另行声明。授权的单位是节点配置的句柄；更窄的范围靠配置更窄的句柄表达。
-- 工具说明取自组件顶层自定义段 `lancet:wit` 中带注释的 WIT 包。构建出的组件只含类型、不含 WIT 注释，说明只经这个段带入。
+- 工具说明取自组件顶层自定义段 `lancet:wit` 中带注释的 WIT 包。构建出的组件只含类型、不含 WIT 注释，说明只经这个段带入。WIT 不带参数注释，参数的说明写在函数注释中。
 - 第三方工具可以用任何能编译为 WASM 组件的语言编写。节点以同一方式对待全部工具：不信任工具的实现，只按声明分发句柄。
 - 本仓库的 API 工具以 `wasm32-unknown-unknown` 构建，经 `wasm-tools component new` 转为组件，再追加 `lancet:wit` 段。
+- 每个工具是导出接口中的一个函数。脚本中的工具名为接口名加函数名，例如 `lancet:fs-read/fs@0.1.0` 的 `read` 为 `fs.read`；WIT 名称中的连字符在脚本中写作下划线，例如 `missing-ok` 写作 `missing_ok`。
+- 工具的首个 `borrow` 句柄参数是接收者，工具绑定为接收者类型的方法（[`act` 的说明与全局环境](act.md#act-的说明与全局环境)）。每个工具至少有一个句柄参数；句柄只作为顶层参数出现，且只能是 `borrow`。
+- 参数可用的数据类型为 `bool`、`string`、整数、浮点数、`option` 与 `list`；记录字段与返回值另可用具名 `record`。`option` 不直接嵌套 `option`；类型别名按它指向的类型处理。返回类型为 `result` 时，错误类型必须是 `string`。
 
 | 句柄参数的类型 | co-effect 模板 | effect 模板 |
 | --- | --- | --- |
@@ -43,20 +46,35 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 
 `d`、`e`、`n` 为该参数；`mounts(e)` 为 `e` 挂载的目录及其读写级别。
 
+### 宿主接口
+
+宿主接口的包为 `lancet:host@0.1.0`，四种资源类型都在接口 `handles` 中。
+
+| 资源类型 | 方法 |
+| --- | --- |
+| `read-dir` | `read(path) -> result<option<string>, string>` 读取文本文件；`entries(path) -> result<option<list<entry>>, string>` 列出目录的直接子项，`entry` 为 `{ name: string, is-dir: bool }`。目标不存在（`ENOENT`）时，两者都返回 `none` |
+| `write-dir`、`exec-env`、`egress` | 只有类型，用于推出模板；方法见[尚未承接](#尚未承接) |
+
 ## 声明加载
 
 节点在预编译之前，从原组件读出并核对声明：
 
 ```text
 加载工具组件:
-    if 组件导入了 lancet:host 以外的接口:        拒绝加载
-    elif 组件缺少顶层自定义段 lancet:wit:        拒绝加载
-    elif lancet:wit 中的签名与组件导出接口不同:  拒绝加载
+    if 组件导入了 lancet:host 以外的接口:          拒绝加载
+    elif 组件顶层缺少自定义段 lancet:wit:          拒绝加载   # 只在嵌套模块中的同名段不算
+    elif 导入与节点的 lancet:host 不兼容:          拒绝加载
+    elif lancet:wit 中的签名与组件导出接口不同:    拒绝加载   # 注释不参与比较
+    elif 有工具不符合工具声明的形状:                拒绝加载   # 没有句柄参数，或用了不支持的类型
     else:
         读出声明，由句柄参数的类型推出 effect 与 co-effect 模板
-        预编译组件，把声明与预编译产物一同保存     # 预编译产物不含自定义段
+        预编译组件，把声明与预编译产物成对保存         # 预编译产物不含自定义段
 ```
 
+- 本仓库的工具在节点构建时加载：构建脚本打包组件、核对声明，以与运行时相同的引擎配置预编译，把每个工具的声明与预编译产物成对写入构建输出。拒绝加载即构建失败，错误写明组件名与原因。
+- 工具可以只导入它用到的资源与方法；导入是否兼容，由 `wit-component` 按节点的 `lancet:host` 核对。
+- 签名核对分两步：先把两边的导出接口打印成不含注释的 WIT 文本后比较；再由 `wit-component` 按 `lancet:wit` 中的 world 核对组件，覆盖经 `use` 引入的宿主类型。`lancet:wit` 中的 WIT 包恰好含一个 world。
+- 工具声明的形状见[工具声明](#工具声明)。
 - 节点用 `wit-component` 与 `wasmparser` 读取声明。
 - `act` 的 `.pyi` 类型存根、Starlark 静态检查所用的类型、环境简述与 `catalog_digest` 都由节点从声明推出，不另行手写；类型存根与静态检查见[`act` 的说明与全局环境](act.md#act-的说明与全局环境)。
 
@@ -77,6 +95,7 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
     把结果交回脚本，受单次返回窗口上限约束
 ```
 
+- 解释器经分发接口提交调用：工具的 WIT 导出名，以及按形参顺序排列的实参。句柄实参只传槽位编号，其余实参以 JSON 传递。分发层交回成功值的 JSON，或交回错误消息，使脚本在调用处中止。
 - 工具实例只得到本次调用注入的句柄。参数为 `borrow<read-dir>` 的工具只拿到 `d` 的只读视图；没有交给它的资源，它无从引用。
 - `wasmtime` 强制声明中的类型：实例化时按节点的链接器核对组件的导入；每次调用时核对实参的类型、个数与资源种类；组件内部把一种句柄当作另一种使用时陷入，该次调用报错。
 - 单次 API 工具交回脚本的数据有 MiB 级的窗口上限（建议 8–16 MiB），容纳未过滤的测试日志或响应体，供脚本就地筛选。
@@ -150,7 +169,8 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
 | 工具只能触及本次调用注入的句柄，并且只能按参数类型使用它们 | 每次 API 工具调用 | 链接器只定义 `lancet:host`；`wasmtime` 在实例化与调用时核对类型 | [ADR 0002 第 2 节](../../adr/0002-lancet-node-api-tools-and-act.md#2-唯一的定义单元是-api-工具对外唯一工具是-act)、[第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；实验 4（[已核实的事实](../../adr/0002-lancet-node-api-tools-and-act.md#已核实的事实)） |
-| 模板、类型存根、环境简述与 `catalog_digest` 都与工具声明一致 | 每个加载的工具 | 都由声明推出；签名对不上的组件拒绝加载 | ADR 0002 第 2 节；实验 4 |
+| 模板、类型存根、环境简述与 `catalog_digest` 都与工具声明一致 | 每个加载的工具 | 都由声明推出；签名对不上的组件拒绝加载 | ADR 0002 第 2 节；实验 4；`crates/lancet-node/tests/tool_declarations.rs::packaged_read_keeps_docs_and_signature`、`derives_templates_for_all_handle_parameters`（模板与类型存根；环境简述与 `catalog_digest` 随 [#6](https://github.com/Skyline10124/lancet/issues/6) 验证） |
+| 导入了 `lancet:host` 以外的接口、与节点的 `lancet:host` 不兼容、缺少顶层 `lancet:wit` 段、签名对不上或不符合声明形状的组件不被加载 | 每个工具组件 | 声明加载在预编译之前核对；拒绝即构建失败 | `crates/lancet-node/tests/tool_declarations.rs::rejects_foreign_and_incompatible_host_imports`、`rejects_missing_wit_section`、`rejects_mismatched_documented_exports`、`rejects_tool_without_handle_receiver`、`maps_type_aliases_and_rejects_unrepresentable_types` |
 | 回执记录的 ε 不越出模板；越出时本次 `act` 以 `Failed` 结束 | 每次 API 工具调用 | 分发层逐次核对 | [ADR 0002 第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方) |
 | 组件超出内存上限或截止时间时只终止该实例，节点继续服务 | 每次组件调用 | `wasmtime` 的 `ResourceLimiter` 与 epoch 中断 | ADR 0002 第 4 节；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`（解释器组件；API 工具组件随 [#6](https://github.com/Skyline10124/lancet/issues/6) 验证） |
 
@@ -167,10 +187,12 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 | --- | --- |
 | 单次返回窗口的取值与超出时的处置；API 工具组件的内存上限取值 | 由 [#6](https://github.com/Skyline10124/lancet/issues/6) 确定 |
 | 复用 `wasmtime::Engine` 时实例化 API 工具组件的耗时 | 由 [#6](https://github.com/Skyline10124/lancet/issues/6) 实测 |
+| `write-dir`、`exec-env`、`egress` 的方法 | 由 [#7](https://github.com/Skyline10124/lancet/issues/7)、[#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 定义 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器组件的内存上限、截止与取消。
 - `cargo test --release -p lancet-node --test act measure_component_runtime -- --ignored --nocapture --test-threads=1`：实测解释器每次调用的开销与中断时延，结果见[组件运行时](#组件运行时)。
-- 声明加载的拒绝情形、模板推导、句柄收窄与 ε 核对的测试随 [#6](https://github.com/Skyline10124/lancet/issues/6) 建立，覆盖[实验 4](https://github.com/Skyline10124/lancet/blob/6dd0416d15ff4b49e95ec00c787643c8c590e376/prototypes/tool-declaration/REPORT.md) 的拒绝情形；建立后写入保证表。
+- `cargo test -p lancet-node --test tool_declarations`：声明加载的拒绝情形、签名核对、模板推导与类型存根渲染。拒绝情形包括[实验 4](https://github.com/Skyline10124/lancet/blob/6dd0416d15ff4b49e95ec00c787643c8c590e376/prototypes/tool-declaration/REPORT.md) 中仍适用的几种：导入 WASI 接口、缺少 `lancet:wit` 段、段只在嵌套核心模块中。
+- 句柄收窄与 ε 核对的测试随 [#6](https://github.com/Skyline10124/lancet/issues/6) 建立；建立后写入保证表。

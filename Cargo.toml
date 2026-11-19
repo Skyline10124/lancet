@@ -4,6 +4,8 @@ members = [
     "crates/lancet-act",
     "crates/lancet-node",
     "crates/lancet-protocol",
+    "crates/lancet-tool-decl",
+    "tools/fs-read",
     "xtask",
 ]
 
@@ -29,5 +31,9 @@ starlark_syntax = "=0.14.2"
 tempfile = "3"
 toml = "1"
 uuid = { version = "1", features = ["v4"] }
+wasm-encoder = "=0.258.3"
+wasmparser = "=0.258.3"
 wasmtime = { version = "=49.0.5", default-features = false }
 wit-bindgen = "0.60"
+wit-component = "=0.258.3"
+wit-parser = "=0.258.3"

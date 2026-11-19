@@ -1,6 +1,7 @@
 # 构建与生成产物
 target/
 build/
+!crates/lancet-node/build/
 book/
 
 # 编辑器临时文件

@@ -1,0 +1,14 @@
+# Copyright 2026 Ast Rin
+# SPDX-License-Identifier: Apache-2.0
+
+[package]
+name = "lancet-tool-decl"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+description = "LANCET API 工具声明、模板与名称映射共享类型"
+
+[dependencies]
+serde = { workspace = true }

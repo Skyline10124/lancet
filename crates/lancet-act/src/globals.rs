@@ -16,9 +16,10 @@ use starlark::values::float::UnpackFloat;
 use starlark::values::typing::StarlarkIter;
 
 use crate::text::TextView;
+use lancet_tool_decl::ActContext;
 
-/// 移除反思与元编程全局函数后构造 `act` 使用的纯计算全局环境。
-pub fn build_globals() -> Globals {
+/// 移除反思与元编程全局函数后构造 `act` 使用的全局环境，并按上下文注入句柄与绑定方法。
+pub fn build_globals(context: &ActContext) -> Globals {
     let standard = Globals::standard();
 
     let mut builder = GlobalsBuilder::new();
@@ -29,6 +30,7 @@ pub fn build_globals() -> Globals {
         }
     }
     register_act_globals(&mut builder);
+    crate::handles::register_context(&mut builder, context);
     builder.build()
 }
 

@@ -76,6 +76,24 @@ pub fn run(_args: CiArgs) -> anyhow::Result<()> {
         )
     })?;
 
+    step("clippy (wasm32-unknown-unknown)", || {
+        run_cargo(
+            &root,
+            &[
+                "clippy",
+                "-p",
+                "lancet-fs-read",
+                "--target",
+                "wasm32-unknown-unknown",
+                "--lib",
+                "--",
+                "-D",
+                "warnings",
+            ],
+            &build_jobs,
+        )
+    })?;
+
     step("test", || run_tests(&root, &build_jobs))?;
 
     println!();

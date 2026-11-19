@@ -12,6 +12,7 @@ use lancet_protocol::{
     CatalogDigest, ExecuteOutcome, Frame, MAX_OUTPUT_LIMIT, Receipt, ReceiptOutcome,
     ReceiptSummary, RejectCode, Response, ToolError, write_frame,
 };
+use lancet_tool_decl::ActContext;
 
 use crate::calls::{AdmittedCall, Ledger};
 
@@ -89,7 +90,14 @@ pub fn run_admitted(
     writer: &Mutex<UnixStream>,
     request_id: u64,
 ) {
-    let run_res = runtime.run(&admitted.script, deadline, admitted.cancelled);
+    let empty_context = ActContext::default();
+    let run_res = runtime.run(
+        &admitted.script,
+        &empty_context,
+        |_, _| Err("没有可调用的 API 工具".to_owned()),
+        deadline,
+        admitted.cancelled,
+    );
     let outcome = map_run_outcome(run_res, output_limit);
     let receipt = Receipt {
         invocation_id: admitted.invocation_id,

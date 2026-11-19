@@ -11,7 +11,8 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::{Duration, Instant};
 
 use anyhow::Context as _;
-use wasmtime::component::{Component, Linker};
+use lancet_tool_decl::ActContext;
+use wasmtime::component::{Component, HasSelf, Linker};
 use wasmtime::{Engine, ResourceLimiter, Store, UpdateDeadline};
 
 wasmtime::component::bindgen!({
@@ -21,6 +22,7 @@ wasmtime::component::bindgen!({
 });
 
 pub use exports::lancet::act::interpreter::{Diagnostic, Payload, Phase};
+pub use lancet::act::dispatch::Argument as DispatchArgument;
 
 /// 单次 `act` 解释器组件调用的线性内存上限（128 MiB）。
 pub const ACT_MEMORY_LIMIT_BYTES: usize = 128 * 1024 * 1024;
@@ -110,10 +112,19 @@ impl ResourceLimiter for MemoryBudget {
     }
 }
 
+type DispatchFn = Box<dyn FnMut(&str, &[DispatchArgument]) -> Result<String, String> + Send>;
+
 struct StoreState {
     memory: MemoryBudget,
     deadline: Instant,
     cancelled: Arc<AtomicBool>,
+    dispatch: DispatchFn,
+}
+
+impl lancet::act::dispatch::Host for StoreState {
+    fn call(&mut self, tool_id: String, args: Vec<DispatchArgument>) -> Result<String, String> {
+        (self.dispatch)(&tool_id, &args)
+    }
 }
 
 impl ActRuntime {
@@ -126,11 +137,14 @@ impl ActRuntime {
         let component = unsafe { Component::deserialize(&engine, PRECOMPILED_ACT) }
             .map_err(anyhow::Error::from)
             .context("反序列化预编译 act 组件失败")?;
-        let linker = Linker::<StoreState>::new(&engine);
+        let mut linker = Linker::<StoreState>::new(&engine);
+        lancet::act::dispatch::add_to_linker::<_, HasSelf<_>>(&mut linker, |state| state)
+            .map_err(anyhow::Error::from)
+            .context("注册 act dispatch 导入到链接器失败")?;
         let instance_pre = linker
             .instantiate_pre(&component)
             .map_err(anyhow::Error::from)
-            .context("预链接 act 组件失败（组件不得有任何未满足的导入）")?;
+            .context("预链接 act 组件失败（组件只能导入 `lancet:act/dispatch`）")?;
         let pre = ActPre::new(instance_pre)
             .map_err(anyhow::Error::from)
             .context("解析 act 组件导出接口失败")?;
@@ -152,19 +166,24 @@ impl ActRuntime {
         Ok(Self { engine, pre })
     }
 
-    /// 在独立 `Store` 中执行一次 Starlark 脚本，施加内存上限、截止时间与取消控制。
+    /// 在独立 `Store` 中执行一次 Starlark 脚本，施加内存上限、截止时间、取消控制与子调用分发。
     pub fn run(
         &self,
         script: &str,
+        context: &ActContext,
+        dispatch: impl FnMut(&str, &[DispatchArgument]) -> Result<String, String> + Send + 'static,
         deadline: Instant,
         cancelled: Arc<AtomicBool>,
     ) -> Result<Payload, ActError> {
-        let mut store = self.new_store(deadline, cancelled);
+        let context_json = serde_json::to_string(context)
+            .map_err(anyhow::Error::from)
+            .map_err(ActError::Component)?;
+        let mut store = self.new_store(Box::new(dispatch), deadline, cancelled);
         let call_res = (|| -> wasmtime::Result<Result<Payload, Diagnostic>> {
             let bindings = self.pre.instantiate(&mut store)?;
             bindings
                 .lancet_act_interpreter()
-                .call_run(&mut store, script)
+                .call_run(&mut store, script, &context_json)
         })();
         match call_res {
             Ok(Ok(payload)) => Ok(payload),
@@ -176,6 +195,7 @@ impl ActRuntime {
     /// 实例化组件一次并读取 `act` 内置全局环境的 `.pyi` 类型存根。
     pub fn builtin_stub(&self) -> anyhow::Result<String> {
         let mut store = self.new_store(
+            Box::new(|_, _| Err("builtin-stub 不支持子调用分发".to_owned())),
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
         );
@@ -191,13 +211,19 @@ impl ActRuntime {
             .context("调用 act 组件 builtin-stub 失败")
     }
 
-    fn new_store(&self, deadline: Instant, cancelled: Arc<AtomicBool>) -> Store<StoreState> {
+    fn new_store(
+        &self,
+        dispatch: DispatchFn,
+        deadline: Instant,
+        cancelled: Arc<AtomicBool>,
+    ) -> Store<StoreState> {
         let mut store = Store::new(
             &self.engine,
             StoreState {
                 memory: MemoryBudget::new(),
                 deadline,
                 cancelled,
+                dispatch,
             },
         );
         store.limiter(|state| &mut state.memory);

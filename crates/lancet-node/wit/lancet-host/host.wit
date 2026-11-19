@@ -1,0 +1,22 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:host@0.1.0;
+
+interface handles {
+    record entry { name: string, is-dir: bool }
+
+    resource read-dir {
+        /// 读取文本文件；目标不存在（ENOENT）时返回 none。
+        read: func(path: string) -> result<option<string>, string>;
+        /// 列出目录的直接子项；目标不存在（ENOENT）时返回 none。
+        entries: func(path: string) -> result<option<list<entry>>, string>;
+    }
+    resource write-dir;
+    resource exec-env;
+    resource egress;
+}
+
+world tool-host {
+    import handles;
+}
