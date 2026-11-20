@@ -1198,6 +1198,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "lancet-fs-diff"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
+]
+
+[[package]]
+name = "lancet-fs-edit"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
+]
+
+[[package]]
 name = "lancet-fs-list"
 version = "0.1.0"
 dependencies = [
@@ -1206,6 +1220,13 @@ dependencies = [
 
 [[package]]
 name = "lancet-fs-read"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
+]
+
+[[package]]
+name = "lancet-fs-reset"
 version = "0.1.0"
 dependencies = [
  "wit-bindgen",
@@ -1221,6 +1242,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "lancet-fs-status"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
+]
+
+[[package]]
+name = "lancet-fs-write"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
+]
+
+[[package]]
 name = "lancet-node"
 version = "0.1.0"
 dependencies = [
@@ -1232,6 +1267,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sha2",
+ "similar",
  "tempfile",
  "toml",
  "uuid",
@@ -1999,6 +2035,12 @@ name = "simdutf8"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e3a9fe34e3e7a50316060351f37187a3f546bce95496156754b601a5fa71b76e"
+
+[[package]]
+name = "similar"
+version = "2.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bbbb5d9659141646ae647b42fe094daf6c6192d1620870b449d9557f748b2daa"
 
 [[package]]
 name = "slab"

@@ -1,0 +1,17 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-reset@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{write-dir};
+
+    /// 丢弃目录 dir 中 path 处的待定改动，影子恢复为基准；冲突路径改为接受当前宿主版本。
+    /// path 为相对目录根的路径；没有待定改动时无操作并返回成功。
+    reset: func(dir: borrow<write-dir>, path: string) -> result<_, string>;
+}
+
+world fs-reset {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

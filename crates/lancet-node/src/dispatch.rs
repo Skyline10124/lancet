@@ -1,16 +1,19 @@
 // Copyright 2026 Ast Rin
 // SPDX-License-Identifier: Apache-2.0
 
-//! API 工具分发层：κ 核对、组件实例化、数值转换、资源上限与返回窗口。
+//! API 工具分发层：κ 核对、组件实例化、数值转换、资源收窄、ε 记录与模板核对、锁与 `discard()`。
 
-use std::collections::HashMap;
-use std::sync::atomic::AtomicBool;
-use std::sync::{Arc, Mutex};
-use std::time::Instant;
+use std::collections::{HashMap, HashSet};
+use std::fmt;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, Mutex, MutexGuard, TryLockError};
+use std::time::{Duration, Instant};
 
 use anyhow::Context as _;
-use lancet_protocol::{OutcomeKind, StepSummary};
-use lancet_tool_decl::{ActContext, CoEffectItem, HandleGrant, HandleKind, ToolDecl, WitType};
+use lancet_protocol::{Change, EffectEntry, EffectKind, OutcomeKind, StepSummary};
+use lancet_tool_decl::{
+    ActContext, CoEffectItem, EffectItem, HandleGrant, HandleKind, ToolDecl, WitType,
+};
 use serde_json::Value;
 use wasmtime::component::{
     Component, ComponentExportIndex, HasSelf, InstancePre, Linker, Resource, ResourceAny,
@@ -20,12 +23,16 @@ use wasmtime::{Engine, Store};
 
 use crate::act::{DispatchArgument, Interrupt, MemoryBudget, check_epoch_interrupt};
 use crate::read_dir::ReadDir;
+use crate::shadow::{
+    DiscardError, ShadowDir, ShadowInterrupt, ShadowReadView, ShadowSyncError, WriteEffect,
+};
 
 wasmtime::component::bindgen!({
     world: "tool-host",
     path: "wit/lancet-host",
     with: {
-        "lancet:host/handles.read-dir": crate::read_dir::ReadDir,
+        "lancet:host/handles.read-dir": ReadDirResource,
+        "lancet:host/handles.write-dir": WriteDirResource,
     },
     imports: {
         default: trappable,
@@ -38,6 +45,85 @@ pub const TOOL_MEMORY_LIMIT_BYTES: usize = 128 * 1024 * 1024;
 /// 单次 API 工具调用交回脚本的成功值紧凑 JSON 字节上限（8 MiB）。
 pub const MAX_TOOL_RESULT_BYTES: usize = 8 * 1024 * 1024;
 
+/// 分发层按 `[[dir]]` 配置顺序持有的目录资源槽位。
+#[derive(Clone)]
+pub enum DirSlot {
+    ReadOnly(ReadDir),
+    Shadow(ShadowDir),
+}
+
+impl DirSlot {
+    pub fn name(&self) -> &str {
+        match self {
+            Self::ReadOnly(dir) => dir.name(),
+            Self::Shadow(shadow) => shadow.name(),
+        }
+    }
+
+    pub fn handle_kind(&self) -> HandleKind {
+        match self {
+            Self::ReadOnly(_) => HandleKind::ReadDir,
+            Self::Shadow(_) => HandleKind::WriteDir,
+        }
+    }
+}
+
+/// 压入工具组件 `ResourceTable` 的 `read-dir` 资源；可写槽位收窄为只读视图。
+pub enum ReadDirResource {
+    Host(ReadDir),
+    Shadow(ShadowReadView),
+}
+
+/// 压入工具组件 `ResourceTable` 的 `write-dir` 资源，仅在形参为 `borrow<write-dir>` 时注入。
+pub struct WriteDirResource {
+    shadow: ShadowDir,
+}
+
+/// 已按槽位顺序持有的全部可写目录 `act` 级互斥锁。
+pub struct WritableLocks<'a> {
+    _guards: Vec<MutexGuard<'a, ()>>,
+}
+
+/// 等锁期间收到的中断类型。
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum WaitInterrupt {
+    Deadline,
+    Cancelled,
+}
+
+/// 持锁后宿主同步期间收到的中断或真实 I/O 错误。
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum SyncError {
+    Deadline,
+    Cancelled,
+    Failed(String),
+}
+
+/// 分发层检测到的节点内部契约违反（以 wasmtime 陷入中止整个 `act`）。
+#[derive(Debug)]
+pub(crate) enum DispatchTrap {
+    EffectOutOfTemplate {
+        tool: String,
+        handle: String,
+        kind: EffectKind,
+    },
+}
+
+impl fmt::Display for DispatchTrap {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::EffectOutOfTemplate { tool, handle, kind } => {
+                write!(
+                    f,
+                    "工具 `{tool}` 在句柄 `{handle}` 上产生的 {kind:?} effect 越出模板"
+                )
+            }
+        }
+    }
+}
+
+impl std::error::Error for DispatchTrap {}
+
 /// 待加载的工具组件声明与预编译产物。
 pub struct ComponentArtifact<'a> {
     pub name: &'a str,
@@ -45,7 +131,7 @@ pub struct ComponentArtifact<'a> {
     pub cwasm: &'a [u8],
 }
 
-/// 持有预链接 API 工具组件、只读目录资源及对应调用授权上下文的分发器。
+/// 持有预链接 API 工具组件、目录资源槽位及对应调用授权上下文的分发器。
 #[derive(Clone)]
 pub struct Dispatcher {
     inner: Arc<DispatcherInner>,
@@ -55,7 +141,7 @@ struct DispatcherInner {
     engine: Engine,
     components: Vec<InstancePre<ToolStoreState>>,
     tools: HashMap<String, PreparedTool>,
-    read_dirs: Vec<ReadDir>,
+    dirs: Vec<DirSlot>,
     context: ActContext,
 }
 
@@ -70,6 +156,25 @@ struct ToolStoreState {
     deadline: Instant,
     cancelled: Arc<AtomicBool>,
     table: ResourceTable,
+    call_effects: Vec<EffectEntry>,
+}
+
+impl ToolStoreState {
+    fn record_write_effect(&mut self, handle: &str, effect: WriteEffect) {
+        let entry = EffectEntry::new(
+            handle,
+            EffectKind::Write,
+            vec![Change {
+                target: effect.target,
+                action: effect.action.to_owned(),
+                diff: None,
+                diff_truncated: false,
+                residue: effect.residue,
+            }],
+        )
+        .expect("Write 变更的 residue 已由影子层保证合法");
+        self.call_effects.push(entry);
+    }
 }
 
 impl lancet::host::handles::Host for ToolStoreState {}
@@ -77,20 +182,28 @@ impl lancet::host::handles::Host for ToolStoreState {}
 impl lancet::host::handles::HostReadDir for ToolStoreState {
     fn read(
         &mut self,
-        self_: Resource<ReadDir>,
+        self_: Resource<ReadDirResource>,
         path: String,
     ) -> wasmtime::Result<Result<Option<String>, String>> {
         let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        Ok(dir.read(&path))
+        let res = match dir {
+            ReadDirResource::Host(d) => d.read(&path),
+            ReadDirResource::Shadow(s) => s.read(&path),
+        };
+        Ok(res)
     }
 
     fn entries(
         &mut self,
-        self_: Resource<ReadDir>,
+        self_: Resource<ReadDirResource>,
         path: String,
     ) -> wasmtime::Result<Result<Option<Vec<lancet::host::handles::Entry>>, String>> {
         let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        Ok(dir.entries(&path).map(|opt| {
+        let raw = match dir {
+            ReadDirResource::Host(d) => d.entries(&path),
+            ReadDirResource::Shadow(s) => s.entries(&path),
+        };
+        Ok(raw.map(|opt| {
             opt.map(|entries| {
                 entries
                     .into_iter()
@@ -104,14 +217,107 @@ impl lancet::host::handles::HostReadDir for ToolStoreState {
         }))
     }
 
-    fn drop(&mut self, rep: Resource<ReadDir>) -> wasmtime::Result<()> {
+    fn status(
+        &mut self,
+        self_: Resource<ReadDirResource>,
+    ) -> wasmtime::Result<Result<Vec<lancet::host::handles::PendingChange>, String>> {
+        let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
+        let res = match dir {
+            ReadDirResource::Host(_) => Ok(Vec::new()),
+            ReadDirResource::Shadow(s) => s.status().map(|list| {
+                list.into_iter()
+                    .map(|c| lancet::host::handles::PendingChange {
+                        path: c.path,
+                        action: c.action.as_str().to_owned(),
+                        conflict: c.conflict,
+                    })
+                    .collect()
+            }),
+        };
+        Ok(res)
+    }
+
+    fn diff(
+        &mut self,
+        self_: Resource<ReadDirResource>,
+    ) -> wasmtime::Result<Result<Vec<lancet::host::handles::PathDiff>, String>> {
+        let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
+        let res = match dir {
+            ReadDirResource::Host(_) => Ok(Vec::new()),
+            ReadDirResource::Shadow(s) => s.diff().map(|list| {
+                list.into_iter()
+                    .map(|d| lancet::host::handles::PathDiff {
+                        path: d.path,
+                        action: d.action.as_str().to_owned(),
+                        conflict: d.conflict,
+                        patch: d.patch,
+                    })
+                    .collect()
+            }),
+        };
+        Ok(res)
+    }
+
+    fn drop(&mut self, rep: Resource<ReadDirResource>) -> wasmtime::Result<()> {
         self.table.delete(rep).map_err(wasmtime::Error::from)?;
         Ok(())
     }
 }
 
 impl lancet::host::handles::HostWriteDir for ToolStoreState {
-    fn drop(&mut self, rep: Resource<lancet::host::handles::WriteDir>) -> wasmtime::Result<()> {
+    fn read(
+        &mut self,
+        self_: Resource<WriteDirResource>,
+        path: String,
+    ) -> wasmtime::Result<Result<Option<String>, String>> {
+        let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
+        Ok(dir.shadow.read(&path))
+    }
+
+    fn write(
+        &mut self,
+        self_: Resource<WriteDirResource>,
+        path: String,
+        content: String,
+    ) -> wasmtime::Result<Result<(), String>> {
+        let shadow = self
+            .table
+            .get(&self_)
+            .map_err(wasmtime::Error::from)?
+            .shadow
+            .clone();
+        match shadow.write(&path, &content) {
+            Ok(Some(effect)) => {
+                self.record_write_effect(shadow.name(), effect);
+                Ok(Ok(()))
+            }
+            Ok(None) => Ok(Ok(())),
+            Err(msg) => Ok(Err(msg)),
+        }
+    }
+
+    fn reset(
+        &mut self,
+        self_: Resource<WriteDirResource>,
+        path: String,
+    ) -> wasmtime::Result<Result<(), String>> {
+        let shadow = self
+            .table
+            .get(&self_)
+            .map_err(wasmtime::Error::from)?
+            .shadow
+            .clone();
+        match shadow.reset(&path) {
+            Ok(Some(effect)) => {
+                self.record_write_effect(shadow.name(), effect);
+                Ok(Ok(()))
+            }
+            Ok(None) => Ok(Ok(())),
+            Err(msg) => Ok(Err(msg)),
+        }
+    }
+
+    fn drop(&mut self, rep: Resource<WriteDirResource>) -> wasmtime::Result<()> {
         self.table.delete(rep).map_err(wasmtime::Error::from)?;
         Ok(())
     }
@@ -132,7 +338,7 @@ impl lancet::host::handles::HostEgress for ToolStoreState {
 }
 
 impl Dispatcher {
-    /// 反序列化并预链接工具组件列表，绑定节点授予的只读目录资源并构建唯一 `ActContext`。
+    /// 反序列化并预链接工具组件列表，按槽位顺序绑定节点授予的目录资源并构建唯一 `ActContext`。
     ///
     /// # Safety
     ///
@@ -141,7 +347,7 @@ impl Dispatcher {
     pub unsafe fn new(
         engine: &Engine,
         components: &[ComponentArtifact<'_>],
-        read_dirs: Vec<ReadDir>,
+        dirs: Vec<DirSlot>,
     ) -> anyhow::Result<Self> {
         let mut linker = Linker::<ToolStoreState>::new(engine);
         ToolHost::add_to_linker::<_, HasSelf<ToolStoreState>>(&mut linker, |state| state)
@@ -197,12 +403,12 @@ impl Dispatcher {
             }
         }
 
-        let handles = read_dirs
+        let handles = dirs
             .iter()
             .enumerate()
             .map(|(slot, dir)| HandleGrant {
                 name: dir.name().to_owned(),
-                kind: HandleKind::ReadDir,
+                kind: dir.handle_kind(),
                 slot: slot as u32,
             })
             .collect();
@@ -216,7 +422,7 @@ impl Dispatcher {
                 engine: engine.clone(),
                 components: prepared_components,
                 tools,
-                read_dirs,
+                dirs,
                 context,
             }),
         })
@@ -227,7 +433,148 @@ impl Dispatcher {
         &self.inner.context
     }
 
-    /// 核对 κ、在隔离 `Store` 中运行工具组件、执行返回窗口并追加步骤摘要。
+    /// 返回本次授权中是否包含至少一个可写目录句柄。
+    pub fn has_writable_dirs(&self) -> bool {
+        self.inner
+            .dirs
+            .iter()
+            .any(|slot| matches!(slot, DirSlot::Shadow(_)))
+    }
+
+    /// 按槽位顺序取得全部可写目录的互斥锁，等待期间响应取消与截止时间。
+    pub fn acquire_writable_locks(
+        &self,
+        deadline: Instant,
+        cancelled: &AtomicBool,
+    ) -> Result<WritableLocks<'_>, WaitInterrupt> {
+        let mut guards = Vec::new();
+        for slot in &self.inner.dirs {
+            let DirSlot::Shadow(shadow) = slot else {
+                continue;
+            };
+            loop {
+                if cancelled.load(Ordering::Acquire) {
+                    return Err(WaitInterrupt::Cancelled);
+                }
+                let now = Instant::now();
+                if now >= deadline {
+                    return Err(WaitInterrupt::Deadline);
+                }
+                match shadow.try_lock_act() {
+                    Ok(guard) => {
+                        guards.push(guard);
+                        break;
+                    }
+                    Err(TryLockError::WouldBlock) => {
+                        let remaining = deadline.saturating_duration_since(now);
+                        let sleep_for = remaining.min(Duration::from_millis(10));
+                        if !sleep_for.is_zero() {
+                            std::thread::sleep(sleep_for);
+                        }
+                        if cancelled.load(Ordering::Acquire) {
+                            return Err(WaitInterrupt::Cancelled);
+                        }
+                        if Instant::now() >= deadline {
+                            return Err(WaitInterrupt::Deadline);
+                        }
+                    }
+                    Err(TryLockError::Poisoned(_)) => {
+                        panic!("可写目录互斥锁不应中毒");
+                    }
+                }
+            }
+        }
+        Ok(WritableLocks { _guards: guards })
+    }
+
+    /// 持锁后逐个同步可写目录的宿主改动进影子与基准，并在路径间检查截止与取消。
+    pub fn sync_writable_dirs(
+        &self,
+        deadline: Instant,
+        cancelled: &AtomicBool,
+    ) -> Result<(), SyncError> {
+        for slot in &self.inner.dirs {
+            let DirSlot::Shadow(shadow) = slot else {
+                continue;
+            };
+            if let Err(err) = shadow.sync_from_host(Some(deadline), Some(cancelled)) {
+                return Err(match err {
+                    ShadowSyncError::Interrupted(ShadowInterrupt::Deadline) => SyncError::Deadline,
+                    ShadowSyncError::Interrupted(ShadowInterrupt::Cancelled) => {
+                        SyncError::Cancelled
+                    }
+                    ShadowSyncError::Failed(msg) => SyncError::Failed(msg),
+                });
+            }
+        }
+        Ok(())
+    }
+
+    /// 汇总全部可写目录中可见待定路径的总数（冲突只计一次，不含 `hidden` 与 `regenerable`）。
+    pub fn visible_pending_count(&self) -> usize {
+        self.inner
+            .dirs
+            .iter()
+            .filter_map(|slot| match slot {
+                DirSlot::Shadow(shadow) => Some(shadow.visible_pending_count()),
+                DirSlot::ReadOnly(_) => None,
+            })
+            .sum()
+    }
+
+    /// 执行内置 `discard()`：把全部可写目录的常规待定路径恢复为基准并清除 `hidden` 项，保留种子。
+    pub fn discard(
+        &self,
+        deadline: Instant,
+        cancelled: Arc<AtomicBool>,
+        steps: &Mutex<Vec<StepSummary>>,
+        effects: &Mutex<Vec<EffectEntry>>,
+    ) -> wasmtime::Result<Result<(), String>> {
+        let allowed_effects = allowed_discard_effects(&self.inner.context.handles);
+        let mut recorded = Vec::new();
+        for slot in &self.inner.dirs {
+            let DirSlot::Shadow(shadow) = slot else {
+                continue;
+            };
+            match shadow.discard(Some(deadline), Some(&cancelled)) {
+                Ok(list) => {
+                    if let Some(entry) = build_write_entry(shadow.name(), list) {
+                        recorded.push(entry);
+                    }
+                }
+                Err(DiscardError::Interrupted { partial, interrupt }) => {
+                    if let Some(entry) = build_write_entry(shadow.name(), partial) {
+                        recorded.push(entry);
+                    }
+                    finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
+                    return match interrupt {
+                        ShadowInterrupt::Deadline => {
+                            record_step(steps, "discard", OutcomeKind::Deadline);
+                            Err(wasmtime::Error::new(Interrupt::Deadline))
+                        }
+                        ShadowInterrupt::Cancelled => {
+                            record_step(steps, "discard", OutcomeKind::Cancelled);
+                            Err(wasmtime::Error::new(Interrupt::Cancelled))
+                        }
+                    };
+                }
+                Err(DiscardError::Failed { partial, message }) => {
+                    if let Some(entry) = build_write_entry(shadow.name(), partial) {
+                        recorded.push(entry);
+                    }
+                    finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
+                    record_step(steps, "discard", OutcomeKind::Failed);
+                    return Ok(Err(message));
+                }
+            }
+        }
+        finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
+        record_step(steps, "discard", OutcomeKind::Succeeded);
+        Ok(Ok(()))
+    }
+
+    /// 核对 κ、在隔离 `Store` 中运行工具组件、执行统一 ε 归集与模板核对、返回窗口与步骤摘要记录。
+    #[allow(clippy::too_many_arguments)]
     pub fn call(
         &self,
         tool_id: &str,
@@ -235,6 +582,7 @@ impl Dispatcher {
         deadline: Instant,
         cancelled: Arc<AtomicBool>,
         steps: &Mutex<Vec<StepSummary>>,
+        effects: &Mutex<Vec<EffectEntry>>,
     ) -> wasmtime::Result<Result<String, String>> {
         let Some(prepared) = self.inner.tools.get(tool_id) else {
             return record_tool_err(steps, tool_id, format!("未知的 API 工具：`{tool_id}`"));
@@ -245,50 +593,79 @@ impl Dispatcher {
             return record_tool_err(steps, step_name, msg);
         }
 
+        let allowed_effects =
+            instantiate_allowed_effects(&prepared.decl, args, &self.inner.context.handles);
+
         let mut store = new_tool_store(&self.inner.engine, deadline, cancelled);
-        let pre = &self.inner.components[prepared.component_idx];
-        let instance = match pre.instantiate(&mut store) {
-            Ok(inst) => inst,
-            Err(err) => return handle_wasmtime_error(step_name, err, steps),
-        };
+        let body_outcome = (|| -> CallBodyOutcome {
+            let pre = &self.inner.components[prepared.component_idx];
+            let instance = match pre.instantiate(&mut store) {
+                Ok(inst) => inst,
+                Err(err) => return CallBodyOutcome::WasmtimeErr(err),
+            };
 
-        let func = instance
-            .get_func(&mut store, prepared.func_index)
-            .expect("导出函数索引来自同一组件，不会缺失");
+            let func = instance
+                .get_func(&mut store, prepared.func_index)
+                .expect("导出函数索引来自同一组件，不会缺失");
 
-        let wit_args = match self.build_wit_args(&prepared.decl, &func, &mut store, args) {
-            Ok(vals) => vals,
-            Err(msg) => return record_tool_err(steps, step_name, msg),
-        };
+            let wit_args = match self.build_wit_args(&prepared.decl, &func, &mut store, args) {
+                Ok(vals) => vals,
+                Err(msg) => return CallBodyOutcome::ToolErr(msg),
+            };
 
-        let result_count = func.ty(&store).results().len();
-        let mut results = vec![Val::Bool(false); result_count];
-        if let Err(err) = func.call(&mut store, &wit_args, &mut results) {
-            return handle_wasmtime_error(step_name, err, steps);
-        }
+            let result_count = func.ty(&store).results().len();
+            let mut results = vec![Val::Bool(false); result_count];
+            if let Err(err) = func.call(&mut store, &wit_args, &mut results) {
+                return CallBodyOutcome::WasmtimeErr(err);
+            }
 
-        let json_val = match extract_result_json(&results) {
-            Ok(Ok(val)) => val,
-            Ok(Err(tool_err)) => return record_tool_err(steps, step_name, tool_err),
-            Err(conv_err) => return record_tool_err(steps, step_name, conv_err),
-        };
+            let json_val = match extract_result_json(&results) {
+                Ok(Ok(val)) => val,
+                Ok(Err(tool_err)) => return CallBodyOutcome::ToolErr(tool_err),
+                Err(conv_err) => return CallBodyOutcome::ToolErr(conv_err),
+            };
 
-        let compact_json =
-            serde_json::to_string(&json_val).expect("已校验的返回值 JSON 序列化不会失败");
+            let compact_json =
+                serde_json::to_string(&json_val).expect("已校验的返回值 JSON 序列化不会失败");
 
-        if compact_json.len() > MAX_TOOL_RESULT_BYTES {
-            return record_tool_err(
-                steps,
-                step_name,
-                format!(
+            if compact_json.len() > MAX_TOOL_RESULT_BYTES {
+                return CallBodyOutcome::ToolErr(format!(
                     "工具 `{step_name}` 的返回值有 {} 字节，超过单次返回窗口 8 MiB（{MAX_TOOL_RESULT_BYTES} 字节）；请改用 `proc.pipe` 过滤后再返回",
                     compact_json.len()
-                ),
-            );
+                ));
+            }
+            CallBodyOutcome::OkJson(compact_json)
+        })();
+
+        // 统一收尾：先把本次调用实际落地的变更归入 act 回执，再核对是否越出声明的 effect 模板。
+        let call_effects = std::mem::take(&mut store.data_mut().call_effects);
+        let mut violation: Option<(String, EffectKind)> = None;
+        for entry in &call_effects {
+            if !allowed_effects.contains(&(entry.handle().to_owned(), entry.kind())) {
+                violation = Some((entry.handle().to_owned(), entry.kind()));
+                break;
+            }
+        }
+        if !call_effects.is_empty() {
+            append_effects(effects, call_effects);
+        }
+        if let Some((handle, kind)) = violation {
+            record_step(steps, step_name, OutcomeKind::Failed);
+            return Err(wasmtime::Error::new(DispatchTrap::EffectOutOfTemplate {
+                tool: step_name.clone(),
+                handle,
+                kind,
+            }));
         }
 
-        record_step(steps, step_name, OutcomeKind::Succeeded);
-        Ok(Ok(compact_json))
+        match body_outcome {
+            CallBodyOutcome::OkJson(compact_json) => {
+                record_step(steps, step_name, OutcomeKind::Succeeded);
+                Ok(Ok(compact_json))
+            }
+            CallBodyOutcome::ToolErr(msg) => record_tool_err(steps, step_name, msg),
+            CallBodyOutcome::WasmtimeErr(err) => handle_wasmtime_error(step_name, err, steps),
+        }
     }
 
     fn build_wit_args(
@@ -302,15 +679,46 @@ impl Dispatcher {
         let mut wit_args = Vec::with_capacity(decl.params.len());
         for ((param, wit_ty), arg) in decl.params.iter().zip(param_types.iter()).zip(args.iter()) {
             match (&param.ty, arg) {
-                (WitType::Handle { .. }, DispatchArgument::HandleRef(slot)) => {
-                    let read_dir = &self.inner.read_dirs[*slot as usize];
-                    let resource = store
-                        .data_mut()
-                        .table
-                        .push(read_dir.clone())
-                        .map_err(|err| format!("注入目录句柄 `{}` 失败：{err}", param.name))?;
-                    let any = ResourceAny::try_from_resource(resource, &mut *store)
-                        .map_err(|err| format!("转换目录句柄 `{}` 失败：{err}", param.name))?;
+                (WitType::Handle { kind, .. }, DispatchArgument::HandleRef(slot)) => {
+                    let dir_slot = &self.inner.dirs[*slot as usize];
+                    let any = match kind {
+                        HandleKind::ReadDir => {
+                            let res_val = match dir_slot {
+                                DirSlot::ReadOnly(read_dir) => {
+                                    ReadDirResource::Host(read_dir.clone())
+                                }
+                                DirSlot::Shadow(shadow) => {
+                                    ReadDirResource::Shadow(shadow.read_view())
+                                }
+                            };
+                            let resource = store.data_mut().table.push(res_val).map_err(|err| {
+                                format!("注入只读目录句柄 `{}` 失败：{err}", param.name)
+                            })?;
+                            ResourceAny::try_from_resource(resource, &mut *store).map_err(
+                                |err| format!("转换只读目录句柄 `{}` 失败：{err}", param.name),
+                            )?
+                        }
+                        HandleKind::WriteDir => {
+                            let DirSlot::Shadow(shadow) = dir_slot else {
+                                unreachable!("κ 已保证 WriteDir 形参只接收可写目录槽位");
+                            };
+                            let resource = store
+                                .data_mut()
+                                .table
+                                .push(WriteDirResource {
+                                    shadow: shadow.clone(),
+                                })
+                                .map_err(|err| {
+                                    format!("注入可写目录句柄 `{}` 失败：{err}", param.name)
+                                })?;
+                            ResourceAny::try_from_resource(resource, &mut *store).map_err(
+                                |err| format!("转换可写目录句柄 `{}` 失败：{err}", param.name),
+                            )?
+                        }
+                        HandleKind::ExecEnv | HandleKind::Egress => {
+                            unreachable!("执行环境与网络出口句柄随 #8/#9 注入")
+                        }
+                    };
                     wit_args.push(Val::Resource(any));
                 }
                 (WitType::Handle { .. }, _) | (_, DispatchArgument::HandleRef(_)) => {
@@ -331,6 +739,12 @@ impl Dispatcher {
     }
 }
 
+enum CallBodyOutcome {
+    OkJson(String),
+    ToolErr(String),
+    WasmtimeErr(wasmtime::Error),
+}
+
 fn new_tool_store(
     engine: &Engine,
     deadline: Instant,
@@ -343,6 +757,7 @@ fn new_tool_store(
             deadline,
             cancelled,
             table: ResourceTable::new(),
+            call_effects: Vec::new(),
         },
     );
     store.limiter(|state| &mut state.memory);
@@ -352,6 +767,96 @@ fn new_tool_store(
         check_epoch_interrupt(state.deadline, &state.cancelled)
     });
     store
+}
+
+fn build_write_entry(handle: &str, list: Vec<WriteEffect>) -> Option<EffectEntry> {
+    if list.is_empty() {
+        return None;
+    }
+    let changes = list
+        .into_iter()
+        .map(|eff| Change {
+            target: eff.target,
+            action: eff.action.to_owned(),
+            diff: None,
+            diff_truncated: false,
+            residue: eff.residue,
+        })
+        .collect();
+    Some(
+        EffectEntry::new(handle, EffectKind::Write, changes)
+            .expect("Write 变更的 residue 已由影子层保证合法"),
+    )
+}
+
+fn append_effects(effects: &Mutex<Vec<EffectEntry>>, entries: Vec<EffectEntry>) {
+    let mut guard = effects.lock().expect("effect 互斥锁不应中毒");
+    guard.extend(entries);
+}
+
+fn allowed_discard_effects(grants: &[HandleGrant]) -> HashSet<(String, EffectKind)> {
+    grants
+        .iter()
+        .filter(|g| g.kind == HandleKind::WriteDir)
+        .map(|g| (g.name.clone(), EffectKind::Write))
+        .collect()
+}
+
+fn finalize_discard_effects(
+    recorded: Vec<EffectEntry>,
+    allowed_effects: &HashSet<(String, EffectKind)>,
+    steps: &Mutex<Vec<StepSummary>>,
+    effects: &Mutex<Vec<EffectEntry>>,
+) -> wasmtime::Result<()> {
+    let mut violation: Option<(String, EffectKind)> = None;
+    for entry in &recorded {
+        if !allowed_effects.contains(&(entry.handle().to_owned(), entry.kind())) {
+            violation = Some((entry.handle().to_owned(), entry.kind()));
+            break;
+        }
+    }
+    if !recorded.is_empty() {
+        append_effects(effects, recorded);
+    }
+    if let Some((handle, kind)) = violation {
+        record_step(steps, "discard", OutcomeKind::Failed);
+        return Err(wasmtime::Error::new(DispatchTrap::EffectOutOfTemplate {
+            tool: "discard".to_owned(),
+            handle,
+            kind,
+        }));
+    }
+    Ok(())
+}
+
+fn instantiate_allowed_effects(
+    decl: &ToolDecl,
+    args: &[DispatchArgument],
+    grants: &[HandleGrant],
+) -> HashSet<(String, EffectKind)> {
+    let mut allowed = HashSet::new();
+    for item in &decl.templates.effects {
+        match *item {
+            EffectItem::Effect(idx, kind) => {
+                let DispatchArgument::HandleRef(slot) = args[idx] else {
+                    continue;
+                };
+                let Some(grant) = grants.iter().find(|g| g.slot == slot) else {
+                    continue;
+                };
+                let proto_kind = match kind {
+                    lancet_tool_decl::EffectKind::Write => EffectKind::Write,
+                    lancet_tool_decl::EffectKind::Exec => EffectKind::Exec,
+                    lancet_tool_decl::EffectKind::Emit => EffectKind::Emit,
+                };
+                allowed.insert((grant.name.clone(), proto_kind));
+            }
+            EffectItem::WriteWritableMountsOf(_) | EffectItem::EmitViaEgressOf(_) => {
+                unreachable!("执行环境与网络出口句柄随 #8/#9 注入")
+            }
+        }
+    }
+    allowed
 }
 
 fn record_step(steps: &Mutex<Vec<StepSummary>>, tool_id: &str, outcome: OutcomeKind) {

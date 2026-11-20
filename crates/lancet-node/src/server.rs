@@ -155,12 +155,14 @@ fn dispatch_request(
             output_limit,
             labels,
         } => {
+            let has_writable = shared.dispatcher.has_writable_dirs();
             let validation = execute::validate_execute(
                 &shared.catalog_digest,
                 &catalog_digest,
                 &tool,
                 &arguments,
                 output_limit,
+                has_writable,
             );
             match shared.ledger.admit_execute(
                 conn_id,
@@ -168,6 +170,7 @@ fn dispatch_request(
                 catalog_digest,
                 tool,
                 labels,
+                has_writable,
                 validation,
             ) {
                 Ok(admitted) => {

@@ -26,6 +26,8 @@ use crate::execute::RejectedCall;
 use crate::state::StateDir;
 
 const RESTART_INTERNAL_ERROR_MESSAGE: &str = "节点在调用结算前重启，未保存执行结果";
+const RESTART_INDETERMINATE_REASON: &str =
+    "节点在调用结算前重启，影子中的写入是否发生未知；可用 status() 查看待定改动";
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "state")]
@@ -36,6 +38,8 @@ enum CallRecord {
         tool: String,
         catalog_digest: CatalogDigest,
         labels: Labels,
+        #[serde(default)]
+        writes_possible: bool,
     },
     Settled {
         settled_at_ms: u64,
@@ -105,6 +109,7 @@ impl Ledger {
     }
 
     /// 按查重优先顺序核对传入校验结果，全部通过后持久登记 `Pending` 并记入在途表。
+    #[allow(clippy::too_many_arguments)]
     pub fn admit_execute(
         &self,
         conn_id: u64,
@@ -112,6 +117,7 @@ impl Ledger {
         catalog_digest: CatalogDigest,
         tool: String,
         labels: Labels,
+        writes_possible: bool,
         validation: Result<String, RejectedCall>,
     ) -> Result<AdmittedCall, RejectedCall> {
         let mut in_flight = self.lock_in_flight();
@@ -136,6 +142,7 @@ impl Ledger {
             tool: tool.clone(),
             catalog_digest: catalog_digest.clone(),
             labels: labels.clone(),
+            writes_possible,
         };
         write_record(&self.calls_dir, &self.calls_dir_file, &file_name, &pending)
             .unwrap_or_else(|err| fatal_error(err));
@@ -268,15 +275,23 @@ fn recover_calls(
                 tool,
                 catalog_digest,
                 labels,
+                writes_possible,
             } => {
+                let outcome = if writes_possible {
+                    ReceiptOutcome::Indeterminate {
+                        reason: RESTART_INDETERMINATE_REASON.to_owned(),
+                    }
+                } else {
+                    ReceiptOutcome::Failed {
+                        error: ToolError::new("InternalError", RESTART_INTERNAL_ERROR_MESSAGE),
+                    }
+                };
                 let receipt = Receipt {
                     invocation_id,
                     tool,
                     catalog_digest,
                     labels,
-                    outcome: ReceiptOutcome::Failed {
-                        error: ToolError::new("InternalError", RESTART_INTERNAL_ERROR_MESSAGE),
-                    },
+                    outcome,
                     steps: Vec::new(),
                     effects: Vec::new(),
                     truncated: false,

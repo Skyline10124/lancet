@@ -1,0 +1,17 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-write@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{write-dir};
+
+    /// 将 UTF-8 文本 content 整文件写入目录 dir 中的 path 处，自动创建缺少的上级目录。
+    /// path 为相对目录根的路径；替换已有普通文件时保持其权限。
+    write: func(dir: borrow<write-dir>, path: string, content: string) -> result<_, string>;
+}
+
+world fs-write {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

@@ -43,6 +43,36 @@ const PRODUCT_TOOLS: &[ToolArtifactSpec] = &[
         rel_dir: "tools/fs-search",
         output_stem: "fs-search",
     },
+    ToolArtifactSpec {
+        package_name: "lancet-fs-write",
+        lib_stem: "lancet_fs_write",
+        rel_dir: "tools/fs-write",
+        output_stem: "fs-write",
+    },
+    ToolArtifactSpec {
+        package_name: "lancet-fs-edit",
+        lib_stem: "lancet_fs_edit",
+        rel_dir: "tools/fs-edit",
+        output_stem: "fs-edit",
+    },
+    ToolArtifactSpec {
+        package_name: "lancet-fs-reset",
+        lib_stem: "lancet_fs_reset",
+        rel_dir: "tools/fs-reset",
+        output_stem: "fs-reset",
+    },
+    ToolArtifactSpec {
+        package_name: "lancet-fs-status",
+        lib_stem: "lancet_fs_status",
+        rel_dir: "tools/fs-status",
+        output_stem: "fs-status",
+    },
+    ToolArtifactSpec {
+        package_name: "lancet-fs-diff",
+        lib_stem: "lancet_fs_diff",
+        rel_dir: "tools/fs-diff",
+        output_stem: "fs-diff",
+    },
 ];
 
 const TEST_PROBE: ToolArtifactSpec = ToolArtifactSpec {

@@ -10,8 +10,8 @@ use std::thread;
 use std::time::Duration;
 
 use lancet_protocol::{
-    Capabilities, CatalogDigest, EnvironmentSummary, Frame, Mode, ProtocolVersion, Request,
-    Response, Seam, SeamDirection, SeamPolicy, ToolSpec, read_frame, write_frame,
+    Capabilities, CatalogDigest, EffectKind, EnvironmentSummary, Frame, Mode, ProtocolVersion,
+    Request, Response, Seam, SeamDirection, SeamPolicy, ToolSpec, read_frame, write_frame,
 };
 use tempfile::TempDir;
 
@@ -34,6 +34,22 @@ struct NodeProcess {
 
 impl NodeProcess {
     fn start(config_path: &Path, toml_content: &str, state_dir: &Path, home: &Path) -> Self {
+        Self::start_with_timeout(
+            config_path,
+            toml_content,
+            state_dir,
+            home,
+            Duration::from_secs(10),
+        )
+    }
+
+    fn start_with_timeout(
+        config_path: &Path,
+        toml_content: &str,
+        state_dir: &Path,
+        home: &Path,
+        timeout: Duration,
+    ) -> Self {
         std::fs::write(config_path, toml_content).expect("写入测试配置文件失败");
         let mut child = Command::new(BIN)
             .arg(config_path)
@@ -44,7 +60,8 @@ impl NodeProcess {
             .expect("启动 lancet-node 子进程失败");
 
         let sock_path = state_dir.join("node.sock");
-        for _ in 0..100 {
+        let deadline = std::time::Instant::now() + timeout;
+        loop {
             match UnixStream::connect(&sock_path) {
                 Ok(stream) => {
                     drop(stream);
@@ -58,6 +75,9 @@ impl NodeProcess {
                         }
                         panic!("节点提前退出（状态 {status}），标准错误：\n{stderr}");
                     }
+                    if std::time::Instant::now() >= deadline {
+                        break;
+                    }
                     thread::sleep(Duration::from_millis(20));
                 }
             }
@@ -65,7 +85,7 @@ impl NodeProcess {
 
         let _ = child.kill();
         let _ = child.wait();
-        panic!("在规定重试次数内未能连上套接字：{}", sock_path.display());
+        panic!("在规定时间内未能连上套接字：{}", sock_path.display());
     }
 
     fn connect(&self) -> UnixStream {
@@ -339,10 +359,13 @@ hosts = ["pypi.org"]
         act_tool.description
     );
     for expected in [
+        "def discard() -> None:",
         "class Entry:",
         "is_link: bool",
         "class SearchHit:",
         "line_no: int",
+        "class PendingChange:",
+        "class PathDiff:",
     ] {
         assert!(
             act_tool.description.contains(expected),
@@ -355,10 +378,36 @@ hosts = ["pypi.org"]
         .split("\n\n")
         .find(|block| block.starts_with("class ReadDir:\n"))
         .expect("存根应包含 `class ReadDir:` 块");
-    for method in ["def read(", "def list(", "def search("] {
+    for method in [
+        "def read(",
+        "def list(",
+        "def search(",
+        "def status(",
+        "def diff(",
+    ] {
         assert!(
             read_dir_block.contains(method),
             "`class ReadDir:` 应包含 `{method}`，实际为：\n{read_dir_block}"
+        );
+    }
+    let write_dir_block = act_tool
+        .description
+        .split("\n\n")
+        .find(|block| block.starts_with("class WriteDir:\n"))
+        .expect("存根应包含 `class WriteDir:` 块");
+    for method in [
+        "def read(",
+        "def list(",
+        "def search(",
+        "def status(",
+        "def diff(",
+        "def write(",
+        "def edit(",
+        "def reset(",
+    ] {
+        assert!(
+            write_dir_block.contains(method),
+            "`class WriteDir:` 应包含 `{method}`，实际为：\n{write_dir_block}"
         );
     }
 
@@ -367,16 +416,42 @@ hosts = ["pypi.org"]
     assert_eq!(names, ["app", "lib", "docs", "dev", "crates", "pypi"]);
 
     for h in handles {
-        assert!(h.effects.is_empty(), "句柄 {} 的 effects 应为空", h.name);
-        if h.kind == "ReadDir" {
-            assert_eq!(
-                h.modes,
-                vec![Mode::Read],
-                "只读目录句柄 {} 的 modes 应为 [Read]",
-                h.name
-            );
-        } else {
-            assert!(h.modes.is_empty(), "未注入句柄 {} 的 modes 应为空", h.name);
+        match h.kind.as_str() {
+            "ReadDir" => {
+                assert_eq!(
+                    h.modes,
+                    vec![Mode::Read],
+                    "只读目录句柄 {} 的 modes 应为 [Read]",
+                    h.name
+                );
+                assert!(
+                    h.effects.is_empty(),
+                    "只读目录句柄 {} 的 effects 应为空",
+                    h.name
+                );
+            }
+            "WriteDir" => {
+                assert_eq!(
+                    h.modes,
+                    vec![Mode::Read, Mode::ReadWrite],
+                    "可写目录句柄 {} 的 modes 应为 [Read, ReadWrite]",
+                    h.name
+                );
+                assert_eq!(
+                    h.effects,
+                    vec![EffectKind::Write],
+                    "可写目录句柄 {} 的 effects 应为 [Write]",
+                    h.name
+                );
+            }
+            _ => {
+                assert!(h.modes.is_empty(), "未注入句柄 {} 的 modes 应为空", h.name);
+                assert!(
+                    h.effects.is_empty(),
+                    "未注入句柄 {} 的 effects 应为空",
+                    h.name
+                );
+            }
         }
     }
 
@@ -946,6 +1021,7 @@ fn startup_rejects_invalid_handle_names() {
     let invalid_cases = [
         ("dir_1abc", "dir", "1abc"),
         ("dir_spaces", "dir", " app "),
+        ("dir_discard", "dir", "discard"),
         ("env_keyword", "env", "for"),
         ("env_builtin", "env", "len"),
         ("egress_ext", "egress", "regex"),
@@ -999,3 +1075,5 @@ access = "read"
 
 #[path = "node/calls.rs"]
 mod calls;
+#[path = "node/writable.rs"]
+mod writable;

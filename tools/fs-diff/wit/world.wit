@@ -1,0 +1,17 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-diff@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{read-dir, path-diff};
+
+    /// 返回目录 dir 中可见待定改动的 unified diff（上下文 3 行），按根相对路径的字节序排序。
+    /// 没有文本块的项 patch 为 None；只读目录返回空列表。
+    diff: func(dir: borrow<read-dir>) -> result<list<path-diff>, string>;
+}
+
+world fs-diff {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

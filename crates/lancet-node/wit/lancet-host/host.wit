@@ -5,14 +5,27 @@ package lancet:host@0.1.0;
 
 interface handles {
     record entry { name: string, is-dir: bool, is-link: bool }
+    record pending-change { path: string, action: string, conflict: bool }
+    record path-diff { path: string, action: string, conflict: bool, patch: option<string> }
 
     resource read-dir {
         /// 读取目录内 path 处的文本文件（大小不超过 128 MiB 的有效 UTF-8 文本）；跟随目录内符号链接，越界或命中 hidden 规则时报错；目标不存在（ENOENT）且路径未命中 hidden 规则时返回 none。
         read: func(path: string) -> result<option<string>, string>;
         /// 列出目录内 path 处目录的直接子项（按名称 UTF-8 字节序排序）；过滤 hidden、越界或悬空符号链接与非普通文件/目录，保留指向文件或目录的符号链接；目标不存在（ENOENT）且路径未命中 hidden 规则时返回 none。
         entries: func(path: string) -> result<option<list<entry>>, string>;
+        /// 列出目录中可见的待定改动，按根相对路径的字节序排序；只读目录返回空列表。
+        status: func() -> result<list<pending-change>, string>;
+        /// 返回目录中可见待定改动的 unified diff，按根相对路径的字节序排序；只读目录返回空列表。
+        diff: func() -> result<list<path-diff>, string>;
     }
-    resource write-dir;
+    resource write-dir {
+        /// 读取影子目录内 path 处的文本文件（大小不超过 128 MiB 的有效 UTF-8 文本）；跟随目录内符号链接，越界、命中 hidden 或保留的 .git 时报错；目标不存在（ENOENT）且路径未命中 hidden 规则时返回 none。
+        read: func(path: string) -> result<option<string>, string>;
+        /// 将 UTF-8 文本整文件写入影子目录内 path 处，自动创建缺少的上级目录；替换已有普通文件时保持其权限。
+        write: func(path: string, content: string) -> result<_, string>;
+        /// 丢弃 path 处的待定改动，恢复为基准；冲突路径改为接受当前宿主版本。
+        reset: func(path: string) -> result<_, string>;
+    }
     resource exec-env;
     resource egress;
 }

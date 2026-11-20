@@ -10,6 +10,7 @@ interface dispatch {
     }
 
     call: func(tool-id: string, args: list<argument>) -> result<string, string>;
+    discard: func() -> result<_, string>;
 }
 
 interface interpreter {

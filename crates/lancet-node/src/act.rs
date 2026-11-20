@@ -21,6 +21,7 @@ wasmtime::component::bindgen!({
     additional_derives: [PartialEq, Eq],
     imports: {
         "lancet:act/dispatch.call": trappable,
+        "lancet:act/dispatch.discard": trappable,
     },
 });
 
@@ -129,14 +130,37 @@ pub(crate) fn check_epoch_interrupt(
     Ok(UpdateDeadline::Continue(1))
 }
 
-type DispatchFn =
-    Box<dyn FnMut(&str, &[DispatchArgument]) -> wasmtime::Result<Result<String, String>> + Send>;
+/// `act` 解释器向宿主发起的工具分发与 `discard()` 回调。
+pub trait ActHost: Send {
+    fn call(
+        &mut self,
+        tool_id: &str,
+        args: &[DispatchArgument],
+    ) -> wasmtime::Result<Result<String, String>>;
+
+    fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
+        Ok(Err("当前调用未配置 discard()".to_owned()))
+    }
+}
+
+impl<F> ActHost for F
+where
+    F: FnMut(&str, &[DispatchArgument]) -> wasmtime::Result<Result<String, String>> + Send,
+{
+    fn call(
+        &mut self,
+        tool_id: &str,
+        args: &[DispatchArgument],
+    ) -> wasmtime::Result<Result<String, String>> {
+        self(tool_id, args)
+    }
+}
 
 struct StoreState {
     memory: MemoryBudget,
     deadline: Instant,
     cancelled: Arc<AtomicBool>,
-    dispatch: DispatchFn,
+    host: Box<dyn ActHost>,
 }
 
 impl lancet::act::dispatch::Host for StoreState {
@@ -145,7 +169,11 @@ impl lancet::act::dispatch::Host for StoreState {
         tool_id: String,
         args: Vec<DispatchArgument>,
     ) -> wasmtime::Result<Result<String, String>> {
-        (self.dispatch)(&tool_id, &args)
+        self.host.call(&tool_id, &args)
+    }
+
+    fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
+        self.host.discard()
     }
 }
 
@@ -193,21 +221,19 @@ impl ActRuntime {
         &self.engine
     }
 
-    /// 在独立 `Store` 中执行一次 Starlark 脚本，施加内存上限、截止时间、取消控制与子调用分发。
+    /// 在独立 `Store` 中执行一次 Starlark 脚本，施加内存上限、截止时间、取消控制与宿主分发。
     pub fn run(
         &self,
         script: &str,
         context: &ActContext,
-        dispatch: impl FnMut(&str, &[DispatchArgument]) -> wasmtime::Result<Result<String, String>>
-        + Send
-        + 'static,
+        host: impl ActHost + 'static,
         deadline: Instant,
         cancelled: Arc<AtomicBool>,
     ) -> Result<Payload, ActError> {
         let context_json = serde_json::to_string(context)
             .map_err(anyhow::Error::from)
             .map_err(ActError::Component)?;
-        let mut store = self.new_store(Box::new(dispatch), deadline, cancelled);
+        let mut store = self.new_store(Box::new(host), deadline, cancelled);
         let call_res = (|| -> wasmtime::Result<Result<Payload, Diagnostic>> {
             let bindings = self.pre.instantiate(&mut store)?;
             bindings
@@ -224,7 +250,9 @@ impl ActRuntime {
     /// 实例化组件一次并读取 `act` 内置全局环境的 `.pyi` 类型存根。
     pub fn builtin_stub(&self) -> anyhow::Result<String> {
         let mut store = self.new_store(
-            Box::new(|_, _| Ok(Err("builtin-stub 不支持子调用分发".to_owned()))),
+            Box::new(|_: &str, _: &[DispatchArgument]| {
+                Ok(Err("builtin-stub 不支持子调用分发".to_owned()))
+            }),
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
         );
@@ -243,7 +271,9 @@ impl ActRuntime {
     /// 校验配置中的句柄名是否为合法 Starlark 标识符且不与内置全局或包装入口重名。
     pub fn check_handle_name(&self, name: &str) -> anyhow::Result<()> {
         let mut store = self.new_store(
-            Box::new(|_, _| Ok(Err("check-handle-name 不支持子调用分发".to_owned()))),
+            Box::new(|_: &str, _: &[DispatchArgument]| {
+                Ok(Err("check-handle-name 不支持子调用分发".to_owned()))
+            }),
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
         );
@@ -262,7 +292,7 @@ impl ActRuntime {
 
     fn new_store(
         &self,
-        dispatch: DispatchFn,
+        host: Box<dyn ActHost>,
         deadline: Instant,
         cancelled: Arc<AtomicBool>,
     ) -> Store<StoreState> {
@@ -272,7 +302,7 @@ impl ActRuntime {
                 memory: MemoryBudget::new(ACT_MEMORY_LIMIT_BYTES),
                 deadline,
                 cancelled,
-                dispatch,
+                host,
             },
         );
         store.limiter(|state| &mut state.memory);
