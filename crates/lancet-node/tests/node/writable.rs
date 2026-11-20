@@ -788,7 +788,7 @@ access = "write"
         ExecuteOutcome::Succeeded { content, .. } => {
             assert_eq!(
                 content["printed"],
-                json!("待定文件 2 个。用 discard() 丢弃。\n")
+                json!("待定文件 2 个。用 commit() 发布或 discard() 丢弃。\n")
             );
         }
         other => panic!("期望成功：{other:?}"),
@@ -805,7 +805,7 @@ access = "write"
         ExecuteOutcome::Succeeded { content, .. } => {
             assert_eq!(
                 content["printed"],
-                json!("待定文件 4 个。用 discard() 丢弃。\n")
+                json!("待定文件 4 个。用 commit() 发布或 discard() 丢弃。\n")
             );
         }
         other => panic!("期望成功：{other:?}"),
@@ -854,7 +854,7 @@ return {
             );
             assert_eq!(
                 content["printed"],
-                json!("待定文件 1 个。用 discard() 丢弃。\n")
+                json!("待定文件 1 个。用 commit() 发布或 discard() 丢弃。\n")
             );
         }
         other => panic!("期望成功：{other:?}"),
@@ -1181,7 +1181,7 @@ fn pending_hint_respects_compact_json_budget() {
     );
     assert!(matches!(mk, ExecuteOutcome::Succeeded { .. }));
 
-    let hint = "待定文件 1 个。用 discard() 丢弃。\n";
+    let hint = "待定文件 1 个。用 commit() 发布或 discard() 丢弃。\n";
     let exact_with_pending = run_exec(
         &mut stream,
         23,
@@ -1259,6 +1259,25 @@ fn pending_hint_respects_compact_json_budget() {
             );
         }
         other => panic!("期望 Failed：{other:?}"),
+    }
+
+    // 5. commit() 发布后待定清零，不再追加待定提示。
+    let committed = run_act(
+        &mut stream,
+        27,
+        "inv-commit-clears-hint",
+        &digest,
+        "commit()\nprint(\"done\")\nreturn 1",
+    );
+    match committed {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(
+                content["printed"],
+                json!("done\n"),
+                "commit() 发布清空待定后不应再附带待定提示"
+            );
+        }
+        other => panic!("commit() 发布应成功，实际：{other:?}"),
     }
 }
 

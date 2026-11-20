@@ -212,6 +212,11 @@ fn register_core_helpers(builder: &mut GlobalsBuilder) {
         crate::lancet::act::dispatch::discard().map_err(anyhow::Error::msg)?;
         Ok(NoneType)
     }
+
+    fn commit() -> anyhow::Result<NoneType> {
+        crate::lancet::act::dispatch::commit().map_err(anyhow::Error::msg)?;
+        Ok(NoneType)
+    }
 }
 
 fn register_regex(builder: &mut GlobalsBuilder) {

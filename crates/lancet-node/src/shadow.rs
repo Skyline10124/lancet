@@ -4,6 +4,7 @@
 //! 持久 reflink 影子工作区、宿主同步、影子监听、待定改动与冲突管理。
 
 mod model;
+pub mod publish;
 mod scanner;
 mod watch;
 
@@ -126,6 +127,8 @@ pub struct ShadowReadView {
 struct ShadowInner {
     name: String,
     key: String,
+    host_dev: u64,
+    host_ino: u64,
     tree_root: PathBuf,
     base_root: PathBuf,
     host_root_fd: OwnedFd,
@@ -251,6 +254,9 @@ impl ShadowDir {
 
         let host_root_fd = open_root_fd(&canonical_host_root)
             .with_context(|| format!("打开宿主目录 `{name}` 根 fd 失败"))?;
+        let host_root_stat = rustix::fs::fstat(&host_root_fd)
+            .map_err(io::Error::from)
+            .with_context(|| format!("读取宿主目录 `{name}` 根属性失败"))?;
         let tree_root_fd = open_root_fd(&tree_root)
             .with_context(|| format!("打开影子目录 `{name}` tree 根 fd 失败"))?;
         let base_root_fd = open_root_fd(&base_root)
@@ -266,6 +272,8 @@ impl ShadowDir {
         let inner = Arc::new(ShadowInner {
             name: name.to_owned(),
             key,
+            host_dev: host_root_stat.st_dev,
+            host_ino: host_root_stat.st_ino,
             tree_root,
             base_root,
             host_root_fd,

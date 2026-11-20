@@ -359,6 +359,7 @@ hosts = ["pypi.org"]
         act_tool.description
     );
     for expected in [
+        "def commit() -> None:",
         "def discard() -> None:",
         "class Entry:",
         "is_link: bool",
@@ -1022,6 +1023,7 @@ fn startup_rejects_invalid_handle_names() {
         ("dir_1abc", "dir", "1abc"),
         ("dir_spaces", "dir", " app "),
         ("dir_discard", "dir", "discard"),
+        ("dir_commit", "dir", "commit"),
         ("env_keyword", "env", "for"),
         ("env_builtin", "env", "len"),
         ("egress_ext", "egress", "regex"),
@@ -1075,5 +1077,7 @@ access = "read"
 
 #[path = "node/calls.rs"]
 mod calls;
+#[path = "node/publish.rs"]
+mod publish;
 #[path = "node/writable.rs"]
 mod writable;

@@ -116,31 +116,36 @@ stateDiagram-v2
 | 步骤 | 规则 |
 | --- | --- |
 | 发布前核对 | 逐项核对[发布冲突的原因](#发布冲突的原因)中时机为“发布前”的条件。任一条件成立时整批不发布，列出冲突及原因，待定改动保留 |
-| 修改文件 | 把影子版本 `FICLONE` 到宿主同一目录下的临时名，再用 `renameat2(RENAME_EXCHANGE)` 与宿主文件交换；换出的宿主 inode 移进节点状态目录 |
+| 修改文件 | 临界区之前，把影子版本 `FICLONE` 到私有暂存处；`Undo` 落盘之后，把它移到宿主同一目录下的临时名，再用 `renameat2(RENAME_EXCHANGE)` 与宿主文件交换，换出的宿主对象移进前态槽 |
 | 新建文件 | 用 `RENAME_NOREPLACE` 放到宿主路径上 |
 | 删除文件 | 把宿主文件移进节点状态目录 |
-| 同类别的目录改名 | 在宿主上执行一次 `rename` |
-| 交换后核对 | 换出的 inode 仍是基准 |
-| 撤回 | 后面的项冲突时，逆序撤回已发布的项。撤回时发现宿主又改了已发布的文件，保留宿主的修改，结算为 `Indeterminate`，并列出每个文件的状态：已发布、已撤回、保留宿主修改 |
+| 目录 | 新建时先父后子，删除时先子后父；只移走已经空了的目录，宿主上有本批以外的子项时报“宿主已改”。影子中的目录改名，按旧路径下的删除与新路径下的新建逐项发布 |
+| 符号链接与类型变化 | 按实际的前后类型准备对象，用 `RENAME_EXCHANGE` 或 `RENAME_NOREPLACE` 放置；全程不解引用链接 |
+| 交换后核对 | 实际换出的对象仍等于基准：类型、权限、内容与链接目标 |
+| 撤回 | 后面的项冲突时，逆序撤回已发布的项。撤回时发现宿主又改了已发布的文件，保留宿主的修改，结算为 `Indeterminate`，并列出每个文件的状态：已发布、已撤回、保留宿主修改，或未执行（宿主未被本调用写入） |
 | 落盘 | 只落盘本批文件与所在目录，不用 `syncfs` |
 
-- 影子 inode 留在原处。发布成功后，发布的路径的基准更新为发布后的状态。
+- 一次 `act` 发布一批：本次 `act` 获授的全部可写工作目录在结算时的常规待定改动。`regenerable` 内容留在影子，特殊文件不发布。
+- 影子 inode 留在原处。发布成功后，发布的路径的基准更新为发布后的状态；基准的后态在临界区之前准备好并落盘。
 - 结局只有“全部发布”与“全部不发布”两种，唯一的例外是撤回时宿主又改了已发布文件的 `Indeterminate`。多个文件不保证同时对宿主可见：发布窗口随文件数增长。
-- 发布属于协议的最终提交临界区：开始后不受 `cancel` 与断连影响，在 `settle_grace_ms` 内完成或撤回（[协议合同](../lancet-protocol.md#execute-的受理与结局)）。
+- 确定批次、发布前核对、生成 diff 与准备暂存对象，都在最终提交临界区之前完成，可以被截止与取消打断。进入临界区之前，节点在调用记录的锁内对截止与取消做最后一次判定。
+- 临界区内执行宿主上的交换与核对、目录权限的调整，以及撤回或推进基准；克隆文件与生成 diff 都在临界区之前完成。临界区开始后不受 `cancel` 与断连影响，在 `settle_grace_ms` 内完成或撤回（[协议合同](../lancet-protocol.md#execute-的受理与结局)）。临界区按实测约每个文件 0.5 ms（见[保证](#保证)），约 1 万个文件以上的批次可能超过 5,000 ms 的宽限。
 - 发布后不保留前态。发布前的改动由 `discard()` 与 `reset(path)` 撤回；发布之后的修正由新的 `act` 完成。
 
 ### 发布冲突的原因
 
-发布前核对或交换后核对不通过时，这次发布以 `Failed(Conflict)` 结束；撤回时宿主又改了已发布文件的，结算为 `Indeterminate`（见上表的“撤回”）。错误信息逐条列出冲突的路径或引用，以及原因：
+发布前核对或交换后核对不通过时，这次发布以 `Failed(Conflict)` 结束；撤回时宿主又改了已发布文件的，结算为 `Indeterminate`（见上表的“撤回”）。错误信息逐条列出冲突的路径或引用，以及原因，每条一行，写作 `<句柄> "<路径>"：<原因>`，路径加双引号并转义，例如 `w "linked.txt"：多个链接（2）`。整条消息不超过 16,384 字节：冲突列表放不下时在整行处截断，末行写“另有 N 条未列出”；仍有可见的待定改动时，其后另起一行附待定提示，提示计入这 16,384 字节。`Indeterminate` 中逐个文件的状态也按这条上限截断。
 
 | 原因 | 条件 | 核对时机 |
 | --- | --- | --- |
 | `hidden` 路径 | 待定改动中有匹配 `hidden` 的路径 | 发布前 |
 | 多个链接 | 被改的宿主文件链接数大于 1 | 发布前 |
-| 宿主已改 | 宿主文件不再等于基准 | 发布前；交换后 |
+| 宿主已改 | 本批路径在宿主上的状态不再等于基准；不在本批中的上级目录只要求可以访问 | 发布前；交换后 |
 | 引用已变 | 宿主 HEAD 或要更新的引用不再等于基准 | 发布前 |
 | Git 锁被占用 | 宿主 HEAD、index 或要更新的引用的 lockfile 已存在 | 发布前 |
 | 宿主已暂存 | 本批路径在宿主上有暂存，见 [Git](#git) | 发布前 |
+
+引用已变、Git 锁被占用与宿主已暂存三种原因，随影子 `.git/` 实施（见[尚未承接](#尚未承接)）。
 
 模型据原因选择处理方式。例如“宿主已改”时用 `reset(path)` 接受宿主的版本后重做；“宿主已暂存”时把该路径移出自己的提交，或请用户在宿主上取消暂存。
 
@@ -155,21 +160,29 @@ stateDiagram-v2
 ## 崩溃恢复
 
 - 待定改动保存在影子里，节点重启后照常保留。
-- 节点在发布中途崩溃时，重启后、响应 `hello` 之前，按发布日志完成或撤回这次发布，宿主恢复到全部发布或全部未发布。撤回时发现宿主又改了已发布的文件，保留宿主的修改，并把该调用结算为 `Indeterminate`（[调用记录](../lancet-protocol.md#调用记录)）。
+- 发布日志记在该调用的 `Pending` 调用记录里，分两段：`Undo` 在发布前核对通过之后、宿主操作开始之前落盘；`Finish` 在宿主结果落盘之后写入。私有对象放在节点状态目录的 `publish/<调用散列>/` 下：`stage/` 是待放到宿主上的暂存对象，`pre/` 是换出的宿主对象（前态槽），`base/` 是普通文件与符号链接的基准后态。
+- 节点在发布中途崩溃时，重启后、打开影子与响应 `hello` 之前处理日志：
+  - `Undo`：按对象的实际位置逆序撤回；
+  - `Finish`：只补齐基准并结算，不再改写宿主。
+
+  宿主恢复到全部发布或全部未发布；撤回时发现宿主又改了已发布的文件，保留宿主的修改。
+- 这类调用结算为 `Indeterminate`（[调用记录](../lancet-protocol.md#调用记录)）。原因写明宿主的实际结果：发布未开始、已撤回、已完成，或部分保留宿主修改；宿主上留有发布项时，回执列出这些路径。
+- 日志记录的工作目录根与当前配置不符时，节点启动失败，报错写明调用与日志的位置。
 
 ## 保证
 
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
-| 宿主工作目录只在发布时被写入 | 每个可写工作目录 | 写入落在影子；执行环境中的可写挂载来源都在节点状态目录内 | [ADR 0002 第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布)；`crates/lancet-node/tests/node/writable.rs::write_tools_obey_paths_and_edit_cardinality`、`discard_is_immediate`（`fs.*` 的写入；发布随 #7 的 4b） |
-| 发布要么全部生效，要么全部不生效；唯一的例外结算为 `Indeterminate`，并列出每个文件的状态 | 每次发布 | 发布前核对、交换后核对与逆序撤回 | ADR 0002 第 6 节；实验 3 第六、七轮（[已核实的事实](../../adr/0002-lancet-node-api-tools-and-act.md#已核实的事实)）：发布途中宿主改了已发布的文件、后面又有文件冲突时结算为 `Indeterminate`，3/3 |
-| 发布中途崩溃后，宿主恢复到全部发布或全部未发布；唯一的例外是撤回时宿主又改了已发布的文件，保留宿主的修改，结算为 `Indeterminate` | 每次发布 | 发布日志在交换之前持久化 | ADR 0002 第 6 节；实验 3：崩溃恢复 27/27（24 次杀进程后恢复，3 次多链接文件在写入前整批报冲突），Git 崩溃恢复 18/18 |
+| 宿主工作目录只在发布时被写入 | 每个可写工作目录 | 写入落在影子；执行环境中的可写挂载来源都在节点状态目录内 | [ADR 0002 第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布)；`crates/lancet-node/tests/node/writable.rs::write_tools_obey_paths_and_edit_cardinality`、`discard_is_immediate`；`crates/lancet-node/tests/node/publish.rs::commit_requires_valid_return_and_preserves_drafts` |
+| 发布要么全部生效，要么全部不生效；唯一的例外结算为 `Indeterminate`，并列出每个文件的状态 | 每次发布 | 发布前核对、交换后核对与逆序撤回 | ADR 0002 第 6 节；实验 3 第六、七轮（[已核实的事实](../../adr/0002-lancet-node-api-tools-and-act.md#已核实的事实)）：发布途中宿主改了已发布的文件、后面又有文件冲突时结算为 `Indeterminate`，3/3；`crates/lancet-node/tests/node/publish.rs::publish_reports_each_conflict_before_writing`、`late_conflict_reverses_the_batch`、`rollback_preserves_host_edit_and_lists_every_path`；`crates/lancet-node/tests/shadow.rs::publish_path_kinds` |
+| 发布中途崩溃后，宿主恢复到全部发布或全部未发布；唯一的例外是撤回时宿主又改了已发布的文件，保留宿主的修改，结算为 `Indeterminate` | 每次发布 | 发布日志在交换之前持久化 | ADR 0002 第 6 节；实验 3：崩溃恢复 27/27（24 次杀进程后恢复，3 次多链接文件在写入前整批报冲突），Git 崩溃恢复 18/18；`crates/lancet-node/tests/node/publish.rs::publish_recovery_before_first_hello`（各崩溃窗口的磁盘现场）、`publish_survives_random_kill`（发布中随机与指定时刻 `SIGKILL` 真节点） |
 | 待定改动与全量扫描、全内容对照完全一致 | 每个可写工作目录 | 影子侧事件；队列溢出时全量扫描 | ADR 0002 第 6 节；实验 3：继承用例 126/126、随机负载 200/200、宿主同步 45/45；`crates/lancet-node/tests/shadow.rs::shadow_status_matches_inherited_cases`（实验 3 的 63 个原始输入，按本合同的比较口径；与原对照结论不同的 8 项涉及硬链接关系与 FIFO，在测试中列明）、`shadow_random_batches_match_full_contents`、`shadow_queue_overflow_matches_full_scan`、`shadow_reopens_pending_without_reseeding` |
-| 节点之外的写者不会混进待定改动；两边改了同一文件时报冲突 | 每个可写工作目录 | 外部写者只改宿主；同步时有待定改动的路径标为冲突 | ADR 0002 第 6 节；实验 3：`act` 期间宿主改同一文件 40/40 报冲突，改不同文件 20/20 正常发布；`crates/lancet-node/tests/shadow.rs::host_sync_converges_after_unnotified_writes`；`crates/lancet-node/tests/node/writable.rs::conflict_reset_and_discard_use_distinct_versions` |
+| 节点之外的写者不会混进待定改动；两边改了同一文件时报冲突 | 每个可写工作目录 | 外部写者只改宿主；同步时有待定改动的路径标为冲突 | ADR 0002 第 6 节；实验 3：`act` 期间宿主改同一文件 40/40 报冲突，改不同文件 20/20 正常发布；`crates/lancet-node/tests/shadow.rs::host_sync_converges_after_unnotified_writes`；`crates/lancet-node/tests/node/writable.rs::conflict_reset_and_discard_use_distinct_versions`；`crates/lancet-node/tests/node/publish.rs::commit_rechecks_host_after_script_started` |
 | 宿主原有的暂存保留，config 与 hooks 不发布 | 每次发布 | 只把本批路径写进宿主 index；本批路径在宿主上有暂存时整批不发布 | ADR 0002 第 6 节；实验 3：Git 用例 114/114，其中宿主在 `act` 期间暂存同一路径 3/3 整批不发布、影子只暂存未提交 3/3 不写宿主 index；宿主在 `act` 之前已暂存同一路径的情形未覆盖，原型的实现在这一情形下会用影子 HEAD 中的版本覆盖宿主的暂存 |
-| 10 万条目、无改动的 `act` 固定开销不超过 50 ms | 性能 | — | ADR 0002 第 6 节的性能要求；第七轮原型 0.457 ms，不含 Git 仓库（有 10 万个跟踪文件时，原型的 Git 同步约 42 ms，主要是 Python helper 的启动）；实测（2026-11-19，AMD EPYC 9B14，Linux 6.12，release 构建）：100,000 个文件、1,000 个目录，不含 Git，同一连接 11 次 `execute("return 1")` 的中位数 8.46 ms；首次建立影子约 42 s，不计入 `act`（`crates/lancet-node/tests/node/writable.rs::measure_empty_act_100k`） |
+| 10 万条目、无改动的 `act` 固定开销不超过 50 ms | 性能 | — | ADR 0002 第 6 节的性能要求；第七轮原型 0.457 ms，不含 Git 仓库（有 10 万个跟踪文件时，原型的 Git 同步约 42 ms，主要是 Python helper 的启动）；实测（2026-11-19，AMD EPYC 9B14，Linux 6.12，release 构建）：100,000 个文件、1,000 个目录，不含 Git，同一连接 11 次 `execute("return 1")` 的中位数 7.39 ms；首次建立影子约 42 s，不计入 `act`（`crates/lancet-node/tests/node/writable.rs::measure_empty_act_100k`） |
 | 影子与宿主之间无外部改动时，4,000 个文件的 `git checkout` 总耗时不超过 2 s | 性能 | — | 同上；第七轮原型 1.82 s |
 | LATTICE 全量构建相对“只有命名空间”的开销不超过 3% | 性能 | — | 同上；第七轮原型 1.3% |
+| 发布时延按中位数：1 个文件不超过 50 ms，100 个文件不超过 1 s | 性能 | 只落盘本批文件与所在目录 | 维护者 2026-11-20 定的验收线；实测（2026-11-20，AMD EPYC 9B14，Linux 6.12，XFS，release 构建，4,000 个小文本文件、40 个目录）：1 个文件 15.7 ms，100 个文件 354 ms；4,000 个文件 12.5 s，另以库层分段计时测得临界区 1.97 s；200 个文件中后项冲突、整批撤回 822 ms（`crates/lancet-node/tests/node/publish.rs::measure_publish_latency`） |
 
 ## 范围之外
 
@@ -182,10 +195,9 @@ stateDiagram-v2
 
 | 事项 | 现状 |
 | --- | --- |
-| 发布的时延验收线 | 待裁决：发布改为只落盘本批文件与所在目录之后实测再定，见 [ADR 0002 待裁决](../../adr/0002-lancet-node-api-tools-and-act.md#待裁决) |
 | 多个工作目录、linked worktree、reftable 与 SHA-256 仓库的 `.git/` | 待裁决：第七轮原型只覆盖单个工作目录、SHA-1 loose objects 与普通 refs，实施前补验证 |
-| `commit()` 与发布事务 | 随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的 4b 提供 |
-| 影子 `.git/` | 随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的 4c 提供；在此之前，可写工作目录根下的 `.git` 不进影子，`fs.*` 读写时报错 |
+| 影子 `.git/` | 随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的 4c 提供，连同引用已变、Git 锁被占用与宿主已暂存三种冲突原因；在此之前，可写工作目录根下的 `.git` 不进影子，也不发布，`fs.*` 读写时报错 |
+| 影子中的目录改名作为一次 `rename` 发布 | 随 [#8](https://github.com/Skyline10124/lancet/issues/8) 实施，需要记录目录的移动来源；在此之前按逐路径的删除与新建发布（见[发布](#发布)） |
 | 执行环境建立后才新建的 `regenerable` 目录，是否在下次建立执行环境时改为单独挂载 | 待裁决：第一个版本按常规路径处理（见[待定改动](#待定改动)），实施时按实测决定 |
 | 新目录补装监听之前，经其中的短命硬链接改写目录外的文件 | 子树核实发现不了这类写入：链接已经删除，被改写文件所在的目录也收不到事件。在 [#8](https://github.com/Skyline10124/lancet/issues/8) 之前只有节点写影子，节点不建硬链接；随 #8 的执行环境决定处理方式 |
 | 名称不是 UTF-8 的待定路径在 `status()`、`diff()` 与回执中的表示 | 随 [#8](https://github.com/Skyline10124/lancet/issues/8) 决定：只有执行环境会产生这类待定路径，`fs.*` 的写入与重置不会（见[目录](host-resources.md#目录)） |
@@ -193,7 +205,8 @@ stateDiagram-v2
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- `cargo test -p lancet-node --test shadow`：影子的建立与重启、待定改动与全量对照，含实验 3 的继承、随机、宿主同步与溢出用例。
-- `cargo test -p lancet-node --test node`：可写目录与写入工具、冲突与 `reset`、`discard()`、互斥锁、待定提示与重启恢复。
+- `cargo test -p lancet-node --test shadow`：影子的建立与重启、待定改动与全量对照，含实验 3 的继承、随机、宿主同步与溢出用例；发布的路径种类与基准推进。
+- `cargo test -p lancet-node --test node`：可写目录与写入工具、冲突与 `reset`、`discard()`、互斥锁、待定提示与重启恢复；`commit()` 与发布、冲突原因、后项冲突与撤回、崩溃恢复与随机杀进程。
 - `cargo test --release -p lancet-node --test node measure_empty_act_100k -- --ignored --nocapture --test-threads=1`：10 万条目、无改动的 `act` 实测。
-- 发布与 Git 的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的 4b、4c 建立；执行环境的性能基准随 [#8](https://github.com/Skyline10124/lancet/issues/8) 建立；建立后写入保证表。
+- `cargo test --release -p lancet-node --test node measure_publish_latency -- --ignored --nocapture --test-threads=1`：发布时延与临界区实测。
+- Git 的测试随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的 4c 建立；执行环境的性能基准随 [#8](https://github.com/Skyline10124/lancet/issues/8) 建立；建立后写入保证表。

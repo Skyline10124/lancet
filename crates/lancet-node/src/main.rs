@@ -17,6 +17,7 @@ use lancet_node::act::ActRuntime;
 use lancet_node::dispatch::{DirSlot, Dispatcher};
 use lancet_node::read_dir::ReadDir;
 use lancet_node::shadow::ShadowDir;
+use lancet_node::shadow::publish::RecoveryRoot;
 use lancet_protocol::Capabilities;
 
 fn main() -> ExitCode {
@@ -56,6 +57,23 @@ fn run() -> anyhow::Result<()> {
     let state_dir = state::open(&loaded.config.node.state_dir)?;
     config::startup::check_ficlone(&loaded.config)?;
     let node_id = state::load_or_create_node_id(&state_dir)?;
+
+    // 启动恢复顺序：先打开可写目录恢复根句柄并处理 4a tmp/widened，再恢复带发布事务日志的遗留调用，
+    // 最后才打开 ShadowDir 重建索引与监听，确保在响应首个 hello 前一切已恢复并结算。
+    let mut recovery_roots = Vec::new();
+    for dir in &loaded.config.dir {
+        if dir.access == config::DirAccess::Write {
+            recovery_roots.push(RecoveryRoot::open(
+                state_dir.path(),
+                &dir.name,
+                &dir.path,
+                &dir.hidden,
+                &dir.regenerable,
+            )?);
+        }
+    }
+    calls::recover_published_calls(&state_dir, &recovery_roots)?;
+    drop(recovery_roots);
 
     let mut dirs = Vec::with_capacity(loaded.config.dir.len());
     for dir in &loaded.config.dir {

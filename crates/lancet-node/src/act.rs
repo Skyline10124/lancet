@@ -22,6 +22,7 @@ wasmtime::component::bindgen!({
     imports: {
         "lancet:act/dispatch.call": trappable,
         "lancet:act/dispatch.discard": trappable,
+        "lancet:act/dispatch.commit": trappable,
     },
 });
 
@@ -130,7 +131,7 @@ pub(crate) fn check_epoch_interrupt(
     Ok(UpdateDeadline::Continue(1))
 }
 
-/// `act` 解释器向宿主发起的工具分发与 `discard()` 回调。
+/// `act` 解释器向宿主发起的工具分发、`discard()` 与 `commit()` 回调。
 pub trait ActHost: Send {
     fn call(
         &mut self,
@@ -140,6 +141,10 @@ pub trait ActHost: Send {
 
     fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
         Ok(Err("当前调用未配置 discard()".to_owned()))
+    }
+
+    fn commit(&mut self) -> wasmtime::Result<Result<(), String>> {
+        Ok(Err("当前调用未配置 commit()".to_owned()))
     }
 }
 
@@ -174,6 +179,10 @@ impl lancet::act::dispatch::Host for StoreState {
 
     fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
         self.host.discard()
+    }
+
+    fn commit(&mut self) -> wasmtime::Result<Result<(), String>> {
+        self.host.commit()
     }
 }
 
