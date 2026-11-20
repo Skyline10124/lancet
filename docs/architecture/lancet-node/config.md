@@ -101,6 +101,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 - 规则只来自节点配置；工作区里的 `.gitignore` 不参与。
 - 规则默认为空，节点不内置默认的 `regenerable` 或 `hidden` 规则；配置模板给出示例。
 - 各工作目录下的 `.git/` 固定按[影子工作区的 Git 规则](shadow-workspace.md#git)处理。
+- 同一路径同时匹配 `hidden` 与 `regenerable` 时，按 `hidden` 处理。
 
 `regenerable` 标出可再生路径（如 `target/`），`hidden` 标出排除路径（如 `.env`）。两类路径在影子、发布与撤回中的处理见[路径分类](shadow-workspace.md#路径分类)；`hidden` 在目录资源与执行环境中的处理见[目录](host-resources.md#目录)与[挂载表](host-resources.md#挂载表)。
 
@@ -129,7 +130,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 | `node_id`，存于文件 `node_id` | [协议合同](../lancet-protocol.md#概念) |
 | 协议服务的 Unix 域套接字 `node.sock` | [协议合同](../lancet-protocol.md#连接与握手) |
 | 调用记录账本与回执，存于 `calls/` | [协议合同](../lancet-protocol.md#调用记录) |
-| 每个可写工作目录的影子，含私有 `.git/` | [影子工作区](shadow-workspace.md) |
+| 每个可写工作目录的影子与基准，存于 `shadows/<key>/`；私有 `.git/` 随影子 | [影子工作区](shadow-workspace.md#影子的建立与同步) |
 | 发布日志与换出的宿主 inode | [发布](shadow-workspace.md#发布) |
 | 执行环境的私有家目录、私有包缓存与私有临时目录 | [执行环境](host-resources.md#执行环境) |
 
@@ -150,7 +151,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 | --- | --- |
 | `name` | 配置中的句柄名 |
 | `kind` | 对应的类型存根名：`ReadDir`、`WriteDir`、`ExecEnv`、`Egress` |
-| `effects`、`modes` | 注入脚本的句柄：由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明)。没有注入脚本的句柄为空：可写目录、执行环境与网络出口分别随 [#7](https://github.com/Skyline10124/lancet/issues/7)、[#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 注入 |
+| `effects`、`modes` | 注入脚本的句柄：由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明)。没有注入脚本的句柄为空：执行环境与网络出口分别随 [#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 注入 |
 | `attributes` | 目录：`hidden`、`regenerable`，取配置中的模式原文与顺序；执行环境：`mounts`（挂载的工作目录名）与 `tools`（展开 `~/` 后的路径）；网络出口：`hosts` |
 
 句柄依次列出全部 `[[dir]]`、`[[env]]` 与 `[[egress]]`，各组内按配置中的顺序。
@@ -208,7 +209,6 @@ for 每个网络出口 n:
 | 事项 | 现状 |
 | --- | --- |
 | 执行环境内存上限的键名与默认值 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定 |
-| 同一路径同时匹配 `hidden` 与 `regenerable` 时怎样处理：启动时拒绝，或按某种优先级 | 待定，随 [#7](https://github.com/Skyline10124/lancet/issues/7) 决定 |
 
 ## 验证
 

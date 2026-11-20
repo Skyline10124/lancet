@@ -53,7 +53,10 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 | 资源类型 | 方法 |
 | --- | --- |
 | `read-dir` | `read(path) -> result<option<string>, string>` 读取 UTF-8 文本文件；`entries(path) -> result<option<list<entry>>, string>` 列出目录中可见的直接子项，按名称的 UTF-8 字节序排列，`entry` 为 `{ name: string, is-dir: bool, is-link: bool }`：`is-link` 表示子项本身是符号链接，`is-dir` 取链接目标的类型。目标不存在（`ENOENT`）且没有命中 `hidden` 时，两者都返回 `none`。路径、符号链接与 `hidden` 的处理见[目录](host-resources.md#目录) |
-| `write-dir`、`exec-env`、`egress` | 只有类型，用于推出模板；方法见[尚未承接](#尚未承接) |
+| `write-dir` | `read(path)` 同 `read-dir`；`write(path, content) -> result<_, string>` 整文件写入，缺少的上级目录一并创建；`reset(path) -> result<_, string>` 丢弃该路径的待定改动。读写都作用于影子，见[影子工作区](shadow-workspace.md) |
+| `exec-env`、`egress` | 只有类型，用于推出模板；方法见[尚未承接](#尚未承接) |
+
+`read-dir` 另有 `status() -> result<list<pending-change>, string>` 与 `diff() -> result<list<path-diff>, string>`，列出影子的待定改动；只读工作目录没有影子，二者返回空列表。`pending-change` 为 `{ path: string, action: string, conflict: bool }`，`path-diff` 另带 `patch: option<string>`。
 
 ## 声明加载
 
@@ -103,6 +106,9 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 - 工具实例陷入或超出内存上限时，该次调用报错，脚本在调用处中止。工具运行期间 `remaining_ms` 耗尽或收到 `cancel` 时，节点中断该实例，本次 `act` 结算为 `Deadline` 或 `Cancelled`（[`act` 的结局](act.md#结局)）。
 - **单次返回窗口：** 一次 API 工具交回脚本的成功值，按紧凑 UTF-8 JSON 的字节数计，上限为 8 MiB（8,388,608 字节），等于上限时成功。超出时该次调用报错，错误提示改用 `proc.pipe` 过滤后再返回。窗口容纳未过滤的测试日志或响应体，供脚本就地筛选。
 - 每次到达分发层的调用在回执的 `steps` 中记一条 `{ tool, outcome }`：`tool` 为脚本中的工具名（如 `fs.read`），`outcome` 为该次调用的结局；κ 不满足、实参无效或超出返回窗口的调用记为 `Failed`。解析、静态检查与求值中没有发出分发的错误不记步骤。
+- 形参为 `borrow<read-dir>`、实参是可写工作目录时，分发层只注入影子的只读视图；只有 `borrow<write-dir>` 形参拿到可写资源。
+- 宿主方法报告实际发生的变更，分发层把它们记为本次 `act` 回执中的 effect 条目：影子中常规路径的变更为 `Write`、`residue` 为 `None`；`regenerable` 路径中的写入为 `Write`、`residue` 为 `Regenerable`，变更项只记命中的规则。工具报错、陷入或被中断时，已发生的变更照样记入。每次调用结束时，分发层核对这些变更都在以实参实例化的 effect 模板之内；越出时本次 `act` 以 `Failed(InternalError)` 结束，已发生的变更保留在回执中。
+- 内置函数 `discard()` 经同一分发接口交给节点（[`act` 的待定改动](act.md#待定改动)），在回执的 `steps` 中记为 `discard`。
 
 ## 组件运行时
 
@@ -159,6 +165,16 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 - 按正则逐行匹配，每个匹配行记一条 `{ path, line_no, text }`：行号从 1 开始，`text` 为去掉行结束符的整行。
 - 结果按 `path` 的字节序、再按 `line_no` 升序排列；没有命中时为空列表。
 
+写入与待定改动工具的脚本签名与行为，`d` 为 `WriteDir`；`status()`、`diff()` 也是 `ReadDir` 的方法：
+
+| 方法 | 返回 | 行为 |
+| --- | --- | --- |
+| `d.write(path, content)` | `None` | 整文件写入 UTF-8 文本；缺少的上级目录一并创建，替换已有普通文件时保持其权限。内容与原文件相同时不发生写入 |
+| `d.edit(path, old, new, all = None)` | `None` | 按字面、自左向右、不重叠地匹配 `old`，次数规则见上方的报错表；核对通过后才写入 |
+| `d.reset(path)` | `None` | 丢弃该路径的待定改动；冲突路径改为接受当前的宿主版本。没有待定改动时不做任何事；会连带丢弃其他路径的待定改动时报错 |
+| `d.status()` | `PendingChange` 的列表 | 可见的待定路径，按路径的字节序排列；`action` 为 `added`、`modified` 或 `deleted`（类型与权限的变化算 `modified`），`conflict` 标出冲突 |
+| `d.diff()` | `PathDiff` 的列表 | 与 `status()` 同一集合，另带基准到影子的 unified diff，上下文 3 行；目录、链接、纯权限变化、非文本文件，以及任一侧超过 128 MiB 的文件，`patch` 为 `None` |
+
 - API 工具保持单一职责，交回原始的领域结构，不在各个工具上定义文本裁剪参数；筛选由脚本的文本视图完成（[全局环境](act.md#act-的说明与全局环境)）。
 - 所有宿主返回类型与视图类型都可以直接序列化为 JSON。
 - 超出单次返回窗口的流式进程输出，用 `proc.pipe` 在内核管道中过滤。
@@ -193,7 +209,7 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 | 工具只能触及本次调用注入的句柄，并且只能按参数类型使用它们 | 每次 API 工具调用 | 链接器只定义 `lancet:host`；`wasmtime` 在实例化与调用时核对类型 | [ADR 0002 第 2 节](../../adr/0002-lancet-node-api-tools-and-act.md#2-唯一的定义单元是-api-工具对外唯一工具是-act)、[第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；实验 4（[已核实的事实](../../adr/0002-lancet-node-api-tools-and-act.md#已核实的事实)）；`crates/lancet-node/src/dispatch.rs::tests::check_coeffects_enforces_grants_and_modes`；`crates/lancet-node/tests/dispatch.rs::tool_trap_fails_only_that_call`、`dispatch_checks_wit_numeric_ranges` |
 | 模板、类型存根、环境简述与 `catalog_digest` 都与工具声明一致 | 每个加载的工具 | 都由声明推出；签名对不上的组件拒绝加载 | ADR 0002 第 2 节；实验 4；`crates/lancet-node/tests/tool_declarations.rs::packaged_read_keeps_docs_and_signature`、`derives_templates_for_all_handle_parameters`、`product_read_tools_match_templates`；`crates/lancet-node/tests/node.rs::hello_describe_matches_config`（环境简述的 `modes` 与类型存根；`catalog_digest` 由二者与授权计算） |
 | 导入了 `lancet:host` 以外的接口、与节点的 `lancet:host` 不兼容、缺少顶层 `lancet:wit` 段、签名对不上或不符合声明形状的组件不被加载 | 每个工具组件 | 声明加载在预编译之前核对；拒绝即构建失败 | `crates/lancet-node/tests/tool_declarations.rs::rejects_foreign_and_incompatible_host_imports`、`rejects_missing_wit_section`、`rejects_mismatched_documented_exports`、`rejects_tool_without_handle_receiver`、`maps_type_aliases_and_rejects_unrepresentable_types` |
-| 回执记录的 ε 不越出模板；越出时本次 `act` 以 `Failed` 结束 | 每次 API 工具调用 | 分发层逐次核对 | [ADR 0002 第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方)；首批只读工具没有 effect，记录与核对随 [#7](https://github.com/Skyline10124/lancet/issues/7) 建立 |
+| 回执记录的 ε 不越出模板；越出时本次 `act` 以 `Failed` 结束 | 每次 API 工具调用 | 分发层逐次核对 | [ADR 0002 第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方)；`crates/lancet-node/tests/dispatch.rs::effect_outside_template_fails_act`、`write_receipt_survives_tool_failure` |
 | 交回脚本的单次工具结果不超过 8 MiB；超出时该次调用报错 | 每次 API 工具调用 | 分发层按紧凑 JSON 的字节数核对 | `crates/lancet-node/tests/node/calls.rs::tool_result_window_uses_compact_json_bytes` |
 | 节点发布的工具集合中，同一句柄类型上的方法不重名，同名记录定义一致 | 节点发布的工具集合 | 构建时核对，不满足即构建失败 | `crates/lancet-node/tests/tool_declarations.rs::rejects_method_and_record_conflicts_across_components` |
 | 组件超出内存上限或截止时间时只终止该实例，节点继续服务 | 每次组件调用 | `wasmtime` 的 `ResourceLimiter` 与 epoch 中断 | ADR 0002 第 4 节；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`（解释器组件）；`crates/lancet-node/tests/dispatch.rs::tool_limits_interrupt_only_that_call`、`tool_trap_fails_only_that_call`（API 工具组件） |
@@ -209,8 +225,7 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 
 | 事项 | 现状 |
 | --- | --- |
-| `write-dir`、`exec-env`、`egress` 的方法 | 由 [#7](https://github.com/Skyline10124/lancet/issues/7)、[#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 定义 |
-| 回执中 ε 的记录，以及 ε 越出模板时的处置 | 首批只读工具没有 effect；随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的第一个写方法实现 |
+| `exec-env`、`egress` 的方法 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 定义 |
 
 ## 验证
 
@@ -219,6 +234,6 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 - `cargo test --release -p lancet-node --test act measure_component_runtime -- --ignored --nocapture --test-threads=1`：实测解释器每次调用的开销与中断时延，结果见[组件运行时](#组件运行时)。
 - `cargo test -p lancet-node --test tool_declarations`：声明加载的拒绝情形、签名核对、模板推导、类型存根渲染，以及产品工具集合的模板与冲突检查。拒绝情形包括[实验 4](https://github.com/Skyline10124/lancet/blob/6dd0416d15ff4b49e95ec00c787643c8c590e376/prototypes/tool-declaration/REPORT.md) 中仍适用的几种：导入 WASI 接口、缺少 `lancet:wit` 段、段只在嵌套核心模块中。
 - `cargo test -p lancet-node --lib dispatch`：κ 的核对。
-- `cargo test -p lancet-node --test dispatch`：数值实参的范围、API 工具组件的陷入、内存上限、截止与取消。
+- `cargo test -p lancet-node --test dispatch`：数值实参的范围、API 工具组件的陷入、内存上限、截止与取消；可写目录的只读视图收窄、工具报错后保留的写入，以及 effect 越出模板时的结局。
 - `cargo test --release -p lancet-node --test dispatch measure_tool_call_overhead -- --ignored --nocapture --test-threads=1`：实测 API 工具单次调用的固定开销，结果见[组件运行时](#组件运行时)。
-- `cargo test -p lancet-node --test node`：首批只读工具经 `execute` 的行为、回执的 `steps`、返回窗口与超帧回执的截断。
+- `cargo test -p lancet-node --test node`：首批 API 工具经 `execute` 的行为、回执的 `steps` 与 `Write` 条目、返回窗口与超帧回执的截断。

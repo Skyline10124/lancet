@@ -6,4 +6,5 @@
 pub mod act;
 pub mod dispatch;
 pub mod read_dir;
+pub mod shadow;
 pub mod tools;

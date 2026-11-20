@@ -60,6 +60,9 @@ status: active
 - 列举中的符号链接子项，按“列举目录的访问路径加子项名”从根解析，与直接访问的结论一致。
 - 报错写明调用者给出的路径与原因，不写出链接目标或宿主绝对路径。
 - `read` 只读取普通文件；内容须是 UTF-8 文本，大小不超过工具实例的内存上限 128 MiB（[组件运行时](tools.md#组件运行时)）。
+- 可写工作目录的读取与写入都解析到影子的 `tree/`，规则与上面相同。写入先写好临时文件，再 `rename` 进已核验的上级目录（临时文件的位置见[影子的建立与同步](shadow-workspace.md#影子的建立与同步)）；缺少的上级目录会被创建，每一级都核对越界与 `hidden`。
+- 写入与重置在修改之前核对将要改动的常规路径，包括写入途中新建的上级目录：真实路径不是 UTF-8 时报错。`regenerable` 路径的变更项只记规则名，不受这项限制。没有待定改动的 `reset` 不做任何事，也不报错。
+- 写入的路径超出系统调用能表示的长度时，在创建任何目录之前报错：任一分量超过 255 字节，或影子中目标的绝对路径超过 4,095 字节（`PATH_MAX` 为 4,096 字节，含结尾的 NUL）。
 - `entries` 只列出按上面的规则可以访问的普通文件、目录与指向它们的链接。以下子项不列出：取不到类型的子项；解析失败、越出目录或经过 `hidden` 位置的链接；FIFO、套接字与设备文件。可见子项的名称不是 UTF-8 时，`entries` 报错。
 
 ## 执行环境
@@ -153,7 +156,7 @@ sequenceDiagram
 | 内存超出 `memory.max` 时只终止该执行环境内的进程，节点继续服务 | 每个执行环境 | 单独的 cgroup | ADR 0002 第 4 节；尚未核实（[ADR 0002 尚未核实](../../adr/0002-lancet-node-api-tools-and-act.md#尚未核实)） |
 | 挂载表由 `bubblewrap` 建立 | 每个执行环境 | 主机有可用的 `bubblewrap` | ADR 0002 第 4 节；尚未核实（第七轮原型用自带的 C 启动器建立） |
 | 子进程只能经出口代理出网，每次外发都记入回执 | 持有网络出口的执行环境 | 隔离网络命名空间只有 `lo`；代理放行时记录 | ADR 0002 第 4 节；已核实 `SCM_RIGHTS` 跨命名空间传递监听 fd |
-| `hidden` 路径经 `fs.*` 不可见，经符号链接也一样 | 每个目录句柄 | 目录资源按访问路径与解析后的真实路径过滤 | ADR 0002 第 4 节；`crates/lancet-node/tests/node/calls.rs::hidden_paths_are_invisible_to_all_read_tools`、`symlinks_follow_only_within_dir`（只读目录；可写目录随 [#7](https://github.com/Skyline10124/lancet/issues/7)） |
+| `hidden` 路径经 `fs.*` 不可见，经符号链接也一样 | 每个目录句柄 | 目录资源按访问路径与解析后的真实路径过滤 | ADR 0002 第 4 节；`crates/lancet-node/tests/node/calls.rs::hidden_paths_are_invisible_to_all_read_tools`、`symlinks_follow_only_within_dir`；`crates/lancet-node/tests/node/writable.rs::write_tools_obey_paths_and_edit_cardinality`（可写目录） |
 | 只读目录句柄读不到工作目录以外的内容 | 每个只读目录句柄 | 每个分量都从根目录的 fd 以 `RESOLVE_BENEATH` 与 `RESOLVE_NO_SYMLINKS` 打开；符号链接由节点解析，`..` 不越过根，绝对路径的链接报越界 | `crates/lancet-node/tests/node/calls.rs::symlinks_follow_only_within_dir` |
 
 ## 范围之外
@@ -171,7 +174,6 @@ sequenceDiagram
 | 事项 | 现状 |
 | --- | --- |
 | 执行环境的进程数与磁盘占用上限 | 待裁决，第一个版本只设内存上限，见 [ADR 0002 待裁决](../../adr/0002-lancet-node-api-tools-and-act.md#待裁决) |
-| 可写工作目录的句柄与读取 | 随 [#7](https://github.com/Skyline10124/lancet/issues/7) 的影子提供；在此之前只对 `access = "read"` 的目录注入句柄，含可写目录的配置照常启动 |
 | 执行环境固定挂载的系统目录清单，以及 `PATH` 中系统路径的取值 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定 |
 | 杀掉进程时内核对 io_uring 已提交写入的处理 | 尚未核实：开发主机已全局禁用 io_uring；已核实的是内核等 AIO 写完才回收进程 |
 

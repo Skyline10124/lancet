@@ -780,7 +780,19 @@ fn maps_type_aliases_and_rejects_unrepresentable_types() {
 fn product_read_tools_match_templates() {
     let tools = embedded_tools();
     let names: Vec<&str> = tools.iter().map(|t| t.script_name.as_str()).collect();
-    assert_eq!(names, ["fs.read", "fs.list", "fs.search"]);
+    assert_eq!(
+        names,
+        [
+            "fs.read",
+            "fs.list",
+            "fs.search",
+            "fs.write",
+            "fs.edit",
+            "fs.reset",
+            "fs.status",
+            "fs.diff",
+        ]
+    );
 
     let read = &tools[0];
     assert_eq!(read.wit_interface, "lancet:fs-read/fs@0.1.0");
@@ -923,6 +935,81 @@ fn product_read_tools_match_templates() {
         vec![CoEffectItem::Uses(0, Some(Mode::Read))]
     );
     assert!(search.templates.effects.is_empty());
+
+    let write = &tools[3];
+    assert_eq!(write.wit_interface, "lancet:fs-write/fs@0.1.0");
+    assert_eq!(write.wit_function, "write");
+    assert!(write.docs.is_some(), "fs.write 应保留 WIT 注释");
+    assert_eq!(
+        write.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::ReadWrite))]
+    );
+    assert_eq!(
+        write.templates.effects,
+        vec![EffectItem::Effect(0, EffectKind::Write)]
+    );
+
+    let edit = &tools[4];
+    assert_eq!(edit.wit_interface, "lancet:fs-edit/fs@0.1.0");
+    assert_eq!(edit.wit_function, "edit");
+    assert!(edit.docs.is_some(), "fs.edit 应保留 WIT 注释");
+    assert_eq!(
+        edit.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::ReadWrite))]
+    );
+    assert_eq!(
+        edit.templates.effects,
+        vec![EffectItem::Effect(0, EffectKind::Write)]
+    );
+
+    let reset = &tools[5];
+    assert_eq!(reset.wit_interface, "lancet:fs-reset/fs@0.1.0");
+    assert_eq!(reset.wit_function, "reset");
+    assert!(reset.docs.is_some(), "fs.reset 应保留 WIT 注释");
+    assert_eq!(
+        reset.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::ReadWrite))]
+    );
+    assert_eq!(
+        reset.templates.effects,
+        vec![EffectItem::Effect(0, EffectKind::Write)]
+    );
+
+    let status = &tools[6];
+    assert_eq!(status.wit_interface, "lancet:fs-status/fs@0.1.0");
+    assert_eq!(status.wit_function, "status");
+    assert!(status.docs.is_some(), "fs.status 应保留 WIT 注释");
+    assert_eq!(
+        status.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
+    );
+    assert!(status.templates.effects.is_empty());
+    assert_eq!(
+        status.result,
+        ReturnType::Result {
+            ok: Some(WitType::List(Box::new(WitType::Record(
+                "pending-change".to_owned()
+            )))),
+        }
+    );
+
+    let diff = &tools[7];
+    assert_eq!(diff.wit_interface, "lancet:fs-diff/fs@0.1.0");
+    assert_eq!(diff.wit_function, "diff");
+    assert!(diff.docs.is_some(), "fs.diff 应保留 WIT 注释");
+    assert_eq!(
+        diff.templates.coeffects,
+        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
+    );
+    assert!(diff.templates.effects.is_empty());
+    assert_eq!(
+        diff.result,
+        ReturnType::Result {
+            ok: Some(WitType::List(Box::new(WitType::Record(
+                "path-diff".to_owned()
+            )))),
+        }
+    );
 }
 
 fn make_tool_decl(

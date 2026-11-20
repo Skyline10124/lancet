@@ -59,7 +59,7 @@ impl TestNode {
         };
         let config_path = root.path().join("node.toml");
         let toml_content = format!(
-            "[node]\ndisplay_name = \"调用测试节点\"\nstate_dir = {state_dir:?}\n{retention_line}\n[[dir]]\nname = \"app\"\npath = {app_dir:?}\naccess = \"write\"\n",
+            "[node]\ndisplay_name = \"调用测试节点\"\nstate_dir = {state_dir:?}\n{retention_line}\n[[dir]]\nname = \"app\"\npath = {app_dir:?}\naccess = \"read\"\n",
             state_dir = state_dir.to_str().unwrap(),
             app_dir = app_dir.to_str().unwrap(),
         );
@@ -1244,26 +1244,31 @@ return {
         ])
     );
 
-    // 2. 可写目录在本切片未注入句柄，check 阶段失败且无步骤。
+    // 2. 可写目录按槽位顺序注入，收窄为只读视图即可通过 read() 读出内容，effects 为空。
     let rw_res = run_act(
         &mut stream,
         11,
-        "inv-rw-check",
+        "inv-rw-read",
         &digest,
         "return rw.read(\"same.txt\")",
     );
     match rw_res {
-        ExecuteOutcome::Failed { error, .. } => {
-            assert_eq!(error.code, "ScriptOrToolError");
-            assert!(error.message.contains("check"), "{}", error.message);
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(content["value"], json!("from rw"));
         }
-        other => panic!("可写目录调用应在 check 阶段失败，实际：{other:?}"),
+        other => panic!("可写目录读调用应成功，实际：{other:?}"),
     }
-    let rw_receipt = match query_receipt(&mut stream, 12, "inv-rw-check") {
+    let rw_receipt = match query_receipt(&mut stream, 12, "inv-rw-read") {
         ReceiptLookup::Settled { receipt } => receipt,
         other => panic!("期望 Settled 回执，实际：{other:?}"),
     };
-    assert!(rw_receipt.steps.is_empty());
+    assert_eq!(
+        rw_receipt.steps,
+        vec![lancet_protocol::StepSummary {
+            tool: "fs.read".to_owned(),
+            outcome: OutcomeKind::Succeeded,
+        }]
+    );
     assert!(rw_receipt.effects.is_empty());
 
     // 3. list 缺失目录默认报错；无效正则报错。

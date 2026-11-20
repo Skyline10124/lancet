@@ -38,12 +38,18 @@ pub fn build(
 ) -> anyhow::Result<Catalog> {
     let (read_dir_modes, read_dir_effects) =
         summarize_handle_usage(HandleKind::ReadDir, tool_decls);
+    let (write_dir_modes, write_dir_effects) =
+        summarize_handle_usage(HandleKind::WriteDir, tool_decls);
     let mut handles = Vec::with_capacity(config.dir.len() + config.env.len() + config.egress.len());
 
     for dir in &config.dir {
         let (kind, modes, effects) = match dir.access {
             DirAccess::Read => ("ReadDir", read_dir_modes.clone(), read_dir_effects.clone()),
-            DirAccess::Write => ("WriteDir", Vec::new(), Vec::new()),
+            DirAccess::Write => (
+                "WriteDir",
+                write_dir_modes.clone(),
+                write_dir_effects.clone(),
+            ),
         };
         handles.push(Handle {
             name: dir.name.clone(),

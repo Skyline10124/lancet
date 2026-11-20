@@ -1,0 +1,17 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-edit@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{write-dir};
+
+    /// 读取目录 dir 中 path 处的 UTF-8 文本文件，按字面、自左向右、不重叠地将 old 替换为 new 后写回。
+    /// all 省略或为 false 时要求 old 恰好出现 1 次；all 为 true 时要求至少出现 1 次并替换全部。
+    edit: func(dir: borrow<write-dir>, path: string, old: string, new: string, all: option<bool>) -> result<_, string>;
+}
+
+world fs-edit {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

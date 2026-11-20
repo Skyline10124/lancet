@@ -1,0 +1,17 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:fs-status@0.1.0;
+
+interface fs {
+    use lancet:host/handles@0.1.0.{read-dir, pending-change};
+
+    /// 列出目录 dir 中可见的待定改动，按根相对路径的字节序排序。
+    /// action 取 added、modified 或 deleted；conflict 标明宿主同步冲突；只读目录返回空列表。
+    status: func(dir: borrow<read-dir>) -> result<list<pending-change>, string>;
+}
+
+world fs-status {
+    import lancet:host/handles@0.1.0;
+    export fs;
+}

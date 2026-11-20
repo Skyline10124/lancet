@@ -36,6 +36,20 @@ impl Guest for ToolProbe {
             std::hint::black_box(i);
         }
     }
+
+    fn write_then_fail(dir: &WriteDir, path: String, content: String) -> Result<(), String> {
+        dir.write(&path, &content)?;
+        Err(format!("写入 `{path}` 后故意报错"))
+    }
+
+    fn write_first(
+        dst: &WriteDir,
+        _other: &WriteDir,
+        path: String,
+        content: String,
+    ) -> Result<(), String> {
+        dst.write(&path, &content)
+    }
 }
 
 export!(ToolProbe);

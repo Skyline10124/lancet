@@ -14,8 +14,9 @@ use std::process::ExitCode;
 
 use anyhow::Context as _;
 use lancet_node::act::ActRuntime;
-use lancet_node::dispatch::Dispatcher;
+use lancet_node::dispatch::{DirSlot, Dispatcher};
 use lancet_node::read_dir::ReadDir;
+use lancet_node::shadow::ShadowDir;
 use lancet_protocol::Capabilities;
 
 fn main() -> ExitCode {
@@ -51,20 +52,35 @@ fn run() -> anyhow::Result<()> {
     let act_stub = lancet_node::tools::render_act_stub(&builtin_stub, &embedded_tools);
     let catalog = config::catalog::build(&loaded.config, act_stub, &embedded_tools)?;
 
-    let mut read_dirs = Vec::new();
-    for dir in &loaded.config.dir {
-        if dir.access == config::DirAccess::Read {
-            read_dirs.push(ReadDir::open(&dir.name, &dir.path, &dir.hidden)?);
-        }
-    }
-    let artifacts = lancet_node::tools::embedded_artifacts();
-    // SAFETY: `embedded_artifacts()` 中的 `.cwasm` 均由同一构建、相同的 `engine_config()` 预编译。
-    let dispatcher = unsafe { Dispatcher::new(runtime.engine(), &artifacts, read_dirs) }?;
-
     config::startup::check_paths(&loaded)?;
     let state_dir = state::open(&loaded.config.node.state_dir)?;
     config::startup::check_ficlone(&loaded.config)?;
     let node_id = state::load_or_create_node_id(&state_dir)?;
+
+    let mut dirs = Vec::with_capacity(loaded.config.dir.len());
+    for dir in &loaded.config.dir {
+        match dir.access {
+            config::DirAccess::Read => {
+                dirs.push(DirSlot::ReadOnly(ReadDir::open(
+                    &dir.name,
+                    &dir.path,
+                    &dir.hidden,
+                )?));
+            }
+            config::DirAccess::Write => {
+                dirs.push(DirSlot::Shadow(ShadowDir::open(
+                    state_dir.path(),
+                    &dir.name,
+                    &dir.path,
+                    &dir.hidden,
+                    &dir.regenerable,
+                )?));
+            }
+        }
+    }
+    let artifacts = lancet_node::tools::embedded_artifacts();
+    // SAFETY: `embedded_artifacts()` 中的 `.cwasm` 均由同一构建、相同的 `engine_config()` 预编译。
+    let dispatcher = unsafe { Dispatcher::new(runtime.engine(), &artifacts, dirs) }?;
     let ledger = calls::Ledger::open(&state_dir, loaded.config.node.receipt_retention_ms)?;
 
     let view = server::NodeView {

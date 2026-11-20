@@ -151,7 +151,7 @@ CoEffect = { handle: String, mode?: Mode }           # mode 省略或为 null �
         rejected { DuplicateInvocation }
     elif catalog_digest 不等于节点当前的摘要:
         rejected { CatalogMismatch }
-    elif tool 不存在，arguments 不合法，或 output_limit > MAX_OUTPUT_LIMIT:
+    elif tool 不存在，arguments 不合法，output_limit > MAX_OUTPUT_LIMIT，或 output_limit 低于该工具规定的下限:
         rejected { InvalidRequest }
     else:
         持久登记 invocation_id 为 Pending，然后开始执行
@@ -319,7 +319,7 @@ ReceiptLookup (tag = "kind") =
 | 节点只执行与调用方本轮目录一致的调用 | 每次 `execute` | `catalog_digest` 覆盖操作定义、环境简述与当前授权 | ADR 0001 第 3 节；`crates/lancet-protocol/src/digest.rs::tests::invariant_to_nested_object_key_order_and_whitespace`、`sensitive_to_each_input_and_array_order`、`matches_pinned_canonical_sha256_vector`（协议单测只覆盖摘要计算）；`crates/lancet-node/tests/node.rs::digest_tracks_non_displayed_grants`（只改不在环境简述中的 `env.egress` 时摘要随之变化）；`crates/lancet-node/tests/node/calls.rs::admission_preserves_invocation_records`（摘要不一致时 `CatalogMismatch`） |
 | 预算耗尽、取消或断连之后，调用在 `settle_grace_ms` 内结算 | 每次受理的 `execute` | 节点的内部活动与最终提交临界区都在这段时间内结束 | ADR 0001 第 3 节；`crates/lancet-node/tests/node/calls.rs::deadline_settles_within_advertised_grace`、`cancel_multiplexes_with_receipt`、`disconnect_cancels_only_its_connection`（本地套接字上实测：截止超出预算 7 ms、取消 4 ms、断连 10 ms 内查得已结算的回执；`settle_grace_ms` 为 5000 ms） |
 | 调用方等待一次 `execute` 的时间有上限 | 调用方适配器 | 本地单调时钟计时 | ADR 0001 第 3 节 |
-| 节点响应 `hello` 时没有遗留的 `Pending` 记录 | 每次重启 | 节点先完成恢复结算 | ADR 0001 第 5 节；`crates/lancet-node/tests/node/calls.rs::restart_settles_pending_before_first_hello` |
+| 节点响应 `hello` 时没有遗留的 `Pending` 记录 | 每次重启 | 节点先完成恢复结算 | ADR 0001 第 5 节；`crates/lancet-node/tests/node/calls.rs::restart_settles_pending_before_first_hello`、`crates/lancet-node/tests/node/writable.rs::restart_settles_writable_pending_as_indeterminate`（带可写句柄的在途调用结算为 `Indeterminate`） |
 | 本地判定的 `Indeterminate` 经对账取得节点记录的结局（节点结算为 `Indeterminate` 时仍为不确定）；满 `settle_grace_ms` 后仍为 `Pending` 的，作为节点故障报告 | 调用方适配器 | 能重新连上节点，且 `node_id` 一致 | ADR 0001 第 5 节 |
 | 环境简述等于配置与操作声明推出的结果 | 每次 `describe` | 单一构造入口 | [ADR 0001 第 4 节](../adr/0001-lancet-protocol.md#4-effectco-effect回执与-residue)；`crates/lancet-node/tests/node.rs::hello_describe_matches_config`（含由首批 API 工具声明推出的 `modes`） |
 | `Succeeded` 的 `content` 不超过 `output_limit` | 每次回包 | 节点在回包前核对 | ADR 0001 第 3 节；`crates/lancet-node/tests/node/calls.rs::execute_returns_content_at_byte_limit` |
