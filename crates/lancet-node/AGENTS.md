@@ -8,7 +8,7 @@
 ## 职责与边界
 
 - **承担**：节点配置加载与主机路径解析、三项总是适用的启动校验与句柄名校验（`check-handle-name`）、节点状态目录管理与 `node_id` 持久化、持久调用记录账本与重启恢复（含发布事务崩溃恢复与 `writes_possible` 结算为 `Indeterminate`）、Unix 域套接字上的五个协议操作（`hello`、`describe`、`execute`、`cancel`、`receipt`）与连接内多路复用、`lancet:host` 宿主 WIT 定义、只读目录宿主资源与共享逐分量路径解析（`openat2(RESOLVE_BENEATH | RESOLVE_NO_SYMLINKS)`、`hidden`/`regenerable` 与可写目录根下 `.git` 保留）、持久 reflink 影子工作区管理（`state_dir/shadows/<key>/{tree,base}/`、宿主 inotify + 1 秒后台 stat 扫描同步、影子 inotify 增量待定集合、冲突重算、`status`/`diff`/`write`/`reset`/`discard` 与 `commit()` 五阶段发布事务、晚到冲突/I/O 错误逆序撤回、保留宿主修改与启动期崩溃恢复）、API 工具组件声明/冲突核对与模板推导、`.pyi` 类型存根合成、节点侧工具分发（κ 核对、隔离 `Store` 实例化、只读/可写目录槽位注入与 `read-dir` 收窄、WIT 数值转换、128 MiB 内存与 epoch 中断控制、8 MiB 紧凑 JSON 返回窗口、可写目录互斥锁、内置 `discard()` 与 `commit()`、ε 记录与越出模板检查、84 字节待定提示预留、产品工具 `fs.read`/`fs.list`/`fs.search`/`fs.write`/`fs.edit`/`fs.reset`/`fs.status`/`fs.diff` 与 `StepSummary` 记录），以及 `lancet-act` 组件构建预编译、`builtin-stub` 读取与 `ActRuntime` 隔离执行。
-- **尚未实现**：私有 Git（4c），以及 `exec-env`/`egress` 句柄注入、执行环境与网络出口。
+- **尚未实现**：私有 Git（随 #8，排在执行环境之后），以及 `exec-env`/`egress` 句柄注入、执行环境与网络出口。
 
 ## 阅读顺序
 
