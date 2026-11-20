@@ -131,7 +131,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 | 协议服务的 Unix 域套接字 `node.sock` | [协议合同](../lancet-protocol.md#连接与握手) |
 | 调用记录账本与回执，存于 `calls/` | [协议合同](../lancet-protocol.md#调用记录) |
 | 每个可写工作目录的影子与基准，存于 `shadows/<key>/`；私有 `.git/` 随影子 | [影子工作区](shadow-workspace.md#影子的建立与同步) |
-| 发布日志与换出的宿主 inode | [发布](shadow-workspace.md#发布) |
+| 发布日志，记在 `calls/` 中该调用的记录里；换出的宿主 inode、暂存对象与基准后态，存于 `publish/<调用散列>/` | [崩溃恢复](shadow-workspace.md#崩溃恢复) |
 | 执行环境的私有家目录、私有包缓存与私有临时目录 | [执行环境](host-resources.md#执行环境) |
 
 - `state_dir` 不存在时，节点以权限 `0700` 创建它；它的上级目录必须已存在。

@@ -244,13 +244,12 @@ fn parse_errors_map_lines_and_offer_repairs() {
 fn pure_globals_filter_and_serialize() {
     let rt = ActRuntime::load().expect("加载 act 运行时失败");
 
-    // 反思与元编程全局函数及未提供的 commit() 必须从环境中移除，且在 check 阶段报错。
+    // 反思与元编程全局函数必须从环境中移除，且在 check 阶段报错。
     for (name, script) in [
         ("dir", "fail(\"执行哨兵\")\nx = dir(1)\n"),
         ("getattr", "fail(\"执行哨兵\")\nx = getattr({}, \"get\")\n"),
         ("hasattr", "fail(\"执行哨兵\")\nx = hasattr({}, \"get\")\n"),
         ("type", "fail(\"执行哨兵\")\nx = type(1)\n"),
-        ("commit", "fail(\"执行哨兵\")\ncommit()\n"),
         (
             "sum 错误元素类型",
             "fail(\"执行哨兵\")\nx = sum([\"a\", \"b\"])\n",
@@ -1080,9 +1079,12 @@ return {
         }
     }
 
-    // 3. 内置 discard() 经 ActHost::discard 回调并返回 None。
-    struct DiscardCounter(Arc<AtomicUsize>);
-    impl ActHost for DiscardCounter {
+    // 3. 内置 discard() 与 commit() 分别经 ActHost 回调并返回 None。
+    struct BuiltinCounter {
+        discards: Arc<AtomicUsize>,
+        commits: Arc<AtomicUsize>,
+    }
+    impl ActHost for BuiltinCounter {
         fn call(
             &mut self,
             _: &str,
@@ -1092,20 +1094,30 @@ return {
         }
 
         fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
-            self.0.fetch_add(1, Ordering::Relaxed);
+            self.discards.fetch_add(1, Ordering::Relaxed);
+            Ok(Ok(()))
+        }
+
+        fn commit(&mut self) -> wasmtime::Result<Result<(), String>> {
+            self.commits.fetch_add(1, Ordering::Relaxed);
             Ok(Ok(()))
         }
     }
     let discard_count = Arc::new(AtomicUsize::new(0));
-    let discard_payload = rt
+    let commit_count = Arc::new(AtomicUsize::new(0));
+    let builtin_payload = rt
         .run(
-            "res = discard()\nreturn res\n",
+            "d = discard()\nc = commit()\nreturn [d, c]\n",
             &ActContext::default(),
-            DiscardCounter(Arc::clone(&discard_count)),
+            BuiltinCounter {
+                discards: Arc::clone(&discard_count),
+                commits: Arc::clone(&commit_count),
+            },
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
         )
-        .expect("内置 discard() 应成功返回 None");
-    assert_eq!(discard_payload.value_json, "null");
+        .expect("内置 discard() 与 commit() 应成功返回 None");
+    assert_eq!(builtin_payload.value_json, "[null,null]");
     assert_eq!(discard_count.load(Ordering::Relaxed), 1);
+    assert_eq!(commit_count.load(Ordering::Relaxed), 1);
 }

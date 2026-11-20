@@ -1,7 +1,7 @@
 // Copyright 2026 Ast Rin
 // SPDX-License-Identifier: Apache-2.0
 
-//! API 工具分发层：κ 核对、组件实例化、数值转换、资源收窄、ε 记录与模板核对、锁与 `discard()`。
+//! API 工具分发层：κ 核对、组件实例化、数值转换、资源收窄、ε 记录与模板核对、锁、`discard()` 与 `commit()`。
 
 use std::collections::{HashMap, HashSet};
 use std::fmt;
@@ -441,6 +441,33 @@ impl Dispatcher {
             .any(|slot| matches!(slot, DirSlot::Shadow(_)))
     }
 
+    /// 按 `[[dir]]` 槽位顺序返回全部可写目录影子句柄。
+    pub fn writable_shadows(&self) -> Vec<&ShadowDir> {
+        self.inner
+            .dirs
+            .iter()
+            .filter_map(|slot| match slot {
+                DirSlot::Shadow(shadow) => Some(shadow),
+                DirSlot::ReadOnly(_) => None,
+            })
+            .collect()
+    }
+
+    /// 核对发布产生的 `EffectEntry` 均未越出已授予可写目录的 `Write` effect 模板。
+    pub fn validate_publish_effects(&self, entries: &[EffectEntry]) -> Result<(), String> {
+        let allowed = allowed_writable_effects(&self.inner.context.handles);
+        for entry in entries {
+            if !allowed.contains(&(entry.handle().to_owned(), entry.kind())) {
+                return Err(format!(
+                    "发布在句柄 `{}` 上产生的 {:?} effect 越出模板",
+                    entry.handle(),
+                    entry.kind()
+                ));
+            }
+        }
+        Ok(())
+    }
+
     /// 按槽位顺序取得全部可写目录的互斥锁，等待期间响应取消与截止时间。
     pub fn acquire_writable_locks(
         &self,
@@ -530,7 +557,7 @@ impl Dispatcher {
         steps: &Mutex<Vec<StepSummary>>,
         effects: &Mutex<Vec<EffectEntry>>,
     ) -> wasmtime::Result<Result<(), String>> {
-        let allowed_effects = allowed_discard_effects(&self.inner.context.handles);
+        let allowed_effects = allowed_writable_effects(&self.inner.context.handles);
         let mut recorded = Vec::new();
         for slot in &self.inner.dirs {
             let DirSlot::Shadow(shadow) = slot else {
@@ -570,6 +597,12 @@ impl Dispatcher {
         }
         finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
         record_step(steps, "discard", OutcomeKind::Succeeded);
+        Ok(Ok(()))
+    }
+
+    /// 执行内置 `commit()`：标记本次 `act` 在脚本正常返回且交回载荷不超限时发布最终待定改动。
+    pub fn commit(&self, steps: &Mutex<Vec<StepSummary>>) -> wasmtime::Result<Result<(), String>> {
+        record_step(steps, "commit", OutcomeKind::Succeeded);
         Ok(Ok(()))
     }
 
@@ -794,7 +827,7 @@ fn append_effects(effects: &Mutex<Vec<EffectEntry>>, entries: Vec<EffectEntry>) 
     guard.extend(entries);
 }
 
-fn allowed_discard_effects(grants: &[HandleGrant]) -> HashSet<(String, EffectKind)> {
+fn allowed_writable_effects(grants: &[HandleGrant]) -> HashSet<(String, EffectKind)> {
     grants
         .iter()
         .filter(|g| g.kind == HandleKind::WriteDir)

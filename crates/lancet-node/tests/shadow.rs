@@ -12,6 +12,10 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::time::{Duration, Instant};
 
+use lancet_node::shadow::publish::{
+    ConflictReason, PublishFinish, PublishJournal, PublishOutcome, PublishPrep, RecoveryRoot,
+    call_record_hash, prepare_publish, recover_journal,
+};
 use lancet_node::shadow::{DiscardError, PendingAction, ShadowDir};
 use rustix::fs::{
     AtFlags, CWD, FallocateFlags, Mode, OFlags, RenameFlags, ResolveFlags, Timespec, Timestamps,
@@ -1083,14 +1087,13 @@ fn shadow_random_batches_match_full_contents() {
     );
 
     for seed in 0..5u64 {
-        // 1. 影子侧：按原始记录重放 20 批，每批与全内容对照一致；偶数批 discard 后归零。
+        // 1. 影子侧：按原始记录重放 20 批，每批与全内容对照一致；偶数批 discard 后归零，奇数批经产品发布接口发布。
         {
             let root = tempdir_xfs("ln-sh-rand-s-");
             let host = root.path().join("host");
             let state = root.path().join("state");
             fs::create_dir(&host).unwrap();
             fs::write(host.join("a"), "seed-init\n").unwrap();
-            let host_before = oracle_scan(&host, &[]);
 
             let shadow = ShadowDir::open(&state, "w", &host, &[], &[]).unwrap();
             let shadow_batches: Vec<&RandomizedBatch> = all_batches
@@ -1099,6 +1102,7 @@ fn shadow_random_batches_match_full_contents() {
                 .collect();
             assert_eq!(shadow_batches.len(), 20);
             for rec in shadow_batches {
+                let host_before_batch = oracle_scan(&host, &[]);
                 replay_random_batch(shadow.tree_path(), seed, rec.batch, &rec.ops);
                 let actual = status_pairs(&shadow);
                 let base_o = oracle_scan(shadow.base_path(), &[]);
@@ -1123,12 +1127,74 @@ fn shadow_random_batches_match_full_contents() {
                         "seed={seed} batch={} discard 后 tree 应等于 base",
                         rec.batch
                     );
+                    assert!(
+                        oracle_diff(&host_before_batch, &oracle_scan(&host, &[])).is_empty(),
+                        "seed={seed} batch={} discard 不得改动宿主",
+                        rec.batch
+                    );
+                } else {
+                    let call_hash = call_record_hash(&format!("rand-pub-{seed}-{}", rec.batch));
+                    let prep = prepare_publish(&state, &call_hash, &[&shadow], None, None)
+                        .unwrap_or_else(|e| {
+                            panic!(
+                                "seed={seed} batch={} prepare_publish 失败：{e:?}",
+                                rec.batch
+                            )
+                        });
+                    match prep {
+                        PublishPrep::Empty => {
+                            assert!(
+                                expected.is_empty(),
+                                "seed={seed} batch={} 非空待定不应返回 Empty",
+                                rec.batch
+                            );
+                            assert!(
+                                oracle_diff(&host_before_batch, &oracle_scan(&host, &[]))
+                                    .is_empty()
+                            );
+                        }
+                        PublishPrep::Ready(prepared) => {
+                            let out =
+                                prepared
+                                    .execute(&[&shadow], |_| Ok(()))
+                                    .unwrap_or_else(|e| {
+                                        panic!("seed={seed} batch={} execute 失败：{e}", rec.batch)
+                                    });
+                            assert!(
+                                matches!(out, PublishOutcome::Committed { .. }),
+                                "seed={seed} batch={} 应成功发布",
+                                rec.batch
+                            );
+                            assert!(
+                                shadow.status().unwrap().is_empty(),
+                                "seed={seed} batch={} 发布后 status 应为空",
+                                rec.batch
+                            );
+                            let host_after = oracle_scan(&host, &[]);
+                            let base_after = oracle_scan(shadow.base_path(), &[]);
+                            let tree_after = oracle_scan(shadow.tree_path(), &[]);
+                            assert!(
+                                oracle_diff(&host_after, &base_after).is_empty()
+                                    && oracle_diff(&host_after, &tree_after).is_empty(),
+                                "seed={seed} batch={} 发布后 host/base/tree 必须三方完全一致",
+                                rec.batch
+                            );
+                            shadow.sync_from_host(None, None).unwrap();
+                            assert!(
+                                shadow.status().unwrap().is_empty(),
+                                "seed={seed} batch={} 发布后再次 sync 不得产生假待定或假冲突",
+                                rec.batch
+                            );
+                        }
+                        PublishPrep::Conflicts(conflicts) => {
+                            panic!(
+                                "seed={seed} batch={} 宿主未改且无 hidden/外部硬链接，不应冲突：{conflicts:?}",
+                                rec.batch
+                            );
+                        }
+                    }
                 }
             }
-            assert!(
-                oracle_diff(&host_before, &oracle_scan(&host, &[])).is_empty(),
-                "影子侧随机批不得改动宿主"
-            );
         }
 
         // 2. 宿主侧：按原始记录重放 20 批，每批同步后 tree 与 base 均与宿主全内容一致。
@@ -2830,4 +2896,644 @@ fn reset_on_non_pending_non_utf8_seed_returns_none() {
         "reset 返回 None 后种子文件应保持不变"
     );
     assert!(shadow.status().unwrap().is_empty());
+}
+
+// =============================================================================
+// 7. Slice 4b 发布事务库层测试
+// =============================================================================
+
+#[test]
+fn publish_path_kinds() {
+    let root = tempdir_xfs("ln-sh-pub-kinds-");
+    let host = root.path().join("host");
+    let state = root.path().join("state");
+    fs::create_dir_all(host.join(".git")).unwrap();
+    fs::create_dir_all(host.join("cache")).unwrap();
+    fs::create_dir_all(host.join("del_dir/sub")).unwrap();
+    fs::create_dir_all(host.join("ro_dir")).unwrap();
+    fs::create_dir_all(host.join("chmod_dir")).unwrap();
+    fs::create_dir_all(host.join("widen_dir")).unwrap();
+    fs::create_dir_all(host.join("swap_d2f")).unwrap();
+    fs::create_dir_all(host.join("rename_dir/sub")).unwrap();
+
+    fs::write(host.join(".git/HEAD"), "ref: refs/heads/main\n").unwrap();
+    fs::write(host.join("cache/seed.txt"), "host-seed\n").unwrap();
+    fs::write(host.join("keep.txt"), "keep\n").unwrap();
+    fs::write(host.join("mod_content.txt"), "before-mod\n").unwrap();
+    fs::set_permissions(
+        host.join("mod_content.txt"),
+        fs::Permissions::from_mode(0o640),
+    )
+    .unwrap();
+    fs::write(host.join("chmod_file.txt"), "same-bytes\n").unwrap();
+    fs::set_permissions(
+        host.join("chmod_file.txt"),
+        fs::Permissions::from_mode(0o644),
+    )
+    .unwrap();
+    fs::write(host.join("del_file.txt"), "bye\n").unwrap();
+    fs::write(host.join("del_dir/sub/f.txt"), "deep-del\n").unwrap();
+    fs::write(host.join("ro_dir/inside.txt"), "ro-before\n").unwrap();
+    fs::set_permissions(host.join("ro_dir"), fs::Permissions::from_mode(0o555)).unwrap();
+    fs::set_permissions(host.join("widen_dir"), fs::Permissions::from_mode(0o555)).unwrap();
+    fs::write(host.join("swap_d2f/old.txt"), "d2f\n").unwrap();
+    fs::write(host.join("swap_f2d"), "f2d\n").unwrap();
+    fs::write(host.join("rename_dir/a.txt"), "ra\n").unwrap();
+    fs::write(host.join("rename_dir/sub/b.txt"), "rb\n").unwrap();
+    symlink("keep.txt", host.join("link_dangling")).unwrap();
+
+    let shadow = ShadowDir::open(&state, "w", &host, &[], &["cache/".to_owned()]).unwrap();
+    let tree = shadow.tree_path();
+
+    // 各类改动全部放入同一批次：
+    fs::write(tree.join("mod_content.txt"), "after-mod\n").unwrap();
+    fs::set_permissions(
+        tree.join("chmod_file.txt"),
+        fs::Permissions::from_mode(0o755),
+    )
+    .unwrap();
+    fs::remove_file(tree.join("del_file.txt")).unwrap();
+    fs::remove_dir_all(tree.join("del_dir")).unwrap();
+
+    // 只读祖先目录 ro_dir 内部修改（阶段 1 放宽 + 阶段 5 恢复）。
+    fs::set_permissions(tree.join("ro_dir"), fs::Permissions::from_mode(0o755)).unwrap();
+    fs::write(tree.join("ro_dir/inside.txt"), "ro-after\n").unwrap();
+    fs::set_permissions(tree.join("ro_dir"), fs::Permissions::from_mode(0o555)).unwrap();
+
+    // 目录仅改权限（收紧与放宽）。
+    fs::set_permissions(tree.join("chmod_dir"), fs::Permissions::from_mode(0o555)).unwrap();
+    fs::set_permissions(tree.join("widen_dir"), fs::Permissions::from_mode(0o755)).unwrap();
+
+    // 目录 <-> 文件互换。
+    fs::remove_dir_all(tree.join("swap_d2f")).unwrap();
+    fs::write(tree.join("swap_d2f"), "now-a-file\n").unwrap();
+    fs::remove_file(tree.join("swap_f2d")).unwrap();
+    fs::create_dir(tree.join("swap_f2d")).unwrap();
+    fs::write(tree.join("swap_f2d/child.txt"), "now-a-dir\n").unwrap();
+
+    // 目录改名（逐路径删除 + 创建）。
+    fs::rename(tree.join("rename_dir"), tree.join("renamed_dir")).unwrap();
+
+    // 新建只读目录及子文件。
+    fs::create_dir_all(tree.join("new_ro/deep")).unwrap();
+    fs::write(tree.join("new_ro/deep/added.txt"), "added\n").unwrap();
+    fs::set_permissions(tree.join("new_ro/deep"), fs::Permissions::from_mode(0o555)).unwrap();
+    fs::set_permissions(tree.join("new_ro"), fs::Permissions::from_mode(0o555)).unwrap();
+
+    // 符号链接改为悬空符号链接。
+    fs::remove_file(tree.join("link_dangling")).unwrap();
+    symlink("nonexistent_target", tree.join("link_dangling")).unwrap();
+
+    // 影子内新建 FIFO 与修改 regenerable：两者均不得发布到宿主。
+    mknodat(
+        CWD,
+        tree.join("shadow_fifo"),
+        rustix::fs::FileType::Fifo,
+        Mode::from_raw_mode(0o600),
+        0,
+    )
+    .unwrap();
+    fs::write(tree.join("cache/seed.txt"), "shadow-seed-edited\n").unwrap();
+
+    let ino_mod_before = fs::symlink_metadata(tree.join("mod_content.txt"))
+        .unwrap()
+        .ino();
+    let ino_add_before = fs::symlink_metadata(tree.join("new_ro/deep/added.txt"))
+        .unwrap()
+        .ino();
+
+    let call_hash = call_record_hash("pub-kinds-1");
+    let prep = prepare_publish(&state, &call_hash, &[&shadow], None, None).unwrap();
+    let PublishPrep::Ready(prepared) = prep else {
+        panic!("预期 Ready");
+    };
+    let out = prepared.execute(&[&shadow], |_| Ok(())).unwrap();
+    assert!(matches!(out, PublishOutcome::Committed { .. }));
+    assert!(shadow.status().unwrap().is_empty());
+
+    // 独立全内容对照：host、base、tree 三方完全一致（排除 .git 与 cache）。
+    let skip = ["cache"];
+    let host_o = oracle_scan(&host, &skip);
+    let base_o = oracle_scan(shadow.base_path(), &skip);
+    let tree_o = oracle_scan(shadow.tree_path(), &skip);
+    assert!(
+        oracle_diff(&host_o, &base_o).is_empty(),
+        "host vs base 差异：{:?}",
+        oracle_diff(&host_o, &base_o)
+    );
+    assert!(
+        oracle_diff(&host_o, &tree_o).is_empty(),
+        "host vs tree 差异：{:?}",
+        oracle_diff(&host_o, &tree_o)
+    );
+
+    // 核对关键权限与悬空符号链接。
+    assert_eq!(
+        fs::symlink_metadata(host.join("ro_dir")).unwrap().mode() & 0o7777,
+        0o555
+    );
+    assert_eq!(
+        fs::symlink_metadata(host.join("chmod_dir")).unwrap().mode() & 0o7777,
+        0o555
+    );
+    assert_eq!(
+        fs::symlink_metadata(host.join("widen_dir")).unwrap().mode() & 0o7777,
+        0o755
+    );
+    assert_eq!(
+        fs::symlink_metadata(host.join("new_ro")).unwrap().mode() & 0o7777,
+        0o555
+    );
+    assert_eq!(
+        fs::symlink_metadata(host.join("new_ro/deep"))
+            .unwrap()
+            .mode()
+            & 0o7777,
+        0o555
+    );
+    assert_eq!(
+        fs::read_link(host.join("link_dangling")).unwrap(),
+        PathBuf::from("nonexistent_target")
+    );
+
+    // 核对影子常规文件 inode 保持不变、FIFO/.git/regenerable 均未污染宿主。
+    assert_eq!(
+        fs::symlink_metadata(tree.join("mod_content.txt"))
+            .unwrap()
+            .ino(),
+        ino_mod_before,
+        "发布不得改变影子常规文件 inode"
+    );
+    assert_eq!(
+        fs::symlink_metadata(tree.join("new_ro/deep/added.txt"))
+            .unwrap()
+            .ino(),
+        ino_add_before,
+        "发布不得改变影子新增常规文件 inode"
+    );
+    assert!(!host.join("shadow_fifo").exists());
+    assert_eq!(
+        fs::read_to_string(host.join(".git/HEAD")).unwrap(),
+        "ref: refs/heads/main\n"
+    );
+    assert_eq!(
+        fs::read_to_string(host.join("cache/seed.txt")).unwrap(),
+        "host-seed\n"
+    );
+
+    // 子用例 2：宿主存在同名 FIFO，影子新增常规文件 -> 报 HostChanged 冲突，FIFO 完好。
+    mknodat(
+        CWD,
+        host.join("host_fifo"),
+        rustix::fs::FileType::Fifo,
+        Mode::from_raw_mode(0o600),
+        0,
+    )
+    .unwrap();
+    shadow.write("host_fifo", "regular\n").unwrap();
+    let prep_fifo = prepare_publish(
+        &state,
+        &call_record_hash("pub-kinds-fifo"),
+        &[&shadow],
+        None,
+        None,
+    )
+    .unwrap();
+    match prep_fifo {
+        PublishPrep::Conflicts(c) => {
+            assert_eq!(c.len(), 1);
+            assert_eq!(c[0].rel, "host_fifo");
+            assert_eq!(c[0].reason, ConflictReason::HostChanged);
+        }
+        _ => panic!("宿主同名 FIFO 应报冲突"),
+    }
+    assert!(
+        fs::symlink_metadata(host.join("host_fifo"))
+            .unwrap()
+            .file_type()
+            .is_fifo()
+    );
+    shadow.discard(None, None).unwrap();
+
+    // 子用例 3：待删目录在宿主中多出批次外子项（含 FIFO 与普通文件）-> 报 HostChanged 冲突，宿主不动。
+    fs::create_dir(host.join("extra_dir")).unwrap();
+    fs::write(host.join("extra_dir/tracked.txt"), "t\n").unwrap();
+    shadow.sync_from_host(None, None).unwrap();
+    fs::remove_dir_all(tree.join("extra_dir")).unwrap();
+    mknodat(
+        CWD,
+        host.join("extra_dir/untracked_fifo"),
+        rustix::fs::FileType::Fifo,
+        Mode::from_raw_mode(0o600),
+        0,
+    )
+    .unwrap();
+    let prep_extra = prepare_publish(
+        &state,
+        &call_record_hash("pub-kinds-extra"),
+        &[&shadow],
+        None,
+        None,
+    )
+    .unwrap();
+    match prep_extra {
+        PublishPrep::Conflicts(c) => {
+            assert!(
+                c.iter()
+                    .any(|item| item.rel == "extra_dir"
+                        && item.reason == ConflictReason::HostChanged),
+                "含未删子项的待删目录应报 HostChanged：{c:?}"
+            );
+        }
+        _ => panic!("含批次外子项的待删目录应报冲突"),
+    }
+    assert!(host.join("extra_dir/tracked.txt").exists());
+    assert!(host.join("extra_dir/untracked_fifo").exists());
+
+    // 放宽只读目录权限以便 TempDir 回收。
+    for base_dir in [host.as_path(), shadow.tree_path(), shadow.base_path()] {
+        for rel in ["ro_dir", "chmod_dir", "new_ro", "new_ro/deep"] {
+            let _ = fs::set_permissions(base_dir.join(rel), fs::Permissions::from_mode(0o700));
+        }
+    }
+}
+
+#[test]
+fn publish_advances_base_without_hiding_external_events() {
+    let root = tempdir_xfs("ln-sh-pub-events-");
+    let host = root.path().join("host");
+    let state = root.path().join("state");
+    let outside = root.path().join("outside");
+    fs::create_dir(&host).unwrap();
+    fs::create_dir(&outside).unwrap();
+
+    fs::write(host.join("clean.txt"), "c-0\n").unwrap();
+    fs::write(host.join("bg_file.txt"), "bg-0\n").unwrap();
+    fs::hard_link(host.join("bg_file.txt"), outside.join("bg_alias")).unwrap();
+    fs::write(host.join("mod_file.txt"), "m-0\n").unwrap();
+    fs::write(host.join("del_file.txt"), "d-0\n").unwrap();
+    fs::write(host.join("revert_target.txt"), "rev-0\n").unwrap();
+
+    let shadow = ShadowDir::open(&state, "w", &host, &[], &[]).unwrap();
+
+    // 1. 干净发布后重复同步，不产生待定改动或伪冲突。
+    shadow.write("clean.txt", "c-pub\n").unwrap();
+    let prep0 = prepare_publish(
+        &state,
+        &call_record_hash("pub-events-clean"),
+        &[&shadow],
+        None,
+        None,
+    )
+    .unwrap();
+    let PublishPrep::Ready(prepared0) = prep0 else {
+        panic!("预期 Ready");
+    };
+    assert!(matches!(
+        prepared0.execute(&[&shadow], |_| Ok(())).unwrap(),
+        PublishOutcome::Committed { .. }
+    ));
+    shadow.sync_from_host(None, None).unwrap();
+    shadow.sync_from_host(None, None).unwrap();
+    assert!(
+        shadow.status().unwrap().is_empty(),
+        "干净发布后重复 sync 不应产生假待定或假冲突"
+    );
+
+    // 2. 在发布前通过树外硬链接修改 bg_file（无 inotify），并等待超过一轮后台扫描周期，
+    //    确保 bg_file 在交换发生前就已进入后台扫描器的就绪候选集合。
+    fs::write(outside.join("bg_alias"), "bg-ext\n").unwrap();
+    std::thread::sleep(Duration::from_millis(1_500));
+
+    // 准备发布批次：修改 mod_file、revert_target，新增 add_file 与 post_dir/init.txt，删除 del_file。
+    shadow.write("mod_file.txt", "m-pub\n").unwrap();
+    shadow.write("revert_target.txt", "rev-pub\n").unwrap();
+    shadow.write("add_file.txt", "a-pub\n").unwrap();
+    shadow.write("post_dir/init.txt", "p-pub\n").unwrap();
+    fs::remove_file(shadow.tree_path().join("del_file.txt")).unwrap();
+
+    let prep = prepare_publish(
+        &state,
+        &call_record_hash("pub-events-1"),
+        &[&shadow],
+        None,
+        None,
+    )
+    .unwrap();
+    let PublishPrep::Ready(prepared) = prep else {
+        panic!("预期 Ready");
+    };
+    let out = prepared.execute(&[&shadow], |_| Ok(())).unwrap();
+    assert!(matches!(out, PublishOutcome::Committed { .. }));
+    assert!(shadow.status().unwrap().is_empty());
+
+    // 3. 在不先调用 sync_from_host 的前提下，立即写入外部宿主修改，
+    //    使节点自写事件、发布前已就绪的后台候选与紧随其后的外部修改落在同一次待处理窗口里。
+    fs::write(host.join("mod_file.txt"), "m-host-after\n").unwrap();
+    fs::write(host.join("add_file.txt"), "a-host-after\n").unwrap();
+    fs::write(host.join("post_dir/ext.txt"), "p-host-after\n").unwrap();
+    fs::write(host.join("del_file.txt"), "d-host-reborn\n").unwrap();
+
+    // 仅调用一次 sync_from_host，必须立即接纳全部真实宿主版本（不靠后续多轮扫描补救）。
+    shadow.sync_from_host(None, None).unwrap();
+    assert_eq!(
+        shadow.read("bg_file.txt").unwrap().as_deref(),
+        Some("bg-ext\n"),
+        "发布前已就绪的后台扫描候选必须在首次同步被接纳"
+    );
+    assert_eq!(
+        shadow.read("mod_file.txt").unwrap().as_deref(),
+        Some("m-host-after\n"),
+        "同窗口内紧随发布的修改必须在首次同步被接纳"
+    );
+    assert_eq!(
+        shadow.read("add_file.txt").unwrap().as_deref(),
+        Some("a-host-after\n"),
+        "同窗口内对新增文件的后续修改必须在首次同步被接纳"
+    );
+    assert_eq!(
+        shadow.read("post_dir/ext.txt").unwrap().as_deref(),
+        Some("p-host-after\n"),
+        "同窗口内在新发布目录中创建的外部文件必须在首次同步被接纳"
+    );
+    assert_eq!(
+        shadow.read("del_file.txt").unwrap().as_deref(),
+        Some("d-host-reborn\n"),
+        "同窗口内对刚删除文件的重建必须在首次同步被接纳"
+    );
+    assert!(shadow.status().unwrap().is_empty());
+
+    // 4. 核对后台扫描器的基准补丁（patch_baseline）：把刚发布的 revert_target 经树外硬链接改回发布前内容 rev-0，
+    //    若扫描器未收到基准补丁则会误以为与旧基准 rev-0 一致而漏报；收到补丁后会立即检出并接纳 rev-0。
+    fs::hard_link(host.join("revert_target.txt"), outside.join("revert_alias")).unwrap();
+    fs::write(outside.join("revert_alias"), "rev-0\n").unwrap();
+    let dl = Instant::now() + Duration::from_secs(5);
+    loop {
+        shadow.sync_from_host(None, None).unwrap();
+        if shadow.read("revert_target.txt").unwrap().as_deref() == Some("rev-0\n") {
+            break;
+        }
+        assert!(
+            Instant::now() < dl,
+            "后台扫描器应通过 patch_baseline 检出回退到发布前旧值的树外写入"
+        );
+        std::thread::sleep(Duration::from_millis(50));
+    }
+    assert!(shadow.status().unwrap().is_empty());
+}
+
+/// A 节：基准后态对象必须在临界区外预准备到 `state_dir/publish/<call_hash>/base/<slot>`，
+/// `Finish(Committed)` 崩溃恢复推进 `base/` 时只从预暂存对象改名就位，绝不读取 `tree/`。
+#[test]
+fn finish_recovery_uses_prestaged_base_without_reading_tree() {
+    let root = tempdir_xfs("ln-sh-pub-prestage-base-");
+    let host = root.path().join("host");
+    let state = root.path().join("state");
+    fs::create_dir(&host).unwrap();
+    fs::write(host.join("mod.txt"), "old-mod\n").unwrap();
+    fs::write(host.join("del.txt"), "old-del\n").unwrap();
+
+    let shadow = ShadowDir::open(&state, "w", &host, &[], &[]).unwrap();
+    let tree = shadow.tree_path().to_path_buf();
+    let base = shadow.base_path().to_path_buf();
+
+    fs::write(tree.join("mod.txt"), "new-mod\n").unwrap();
+    fs::write(tree.join("add.txt"), "new-add\n").unwrap();
+    symlink("target-link", tree.join("sym")).unwrap();
+    fs::remove_file(tree.join("del.txt")).unwrap();
+    fs::create_dir(tree.join("sub")).unwrap();
+    fs::write(tree.join("sub/in.txt"), "in-sub\n").unwrap();
+    fs::set_permissions(tree.join("sub"), fs::Permissions::from_mode(0o555)).unwrap();
+
+    let call_hash = call_record_hash("prestage-base-recovery");
+    let prep = prepare_publish(&state, &call_hash, &[&shadow], None, None).unwrap();
+    let PublishPrep::Ready(prepared) = prep else {
+        panic!("预期 Ready");
+    };
+
+    let PublishJournal::Undo { roots, paths, .. } = prepared.undo_journal().clone() else {
+        panic!("预期 Undo 日志");
+    };
+    let base_stage_dir = state.join("publish").join(&call_hash).join("base");
+    assert!(
+        base_stage_dir.is_dir(),
+        "prepare_publish 必须在临界区外建立 publish/<hash>/base 目录"
+    );
+
+    let mut expected_ids = BTreeMap::new();
+    for bp in &paths {
+        match &bp.after {
+            Some(
+                lancet_node::shadow::publish::ObjectState::File { .. }
+                | lancet_node::shadow::publish::ObjectState::Symlink { .. },
+            ) => {
+                let sb = bp
+                    .staged_base
+                    .unwrap_or_else(|| panic!("路径 {} 缺少 staged_base", bp.rel));
+                let slot_path = base_stage_dir.join(sb.slot.to_string());
+                let st = fs::symlink_metadata(&slot_path).expect("基准暂存槽应已落盘");
+                assert_eq!((st.dev(), st.ino()), (sb.id.dev, sb.id.ino));
+                expected_ids.insert(bp.rel.clone(), sb.id);
+            }
+            _ => {
+                assert!(bp.staged_base.is_none());
+            }
+        }
+    }
+    assert_eq!(expected_ids.len(), 4);
+
+    // 关闭活影子，模拟宿主已提交后在 Finish(Committed) 处崩溃；
+    // 故意篡改并删除 tree/ 中的全部文件，确认恢复过程完全不依赖 tree/。
+    drop(prepared);
+    drop(shadow);
+
+    fs::set_permissions(tree.join("sub"), fs::Permissions::from_mode(0o700)).unwrap();
+    fs::write(tree.join("mod.txt"), "CORRUPTED-TREE\n").unwrap();
+    fs::remove_file(tree.join("add.txt")).unwrap();
+    fs::remove_file(tree.join("sym")).unwrap();
+    fs::remove_file(tree.join("sub/in.txt")).unwrap();
+
+    fs::write(host.join("mod.txt"), "new-mod\n").unwrap();
+    fs::write(host.join("add.txt"), "new-add\n").unwrap();
+    symlink("target-link", host.join("sym")).unwrap();
+    fs::remove_file(host.join("del.txt")).unwrap();
+    fs::create_dir(host.join("sub")).unwrap();
+    fs::write(host.join("sub/in.txt"), "in-sub\n").unwrap();
+    fs::set_permissions(host.join("sub"), fs::Permissions::from_mode(0o555)).unwrap();
+
+    let rec_root = RecoveryRoot::open(&state, "w", &host, &[], &[]).unwrap();
+    let finish = PublishJournal::Finish {
+        call_hash: call_hash.clone(),
+        roots,
+        paths,
+        outcome: PublishFinish::Committed,
+    };
+    let recovered = recover_journal(
+        &state,
+        "prestage-base-recovery",
+        &state.join("calls/fake.json"),
+        finish,
+        &[rec_root],
+        |_| Ok(()),
+    )
+    .expect("Finish(Committed) 崩溃恢复必须只使用 publish/<hash>/base 而成功");
+    assert!(!state.join("publish").join(&call_hash).exists());
+    assert_eq!(recovered.effects.len(), 1);
+
+    // 验证 base/ 安装的就是预暂存的对象 inode 与发布内容，完全未受 tree/ 篡改影响。
+    assert_eq!(
+        fs::read_to_string(base.join("mod.txt")).unwrap(),
+        "new-mod\n"
+    );
+    assert_eq!(
+        fs::read_to_string(base.join("add.txt")).unwrap(),
+        "new-add\n"
+    );
+    assert_eq!(
+        fs::read_link(base.join("sym")).unwrap(),
+        PathBuf::from("target-link")
+    );
+    assert!(!base.join("del.txt").exists());
+    assert_eq!(
+        fs::symlink_metadata(base.join("sub")).unwrap().mode() & 0o7777,
+        0o555
+    );
+    assert_eq!(
+        fs::read_to_string(base.join("sub/in.txt")).unwrap(),
+        "in-sub\n"
+    );
+
+    for (rel, id) in expected_ids {
+        let st = fs::symlink_metadata(base.join(&rel)).unwrap();
+        assert_eq!(
+            (st.dev(), st.ino()),
+            (id.dev, id.ino),
+            "base/{rel} 必须是预暂存对象改名就位，而非从 tree/ 复制"
+        );
+    }
+
+    let _ = fs::set_permissions(host.join("sub"), fs::Permissions::from_mode(0o700));
+    let _ = fs::set_permissions(base.join("sub"), fs::Permissions::from_mode(0o700));
+}
+
+/// 第 3 轮 B1：实时部分撤回（阶段 5 尚未执行）中，新建只读目录 `d`（目标权限 `0555`）因宿主修改了子文件 `d/x`
+/// 而被标为“已发布”保留在宿主上时，宿主 `d` 与基准 `d` 的权限必须同为 `0555`，不得在宿主上残留临时写权限 `0755`。
+#[test]
+fn live_partial_rollback_restores_readonly_published_dir_mode() {
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, Ordering};
+
+    let pad_count = 300usize;
+    let max_attempts = 10usize;
+    let mut hit = false;
+
+    for attempt in 1..=max_attempts {
+        let root = tempdir_xfs("ln-sh-pub-b1-live-ro-");
+        let host = root.path().join("host");
+        let state = root.path().join("state");
+        fs::create_dir(&host).unwrap();
+        for i in 0..pad_count {
+            fs::write(host.join(format!("m{i:04}.txt")), format!("old-m-{i}\n")).unwrap();
+        }
+        fs::write(host.join("z.txt"), "old-z\n").unwrap();
+
+        let shadow = ShadowDir::open(&state, "w", &host, &[], &[]).unwrap();
+        let tree = shadow.tree_path().to_path_buf();
+        let base = shadow.base_path().to_path_buf();
+
+        // 在影子中新建只读目录 d（0555）及子文件 d/x，修改中间填充文件与末项 z.txt。
+        fs::create_dir(tree.join("d")).unwrap();
+        fs::write(tree.join("d/x"), "pub-x\n").unwrap();
+        fs::set_permissions(tree.join("d"), fs::Permissions::from_mode(0o555)).unwrap();
+        for i in 0..pad_count {
+            fs::write(tree.join(format!("m{i:04}.txt")), format!("new-m-{i}\n")).unwrap();
+        }
+        fs::write(tree.join("z.txt"), "new-z\n").unwrap();
+
+        let call_hash = call_record_hash(&format!("live-ro-partial-{attempt}"));
+        let prep = prepare_publish(&state, &call_hash, &[&shadow], None, None).unwrap();
+        let PublishPrep::Ready(prepared) = prep else {
+            panic!("预期 Ready");
+        };
+
+        let z_meta_before = fs::symlink_metadata(host.join("z.txt")).unwrap();
+        let z_before_id = (z_meta_before.dev(), z_meta_before.ino());
+        let writer_staged = root.path().join(format!("writer-live-z-{attempt}.tmp"));
+        fs::write(&writer_staged, b"host-late-z\n").unwrap();
+        let writer_staged_bg = writer_staged.clone();
+
+        let stop = Arc::new(AtomicBool::new(false));
+        let stop_bg = Arc::clone(&stop);
+        let host_bg = host.clone();
+        let writer = std::thread::spawn(move || {
+            let dx = host_bg.join("d/x");
+            let z = host_bg.join("z.txt");
+            while !stop_bg.load(Ordering::Relaxed) {
+                if fs::read_to_string(&dx).ok().as_deref() == Some("pub-x\n") {
+                    // 原地改写已发布的 d/x（破坏其可撤回性），再用 RENAME_EXCHANGE 原子替换 z.txt
+                    // 并核对被换出的对象是否为交换前旧 inode（第 4 轮项 2）。
+                    fs::write(&dx, "host-edited-dx\n").unwrap();
+                    renameat_with(CWD, &writer_staged_bg, CWD, &z, RenameFlags::EXCHANGE).unwrap();
+                    let swapped = fs::symlink_metadata(&writer_staged_bg).unwrap();
+                    let swapped_old_z = (swapped.dev(), swapped.ino()) == z_before_id;
+                    return Some(swapped_old_z);
+                }
+            }
+            None
+        });
+
+        let out = prepared.execute(&[&shadow], |_| Ok(())).unwrap();
+        stop.store(true, Ordering::Relaxed);
+        let evidence = writer.join().unwrap();
+        let _ = fs::remove_file(&writer_staged);
+
+        let host_d_mode = fs::symlink_metadata(host.join("d"))
+            .ok()
+            .map(|m| m.mode() & 0o7777);
+        let base_d_mode = fs::symlink_metadata(base.join("d"))
+            .ok()
+            .map(|m| m.mode() & 0o7777);
+        let _ = fs::set_permissions(host.join("d"), fs::Permissions::from_mode(0o700));
+        let _ = fs::set_permissions(tree.join("d"), fs::Permissions::from_mode(0o700));
+        let _ = fs::set_permissions(base.join("d"), fs::Permissions::from_mode(0o700));
+
+        match out {
+            PublishOutcome::Indeterminate { reason, .. } => {
+                assert_eq!(
+                    evidence,
+                    Some(true),
+                    "部分撤回必须由写者在交换前改写末项触发，实际证据：{evidence:?}\n{reason}"
+                );
+                assert!(
+                    reason.contains("w \"d\"：已发布"),
+                    "目录 d 应标为已发布，实际：\n{reason}"
+                );
+                assert!(
+                    reason.contains("w \"d/x\"：保留宿主修改"),
+                    "子文件 d/x 应标为保留宿主修改，实际：\n{reason}"
+                );
+                assert_eq!(base_d_mode, Some(0o555), "基准目录 d 权限应为 0555");
+                assert_eq!(
+                    host_d_mode,
+                    Some(0o555),
+                    "实时部分撤回保留只读目录 d（已发布）时，宿主 d 权限也必须为 0555，不得残留 0755"
+                );
+                hit = true;
+                break;
+            }
+            PublishOutcome::Committed { .. } => {
+                assert!(
+                    evidence != Some(true),
+                    "写者已确证在交换前修改 z.txt 旧 inode，不得提交成功"
+                );
+            }
+            PublishOutcome::RolledBackConflict { conflicts } => {
+                panic!("第 {attempt} 轮出现意外整批撤回：{conflicts:?}");
+            }
+            PublishOutcome::RolledBackIoError { message } => {
+                panic!("第 {attempt} 轮出现意外 I/O 错误：{message}");
+            }
+        }
+    }
+    assert!(hit, "在限定轮次内未能触发实时部分撤回只读目录窗口");
 }

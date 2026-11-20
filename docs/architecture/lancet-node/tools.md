@@ -108,7 +108,7 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 - 每次到达分发层的调用在回执的 `steps` 中记一条 `{ tool, outcome }`：`tool` 为脚本中的工具名（如 `fs.read`），`outcome` 为该次调用的结局；κ 不满足、实参无效或超出返回窗口的调用记为 `Failed`。解析、静态检查与求值中没有发出分发的错误不记步骤。
 - 形参为 `borrow<read-dir>`、实参是可写工作目录时，分发层只注入影子的只读视图；只有 `borrow<write-dir>` 形参拿到可写资源。
 - 宿主方法报告实际发生的变更，分发层把它们记为本次 `act` 回执中的 effect 条目：影子中常规路径的变更为 `Write`、`residue` 为 `None`；`regenerable` 路径中的写入为 `Write`、`residue` 为 `Regenerable`，变更项只记命中的规则。工具报错、陷入或被中断时，已发生的变更照样记入。每次调用结束时，分发层核对这些变更都在以实参实例化的 effect 模板之内；越出时本次 `act` 以 `Failed(InternalError)` 结束，已发生的变更保留在回执中。
-- 内置函数 `discard()` 经同一分发接口交给节点（[`act` 的待定改动](act.md#待定改动)），在回执的 `steps` 中记为 `discard`。
+- 内置函数 `discard()` 与 `commit()` 经同一分发接口交给节点（[`act` 的待定改动](act.md#待定改动)），在回执的 `steps` 中分别记为 `discard` 与 `commit`。发布产生的变更记为 `Write` 条目，`action` 为 `publish`、`residue` 为 `NotRetained`；分发层同样核对它们在本次授予的可写目录的模板之内。
 
 ## 组件运行时
 
@@ -236,4 +236,4 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 - `cargo test -p lancet-node --lib dispatch`：κ 的核对。
 - `cargo test -p lancet-node --test dispatch`：数值实参的范围、API 工具组件的陷入、内存上限、截止与取消；可写目录的只读视图收窄、工具报错后保留的写入，以及 effect 越出模板时的结局。
 - `cargo test --release -p lancet-node --test dispatch measure_tool_call_overhead -- --ignored --nocapture --test-threads=1`：实测 API 工具单次调用的固定开销，结果见[组件运行时](#组件运行时)。
-- `cargo test -p lancet-node --test node`：首批 API 工具经 `execute` 的行为、回执的 `steps` 与 `Write` 条目、返回窗口与超帧回执的截断。
+- `cargo test -p lancet-node --test node`：首批 API 工具经 `execute` 的行为、回执的 `steps` 与 `Write` 条目、返回窗口与超帧回执的截断，以及发布条目与 diff 的裁剪。

@@ -599,6 +599,47 @@ impl WidenedLog {
         let _ = self.persist();
     }
 
+    /// 由浅到深放宽 `rel` 所有缺失 `0o700` 权限的严格上级目录，保持放宽直至调用方统一恢复。
+    pub fn widen_ancestors(
+        &mut self,
+        tag: TreeTag,
+        root_fd: BorrowedFd<'_>,
+        rel: &Path,
+    ) -> io::Result<()> {
+        let mut ancestors = Vec::new();
+        let mut cur = rel.parent();
+        while let Some(anc) = cur {
+            if anc.as_os_str().is_empty() {
+                break;
+            }
+            ancestors.push(anc.to_path_buf());
+            cur = anc.parent();
+        }
+        for anc in ancestors.into_iter().rev() {
+            let _ = self.widen_dir(tag, root_fd, &anc)?;
+        }
+        Ok(())
+    }
+
+    /// 列出当前在 `TreeTag::Base` 中处于放宽状态的目录及其待恢复权限。
+    pub fn base_active_modes(&self) -> Vec<(PathBuf, u32)> {
+        self.active
+            .iter()
+            .filter(|((tag, _), _)| *tag == TreeTag::Base)
+            .map(|((_, rel), &mode)| (rel.clone(), mode))
+            .collect()
+    }
+
+    /// 清除所有 `TreeTag::Base` 放宽记录并将结果持久落盘（严格传播 I/O 错误）。
+    pub fn clear_base_active_checked(&mut self) -> io::Result<()> {
+        let had_base = self.active.keys().any(|(tag, _)| *tag == TreeTag::Base);
+        if !had_base {
+            return Ok(());
+        }
+        self.active.retain(|(tag, _), _| *tag != TreeTag::Base);
+        self.persist()
+    }
+
     /// 由深到浅恢复所有当前放宽的目录权限，随后删除 `shadows/<key>/widened`。
     pub fn restore_all(&mut self, tree_root_fd: BorrowedFd<'_>, base_root_fd: BorrowedFd<'_>) {
         if self.active.is_empty() {
@@ -1096,7 +1137,7 @@ fn create_unique_tmp_file(tmp_root_fd: BorrowedFd<'_>) -> io::Result<(String, Ow
     }
 }
 
-fn sync_dir_fd(dir_fd: BorrowedFd<'_>) -> io::Result<()> {
+pub(crate) fn sync_dir_fd(dir_fd: BorrowedFd<'_>) -> io::Result<()> {
     rustix::fs::fsync(dir_fd).map_err(io::Error::from)
 }
 
