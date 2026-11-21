@@ -56,10 +56,7 @@ pub fn build(
             kind: kind.to_owned(),
             effects,
             modes,
-            attributes: BTreeMap::from([
-                ("hidden".to_owned(), json!(dir.hidden)),
-                ("regenerable".to_owned(), json!(dir.regenerable)),
-            ]),
+            attributes: BTreeMap::new(),
         });
     }
 

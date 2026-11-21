@@ -1,16 +1,16 @@
 // Copyright 2026 Ast Rin
 // SPDX-License-Identifier: Apache-2.0
 
-//! API 工具分发层：κ 核对、组件实例化、数值转换、资源收窄、ε 记录与模板核对、锁、`discard()` 与 `commit()`。
+//! API 工具分发层：κ 核对、组件实例化、数值转换、资源收窄、ε 记录与模板核对。
 
 use std::collections::{HashMap, HashSet};
 use std::fmt;
-use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::{Arc, Mutex, MutexGuard, TryLockError};
-use std::time::{Duration, Instant};
+use std::sync::atomic::AtomicBool;
+use std::sync::{Arc, Mutex};
+use std::time::Instant;
 
 use anyhow::Context as _;
-use lancet_protocol::{Change, EffectEntry, EffectKind, OutcomeKind, StepSummary};
+use lancet_protocol::{Change, EffectEntry, EffectKind, OutcomeKind, Residue, StepSummary};
 use lancet_tool_decl::{
     ActContext, CoEffectItem, EffectItem, HandleGrant, HandleKind, ToolDecl, WitType,
 };
@@ -22,10 +22,7 @@ use wasmtime::component::{
 use wasmtime::{Engine, Store};
 
 use crate::act::{DispatchArgument, Interrupt, MemoryBudget, check_epoch_interrupt};
-use crate::read_dir::ReadDir;
-use crate::shadow::{
-    DiscardError, ShadowDir, ShadowInterrupt, ShadowReadView, ShadowSyncError, WriteEffect,
-};
+use crate::read_dir::HostDir;
 
 wasmtime::component::bindgen!({
     world: "tool-host",
@@ -48,56 +45,30 @@ pub const MAX_TOOL_RESULT_BYTES: usize = 8 * 1024 * 1024;
 /// 分发层按 `[[dir]]` 配置顺序持有的目录资源槽位。
 #[derive(Clone)]
 pub enum DirSlot {
-    ReadOnly(ReadDir),
-    Shadow(ShadowDir),
+    ReadOnly(HostDir),
+    Writable(HostDir),
 }
 
 impl DirSlot {
     pub fn name(&self) -> &str {
         match self {
-            Self::ReadOnly(dir) => dir.name(),
-            Self::Shadow(shadow) => shadow.name(),
+            Self::ReadOnly(dir) | Self::Writable(dir) => dir.name(),
         }
     }
 
     pub fn handle_kind(&self) -> HandleKind {
         match self {
             Self::ReadOnly(_) => HandleKind::ReadDir,
-            Self::Shadow(_) => HandleKind::WriteDir,
+            Self::Writable(_) => HandleKind::WriteDir,
         }
     }
 }
 
-/// 压入工具组件 `ResourceTable` 的 `read-dir` 资源；可写槽位收窄为只读视图。
-pub enum ReadDirResource {
-    Host(ReadDir),
-    Shadow(ShadowReadView),
-}
+/// 压入工具组件 `ResourceTable` 的 `read-dir` 资源；可写槽位落到 `borrow<read-dir>` 时仍收窄为只读资源。
+pub struct ReadDirResource(HostDir);
 
 /// 压入工具组件 `ResourceTable` 的 `write-dir` 资源，仅在形参为 `borrow<write-dir>` 时注入。
-pub struct WriteDirResource {
-    shadow: ShadowDir,
-}
-
-/// 已按槽位顺序持有的全部可写目录 `act` 级互斥锁。
-pub struct WritableLocks<'a> {
-    _guards: Vec<MutexGuard<'a, ()>>,
-}
-
-/// 等锁期间收到的中断类型。
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum WaitInterrupt {
-    Deadline,
-    Cancelled,
-}
-
-/// 持锁后宿主同步期间收到的中断或真实 I/O 错误。
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum SyncError {
-    Deadline,
-    Cancelled,
-    Failed(String),
-}
+pub struct WriteDirResource(HostDir);
 
 /// 分发层检测到的节点内部契约违反（以 wasmtime 陷入中止整个 `act`）。
 #[derive(Debug)]
@@ -160,19 +131,19 @@ struct ToolStoreState {
 }
 
 impl ToolStoreState {
-    fn record_write_effect(&mut self, handle: &str, effect: WriteEffect) {
+    fn record_write_effect(&mut self, handle: &str, target: String) {
         let entry = EffectEntry::new(
             handle,
             EffectKind::Write,
             vec![Change {
-                target: effect.target,
-                action: effect.action.to_owned(),
+                target,
+                action: "write".to_owned(),
                 diff: None,
                 diff_truncated: false,
-                residue: effect.residue,
+                residue: Residue::NotRetained,
             }],
         )
-        .expect("Write 变更的 residue 已由影子层保证合法");
+        .expect("Write 变更使用 NotRetained 始终合法");
         self.call_effects.push(entry);
     }
 }
@@ -186,11 +157,7 @@ impl lancet::host::handles::HostReadDir for ToolStoreState {
         path: String,
     ) -> wasmtime::Result<Result<Option<String>, String>> {
         let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        let res = match dir {
-            ReadDirResource::Host(d) => d.read(&path),
-            ReadDirResource::Shadow(s) => s.read(&path),
-        };
-        Ok(res)
+        Ok(dir.0.read(&path))
     }
 
     fn entries(
@@ -199,10 +166,7 @@ impl lancet::host::handles::HostReadDir for ToolStoreState {
         path: String,
     ) -> wasmtime::Result<Result<Option<Vec<lancet::host::handles::Entry>>, String>> {
         let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        let raw = match dir {
-            ReadDirResource::Host(d) => d.entries(&path),
-            ReadDirResource::Shadow(s) => s.entries(&path),
-        };
+        let raw = dir.0.entries(&path);
         Ok(raw.map(|opt| {
             opt.map(|entries| {
                 entries
@@ -215,47 +179,6 @@ impl lancet::host::handles::HostReadDir for ToolStoreState {
                     .collect()
             })
         }))
-    }
-
-    fn status(
-        &mut self,
-        self_: Resource<ReadDirResource>,
-    ) -> wasmtime::Result<Result<Vec<lancet::host::handles::PendingChange>, String>> {
-        let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        let res = match dir {
-            ReadDirResource::Host(_) => Ok(Vec::new()),
-            ReadDirResource::Shadow(s) => s.status().map(|list| {
-                list.into_iter()
-                    .map(|c| lancet::host::handles::PendingChange {
-                        path: c.path,
-                        action: c.action.as_str().to_owned(),
-                        conflict: c.conflict,
-                    })
-                    .collect()
-            }),
-        };
-        Ok(res)
-    }
-
-    fn diff(
-        &mut self,
-        self_: Resource<ReadDirResource>,
-    ) -> wasmtime::Result<Result<Vec<lancet::host::handles::PathDiff>, String>> {
-        let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        let res = match dir {
-            ReadDirResource::Host(_) => Ok(Vec::new()),
-            ReadDirResource::Shadow(s) => s.diff().map(|list| {
-                list.into_iter()
-                    .map(|d| lancet::host::handles::PathDiff {
-                        path: d.path,
-                        action: d.action.as_str().to_owned(),
-                        conflict: d.conflict,
-                        patch: d.patch,
-                    })
-                    .collect()
-            }),
-        };
-        Ok(res)
     }
 
     fn drop(&mut self, rep: Resource<ReadDirResource>) -> wasmtime::Result<()> {
@@ -271,7 +194,7 @@ impl lancet::host::handles::HostWriteDir for ToolStoreState {
         path: String,
     ) -> wasmtime::Result<Result<Option<String>, String>> {
         let dir = self.table.get(&self_).map_err(wasmtime::Error::from)?;
-        Ok(dir.shadow.read(&path))
+        Ok(dir.0.read(&path))
     }
 
     fn write(
@@ -280,39 +203,19 @@ impl lancet::host::handles::HostWriteDir for ToolStoreState {
         path: String,
         content: String,
     ) -> wasmtime::Result<Result<(), String>> {
-        let shadow = self
+        let dir = self
             .table
             .get(&self_)
             .map_err(wasmtime::Error::from)?
-            .shadow
+            .0
             .clone();
-        match shadow.write(&path, &content) {
-            Ok(Some(effect)) => {
-                self.record_write_effect(shadow.name(), effect);
+        match dir.write_file(&path, &content) {
+            Ok(res) => {
+                if res.changed {
+                    self.record_write_effect(dir.name(), res.real_rel);
+                }
                 Ok(Ok(()))
             }
-            Ok(None) => Ok(Ok(())),
-            Err(msg) => Ok(Err(msg)),
-        }
-    }
-
-    fn reset(
-        &mut self,
-        self_: Resource<WriteDirResource>,
-        path: String,
-    ) -> wasmtime::Result<Result<(), String>> {
-        let shadow = self
-            .table
-            .get(&self_)
-            .map_err(wasmtime::Error::from)?
-            .shadow
-            .clone();
-        match shadow.reset(&path) {
-            Ok(Some(effect)) => {
-                self.record_write_effect(shadow.name(), effect);
-                Ok(Ok(()))
-            }
-            Ok(None) => Ok(Ok(())),
             Err(msg) => Ok(Err(msg)),
         }
     }
@@ -438,172 +341,7 @@ impl Dispatcher {
         self.inner
             .dirs
             .iter()
-            .any(|slot| matches!(slot, DirSlot::Shadow(_)))
-    }
-
-    /// 按 `[[dir]]` 槽位顺序返回全部可写目录影子句柄。
-    pub fn writable_shadows(&self) -> Vec<&ShadowDir> {
-        self.inner
-            .dirs
-            .iter()
-            .filter_map(|slot| match slot {
-                DirSlot::Shadow(shadow) => Some(shadow),
-                DirSlot::ReadOnly(_) => None,
-            })
-            .collect()
-    }
-
-    /// 核对发布产生的 `EffectEntry` 均未越出已授予可写目录的 `Write` effect 模板。
-    pub fn validate_publish_effects(&self, entries: &[EffectEntry]) -> Result<(), String> {
-        let allowed = allowed_writable_effects(&self.inner.context.handles);
-        for entry in entries {
-            if !allowed.contains(&(entry.handle().to_owned(), entry.kind())) {
-                return Err(format!(
-                    "发布在句柄 `{}` 上产生的 {:?} effect 越出模板",
-                    entry.handle(),
-                    entry.kind()
-                ));
-            }
-        }
-        Ok(())
-    }
-
-    /// 按槽位顺序取得全部可写目录的互斥锁，等待期间响应取消与截止时间。
-    pub fn acquire_writable_locks(
-        &self,
-        deadline: Instant,
-        cancelled: &AtomicBool,
-    ) -> Result<WritableLocks<'_>, WaitInterrupt> {
-        let mut guards = Vec::new();
-        for slot in &self.inner.dirs {
-            let DirSlot::Shadow(shadow) = slot else {
-                continue;
-            };
-            loop {
-                if cancelled.load(Ordering::Acquire) {
-                    return Err(WaitInterrupt::Cancelled);
-                }
-                let now = Instant::now();
-                if now >= deadline {
-                    return Err(WaitInterrupt::Deadline);
-                }
-                match shadow.try_lock_act() {
-                    Ok(guard) => {
-                        guards.push(guard);
-                        break;
-                    }
-                    Err(TryLockError::WouldBlock) => {
-                        let remaining = deadline.saturating_duration_since(now);
-                        let sleep_for = remaining.min(Duration::from_millis(10));
-                        if !sleep_for.is_zero() {
-                            std::thread::sleep(sleep_for);
-                        }
-                        if cancelled.load(Ordering::Acquire) {
-                            return Err(WaitInterrupt::Cancelled);
-                        }
-                        if Instant::now() >= deadline {
-                            return Err(WaitInterrupt::Deadline);
-                        }
-                    }
-                    Err(TryLockError::Poisoned(_)) => {
-                        panic!("可写目录互斥锁不应中毒");
-                    }
-                }
-            }
-        }
-        Ok(WritableLocks { _guards: guards })
-    }
-
-    /// 持锁后逐个同步可写目录的宿主改动进影子与基准，并在路径间检查截止与取消。
-    pub fn sync_writable_dirs(
-        &self,
-        deadline: Instant,
-        cancelled: &AtomicBool,
-    ) -> Result<(), SyncError> {
-        for slot in &self.inner.dirs {
-            let DirSlot::Shadow(shadow) = slot else {
-                continue;
-            };
-            if let Err(err) = shadow.sync_from_host(Some(deadline), Some(cancelled)) {
-                return Err(match err {
-                    ShadowSyncError::Interrupted(ShadowInterrupt::Deadline) => SyncError::Deadline,
-                    ShadowSyncError::Interrupted(ShadowInterrupt::Cancelled) => {
-                        SyncError::Cancelled
-                    }
-                    ShadowSyncError::Failed(msg) => SyncError::Failed(msg),
-                });
-            }
-        }
-        Ok(())
-    }
-
-    /// 汇总全部可写目录中可见待定路径的总数（冲突只计一次，不含 `hidden` 与 `regenerable`）。
-    pub fn visible_pending_count(&self) -> usize {
-        self.inner
-            .dirs
-            .iter()
-            .filter_map(|slot| match slot {
-                DirSlot::Shadow(shadow) => Some(shadow.visible_pending_count()),
-                DirSlot::ReadOnly(_) => None,
-            })
-            .sum()
-    }
-
-    /// 执行内置 `discard()`：把全部可写目录的常规待定路径恢复为基准并清除 `hidden` 项，保留种子。
-    pub fn discard(
-        &self,
-        deadline: Instant,
-        cancelled: Arc<AtomicBool>,
-        steps: &Mutex<Vec<StepSummary>>,
-        effects: &Mutex<Vec<EffectEntry>>,
-    ) -> wasmtime::Result<Result<(), String>> {
-        let allowed_effects = allowed_writable_effects(&self.inner.context.handles);
-        let mut recorded = Vec::new();
-        for slot in &self.inner.dirs {
-            let DirSlot::Shadow(shadow) = slot else {
-                continue;
-            };
-            match shadow.discard(Some(deadline), Some(&cancelled)) {
-                Ok(list) => {
-                    if let Some(entry) = build_write_entry(shadow.name(), list) {
-                        recorded.push(entry);
-                    }
-                }
-                Err(DiscardError::Interrupted { partial, interrupt }) => {
-                    if let Some(entry) = build_write_entry(shadow.name(), partial) {
-                        recorded.push(entry);
-                    }
-                    finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
-                    return match interrupt {
-                        ShadowInterrupt::Deadline => {
-                            record_step(steps, "discard", OutcomeKind::Deadline);
-                            Err(wasmtime::Error::new(Interrupt::Deadline))
-                        }
-                        ShadowInterrupt::Cancelled => {
-                            record_step(steps, "discard", OutcomeKind::Cancelled);
-                            Err(wasmtime::Error::new(Interrupt::Cancelled))
-                        }
-                    };
-                }
-                Err(DiscardError::Failed { partial, message }) => {
-                    if let Some(entry) = build_write_entry(shadow.name(), partial) {
-                        recorded.push(entry);
-                    }
-                    finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
-                    record_step(steps, "discard", OutcomeKind::Failed);
-                    return Ok(Err(message));
-                }
-            }
-        }
-        finalize_discard_effects(recorded, &allowed_effects, steps, effects)?;
-        record_step(steps, "discard", OutcomeKind::Succeeded);
-        Ok(Ok(()))
-    }
-
-    /// 执行内置 `commit()`：标记本次 `act` 在脚本正常返回且交回载荷不超限时发布最终待定改动。
-    pub fn commit(&self, steps: &Mutex<Vec<StepSummary>>) -> wasmtime::Result<Result<(), String>> {
-        record_step(steps, "commit", OutcomeKind::Succeeded);
-        Ok(Ok(()))
+            .any(|slot| matches!(slot, DirSlot::Writable(_)))
     }
 
     /// 核对 κ、在隔离 `Store` 中运行工具组件、执行统一 ε 归集与模板核对、返回窗口与步骤摘要记录。
@@ -716,15 +454,14 @@ impl Dispatcher {
                     let dir_slot = &self.inner.dirs[*slot as usize];
                     let any = match kind {
                         HandleKind::ReadDir => {
-                            let res_val = match dir_slot {
-                                DirSlot::ReadOnly(read_dir) => {
-                                    ReadDirResource::Host(read_dir.clone())
-                                }
-                                DirSlot::Shadow(shadow) => {
-                                    ReadDirResource::Shadow(shadow.read_view())
-                                }
+                            let host_dir = match dir_slot {
+                                DirSlot::ReadOnly(d) | DirSlot::Writable(d) => d.clone(),
                             };
-                            let resource = store.data_mut().table.push(res_val).map_err(|err| {
+                            let resource = store
+                                .data_mut()
+                                .table
+                                .push(ReadDirResource(host_dir))
+                                .map_err(|err| {
                                 format!("注入只读目录句柄 `{}` 失败：{err}", param.name)
                             })?;
                             ResourceAny::try_from_resource(resource, &mut *store).map_err(
@@ -732,15 +469,13 @@ impl Dispatcher {
                             )?
                         }
                         HandleKind::WriteDir => {
-                            let DirSlot::Shadow(shadow) = dir_slot else {
+                            let DirSlot::Writable(host_dir) = dir_slot else {
                                 unreachable!("κ 已保证 WriteDir 形参只接收可写目录槽位");
                             };
                             let resource = store
                                 .data_mut()
                                 .table
-                                .push(WriteDirResource {
-                                    shadow: shadow.clone(),
-                                })
+                                .push(WriteDirResource(host_dir.clone()))
                                 .map_err(|err| {
                                     format!("注入可写目录句柄 `{}` 失败：{err}", param.name)
                                 })?;
@@ -802,64 +537,9 @@ fn new_tool_store(
     store
 }
 
-fn build_write_entry(handle: &str, list: Vec<WriteEffect>) -> Option<EffectEntry> {
-    if list.is_empty() {
-        return None;
-    }
-    let changes = list
-        .into_iter()
-        .map(|eff| Change {
-            target: eff.target,
-            action: eff.action.to_owned(),
-            diff: None,
-            diff_truncated: false,
-            residue: eff.residue,
-        })
-        .collect();
-    Some(
-        EffectEntry::new(handle, EffectKind::Write, changes)
-            .expect("Write 变更的 residue 已由影子层保证合法"),
-    )
-}
-
 fn append_effects(effects: &Mutex<Vec<EffectEntry>>, entries: Vec<EffectEntry>) {
     let mut guard = effects.lock().expect("effect 互斥锁不应中毒");
     guard.extend(entries);
-}
-
-fn allowed_writable_effects(grants: &[HandleGrant]) -> HashSet<(String, EffectKind)> {
-    grants
-        .iter()
-        .filter(|g| g.kind == HandleKind::WriteDir)
-        .map(|g| (g.name.clone(), EffectKind::Write))
-        .collect()
-}
-
-fn finalize_discard_effects(
-    recorded: Vec<EffectEntry>,
-    allowed_effects: &HashSet<(String, EffectKind)>,
-    steps: &Mutex<Vec<StepSummary>>,
-    effects: &Mutex<Vec<EffectEntry>>,
-) -> wasmtime::Result<()> {
-    let mut violation: Option<(String, EffectKind)> = None;
-    for entry in &recorded {
-        if !allowed_effects.contains(&(entry.handle().to_owned(), entry.kind())) {
-            violation = Some((entry.handle().to_owned(), entry.kind()));
-            break;
-        }
-    }
-    if !recorded.is_empty() {
-        append_effects(effects, recorded);
-    }
-    if let Some((handle, kind)) = violation {
-        record_step(steps, "discard", OutcomeKind::Failed);
-        return Err(wasmtime::Error::new(DispatchTrap::EffectOutOfTemplate {
-            tool: "discard".to_owned(),
-            handle,
-            kind,
-        }));
-    }
-    Ok(())
 }
 
 fn instantiate_allowed_effects(

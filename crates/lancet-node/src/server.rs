@@ -162,7 +162,6 @@ fn dispatch_request(
                 &tool,
                 &arguments,
                 output_limit,
-                has_writable,
             );
             match shared.ledger.admit_execute(
                 conn_id,

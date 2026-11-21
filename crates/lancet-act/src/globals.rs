@@ -13,7 +13,6 @@ use starlark::typing::Ty;
 use starlark::values::Heap;
 use starlark::values::ValueOfUnchecked;
 use starlark::values::float::UnpackFloat;
-use starlark::values::none::NoneType;
 use starlark::values::typing::StarlarkIter;
 
 use crate::text::TextView;
@@ -206,16 +205,6 @@ fn register_core_helpers(builder: &mut GlobalsBuilder) {
 
     fn text(s: &str) -> anyhow::Result<TextView> {
         Ok(TextView::new(s))
-    }
-
-    fn discard() -> anyhow::Result<NoneType> {
-        crate::lancet::act::dispatch::discard().map_err(anyhow::Error::msg)?;
-        Ok(NoneType)
-    }
-
-    fn commit() -> anyhow::Result<NoneType> {
-        crate::lancet::act::dispatch::commit().map_err(anyhow::Error::msg)?;
-        Ok(NoneType)
     }
 }
 

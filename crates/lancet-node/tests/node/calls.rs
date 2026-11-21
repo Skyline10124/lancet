@@ -1319,203 +1319,22 @@ return {
 }
 
 #[test]
-fn hidden_paths_are_invisible_to_all_read_tools() {
-    let (_root, _state_dir, process) = TestNode::start_custom(|root_path| {
-        let ro = root_path.join("ro");
-        std::fs::create_dir_all(ro.join("secrets/deep")).unwrap();
-        std::fs::create_dir_all(ro.join("nested")).unwrap();
-        std::fs::create_dir_all(ro.join("docs")).unwrap();
-        std::fs::write(ro.join(".gitignore"), "from_gitignore.txt\n").unwrap();
-        std::fs::write(ro.join("from_gitignore.txt"), "visible gitignored").unwrap();
-        std::fs::write(ro.join("secrets/key.txt"), "secret key").unwrap();
-        std::fs::write(ro.join("secrets/unignored.txt"), "still hidden").unwrap();
-        std::fs::write(ro.join("secrets/present.txt"), "present secret").unwrap();
-        std::fs::write(ro.join("nested/secret.txt"), "nested secret").unwrap();
-        std::fs::write(ro.join("docs/public.txt"), "public doc").unwrap();
-        std::os::unix::fs::symlink("public.txt", ro.join("docs/secretlink")).unwrap();
-        std::os::unix::fs::symlink("loop", ro.join("docs/loop")).unwrap();
-        std::fs::write(ro.join("name"), "target content").unwrap();
-        std::fs::write(ro.join("notes"), "not a dir").unwrap();
-        std::fs::write(ro.join("app.log"), "hidden log").unwrap();
-        std::fs::write(ro.join("keep.log"), "kept log").unwrap();
-        std::fs::write(ro.join("visible.txt"), "ok").unwrap();
-
-        std::os::unix::fs::symlink("docs", ro.join("alias")).unwrap();
-        std::os::unix::fs::symlink("omitted/../name", ro.join("via_omitted")).unwrap();
-        std::os::unix::fs::symlink("secrets/present.txt", ro.join("peek_present")).unwrap();
-        std::os::unix::fs::symlink("secrets/maybe.txt", ro.join("peek_missing")).unwrap();
-
-        format!(
-            r#"
-[[dir]]
-name = "ro"
-path = {ro:?}
-access = "read"
-hidden = ["secrets/", "!secrets/unignored.txt", "**/secret.txt", "*.log", "!keep.log", "notes/", "docs/secretlink", "omitted/", "alias/loop", "vault/"]
-"#,
-            ro = ro.to_str().unwrap(),
-        )
-    });
-    let (mut stream, digest) = connect_process(&process);
-
-    let ok = run_act(
-        &mut stream,
-        10,
-        "inv-hidden-visible",
-        &digest,
-        r#"
-return {
-    "gitignored": ro.read("from_gitignore.txt"),
-    "kept": ro.read("keep.log"),
-    "notes": ro.read("notes"),
-    "docs_public": ro.read("docs/public.txt"),
-    "root_list": [e.name for e in ro.list(".")],
-    "nested_list": [e.name for e in ro.list("nested")],
-    "docs_list": [e.name for e in ro.list("docs")],
-    "alias_list": [e.name for e in ro.list("alias")],
-    "search": ro.search("visible|kept|secret|hidden"),
-}
-"#,
-    );
-    let val = match ok {
-        ExecuteOutcome::Succeeded { content, .. } => content["value"].clone(),
-        other => panic!("可见内容访问应成功，实际：{other:?}"),
-    };
-    assert_eq!(val["gitignored"], "visible gitignored");
-    assert_eq!(val["kept"], "kept log");
-    assert_eq!(val["notes"], "not a dir");
-    assert_eq!(val["docs_public"], "public doc");
-    assert_eq!(
-        val["root_list"],
-        json!([
-            ".gitignore",
-            "alias",
-            "docs",
-            "from_gitignore.txt",
-            "keep.log",
-            "name",
-            "nested",
-            "notes",
-            "visible.txt"
-        ])
-    );
-    assert_eq!(val["nested_list"], json!([]));
-    assert_eq!(val["docs_list"], json!(["public.txt"]));
-    assert_eq!(val["alias_list"], json!(["public.txt"]));
-    assert_eq!(
-        val["search"],
-        json!([
-            {"path": "from_gitignore.txt", "line_no": 1, "text": "visible gitignored"},
-            {"path": "keep.log", "line_no": 1, "text": "kept log"},
-        ])
-    );
-
-    let non_dir_parent = run_act(
-        &mut stream,
-        15,
-        "inv-hidden-non-dir-parent",
-        &digest,
-        r#"return ro.read("notes/chapter")"#,
-    );
-    match non_dir_parent {
-        ExecuteOutcome::Failed { error, .. } => {
-            assert_eq!(error.code, "ScriptOrToolError");
-            assert!(
-                error.message.contains("上级不是目录"),
-                "经普通文件 notes 继续向下访问应报上级不是目录，实际：{}",
-                error.message
-            );
-        }
-        other => panic!("经普通文件 notes 继续向下访问应报错，实际：{other:?}"),
-    }
-
-    let hidden_probes = [
-        r#"return ro.read("secrets/key.txt", missing_ok = True)"#,
-        r#"return ro.read("secrets/unignored.txt", missing_ok = True)"#,
-        r#"return ro.read("secrets/nonexistent.txt", missing_ok = True)"#,
-        r#"return ro.read("nested/secret.txt", missing_ok = True)"#,
-        r#"return ro.read("app.log", missing_ok = True)"#,
-        r#"return ro.read("docs/secretlink", missing_ok = True)"#,
-        r#"return ro.read("alias/secretlink", missing_ok = True)"#,
-        r#"return ro.read("via_omitted", missing_ok = True)"#,
-        r#"return ro.read("alias/loop", missing_ok = True)"#,
-        r#"return ro.read("peek_present", missing_ok = True)"#,
-        r#"return ro.read("peek_missing", missing_ok = True)"#,
-        r#"return ro.list("vault", missing_ok = True)"#,
-        r#"return ro.read("vault", missing_ok = True)"#,
-        r#"return ro.list("secrets", missing_ok = True)"#,
-        r#"return ro.read("secrets", missing_ok = True)"#,
-        r#"return ro.list("secrets/missing", missing_ok = True)"#,
-    ];
-    for (idx, script) in hidden_probes.into_iter().enumerate() {
-        let res = run_act(
-            &mut stream,
-            20 + idx as u64,
-            &format!("inv-hidden-probe-{idx}"),
-            &digest,
-            script,
-        );
-        match res {
-            ExecuteOutcome::Failed { error, .. } => {
-                assert_eq!(error.code, "ScriptOrToolError");
-                assert!(
-                    error.message.contains("命中 hidden 规则"),
-                    "脚本 `{script}` 应报命中 hidden 规则错误，实际：{}",
-                    error.message
-                );
-                assert!(
-                    !error.message.contains("层数过多"),
-                    "脚本 `{script}` 不应报符号链接层数过多，实际：{}",
-                    error.message
-                );
-            }
-            other => panic!("隐藏探测 `{script}` 必须报错，实际：{other:?}"),
-        }
-    }
-
-    // omitted 作为真实目录存在后，via_omitted 同样应报 hidden（与 omitted 不存在时一致）。
-    std::fs::create_dir_all(_root.path().join("ro/omitted")).unwrap();
-    let res = run_act(
-        &mut stream,
-        40,
-        "inv-hidden-omitted-exists",
-        &digest,
-        r#"return ro.read("via_omitted", missing_ok = True)"#,
-    );
-    match res {
-        ExecuteOutcome::Failed { error, .. } => {
-            assert_eq!(error.code, "ScriptOrToolError");
-            assert!(
-                error.message.contains("命中 hidden 规则"),
-                "omitted 存在后 via_omitted 仍应报命中 hidden 规则错误，实际：{}",
-                error.message
-            );
-        }
-        other => panic!("omitted 存在后 via_omitted 必须报错，实际：{other:?}"),
-    }
-}
-
-#[test]
 fn symlinks_follow_only_within_dir() {
     let (_root, _state_dir, process) = TestNode::start_custom(|root_path| {
         let ro = root_path.join("ro");
         let outside = root_path.join("outside");
         std::fs::create_dir_all(ro.join("subdir")).unwrap();
-        std::fs::create_dir_all(ro.join("secrets")).unwrap();
         std::fs::create_dir_all(&outside).unwrap();
 
         std::fs::write(ro.join("real.txt"), "inside target\n").unwrap();
         std::fs::write(ro.join("subdir/inside.txt"), "inside sub\n").unwrap();
-        std::fs::write(ro.join(".env"), "TOP_SECRET=1\n").unwrap();
-        std::fs::write(ro.join("secrets/s.txt"), "hidden dir\n").unwrap();
         std::fs::write(outside.join("escape.txt"), "outside\n").unwrap();
 
         std::os::unix::fs::symlink("real.txt", ro.join("link_file")).unwrap();
         std::os::unix::fs::symlink("subdir", ro.join("link_dir")).unwrap();
+        std::os::unix::fs::symlink("missing_target.txt", ro.join("link_dangling")).unwrap();
         std::os::unix::fs::symlink("../outside/escape.txt", ro.join("link_escape_rel")).unwrap();
         std::os::unix::fs::symlink(outside.join("escape.txt"), ro.join("link_escape_abs")).unwrap();
-        std::os::unix::fs::symlink(".env", ro.join("link_hidden_file")).unwrap();
-        std::os::unix::fs::symlink("secrets", ro.join("link_hidden_dir")).unwrap();
         drop(UnixListener::bind(ro.join("sock")).unwrap());
         std::os::unix::fs::symlink("sock", ro.join("link_sock")).unwrap();
 
@@ -1536,7 +1355,6 @@ fn symlinks_follow_only_within_dir() {
 name = "ro"
 path = {ro:?}
 access = "read"
-hidden = ["secrets/", ".env"]
 "#,
             ro = ro.to_str().unwrap(),
         )
@@ -1551,6 +1369,7 @@ hidden = ["secrets/", ".env"]
         r#"
 return {
     "link_file": ro.read("link_file"),
+    "link_dangling_missing": ro.read("link_dangling", missing_ok = True),
     "link_dir_entries": ro.list("link_dir"),
     "root_entries": ro.list("."),
     "hop39_entries": ro.list("chain/hop39"),
@@ -1567,10 +1386,12 @@ return {
         other => panic!("目录内合法符号链接操作应成功，实际：{other:?}"),
     };
     assert_eq!(val["link_file"], "inside target\n");
+    assert_eq!(val["link_dangling_missing"], json!(null));
     assert_eq!(
         val["link_dir_entries"],
         json!([{"name": "inside.txt", "is_dir": false, "is_link": false}])
     );
+    // 悬空链接、越界链接与非普通文件（socket 及其链接）均不出现在 list(".") 中。
     assert_eq!(
         val["root_entries"],
         json!([
@@ -1609,6 +1430,11 @@ return {
 
     let err_cases = [
         (
+            "悬空链接默认报错",
+            "return ro.read(\"link_dangling\")",
+            "不存在",
+        ),
+        (
             "相对越界链接",
             "return ro.read(\"link_escape_rel\")",
             "越出",
@@ -1622,21 +1448,6 @@ return {
             "第 41 跳子链接",
             "return ro.read(\"chain/hop40/leaf_link\")",
             "层数过多",
-        ),
-        (
-            "指向隐藏文件的链接",
-            "return ro.read(\"link_hidden_file\")",
-            "命中 hidden 规则",
-        ),
-        (
-            "经隐藏目录链接读不存在路径",
-            "return ro.read(\"link_hidden_dir/absent\", missing_ok = True)",
-            "命中 hidden 规则",
-        ),
-        (
-            "经隐藏目录链接列不存在路径",
-            "return ro.list(\"link_hidden_dir/absent\", missing_ok = True)",
-            "命中 hidden 规则",
         ),
         ("Unix socket", "return ro.read(\"sock\")", "不是普通文件"),
         (

@@ -14,7 +14,7 @@ interface probe {
     grow: func(dir: borrow<read-dir>);
     /// 进入死循环，用于测试截止时间与取消中断。
     spin: func(dir: borrow<read-dir>);
-    /// 先写入影子文件再返回错误，用于验证写入回执与草稿在工具报错时保留。
+    /// 先写入宿主文件再返回错误，用于验证写入回执与已落盘内容在工具报错时保留。
     write-then-fail: func(dir: borrow<write-dir>, path: string, content: string) -> result<_, string>;
     /// 向第一个可写目录句柄写入文件，用于测试多句柄模板越界核对。
     write-first: func(dst: borrow<write-dir>, other: borrow<write-dir>, path: string, content: string) -> result<_, string>;

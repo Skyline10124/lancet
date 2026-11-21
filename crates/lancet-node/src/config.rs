@@ -65,10 +65,6 @@ pub struct DirConfig {
     pub name: String,
     pub path: PathBuf,
     pub access: DirAccess,
-    #[serde(default)]
-    pub regenerable: Vec<String>,
-    #[serde(default)]
-    pub hidden: Vec<String>,
 }
 
 /// `[[env]]` 配置条目。

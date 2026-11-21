@@ -782,16 +782,7 @@ fn product_read_tools_match_templates() {
     let names: Vec<&str> = tools.iter().map(|t| t.script_name.as_str()).collect();
     assert_eq!(
         names,
-        [
-            "fs.read",
-            "fs.list",
-            "fs.search",
-            "fs.write",
-            "fs.edit",
-            "fs.reset",
-            "fs.status",
-            "fs.diff",
-        ]
+        ["fs.read", "fs.list", "fs.search", "fs.write", "fs.edit"]
     );
 
     let read = &tools[0];
@@ -960,55 +951,6 @@ fn product_read_tools_match_templates() {
     assert_eq!(
         edit.templates.effects,
         vec![EffectItem::Effect(0, EffectKind::Write)]
-    );
-
-    let reset = &tools[5];
-    assert_eq!(reset.wit_interface, "lancet:fs-reset/fs@0.1.0");
-    assert_eq!(reset.wit_function, "reset");
-    assert!(reset.docs.is_some(), "fs.reset 应保留 WIT 注释");
-    assert_eq!(
-        reset.templates.coeffects,
-        vec![CoEffectItem::Uses(0, Some(Mode::ReadWrite))]
-    );
-    assert_eq!(
-        reset.templates.effects,
-        vec![EffectItem::Effect(0, EffectKind::Write)]
-    );
-
-    let status = &tools[6];
-    assert_eq!(status.wit_interface, "lancet:fs-status/fs@0.1.0");
-    assert_eq!(status.wit_function, "status");
-    assert!(status.docs.is_some(), "fs.status 应保留 WIT 注释");
-    assert_eq!(
-        status.templates.coeffects,
-        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
-    );
-    assert!(status.templates.effects.is_empty());
-    assert_eq!(
-        status.result,
-        ReturnType::Result {
-            ok: Some(WitType::List(Box::new(WitType::Record(
-                "pending-change".to_owned()
-            )))),
-        }
-    );
-
-    let diff = &tools[7];
-    assert_eq!(diff.wit_interface, "lancet:fs-diff/fs@0.1.0");
-    assert_eq!(diff.wit_function, "diff");
-    assert!(diff.docs.is_some(), "fs.diff 应保留 WIT 注释");
-    assert_eq!(
-        diff.templates.coeffects,
-        vec![CoEffectItem::Uses(0, Some(Mode::Read))]
-    );
-    assert!(diff.templates.effects.is_empty());
-    assert_eq!(
-        diff.result,
-        ReturnType::Result {
-            ok: Some(WitType::List(Box::new(WitType::Record(
-                "path-diff".to_owned()
-            )))),
-        }
     );
 }
 

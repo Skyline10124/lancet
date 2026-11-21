@@ -4,7 +4,7 @@ status: active
 
 # `act` 与 Starlark 编排
 
-`act` 是 `lancet-node` 对模型可见的唯一工具。模型传入一段 Starlark 脚本，脚本持有授权句柄、组合调用 API 工具、对结果做纯计算筛选，再把需要进入模型上下文的数据交回。脚本默认遇错即止；写入成为跨 `act` 保留的待定改动，由某次 `act` 的脚本调用 `commit()` 发布或调用 `discard()` 丢弃。
+`act` 是 `lancet-node` 对模型可见的唯一工具。模型传入一段 Starlark 脚本，脚本持有授权句柄、组合调用 API 工具、对结果做纯计算筛选，再把需要进入模型上下文的数据交回。脚本默认遇错即止；可写目录的写入直接落在宿主工作目录上并立即生效。
 
 ## 概念
 
@@ -56,7 +56,6 @@ status: active
 | `regex` | `match(pattern, s)` 从开头匹配，返回布尔值；`findall(pattern, s)` 返回自左向右、不重叠的完整匹配；`replace(pattern, replacement, s)` 替换全部匹配，替换串可用 `$1`、`${name}`。无效的模式在求值时报错 |
 | `text(s)` | 文本视图，基于 Rust `regex`：`text(s).grep(pattern, before = 0, after = 0).head(n).tail(n)`，拆行方法与字符串一致，为 `.splitlines()`；所有字符串结果都可按自左向右的顺序筛选。`grep` 按行匹配并带上前后文，重叠的上下文按原顺序合并、不重复；视图序列化为它的文本，选中的行保留原行结束符 |
 
-- 内置函数 `commit()` 与 `discard()` 决定待定改动的去留，见[待定改动](#待定改动)；`discard()` 是对影子的写入，记入所在 `act` 的回执（[effect 与 `residue`](tools.md#effect-与-residue)）。
 - 全局环境不含反射与宿主系统库：标准全局中的 `dir`、`getattr`、`hasattr` 与 `type` 不提供。
 - `print` 经自定义 `PrintHandler` 写入本次 `act` 的内存缓冲，每次追加一行，不写节点的标准错误流。
 
@@ -84,25 +83,8 @@ act(script):
 
 - 语言层不提供通用的 `try / except`。没有经显式窄参数容忍的错误立即展开调用栈，中止脚本。
 - 可容忍的情形只在预期的探测点，以 API 工具的窄参数表达：`missing_ok`、`check` 与 `http.fetch` 的状态码字段，见[首批 API 工具](tools.md#首批-api-工具)。
-- 脚本中止时，已做的写入作为待定改动保留。
+- 运行中途中止（脚本失败、工具报错、取消、超时或交回载荷超限）时，已经完成的写入会保留在宿主工作目录上，并在回执中记为 `Write` / `NotRetained`。
 - 需要先读文件内容、再推理修改方案时，模型分两次 `act`：第一次读取并筛出上下文，第二次修改并验证。
-
-## 待定改动
-
-`fs.*` 与 `proc.*` 的写入都落在影子工作区上，成为[待定改动](shadow-workspace.md#待定改动)。待定改动在 `act` 结束后原样保留，跨 `act` 累积，直到某次 `act` 的脚本调用 `commit()` 或 `discard()`。
-
-| 脚本调用 | 效果 |
-| --- | --- |
-| `commit()` | 标记发布：脚本正常 `return` 且交回载荷通过上限核对时（带可写句柄的 `act` 按 `output_limit` 减 84 核对，见下文），节点把全部待定改动作为一批[发布](shadow-workspace.md#发布)，在 `receipt_summary` 中填入发布的文件列表与裁剪后的 unified diff。可以在任意一次 `act` 中调用，包括写入发生的那一次（例如测试通过才调用）。重复调用只发布一批；标记之后的写入也属于这一批；之后调用 `discard()` 仍立即丢弃当时的草稿，标记继续有效；没有待定改动时照样成功，不发布 |
-| `discard()` | 立即丢弃全部待定改动，影子恢复到基准；脚本继续执行，此后的写入成为新的待定改动 |
-| `d.status()`、`d.diff()` | 查看目录 `d` 的待定改动（`fs.status`、`fs.diff`） |
-| `d.reset(path)` | 丢弃单个路径的待定改动（`fs.reset`） |
-
-- 模型看过结果再决定去留：下一次 `act` 可以只写一行 `commit()` 或 `discard()`，也可以继续修改。
-- 脚本出错、被取消、超时或交回载荷超限时不发布，待定改动保留。
-- `act` 结束时，节点在 `content.printed` 末尾追加一行提示：`待定文件 N 个。用 commit() 发布或 discard() 丢弃。`。`N` 为全部可写工作目录中可见的待定路径数，冲突路径只计一次；`N` 为零时不附提示，只有 `hidden` 项时也是如此。
-- 带可写句柄的 `act` 为提示固定预留 84 字节：交回载荷按 `output_limit` 减 84 核对，无论是否有待定改动；`output_limit` 小于 84 的请求在受理阶段以 `InvalidRequest` 拒绝。提示本身不会让结局变为 `OutputLimitExceeded`。
-- 结局为 `Failed` 且仍有待定改动时，提示另起一行，附在 `ToolError.message` 末尾；`Cancelled` 与 `Deadline` 不附提示。
 
 ## 交回载荷与上限
 
@@ -111,55 +93,42 @@ act(script):
 | 单次返回窗口（见[分发](tools.md#分发)） | 一次 API 工具交回脚本的成功值 | 该次调用报错，`Failed(ScriptOrToolError)` |
 | `execute.output_limit`（如 64 KiB） | `return` 值与 `print` 缓冲序列化后的合计 | `Failed(OutputLimitExceeded)` |
 
-`return` 值按 JSON 序列化，`None` 为 `null`；不能序列化的返回值按运行期错误处理。`content` 是对象 `{"value": <return 值>, "printed": <print 缓冲>}`，两个键始终存在；`output_limit` 按整个 `content` 的紧凑 UTF-8 JSON 字节数核对，等于上限时成功。带可写句柄的 `act` 另为待定提示预留字节，并有 `output_limit` 的下限，见[待定改动](#待定改动)。
+`return` 值按 JSON 序列化，`None` 为 `null`；不能序列化的返回值按运行期错误处理。`content` 是对象 `{"value": <return 值>, "printed": <print 缓冲>}`，两个键始终存在；`output_limit` 按最终 `content` 的实际紧凑 UTF-8 JSON 字节数核对，等于上限时成功，超出时在受理之后结算为 `Failed(OutputLimitExceeded)`。
 
 ## 结局
 
 ```text
 act 结束时:
-    if 脚本正常 return 且 交回载荷通过上限核对:                 # 带可写句柄时按 output_limit 减 84
-        if 脚本调用过 commit() 且存在待定改动:
-            发布全部待定改动
-            if 全部发布:       Succeeded { content, receipt_summary }   # 列出已发布的文件与 diff
-            elif 冲突、整批撤回:     Failed(Conflict)                   # 列出冲突及原因，待定改动保留
-            elif I/O 失败、整批撤回: Failed(InternalError)              # 待定改动保留
-            else:              Indeterminate { reason }                 # 撤回时宿主又改了已发布的文件
-        else:                  Succeeded { content, receipt_summary }   # 仍有待定改动时 content 末尾附提示
-    elif 交回载荷超限:               Failed(OutputLimitExceeded)
-    elif 脚本 fail 或子调用报错:       Failed(ScriptOrToolError)  # 含超出解释器内存上限，以及 API 工具陷入或超出内存上限
-    elif 调用方 cancel 或连接断开:     Cancelled
-    elif remaining_ms 耗尽:           Deadline
-# 发布之外的各分支都不写宿主工作目录，待定改动原样保留
+    if 脚本正常 return 且 交回载荷不超过 output_limit:
+        Succeeded { content, receipt_summary }
+    elif 交回载荷超限:
+        Failed(OutputLimitExceeded)
+    elif 脚本 fail 或子调用报错:
+        Failed(ScriptOrToolError)     # 含超出解释器内存上限，以及 API 工具陷入或超出内存上限
+    elif 调用方 cancel 或连接断开:
+        Cancelled
+    elif remaining_ms 耗尽:
+        Deadline
 ```
 
-节点自身的故障结算为 `Failed(InternalError)`，消息写明失败环节，例如解释器组件陷入、组件交回的值不是合法 JSON。重启前在途的调用不重新执行，按受理时的授权结算：被授予可写句柄的调用结算为 `Indeterminate`，原因写明宿主的实际结果，发布已经完成时也是如此（[崩溃恢复](shadow-workspace.md#崩溃恢复)）；其余调用没有 effect，结算为 `Failed(InternalError)`，原因为“节点在调用结算前重启，未保存执行结果”。
+节点自身的故障结算为 `Failed(InternalError)`，消息写明失败环节，例如解释器组件陷入、组件交回的值不是合法 JSON。重启前在途的调用不重新执行，按受理时保存的 `writes_possible` 结算：被授予可写句柄的调用结算为 `Indeterminate`，其余调用没有 effect，结算为 `Failed(InternalError)`，原因为“节点在调用结算前重启，未保存执行结果”。
 
 `ScriptOrToolError` 的诊断消息超过 16,384 字节时，在不超过该长度的 UTF-8 字符边界截断，并注明已截断，使失败回复与回执都能装进一帧。
 
 ## 示意
 
-第一次 `act` 修改并运行测试，改动留在影子里待定：
+修改文件并读回结果：
 
 ```python
 cfg = lancet.read("Cargo.toml", missing_ok = True)
 if cfg == None:
     fail("missing Cargo.toml")
 
-for hit in lancet.search("OldSymbol", glob = "crates/**/*.rs"):
-    lancet.edit(hit.path, "OldSymbol", "NewSymbol")
-
-res = dev.run(["cargo", "test", "--offline"], cwd = lancet, check = False)
+lancet.edit("src/lib.rs", "OldSymbol", "NewSymbol")
+updated = lancet.read("src/lib.rs")
 return {
-    "ok": res.code == 0,
-    "failures": text(res.stdout + res.stderr).grep("FAILED|error\\[", after = 5).tail(40),
-    "pending": lancet.status(),
+    "matches": text(updated).grep("NewSymbol", before = 1, after = 1),
 }
-```
-
-模型看过结果后，第二次 `act` 决定发布或丢弃：
-
-```python
-commit()  # 或 discard()
 ```
 
 ## 保证
@@ -168,9 +137,6 @@ commit()  # 或 discard()
 | --- | --- | --- | --- |
 | 解析或静态检查不通过的脚本不发生任何子调用与 effect | 每次 `act` | 检查在执行第一条语句之前完成 | [ADR 0002 第 3 节](../../adr/0002-lancet-node-api-tools-and-act.md#3-starlark-编排类型存根正交过滤与快速失败)；`crates/lancet-node/tests/act.rs::check_finishes_before_first_statement`、`parse_errors_map_lines_and_offer_repairs`、`checks_bound_methods_before_first_dispatch`；`crates/lancet-node/tests/node/calls.rs::execute_reports_script_diagnostics_before_evaluation` |
 | 脚本只经授权句柄调用 API 工具；解释器交给分发层的句柄只是槽位编号 | 每次 API 工具调用 | 句柄对象由节点注入，脚本不能构造；分发接口是解释器唯一的导入 | `crates/lancet-node/tests/act.rs::bound_method_round_trips_arguments_records_and_errors`；`crates/lancet-node/tests/node/calls.rs::execute_runs_read_list_and_search` |
-| 只有调用过 `commit()` 并正常 `return`、载荷不超限的 `act` 写宿主工作目录 | 每次 `act` | 其余分支不发布 | ADR 0002 第 3 节、[第 6 节](../../adr/0002-lancet-node-api-tools-and-act.md#6-影子工作区待定改动与发布)；`crates/lancet-node/tests/node/publish.rs::commit_requires_valid_return_and_preserves_drafts`、`commit_marks_final_pending_across_handles` |
-| 出错、取消、超时与载荷超限的 `act` 保留全部待定改动 | 每次 `act` | 待定改动只由 `commit()` 后的发布、`discard()` 与 `reset(path)` 消除 | ADR 0002 第 3 节；`crates/lancet-node/tests/node/publish.rs::commit_requires_valid_return_and_preserves_drafts` |
-| 待定提示不会让结局变为 `OutputLimitExceeded` | 每次 `act` | 提示的字节数预留并计入 `output_limit` | ADR 0002 第 3 节；`crates/lancet-node/tests/node/writable.rs::pending_hint_respects_compact_json_budget` |
 | 解释器超出内存上限，或因 `remaining_ms` 耗尽、`cancel` 被中断时，只终止该实例，节点继续服务 | 每次 `act` | 组件运行时的内存上限与截止中断 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)；`crates/lancet-node/tests/act.rs::memory_limit_terminates_only_its_store`、`deadline_interrupts_busy_store`、`cancel_interrupts_only_selected_store`；`crates/lancet-node/tests/node/calls.rs::memory_limit_leaves_node_serving`、`deadline_settles_within_advertised_grace`、`cancel_multiplexes_with_receipt`、`disconnect_cancels_only_its_connection` |
 
 ## 范围之外
@@ -191,4 +157,4 @@ commit()  # 或 discard()
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、句柄方法的绑定与运行期校验、内存上限、截止与取消。
-- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及首批 API 工具的调用与回执步骤、可写目录的 `discard()` 与待定提示；`commit()` 与发布的结局。
+- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及五个 `fs.*` API 工具的调用、直接写入宿主与回执。
