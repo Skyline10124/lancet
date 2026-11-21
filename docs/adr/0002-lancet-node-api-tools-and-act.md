@@ -203,6 +203,8 @@ commit()  # 或 discard()
   | `/tmp` | 节点状态目录中的私有临时目录 | 可写 |
   | `/proc`、`/dev` | 新 PID 命名空间的 `proc`；`/dev` 只含 `null`、`zero`、`random`、`urandom` | — |
 
+  上表中 `.git/` 的挂载、“影子 `.git/` 引用的宿主对象”一行，以及只读工作目录中 `.git` 的处理，由 [ADR 0003](0003-shadow-git-as-files.md#8-挂载与-git-的保留) 取代。
+
 - **宿主家目录不挂进执行环境。** 家目录中有 SSH 密钥与 API 凭据，只读挂载也会被读到，并可经网络出口外发；执行环境只按配置挂入工具链与私有缓存。
 - **不拦截写系统调用。** 子进程的写入只落在私有挂载上，执行环境不使用 seccomp 用户态通知、`ptrace` 与 Landlock。`bubblewrap` 的 seccomp 过滤器对 `io_uring_setup` 返回 `ENOSYS`：杀掉进程时内核会等待已提交的 AIO 写入，对 io_uring 尚未核实（本机已全局禁用）。
 - **原生进程经 `SCM_RIGHTS` 跨命名空间代理出网。** 子进程处于只有 `lo` 的隔离网络命名空间；启动垫片在命名空间内执行 `bind("127.0.0.1:0")`，经 `socketpair`（`SCM_RIGHTS`）把监听 fd 与端口号传回宿主 `lancet-node` 事件循环，写好 `HTTPS_PROXY` / `https_proxy` 与 `HTTP_PROXY` / `http_proxy` 后直接 `execvp` 目标进程（沙箱内无常驻转发进程，工作目录内不挂套接字文件）。代理对明文 HTTP `Host` 与 HTTPS `CONNECT` 目标域名对照 `egress.hosts` 放行并记入回执，拒绝直连、字面量裸 IP 与解析到回环/链路本地/私网网段的目标。
@@ -298,10 +300,10 @@ sequenceDiagram
   - 发布前核对：待定改动中没有 `hidden` 路径；被改的宿主文件链接数为 1；每个宿主文件仍等于基准。任一项不满足，整批不发布，列出冲突路径，待定改动保留。
   - 逐文件把影子版本 `FICLONE` 到宿主同一目录下的临时名，再用 `renameat2(RENAME_EXCHANGE)` 与宿主文件交换；换出的宿主 inode 移进节点状态目录，供本次发布撤回与崩溃恢复使用，发布结束后删除。新建文件用 `RENAME_NOREPLACE`；删除把宿主文件移进状态目录；同类别的目录改名在宿主上执行一次 `rename`。影子 inode 留在原处。
   - 交换后核对换出的 inode 仍是基准；后面的文件冲突时，逆序撤回已发布的项。撤回时发现宿主又改了已发布的文件，保留宿主的修改，结算为 `Indeterminate`，并列出每个文件的状态（已发布、已撤回、保留宿主修改）。
-  - 结局只有“全部发布”与“全部不发布”两种，唯一例外是上一条的 `Indeterminate`。不承诺多个文件同时对宿主可见：发布窗口随文件数增长（见[已核实的事实](#已核实的事实)）。
+  - 结局只有“全部发布”与“全部不发布”两种，唯一例外是上一条的 `Indeterminate`；含 `.git/` 改动的发布另有例外，见 [ADR 0003](0003-shadow-git-as-files.md#6-事务恢复与并发)。不承诺多个文件同时对宿主可见：发布窗口随文件数增长（见[已核实的事实](#已核实的事实)）。
   - 只落盘本批文件与所在目录，不用 `syncfs`。`syncfs` 要写回整个文件系统的脏数据，构建刚写完 `target/` 就发布时要多等数秒。
   - 发布属于 [ADR 0001 第 2 节](0001-lancet-protocol.md#2-连接与帧模型)所说的最终提交临界区：开始后不受 `cancel` 与断连影响，在 `settle_grace_ms` 内完成或撤回。
-- **Git**：
+- **Git**（由 [ADR 0003](0003-shadow-git-as-files.md) 取代）：
   - 影子里的 `.git/` 是私有的：HEAD、index、refs 与 config 是节点的副本，对象经 alternates 只读引用宿主的 `.git/objects`，新对象写在私有目录里。
   - 宿主 HEAD 与 index 不变时，私有 index 跨 `act` 保留；宿主变化而影子里没有待定的 Git 改动时重建。
   - 发布时校验并复制新对象到宿主，在 Git lockfile 下以比较后交换更新引用，只把本批路径写进宿主 index，宿主原有的暂存保留；config 与 hooks 不发布。引用的比较后交换只约束遵守 Git lockfile 的写者。
@@ -316,7 +318,7 @@ sequenceDiagram
 | --- | --- | --- | --- | --- |
 | 常规路径（非 `regenerable`、非 `hidden`、非 `.git/`） | reflink 副本 | 是 | 是 | 逐项列出，文件内容生成 diff |
 | 匹配 `regenerable`（如 `target/`） | 私有目录，单独挂载，建影子时从宿主复制种子 | 否 | 否（保留增量构建产物） | 只记命中规则 |
-| `.git/` | 私有 HEAD、index、refs 与 config，宿主对象只读 | 引用与 index 随 `commit()` 发布；config 与 hooks 不发布 | 是（恢复为宿主的状态） | 单列版本库变更 |
+| `.git/`（由 [ADR 0003](0003-shadow-git-as-files.md) 取代） | 私有 HEAD、index、refs 与 config，宿主对象只读 | 引用与 index 随 `commit()` 发布；config 与 hooks 不发布 | 是（恢复为宿主的状态） | 单列版本库变更 |
 | 匹配 `hidden` | 不复制进影子 | 出现在待定改动中时拒绝发布 | 是 | 只记命中规则 |
 
 `act` 结束时的结局映射规则：
@@ -353,7 +355,7 @@ act 结束时:
 
 | effect 项 | 协议 `residue` 取值 |
 | --- | --- |
-| 影子中的待定改动（常规路径，以及 `.git/` 的引用与 index） | `None`（发布前可经 `discard()` 或 `reset(path)` 撤回） |
+| 影子中的待定改动（常规路径，以及 `.git/` 的引用与 index；`.git/` 部分由 [ADR 0003](0003-shadow-git-as-files.md) 取代） | `None`（发布前可经 `discard()` 或 `reset(path)` 撤回） |
 | 经 `commit()` 发布到宿主工作目录的改动 | `NotRetained`（发布后不保留前态） |
 | 匹配 `regenerable` 的写入（只在影子里） | `Regenerable` |
 | 私有家目录与包缓存中的写入 | `InternalState` |
@@ -401,7 +403,7 @@ for 每个网络出口 n, for 每个可读的目录 d（目录句柄或执行环
 | 审批上线后的询问怎样配置与记录 | 询问范围按第 7 节；已获批状态的记录方式、各边默认是否询问以及配置写法随审批设计一并裁决，届时在 [ADR 0001](0001-lancet-protocol.md) 的 `policy` 取值中增加 `Ask` |
 | 发布的时延验收线 | 发布改为只落盘本批文件与所在目录之后实测再定 |
 | 执行环境建立后才新建、匹配 `regenerable` 规则的目录（如嵌套的 `target/`、新建的 `node_modules/`） | 第一个版本按常规路径处理；实施时按实测决定是否在下次建立执行环境时改为单独挂载 |
-| 多个工作目录、linked worktree 与 reftable、SHA-256 仓库的 `.git/` | 第七轮原型只覆盖单个工作目录、SHA-1 loose objects 与普通 refs；实施前补验证 |
+| 多个工作目录、linked worktree 与 reftable、SHA-256 仓库的 `.git/` | 已由 [ADR 0003](0003-shadow-git-as-files.md#9-支持范围与性能) 的决策 9 裁决 |
 | 执行环境的进程数与磁盘占用上限 | 第一个版本只设内存上限（第 4 节）；需要时再定 `pids.max` 与磁盘上限的手段 |
 
 ## 归属

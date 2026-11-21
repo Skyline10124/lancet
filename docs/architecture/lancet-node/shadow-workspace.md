@@ -151,6 +151,8 @@ stateDiagram-v2
 
 ## Git
 
+本节与路径分类表中 `.git/` 一行描述的私有 `.git/` 设计，已由 [ADR 0003](../../adr/0003-shadow-git-as-files.md) 取代，随 #8 的切片 5c 改写。
+
 - 影子里的 `.git/` 是私有的：HEAD、index、refs 与 config 是节点的副本，对象经 alternates 只读引用宿主的 `.git/objects`，新对象写在私有目录里。
 - 宿主 HEAD 与 index 不变时，私有 index 跨 `act` 保留；宿主变化、而影子里没有待定的 Git 改动时，节点重建私有 index。
 - 发布时，节点校验新对象并复制到宿主，在 Git lockfile 下以比较后交换更新引用；config 与 hooks 不发布。引用的比较后交换只约束遵守 Git lockfile 的写者。
@@ -195,8 +197,8 @@ stateDiagram-v2
 
 | 事项 | 现状 |
 | --- | --- |
-| 影子 `.git/` | 随 [#8](https://github.com/Skyline10124/lancet/issues/8) 实施，排在执行环境之后，连同引用已变、Git 锁被占用与宿主已暂存三种冲突原因（维护者 2026-11-20 决定）：执行环境之前没有写者会改影子的 `.git/`，含 Git 的发布只有模拟执行环境的测试能走到。在此之前，可写工作目录根下的 `.git` 不进影子，也不发布，`fs.*` 读写时报错 |
-| 影子 `.git/` 的支持范围 | 已定（维护者 2026-11-20，依据 Git 2.52.0 上 24 个组合的验证），随影子 `.git/` 实施：只支持工作目录本身就是仓库根的仓库，可以是多个各自独立的仓库，引用为 files 后端（普通或 packed refs），对象为 SHA-1 或 SHA-256。其余形态（linked worktree、登记了其他 worktree 的主工作树、reftable、`.git` 为符号链接或无效）保留 `.git`，普通文件照常发布，节点启动时警告。工作目录只是仓库中的子目录时按普通目录处理，不向上查找仓库。其余已定的取值见 [#8](https://github.com/Skyline10124/lancet/issues/8) 的待决定，验证结果见 [#7](https://github.com/Skyline10124/lancet/issues/7) 的待决定 |
+| 影子 `.git/` | 按 [ADR 0003](../../adr/0003-shadow-git-as-files.md) 随 [#8](https://github.com/Skyline10124/lancet/issues/8) 的切片 5c 实施，排在执行环境之后：执行环境之前没有写者会改影子的 `.git/`。在此之前，可写工作目录根下的 `.git` 不进影子，也不发布，`fs.*` 读写时报错 |
+| 影子 `.git/` 的支持范围 | 已定，见 [ADR 0003](../../adr/0003-shadow-git-as-files.md#9-支持范围与性能) 的决策 9：第一个版本支持仓库根、files 引用后端、SHA-1 与 SHA-256；子目录根推迟到第一个版本之后 |
 | 影子中的目录改名作为一次 `rename` 发布 | 随 [#8](https://github.com/Skyline10124/lancet/issues/8) 实施，需要记录目录的移动来源；在此之前按逐路径的删除与新建发布（见[发布](#发布)） |
 | 执行环境建立后才新建的 `regenerable` 目录，是否在下次建立执行环境时改为单独挂载 | 待裁决：第一个版本按常规路径处理（见[待定改动](#待定改动)），实施时按实测决定 |
 | 新目录补装监听之前，经其中的短命硬链接改写目录外的文件 | 子树核实发现不了这类写入：链接已经删除，被改写文件所在的目录也收不到事件。在 [#8](https://github.com/Skyline10124/lancet/issues/8) 之前只有节点写影子，节点不建硬链接；随 #8 的执行环境决定处理方式 |

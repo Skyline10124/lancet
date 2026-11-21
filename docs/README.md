@@ -27,6 +27,7 @@
 
 - [ADR 0001](adr/0001-lancet-protocol.md)（accepted）：以 `lancet-protocol` 定义外部上下文节点协议（连接、零重放、五态结局与回执）。
 - [ADR 0002](adr/0002-lancet-node-api-tools-and-act.md)（accepted）：`lancet-node` 以 Starlark 编排、API 工具、宿主资源与写时复制提供 `act`。
+- [ADR 0003](adr/0003-shadow-git-as-files.md)（accepted）：影子中的 Git 作为普通进程运行，`.git/` 按普通文件发布，hidden 由过滤投影保护；取代 ADR 0002 中关于 Git 的部分。
 
 ## 参考资料
 
