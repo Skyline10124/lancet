@@ -87,17 +87,17 @@ _Avoid_: workspace_overview, 文件树, 系统提示词
 **工作区**:
 一个 `lancet-node` 服务的软件工作区，由一组互不重叠的工作目录组成。一个节点只对应一个工作区，多仓库协作由同一工作区内的多个工作目录表达。
 见[节点配置与工作区](../architecture/lancet-node/config.md#概念)。
-_Avoid_: 仓库, project, 影子工作区
+_Avoid_: 仓库, project
 
 **工作目录**:
-模型操作的对象：工作区中的一个目录，对应一个目录句柄，有自己的名称、读写级别与路径规则（`regenerable`、`hidden`）。可写工作目录的读写落在影子工作区上。
+模型操作的对象：工作区中对应宿主路径的一个目录，对应一个目录句柄，有自己的名称与读写级别。可写工作目录直接读写宿主，写入立即生效，目录内所有路径一视同仁。
 见[节点配置与工作区](../architecture/lancet-node/config.md#概念)。
 _Avoid_: cwd, 挂载点, 环境目录
 
 **环境目录**:
-执行环境挂载、但不属于工作目录的目录：只读挂载的系统目录与工具链，以及节点私有的缓存副本。只有 `proc.*` 能看到，`fs.*` 拿不到它们的句柄。
-见[节点配置与工作区](../architecture/lancet-node/config.md#概念)、[挂载表](../architecture/lancet-node/host-resources.md#挂载表)。
-_Avoid_: 工作目录, 宿主缓存
+执行环境挂载、但不属于工作目录的目录（如系统目录、工具链与包缓存，具体挂载细节随 [#8](https://github.com/Skyline10124/lancet/issues/8) 定）。只有 `proc.*` 能看到，`fs.*` 拿不到它们的句柄。
+见[节点配置与工作区](../architecture/lancet-node/config.md#概念)、[执行环境](../architecture/lancet-node/host-resources.md#执行环境)。
+_Avoid_: 工作目录
 
 **API 工具**:
 `lancet-node` 内部唯一的工具定义单元，是一个 WASM 组件；声明就是它导出的 WIT 接口，effect 与 co-effect 模板由句柄参数的类型推出。API 工具不暴露为协议工具，模型只经 `act` 的脚本调用它。
@@ -113,18 +113,3 @@ _Avoid_: 宿主函数, 沙箱
 `lancet-node` 中由 API 工具声明、分发层与配置加载组成的部分。effect、co-effect、`residue` 与 `seam` 只在这里读取并据以决定；脚本不标注、不感知它们。
 见 [API 工具与工具基座](../architecture/lancet-node/tools.md#组件与职责)。
 _Avoid_: 脚本层
-
-**影子工作区**:
-节点状态目录中每个可写工作目录的一份持久 reflink 副本，在执行环境中挂在真实路径上。`fs.*` 与子进程的写入都落在影子上，宿主工作目录只在发布时被写入。
-见[影子工作区、待定改动与发布](../architecture/lancet-node/shadow-workspace.md)。
-_Avoid_: overlay, 草稿层, sandbox
-
-**待定改动**:
-影子工作区相对基准（每个路径最近一次从宿主同步或发布后的状态）的差异。它跨 `act` 保留，直到某次 `act` 调用 `commit()` 发布或 `discard()` 丢弃；`reset(path)` 丢弃单个路径。发布前可以撤回，对应 `residue` 为 `None`。
-见[待定改动](../architecture/lancet-node/shadow-workspace.md#待定改动)、[`act` 的待定改动](../architecture/lancet-node/act.md#待定改动)。
-_Avoid_: 草稿, 暂存区, staged changes
-
-**发布**:
-脚本调用过 `commit()` 并正常 `return`、交回载荷不超过 `output_limit` 时，节点把全部待定改动作为一批写进宿主工作目录：先核对，再逐文件克隆到宿主目录并交换，后面的文件冲突时撤回已发布的项。发布后不保留前态，对应 `residue` 为 `NotRetained`。
-见[发布](../architecture/lancet-node/shadow-workspace.md#发布)。
-_Avoid_: 合并, git commit, 同步

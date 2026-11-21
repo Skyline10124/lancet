@@ -5,9 +5,7 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex, OnceLock};
 use std::time::{Duration, Instant};
 
-use lancet_node::act::{
-    ActError, ActHost, ActRuntime, Diagnostic, DispatchArgument, Payload, Phase,
-};
+use lancet_node::act::{ActError, ActRuntime, Diagnostic, DispatchArgument, Payload, Phase};
 use lancet_tool_decl::{
     ActContext, FieldDecl, HandleGrant, HandleKind, ParamDecl, RecordDecl, ReturnType, Templates,
     ToolDecl, WitType,
@@ -1078,46 +1076,4 @@ return {
             other => panic!("`{case_name}` 预期 eval 阶段报错，实际：{other:?}"),
         }
     }
-
-    // 3. 内置 discard() 与 commit() 分别经 ActHost 回调并返回 None。
-    struct BuiltinCounter {
-        discards: Arc<AtomicUsize>,
-        commits: Arc<AtomicUsize>,
-    }
-    impl ActHost for BuiltinCounter {
-        fn call(
-            &mut self,
-            _: &str,
-            _: &[DispatchArgument],
-        ) -> wasmtime::Result<Result<String, String>> {
-            Ok(Err("无工具调用预期".to_owned()))
-        }
-
-        fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
-            self.discards.fetch_add(1, Ordering::Relaxed);
-            Ok(Ok(()))
-        }
-
-        fn commit(&mut self) -> wasmtime::Result<Result<(), String>> {
-            self.commits.fetch_add(1, Ordering::Relaxed);
-            Ok(Ok(()))
-        }
-    }
-    let discard_count = Arc::new(AtomicUsize::new(0));
-    let commit_count = Arc::new(AtomicUsize::new(0));
-    let builtin_payload = rt
-        .run(
-            "d = discard()\nc = commit()\nreturn [d, c]\n",
-            &ActContext::default(),
-            BuiltinCounter {
-                discards: Arc::clone(&discard_count),
-                commits: Arc::clone(&commit_count),
-            },
-            Instant::now() + Duration::from_secs(5),
-            Arc::new(AtomicBool::new(false)),
-        )
-        .expect("内置 discard() 与 commit() 应成功返回 None");
-    assert_eq!(builtin_payload.value_json, "[null,null]");
-    assert_eq!(discard_count.load(Ordering::Relaxed), 1);
-    assert_eq!(commit_count.load(Ordering::Relaxed), 1);
 }

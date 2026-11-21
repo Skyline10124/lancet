@@ -4,17 +4,16 @@ status: active
 
 # `lancet-node`
 
-`lancet-node` 是[外部上下文节点协议](../lancet-protocol.md)在 Linux 软件工作区上的实现。它对外只提供一个工具 `act`：模型传入一段 Starlark 脚本，脚本持有授权句柄，组合调用 API 工具。写入落在影子工作区上，由模型在后续 `act` 中决定发布或丢弃；原生进程在每次调用新建的执行环境中运行。
+`lancet-node` 是[外部上下文节点协议](../lancet-protocol.md)在 Linux 软件工作区上的实现。它对外只提供一个工具 `act`：模型传入一段 Starlark 脚本，脚本持有授权句柄，组合调用 API 工具。可写目录的写入直接落在宿主工作目录上并立即生效；原生进程在每次调用新建的执行环境中运行。
 
-术语的定义见[领域术语表](../../reference/glossary.md#lancet-node)，决策理由与否决的方案见 [ADR 0002](../../adr/0002-lancet-node-api-tools-and-act.md)。
+术语的定义见[领域术语表](../../reference/glossary.md#lancet-node)，决策理由与取代关系见 [ADR 0002](../../adr/0002-lancet-node-api-tools-and-act.md) 与 [ADR 0003](../../adr/0003-direct-workspace-and-per-call-sandbox.md)。
 
 | 合同 | 内容 |
 | --- | --- |
-| [节点配置与工作区](config.md) | 配置文件、路径规则、启动校验、环境简述与 `seam` 边集 |
+| [节点配置与工作区](config.md) | 配置文件、启动校验、节点状态目录、环境简述与 `seam` 边集 |
 | [API 工具与工具基座](tools.md) | 工具声明与宿主接口 `lancet:host`、声明加载、分发、组件运行时、首批 API 工具、effect 与 `residue` |
-| [`act` 与 Starlark 编排](act.md) | 解释器、`act` 的说明与全局环境、快速失败、`commit()` 与 `discard()`、`act` 的结局 |
+| [`act` 与 Starlark 编排](act.md) | 解释器、`act` 的说明与全局环境、快速失败、交回载荷与上限、`act` 的结局 |
 | [宿主资源](host-resources.md) | 目录、执行环境与网络出口 |
-| [影子工作区、待定改动与发布](shadow-workspace.md) | 影子的建立与同步、待定改动、发布、Git 与崩溃恢复 |
 
 ## 能力
 
@@ -22,8 +21,8 @@ status: active
 
 | 能力 | 内容 | 提供者 |
 | --- | --- | --- |
-| 读与搜 | 读取文件、列目录、按内容与名称搜索、查看待定改动的状态与差异 | `fs.read`、`fs.list`、`fs.search`、`fs.status`、`fs.diff` |
-| 改 | 新建、精确替换修改、撤回单文件的待定改动，以及发布或丢弃全部待定改动 | `fs.write`、`fs.edit`、`fs.reset`；内置 `commit()`、`discard()` |
+| 读与搜 | 读取文件、列目录、按内容与名称搜索 | `fs.read`、`fs.list`、`fs.search` |
+| 改 | 新建、覆盖写入与精确替换修改（直接写宿主，立即生效） | `fs.write`、`fs.edit` |
 | 执行 | 运行原生进程与多阶段进程管道：构建、测试、版本管理与包管理工具 | `proc.run`、`proc.pipe` |
 | 联网 | 发起 HTTP 请求；原生进程受控访问网络 | `http.fetch`；执行环境经网络出口代理出网 |
 
@@ -39,10 +38,8 @@ status: active
 | 宿主资源 | 原生能力进入节点的唯一形式，即句柄的种类：目录、执行环境、网络出口 | 节点实现，封闭集合 | 随节点版本 |
 | 句柄 | 节点配置授予的一个宿主资源实例 | 节点配置 | 随配置 |
 | 工作区 | 一组互不重叠的工作目录；一个节点只对应一个工作区 | 节点配置 | 随配置 |
-| 工作目录 | 模型操作的对象：一个目录，对应一个目录句柄 | 节点配置 | 随配置 |
-| 影子工作区 | 每个可写工作目录在节点状态目录中的持久 reflink 副本 | 节点状态目录 | 节点首次启动时建立，跨重启保留 |
-| 待定改动 | 影子相对基准的差异 | 节点状态目录 | 写入时产生，跨 `act` 保留，直到发布或丢弃 |
-| 执行环境实例 | 一次 `proc.*` 调用的私有根、cgroup 与进程 | 节点 | 一次 `proc.*` 调用 |
+| 工作目录 | 模型操作的对象：宿主上的一个目录，对应一个目录句柄 | 节点配置 | 随配置 |
+| 执行环境实例 | 一次 `proc.*` 调用的隔离执行环境与进程组 | 节点 | 一次 `proc.*` 调用 |
 
 ## 组件与职责
 
@@ -54,8 +51,7 @@ status: active
 | 分发层 | 本次 `act` 已记录的 ε | 核对 κ，只注入本次调用的句柄，核对 ε 不越出模板（[分发](tools.md#分发)） | 解释器组件导入的子工具分发接口 |
 | 解释器组件 | 脚本的求值状态（组件线性内存） | 静态名称与类型检查、求值、纯计算过滤（[`act`](act.md)） | `act` 的脚本 |
 | 工具组件 | 无跨调用的状态 | 工具自身的逻辑，只经注入的句柄触及宿主资源 | 导出的 WIT 接口 |
-| 宿主资源实现 | 执行环境实例、出口代理 | 目录读写与 `hidden` 过滤、执行环境的建立与终止、出口放行（[宿主资源](host-resources.md)） | 宿主接口 `lancet:host` |
-| 影子与发布 | 影子、基准、待定改动、冲突标记、发布日志 | 同步影子、求待定改动、`commit()` 与 `discard()` 的结算、发布与崩溃恢复（[影子工作区](shadow-workspace.md)） | 目录资源；内置 `commit()`、`discard()` |
+| 宿主资源实现 | 宿主目录根 fd、执行环境实例、出口代理 | 目录直接读写与根内边界约束、执行环境的建立与终止、出口放行（[宿主资源](host-resources.md)） | 宿主接口 `lancet:host` |
 
 工具基座由 API 工具声明、分发层与配置加载组成。effect、co-effect、`residue` 与 `seam` 只在工具基座中读取并据以决定，脚本不标注、不感知它们。
 
@@ -69,34 +65,27 @@ sequenceDiagram
     participant N as lancet-node
     participant I as 解释器组件
     participant T as 工具组件
-    participant S as 影子工作区
     participant H as 宿主工作目录
     C->>N: execute(invocation_id, catalog_digest, tool="act", script, remaining_ms, output_limit)
-    N->>N: 受理检查，持久登记 invocation_id，获取可写工作目录的互斥锁
-    N->>S: 把宿主上的改动同步进影子（只同步没有待定改动的路径）
+    N->>N: 受理检查，持久登记 invocation_id 为 Pending
     N->>I: 静态名称与类型检查通过后，运行脚本
     loop 每次 API 工具调用
         I->>N: 调用 API 工具（句柄、参数）
         N->>T: 实例化组件，只注入该次调用的句柄
-        T->>S: fs.* 读写影子；proc.* 在新建的执行环境中运行，影子挂在真实路径上
-        N->>N: proc.* 结束时终止执行环境，按影子侧事件更新待定改动
+        T->>H: fs.* 直接读写宿主目录；proc.* 在新建的执行环境中运行
         N-->>I: 结果对象（受单次返回窗口上限约束）
     end
     I-->>N: 脚本 return 值与 print 缓冲（或错误）
-    opt 脚本调用过 commit() 并正常 return，交回载荷不超过 output_limit，且有待定改动
-        N->>H: 发布全部待定改动
-    end
+    N->>N: 核对输出上限，持久结算回执
     N-->>C: ExecuteOutcome 与 receipt_summary
 ```
 
 | 步骤 | 规则所在 |
 | --- | --- |
 | 受理检查、登记与结算 | [协议合同](../lancet-protocol.md#execute-的受理与结局) |
-| 互斥锁与影子同步 | [影子工作区](shadow-workspace.md#可写工作目录的互斥) |
 | 静态检查与运行脚本 | [`act` 与 Starlark 编排](act.md#执行流程) |
 | API 工具的分发 | [API 工具与工具基座](tools.md#分发) |
-| 执行环境 | [宿主资源](host-resources.md#执行环境) |
-| 发布 | [影子工作区](shadow-workspace.md#发布) |
+| 目录读写与执行环境 | [宿主资源](host-resources.md#目录) |
 | 结局 | [`act` 与 Starlark 编排](act.md#结局) |
 
 ## 状态
@@ -105,14 +94,12 @@ sequenceDiagram
 | --- | --- |
 | 调用记录 | [协议合同](../lancet-protocol.md#调用记录) |
 | 执行环境实例 | [宿主资源](host-resources.md#执行环境) |
-| 路径的待定改动 | [影子工作区](shadow-workspace.md#状态) |
-| 发布事务 | [影子工作区](shadow-workspace.md#发布) |
 
 ## 范围之外
 
 | 职责 | 现状 |
 | --- | --- |
-| 撤回已发布的改动 | 由新的 `act` 完成；节点与协议都不提供求逆 |
+| 撤回已发生的改动 | 不提供；写入直接生效，节点不保留前态、不提供求逆 |
 | 审批 | 推后，见[尚未承接](#尚未承接) |
 | 并行调度 | 推后 |
 | 远程节点 | 推后；远程传输尚待裁决，见[协议合同](../lancet-protocol.md#尚未承接) |

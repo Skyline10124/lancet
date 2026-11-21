@@ -21,12 +21,13 @@
 ## 架构合同
 
 - [外部上下文节点协议](architecture/lancet-protocol.md)：连接与握手、五个操作、受理与结局、effect 与回执、调用记录与对账。
-- [`lancet-node`](architecture/lancet-node/README.md)：能力、组件与一次 `act` 的执行；子合同为节点配置与工作区、API 工具与工具基座、`act` 与 Starlark 编排、宿主资源、影子工作区与发布。
+- [`lancet-node`](architecture/lancet-node/README.md)：能力、组件与一次 `act` 的执行；子合同为节点配置与工作区、API 工具与工具基座、`act` 与 Starlark 编排、宿主资源。
 
 ## 架构决策
 
 - [ADR 0001](adr/0001-lancet-protocol.md)（accepted）：以 `lancet-protocol` 定义外部上下文节点协议（连接、零重放、五态结局与回执）。
-- [ADR 0002](adr/0002-lancet-node-api-tools-and-act.md)（accepted）：`lancet-node` 以 Starlark 编排、API 工具、宿主资源与写时复制提供 `act`。
+- [ADR 0002](adr/0002-lancet-node-api-tools-and-act.md)（accepted）：`lancet-node` 以 Starlark 编排、API 工具、宿主资源与写时复制提供 `act`（部分已被 [ADR 0003](adr/0003-direct-workspace-and-per-call-sandbox.md) 取代）。
+- [ADR 0003](adr/0003-direct-workspace-and-per-call-sandbox.md)（accepted）：取消影子工作区、发布与路径规则，可写目录直接写宿主，执行环境按调用新建并在结束时整组终止。
 
 ## 参考资料
 

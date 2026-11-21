@@ -225,8 +225,6 @@ receipt_retention_ms = 86400000
 name = "app"
 path = {app_dir:?}
 access = "write"
-regenerable = ["target/", "*.tmp"]
-hidden = [".env", "secrets/"]
 
 [[dir]]
 name = "lib"
@@ -359,18 +357,38 @@ hosts = ["pypi.org"]
         act_tool.description
     );
     for expected in [
-        "def commit() -> None:",
-        "def discard() -> None:",
         "class Entry:",
         "is_link: bool",
         "class SearchHit:",
         "line_no: int",
-        "class PendingChange:",
-        "class PathDiff:",
     ] {
         assert!(
             act_tool.description.contains(expected),
             "act.description 应包含 `{expected}`，实际为：\n{}",
+            act_tool.description
+        );
+    }
+    // 已删除的内置函数只按行首判定：Starlark `set` 自带的 `discard` 方法缩进出现在存根里，不是被删除的全局函数。
+    for removed in ["def commit(", "def discard("] {
+        assert!(
+            !act_tool
+                .description
+                .lines()
+                .any(|line| line.starts_with(removed)),
+            "act.description 行首不应出现已删除的内置函数 `{removed}`，实际为：\n{}",
+            act_tool.description
+        );
+    }
+    for removed in [
+        "class PendingChange:",
+        "class PathDiff:",
+        "def status(",
+        "def diff(",
+        "def reset(",
+    ] {
+        assert!(
+            !act_tool.description.contains(removed),
+            "act.description 不应包含已删除项 `{removed}`，实际为：\n{}",
             act_tool.description
         );
     }
@@ -379,13 +397,7 @@ hosts = ["pypi.org"]
         .split("\n\n")
         .find(|block| block.starts_with("class ReadDir:\n"))
         .expect("存根应包含 `class ReadDir:` 块");
-    for method in [
-        "def read(",
-        "def list(",
-        "def search(",
-        "def status(",
-        "def diff(",
-    ] {
+    for method in ["def read(", "def list(", "def search("] {
         assert!(
             read_dir_block.contains(method),
             "`class ReadDir:` 应包含 `{method}`，实际为：\n{read_dir_block}"
@@ -400,11 +412,8 @@ hosts = ["pypi.org"]
         "def read(",
         "def list(",
         "def search(",
-        "def status(",
-        "def diff(",
         "def write(",
         "def edit(",
-        "def reset(",
     ] {
         assert!(
             write_dir_block.contains(method),
@@ -457,34 +466,13 @@ hosts = ["pypi.org"]
     }
 
     assert_eq!(handles[0].kind, "WriteDir");
-    assert_eq!(
-        handles[0].attributes,
-        BTreeMap::from([
-            ("hidden".to_owned(), serde_json::json!([".env", "secrets/"])),
-            (
-                "regenerable".to_owned(),
-                serde_json::json!(["target/", "*.tmp"])
-            ),
-        ])
-    );
+    assert_eq!(handles[0].attributes, BTreeMap::new());
 
     assert_eq!(handles[1].kind, "ReadDir");
-    assert_eq!(
-        handles[1].attributes,
-        BTreeMap::from([
-            ("hidden".to_owned(), serde_json::json!([])),
-            ("regenerable".to_owned(), serde_json::json!([])),
-        ])
-    );
+    assert_eq!(handles[1].attributes, BTreeMap::new());
 
     assert_eq!(handles[2].kind, "ReadDir");
-    assert_eq!(
-        handles[2].attributes,
-        BTreeMap::from([
-            ("hidden".to_owned(), serde_json::json!([])),
-            ("regenerable".to_owned(), serde_json::json!([])),
-        ])
-    );
+    assert_eq!(handles[2].attributes, BTreeMap::new());
 
     assert_eq!(handles[3].kind, "ExecEnv");
     let expanded_tool = home.join(".rustup").to_string_lossy().into_owned();
@@ -593,6 +581,14 @@ access = "write"
         persisted_id,
         expected_id.as_bytes(),
         "node_id 文件应为一行小写带连字符的 UUID 并以换行结束"
+    );
+    assert!(
+        !state_dir.join("shadows").exists(),
+        "节点不应建立 shadows/ 目录"
+    );
+    assert!(
+        !state_dir.join("publish").exists(),
+        "节点不应建立 publish/ 目录"
     );
 }
 
@@ -805,10 +801,99 @@ access = "write"
         !state_inside.exists(),
         "启动校验失败后，尚不存在的 state_dir 不应被创建"
     );
+
+    // 情形 3：把已存在的状态目录本身授为可写工作目录，启动报错。
+    let existing_state = root.path().join("existing-state");
+    let state_calls = existing_state.join("calls");
+    std::fs::create_dir_all(&state_calls).expect("创建状态目录与 calls 失败");
+    let cfg_state_self = root.path().join("state-self.toml");
+    let err_state_self = run_expect_failure(
+        &cfg_state_self,
+        &format!(
+            r#"
+[node]
+display_name = "状态目录自身可写"
+state_dir = {state_dir:?}
+
+[[dir]]
+name = "st"
+path = {state_dir:?}
+access = "write"
+"#,
+            state_dir = existing_state.to_str().unwrap(),
+        ),
+        &home,
+    );
+    assert!(
+        err_state_self.contains("可写工作目录不能是节点状态目录或其子目录")
+            && err_state_self.contains("st"),
+        "状态目录本身授为可写工作目录应报启动校验失败，实际标准错误：\n{err_state_self}"
+    );
+
+    // 情形 4：把状态目录的子目录（如 state_dir/calls）授为可写工作目录，启动报错。
+    let cfg_state_sub = root.path().join("state-sub.toml");
+    let err_state_sub = run_expect_failure(
+        &cfg_state_sub,
+        &format!(
+            r#"
+[node]
+display_name = "状态目录子目录可写"
+state_dir = {state_dir:?}
+
+[[dir]]
+name = "calls_dir"
+path = {calls_dir:?}
+access = "write"
+"#,
+            state_dir = existing_state.to_str().unwrap(),
+            calls_dir = state_calls.to_str().unwrap(),
+        ),
+        &home,
+    );
+    assert!(
+        err_state_sub.contains("可写工作目录不能是节点状态目录或其子目录")
+            && err_state_sub.contains("calls_dir"),
+        "状态目录子目录授为可写工作目录应报启动校验失败，实际标准错误：\n{err_state_sub}"
+    );
 }
 
 #[test]
-fn startup_requires_shared_reflink_filesystem() {
+fn startup_rejects_removed_dir_rule_keys() {
+    let (root, home) = temp_env();
+    let app_dir = root.path().join("app");
+    std::fs::create_dir(&app_dir).expect("创建 app 失败");
+
+    for (key, line) in [
+        ("hidden", "hidden = [\".env\"]"),
+        ("regenerable", "regenerable = [\"target/\"]"),
+    ] {
+        let state_dir = root.path().join(format!("state-{key}"));
+        let cfg = root.path().join(format!("bad-{key}.toml"));
+        let toml_content = format!(
+            r#"
+[node]
+display_name = "旧键拒绝"
+state_dir = {state_dir:?}
+
+[[dir]]
+name = "app"
+path = {app_dir:?}
+access = "write"
+{line}
+"#,
+            state_dir = state_dir.to_str().unwrap(),
+            app_dir = app_dir.to_str().unwrap(),
+        );
+        let stderr = run_expect_failure(&cfg, &toml_content, &home);
+        assert!(
+            stderr.contains(key),
+            "配置中出现已删除键 `{key}` 应启动报错并指出该键，实际标准错误：\n{stderr}"
+        );
+    }
+}
+
+#[test]
+fn startup_allows_writable_dir_on_different_filesystem() {
     let (xfs_root, home) = temp_env();
     let shm_root = tempfile::Builder::new()
         .prefix("ln-")
@@ -820,68 +905,75 @@ fn startup_requires_shared_reflink_filesystem() {
     std::fs::create_dir(&shm_dir).expect("创建 shm dir 失败");
     std::fs::create_dir(&xfs_dir).expect("创建 xfs dir 失败");
 
-    let fail_cases = [
-        (
-            "write_dir_on_tmpfs",
-            "app",
-            &shm_dir,
-            "write",
-            xfs_root.path().join("state-1"),
-        ),
-        (
-            "state_dir_on_tmpfs",
-            "lib",
-            &xfs_dir,
-            "read",
-            shm_root.path().join("state-2"),
-        ),
-    ];
-
-    for (case_name, dir_name, dir_path, access, state_dir) in fail_cases {
-        let config_path = xfs_root.path().join(format!("{case_name}.toml"));
-        let toml_content = format!(
-            r#"
-[node]
-display_name = "reflink 测试"
-state_dir = {state_dir:?}
-
-[[dir]]
-name = {dir_name:?}
-path = {dir_path:?}
-access = {access:?}
-"#,
-            state_dir = state_dir.to_str().unwrap(),
-            dir_path = dir_path.to_str().unwrap(),
-        );
-        let stderr = run_expect_failure(&config_path, &toml_content, &home);
-        assert!(
-            stderr.contains(
-                "可写工作目录、影子、私有缓存与节点状态目录同处一个支持 FICLONE（reflink）的文件系统"
-            ),
-            "用例 `{case_name}` 应报 FICLONE 启动校验规则，实际标准错误：\n{stderr}"
-        );
-    }
-
-    // 只读目录在 /dev/shm，状态目录在 /tmp：只读目录不参加 FICLONE 探测，应正常启动。
-    let state_ok = xfs_root.path().join("state-ok");
-    let cfg_ok = xfs_root.path().join("ok.toml");
-    let toml_ok = format!(
+    // 情形 1：可写目录在 /dev/shm，状态目录在 /tmp（不同文件系统且无 reflink）。
+    let state_1 = xfs_root.path().join("state-1");
+    let cfg_1 = xfs_root.path().join("cross-1.toml");
+    let toml_1 = format!(
         r#"
 [node]
-display_name = "只读跨文件系统"
+display_name = "跨文件系统可写"
 state_dir = {state_dir:?}
 
 [[dir]]
-name = "ro"
+name = "app"
 path = {shm_dir:?}
-access = "read"
+access = "write"
 "#,
-        state_dir = state_ok.to_str().unwrap(),
+        state_dir = state_1.to_str().unwrap(),
         shm_dir = shm_dir.to_str().unwrap(),
     );
-    let node = NodeProcess::start(&cfg_ok, &toml_ok, &state_ok, &home);
-    let mut stream = node.connect();
-    let _ = hello_v1(&mut stream, 1);
+    let node_1 = NodeProcess::start(&cfg_1, &toml_1, &state_1, &home);
+    let mut s1 = node_1.connect();
+    let _ = hello_v1(&mut s1, 1);
+    let (digest_1, _, _) = describe(&mut s1, 2);
+    let write_resp = send_request(
+        &mut s1,
+        3,
+        Request::Execute {
+            invocation_id: "inv-cross-fs".to_owned(),
+            catalog_digest: digest_1,
+            tool: "act".to_owned(),
+            arguments: serde_json::json!({"script": "app.write(\"hi.txt\", \"ok\")"}),
+            remaining_ms: 5_000,
+            output_limit: 4096,
+            labels: BTreeMap::new(),
+        },
+    );
+    assert!(
+        matches!(
+            write_resp.message,
+            Response::ExecuteResult {
+                outcome: lancet_protocol::ExecuteOutcome::Succeeded { .. }
+            }
+        ),
+        "跨文件系统可写目录应能正常写入：{:?}",
+        write_resp.message
+    );
+    assert_eq!(
+        std::fs::read_to_string(shm_dir.join("hi.txt")).expect("读取跨文件系统写入结果失败"),
+        "ok"
+    );
+
+    // 情形 2：状态目录在 /dev/shm，可写目录在 /tmp。
+    let state_2 = shm_root.path().join("state-2");
+    let cfg_2 = xfs_root.path().join("cross-2.toml");
+    let toml_2 = format!(
+        r#"
+[node]
+display_name = "状态目录在 tmpfs"
+state_dir = {state_dir:?}
+
+[[dir]]
+name = "app"
+path = {xfs_dir:?}
+access = "write"
+"#,
+        state_dir = state_2.to_str().unwrap(),
+        xfs_dir = xfs_dir.to_str().unwrap(),
+    );
+    let node_2 = NodeProcess::start(&cfg_2, &toml_2, &state_2, &home);
+    let mut s2 = node_2.connect();
+    let _ = hello_v1(&mut s2, 1);
 }
 
 #[test]
@@ -1022,8 +1114,6 @@ fn startup_rejects_invalid_handle_names() {
     let invalid_cases = [
         ("dir_1abc", "dir", "1abc"),
         ("dir_spaces", "dir", " app "),
-        ("dir_discard", "dir", "discard"),
-        ("dir_commit", "dir", "commit"),
         ("env_keyword", "env", "for"),
         ("env_builtin", "env", "len"),
         ("egress_ext", "egress", "regex"),
@@ -1053,22 +1143,38 @@ fn startup_rejects_invalid_handle_names() {
         );
     }
 
-    // 正例：已移除的内置名 `dir` 可以作为句柄名正常启动。
+    // 正例：已移除的内置名 `dir`、`commit`、`discard` 可以作为句柄名正常启动。
+    let commit_dir = root.path().join("commit_dir");
+    let discard_dir = root.path().join("discard_dir");
+    std::fs::create_dir(&commit_dir).expect("创建 commit_dir 失败");
+    std::fs::create_dir(&discard_dir).expect("创建 discard_dir 失败");
     let ok_state = root.path().join("state-dir-ok");
     let ok_cfg = root.path().join("dir-ok.toml");
     let ok_toml = format!(
         r#"
 [node]
-display_name = "dir 允许启动"
+display_name = "原保留名允许启动"
 state_dir = {state_dir:?}
 
 [[dir]]
 name = "dir"
 path = {ro_dir:?}
 access = "read"
+
+[[dir]]
+name = "commit"
+path = {commit_dir:?}
+access = "read"
+
+[[dir]]
+name = "discard"
+path = {discard_dir:?}
+access = "write"
 "#,
         state_dir = ok_state.to_str().unwrap(),
         ro_dir = ro_dir.to_str().unwrap(),
+        commit_dir = commit_dir.to_str().unwrap(),
+        discard_dir = discard_dir.to_str().unwrap(),
     );
     let node = NodeProcess::start(&ok_cfg, &ok_toml, &ok_state, &home);
     let mut stream = node.connect();
@@ -1077,7 +1183,5 @@ access = "read"
 
 #[path = "node/calls.rs"]
 mod calls;
-#[path = "node/publish.rs"]
-mod publish;
 #[path = "node/writable.rs"]
 mod writable;

@@ -6,13 +6,10 @@ members = [
     "crates/lancet-node/tests/fixtures/tool-probe",
     "crates/lancet-protocol",
     "crates/lancet-tool-decl",
-    "tools/fs-diff",
     "tools/fs-edit",
     "tools/fs-list",
     "tools/fs-read",
-    "tools/fs-reset",
     "tools/fs-search",
-    "tools/fs-status",
     "tools/fs-write",
     "xtask",
 ]
@@ -30,13 +27,11 @@ anyhow = "1"
 cargo_metadata = "0.19"
 clap = { version = "4", features = ["derive", "env"] }
 globset = "0.4"
-ignore = "0.4"
 regex = "1"
 rustix = { version = "1", features = ["fs"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 sha2 = "0.10"
-similar = "2"
 starlark = "=0.14.2"
 starlark_syntax = "=0.14.2"
 tempfile = "3"

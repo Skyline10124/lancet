@@ -4,6 +4,8 @@ status: accepted
 
 # ADR 0002：`lancet-node` 以 API 工具、宿主资源与写时复制提供 `act`
 
+> **部分取代说明**：本 ADR 已部分被 [ADR 0003](0003-direct-workspace-and-per-call-sandbox.md) 取代——整节取代第 6 节（影子工作区、待定改动与发布）；取代第 5 节中 `hidden` 与 `regenerable` 的部分，以及第 1 至 4 节、第 7 节里与影子、待定改动、发布相关的条款。现行规则以合同与 ADR 0003 为准。
+
 ## 背景
 
 ### 来源
@@ -255,6 +257,8 @@ hosts = ["index.crates.io", "static.crates.io"]
 ```
 
 ### 6. 影子工作区、待定改动与发布
+
+> 本节已被 [ADR 0003](0003-direct-workspace-and-per-call-sandbox.md) 整节取代。
 
 `lancet-node` 不在宿主工作目录上原地写入，也不拦截子进程的写系统调用。每个可写工作目录在节点状态目录里有一份持久的 reflink 影子：`fs.*` 的写入与执行环境中子进程的写入都落在影子上，宿主工作目录只在发布时被写入。影子相对基准的差异就是待定改动，由模型在后续 `act` 中决定发布或丢弃（第 3 节）。发布完成后不保留前态。
 

@@ -7,8 +7,7 @@ use std::time::{Duration, Instant};
 
 use lancet_node::act::{ActError, ActHost, ActRuntime, DispatchArgument, Phase};
 use lancet_node::dispatch::{ComponentArtifact, DirSlot, Dispatcher};
-use lancet_node::read_dir::ReadDir;
-use lancet_node::shadow::ShadowDir;
+use lancet_node::read_dir::HostDir;
 use lancet_node::tools::embedded_artifacts;
 use lancet_protocol::{EffectEntry, EffectKind, OutcomeKind, Residue, StepSummary};
 use lancet_tool_decl::{EffectItem, ToolDecl};
@@ -19,7 +18,7 @@ const PROBE_CWASM: &[u8] = include_bytes!(concat!(env!("OUT_DIR"), "/tool-probe.
 
 fn setup_harness() -> (TempDir, ActRuntime, Dispatcher) {
     let dir = TempDir::new().expect("创建临时目录失败");
-    let read_dir = ReadDir::open("ro", dir.path(), &[]).expect("打开只读目录资源失败");
+    let read_dir = HostDir::open("ro", dir.path()).expect("打开只读目录资源失败");
     let rt = ActRuntime::load().expect("加载 act 运行时失败");
 
     let mut artifacts = embedded_artifacts();
@@ -79,15 +78,6 @@ where
                 tool_id,
                 args,
                 call_deadline,
-                Arc::clone(&self.cancelled),
-                &self.steps,
-                &self.effects,
-            )
-        }
-
-        fn discard(&mut self) -> wasmtime::Result<Result<(), String>> {
-            self.dispatcher.discard(
-                self.deadline,
                 Arc::clone(&self.cancelled),
                 &self.steps,
                 &self.effects,
@@ -356,22 +346,12 @@ fn writable_slot_narrows_to_read_view() {
         .tempdir_in("/tmp")
         .expect("在 /tmp 创建临时目录失败");
     let host = root.path().join("host");
-    let state = root.path().join("state");
     std::fs::create_dir_all(host.join("sub")).expect("创建宿主目录失败");
-    std::fs::write(host.join("a.txt"), "base line\n").expect("写入 a.txt 失败");
+    std::fs::write(host.join("a.txt"), "host line\n").expect("写入 a.txt 失败");
+    std::fs::write(host.join("c.txt"), "second host line\n").expect("写入 c.txt 失败");
     std::fs::write(host.join("sub/b.txt"), "hello\n").expect("写入 sub/b.txt 失败");
 
-    let shadow = ShadowDir::open(&state, "rw", &host, &[], &[]).expect("建立影子失败");
-    shadow
-        .write("a.txt", "draft line\n")
-        .expect("写入草稿 a.txt 失败");
-    shadow
-        .write("c.txt", "added draft\n")
-        .expect("写入草稿 c.txt 失败");
-    // 宿主同时修改 a.txt 并同步，使 a.txt 带 conflict=true。
-    std::fs::write(host.join("a.txt"), "host line\n").expect("写入宿主 a.txt 失败");
-    shadow.sync_from_host(None, None).expect("同步宿主失败");
-
+    let rw_dir = HostDir::open("rw", &host).expect("打开可写目录失败");
     let rt = ActRuntime::load().expect("加载 act 运行时失败");
     let mut artifacts = embedded_artifacts();
     let probe_decls: Vec<ToolDecl> =
@@ -383,16 +363,14 @@ fn writable_slot_narrows_to_read_view() {
     });
     // SAFETY: 预编译产物均由同一构建与引擎配置生成。
     let dispatcher =
-        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Shadow(shadow)]) }
+        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Writable(rw_dir)]) }
             .expect("构造分发器失败");
 
     let script = r#"
 content = rw.read("a.txt")
 entries = rw.list(".")
-hits = rw.search("draft")
-st = rw.status()
-df = rw.diff()
-return {"content": content, "entries": entries, "hits": hits, "status": st, "diff": df}
+hits = rw.search("host")
+return {"content": content, "entries": entries, "hits": hits}
 "#;
     let (res, steps, effects) = run_with_dispatcher(
         &rt,
@@ -403,7 +381,7 @@ return {"content": content, "entries": entries, "hits": hits, "status": st, "dif
     );
     let val: serde_json::Value =
         serde_json::from_str(&res.expect("可写槽位调用只读工具应成功")).expect("解析 JSON 失败");
-    assert_eq!(val["content"], "draft line\n");
+    assert_eq!(val["content"], "host line\n");
     let entry_names: Vec<&str> = val["entries"]
         .as_array()
         .expect("entries 应为数组")
@@ -414,28 +392,12 @@ return {"content": content, "entries": entries, "hits": hits, "status": st, "dif
     assert_eq!(
         val["hits"].as_array().expect("hits 应为数组").len(),
         2,
-        "search 应看到草稿 a.txt 与 c.txt：{}",
+        "search 应看到宿主文件 a.txt 与 c.txt：{}",
         val["hits"]
     );
     assert_eq!(
-        val["status"],
-        serde_json::json!([
-            {"path": "a.txt", "action": "modified", "conflict": true},
-            {"path": "c.txt", "action": "added", "conflict": false},
-        ])
-    );
-    let diffs = val["diff"].as_array().expect("diff 应为数组");
-    assert_eq!(diffs.len(), 2);
-    assert_eq!(diffs[0]["path"], "a.txt");
-    assert_eq!(diffs[0]["conflict"], true);
-    let patch_a = diffs[0]["patch"].as_str().expect("a.txt 应有文本 patch");
-    assert!(
-        patch_a.contains("-base line") && patch_a.contains("+draft line"),
-        "diff 应为基准到影子：{patch_a}"
-    );
-    assert_eq!(
         steps.iter().map(|s| s.tool.as_str()).collect::<Vec<_>>(),
-        vec!["fs.read", "fs.list", "fs.search", "fs.status", "fs.diff"]
+        vec!["fs.read", "fs.list", "fs.search"]
     );
     assert!(steps.iter().all(|s| s.outcome == OutcomeKind::Succeeded));
     assert!(effects.is_empty(), "只读工具调用可写槽位不应记录任何 ε");
@@ -475,10 +437,9 @@ fn write_receipt_survives_tool_failure() {
         .tempdir_in("/tmp")
         .expect("在 /tmp 创建临时目录失败");
     let host = root.path().join("host");
-    let state = root.path().join("state");
     std::fs::create_dir(&host).expect("创建宿主目录失败");
 
-    let shadow = ShadowDir::open(&state, "rw", &host, &[], &[]).expect("建立影子失败");
+    let rw_dir = HostDir::open("rw", &host).expect("打开可写目录失败");
     let rt = ActRuntime::load().expect("加载 act 运行时失败");
     let mut artifacts = embedded_artifacts();
     let probe_decls: Vec<ToolDecl> =
@@ -489,14 +450,9 @@ fn write_receipt_survives_tool_failure() {
         cwasm: PROBE_CWASM,
     });
     // SAFETY: 预编译产物均由同一构建与引擎配置生成。
-    let dispatcher = unsafe {
-        Dispatcher::new(
-            rt.engine(),
-            &artifacts,
-            vec![DirSlot::Shadow(shadow.clone())],
-        )
-    }
-    .expect("构造分发器失败");
+    let dispatcher =
+        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Writable(rw_dir)]) }
+            .expect("构造分发器失败");
 
     let script =
         "rw.write_then_fail(\"probe.txt\", \"landed\")\nrw.write(\"after.txt\", \"nope\")\n";
@@ -529,14 +485,15 @@ fn write_receipt_survives_tool_failure() {
     assert_eq!(effects[0].changes().len(), 1);
     assert_eq!(effects[0].changes()[0].target, "probe.txt");
     assert_eq!(effects[0].changes()[0].action, "write");
-    assert_eq!(effects[0].changes()[0].residue, Residue::None);
+    assert_eq!(effects[0].changes()[0].diff, None);
+    assert!(!effects[0].changes()[0].diff_truncated);
+    assert_eq!(effects[0].changes()[0].residue, Residue::NotRetained);
 
     assert_eq!(
-        shadow.read("probe.txt").expect("读取影子失败").as_deref(),
-        Some("landed")
+        std::fs::read_to_string(host.join("probe.txt")).expect("读取宿主文件失败"),
+        "landed"
     );
-    assert_eq!(shadow.read("after.txt").expect("读取影子失败"), None);
-    assert!(!host.join("probe.txt").exists(), "宿主工作目录不应被写入");
+    assert!(!host.join("after.txt").exists(), "失败后的第二行不应执行");
 }
 
 #[test]
@@ -547,12 +504,11 @@ fn effect_outside_template_fails_act() {
         .expect("在 /tmp 创建临时目录失败");
     let host1 = root.path().join("host1");
     let host2 = root.path().join("host2");
-    let state = root.path().join("state");
     std::fs::create_dir(&host1).expect("创建 host1 失败");
     std::fs::create_dir(&host2).expect("创建 host2 失败");
 
-    let w1 = ShadowDir::open(&state, "w1", &host1, &[], &[]).expect("建立 w1 影子失败");
-    let w2 = ShadowDir::open(&state, "w2", &host2, &[], &[]).expect("建立 w2 影子失败");
+    let w1 = HostDir::open("w1", &host1).expect("打开 w1 目录失败");
+    let w2 = HostDir::open("w2", &host2).expect("打开 w2 目录失败");
     let rt = ActRuntime::load().expect("加载 act 运行时失败");
 
     // 场景 1：真实 fs-write 组件，在声明中删去允许的 Write 模板项。
@@ -564,14 +520,15 @@ fn effect_outside_template_fails_act() {
             .expect("应包含 fs-write 组件");
         fs_write.decls[0].templates.effects.clear();
         // SAFETY: 预编译产物均由同一构建与引擎配置生成。
-        let dispatcher =
-            unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Shadow(w1.clone())]) }
-                .expect("构造分发器失败");
+        let dispatcher = unsafe {
+            Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Writable(w1.clone())])
+        }
+        .expect("构造分发器失败");
 
         let (res, steps, effects) = run_with_dispatcher(
             &rt,
             &dispatcher,
-            "w1.write(\"a.txt\", \"draft\")\nw1.write(\"b.txt\", \"never\")\n",
+            "w1.write(\"a.txt\", \"landed\")\nw1.write(\"b.txt\", \"never\")\n",
             Instant::now() + Duration::from_secs(5),
             Arc::new(AtomicBool::new(false)),
         );
@@ -596,8 +553,15 @@ fn effect_outside_template_fails_act() {
         assert_eq!(effects.len(), 1);
         assert_eq!(effects[0].handle(), "w1");
         assert_eq!(effects[0].changes()[0].target, "a.txt");
-        assert_eq!(w1.read("a.txt").unwrap().as_deref(), Some("draft"));
-        assert_eq!(w1.read("b.txt").unwrap(), None);
+        assert_eq!(effects[0].changes()[0].action, "write");
+        assert_eq!(effects[0].changes()[0].diff, None);
+        assert!(!effects[0].changes()[0].diff_truncated);
+        assert_eq!(effects[0].changes()[0].residue, Residue::NotRetained);
+        assert_eq!(
+            std::fs::read_to_string(host1.join("a.txt")).unwrap(),
+            "landed"
+        );
+        assert!(!host1.join("b.txt").exists());
     }
 
     // 场景 2：真实 tool-probe 的 write-first(dst, other, ...)，模板改为只允许另一个句柄 other。
@@ -620,7 +584,7 @@ fn effect_outside_template_fails_act() {
             Dispatcher::new(
                 rt.engine(),
                 &artifacts,
-                vec![DirSlot::Shadow(w1.clone()), DirSlot::Shadow(w2.clone())],
+                vec![DirSlot::Writable(w1.clone()), DirSlot::Writable(w2.clone())],
             )
         }
         .expect("构造双可写目录分发器失败");
@@ -652,70 +616,13 @@ fn effect_outside_template_fails_act() {
         assert_eq!(effects.len(), 1);
         assert_eq!(effects[0].handle(), "w1");
         assert_eq!(effects[0].changes()[0].target, "x.txt");
-        assert_eq!(w1.read("x.txt").unwrap().as_deref(), Some("cross"));
-        assert_eq!(w2.read("after.txt").unwrap(), None);
+        assert_eq!(effects[0].changes()[0].residue, Residue::NotRetained);
+        assert_eq!(
+            std::fs::read_to_string(host1.join("x.txt")).unwrap(),
+            "cross"
+        );
+        assert!(!host2.join("after.txt").exists());
     }
-}
-
-#[test]
-fn discard_partial_effects_survive_failure_in_receipt() {
-    use rustix::fs::{CWD, FileType, Mode, mknodat};
-    let root = tempfile::Builder::new()
-        .prefix("ln-disp-disc-")
-        .tempdir_in("/tmp")
-        .expect("在 /tmp 创建临时目录失败");
-    let host = root.path().join("host");
-    let state = root.path().join("state");
-    std::fs::create_dir(&host).expect("创建 host 失败");
-    std::fs::write(host.join("a"), "base-a").unwrap();
-    std::fs::write(host.join("z"), "base-z").unwrap();
-
-    let shadow = ShadowDir::open(&state, "w", &host, &[], &[]).expect("建立影子失败");
-    // a 换型为空目录，z 换型为内含未跟踪 FIFO 的目录，令 discard 删除 a 后在 z 报错。
-    std::fs::remove_file(shadow.tree_path().join("a")).unwrap();
-    std::fs::create_dir(shadow.tree_path().join("a")).unwrap();
-    std::fs::remove_file(shadow.tree_path().join("z")).unwrap();
-    std::fs::create_dir(shadow.tree_path().join("z")).unwrap();
-    mknodat(
-        CWD,
-        shadow.tree_path().join("z/fifo"),
-        FileType::Fifo,
-        Mode::from_raw_mode(0o600),
-        0,
-    )
-    .unwrap();
-
-    let rt = ActRuntime::load().expect("加载 act 运行时失败");
-    let artifacts = embedded_artifacts();
-    // SAFETY: 预编译产物均由同一构建与引擎配置生成。
-    let dispatcher =
-        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Shadow(shadow)]) }
-            .expect("构造分发器失败");
-
-    let (res, steps, effects) = run_with_dispatcher(
-        &rt,
-        &dispatcher,
-        "discard()\nreturn 1\n",
-        Instant::now() + Duration::from_secs(5),
-        Arc::new(AtomicBool::new(false)),
-    );
-    assert!(
-        matches!(res, Err(ActError::Script(_))),
-        "discard 部分失败应报脚本错误，实际：{res:?}"
-    );
-    assert_eq!(
-        steps,
-        vec![StepSummary {
-            tool: "discard".to_owned(),
-            outcome: OutcomeKind::Failed,
-        }]
-    );
-    assert_eq!(effects.len(), 1, "已落地的部分 discard 变更应写入回执 ε");
-    assert_eq!(effects[0].handle(), "w");
-    assert_eq!(effects[0].kind(), EffectKind::Write);
-    assert_eq!(effects[0].changes().len(), 1);
-    assert_eq!(effects[0].changes()[0].target, "a");
-    assert_eq!(effects[0].changes()[0].action, "discard");
 }
 
 fn percentile_us(samples: &[Duration], numer: usize, denom: usize) -> f64 {

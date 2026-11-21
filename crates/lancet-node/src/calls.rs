@@ -1,47 +1,72 @@
 // Copyright 2026 Ast Rin
 // SPDX-License-Identifier: Apache-2.0
 
-//! 持久调用记录账本：零重放、围栏、在途取消、发布临界区准入、重启恢复与回执到期。
+//! 持久调用记录账本：零重放、围栏、在途取消、重启恢复与回执到期。
 
-use std::collections::{BTreeSet, HashMap};
+use std::collections::HashMap;
+use std::fmt::Write as _;
 use std::fs::{DirBuilder, File};
 use std::io::{self, Write as _};
 use std::os::unix::fs::DirBuilderExt as _;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex, MutexGuard};
-use std::time::{Instant, SystemTime, UNIX_EPOCH};
+use std::time::{SystemTime, UNIX_EPOCH};
 
 use anyhow::Context as _;
-use lancet_node::shadow::publish::{
-    CallRecord, PublishJournal, RecoveryRoot, call_record_file_name, call_record_hash,
-    cleanup_publish_dir, recover_journal,
-};
 use lancet_protocol::{
-    CatalogDigest, Labels, Receipt, ReceiptLookup, ReceiptOutcome, RejectCode, ToolError,
+    CatalogDigest, Labels, OutcomeKind, Receipt, ReceiptLookup, ReceiptOutcome, RejectCode,
+    ToolError,
 };
 use rustix::fs::{Mode, OFlags};
+use serde::{Deserialize, Serialize};
+use sha2::{Digest as _, Sha256};
 
 use crate::execute::RejectedCall;
 use crate::state::StateDir;
 
 const RESTART_INTERNAL_ERROR_MESSAGE: &str = "节点在调用结算前重启，未保存执行结果";
-const RESTART_INDETERMINATE_REASON: &str =
-    "节点在调用结算前重启，发布未开始，影子中的写入是否发生未知；可用 status() 查看待定改动";
+const RESTART_INDETERMINATE_REASON: &str = "节点在调用结算前重启，可写工作目录中的写入是否发生未知";
 
-#[derive(Clone)]
-struct PendingMeta {
-    invocation_id: String,
-    tool: String,
-    catalog_digest: CatalogDigest,
-    labels: Labels,
-    writes_possible: bool,
+/// 计算调用记录文件共用的 64 位小写十六进制 SHA-256 键。
+fn call_record_hash(invocation_id: &str) -> String {
+    let digest = Sha256::digest(invocation_id.as_bytes());
+    let mut out = String::with_capacity(64);
+    for byte in digest {
+        let _ = write!(&mut out, "{byte:02x}");
+    }
+    out
+}
+
+/// 返回调用记录文件名（`<call_hash>.json`）。
+fn call_record_file_name(invocation_id: &str) -> String {
+    format!("{}.json", call_record_hash(invocation_id))
+}
+
+/// 持久调用记录账本文件结构（`<state_dir>/calls/<call_hash>.json`）。
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(tag = "state")]
+enum CallRecord {
+    Fenced,
+    Pending {
+        invocation_id: String,
+        tool: String,
+        catalog_digest: CatalogDigest,
+        labels: Labels,
+        writes_possible: bool,
+    },
+    Settled {
+        settled_at_ms: u64,
+        receipt: Receipt,
+    },
+    Expired {
+        outcome: OutcomeKind,
+    },
 }
 
 struct InFlightCall {
     conn_id: u64,
     cancelled: Arc<AtomicBool>,
-    meta: PendingMeta,
 }
 
 /// 受理通过后交给执行线程的调用上下文。
@@ -54,133 +79,8 @@ pub struct AdmittedCall {
     pub cancelled: Arc<AtomicBool>,
 }
 
-/// 发布临界区准入闸门结果（与 `cancel`/`cancel_connection` 串行化）。
-pub enum CriticalSectionGate {
-    Entered,
-    Cancelled,
-    Deadline,
-}
-
-/// 启动期在打开 `ShadowDir` 之前恢复所有带 `PublishJournal` 的遗留调用，并清理未进入临界区或已结算调用的残留发布目录。
-pub fn recover_published_calls(
-    state_dir: &StateDir,
-    recovery_roots: &[RecoveryRoot],
-) -> anyhow::Result<()> {
-    let calls_dir = state_dir.path().join("calls");
-    let mut active_publish_hashes = BTreeSet::new();
-
-    if calls_dir.is_dir() {
-        let calls_dir_file = File::from(
-            rustix::fs::open(
-                &calls_dir,
-                OFlags::RDONLY | OFlags::DIRECTORY | OFlags::CLOEXEC,
-                Mode::empty(),
-            )
-            .with_context(|| format!("无法打开调用记录目录：{}", calls_dir.display()))?,
-        );
-
-        let mut json_names = Vec::new();
-        for entry in std::fs::read_dir(&calls_dir)
-            .with_context(|| format!("无法扫描调用记录目录：{}", calls_dir.display()))?
-        {
-            let entry = entry
-                .with_context(|| format!("读取调用记录目录项失败：{}", calls_dir.display()))?;
-            if let Some(name) = entry.file_name().to_str()
-                && name.ends_with(".json")
-            {
-                json_names.push(name.to_owned());
-            }
-        }
-        json_names.sort();
-
-        for name_str in json_names {
-            let path = calls_dir.join(&name_str);
-            let Some(record) = read_record(&path)? else {
-                continue;
-            };
-            let CallRecord::Pending {
-                invocation_id,
-                tool,
-                catalog_digest,
-                labels,
-                writes_possible,
-                publish: Some(journal),
-            } = record
-            else {
-                continue;
-            };
-
-            let call_hash = journal.call_hash().to_owned();
-            active_publish_hashes.insert(call_hash.clone());
-
-            let inv_for_cb = invocation_id.clone();
-            let tool_for_cb = tool.clone();
-            let digest_for_cb = catalog_digest.clone();
-            let labels_for_cb = labels.clone();
-            let recovered = recover_journal(
-                state_dir.path(),
-                &invocation_id,
-                &path,
-                journal,
-                recovery_roots,
-                |updated_journal| {
-                    let updated = CallRecord::Pending {
-                        invocation_id: inv_for_cb.clone(),
-                        tool: tool_for_cb.clone(),
-                        catalog_digest: digest_for_cb.clone(),
-                        labels: labels_for_cb.clone(),
-                        writes_possible,
-                        publish: Some(updated_journal.clone()),
-                    };
-                    write_record(&calls_dir, &calls_dir_file, &name_str, &updated)
-                },
-            )?;
-
-            let receipt = Receipt {
-                invocation_id,
-                tool,
-                catalog_digest,
-                labels,
-                outcome: ReceiptOutcome::Indeterminate {
-                    reason: recovered.reason,
-                },
-                steps: Vec::new(),
-                effects: recovered.effects,
-                truncated: false,
-            };
-            let settled = CallRecord::Settled {
-                settled_at_ms: now_unix_ms(),
-                receipt,
-            };
-            write_record(&calls_dir, &calls_dir_file, &name_str, &settled)?;
-            active_publish_hashes.remove(&call_hash);
-        }
-    }
-
-    // 清理未进入临界区（仅残留暂存目录）或已结算调用遗留的 publish/<hash>/ 目录。
-    let publish_root = state_dir.path().join("publish");
-    if publish_root.is_dir() {
-        for entry in std::fs::read_dir(&publish_root)
-            .with_context(|| format!("无法扫描发布目录：{}", publish_root.display()))?
-        {
-            let entry =
-                entry.with_context(|| format!("读取发布目录项失败：{}", publish_root.display()))?;
-            let Some(name) = entry.file_name().to_str().map(str::to_owned) else {
-                continue;
-            };
-            if !active_publish_hashes.contains(&name) {
-                cleanup_publish_dir(state_dir.path(), &name)
-                    .with_context(|| format!("清理残留发布事务目录 `{name}` 失败"))?;
-            }
-        }
-    }
-
-    Ok(())
-}
-
-/// 节点持久调用记录账本；登记、围栏、查询、发布临界区准入与结算均由单把互斥锁串行化。
+/// 节点持久调用记录账本；登记、围栏、查询与结算均由单把互斥锁串行化。
 pub struct Ledger {
-    state_dir: PathBuf,
     calls_dir: PathBuf,
     calls_dir_file: File,
     receipt_retention_ms: u64,
@@ -212,25 +112,14 @@ impl Ledger {
             .with_context(|| format!("无法打开调用记录目录：{}", calls_dir.display()))?,
         );
 
-        recover_calls(
-            state_dir.path(),
-            &calls_dir,
-            &calls_dir_file,
-            receipt_retention_ms,
-        )?;
+        recover_calls(&calls_dir, &calls_dir_file, receipt_retention_ms)?;
 
         Ok(Self {
-            state_dir: state_dir.path().to_path_buf(),
             calls_dir,
             calls_dir_file,
             receipt_retention_ms,
             in_flight: Mutex::new(HashMap::new()),
         })
-    }
-
-    /// 返回节点状态目录根路径。
-    pub fn state_dir(&self) -> &Path {
-        &self.state_dir
     }
 
     /// 按查重优先顺序核对传入校验结果，全部通过后持久登记 `Pending` 并记入在途表。
@@ -262,20 +151,12 @@ impl Ledger {
 
         let script = validation?;
 
-        let meta = PendingMeta {
+        let pending = CallRecord::Pending {
             invocation_id: invocation_id.clone(),
             tool: tool.clone(),
             catalog_digest: catalog_digest.clone(),
             labels: labels.clone(),
             writes_possible,
-        };
-        let pending = CallRecord::Pending {
-            invocation_id: meta.invocation_id.clone(),
-            tool: meta.tool.clone(),
-            catalog_digest: meta.catalog_digest.clone(),
-            labels: meta.labels.clone(),
-            writes_possible: meta.writes_possible,
-            publish: None,
         };
         write_record(&self.calls_dir, &self.calls_dir_file, &file_name, &pending)
             .unwrap_or_else(|err| fatal_error(err));
@@ -286,7 +167,6 @@ impl Ledger {
             InFlightCall {
                 conn_id,
                 cancelled: Arc::clone(&cancelled),
-                meta,
             },
         );
 
@@ -298,62 +178,6 @@ impl Ledger {
             script,
             cancelled,
         })
-    }
-
-    /// 在 `in_flight` 锁下核对取消标志与截止时间（与 `cancel`/`cancel_connection` 串行化），
-    /// 通过后将 `PublishJournal::Undo` 原子写入 `CallRecord::Pending` 并放锁进入发布临界区；
-    /// 日志写入任何失败均按账本写入失败终止进程，不在进程内清理暂存或撤回。
-    pub fn enter_publish_critical_section(
-        &self,
-        invocation_id: &str,
-        deadline: Instant,
-        undo_journal: &PublishJournal,
-    ) -> CriticalSectionGate {
-        let in_flight = self.lock_in_flight();
-        let entry = in_flight
-            .get(invocation_id)
-            .unwrap_or_else(|| fatal_error(anyhow::anyhow!("调用 `{invocation_id}` 不在在途表中")));
-        if entry.cancelled.load(Ordering::Acquire) {
-            return CriticalSectionGate::Cancelled;
-        }
-        if Instant::now() >= deadline {
-            return CriticalSectionGate::Deadline;
-        }
-        let record = CallRecord::Pending {
-            invocation_id: entry.meta.invocation_id.clone(),
-            tool: entry.meta.tool.clone(),
-            catalog_digest: entry.meta.catalog_digest.clone(),
-            labels: entry.meta.labels.clone(),
-            writes_possible: entry.meta.writes_possible,
-            publish: Some(undo_journal.clone()),
-        };
-        let file_name = call_record_file_name(invocation_id);
-        write_record(&self.calls_dir, &self.calls_dir_file, &file_name, &record)
-            .with_context(|| format!("写入调用 `{invocation_id}` 初始发布事务日志失败"))
-            .unwrap_or_else(|err| fatal_error(err));
-        CriticalSectionGate::Entered
-    }
-
-    /// 在发布临界区内更新 `CallRecord::Pending.publish`（写入 `rollback_reason` 或 `Finish`）。
-    pub fn update_publish_journal(
-        &self,
-        invocation_id: &str,
-        journal: &PublishJournal,
-    ) -> anyhow::Result<()> {
-        let in_flight = self.lock_in_flight();
-        let entry = in_flight
-            .get(invocation_id)
-            .ok_or_else(|| anyhow::anyhow!("调用 `{invocation_id}` 不在在途表中"))?;
-        let record = CallRecord::Pending {
-            invocation_id: entry.meta.invocation_id.clone(),
-            tool: entry.meta.tool.clone(),
-            catalog_digest: entry.meta.catalog_digest.clone(),
-            labels: entry.meta.labels.clone(),
-            writes_possible: entry.meta.writes_possible,
-            publish: Some(journal.clone()),
-        };
-        let file_name = call_record_file_name(invocation_id);
-        write_record(&self.calls_dir, &self.calls_dir_file, &file_name, &record)
     }
 
     /// 查询调用记录；未知 id 持久登记围栏后返回 `NeverExecuted`，到期回执迁移为 `Expired`。
@@ -437,7 +261,6 @@ impl Ledger {
 }
 
 fn recover_calls(
-    state_dir: &Path,
     calls_dir: &Path,
     calls_dir_file: &File,
     receipt_retention_ms: u64,
@@ -467,9 +290,7 @@ fn recover_calls(
                 catalog_digest,
                 labels,
                 writes_possible,
-                publish: None,
             } => {
-                let _ = cleanup_publish_dir(state_dir, &call_record_hash(&invocation_id));
                 let outcome = if writes_possible {
                     ReceiptOutcome::Indeterminate {
                         reason: RESTART_INDETERMINATE_REASON.to_owned(),
@@ -494,16 +315,6 @@ fn recover_calls(
                     receipt,
                 };
                 write_record(calls_dir, calls_dir_file, name_str, &settled)?;
-            }
-            CallRecord::Pending {
-                invocation_id,
-                publish: Some(_),
-                ..
-            } => {
-                anyhow::bail!(
-                    "调用 `{invocation_id}` 仍有未恢复的发布事务日志（{}），不应跳过前置恢复",
-                    path.display()
-                );
             }
             CallRecord::Settled {
                 settled_at_ms,
