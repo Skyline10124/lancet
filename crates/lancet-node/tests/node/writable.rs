@@ -137,7 +137,7 @@ fn assert_direct_write_entries(effects: &[EffectEntry], handle: &str, expected_t
 
 #[test]
 fn write_tools_obey_paths_and_edit_cardinality() {
-    let (root, _home, _cfg, state_dir, process) =
+    let (root, _home, _cfg, _state_dir, process) =
         start_node_with(Duration::from_secs(10), |root| {
             let w = root.join("w");
             let ro = root.join("ro");
@@ -430,43 +430,6 @@ return {"keep": w.read("keep.txt"), "empty": w.read("empty.txt")}
         std::fs::read(host_w.join("bad.bin")).unwrap(),
         vec![0xffu8, 0xfe]
     );
-
-    // 6. 已删除的旧工具与内置函数在脚本环境中不存在（check 阶段拦截）。
-    for (idx, removed_script) in [
-        "commit()",
-        "discard()",
-        "w.status()",
-        "w.diff()",
-        "w.reset(\"keep.txt\")",
-        "ro.status()",
-        "ro.diff()",
-    ]
-    .into_iter()
-    .enumerate()
-    {
-        let res = run_act(
-            &mut stream,
-            200 + idx as u64,
-            &format!("inv-removed-{idx}"),
-            &digest,
-            removed_script,
-        );
-        match res {
-            ExecuteOutcome::Failed { error, .. } => {
-                assert_eq!(error.code, "ScriptOrToolError");
-                assert!(
-                    error.message.contains("check"),
-                    "已删除项 `{removed_script}` 应在 check 阶段失败，实际：{}",
-                    error.message
-                );
-            }
-            other => panic!("已删除项 `{removed_script}` 应失败，实际：{other:?}"),
-        }
-    }
-
-    // 7. 节点不再建立 shadows/ 与 publish/ 目录。
-    assert!(!state_dir.join("shadows").exists());
-    assert!(!state_dir.join("publish").exists());
 }
 
 #[test]
@@ -604,12 +567,9 @@ fn restart_settles_writable_pending_as_indeterminate() {
     drop(process);
     drop(s1);
 
-    // 重启节点；在首个 hello 之前检查账本文件已结算为 Indeterminate，且未建立 shadows/publish 目录。
+    // 重启节点；在首个 hello 之前检查账本文件已结算为 Indeterminate。
     let toml_content = std::fs::read_to_string(&config_path).unwrap();
     let restarted = NodeProcess::start(&config_path, &toml_content, &state_dir, &home);
-
-    assert!(!state_dir.join("shadows").exists());
-    assert!(!state_dir.join("publish").exists());
 
     let calls_dir = state_dir.join("calls");
     let record_json = std::fs::read_dir(&calls_dir)

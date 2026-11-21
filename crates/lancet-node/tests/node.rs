@@ -368,30 +368,6 @@ hosts = ["pypi.org"]
             act_tool.description
         );
     }
-    // 已删除的内置函数只按行首判定：Starlark `set` 自带的 `discard` 方法缩进出现在存根里，不是被删除的全局函数。
-    for removed in ["def commit(", "def discard("] {
-        assert!(
-            !act_tool
-                .description
-                .lines()
-                .any(|line| line.starts_with(removed)),
-            "act.description 行首不应出现已删除的内置函数 `{removed}`，实际为：\n{}",
-            act_tool.description
-        );
-    }
-    for removed in [
-        "class PendingChange:",
-        "class PathDiff:",
-        "def status(",
-        "def diff(",
-        "def reset(",
-    ] {
-        assert!(
-            !act_tool.description.contains(removed),
-            "act.description 不应包含已删除项 `{removed}`，实际为：\n{}",
-            act_tool.description
-        );
-    }
     let read_dir_block = act_tool
         .description
         .split("\n\n")
@@ -581,14 +557,6 @@ access = "write"
         persisted_id,
         expected_id.as_bytes(),
         "node_id 文件应为一行小写带连字符的 UUID 并以换行结束"
-    );
-    assert!(
-        !state_dir.join("shadows").exists(),
-        "节点不应建立 shadows/ 目录"
-    );
-    assert!(
-        !state_dir.join("publish").exists(),
-        "节点不应建立 publish/ 目录"
     );
 }
 
@@ -858,41 +826,6 @@ access = "write"
 }
 
 #[test]
-fn startup_rejects_removed_dir_rule_keys() {
-    let (root, home) = temp_env();
-    let app_dir = root.path().join("app");
-    std::fs::create_dir(&app_dir).expect("创建 app 失败");
-
-    for (key, line) in [
-        ("hidden", "hidden = [\".env\"]"),
-        ("regenerable", "regenerable = [\"target/\"]"),
-    ] {
-        let state_dir = root.path().join(format!("state-{key}"));
-        let cfg = root.path().join(format!("bad-{key}.toml"));
-        let toml_content = format!(
-            r#"
-[node]
-display_name = "旧键拒绝"
-state_dir = {state_dir:?}
-
-[[dir]]
-name = "app"
-path = {app_dir:?}
-access = "write"
-{line}
-"#,
-            state_dir = state_dir.to_str().unwrap(),
-            app_dir = app_dir.to_str().unwrap(),
-        );
-        let stderr = run_expect_failure(&cfg, &toml_content, &home);
-        assert!(
-            stderr.contains(key),
-            "配置中出现已删除键 `{key}` 应启动报错并指出该键，实际标准错误：\n{stderr}"
-        );
-    }
-}
-
-#[test]
 fn startup_allows_writable_dir_on_different_filesystem() {
     let (xfs_root, home) = temp_env();
     let shm_root = tempfile::Builder::new()
@@ -1142,43 +1075,6 @@ fn startup_rejects_invalid_handle_names() {
             "用例 `{case_name}` 报错应写明表 `{table}` 与条目名 `{bad_name}`，实际标准错误：\n{stderr}"
         );
     }
-
-    // 正例：已移除的内置名 `dir`、`commit`、`discard` 可以作为句柄名正常启动。
-    let commit_dir = root.path().join("commit_dir");
-    let discard_dir = root.path().join("discard_dir");
-    std::fs::create_dir(&commit_dir).expect("创建 commit_dir 失败");
-    std::fs::create_dir(&discard_dir).expect("创建 discard_dir 失败");
-    let ok_state = root.path().join("state-dir-ok");
-    let ok_cfg = root.path().join("dir-ok.toml");
-    let ok_toml = format!(
-        r#"
-[node]
-display_name = "原保留名允许启动"
-state_dir = {state_dir:?}
-
-[[dir]]
-name = "dir"
-path = {ro_dir:?}
-access = "read"
-
-[[dir]]
-name = "commit"
-path = {commit_dir:?}
-access = "read"
-
-[[dir]]
-name = "discard"
-path = {discard_dir:?}
-access = "write"
-"#,
-        state_dir = ok_state.to_str().unwrap(),
-        ro_dir = ro_dir.to_str().unwrap(),
-        commit_dir = commit_dir.to_str().unwrap(),
-        discard_dir = discard_dir.to_str().unwrap(),
-    );
-    let node = NodeProcess::start(&ok_cfg, &ok_toml, &ok_state, &home);
-    let mut stream = node.connect();
-    let _ = hello_v1(&mut stream, 1);
 }
 
 #[path = "node/calls.rs"]

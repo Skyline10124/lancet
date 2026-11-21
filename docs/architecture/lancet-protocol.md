@@ -230,7 +230,7 @@ Change        = { target: String, action: String, diff?: String, diff_truncated:
 | `residue` | 含义 | 出现在 |
 | --- | --- | --- |
 | `None` | 该项有逆，逆所需材料已保留（如留有前态的写入） | `Write` |
-| `NotRetained` | 该项有逆，节点没有保留逆所需的材料（如已发布、不再保留前态的文件改动） | `Write` |
+| `NotRetained` | 该项有逆，节点没有保留逆所需的材料（如直接写入、不保留前态的文件改动） | `Write` |
 | `Regenerable` | 可再生的构建产物或缓存，不保留逆，靠重新生成恢复 | `Write` |
 | `InternalState` | 节点私有运行缓存的变更，不提供逆 | `Write`、`Exec` 派生项 |
 | `External` | 已发出的网络请求、硬件物理动作等没有逆的外部影响，附目标与动作描述 | `Emit`、`Exec` |
