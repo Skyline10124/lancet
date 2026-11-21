@@ -22,7 +22,7 @@ use crate::calls::Ledger;
 use crate::execute;
 
 /// 节点在 `hello_ok` 中声明的结算宽限毫秒数。
-pub const SETTLE_GRACE_MS: u64 = 5_000;
+pub const SETTLE_GRACE_MS: u64 = lancet_node::SETTLE_GRACE_MS;
 
 /// 连接线程共享的节点服务状态。
 pub struct NodeView {
@@ -155,7 +155,7 @@ fn dispatch_request(
             output_limit,
             labels,
         } => {
-            let has_writable = shared.dispatcher.has_writable_dirs();
+            let writes_possible = shared.dispatcher.has_effectful_handles();
             let validation = execute::validate_execute(
                 &shared.catalog_digest,
                 &catalog_digest,
@@ -169,7 +169,7 @@ fn dispatch_request(
                 catalog_digest,
                 tool,
                 labels,
-                has_writable,
+                writes_possible,
                 validation,
             ) {
                 Ok(admitted) => {

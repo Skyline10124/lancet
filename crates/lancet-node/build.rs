@@ -55,6 +55,12 @@ const PRODUCT_TOOLS: &[ToolArtifactSpec] = &[
         rel_dir: "tools/fs-edit",
         output_stem: "fs-edit",
     },
+    ToolArtifactSpec {
+        package_name: "lancet-proc-run",
+        lib_stem: "lancet_proc_run",
+        rel_dir: "tools/proc-run",
+        output_stem: "proc-run",
+    },
 ];
 
 const TEST_PROBE: ToolArtifactSpec = ToolArtifactSpec {

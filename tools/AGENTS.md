@@ -3,7 +3,7 @@
 
 # `tools/` 工作指引
 
-本目录存放 `lancet-node` 内置的 API 工具 WASM 组件（`fs-read`、`fs-list`、`fs-search`、`fs-write`、`fs-edit`）。每个工具是一个独立的 workspace crate，编译为 `wasm32-unknown-unknown` 核心模块，再由 `lancet-node` 打包并核对声明。
+本目录存放 `lancet-node` 内置的 API 工具 WASM 组件（`fs-read`、`fs-list`、`fs-search`、`fs-write`、`fs-edit`、`proc-run`）。每个工具是一个独立的 workspace crate，编译为 `wasm32-unknown-unknown` 核心模块，再由 `lancet-node` 打包并核对声明。
 
 ## 职责与边界
 
@@ -27,11 +27,12 @@
 | `fs-search/`（`lancet-fs-search`） | `lancet:fs-search/fs@0.1.0` | `fs.search` |
 | `fs-write/`（`lancet-fs-write`） | `lancet:fs-write/fs@0.1.0` | `fs.write` |
 | `fs-edit/`（`lancet-fs-edit`） | `lancet:fs-edit/fs@0.1.0` | `fs.edit` |
+| `proc-run/`（`lancet-proc-run`） | `lancet:proc-run/proc@0.1.0` | `proc.run` |
 
 ## 验证命令
 
 ```sh
-cargo clippy -p lancet-fs-read -p lancet-fs-list -p lancet-fs-search -p lancet-fs-write -p lancet-fs-edit --target wasm32-unknown-unknown --lib -- -D warnings
+cargo clippy -p lancet-fs-read -p lancet-fs-list -p lancet-fs-search -p lancet-fs-write -p lancet-fs-edit -p lancet-proc-run --target wasm32-unknown-unknown --lib -- -D warnings
 cargo test -p lancet-node --test tool_declarations
 cargo xtask ci
 ```

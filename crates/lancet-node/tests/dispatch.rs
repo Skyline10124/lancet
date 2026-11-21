@@ -6,7 +6,7 @@ use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
 use lancet_node::act::{ActError, ActHost, ActRuntime, DispatchArgument, Phase};
-use lancet_node::dispatch::{ComponentArtifact, DirSlot, Dispatcher};
+use lancet_node::dispatch::{ComponentArtifact, Dispatcher, HandleSlot};
 use lancet_node::read_dir::HostDir;
 use lancet_node::tools::embedded_artifacts;
 use lancet_protocol::{EffectEntry, EffectKind, OutcomeKind, Residue, StepSummary};
@@ -32,7 +32,7 @@ fn setup_harness() -> (TempDir, ActRuntime, Dispatcher) {
 
     // SAFETY: `embedded_artifacts()` 与 `PROBE_CWASM` 均由同一构建以相同 `engine_config()` 预编译。
     let dispatcher =
-        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::ReadOnly(read_dir)]) }
+        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![HandleSlot::ReadDir(read_dir)]) }
             .expect("构造分发器失败");
     (dir, rt, dispatcher)
 }
@@ -363,7 +363,7 @@ fn writable_slot_narrows_to_read_view() {
     });
     // SAFETY: 预编译产物均由同一构建与引擎配置生成。
     let dispatcher =
-        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Writable(rw_dir)]) }
+        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![HandleSlot::WriteDir(rw_dir)]) }
             .expect("构造分发器失败");
 
     let script = r#"
@@ -451,7 +451,7 @@ fn write_receipt_survives_tool_failure() {
     });
     // SAFETY: 预编译产物均由同一构建与引擎配置生成。
     let dispatcher =
-        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Writable(rw_dir)]) }
+        unsafe { Dispatcher::new(rt.engine(), &artifacts, vec![HandleSlot::WriteDir(rw_dir)]) }
             .expect("构造分发器失败");
 
     let script =
@@ -521,7 +521,11 @@ fn effect_outside_template_fails_act() {
         fs_write.decls[0].templates.effects.clear();
         // SAFETY: 预编译产物均由同一构建与引擎配置生成。
         let dispatcher = unsafe {
-            Dispatcher::new(rt.engine(), &artifacts, vec![DirSlot::Writable(w1.clone())])
+            Dispatcher::new(
+                rt.engine(),
+                &artifacts,
+                vec![HandleSlot::WriteDir(w1.clone())],
+            )
         }
         .expect("构造分发器失败");
 
@@ -584,7 +588,10 @@ fn effect_outside_template_fails_act() {
             Dispatcher::new(
                 rt.engine(),
                 &artifacts,
-                vec![DirSlot::Writable(w1.clone()), DirSlot::Writable(w2.clone())],
+                vec![
+                    HandleSlot::WriteDir(w1.clone()),
+                    HandleSlot::WriteDir(w2.clone()),
+                ],
             )
         }
         .expect("构造双可写目录分发器失败");

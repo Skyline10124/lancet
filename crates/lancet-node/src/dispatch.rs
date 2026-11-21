@@ -22,6 +22,7 @@ use wasmtime::component::{
 use wasmtime::{Engine, Store};
 
 use crate::act::{DispatchArgument, Interrupt, MemoryBudget, check_epoch_interrupt};
+use crate::exec_env::{ExecRunOutcome, HostExecEnv};
 use crate::read_dir::HostDir;
 
 wasmtime::component::bindgen!({
@@ -30,6 +31,7 @@ wasmtime::component::bindgen!({
     with: {
         "lancet:host/handles.read-dir": ReadDirResource,
         "lancet:host/handles.write-dir": WriteDirResource,
+        "lancet:host/handles.exec-env": ExecEnvResource,
     },
     imports: {
         default: trappable,
@@ -42,24 +44,27 @@ pub const TOOL_MEMORY_LIMIT_BYTES: usize = 128 * 1024 * 1024;
 /// 单次 API 工具调用交回脚本的成功值紧凑 JSON 字节上限（8 MiB）。
 pub const MAX_TOOL_RESULT_BYTES: usize = 8 * 1024 * 1024;
 
-/// 分发层按 `[[dir]]` 配置顺序持有的目录资源槽位。
+/// 分发层按配置顺序持有的统一授权槽位（依次为目录与执行环境）。
 #[derive(Clone)]
-pub enum DirSlot {
-    ReadOnly(HostDir),
-    Writable(HostDir),
+pub enum HandleSlot {
+    ReadDir(HostDir),
+    WriteDir(HostDir),
+    ExecEnv(HostExecEnv),
 }
 
-impl DirSlot {
+impl HandleSlot {
     pub fn name(&self) -> &str {
         match self {
-            Self::ReadOnly(dir) | Self::Writable(dir) => dir.name(),
+            Self::ReadDir(dir) | Self::WriteDir(dir) => dir.name(),
+            Self::ExecEnv(env) => env.name(),
         }
     }
 
     pub fn handle_kind(&self) -> HandleKind {
         match self {
-            Self::ReadOnly(_) => HandleKind::ReadDir,
-            Self::Writable(_) => HandleKind::WriteDir,
+            Self::ReadDir(_) => HandleKind::ReadDir,
+            Self::WriteDir(_) => HandleKind::WriteDir,
+            Self::ExecEnv(_) => HandleKind::ExecEnv,
         }
     }
 }
@@ -70,13 +75,19 @@ pub struct ReadDirResource(HostDir);
 /// 压入工具组件 `ResourceTable` 的 `write-dir` 资源，仅在形参为 `borrow<write-dir>` 时注入。
 pub struct WriteDirResource(HostDir);
 
-/// 分发层检测到的节点内部契约违反（以 wasmtime 陷入中止整个 `act`）。
+/// 压入工具组件 `ResourceTable` 的 `exec-env` 资源。
+pub struct ExecEnvResource(HostExecEnv);
+
+/// 分发层检测到的节点内部契约违反或宿主内部故障（以 wasmtime 陷入中止整个 `act` 并结算为 `InternalError`）。
 #[derive(Debug)]
 pub(crate) enum DispatchTrap {
     EffectOutOfTemplate {
         tool: String,
         handle: String,
         kind: EffectKind,
+    },
+    HostInternal {
+        message: String,
     },
 }
 
@@ -89,6 +100,7 @@ impl fmt::Display for DispatchTrap {
                     "工具 `{tool}` 在句柄 `{handle}` 上产生的 {kind:?} effect 越出模板"
                 )
             }
+            Self::HostInternal { message } => f.write_str(message),
         }
     }
 }
@@ -102,7 +114,7 @@ pub struct ComponentArtifact<'a> {
     pub cwasm: &'a [u8],
 }
 
-/// 持有预链接 API 工具组件、目录资源槽位及对应调用授权上下文的分发器。
+/// 持有预链接 API 工具组件、统一授权槽位及对应调用授权上下文的分发器。
 #[derive(Clone)]
 pub struct Dispatcher {
     inner: Arc<DispatcherInner>,
@@ -112,7 +124,7 @@ struct DispatcherInner {
     engine: Engine,
     components: Vec<InstancePre<ToolStoreState>>,
     tools: HashMap<String, PreparedTool>,
-    dirs: Vec<DirSlot>,
+    slots: Vec<HandleSlot>,
     context: ActContext,
 }
 
@@ -144,6 +156,12 @@ impl ToolStoreState {
             }],
         )
         .expect("Write 变更使用 NotRetained 始终合法");
+        self.call_effects.push(entry);
+    }
+
+    fn record_exec_effect(&mut self, handle: &str) {
+        let entry = EffectEntry::new(handle, EffectKind::Exec, Vec::new())
+            .expect("无变更项的 Exec 条目始终合法");
         self.call_effects.push(entry);
     }
 }
@@ -227,7 +245,38 @@ impl lancet::host::handles::HostWriteDir for ToolStoreState {
 }
 
 impl lancet::host::handles::HostExecEnv for ToolStoreState {
-    fn drop(&mut self, rep: Resource<lancet::host::handles::ExecEnv>) -> wasmtime::Result<()> {
+    fn run(
+        &mut self,
+        self_: Resource<ExecEnvResource>,
+        argv: Vec<String>,
+        cwd: Option<String>,
+    ) -> wasmtime::Result<Result<lancet::host::handles::ProcOutput, String>> {
+        let env = self
+            .table
+            .get(&self_)
+            .map_err(wasmtime::Error::from)?
+            .0
+            .clone();
+        let (started, outcome) = env.run(&argv, cwd.as_deref(), self.deadline, &self.cancelled);
+        if started {
+            self.record_exec_effect(env.name());
+        }
+        match outcome {
+            ExecRunOutcome::Finished(out) => Ok(Ok(lancet::host::handles::ProcOutput {
+                code: out.code,
+                stdout: out.stdout,
+                stderr: out.stderr,
+            })),
+            ExecRunOutcome::ToolError(msg) => Ok(Err(msg)),
+            ExecRunOutcome::Cancelled => Err(wasmtime::Error::new(Interrupt::Cancelled)),
+            ExecRunOutcome::Deadline => Err(wasmtime::Error::new(Interrupt::Deadline)),
+            ExecRunOutcome::InternalError(message) => {
+                Err(wasmtime::Error::new(DispatchTrap::HostInternal { message }))
+            }
+        }
+    }
+
+    fn drop(&mut self, rep: Resource<ExecEnvResource>) -> wasmtime::Result<()> {
         self.table.delete(rep).map_err(wasmtime::Error::from)?;
         Ok(())
     }
@@ -241,7 +290,7 @@ impl lancet::host::handles::HostEgress for ToolStoreState {
 }
 
 impl Dispatcher {
-    /// 反序列化并预链接工具组件列表，按槽位顺序绑定节点授予的目录资源并构建唯一 `ActContext`。
+    /// 反序列化并预链接工具组件列表，按槽位顺序绑定节点授予的目录与执行环境资源并构建唯一 `ActContext`。
     ///
     /// # Safety
     ///
@@ -250,7 +299,7 @@ impl Dispatcher {
     pub unsafe fn new(
         engine: &Engine,
         components: &[ComponentArtifact<'_>],
-        dirs: Vec<DirSlot>,
+        slots: Vec<HandleSlot>,
     ) -> anyhow::Result<Self> {
         let mut linker = Linker::<ToolStoreState>::new(engine);
         ToolHost::add_to_linker::<_, HasSelf<ToolStoreState>>(&mut linker, |state| state)
@@ -306,13 +355,13 @@ impl Dispatcher {
             }
         }
 
-        let handles = dirs
+        let handles = slots
             .iter()
             .enumerate()
-            .map(|(slot, dir)| HandleGrant {
-                name: dir.name().to_owned(),
-                kind: dir.handle_kind(),
-                slot: slot as u32,
+            .map(|(slot_idx, item)| HandleGrant {
+                name: item.name().to_owned(),
+                kind: item.handle_kind(),
+                slot: slot_idx as u32,
             })
             .collect();
         let context = ActContext {
@@ -325,7 +374,7 @@ impl Dispatcher {
                 engine: engine.clone(),
                 components: prepared_components,
                 tools,
-                dirs,
+                slots,
                 context,
             }),
         })
@@ -336,12 +385,12 @@ impl Dispatcher {
         &self.inner.context
     }
 
-    /// 返回本次授权中是否包含至少一个可写目录句柄。
-    pub fn has_writable_dirs(&self) -> bool {
+    /// 返回本次授权中是否包含可写目录或执行环境句柄（重启恢复时无法排除已产生 effect）。
+    pub fn has_effectful_handles(&self) -> bool {
         self.inner
-            .dirs
+            .slots
             .iter()
-            .any(|slot| matches!(slot, DirSlot::Writable(_)))
+            .any(|slot| matches!(slot, HandleSlot::WriteDir(_) | HandleSlot::ExecEnv(_)))
     }
 
     /// 核对 κ、在隔离 `Store` 中运行工具组件、执行统一 ε 归集与模板核对、返回窗口与步骤摘要记录。
@@ -360,12 +409,21 @@ impl Dispatcher {
         };
         let step_name = &prepared.decl.script_name;
 
-        if let Err(msg) = check_coeffects(&prepared.decl, args, &self.inner.context.handles) {
+        if let Err(msg) = check_coeffects(
+            &prepared.decl,
+            args,
+            &self.inner.context.handles,
+            &self.inner.slots,
+        ) {
             return record_tool_err(steps, step_name, msg);
         }
 
-        let allowed_effects =
-            instantiate_allowed_effects(&prepared.decl, args, &self.inner.context.handles);
+        let allowed_effects = instantiate_allowed_effects(
+            &prepared.decl,
+            args,
+            &self.inner.context.handles,
+            &self.inner.slots,
+        );
 
         let mut store = new_tool_store(&self.inner.engine, deadline, cancelled);
         let body_outcome = (|| -> CallBodyOutcome {
@@ -451,11 +509,14 @@ impl Dispatcher {
         for ((param, wit_ty), arg) in decl.params.iter().zip(param_types.iter()).zip(args.iter()) {
             match (&param.ty, arg) {
                 (WitType::Handle { kind, .. }, DispatchArgument::HandleRef(slot)) => {
-                    let dir_slot = &self.inner.dirs[*slot as usize];
+                    let handle_slot = &self.inner.slots[*slot as usize];
                     let any = match kind {
                         HandleKind::ReadDir => {
-                            let host_dir = match dir_slot {
-                                DirSlot::ReadOnly(d) | DirSlot::Writable(d) => d.clone(),
+                            let host_dir = match handle_slot {
+                                HandleSlot::ReadDir(d) | HandleSlot::WriteDir(d) => d.clone(),
+                                HandleSlot::ExecEnv(_) => {
+                                    unreachable!("κ 已保证 ReadDir 形参只接收目录槽位");
+                                }
                             };
                             let resource = store
                                 .data_mut()
@@ -469,7 +530,7 @@ impl Dispatcher {
                             )?
                         }
                         HandleKind::WriteDir => {
-                            let DirSlot::Writable(host_dir) = dir_slot else {
+                            let HandleSlot::WriteDir(host_dir) = handle_slot else {
                                 unreachable!("κ 已保证 WriteDir 形参只接收可写目录槽位");
                             };
                             let resource = store
@@ -483,8 +544,23 @@ impl Dispatcher {
                                 |err| format!("转换可写目录句柄 `{}` 失败：{err}", param.name),
                             )?
                         }
-                        HandleKind::ExecEnv | HandleKind::Egress => {
-                            unreachable!("执行环境与网络出口句柄随 #8/#9 注入")
+                        HandleKind::ExecEnv => {
+                            let HandleSlot::ExecEnv(env) = handle_slot else {
+                                unreachable!("κ 已保证 ExecEnv 形参只接收执行环境槽位");
+                            };
+                            let resource = store
+                                .data_mut()
+                                .table
+                                .push(ExecEnvResource(env.clone()))
+                                .map_err(|err| {
+                                    format!("注入执行环境句柄 `{}` 失败：{err}", param.name)
+                                })?;
+                            ResourceAny::try_from_resource(resource, &mut *store).map_err(
+                                |err| format!("转换执行环境句柄 `{}` 失败：{err}", param.name),
+                            )?
+                        }
+                        HandleKind::Egress => {
+                            unreachable!("网络出口句柄随 #9 注入")
                         }
                     };
                     wit_args.push(Val::Resource(any));
@@ -542,10 +618,11 @@ fn append_effects(effects: &Mutex<Vec<EffectEntry>>, entries: Vec<EffectEntry>) 
     guard.extend(entries);
 }
 
-fn instantiate_allowed_effects(
+pub(crate) fn instantiate_allowed_effects(
     decl: &ToolDecl,
     args: &[DispatchArgument],
     grants: &[HandleGrant],
+    slots: &[HandleSlot],
 ) -> HashSet<(String, EffectKind)> {
     let mut allowed = HashSet::new();
     for item in &decl.templates.effects {
@@ -564,8 +641,20 @@ fn instantiate_allowed_effects(
                 };
                 allowed.insert((grant.name.clone(), proto_kind));
             }
-            EffectItem::WriteWritableMountsOf(_) | EffectItem::EmitViaEgressOf(_) => {
-                unreachable!("执行环境与网络出口句柄随 #8/#9 注入")
+            EffectItem::WriteWritableMountsOf(idx) => {
+                let DispatchArgument::HandleRef(slot) = args[idx] else {
+                    continue;
+                };
+                if let Some(HandleSlot::ExecEnv(env)) = slots.get(slot as usize) {
+                    for mount in env.mounts() {
+                        if mount.writable {
+                            allowed.insert((mount.dir.name().to_owned(), EffectKind::Write));
+                        }
+                    }
+                }
+            }
+            EffectItem::EmitViaEgressOf(_) => {
+                // 网络出口归 #9，本阶段展开为空。
             }
         }
     }
@@ -594,6 +683,10 @@ fn handle_wasmtime_error(
     err: wasmtime::Error,
     steps: &Mutex<Vec<StepSummary>>,
 ) -> wasmtime::Result<Result<String, String>> {
+    if err.downcast_ref::<DispatchTrap>().is_some() {
+        record_step(steps, tool_id, OutcomeKind::Failed);
+        return Err(err);
+    }
     match err.downcast_ref::<Interrupt>() {
         Some(Interrupt::Deadline) => {
             record_step(steps, tool_id, OutcomeKind::Deadline);
@@ -764,6 +857,7 @@ pub(crate) fn check_coeffects(
     decl: &ToolDecl,
     args: &[DispatchArgument],
     grants: &[HandleGrant],
+    slots: &[HandleSlot],
 ) -> Result<(), String> {
     for item in &decl.templates.coeffects {
         match *item {
@@ -793,7 +887,51 @@ pub(crate) fn check_coeffects(
                     ));
                 }
             }
-            CoEffectItem::MountsOf(_) => unreachable!("执行环境句柄随 #8 注入"),
+            CoEffectItem::MountsOf(i) => {
+                let param = &decl.params[i];
+                let slot = match &args[i] {
+                    DispatchArgument::HandleRef(slot) => *slot,
+                    DispatchArgument::ValueJson(_) => {
+                        return Err(format!(
+                            "工具 `{}` 参数 `{}` 需要执行环境句柄实参",
+                            decl.script_name, param.name
+                        ));
+                    }
+                };
+                let env_grant = grants
+                    .iter()
+                    .find(|g| g.slot == slot)
+                    .ok_or_else(|| format!("执行环境槽位 {slot} 未授予给本次调用"))?;
+                let Some(HandleSlot::ExecEnv(env)) = slots.get(slot as usize) else {
+                    return Err(format!(
+                        "执行环境 `{}`（槽位 {slot}）缺少执行环境槽位",
+                        env_grant.name
+                    ));
+                };
+                for mount in env.mounts() {
+                    let mount_name = mount.dir.name();
+                    let dir_grant = grants
+                        .iter()
+                        .find(|g| g.slot == mount.slot && g.name == mount_name)
+                        .ok_or_else(|| {
+                            format!(
+                                "执行环境 `{}` 挂载的工作目录 `{}`（槽位 {}）未授予给本次调用",
+                                env_grant.name, mount_name, mount.slot
+                            )
+                        })?;
+                    let required = if mount.writable {
+                        HandleKind::WriteDir
+                    } else {
+                        HandleKind::ReadDir
+                    };
+                    if !required.accepts(dir_grant.kind) {
+                        return Err(format!(
+                            "执行环境 `{}` 挂载的工作目录 `{}` 需要 `{required:?}` 权限，实际授予 `{:?}`",
+                            env_grant.name, mount_name, dir_grant.kind
+                        ));
+                    }
+                }
+            }
         }
     }
 
@@ -804,7 +942,7 @@ pub(crate) fn check_coeffects(
 mod tests {
     use super::*;
     use lancet_tool_decl::{
-        CoEffectItem, HandleKind, Mode, ParamDecl, ReturnType, Templates, WitType,
+        CoEffectItem, EffectItem, HandleKind, Mode, ParamDecl, ReturnType, Templates, WitType,
     };
 
     fn sample_decl(mode: Mode, recv_kind: HandleKind) -> ToolDecl {
@@ -835,10 +973,43 @@ mod tests {
         }
     }
 
+    fn sample_exec_decl() -> ToolDecl {
+        ToolDecl {
+            script_name: "proc.run".to_owned(),
+            wit_interface: "lancet:proc-run/proc@0.1.0".to_owned(),
+            wit_function: "run".to_owned(),
+            docs: None,
+            params: vec![
+                ParamDecl {
+                    name: "env".to_owned(),
+                    ty: WitType::Handle {
+                        kind: HandleKind::ExecEnv,
+                        borrow: true,
+                    },
+                },
+                ParamDecl {
+                    name: "argv".to_owned(),
+                    ty: WitType::List(Box::new(WitType::String)),
+                },
+            ],
+            result: ReturnType::Unit,
+            records: Vec::new(),
+            templates: Templates {
+                coeffects: vec![CoEffectItem::Uses(0, None), CoEffectItem::MountsOf(0)],
+                effects: vec![
+                    EffectItem::Effect(0, lancet_tool_decl::EffectKind::Exec),
+                    EffectItem::WriteWritableMountsOf(0),
+                    EffectItem::EmitViaEgressOf(0),
+                ],
+            },
+        }
+    }
+
     #[test]
     fn check_coeffects_enforces_grants_and_modes() {
         let read_decl = sample_decl(Mode::Read, HandleKind::ReadDir);
         let write_decl = sample_decl(Mode::ReadWrite, HandleKind::WriteDir);
+        let empty_slots: Vec<HandleSlot> = Vec::new();
 
         let ro_grant = HandleGrant {
             name: "ro".to_owned(),
@@ -864,6 +1035,7 @@ mod tests {
                 &read_decl,
                 &[DispatchArgument::HandleRef(9), path_arg.clone()],
                 std::slice::from_ref(&ro_grant),
+                &empty_slots,
             )
             .is_err()
         );
@@ -874,6 +1046,7 @@ mod tests {
                 &write_decl,
                 &[DispatchArgument::HandleRef(0), path_arg.clone()],
                 std::slice::from_ref(&ro_grant),
+                &empty_slots,
             )
             .is_err()
         );
@@ -884,6 +1057,7 @@ mod tests {
                 &read_decl,
                 &[path_arg.clone(), path_arg.clone()],
                 std::slice::from_ref(&ro_grant),
+                &empty_slots,
             )
             .is_err()
         );
@@ -894,6 +1068,7 @@ mod tests {
                 &read_decl,
                 &[DispatchArgument::HandleRef(2), path_arg.clone()],
                 &[env_grant],
+                &empty_slots,
             )
             .is_err()
         );
@@ -903,19 +1078,111 @@ mod tests {
             &read_decl,
             &[DispatchArgument::HandleRef(0), path_arg.clone()],
             &[ro_grant],
+            &empty_slots,
         )
         .expect("Read 应接受 ReadDir");
         check_coeffects(
             &read_decl,
             &[DispatchArgument::HandleRef(1), path_arg.clone()],
             std::slice::from_ref(&rw_grant),
+            &empty_slots,
         )
         .expect("Read 应接受 WriteDir");
         check_coeffects(
             &write_decl,
             &[DispatchArgument::HandleRef(1), path_arg],
             &[rw_grant],
+            &empty_slots,
         )
         .expect("ReadWrite 应接受 WriteDir");
+    }
+
+    #[test]
+    fn exec_env_templates_expand_mounts_and_writable_effects() {
+        let tmp = tempfile::tempdir().expect("创建临时目录失败");
+        let ro_path = tmp.path().join("ro");
+        let rw_path = tmp.path().join("rw");
+        std::fs::create_dir(&ro_path).unwrap();
+        std::fs::create_dir(&rw_path).unwrap();
+        let ro_dir = HostDir::open("ro", &ro_path).unwrap();
+        let rw_dir = HostDir::open("rw", &rw_path).unwrap();
+
+        let env = HostExecEnv::for_unit_test(
+            "dev",
+            vec![
+                crate::exec_env::EnvMount {
+                    slot: 0,
+                    dir: ro_dir.clone(),
+                    writable: false,
+                },
+                crate::exec_env::EnvMount {
+                    slot: 1,
+                    dir: rw_dir.clone(),
+                    writable: true,
+                },
+            ],
+        );
+        let slots = vec![
+            HandleSlot::ReadDir(ro_dir),
+            HandleSlot::WriteDir(rw_dir),
+            HandleSlot::ExecEnv(env),
+        ];
+
+        let exec_decl = sample_exec_decl();
+        let argv_arg = DispatchArgument::ValueJson("[\"true\"]".to_owned());
+        let args = [DispatchArgument::HandleRef(2), argv_arg];
+
+        let ro_grant = HandleGrant {
+            name: "ro".to_owned(),
+            kind: HandleKind::ReadDir,
+            slot: 0,
+        };
+        let rw_grant = HandleGrant {
+            name: "rw".to_owned(),
+            kind: HandleKind::WriteDir,
+            slot: 1,
+        };
+        let env_grant = HandleGrant {
+            name: "dev".to_owned(),
+            kind: HandleKind::ExecEnv,
+            slot: 2,
+        };
+
+        // 全部挂载目录与模式满足时，MountsOf 通过。
+        let full_grants = [ro_grant.clone(), rw_grant.clone(), env_grant.clone()];
+        check_coeffects(&exec_decl, &args, &full_grants, &slots)
+            .expect("挂载目录均已按模式授予时 MountsOf 应通过");
+
+        // 缺少挂载目录授权时拒绝。
+        let missing_rw = [ro_grant.clone(), env_grant.clone()];
+        assert!(
+            check_coeffects(&exec_decl, &args, &missing_rw, &slots).is_err(),
+            "缺少已挂载目录授权时 MountsOf 应失败"
+        );
+
+        // 可写挂载对应的槽位只有 ReadDir 授权时拒绝。
+        let downgraded_rw = [
+            ro_grant,
+            HandleGrant {
+                name: "rw".to_owned(),
+                kind: HandleKind::ReadDir,
+                slot: 1,
+            },
+            env_grant,
+        ];
+        assert!(
+            check_coeffects(&exec_decl, &args, &downgraded_rw, &slots).is_err(),
+            "可写挂载仅获只读授权时 MountsOf 应失败"
+        );
+
+        // WriteWritableMountsOf 只列出实际可写挂载；EmitViaEgressOf 展开为空。
+        let allowed = instantiate_allowed_effects(&exec_decl, &args, &full_grants, &slots);
+        assert_eq!(
+            allowed,
+            HashSet::from([
+                ("dev".to_owned(), EffectKind::Exec),
+                ("rw".to_owned(), EffectKind::Write),
+            ])
+        );
     }
 }

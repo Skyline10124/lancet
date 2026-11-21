@@ -26,7 +26,7 @@ use crate::execute::RejectedCall;
 use crate::state::StateDir;
 
 const RESTART_INTERNAL_ERROR_MESSAGE: &str = "节点在调用结算前重启，未保存执行结果";
-const RESTART_INDETERMINATE_REASON: &str = "节点在调用结算前重启，可写工作目录中的写入是否发生未知";
+const RESTART_INDETERMINATE_REASON: &str = "节点在调用结算前重启，可能已产生 effect";
 
 /// 计算调用记录文件共用的 64 位小写十六进制 SHA-256 键。
 fn call_record_hash(invocation_id: &str) -> String {

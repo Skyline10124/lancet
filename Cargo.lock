@@ -1225,6 +1225,7 @@ dependencies = [
  "anyhow",
  "lancet-protocol",
  "lancet-tool-decl",
+ "libc",
  "rustix",
  "serde",
  "serde_json",
@@ -1237,6 +1238,13 @@ dependencies = [
  "wasmtime",
  "wit-component 0.258.3",
  "wit-parser 0.258.3",
+]
+
+[[package]]
+name = "lancet-proc-run"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
 ]
 
 [[package]]

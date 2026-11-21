@@ -782,7 +782,14 @@ fn product_read_tools_match_templates() {
     let names: Vec<&str> = tools.iter().map(|t| t.script_name.as_str()).collect();
     assert_eq!(
         names,
-        ["fs.read", "fs.list", "fs.search", "fs.write", "fs.edit"]
+        [
+            "fs.read",
+            "fs.list",
+            "fs.search",
+            "fs.write",
+            "fs.edit",
+            "proc.run",
+        ]
     );
 
     let read = &tools[0];
@@ -951,6 +958,55 @@ fn product_read_tools_match_templates() {
     assert_eq!(
         edit.templates.effects,
         vec![EffectItem::Effect(0, EffectKind::Write)]
+    );
+
+    let proc_run = &tools[5];
+    assert_eq!(proc_run.wit_interface, "lancet:proc-run/proc@0.1.0");
+    assert_eq!(proc_run.wit_function, "run");
+    assert!(proc_run.docs.is_some(), "proc.run 应保留 WIT 注释");
+    assert_eq!(
+        proc_run.params,
+        vec![
+            ParamDecl {
+                name: "env".to_owned(),
+                ty: WitType::Handle {
+                    kind: HandleKind::ExecEnv,
+                    borrow: true,
+                },
+            },
+            ParamDecl {
+                name: "argv".to_owned(),
+                ty: WitType::List(Box::new(WitType::String)),
+            },
+            ParamDecl {
+                name: "cwd".to_owned(),
+                ty: WitType::Option(Box::new(WitType::String)),
+            },
+            ParamDecl {
+                name: "check".to_owned(),
+                ty: WitType::Option(Box::new(WitType::Bool)),
+            },
+        ]
+    );
+    assert_eq!(
+        proc_run.result,
+        ReturnType::Result {
+            ok: Some(WitType::Record("proc-output".to_owned())),
+        }
+    );
+    assert_eq!(proc_run.records.len(), 1);
+    assert_eq!(proc_run.records[0].name, "proc-output");
+    assert_eq!(
+        proc_run.templates.coeffects,
+        vec![CoEffectItem::Uses(0, None), CoEffectItem::MountsOf(0)]
+    );
+    assert_eq!(
+        proc_run.templates.effects,
+        vec![
+            EffectItem::Effect(0, EffectKind::Exec),
+            EffectItem::WriteWritableMountsOf(0),
+            EffectItem::EmitViaEgressOf(0),
+        ]
     );
 }
 

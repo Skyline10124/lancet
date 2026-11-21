@@ -18,7 +18,7 @@ pub struct EmbeddedComponent {
     pub cwasm: &'static [u8],
 }
 
-/// 构建时生成的产品 API 工具组件清单（`fs-read`、`fs-list`、`fs-search`、`fs-write`、`fs-edit`）。
+/// 构建时生成的产品 API 工具组件清单（`fs-read`、`fs-list`、`fs-search`、`fs-write`、`fs-edit`、`proc-run`）。
 pub const EMBEDDED_COMPONENTS: &[EmbeddedComponent] =
     &include!(concat!(env!("OUT_DIR"), "/product_tools.rs"));
 

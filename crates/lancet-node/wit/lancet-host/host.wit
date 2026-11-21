@@ -6,6 +6,16 @@ package lancet:host@0.1.0;
 interface handles {
     record entry { name: string, is-dir: bool, is-link: bool }
 
+    /// 原生进程运行结果。
+    record proc-output {
+        /// 进程退出码；因信号终止时为 128 + 信号编号。
+        code: s32,
+        /// 标准输出（UTF-8 文本）。
+        stdout: string,
+        /// 标准错误（UTF-8 文本）。
+        stderr: string,
+    }
+
     resource read-dir {
         /// 读取目录内 path 处的文本文件（大小不超过 128 MiB 的有效 UTF-8 文本）；跟随目录内相对符号链接，越界时报错；目标不存在（ENOENT）时返回 none。
         read: func(path: string) -> result<option<string>, string>;
@@ -18,7 +28,10 @@ interface handles {
         /// 将 UTF-8 文本整文件直接写入宿主目录内 path 处，自动创建缺少的上级目录；替换已有普通文件时保持其权限。
         write: func(path: string, content: string) -> result<_, string>;
     }
-    resource exec-env;
+    resource exec-env {
+        /// 在隔离执行环境中运行单个进程（不经过 shell），cwd 省略时为私有家目录，指定时为挂载进该环境的工作目录名。
+        run: func(argv: list<string>, cwd: option<string>) -> result<proc-output, string>;
+    }
     resource egress;
 }
 

@@ -14,7 +14,7 @@ status: active
 | 节点状态目录 | 节点的持久状态，内容见[节点状态目录](#节点状态目录) | 主机文件系统 | 节点首次启动时初始化，跨重启保留 |
 | 工作区 | 一组互不重叠的工作目录 | 节点配置 | 随配置 |
 | 工作目录 | 模型操作的对象：宿主上的一个目录，有自己的名称与读写级别，对应一个目录句柄；目录内所有路径一视同仁 | 节点配置 | 随配置 |
-| 环境目录 | 执行环境挂载、但不属于工作目录的目录（如系统目录、工具链与包缓存，具体挂载细节随 [#8](https://github.com/Skyline10124/lancet/issues/8) 定） | 节点配置 | 随配置 |
+| 环境目录 | 执行环境挂载、但不属于工作目录的目录与文件（系统目录、只读工具链 `env.tools`、私有家目录与私有包缓存 `env.caches`，挂载细节见[执行环境](host-resources.md#执行环境)） | 节点配置 | 随配置 |
 
 - 一个节点只对应一个工作区。多仓库协作由同一工作区内的多个工作目录表达。
 - 只有 `proc.*` 能看到环境目录；`fs.*` 拿不到它们的句柄。
@@ -32,18 +32,24 @@ status: active
 | `[[dir]]` | `path` | 工作目录在宿主上的路径 |
 | `[[dir]]` | `access` | 读写级别：`"read"` 或 `"write"` |
 | `[[env]]` | `name` | 执行环境句柄名 |
-| `[[env]]` | `mounts` | 挂进执行环境的工作目录名；细节见[执行环境](host-resources.md#执行环境) |
-| `[[env]]` | `tools` | 挂载的宿主路径（目录或单个文件），如工具链 |
-| `[[env]]` | `caches` | 包缓存路径 |
-| `[[env]]` | `egress` | 执行环境持有的网络出口名 |
-| `[[env]]` | `path` | 追加到执行环境 `PATH` 的目录，可省略 |
-| `[[env]]` | `vars` | 执行环境中的其他环境变量，显式列出，可省略 |
+| `[[env]]` | `mounts` | 挂进执行环境的工作目录名；按对应 `[[dir]]` 的读写级别挂到真实绝对路径 |
+| `[[env]]` | `tools` | 宿主路径列表（已存在的目录或普通文件），固定来源 fd 后按展开后的原路径只读挂入沙箱 |
+| `[[env]]` | `caches` | 宿主目录路径列表，在节点状态目录内一次性以 `FICLONE` 播种为该环境私有的可写副本，挂在配置的原路径；Cargo registry 只播种 `cache/` 与 `index/` |
+| `[[env]]` | `egress` | 执行环境持有的网络出口名（出口代理归 [#9](https://github.com/Skyline10124/lancet/issues/9)） |
+| `[[env]]` | `path` | 按配置顺序追加到执行环境默认 `PATH`（`/usr/local/bin:/usr/bin:/bin`）之后的路径列表，可省略 |
+| `[[env]]` | `vars` | 执行环境中除 `HOME` 与 `PATH` 之外的环境变量映射（不可覆盖 `HOME` 或 `PATH`），从空环境构造并仅交给目标进程，可省略 |
 | `[[egress]]` | `name` | 网络出口句柄名 |
 | `[[egress]]` | `hosts` | 允许访问的主机域名 |
 
-执行环境的内存上限等细节由 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定。`hello_ok.capabilities` 中的 `settle_grace_ms` 由节点实现固定为 5000 毫秒，不可配置。
+每次执行环境调用的 cgroup 内存上限固定为 8 GiB（`8589934592` 字节），不可配置。`hello_ok.capabilities` 中的 `settle_grace_ms` 由节点实现固定为 5000 毫秒，不可配置。
 
-节点以 `lancet-node <配置文件路径>` 启动，按下列规则读取配置：
+未授予 `[[env]]` 时，节点可直接以 `lancet-node <配置文件路径>` 启动。配置授予了 `[[env]]` 时，节点需要独立的 cgroup v2 `memory` 控制器委派根，通过 `systemd-run` 启动：
+
+```sh
+systemd-run --user --scope -p Delegate=yes /绝对路径/lancet-node /绝对路径/node.toml
+```
+
+节点按下列规则读取配置：
 
 - `[node]` 必须出现；`[[dir]]`、`[[env]]` 与 `[[egress]]` 可以没有。
 - 可省略的键：`receipt_retention_ms`；`env` 的 `mounts`、`tools`、`caches`、`path`、`vars` 与 `egress`。省略的列表取空列表，省略的 `vars` 取空映射。其余键必填。
@@ -92,28 +98,34 @@ hosts = ["index.crates.io", "static.crates.io"]
 
 ## 启动校验
 
-节点启动时校验下列条件。任一项不满足时，节点报错退出。
+节点在监听 `node.sock` 之前校验下列条件。任一项不满足时，节点报出违反的规则、环境或条目名、失败的操作与相关路径后退出。
 
 | 校验 | 适用条件 |
 | --- | --- |
 | 工作目录互不重叠 | 总是 |
 | 节点配置文件与节点状态目录在所有工作目录之外 | 总是 |
 | 可写工作目录不能是节点状态目录或其子目录 | 总是 |
+| `/usr/bin/bwrap` 存在且非 setuid，垫片可执行，短命冒烟探针确认 bwrap 与垫片能施加 Landlock 并启动目标进程 | 授予 `[[env]]` 时 |
+| 拥有全新的专用 cgroup v2 委派根 `D`（无其他进程与已有子组），可建 `D/node` 并启用 `+memory`，探针叶组验证 `memory.max`、`memory.oom.group`、`cgroup.kill`、`cgroup.events` 与删除通过 | 授予 `[[env]]` 时 |
+| `env.tools` 为已存在的目录或普通文件，`env.caches` 为已存在的目录；展开后的目的路径与按原始展开路径解析链接后的来源均不等于家目录或其上级，且不与任一工作目录、节点状态目录相同或互为祖先；`env.vars` 不设 `HOME` 或 `PATH` | 授予 `[[env]]` 时 |
+| `mounts`、`tools` 与 `caches` 的挂载目的地不覆盖 `/`、`/usr`、`/etc`、`/proc`、`/dev`、`/tmp`、`/run/lancet-init` 或私有家目录的根，且同一环境内目的地不重复 | 授予 `[[env]]` 时 |
+| 在状态目录独占锁内对尚未播种的 `env.caches` 直接执行 `FICLONE` 播种（已播种的直接复用）；播种失败即报错退出 | 授予 `[[env]]` 时 |
 
 - 路径按解析符号链接后的真实路径、以路径分量比较：`/x/a` 与 `/x/ab` 互不重叠；经符号链接指向同一目录的两个工作目录相互重叠。
-- 可写工作目录与状态目录不要求位于同一文件系统，也不探测 `FICLONE`。
-- 报错写明违反的规则，以及涉及的名称与路径。
-- 授予执行环境时的附加启动校验随 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定。
+- 可写工作目录与状态目录不要求位于同一文件系统，也不使用 `FICLONE`；`FICLONE` 仅用于首次播种 `env.caches`。
+- 拿不到 cgroup 委派、委派根已有其他进程或子组，或权限不足时，节点直接报告缺少的条件并退出，不迁移其他进程。
 
 ## 节点状态目录
 
-节点在磁盘上保存的持久状态为 `node_id` 与 `calls/`；运行时在状态目录中绑定套接字 `node.sock`。
+节点在磁盘上保存的持久状态与运行时套接字布局如下：
 
-| 内容 | 规则所在 |
-| --- | --- |
-| `node_id`，存于文件 `node_id` | [协议合同](../lancet-protocol.md#概念) |
-| 协议服务的 Unix 域套接字 `node.sock` | [协议合同](../lancet-protocol.md#连接与握手) |
-| 调用记录账本与回执，存于 `calls/` | [协议合同](../lancet-protocol.md#调用记录) |
+| 路径 | 内容 | 规则所在 |
+| --- | --- | --- |
+| `node_id` | 节点身份（一行小写带连字符的 UUID v4） | [协议合同](../lancet-protocol.md#概念) |
+| `node.sock` | 协议服务的 Unix 域套接字（运行时绑定） | [协议合同](../lancet-protocol.md#连接与握手) |
+| `calls/` | 调用记录账本与回执（`<sha256>.json`） | [协议合同](../lancet-protocol.md#调用记录) |
+| `envs/<env.name>/home/` | 执行环境的私有家目录，权限 `0700`，跨调用与节点重启保留 | [执行环境](host-resources.md#执行环境) |
+| `envs/<env.name>/caches/<sha256>/` | 执行环境的私有缓存副本（键为缓存原路径 UTF-8 字节的 SHA-256），首次 `FICLONE` 播种，跨调用与重启复用 | [执行环境](host-resources.md#执行环境) |
 
 - `state_dir` 不存在时，节点以权限 `0700` 创建它；它的上级目录必须已存在。
 - 同一节点状态目录同一时间只由一个节点进程使用：节点启动时对它取独占锁，取不到时报错退出。
@@ -121,7 +133,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 - 节点绑定 `node.sock` 之前删除同名的旧文件。
 - `calls/` 中每个 `invocation_id` 一个记录文件，文件名为 id 的 UTF-8 字节的 SHA-256 小写十六进制加 `.json`。每次状态迁移写临时文件、落盘后改名替换，再对目录落盘。
 - 回执保留期自结算时刻起按节点本地时钟计算；节点在响应 `receipt` 查询与启动时，把到期的记录迁移为 `Expired`。
-- 节点启动时直接打开授权的目录，在监听 `node.sock` 之前恢复并结算全部遗留的 `Pending` 记录，结局见[`act` 的结局](act.md#结局)。
+- 节点启动时打开授权的目录与执行环境，在监听 `node.sock` 之前恢复并结算全部遗留的 `Pending` 记录，结局见[`act` 的结局](act.md#结局)。
 - 调用记录读写失败时，节点报错退出，重启后由上一条收敛。
 
 ## 环境简述与 `seam` 边集
@@ -132,7 +144,7 @@ hosts = ["index.crates.io", "static.crates.io"]
 | --- | --- |
 | `name` | 配置中的句柄名 |
 | `kind` | 对应的类型存根名：`ReadDir`、`WriteDir`、`ExecEnv`、`Egress` |
-| `effects`、`modes` | 注入脚本的句柄：由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明)。没有注入脚本的句柄为空：执行环境与网络出口分别随 [#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 注入 |
+| `effects`、`modes` | 注入脚本的句柄（目录与执行环境）：由 API 工具的 effect 与 co-effect 模板对该句柄的类型推出，见[推导表](tools.md#工具声明)；执行环境推出 `effects = [Exec]`、`modes = []`。尚未注入脚本的网络出口句柄为空，随 [#9](https://github.com/Skyline10124/lancet/issues/9) 注入 |
 | `attributes` | 目录：空映射 `{}`；执行环境：`mounts`（挂载的工作目录名）与 `tools`（展开 `~/` 后的路径）；网络出口：`hosts` |
 
 句柄依次列出全部 `[[dir]]`、`[[env]]` 与 `[[egress]]`，各组内按配置中的顺序。
@@ -175,7 +187,7 @@ for 每个网络出口 n:
 | 保证 | 适用范围 | 成立条件 | 依据或验证 |
 | --- | --- | --- | --- |
 | 环境简述、`seam` 边集与 `catalog_digest` 只随配置、授权与节点版本变化 | 每次启动与 `describe` | 单一构造入口，输入只有配置与声明 | [ADR 0002 第 5 节](../../adr/0002-lancet-node-api-tools-and-act.md#5-工作区与节点配置)、[第 7 节](../../adr/0002-lancet-node-api-tools-and-act.md#7-effectco-effectresidue-与-seam-在工具基座中的读取方)、[ADR 0003](../../adr/0003-direct-workspace-and-per-call-sandbox.md)；`crates/lancet-node/tests/node.rs::hello_describe_matches_config`、`restart_preserves_identity_and_catalog`、`digest_tracks_non_displayed_grants` |
-| 违反任一启动校验时，节点不提供服务 | 每次启动 | 校验先于监听协议连接 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)、第 5 节、[ADR 0003](../../adr/0003-direct-workspace-and-per-call-sandbox.md)；`crates/lancet-node/tests/node.rs::startup_rejects_overlapping_dirs`、`startup_keeps_config_and_state_outside_dirs` |
+| 违反任一启动校验时，节点不提供服务 | 每次启动 | 校验先于监听协议连接 | [ADR 0002 第 4 节](../../adr/0002-lancet-node-api-tools-and-act.md#4-边界由宿主资源承担)、第 5 节、[ADR 0003](../../adr/0003-direct-workspace-and-per-call-sandbox.md)；`crates/lancet-node/tests/node.rs::startup_rejects_overlapping_dirs`、`startup_keeps_config_and_state_outside_dirs`、`crates/lancet-node/tests/node/exec_env.rs` |
 | 授权与网络出口清单只能由机器所有者修改 | 节点运行期间 | 协议没有修改它们的操作；配置文件在所有工作目录之外，脚本拿不到它的句柄 | ADR 0002 第 5 节；`crates/lancet-node/tests/node.rs::startup_keeps_config_and_state_outside_dirs` |
 
 ## 范围之外
@@ -189,9 +201,9 @@ for 每个网络出口 n:
 
 | 事项 | 现状 |
 | --- | --- |
-| 执行环境配置细节与附加启动校验 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8) 确定 |
+| 网络出口句柄与代理运行时接入 | 由 [#9](https://github.com/Skyline10124/lancet/issues/9) 实现 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- `cargo test -p lancet-node --test node`：节点进程级集成测试，覆盖配置读取、句柄名校验、路径与状态目录隔离启动校验、跨文件系统可写目录启动、`node_id` 持久化与状态目录独占、环境简述、`seam` 边集与 `catalog_digest`。
+- `cargo test -p lancet-node --test node`：节点进程级集成测试，覆盖配置读取、句柄名校验、路径与状态目录隔离启动校验、执行环境启动校验（cgroup 委派、`tools`/`caches` 边界、保留路径、保留环境变量与 `FICLONE` 播种）、跨文件系统可写目录启动、`node_id` 持久化与状态目录独占、环境简述、`seam` 边集与 `catalog_digest`。

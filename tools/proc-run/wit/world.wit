@@ -1,0 +1,23 @@
+// Copyright 2026 Ast Rin
+// SPDX-License-Identifier: Apache-2.0
+
+package lancet:proc-run@0.1.0;
+
+interface proc {
+    use lancet:host/handles@0.1.0.{exec-env, proc-output};
+
+    /// 在执行环境 env 中以参数数组 argv 运行单个进程（不经过 shell）。
+    /// cwd 省略时在私有家目录运行，指定时须为挂载进该环境的工作目录名。
+    /// check 省略或为 true 时，非零退出返回失败并附 stdout 与 stderr 的有界尾部；check 为 false 时返回 {code, stdout, stderr}。
+    run: func(
+        env: borrow<exec-env>,
+        argv: list<string>,
+        cwd: option<string>,
+        check: option<bool>,
+    ) -> result<proc-output, string>;
+}
+
+world proc-run {
+    import lancet:host/handles@0.1.0;
+    export proc;
+}

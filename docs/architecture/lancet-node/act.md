@@ -104,14 +104,14 @@ act 结束时:
     elif 交回载荷超限:
         Failed(OutputLimitExceeded)
     elif 脚本 fail 或子调用报错:
-        Failed(ScriptOrToolError)     # 含超出解释器内存上限，以及 API 工具陷入或超出内存上限
+        Failed(ScriptOrToolError)     # 含解释器或 API 工具超内存、工具陷入、proc.run 沙箱 OOM 与启动失败
     elif 调用方 cancel 或连接断开:
         Cancelled
     elif remaining_ms 耗尽:
         Deadline
 ```
 
-节点自身的故障结算为 `Failed(InternalError)`，消息写明失败环节，例如解释器组件陷入、组件交回的值不是合法 JSON。重启前在途的调用不重新执行，按受理时保存的 `writes_possible` 结算：被授予可写句柄的调用结算为 `Indeterminate`，其余调用没有 effect，结算为 `Failed(InternalError)`，原因为“节点在调用结算前重启，未保存执行结果”。
+节点自身的故障结算为 `Failed(InternalError)`，消息写明失败环节，例如解释器组件陷入、组件交回的值不是合法 JSON、沙箱挂载或叶组回收故障。重启前在途的调用不重新执行，按受理时保存的 `writes_possible` 结算：被授予可写工作目录或执行环境句柄的调用结算为 `Indeterminate`（原因为“节点在调用结算前重启，可能已产生 effect”），其余调用没有 effect，结算为 `Failed(InternalError)`，原因为“节点在调用结算前重启，未保存执行结果”。
 
 `ScriptOrToolError` 的诊断消息超过 16,384 字节时，在不超过该长度的 UTF-8 字符边界截断，并注明已截断，使失败回复与回执都能装进一帧。
 
@@ -151,10 +151,10 @@ return {
 
 | 事项 | 现状 |
 | --- | --- |
-| 执行环境与网络出口的句柄 | 分别随 [#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 注入；在此之前全局环境只含工作目录的句柄 |
+| 网络出口的句柄 | 随 [#9](https://github.com/Skyline10124/lancet/issues/9) 注入；当前全局环境注入工作目录与执行环境句柄 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、句柄方法的绑定与运行期校验、内存上限、截止与取消。
-- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及五个 `fs.*` API 工具的调用、直接写入宿主与回执。
+- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及五个 `fs.*` API 工具与 `proc.run` 的调用、直接写入宿主、执行环境沙箱与回执。

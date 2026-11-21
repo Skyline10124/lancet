@@ -54,7 +54,8 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 | --- | --- |
 | `read-dir` | `read(path) -> result<option<string>, string>` 读取 UTF-8 文本文件；`entries(path) -> result<option<list<entry>>, string>` 列出目录中可见的直接子项，按名称的 UTF-8 字节序排列，`entry` 为 `{ name: string, is-dir: bool, is-link: bool }`：`is-link` 表示子项本身是符号链接，`is-dir` 取链接目标的类型。目标不存在（`ENOENT`）时，两者都返回 `none`。路径与符号链接的处理见[目录](host-resources.md#目录) |
 | `write-dir` | `read(path)` 同 `read-dir`；`write(path, content) -> result<_, string>` 将 UTF-8 文本整文件直接写入宿主目录，缺少的上级目录一并创建，替换已有普通文件时保持其权限；内容与原文件相同时不发生写入 |
-| `exec-env`、`egress` | 只有类型，用于推出模板；方法见[尚未承接](#尚未承接) |
+| `exec-env` | `run(argv: list<string>, cwd: option<string>) -> result<proc-output, string>` 在每次调用新建的 `bubblewrap` 沙箱中运行单个进程，不经过 shell；`proc-output` 为 `{ code: s32, stdout: string, stderr: string }`，`code` 在因信号终止时为 `128 + 信号编号`；`cwd` 省略时为私有家目录，指定时为挂载进该环境的工作目录名。隔离与回收细节见[执行环境](host-resources.md#执行环境) |
+| `egress` | 只有类型，用于推出模板；方法见[尚未承接](#尚未承接) |
 
 ## 声明加载
 
@@ -105,7 +106,8 @@ API 工具是 `lancet-node` 内部唯一的工具定义单元：每个工具是�
 - **单次返回窗口：** 一次 API 工具交回脚本的成功值，按紧凑 UTF-8 JSON 的字节数计，上限为 8 MiB（8,388,608 字节），等于上限时成功。超出时该次调用报错，错误提示改用 `proc.pipe` 过滤后再返回。窗口容纳未过滤的测试日志或响应体，供脚本就地筛选。
 - 每次到达分发层的调用在回执的 `steps` 中记一条 `{ tool, outcome }`：`tool` 为脚本中的工具名（如 `fs.read`），`outcome` 为该次调用的结局；κ 不满足、实参无效或超出返回窗口的调用记为 `Failed`。解析、静态检查与求值中没有发出分发的错误不记步骤。
 - 形参为 `borrow<read-dir>`、实参是可写工作目录时，分发层仍只注入只读资源（`read-dir`）；只有 `borrow<write-dir>` 形参拿到可写资源（`write-dir`）。
-- 宿主 `write` 实际修改宿主文件时，分发层按实际的根相对路径记一条 `Write` effect 条目：`action = "write"`，`residue = NotRetained`，`diff` 为空，`diff_truncated = false`；内容相同、没有实际写入时不记。工具报错、陷入或被中断时，已发生的变更照样保留在回执中。每次调用结束时，分发层核对这些变更都在以实参实例化的 effect 模板之内；越出时本次 `act` 以 `Failed(InternalError)` 结束，已发生的变更保留在回执中。
+- 对 `borrow<exec-env>` 模板的运行期展开：`MountsOf(e)` 对照本次授权逐一核对执行环境挂载的目录与读写模式；`WriteWritableMountsOf(e)` 只把实际可写的挂载列入允许的 effect 集合；`EmitViaEgressOf(e)` 当前展开为空（出口代理归 [#9](https://github.com/Skyline10124/lancet/issues/9)）。
+- 宿主 `write` 实际修改宿主文件时，分发层按实际的根相对路径记一条 `Write` effect 条目：`action = "write"`，`residue = NotRetained`，`diff` 为空，`diff_truncated = false`；内容相同、没有实际写入时不记。宿主 `exec-env.run` 在垫片报告目标进程已启动后，记一条 `EffectEntry(env, Exec, [])`；原生进程对可写目录的写入不逐项记录。工具报错、超窗、陷入、触发沙箱 OOM 或被中断时，已发生的 effect 照样保留在回执中。每次调用结束时，分发层核对这些变更都在以实参实例化的 effect 模板之内；越出或宿主自身发生挂载/回收故障时，本次 `act` 以 `Failed(InternalError)` 结束，已发生的条目保留在回执中。
 
 ## 组件运行时
 
@@ -167,6 +169,18 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 | `d.write(path, content)` | `None` | 整文件直接写入宿主目录的 UTF-8 文本；缺少的上级目录一并创建，替换已有普通文件时保持其权限。内容与原文件相同时不发生写入 |
 | `d.edit(path, old, new, all = None)` | `None` | 按字面、自左向右、不重叠地匹配 `old`，次数规则见上方的报错表；核对通过后直接写回宿主目录 |
 
+执行工具的脚本签名与行为，`e` 为 `ExecEnv`：
+
+| 方法 | 返回 | 行为 |
+| --- | --- | --- |
+| `e.run(argv, cwd = None, check = None)` | `ProcOutput`（`{ code, stdout, stderr }`） | 在每次调用新建的沙箱中以参数数组 `argv` 运行单个进程，不经过 shell。`cwd` 省略时为私有家目录，指定时须为挂载进 `e` 的工作目录名。`check` 省略时视为 `True`：非零退出时报错并附 `stdout` 与 `stderr` 的有界尾部；`check = False` 时返回 `ProcOutput` |
+
+`e.run` 的输出边界、结局与回执：
+
+- 两路输出（`stdout`、`stderr`）并行非阻塞读取，只保留成功结果窗口所需字节与失败诊断的有界尾部，超出部分继续读完丢弃；成功值受 8 MiB（8,388,608 字节）紧凑 UTF-8 JSON 返回窗口约束，字段名与 JSON 转义均计入。
+- 目标启动失败（如 `ENOENT`、`ENOEXEC`、`EACCES`）与触发沙箱 8 GiB cgroup 内存上限（OOM）各有独立诊断，均结算为 `Failed(ScriptOrToolError)`；节点自身的挂载、垫片或叶组回收故障结算为 `Failed(InternalError)`；取消、断连与 `remaining_ms` 耗尽沿用 `Cancelled` 与 `Deadline`。
+- 垫片报告目标已启动后记一条 `Exec`（句柄为 `e`，变更列表为空）；未启动即失败时不记 `Exec`；启动后发生的非零退出、OOM、超窗或中断保留已记录的 `Exec`。原生进程对可写工作目录的写入不逐项记入回执。
+
 - API 工具保持单一职责，交回原始的领域结构，不在各个工具上定义文本裁剪参数；筛选由脚本的文本视图完成（[全局环境](act.md#act-的说明与全局环境)）。
 - 所有宿主返回类型与视图类型都可以直接序列化为 JSON。
 - 超出单次返回窗口的流式进程输出，用 `proc.pipe` 在内核管道中过滤。
@@ -213,15 +227,16 @@ API 工具与解释器都是 WASM 组件，在 `wasmtime` 中运行；隔离与�
 
 | 事项 | 现状 |
 | --- | --- |
-| `exec-env`、`egress` 的方法 | 由 [#8](https://github.com/Skyline10124/lancet/issues/8)、[#9](https://github.com/Skyline10124/lancet/issues/9) 定义 |
+| `proc.pipe` 工具 | 下一切片实现 |
+| `egress` 的方法 | 由 [#9](https://github.com/Skyline10124/lancet/issues/9) 定义 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器组件的内存上限、截止与取消。
 - `cargo test --release -p lancet-node --test act measure_component_runtime -- --ignored --nocapture --test-threads=1`：实测解释器每次调用的开销与中断时延，结果见[组件运行时](#组件运行时)。
-- `cargo test -p lancet-node --test tool_declarations`：声明加载的拒绝情形、签名核对、模板推导、类型存根渲染，以及五个产品工具的模板与冲突检查。拒绝情形包括[实验 4](https://github.com/Skyline10124/lancet/blob/6dd0416d15ff4b49e95ec00c787643c8c590e376/prototypes/tool-declaration/REPORT.md) 中仍适用的几种：导入 WASI 接口、缺少 `lancet:wit` 段、段只在嵌套核心模块中。
-- `cargo test -p lancet-node --lib dispatch`：κ 的核对。
+- `cargo test -p lancet-node --test tool_declarations`：声明加载的拒绝情形、签名核对、模板推导、类型存根渲染，以及六个产品工具的模板与冲突检查。拒绝情形包括[实验 4](https://github.com/Skyline10124/lancet/blob/6dd0416d15ff4b49e95ec00c787643c8c590e376/prototypes/tool-declaration/REPORT.md) 中仍适用的几种：导入 WASI 接口、缺少 `lancet:wit` 段、段只在嵌套核心模块中。
+- `cargo test -p lancet-node --lib dispatch`：κ（含 `MountsOf`）与 ε 模板展开的核对。
 - `cargo test -p lancet-node --test dispatch`：数值实参的范围、API 工具组件的陷入、内存上限、截止与取消；可写目录的只读视图收窄、工具报错后保留的写入与 `NotRetained` 回执，以及 effect 越出模板时的结局。
 - `cargo test --release -p lancet-node --test dispatch measure_tool_call_overhead -- --ignored --nocapture --test-threads=1`：实测 API 工具单次调用的固定开销，结果见[组件运行时](#组件运行时)。
-- `cargo test -p lancet-node --test node`：五个 `fs.*` API 工具经 `execute` 的行为、直接写宿主、回执的 `steps` 与 `Write`/`NotRetained` 条目、返回窗口与超帧回执的截断。
+- `cargo test -p lancet-node --test node`：五个 `fs.*` API 工具与 `proc.run` 经 `execute` 的行为、直接写宿主、沙箱隔离与回收、回执的 `steps` 与 `Write`/`Exec` 条目、返回窗口与超帧回执的截断。

@@ -92,6 +92,8 @@ pub fn run(_args: CiArgs) -> anyhow::Result<()> {
                 "-p",
                 "lancet-fs-edit",
                 "-p",
+                "lancet-proc-run",
+                "-p",
                 "lancet-tool-probe",
                 "--target",
                 "wasm32-unknown-unknown",

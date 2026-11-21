@@ -99,6 +99,16 @@ impl HostDir {
         &self.inner.name
     }
 
+    /// 返回该目录在宿主上的真实绝对路径。
+    pub fn root_path(&self) -> &Path {
+        &self.inner.root_path
+    }
+
+    /// 返回该目录已核验的 `O_PATH` 根 fd。
+    pub fn root_fd(&self) -> BorrowedFd<'_> {
+        self.inner.root_fd.as_fd()
+    }
+
     /// 读取目录内 `path` 处的 UTF-8 文本文件；目标不存在（`ENOENT`）时返回 `Ok(None)`。
     pub fn read(&self, path: &str) -> Result<Option<String>, String> {
         let Some(target) = self.resolve_target(path)? else {
