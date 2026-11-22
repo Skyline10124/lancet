@@ -40,6 +40,8 @@ pub fn build(
         summarize_handle_usage(HandleKind::ReadDir, tool_decls);
     let (write_dir_modes, write_dir_effects) =
         summarize_handle_usage(HandleKind::WriteDir, tool_decls);
+    let (exec_env_modes, exec_env_effects) =
+        summarize_handle_usage(HandleKind::ExecEnv, tool_decls);
     let mut handles = Vec::with_capacity(config.dir.len() + config.env.len() + config.egress.len());
 
     for dir in &config.dir {
@@ -65,8 +67,8 @@ pub fn build(
         handles.push(Handle {
             name: env.name.clone(),
             kind: "ExecEnv".to_owned(),
-            effects: Vec::new(),
-            modes: Vec::new(),
+            effects: exec_env_effects.clone(),
+            modes: exec_env_modes.clone(),
             attributes: BTreeMap::from([
                 ("mounts".to_owned(), json!(env.mounts)),
                 ("tools".to_owned(), json!(env.tools)),

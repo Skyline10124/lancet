@@ -16,6 +16,8 @@ use lancet_protocol::{
 use tempfile::TempDir;
 
 const BIN: &str = env!("CARGO_BIN_EXE_lancet-node");
+// 引用 lancet-init 确保 `cargo test -p lancet-node --test node` 一并构建同目录垫片。
+const _INIT_BIN: &str = env!("CARGO_BIN_EXE_lancet-init");
 
 fn temp_env() -> (TempDir, PathBuf) {
     let root = tempfile::Builder::new()
@@ -43,6 +45,37 @@ impl NodeProcess {
         )
     }
 
+    fn start_delegated(
+        config_path: &Path,
+        toml_content: &str,
+        state_dir: &Path,
+        home: &Path,
+        extra_envs: &[(&str, &str)],
+    ) -> Self {
+        std::fs::write(config_path, toml_content).expect("写入测试配置文件失败");
+        let mut cmd = Command::new("systemd-run");
+        cmd.args([
+            "--user",
+            "--scope",
+            "-p",
+            "Delegate=yes",
+            "--quiet",
+            "--",
+            BIN,
+        ])
+        .arg(config_path)
+        .env("HOME", home)
+        .stdout(Stdio::null())
+        .stderr(Stdio::piped());
+        for (k, v) in extra_envs {
+            cmd.env(k, v);
+        }
+        let child = cmd
+            .spawn()
+            .expect("在 systemd-run 委派 scope 中启动 lancet-node 失败");
+        Self::wait_ready(child, state_dir.join("node.sock"), Duration::from_secs(15))
+    }
+
     fn start_with_timeout(
         config_path: &Path,
         toml_content: &str,
@@ -51,15 +84,17 @@ impl NodeProcess {
         timeout: Duration,
     ) -> Self {
         std::fs::write(config_path, toml_content).expect("写入测试配置文件失败");
-        let mut child = Command::new(BIN)
+        let child = Command::new(BIN)
             .arg(config_path)
             .env("HOME", home)
             .stdout(Stdio::null())
             .stderr(Stdio::piped())
             .spawn()
             .expect("启动 lancet-node 子进程失败");
+        Self::wait_ready(child, state_dir.join("node.sock"), timeout)
+    }
 
-        let sock_path = state_dir.join("node.sock");
+    fn wait_ready(mut child: Child, sock_path: PathBuf, timeout: Duration) -> Self {
         let deadline = std::time::Instant::now() + timeout;
         loop {
             match UnixStream::connect(&sock_path) {
@@ -86,6 +121,10 @@ impl NodeProcess {
         let _ = child.kill();
         let _ = child.wait();
         panic!("在规定时间内未能连上套接字：{}", sock_path.display());
+    }
+
+    fn pid(&self) -> u32 {
+        self.child.id()
     }
 
     fn connect(&self) -> UnixStream {
@@ -212,6 +251,7 @@ fn hello_describe_matches_config() {
     for d in [&app_dir, &lib_dir, &docs_dir] {
         std::fs::create_dir(d).expect("创建目录失败");
     }
+    std::fs::create_dir(home.join(".rustup")).expect("创建合成 .rustup 工具目录失败");
 
     let config_path = root.path().join("node.toml");
     let toml_content = format!(
@@ -256,7 +296,7 @@ hosts = ["pypi.org"]
         docs_dir = docs_dir.to_str().unwrap(),
     );
 
-    let node = NodeProcess::start(&config_path, &toml_content, &state_dir, &home);
+    let node = NodeProcess::start_delegated(&config_path, &toml_content, &state_dir, &home, &[]);
     let mut stream = node.connect();
 
     let hello = hello_v1(&mut stream, 11);
@@ -361,6 +401,10 @@ hosts = ["pypi.org"]
         "is_link: bool",
         "class SearchHit:",
         "line_no: int",
+        "class ProcOutput:",
+        "code: int",
+        "stdout: str",
+        "stderr: str",
     ] {
         assert!(
             act_tool.description.contains(expected),
@@ -396,6 +440,15 @@ hosts = ["pypi.org"]
             "`class WriteDir:` 应包含 `{method}`，实际为：\n{write_dir_block}"
         );
     }
+    let exec_env_block = act_tool
+        .description
+        .split("\n\n")
+        .find(|block| block.starts_with("class ExecEnv:\n"))
+        .expect("存根应包含 `class ExecEnv:` 块");
+    assert!(
+        exec_env_block.contains("def run("),
+        "`class ExecEnv:` 应包含 `def run(`，实际为：\n{exec_env_block}"
+    );
 
     let handles = environment_summary.handles();
     let names: Vec<&str> = handles.iter().map(|h| h.name.as_str()).collect();
@@ -427,6 +480,19 @@ hosts = ["pypi.org"]
                     h.effects,
                     vec![EffectKind::Write],
                     "可写目录句柄 {} 的 effects 应为 [Write]",
+                    h.name
+                );
+            }
+            "ExecEnv" => {
+                assert!(
+                    h.modes.is_empty(),
+                    "执行环境句柄 {} 的 modes 应为空",
+                    h.name
+                );
+                assert_eq!(
+                    h.effects,
+                    vec![EffectKind::Exec],
+                    "执行环境句柄 {} 的 effects 应为 [Exec]",
                     h.name
                 );
             }
@@ -598,14 +664,16 @@ hosts = ["pypi.org"]
     };
 
     let config_path = root.path().join("node.toml");
-    let node_a = NodeProcess::start(&config_path, &make_toml("crates"), &state_dir, &home);
+    let node_a =
+        NodeProcess::start_delegated(&config_path, &make_toml("crates"), &state_dir, &home, &[]);
     let mut stream_a = node_a.connect();
     let hello_a = hello_v1(&mut stream_a, 1);
     let (digest_a, summary_a, tools_a) = describe(&mut stream_a, 2);
     drop(stream_a);
     drop(node_a);
 
-    let node_b = NodeProcess::start(&config_path, &make_toml("pypi"), &state_dir, &home);
+    let node_b =
+        NodeProcess::start_delegated(&config_path, &make_toml("pypi"), &state_dir, &home, &[]);
     let mut stream_b = node_b.connect();
     let hello_b = hello_v1(&mut stream_b, 1);
     let (digest_b, summary_b, tools_b) = describe(&mut stream_b, 2);
@@ -1079,5 +1147,7 @@ fn startup_rejects_invalid_handle_names() {
 
 #[path = "node/calls.rs"]
 mod calls;
+#[path = "node/exec_env.rs"]
+mod exec_env;
 #[path = "node/writable.rs"]
 mod writable;

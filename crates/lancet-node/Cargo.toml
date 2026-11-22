@@ -9,11 +9,21 @@ edition.workspace = true
 rust-version = "1.96"
 authors.workspace = true
 description = "LANCET 外部上下文节点服务"
+default-run = "lancet-node"
+
+[[bin]]
+name = "lancet-node"
+path = "src/main.rs"
+
+[[bin]]
+name = "lancet-init"
+path = "src/bin/lancet-init.rs"
 
 [dependencies]
 anyhow = { workspace = true }
 lancet-protocol = { path = "../lancet-protocol" }
 lancet-tool-decl = { path = "../lancet-tool-decl" }
+libc = { workspace = true }
 rustix = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true, features = ["float_roundtrip"] }
