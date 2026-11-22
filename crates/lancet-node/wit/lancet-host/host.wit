@@ -31,6 +31,8 @@ interface handles {
     resource exec-env {
         /// 在隔离执行环境中运行单个进程（不经过 shell），cwd 省略时为私有家目录，指定时为挂载进该环境的工作目录名。
         run: func(argv: list<string>, cwd: option<string>) -> result<proc-output, string>;
+        /// 在隔离执行环境中以内核管道依次串联多个阶段（不经过 shell），cwd 省略时为私有家目录，指定时为挂载进该环境的工作目录名；返回末段 stdout、各段公共 stderr 与 pipefail 退出码。
+        pipe: func(stages: list<list<string>>, cwd: option<string>) -> result<proc-output, string>;
     }
     resource egress;
 }

@@ -34,7 +34,7 @@ struct CgroupRootInner {
     next_call_id: AtomicU64,
 }
 
-/// 单次 `proc.run` 独占的 cgroup 叶组 `D/call-<编号>`。
+/// 单次 `proc.run` 或 `proc.pipe` 独占的 cgroup 叶组 `D/call-<编号>`。
 pub struct CgroupLeaf {
     path: PathBuf,
     procs_fd: Option<OwnedFd>,

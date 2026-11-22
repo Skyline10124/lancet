@@ -11,21 +11,21 @@ status: active
 | 宿主资源（句柄种类） | 句柄代表什么 | `lancet:host` 资源类型 | 实现 |
 | --- | --- | --- | --- |
 | 目录 | 宿主上的一个工作目录及其读写级别 | `read-dir`、`write-dir` | 节点实现的目录资源（读与写共用同一个经核验的宿主根 fd） |
-| 执行环境 | 一组工作目录挂载、只读工具、私有缓存、环境变量与资源隔离 | `exec-env` | 每次 `proc.run` 新建的 `bubblewrap` 沙箱、Landlock 与 cgroup v2 叶组 |
+| 执行环境 | 一组工作目录挂载、只读工具、私有缓存、环境变量与资源隔离 | `exec-env` | 每次 `proc.run` 或 `proc.pipe` 新建的 `bubblewrap` 沙箱、Landlock 与 cgroup v2 叶组 |
 | 网络出口 | 允许访问的主机域名清单（`hosts`） | `egress` | 节点内的域名白名单放行代理，随 [#9](https://github.com/Skyline10124/lancet/issues/9) 实现 |
 
 | 概念 | 含义 | 状态持有者 | 生命周期 |
 | --- | --- | --- | --- |
-| 执行环境实例 | 一次 `proc.*` 调用的隔离 `bubblewrap` 沙箱与 cgroup v2 叶组 | 节点 | 一次 `proc.*` 调用 |
+| 执行环境实例 | 一次 `proc.run` 或 `proc.pipe` 调用的隔离 `bubblewrap` 沙箱与 cgroup v2 叶组 | 节点 | 一次 `proc.run` 或 `proc.pipe` 调用 |
 | 出口代理 | 节点内按域名放行的 HTTP 代理（归 [#9](https://github.com/Skyline10124/lancet/issues/9)） | 节点 | 节点进程 |
-| 启动垫片 | 挂入 `/run/lancet-init` 的 PID 1 程序：施加 Landlock、启动并回收目标进程、监听控制管道并经状态 fd 报告启动结果 | 执行环境实例 | 一次 `proc.*` 调用 |
+| 启动垫片 | 挂入 `/run/lancet-init` 的 PID 1 程序：施加 Landlock、按阶段建立内核管道并启动和回收前台进程、监听控制管道并经状态 fd 报告启动结果 | 执行环境实例 | 一次 `proc.run` 或 `proc.pipe` 调用 |
 
 ## 组件与职责
 
 | 组件 | 持有的状态 | 执行的规则 | 对外接口 |
 | --- | --- | --- | --- |
 | 目录资源 | 经核验的宿主目录根 fd | 按根内约束直接读写宿主目录 | `read-dir`、`write-dir` 的方法 |
-| 执行环境资源 | 已解析的挂载槽位、私有家目录根 fd、固定来源的工具 fd、私有缓存根 fd、cgroup 委派根与垫片 fd | 每次 `proc.run` 新建沙箱与叶组，调用结束、取消、断连或超时整组终止并回收 | `exec-env` 的方法 |
+| 执行环境资源 | 已解析的挂载槽位、私有家目录根 fd、固定来源的工具 fd、私有缓存根 fd、cgroup 委派根与垫片 fd | 每次 `proc.run` 或 `proc.pipe` 新建沙箱与叶组，调用结束、取消、断连或超时整组终止并回收 | `exec-env` 的方法 |
 | 出口代理 | 代理的监听与连接（归 [#9](https://github.com/Skyline10124/lancet/issues/9)） | 对照 `egress.hosts` 放行，每次外发记入回执 | `egress` 的方法；执行环境内的代理端口 |
 
 ## 目录
@@ -59,7 +59,7 @@ status: active
 
 ## 执行环境
 
-每次 `proc.run` 调用新建一个 `bubblewrap` 沙箱与独占的 cgroup v2 叶组；执行环境不跨调用保留进程。
+每次 `proc.run` 或 `proc.pipe` 调用新建一个 `bubblewrap` 沙箱与独占的 cgroup v2 叶组；执行环境不跨调用保留进程。
 
 ### 沙箱建立与挂载表
 
@@ -93,14 +93,14 @@ status: active
 随包提供的 `/run/lancet-init` 作为沙箱内的 PID 1，按顺序执行：
 
 1. 在最终挂载视图里建立 Landlock 规则集：处理 `WRITE_FILE`、`TRUNCATE`、`REFER`、`REMOVE_DIR`、`REMOVE_FILE` 与全部 `MAKE_*` 权限；向可写工作目录、私有家目录、私有缓存与 `/tmp` 授予普通文件树写权限（不含 `MAKE_CHAR` 与 `MAKE_BLOCK`）；向 `/dev/null` 单独授予 `WRITE_FILE`。设置 `PR_SET_NO_NEW_PRIVS` 并调用 `landlock_restrict_self`。
-2. Landlock 生效后才创建前台子进程。子进程关闭 0、1、2 以外的全部 fd，按目标 `envp` 中的 `PATH` 查找可执行文件并直接 `execve`；`argv` 保持参数数组，不经过 shell。
-3. 通过专用状态 fd 向节点报告“目标已启动”或启动失败（如 `ENOENT`、`ENOEXEC`、`EACCES`）。
-4. 回收子进程并同时监听节点持有的控制管道。前台进程退出或控制管道到达 EOF（节点消失）时，PID 1 立即退出，内核随之终止 PID 命名空间里的全部其余进程。
+2. Landlock 生效后自左向右逐段启动前台子进程，确认当前阶段已 `execve` 成功才启动下一段。相邻阶段间滚动建立 `pipe2(O_CLOEXEC)`（首段 stdin 继承 `/dev/null`，末段 stdout 继承节点输出管道，各段继承同一 stderr）；子进程恢复信号掩码与默认 `SIGPIPE`，关闭 0、1、2 与本段启动报告写端以外的全部 fd，按目标 `envp` 中的 `PATH` 查找可执行文件并直接 `execve`（不经过 shell）；父进程立即关闭上一段读端与本段写端，使下游退出后上游写入收到 `SIGPIPE`。
+3. 首段确认启动后立即经专用状态 fd 向节点发送 `O`；任一段启动失败（如 `ENOENT`、`ENOEXEC`、`EACCES`）时报告阶段序号与错误、不再启动后续阶段并立即退出。
+4. 回收全部前台阶段（及收养的后代）并同时监听节点持有的控制管道。所有前台阶段都退出后，PID 1 以 pipefail 退出码（自右向左首个非零码，全零为 `0`）退出；控制管道到达 EOF（节点消失）时立即退出，内核随之终止 PID 命名空间里的全部其余进程。
 
 ### cgroup v2、中断与回收
 
 - 节点配置了 `[[env]]` 时，启动期要求取得全新的专用 cgroup v2 委派根 `D`（除节点自身外无其他进程，且不含任何已有子组）：创建 `D/node` 并将节点自身迁入，再向无内部进程的 `D/cgroup.subtree_control` 写入 `+memory`。
-- 每次 `proc.run` 在 `D` 下创建独占叶组 `call-<唯一编号>`，写入固定的 `memory.max = 8589934592`（8 GiB）与 `memory.oom.group = 1`；在启动 `bwrap` 的 `pre_exec` 中向预先打开的叶组 `cgroup.procs` 写 `0`，使 `bwrap` 在首次 fork 前即位于该叶组中。
+- 每次 `proc.run` 或 `proc.pipe` 在 `D` 下创建独占叶组 `call-<唯一编号>`，写入固定的 `memory.max = 8589934592`（8 GiB）与 `memory.oom.group = 1`；在启动 `bwrap` 的 `pre_exec` 中向预先打开的叶组 `cgroup.procs` 写 `0`，使 `bwrap` 在首次 fork 前即位于该叶组中。
 - 宿主在执行线程中通过单次最多等待 10 ms 的 `poll` 循环并行排空 stdout 与 stderr（每路每轮最多读 64 KiB 即回到 `poll`）、观察状态 fd 与 `bwrap` 退出，并检查取消标志与截止时间。
 - 节点活着时，正常结束、取消、断连、截止与异常收尾都在统一的结算时限（截止时间加 5 秒结算宽限）内完成：向叶组 `cgroup.kill` 写 `1`、回收 `bwrap`、将状态管道读到 EOF、等待 `cgroup.events` 出现 `populated 0`、读取 `memory.events.local` 判断是否 OOM，然后删除叶组再结算。
 - 节点被 `SIGKILL` 强制终止时，`--die-with-parent` 与控制管道 EOF 使沙箱 PID 1 退出，内核立即终止命名空间内的全部进程。
@@ -164,11 +164,11 @@ sequenceDiagram
 
 | 事项 | 现状 |
 | --- | --- |
-| 多阶段进程管道 `proc.pipe` | 下一切片实现 |
 | 网络出口代理与 `egress` 句柄 | 由 [#9](https://github.com/Skyline10124/lancet/issues/9) 实现 |
 
 ## 验证
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
-- `cargo test -p lancet-node --test node`：目录资源的路径解析、符号链接边界与直接读写宿主，以及执行环境的挂载隔离、环境与网络隔离、私有家目录与缓存持久化、取消/断连/截止/SIGKILL 回收、cgroup OOM 隔离与 `proc.run` 回执。
+- `cargo test -p lancet-node --lib --bin lancet-init`：状态管道解析器时序，以及垫片多阶段参数解码与 pipefail 退出码。
+- `cargo test -p lancet-node --test node`：目录资源的路径解析、符号链接边界与直接读写宿主，以及执行环境的挂载隔离、环境与网络隔离、私有家目录与缓存持久化、取消/断连/截止/SIGKILL 回收（含多阶段管道与 `setsid` 后代）、cgroup OOM 隔离与 `proc.run` / `proc.pipe` 回执。
 - 网络出口的测试随 [#9](https://github.com/Skyline10124/lancet/issues/9) 建立；建立后写入保证表。

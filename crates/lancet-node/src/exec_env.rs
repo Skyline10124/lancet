@@ -215,6 +215,8 @@ pub fn probe_sandbox(
         .create_leaf()
         .with_context(|| format!("执行环境 `{env_label}` 沙箱启动探针：创建探针叶组失败"))?;
 
+    let probe_argv = ["/run/lancet-init".to_owned(), "--probe-sandbox".to_owned()];
+    let probe_stages = [probe_argv.as_slice()];
     let probe_res = run_sandbox_invocation(
         leaf,
         None,
@@ -223,7 +225,7 @@ pub fn probe_sandbox(
         Path::new("/tmp"),
         &[PathBuf::from("/tmp")],
         &[format!("PATH={BASE_PATH}")],
-        &["/run/lancet-init".to_owned(), "--probe-sandbox".to_owned()],
+        &probe_stages,
         Instant::now() + Duration::from_secs(10),
         &AtomicBool::new(false),
     );
@@ -378,13 +380,38 @@ impl HostExecEnv {
         }
     }
 
-    /// 在每次调用新建的 bubblewrap 沙箱中运行单个进程。
+    /// 在每次调用新建的 bubblewrap 沙箱中运行单个进程（单阶段管道）。
     ///
-    /// 返回 `(target_started, outcome)`：当垫片报告目标进程已启动后，`target_started` 为 `true`，
+    /// 返回 `(any_started, outcome)`：当垫片报告目标进程已启动后，`any_started` 为 `true`，
     /// 调用方据此在回执中记录一条 `EffectEntry(env, Exec, [])`。
     pub fn run(
         &self,
         argv: &[String],
+        cwd: Option<&str>,
+        deadline: Instant,
+        cancelled: &AtomicBool,
+    ) -> (bool, ExecRunOutcome) {
+        self.run_stages(&[argv], cwd, deadline, cancelled)
+    }
+
+    /// 在每次调用新建的 bubblewrap 沙箱中以内核管道依次串联多阶段进程。
+    ///
+    /// 返回 `(any_started, outcome)`：只要首段已确认启动，`any_started` 即为 `true`，
+    /// 调用方据此在回执中至多记录一条 `EffectEntry(env, Exec, [])`。
+    pub fn pipe(
+        &self,
+        stages: &[Vec<String>],
+        cwd: Option<&str>,
+        deadline: Instant,
+        cancelled: &AtomicBool,
+    ) -> (bool, ExecRunOutcome) {
+        let stage_refs: Vec<&[String]> = stages.iter().map(Vec::as_slice).collect();
+        self.run_stages(&stage_refs, cwd, deadline, cancelled)
+    }
+
+    fn run_stages(
+        &self,
+        stages: &[&[String]],
         cwd: Option<&str>,
         deadline: Instant,
         cancelled: &AtomicBool,
@@ -396,8 +423,22 @@ impl HostExecEnv {
             return (false, ExecRunOutcome::Deadline);
         }
 
-        if let Err(msg) = validate_argv(argv) {
-            return (false, ExecRunOutcome::ToolError(msg));
+        if stages.is_empty() {
+            return (
+                false,
+                ExecRunOutcome::ToolError("管道至少需要一个阶段".to_owned()),
+            );
+        }
+
+        for (idx, argv) in stages.iter().enumerate() {
+            if let Err(msg) = validate_argv(argv) {
+                let detail = if stages.len() == 1 {
+                    msg
+                } else {
+                    format!("第 {} 阶段 {msg}", idx + 1)
+                };
+                return (false, ExecRunOutcome::ToolError(detail));
+            }
         }
 
         let resolved_cwd = match self.resolve_cwd(cwd) {
@@ -439,7 +480,7 @@ impl HostExecEnv {
             rw_paths.push(c.dest.clone());
         }
 
-        let (started, outcome) = run_sandbox_invocation(
+        run_sandbox_invocation(
             leaf,
             Some((
                 self.inner.private_home_fd.as_raw_fd(),
@@ -450,12 +491,10 @@ impl HostExecEnv {
             &resolved_cwd,
             &rw_paths,
             &self.inner.envp,
-            argv,
+            stages,
             deadline,
             cancelled,
-        );
-
-        (started, outcome)
+        )
     }
 
     fn resolve_cwd(&self, cwd: Option<&str>) -> Result<PathBuf, String> {
@@ -889,7 +928,7 @@ fn run_sandbox_invocation(
     cwd: &Path,
     rw_paths: &[PathBuf],
     envp: &[String],
-    argv: &[String],
+    stages: &[&[String]],
     deadline: Instant,
     cancelled: &AtomicBool,
 ) -> (bool, ExecRunOutcome) {
@@ -1022,7 +1061,10 @@ fn run_sandbox_invocation(
     for kv in envp {
         cmd.arg("--env").arg(kv);
     }
-    cmd.arg("--").args(argv);
+    cmd.arg("--");
+    for stage in stages {
+        cmd.arg(stage.len().to_string()).args(*stage);
+    }
 
     cmd.stdin(Stdio::null())
         .stdout(Stdio::from(stdout_w))
@@ -1073,8 +1115,8 @@ fn run_sandbox_invocation(
                 return (
                     false,
                     ExecRunOutcome::ToolError(format!(
-                        "启动程序 `{}` 失败：参数列表过长（E2BIG：{err}）",
-                        argv[0]
+                        "启动{}失败：参数总长超出上限（E2BIG：{err}）",
+                        format_invocation_subject(stages)
                     )),
                 );
             }
@@ -1091,7 +1133,7 @@ fn run_sandbox_invocation(
     drop(status_w);
 
     monitor_and_teardown(
-        child, leaf, ctrl_w, status_r, stdout_r, stderr_r, &argv[0], deadline, cancelled,
+        child, leaf, ctrl_w, status_r, stdout_r, stderr_r, stages, deadline, cancelled,
     )
 }
 
@@ -1103,7 +1145,7 @@ fn monitor_and_teardown(
     status_r: OwnedFd,
     stdout_r: OwnedFd,
     stderr_r: OwnedFd,
-    program: &str,
+    stages: &[&[String]],
     deadline: Instant,
     cancelled: &AtomicBool,
 ) -> (bool, ExecRunOutcome) {
@@ -1112,9 +1154,7 @@ fn monitor_and_teardown(
     let mut stdout_fd = Some(stdout_r);
     let mut stderr_fd = Some(stderr_r);
 
-    let mut status_buf = Vec::with_capacity(64);
-    let mut target_started = false;
-    let mut init_status: Option<InitStatus> = None;
+    let mut status_parser = StatusParser::new();
     let mut streams = DualStreamCapture::new(MAX_TOOL_RESULT_BYTES);
     let mut exit_status: Option<ExitStatus> = None;
     let mut interrupted: Option<InterruptKind> = None;
@@ -1207,32 +1247,13 @@ fn monitor_and_teardown(
             && pollfds[idx].revents != 0
             && let Some(fd) = status_fd.as_ref()
         {
-            match read_status_pipe(fd.as_raw_fd(), &mut status_buf) {
-                StatusRead::Pending => {
-                    if let Some(parsed) = try_parse_init_status(&status_buf, false) {
-                        status_fd = None;
-                        if matches!(parsed, InitStatus::Started) {
-                            target_started = true;
-                        }
-                        init_status = Some(parsed);
-                    }
-                }
+            match read_status_pipe(fd.as_raw_fd(), &mut status_parser) {
+                StatusRead::Pending => {}
                 StatusRead::Eof => {
+                    status_parser.finish_eof();
                     status_fd = None;
-                    if let Some(parsed) = try_parse_init_status(&status_buf, true) {
-                        if matches!(parsed, InitStatus::Started) {
-                            target_started = true;
-                        }
-                        init_status = Some(parsed);
-                    }
                 }
                 StatusRead::Error(err) => {
-                    if matches!(
-                        try_parse_init_status(&status_buf, false),
-                        Some(InitStatus::Started)
-                    ) {
-                        target_started = true;
-                    }
                     status_fd = None;
                     loop_err = Some(format!("读取沙箱状态管道失败：{err}"));
                     break;
@@ -1281,18 +1302,10 @@ fn monitor_and_teardown(
 
     let mut status_err: Option<String> = None;
     if let Some(fd) = status_fd.take() {
-        let drain_res = drain_status_to_eof(fd.as_raw_fd(), &mut status_buf, settle_deadline);
-        let eof = matches!(drain_res, StatusDrain::Eof);
-        if let Some(parsed) = try_parse_init_status(&status_buf, eof) {
-            if matches!(parsed, InitStatus::Started) {
-                target_started = true;
+        match drain_status_to_eof(fd.as_raw_fd(), &mut status_parser, settle_deadline) {
+            StatusDrain::Eof => {
+                status_parser.finish_eof();
             }
-            if init_status.is_none() {
-                init_status = Some(parsed);
-            }
-        }
-        match drain_res {
-            StatusDrain::Eof => {}
             StatusDrain::TimedOut => {
                 status_err = Some("等待沙箱状态管道 EOF 超过结算时限".to_owned());
             }
@@ -1303,13 +1316,14 @@ fn monitor_and_teardown(
     }
 
     let leaf_res = leaf.wait_empty_and_remove(settle_deadline);
+    let any_started = status_parser.any_started();
 
     if let Some(msg) = loop_err {
-        return (target_started, ExecRunOutcome::InternalError(msg));
+        return (any_started, ExecRunOutcome::InternalError(msg));
     }
     if let Some(err) = kill_err {
         return (
-            target_started,
+            any_started,
             ExecRunOutcome::InternalError(format!("向叶组 cgroup.kill 写 1 失败：{err}")),
         );
     }
@@ -1317,7 +1331,7 @@ fn monitor_and_teardown(
         Ok(st) => st,
         Err(err) => {
             return (
-                target_started,
+                any_started,
                 ExecRunOutcome::InternalError(format!("回收 bwrap 子进程失败：{err}")),
             );
         }
@@ -1326,13 +1340,13 @@ fn monitor_and_teardown(
         Ok(oom) => oom,
         Err(err) => {
             return (
-                target_started,
+                any_started,
                 ExecRunOutcome::InternalError(format!("回收 cgroup 叶组失败：{err:#}")),
             );
         }
     };
     if let Some(msg) = status_err {
-        return (target_started, ExecRunOutcome::InternalError(msg));
+        return (any_started, ExecRunOutcome::InternalError(msg));
     }
 
     if let Some(kind) = interrupted {
@@ -1340,58 +1354,69 @@ fn monitor_and_teardown(
             InterruptKind::Cancelled => ExecRunOutcome::Cancelled,
             InterruptKind::Deadline => ExecRunOutcome::Deadline,
         };
-        return (target_started, outcome);
+        return (any_started, outcome);
     }
 
+    let subject = format_invocation_subject(stages);
     if oom {
         return (
-            target_started,
+            any_started,
             ExecRunOutcome::ToolError(format!(
-                "进程 `{program}` 超出沙箱内存上限 8 GiB（{MEMORY_MAX_BYTES} 字节），进程组已被内核 OOM 终止"
+                "{subject} 超出沙箱内存上限 8 GiB（{MEMORY_MAX_BYTES} 字节），进程组已被内核 OOM 终止"
             )),
         );
     }
 
-    match init_status.unwrap_or(InitStatus::UnexpectedEof) {
-        InitStatus::Started => {}
-        InitStatus::ExecFailed(err_no) => {
-            return (
-                false,
-                ExecRunOutcome::ToolError(format_exec_error(program, err_no)),
-            );
-        }
-        InitStatus::InitFailed(detail) => {
-            return (
-                false,
+    if let Some(failure) = status_parser.failure() {
+        return match failure {
+            StatusFailure::ExecFailed { stage, err_no } => {
+                let Some(stage_argv) = stage.checked_sub(1).and_then(|i| stages.get(i as usize))
+                else {
+                    return (
+                        any_started,
+                        ExecRunOutcome::InternalError(format!(
+                            "沙箱垫片报告了越界的阶段序号 {stage}（总阶段数 {}）",
+                            stages.len()
+                        )),
+                    );
+                };
+                (
+                    any_started,
+                    ExecRunOutcome::ToolError(format_exec_error(*stage, &stage_argv[0], *err_no)),
+                )
+            }
+            StatusFailure::InitFailed(detail) => (
+                any_started,
                 ExecRunOutcome::InternalError(format!("沙箱垫片初始化失败：{detail}")),
-            );
-        }
-        InitStatus::UnexpectedEof => {
-            let stderr_hint = streams.stderr_preview();
-            let suffix = if stderr_hint.is_empty() {
-                String::new()
-            } else {
-                format!("：{stderr_hint}")
-            };
-            return (
-                false,
-                ExecRunOutcome::InternalError(format!(
-                    "bubblewrap 沙箱在垫片就绪前退出（{final_status}）{suffix}"
-                )),
-            );
-        }
+            ),
+        };
+    }
+
+    if !any_started {
+        let stderr_hint = streams.stderr_preview();
+        let suffix = if stderr_hint.is_empty() {
+            String::new()
+        } else {
+            format!("：{stderr_hint}")
+        };
+        return (
+            false,
+            ExecRunOutcome::InternalError(format!(
+                "bubblewrap 沙箱在垫片就绪前退出（{final_status}）{suffix}"
+            )),
+        );
     }
 
     let code = exit_status_to_code(final_status);
     if streams.overflowed {
         let mut msg = if code == 0 {
             format!(
-                "进程 `{program}` 的输出合计 {} 字节，超过单次返回窗口 8 MiB（{MAX_TOOL_RESULT_BYTES} 字节）；请改用 `proc.pipe` 过滤后再返回",
+                "{subject} 的输出合计 {} 字节，超过单次返回窗口 8 MiB（{MAX_TOOL_RESULT_BYTES} 字节）；请改用 `proc.pipe` 过滤后再返回",
                 streams.total_bytes()
             )
         } else {
             format!(
-                "进程 `{program}` 以退出码 {code} 结束，且输出合计 {} 字节超过单次返回窗口 8 MiB（{MAX_TOOL_RESULT_BYTES} 字节）；请改用 `proc.pipe` 过滤后再返回",
+                "{subject} 以退出码 {code} 结束，且输出合计 {} 字节超过单次返回窗口 8 MiB（{MAX_TOOL_RESULT_BYTES} 字节）；请改用 `proc.pipe` 过滤后再返回",
                 streams.total_bytes()
             )
         };
@@ -1403,12 +1428,12 @@ fn monitor_and_teardown(
         if !err_tail.is_empty() {
             msg.push_str(&format!("\nstderr 尾部（已截断）：\n{err_tail}"));
         }
-        return (target_started, ExecRunOutcome::ToolError(msg));
+        return (any_started, ExecRunOutcome::ToolError(msg));
     }
 
     let (stdout, stderr) = streams.into_strings();
     (
-        target_started,
+        any_started,
         ExecRunOutcome::Finished(ProcOutput {
             code,
             stdout,
@@ -1423,39 +1448,156 @@ enum InterruptKind {
     Deadline,
 }
 
-enum InitStatus {
-    Started,
-    ExecFailed(i32),
+const MAX_INIT_DIAG_BYTES: usize = 4096;
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+enum StatusFailure {
+    ExecFailed { stage: u32, err_no: i32 },
     InitFailed(String),
-    UnexpectedEof,
 }
 
-/// 当状态消息已完整（`O` 1 字节、`E` + 4 字节 errno）或读到 EOF 时返回解析结果。
-/// 外层 bwrap 可能继续持有写端直到退出，因此 `O` 与 `E` 不能等 EOF 才判定。
-fn try_parse_init_status(buf: &[u8], eof: bool) -> Option<InitStatus> {
-    match buf.first() {
-        Some(b'O') => Some(InitStatus::Started),
-        Some(b'E') if buf.len() >= 5 => {
-            let err_no = i32::from_le_bytes([buf[1], buf[2], buf[3], buf[4]]);
-            Some(InitStatus::ExecFailed(err_no))
+/// 状态管道增量解析器：常规轮询与收尾排空共用。
+/// 协议仅含三种消息：`O`（1 字节）、`E + u32_le(stage) + i32_le(errno)`（9 字节）、`I + 有界诊断文本`（至 EOF）。
+#[derive(Debug, Default)]
+struct StatusParser {
+    exec_buf: Vec<u8>,
+    any_started: bool,
+    reading_init_err: bool,
+    init_err_bytes: Vec<u8>,
+    failure: Option<StatusFailure>,
+}
+
+impl StatusParser {
+    fn new() -> Self {
+        Self::default()
+    }
+
+    fn any_started(&self) -> bool {
+        self.any_started
+    }
+
+    fn failure(&self) -> Option<&StatusFailure> {
+        self.failure.as_ref()
+    }
+
+    fn push(&mut self, mut bytes: &[u8]) {
+        if self.failure.is_some() {
+            return;
         }
-        Some(b'I') if eof => Some(InitStatus::InitFailed(
-            String::from_utf8_lossy(&buf[1..]).into_owned(),
-        )),
-        _ if eof => Some(InitStatus::UnexpectedEof),
-        _ => None,
+        if self.reading_init_err {
+            self.append_init_err(bytes);
+            return;
+        }
+        if !self.exec_buf.is_empty() {
+            let need = 9 - self.exec_buf.len();
+            let take = bytes.len().min(need);
+            self.exec_buf.extend_from_slice(&bytes[..take]);
+            bytes = &bytes[take..];
+            if self.exec_buf.len() == 9 {
+                self.finish_exec_buf();
+            }
+            if self.failure.is_some() || bytes.is_empty() {
+                return;
+            }
+        }
+        while !bytes.is_empty() && self.failure.is_none() {
+            match bytes[0] {
+                b'O' if !self.any_started => {
+                    self.any_started = true;
+                    bytes = &bytes[1..];
+                }
+                b'E' => {
+                    if bytes.len() >= 9 {
+                        self.exec_buf.extend_from_slice(&bytes[..9]);
+                        self.finish_exec_buf();
+                        bytes = &bytes[9..];
+                    } else {
+                        self.exec_buf.extend_from_slice(bytes);
+                        break;
+                    }
+                }
+                b'I' => {
+                    self.reading_init_err = true;
+                    self.append_init_err(&bytes[1..]);
+                    break;
+                }
+                other => {
+                    self.failure = Some(StatusFailure::InitFailed(format!(
+                        "状态管道收到未知消息字节 0x{other:02x}"
+                    )));
+                    break;
+                }
+            }
+        }
+    }
+
+    fn finish_eof(&mut self) {
+        if self.failure.is_some() {
+            return;
+        }
+        if self.reading_init_err {
+            let detail = String::from_utf8_lossy(&self.init_err_bytes).into_owned();
+            self.failure = Some(StatusFailure::InitFailed(detail));
+        } else if !self.exec_buf.is_empty() {
+            self.failure = Some(StatusFailure::InitFailed(format!(
+                "状态管道上的启动错误消息被截断（仅收到 {} / 9 字节）",
+                self.exec_buf.len()
+            )));
+        }
+    }
+
+    fn append_init_err(&mut self, bytes: &[u8]) {
+        if self.init_err_bytes.len() < MAX_INIT_DIAG_BYTES {
+            let take = bytes
+                .len()
+                .min(MAX_INIT_DIAG_BYTES - self.init_err_bytes.len());
+            self.init_err_bytes.extend_from_slice(&bytes[..take]);
+        }
+    }
+
+    fn finish_exec_buf(&mut self) {
+        let stage = u32::from_le_bytes([
+            self.exec_buf[1],
+            self.exec_buf[2],
+            self.exec_buf[3],
+            self.exec_buf[4],
+        ]);
+        let err_no = i32::from_le_bytes([
+            self.exec_buf[5],
+            self.exec_buf[6],
+            self.exec_buf[7],
+            self.exec_buf[8],
+        ]);
+        self.exec_buf.clear();
+        self.failure = Some(StatusFailure::ExecFailed { stage, err_no });
     }
 }
 
-fn format_exec_error(program: &str, err_no: i32) -> String {
+fn format_invocation_subject(stages: &[&[String]]) -> String {
+    if stages.len() == 1 {
+        format!("进程 `{}`", stages[0][0])
+    } else {
+        format!("{} 阶段管道", stages.len())
+    }
+}
+
+fn format_exec_error(stage: u32, program: &str, err_no: i32) -> String {
     let os_err = io::Error::from_raw_os_error(err_no);
     match err_no {
-        libc::ENOENT => format!("启动程序 `{program}` 失败：找不到可执行文件（ENOENT：{os_err}）"),
-        libc::ENOEXEC => {
-            format!("启动程序 `{program}` 失败：可执行文件格式无效（ENOEXEC：{os_err}）")
+        libc::ENOENT => {
+            format!(
+                "启动第 {stage} 阶段程序 `{program}` 失败：找不到可执行文件（ENOENT：{os_err}）"
+            )
         }
-        libc::EACCES => format!("启动程序 `{program}` 失败：缺少执行权限（EACCES：{os_err}）"),
-        _ => format!("启动程序 `{program}` 失败：{os_err}"),
+        libc::ENOEXEC => {
+            format!(
+                "启动第 {stage} 阶段程序 `{program}` 失败：可执行文件格式无效（ENOEXEC：{os_err}）"
+            )
+        }
+        libc::EACCES => {
+            format!("启动第 {stage} 阶段程序 `{program}` 失败：缺少执行权限（EACCES：{os_err}）")
+        }
+        _ => format!("启动第 {stage} 阶段程序 `{program}` 失败：{os_err}（errno {err_no}）"),
     }
 }
 
@@ -1487,16 +1629,13 @@ enum StatusDrain {
     IoError(io::Error),
 }
 
-fn read_status_pipe(fd: RawFd, buf: &mut Vec<u8>) -> StatusRead {
+fn read_status_pipe(fd: RawFd, parser: &mut StatusParser) -> StatusRead {
     let mut chunk = [0u8; 256];
     loop {
         // SAFETY: 从非阻塞状态管道读取。
         let n = unsafe { libc::read(fd, chunk.as_mut_ptr().cast(), chunk.len()) };
         if n > 0 {
-            if buf.len() < 4096 {
-                let take = (n as usize).min(4096 - buf.len());
-                buf.extend_from_slice(&chunk[..take]);
-            }
+            parser.push(&chunk[..n as usize]);
         } else if n == 0 {
             return StatusRead::Eof;
         } else {
@@ -1653,9 +1792,13 @@ fn wait_child_until(child: &mut Child, settle_deadline: Instant) -> io::Result<E
     }
 }
 
-fn drain_status_to_eof(fd: RawFd, buf: &mut Vec<u8>, settle_deadline: Instant) -> StatusDrain {
+fn drain_status_to_eof(
+    fd: RawFd,
+    parser: &mut StatusParser,
+    settle_deadline: Instant,
+) -> StatusDrain {
     loop {
-        match read_status_pipe(fd, buf) {
+        match read_status_pipe(fd, parser) {
             StatusRead::Eof => return StatusDrain::Eof,
             StatusRead::Error(err) => return StatusDrain::IoError(err),
             StatusRead::Pending => {}
@@ -1759,5 +1902,98 @@ fn ensure_dir_0700(path: &Path) -> anyhow::Result<()> {
             Ok(())
         }
         Err(err) => Err(err).with_context(|| format!("创建目录 {} 失败", path.display())),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn encode_exec_failed(stage: u32, err_no: i32) -> [u8; 9] {
+        let mut msg = [0u8; 9];
+        msg[0] = b'E';
+        msg[1..5].copy_from_slice(&stage.to_le_bytes());
+        msg[5..9].copy_from_slice(&err_no.to_le_bytes());
+        msg
+    }
+
+    #[test]
+    fn status_parser_handles_combined_split_and_teardown_timings() {
+        // 1. O 与 E 在一次读取中一起到达。
+        let mut combined = Vec::with_capacity(10);
+        combined.push(b'O');
+        combined.extend_from_slice(&encode_exec_failed(2, libc::ENOENT));
+        let mut p1 = StatusParser::new();
+        p1.push(&combined);
+        assert!(p1.any_started(), "收到 O 后 any_started 应立即为真");
+        assert_eq!(
+            p1.failure(),
+            Some(&StatusFailure::ExecFailed {
+                stage: 2,
+                err_no: libc::ENOENT,
+            })
+        );
+        p1.finish_eof();
+        assert!(p1.any_started());
+
+        // 2. E 拆分成多次读取到达（含在 O 之后分段到达）。
+        let raw_e = encode_exec_failed(3, libc::EACCES);
+        let mut p2 = StatusParser::new();
+        p2.push(b"O");
+        assert!(p2.any_started());
+        assert_eq!(p2.failure(), None);
+        p2.push(&raw_e[..3]);
+        assert_eq!(p2.failure(), None);
+        p2.push(&raw_e[3..7]);
+        assert_eq!(p2.failure(), None);
+        p2.push(&raw_e[7..]);
+        assert_eq!(
+            p2.failure(),
+            Some(&StatusFailure::ExecFailed {
+                stage: 3,
+                err_no: libc::EACCES,
+            })
+        );
+        p2.finish_eof();
+        assert!(p2.any_started());
+
+        // 3. 常规轮询时未收到任何字节，仅在收尾排空阶段才读到 O 与 EOF。
+        let (r_fd, w_fd) = create_cloexec_pipe().expect("创建测试管道失败");
+        set_nonblocking(r_fd.as_raw_fd()).expect("设置非阻塞失败");
+        let mut p3 = StatusParser::new();
+        assert!(matches!(
+            read_status_pipe(r_fd.as_raw_fd(), &mut p3),
+            StatusRead::Pending
+        ));
+        assert!(!p3.any_started());
+
+        // 模拟收尾时垫片才写出 O 并关闭写端。
+        // SAFETY: 写入 1 字节到有效管道写端。
+        let written = unsafe { libc::write(w_fd.as_raw_fd(), b"O".as_ptr().cast(), 1) };
+        assert_eq!(written, 1);
+        drop(w_fd);
+
+        let drain = drain_status_to_eof(
+            r_fd.as_raw_fd(),
+            &mut p3,
+            Instant::now() + Duration::from_secs(1),
+        );
+        assert!(matches!(drain, StatusDrain::Eof));
+        p3.finish_eof();
+        assert!(p3.any_started(), "收尾阶段读到的 O 也必须置位 any_started");
+        assert_eq!(p3.failure(), None);
+
+        // 4. O 之后收到垫片内部错误 I，保留 any_started 并按 EOF 结束。
+        let mut p4 = StatusParser::new();
+        p4.push(b"OIstage 2 ");
+        assert!(p4.any_started());
+        assert_eq!(p4.failure(), None);
+        p4.push(b"fork failed");
+        p4.finish_eof();
+        assert!(p4.any_started());
+        assert_eq!(
+            p4.failure(),
+            Some(&StatusFailure::InitFailed("stage 2 fork failed".to_owned()))
+        );
     }
 }

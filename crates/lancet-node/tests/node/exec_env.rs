@@ -224,6 +224,40 @@ fn wait_for_leaf_with_marker(
     }
 }
 
+fn wait_for_leaf_with_all_markers(
+    cg_root: &Path,
+    markers: &[&str],
+    timeout: Duration,
+) -> (PathBuf, Vec<u32>, Vec<u32>) {
+    let deadline = Instant::now() + timeout;
+    loop {
+        for leaf in list_call_leaves(cg_root) {
+            let pids = cgroup_procs(&leaf);
+            let mut matched = Vec::with_capacity(markers.len());
+            for &marker in markers {
+                if let Some(&pid) = pids
+                    .iter()
+                    .find(|&&pid| pid_target_cmdline_contains(pid, marker))
+                {
+                    matched.push(pid);
+                }
+            }
+            if matched.len() == markers.len() {
+                let unique: std::collections::BTreeSet<u32> = matched.iter().copied().collect();
+                if unique.len() == markers.len() {
+                    return (leaf, matched, pids);
+                }
+            }
+        }
+        assert!(
+            Instant::now() < deadline,
+            "在 cgroup {} 下等待同一叶组包含全部标记 {markers:?} 超时",
+            cg_root.display()
+        );
+        thread::sleep(Duration::from_millis(15));
+    }
+}
+
 fn wait_for_leaf_empty_or_gone(leaf: &Path, tracked_pids: &[u32], timeout: Duration) {
     let deadline = Instant::now() + timeout;
     loop {
@@ -837,6 +871,39 @@ with open({ready_name:?}, "w") as f:
     format!("return dev.run([\"python3\", \"-c\", {py:?}], cwd = \"rw\").code")
 }
 
+fn setsid_pipe_script(prefix: &str, s1_marker: &str, s2_marker: &str, desc_suffix: &str) -> String {
+    let desc_ready = format!("{prefix}.desc");
+    let s1_ready = format!("{prefix}.s1");
+    let s2_ready = format!("{prefix}.s2");
+    // 拼接后代标记字符串，避免阶段 1 自身 cmdline 直接命中后代标记。
+    let s1_py = format!(
+        r#"
+import os, subprocess, time
+desc_tag = "lancet-pipe-" + {desc_suffix:?}
+child_code = f"""import os, signal, time; os.setsid(); signal.signal(signal.SIGTERM, signal.SIG_IGN); open({desc_ready:?}, 'w').write('ok'); time.sleep(120) # {{desc_tag}}"""
+subprocess.Popen(["python3", "-c", child_code])
+while not os.path.exists({desc_ready:?}):
+    time.sleep(0.01)
+with open({s1_ready:?}, "w") as f:
+    f.write("ready")
+while True:
+    time.sleep(0.5) # {s1_marker}
+"#
+    );
+    let s2_py = format!(
+        r#"
+import time
+with open({s2_ready:?}, "w") as f:
+    f.write("ready")
+while True:
+    time.sleep(0.5) # {s2_marker}
+"#
+    );
+    format!(
+        "return dev.pipe([[\"python3\", \"-c\", {s1_py:?}], [\"python3\", \"-c\", {s2_py:?}]], cwd = \"rw\").code"
+    )
+}
+
 #[test]
 fn normal_cancel_disconnect_deadline_clean_up_setsid_descendant() {
     let (root, home) = temp_var_env();
@@ -899,19 +966,32 @@ mounts = ["rw"]
         assert!(!leaf.exists(), "正常结束后叶组应已删除：{}", leaf.display());
     }
 
-    // 2. 协议 cancel：结算为 Cancelled，叶组清空删除，setsid 后代退出。
+    // 2. 协议 cancel（多阶段管道 + setsid 后代）：结算为 Cancelled，叶组清空删除，全部 PID 退出。
     {
-        let marker = "lancet-setsid-cancel";
-        let script = setsid_spawn_script("ready_cancel", None, marker);
+        let s1_marker = "lancet-pipe-s1-cancel";
+        let s2_marker = "lancet-pipe-s2-cancel";
+        let desc_suffix = "desc-cancel";
+        let desc_marker = "lancet-pipe-desc-cancel";
+        let script = setsid_pipe_script("ready_cancel", s1_marker, s2_marker, desc_suffix);
         send_only(
             &mut stream,
             20,
             exec_req("inv-end-cancel", &digest, &script, 30_000, 65_536),
         );
-        wait_for_file(&rw.join("ready_cancel"), Duration::from_secs(5));
-        let (leaf, desc_pid, pids) =
-            wait_for_leaf_with_marker(&cg_root, marker, Duration::from_secs(5));
-        assert!(pid_alive(desc_pid));
+        wait_for_file(&rw.join("ready_cancel.desc"), Duration::from_secs(5));
+        wait_for_file(&rw.join("ready_cancel.s1"), Duration::from_secs(5));
+        wait_for_file(&rw.join("ready_cancel.s2"), Duration::from_secs(5));
+        let (leaf, matched_pids, mut pids) = wait_for_leaf_with_all_markers(
+            &cg_root,
+            &[s1_marker, s2_marker, desc_marker],
+            Duration::from_secs(5),
+        );
+        for &pid in &matched_pids {
+            assert!(pid_alive(pid), "阶段或后代 PID {pid} 应当存活");
+            if !pids.contains(&pid) {
+                pids.push(pid);
+            }
+        }
 
         send_only(
             &mut stream,
@@ -946,8 +1026,22 @@ mounts = ["rw"]
         assert_eq!(
             cancel_rec.effects,
             vec![EffectEntry::new("dev", EffectKind::Exec, Vec::new()).unwrap()],
-            "目标已启动后取消，回执应保留 Exec"
+            "多阶段管道首段已启动后取消，回执应保留一条 Exec"
         );
+
+        let after_cancel = run_act(
+            &mut stream,
+            23,
+            "inv-after-cancel-pipe",
+            &digest,
+            "return dev.pipe([[\"printf\", \"after-cancel\"], [\"cat\"]]).stdout",
+        );
+        match after_cancel {
+            ExecuteOutcome::Succeeded { content, .. } => {
+                assert_eq!(content["value"], json!("after-cancel"));
+            }
+            other => panic!("cancel 分支结束后短调用应成功，实际：{other:?}"),
+        }
     }
 
     // 3. 关掉所属连接：结算为 Cancelled，叶组清空删除，setsid 后代退出。
@@ -989,19 +1083,32 @@ mounts = ["rw"]
         assert!(!leaf.exists(), "断连后叶组应已删除：{}", leaf.display());
     }
 
-    // 4. 耗尽 remaining_ms：结算为 Deadline，叶组清空删除，setsid 后代退出。
+    // 4. 耗尽 remaining_ms（多阶段管道 + setsid 后代）：结算为 Deadline，叶组清空删除，全部 PID 退出。
     {
-        let marker = "lancet-setsid-deadline";
-        let script = setsid_spawn_script("ready_dl", None, marker);
+        let s1_marker = "lancet-pipe-s1-deadline";
+        let s2_marker = "lancet-pipe-s2-deadline";
+        let desc_suffix = "desc-deadline";
+        let desc_marker = "lancet-pipe-desc-deadline";
+        let script = setsid_pipe_script("ready_dl", s1_marker, s2_marker, desc_suffix);
         send_only(
             &mut stream,
             60,
-            exec_req("inv-end-deadline", &digest, &script, 1_200, 65_536),
+            exec_req("inv-end-deadline", &digest, &script, 2_200, 65_536),
         );
-        wait_for_file(&rw.join("ready_dl"), Duration::from_secs(5));
-        let (leaf, desc_pid, pids) =
-            wait_for_leaf_with_marker(&cg_root, marker, Duration::from_secs(5));
-        assert!(pid_alive(desc_pid));
+        wait_for_file(&rw.join("ready_dl.desc"), Duration::from_secs(5));
+        wait_for_file(&rw.join("ready_dl.s1"), Duration::from_secs(5));
+        wait_for_file(&rw.join("ready_dl.s2"), Duration::from_secs(5));
+        let (leaf, matched_pids, mut pids) = wait_for_leaf_with_all_markers(
+            &cg_root,
+            &[s1_marker, s2_marker, desc_marker],
+            Duration::from_secs(5),
+        );
+        for &pid in &matched_pids {
+            assert!(pid_alive(pid), "阶段或后代 PID {pid} 应当存活");
+            if !pids.contains(&pid) {
+                pids.push(pid);
+            }
+        }
 
         let f = read_reply(&mut stream);
         assert_eq!(f.request_id, 60);
@@ -1025,8 +1132,22 @@ mounts = ["rw"]
         assert_eq!(
             dl_rec.effects,
             vec![EffectEntry::new("dev", EffectKind::Exec, Vec::new()).unwrap()],
-            "目标已启动后超时，回执应保留 Exec"
+            "多阶段管道首段已启动后超时，回执应保留一条 Exec"
         );
+
+        let after_dl = run_act(
+            &mut stream,
+            62,
+            "inv-after-deadline-pipe",
+            &digest,
+            "return dev.pipe([[\"printf\", \"after-deadline\"], [\"cat\"]]).stdout",
+        );
+        match after_dl {
+            ExecuteOutcome::Succeeded { content, .. } => {
+                assert_eq!(content["value"], json!("after-deadline"));
+            }
+            other => panic!("deadline 分支结束后短调用应成功，实际：{other:?}"),
+        }
     }
 
     // 5. 下一次 proc.run 正常成功。
@@ -1751,6 +1872,347 @@ return "ok"
     assert!(
         rec_e2big.effects.is_empty(),
         "E2BIG 未启动目标，不应记 Exec"
+    );
+
+    // 9. proc.pipe 大流量过滤（9 MiB 经内核管道过滤为短 stdout），回执含 1 条成功 proc.pipe 步骤与 1 条 Exec。
+    let r_pipe_filter = run_act(
+        &mut stream,
+        28,
+        "inv-pipe-large-filter",
+        &digest,
+        r#"
+r = dev.pipe([["head", "-c", "9437184", "/dev/zero"], ["wc", "-c"]])
+return {"code": r.code, "stdout": r.stdout, "stderr": r.stderr}
+"#,
+    );
+    match r_pipe_filter {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(
+                content["value"],
+                json!({"code": 0, "stdout": "9437184\n", "stderr": ""})
+            );
+        }
+        other => panic!("proc.pipe 大流量过滤应成功，实际：{other:?}"),
+    }
+    let rec_pipe_filter = match query_receipt(&mut stream, 29, "inv-pipe-large-filter") {
+        ReceiptLookup::Settled { receipt } => receipt,
+        other => panic!("期望 Settled：{other:?}"),
+    };
+    assert_eq!(
+        rec_pipe_filter.steps,
+        vec![StepSummary {
+            tool: "proc.pipe".to_owned(),
+            outcome: OutcomeKind::Succeeded,
+        }]
+    );
+    assert_eq!(
+        rec_pipe_filter.effects,
+        vec![EffectEntry::new("dev", EffectKind::Exec, Vec::new()).unwrap()]
+    );
+
+    // 10. proc.pipe pipefail（三段退出码 7、23、0，首段等末段写同步标记后才退出）与 check=False / True / 默认值。
+    let make_pipefail_script = |sync_file: &str, check_arg: &str, with_sentinels: bool| {
+        let s1_py = format!(
+            "import os, sys, time\n\
+             while not os.path.exists({sync_file:?}): time.sleep(0.01)\n\
+             sys.stderr.write('STAGE1_ERR_MARK\\n'); sys.stderr.flush()\n\
+             sys.exit(7)\n"
+        );
+        let s2_py = if with_sentinels {
+            "import sys\n\
+             sys.stderr.write('ERR_HEAD_' + 'SENTINEL' + ('e' * 10000) + 'ERR_TAIL_' + 'SENTINEL\\n')\n\
+             sys.stderr.flush()\n\
+             sys.exit(23)\n"
+                .to_owned()
+        } else {
+            "import sys\n\
+             sys.stderr.write('STAGE2_ERR_MARK\\n'); sys.stderr.flush()\n\
+             sys.exit(23)\n"
+                .to_owned()
+        };
+        let s3_py = if with_sentinels {
+            format!(
+                "import os, sys\n\
+                 sys.stdout.write('OUT_HEAD_' + 'SENTINEL' + ('o' * 10000) + 'OUT_TAIL_' + 'SENTINEL')\n\
+                 sys.stdout.flush()\n\
+                 with open({tmp:?}, 'w') as f: f.write('done')\n\
+                 os.replace({tmp:?}, {sync_file:?})\n\
+                 sys.exit(0)\n",
+                tmp = format!("{sync_file}.tmp"),
+            )
+        } else {
+            format!(
+                "import os, sys\n\
+                 sys.stdout.write('STAGE3_OUT_MARK\\n'); sys.stdout.flush()\n\
+                 sys.stderr.write('STAGE3_ERR_MARK\\n'); sys.stderr.flush()\n\
+                 with open({tmp:?}, 'w') as f: f.write('done')\n\
+                 os.replace({tmp:?}, {sync_file:?})\n\
+                 sys.exit(0)\n",
+                tmp = format!("{sync_file}.tmp"),
+            )
+        };
+        format!(
+            "r = dev.pipe([\n\
+                 [\"python3\", \"-c\", {s1_py:?}],\n\
+                 [\"python3\", \"-c\", {s2_py:?}],\n\
+                 [\"python3\", \"-c\", {s3_py:?}],\n\
+             ], cwd = \"rw\"{check_arg})\n\
+             return {{\"code\": r.code, \"stdout\": r.stdout, \"stderr\": r.stderr}}\n"
+        )
+    };
+
+    // 10a. check=False：返回 23、末段 stdout 与全部三段 stderr 标记（不假定标记间顺序）。
+    let r_pf_false = run_act(
+        &mut stream,
+        30,
+        "inv-pipe-pipefail-false",
+        &digest,
+        &make_pipefail_script("pf_done_false", ", check = False", false),
+    );
+    match r_pf_false {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            let val = &content["value"];
+            assert_eq!(val["code"], json!(23));
+            assert_eq!(val["stdout"], json!("STAGE3_OUT_MARK\n"));
+            let stderr = val["stderr"].as_str().unwrap();
+            for mark in ["STAGE1_ERR_MARK", "STAGE2_ERR_MARK", "STAGE3_ERR_MARK"] {
+                assert!(
+                    stderr.contains(mark),
+                    "公共 stderr 应含 `{mark}`：{stderr:?}"
+                );
+            }
+        }
+        other => panic!("pipefail check=False 应返回结构，实际：{other:?}"),
+    }
+
+    // 10b. check=True 与默认值：按聚合码 23 报 ScriptOrToolError，保留有界尾部，回执仅一条 Exec。
+    for (req_id, inv_id, sync_file, check_arg) in [
+        (
+            31,
+            "inv-pipe-pipefail-true",
+            "pf_done_true",
+            ", check = True",
+        ),
+        (33, "inv-pipe-pipefail-default", "pf_done_default", ""),
+    ] {
+        let res = run_act(
+            &mut stream,
+            req_id,
+            inv_id,
+            &digest,
+            &make_pipefail_script(sync_file, check_arg, true),
+        );
+        match res {
+            ExecuteOutcome::Failed { error, .. } => {
+                assert_eq!(error.code, "ScriptOrToolError");
+                assert!(
+                    error.message.contains("管道以非零退出码 23 结束"),
+                    "管道非零退出应报聚合退出码 23：{}",
+                    error.message
+                );
+                assert!(
+                    !error.message.contains("第 2 阶段"),
+                    "管道非零退出不应指认某一段失败：{}",
+                    error.message
+                );
+                assert!(
+                    error.message.contains("OUT_TAIL_SENTINEL")
+                        && error.message.contains("ERR_TAIL_SENTINEL"),
+                    "管道非零退出诊断应保留两路尾部：{}",
+                    error.message
+                );
+                assert!(
+                    !error.message.contains("OUT_HEAD_SENTINEL")
+                        && !error.message.contains("ERR_HEAD_SENTINEL"),
+                    "管道非零退出诊断应截断头部：{}",
+                    error.message
+                );
+            }
+            other => panic!("用例 `{inv_id}` 应报 ScriptOrToolError，实际：{other:?}"),
+        }
+        let rec = match query_receipt(&mut stream, req_id + 1, inv_id) {
+            ReceiptLookup::Settled { receipt } => receipt,
+            other => panic!("期望 Settled：{other:?}"),
+        };
+        assert_eq!(
+            rec.steps,
+            vec![StepSummary {
+                tool: "proc.pipe".to_owned(),
+                outcome: OutcomeKind::Failed,
+            }]
+        );
+        assert_eq!(
+            rec.effects,
+            vec![EffectEntry::new("dev", EffectKind::Exec, Vec::new()).unwrap()],
+            "管道失败回执也应只有一条 Exec"
+        );
+    }
+
+    // 11. 启动失败：sleep 30 -> 不存在程序及时失败并保留一条 Exec；首段不存在无 Exec；单段自己 exit 127 返回数据。
+    let missing_s2_start = Instant::now();
+    let r_missing_s2 = run_act(
+        &mut stream,
+        35,
+        "inv-pipe-missing-stage2",
+        &digest,
+        "return dev.pipe([[\"sleep\", \"30\"], [\"definitely_missing_stage2_lancet\"]], check = False)",
+    );
+    assert!(
+        missing_s2_start.elapsed() < Duration::from_secs(5),
+        "第二阶段启动失败应及时中止前段 sleep 30，耗时：{:?}",
+        missing_s2_start.elapsed()
+    );
+    match r_missing_s2 {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(
+                error
+                    .message
+                    .contains("启动第 2 阶段程序 `definitely_missing_stage2_lancet` 失败")
+                    && error.message.contains("ENOENT"),
+                "第二阶段 ENOENT 诊断不完整：{}",
+                error.message
+            );
+        }
+        other => panic!("第二阶段启动失败即便 check=False 也应报错，实际：{other:?}"),
+    }
+    let rec_missing_s2 = match query_receipt(&mut stream, 36, "inv-pipe-missing-stage2") {
+        ReceiptLookup::Settled { receipt } => receipt,
+        other => panic!("期望 Settled：{other:?}"),
+    };
+    assert_eq!(
+        rec_missing_s2.steps,
+        vec![StepSummary {
+            tool: "proc.pipe".to_owned(),
+            outcome: OutcomeKind::Failed,
+        }]
+    );
+    assert_eq!(
+        rec_missing_s2.effects,
+        vec![EffectEntry::new("dev", EffectKind::Exec, Vec::new()).unwrap()],
+        "首段已启动时后段 ENOENT 应保留一条 Exec"
+    );
+
+    let r_missing_s1 = run_act(
+        &mut stream,
+        37,
+        "inv-pipe-missing-stage1",
+        &digest,
+        "return dev.pipe([[\"definitely_missing_stage1_lancet\"], [\"cat\"]], check = False)",
+    );
+    match r_missing_s1 {
+        ExecuteOutcome::Failed { error, .. } => {
+            assert_eq!(error.code, "ScriptOrToolError");
+            assert!(
+                error
+                    .message
+                    .contains("启动第 1 阶段程序 `definitely_missing_stage1_lancet` 失败")
+                    && error.message.contains("ENOENT"),
+                "首段 ENOENT 诊断不完整：{}",
+                error.message
+            );
+        }
+        other => panic!("首段 ENOENT 应失败，实际：{other:?}"),
+    }
+    let rec_missing_s1 = match query_receipt(&mut stream, 38, "inv-pipe-missing-stage1") {
+        ReceiptLookup::Settled { receipt } => receipt,
+        other => panic!("期望 Settled：{other:?}"),
+    };
+    assert!(rec_missing_s1.effects.is_empty(), "首段启动失败不应记 Exec");
+
+    let r_self_127 = run_act(
+        &mut stream,
+        39,
+        "inv-pipe-self-exit-127",
+        &digest,
+        r#"
+r = dev.pipe([["python3", "-c", "import sys; sys.stdout.write('self127'); sys.exit(127)"]], check = False)
+return {"code": r.code, "stdout": r.stdout, "stderr": r.stderr}
+"#,
+    );
+    match r_self_127 {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(
+                content["value"],
+                json!({"code": 127, "stdout": "self127", "stderr": ""})
+            );
+        }
+        other => panic!("程序自身 exit 127 且 check=False 应正常返回数据，实际：{other:?}"),
+    }
+
+    // 12. SIGPIPE（yes -> head -n 1 精确返回 141 / "y\n" / ""）、参数编码边界与启动前校验。
+    let r_sigpipe = run_act(
+        &mut stream,
+        40,
+        "inv-pipe-sigpipe",
+        &digest,
+        r#"
+r = dev.pipe([["yes"], ["head", "-n", "1"]], check = False)
+return {"code": r.code, "stdout": r.stdout, "stderr": r.stderr}
+"#,
+    );
+    match r_sigpipe {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(
+                content["value"],
+                json!({"code": 141, "stdout": "y\n", "stderr": ""})
+            );
+        }
+        other => panic!("yes -> head -n 1 应返回 141 / \"y\\n\" / \"\"，实际：{other:?}"),
+    }
+
+    let r_args = run_act(
+        &mut stream,
+        41,
+        "inv-pipe-special-args",
+        &digest,
+        r#"
+r = dev.pipe([["printf", "%s|", "--", "", "hello world", "2"], ["cat"]])
+return {"code": r.code, "stdout": r.stdout, "stderr": r.stderr}
+"#,
+    );
+    match r_args {
+        ExecuteOutcome::Succeeded { content, .. } => {
+            assert_eq!(
+                content["value"],
+                json!({"code": 0, "stdout": "--||hello world|2|", "stderr": ""})
+            );
+        }
+        other => panic!("特殊参数经 printf -> cat 应原样保留，实际：{other:?}"),
+    }
+
+    for (req_id, inv_id, script) in [
+        (42, "inv-pipe-empty-stages", "return dev.pipe([])"),
+        (
+            44,
+            "inv-pipe-empty-stage2-argv",
+            "return dev.pipe([[\"python3\", \"-c\", \"open('must_not_run', 'w').write('x')\"], []], cwd = \"rw\")",
+        ),
+        (
+            46,
+            "inv-pipe-empty-stage2-prog",
+            "return dev.pipe([[\"true\"], [\"\"]])",
+        ),
+    ] {
+        let res = run_act(&mut stream, req_id, inv_id, &digest, script);
+        match res {
+            ExecuteOutcome::Failed { error, .. } => {
+                assert_eq!(error.code, "ScriptOrToolError");
+            }
+            other => panic!("非法输入 `{inv_id}` 应在启动前失败，实际：{other:?}"),
+        }
+        let rec = match query_receipt(&mut stream, req_id + 1, inv_id) {
+            ReceiptLookup::Settled { receipt } => receipt,
+            other => panic!("期望 Settled：{other:?}"),
+        };
+        assert!(
+            rec.effects.is_empty(),
+            "非法输入 `{inv_id}` 启动前失败，不应记 Exec"
+        );
+    }
+    assert!(
+        !rw.join("must_not_run").exists(),
+        "后段 argv 非法时，前段不应启动"
     );
 }
 

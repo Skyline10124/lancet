@@ -164,6 +164,30 @@ impl ToolStoreState {
             .expect("无变更项的 Exec 条目始终合法");
         self.call_effects.push(entry);
     }
+
+    fn map_exec_outcome(
+        &mut self,
+        env_name: &str,
+        any_started: bool,
+        outcome: ExecRunOutcome,
+    ) -> wasmtime::Result<Result<lancet::host::handles::ProcOutput, String>> {
+        if any_started {
+            self.record_exec_effect(env_name);
+        }
+        match outcome {
+            ExecRunOutcome::Finished(out) => Ok(Ok(lancet::host::handles::ProcOutput {
+                code: out.code,
+                stdout: out.stdout,
+                stderr: out.stderr,
+            })),
+            ExecRunOutcome::ToolError(msg) => Ok(Err(msg)),
+            ExecRunOutcome::Cancelled => Err(wasmtime::Error::new(Interrupt::Cancelled)),
+            ExecRunOutcome::Deadline => Err(wasmtime::Error::new(Interrupt::Deadline)),
+            ExecRunOutcome::InternalError(message) => {
+                Err(wasmtime::Error::new(DispatchTrap::HostInternal { message }))
+            }
+        }
+    }
 }
 
 impl lancet::host::handles::Host for ToolStoreState {}
@@ -257,23 +281,25 @@ impl lancet::host::handles::HostExecEnv for ToolStoreState {
             .map_err(wasmtime::Error::from)?
             .0
             .clone();
-        let (started, outcome) = env.run(&argv, cwd.as_deref(), self.deadline, &self.cancelled);
-        if started {
-            self.record_exec_effect(env.name());
-        }
-        match outcome {
-            ExecRunOutcome::Finished(out) => Ok(Ok(lancet::host::handles::ProcOutput {
-                code: out.code,
-                stdout: out.stdout,
-                stderr: out.stderr,
-            })),
-            ExecRunOutcome::ToolError(msg) => Ok(Err(msg)),
-            ExecRunOutcome::Cancelled => Err(wasmtime::Error::new(Interrupt::Cancelled)),
-            ExecRunOutcome::Deadline => Err(wasmtime::Error::new(Interrupt::Deadline)),
-            ExecRunOutcome::InternalError(message) => {
-                Err(wasmtime::Error::new(DispatchTrap::HostInternal { message }))
-            }
-        }
+        let (any_started, outcome) = env.run(&argv, cwd.as_deref(), self.deadline, &self.cancelled);
+        self.map_exec_outcome(env.name(), any_started, outcome)
+    }
+
+    fn pipe(
+        &mut self,
+        self_: Resource<ExecEnvResource>,
+        stages: Vec<Vec<String>>,
+        cwd: Option<String>,
+    ) -> wasmtime::Result<Result<lancet::host::handles::ProcOutput, String>> {
+        let env = self
+            .table
+            .get(&self_)
+            .map_err(wasmtime::Error::from)?
+            .0
+            .clone();
+        let (any_started, outcome) =
+            env.pipe(&stages, cwd.as_deref(), self.deadline, &self.cancelled);
+        self.map_exec_outcome(env.name(), any_started, outcome)
     }
 
     fn drop(&mut self, rep: Resource<ExecEnvResource>) -> wasmtime::Result<()> {

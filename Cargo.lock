@@ -1241,6 +1241,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "lancet-proc-pipe"
+version = "0.1.0"
+dependencies = [
+ "wit-bindgen",
+]
+
+[[package]]
 name = "lancet-proc-run"
 version = "0.1.0"
 dependencies = [

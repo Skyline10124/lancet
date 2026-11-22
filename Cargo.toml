@@ -11,6 +11,7 @@ members = [
     "tools/fs-read",
     "tools/fs-search",
     "tools/fs-write",
+    "tools/proc-pipe",
     "tools/proc-run",
     "xtask",
 ]
