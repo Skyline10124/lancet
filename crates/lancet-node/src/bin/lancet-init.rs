@@ -5,9 +5,9 @@
 //!
 //! 职责：
 //! 1. 在最终挂载视图里施加 Landlock 写规则并设 `PR_SET_NO_NEW_PRIVS`；
-//! 2. 成功后才创建前台子进程，关闭 0、1、2 以外的 fd，使用节点构造的 `envp` 按 `PATH` 查找并 `execve`；
-//! 3. 通过专用状态 fd 报告目标已启动或启动失败；
-//! 4. 回收子进程并监听控制管道，前台退出或控制管道 EOF 时退出 PID 1（内核随之终止命名空间内全部进程）。
+//! 2. 成功后按阶段自左向右滚动建管道并 `fork`/`execve`，确认当前阶段启动后再启动下一阶段；
+//! 3. 首段确认后立即经状态 fd 向节点发 `O`，任一段启动失败则报阶段序号与错误并立即退出；
+//! 4. 回收全部前台阶段（及收养的后代）并监听控制管道，全退后以 pipefail 码退出，控制管道 EOF 时立即退出。
 
 use std::ffi::{CString, OsString};
 use std::io;
@@ -63,7 +63,7 @@ struct InitArgs {
     status_fd: RawFd,
     rw_paths: Vec<OsString>,
     envp: Vec<OsString>,
-    argv: Vec<OsString>,
+    stages: Vec<Vec<OsString>>,
 }
 
 fn main() {
@@ -222,9 +222,38 @@ fn parse_init_args(args: &[OsString]) -> Result<InitArgs, String> {
         return Err(format!("无效 fd 编号：ctrl={ctrl_fd} status={status_fd}"));
     }
 
-    let argv = args[idx..].to_vec();
-    if argv.is_empty() {
-        return Err("缺少目标 argv".to_owned());
+    let mut stages = Vec::new();
+    while idx < args.len() {
+        let stage_no = stages.len() + 1;
+        let count_str = args[idx]
+            .to_str()
+            .ok_or_else(|| format!("第 {stage_no} 阶段 argc 不是合法 UTF-8"))?;
+        if count_str.is_empty() || !count_str.bytes().all(|b| b.is_ascii_digit()) {
+            return Err(format!(
+                "第 {stage_no} 阶段 argc `{count_str}` 不是十进制非负整数"
+            ));
+        }
+        let argc = count_str
+            .parse::<usize>()
+            .map_err(|e| format!("第 {stage_no} 阶段 argc `{count_str}` 无效：{e}"))?;
+        if argc == 0 {
+            return Err(format!("第 {stage_no} 阶段 argc 不能为 0"));
+        }
+        idx += 1;
+        let end = idx
+            .checked_add(argc)
+            .ok_or_else(|| format!("第 {stage_no} 阶段 argc 溢出"))?;
+        if end > args.len() {
+            return Err(format!(
+                "第 {stage_no} 阶段参数不完整：声明 {argc} 个，实际剩余 {} 个",
+                args.len() - idx
+            ));
+        }
+        stages.push(args[idx..end].to_vec());
+        idx = end;
+    }
+    if stages.is_empty() {
+        return Err("缺少目标阶段".to_owned());
     }
 
     Ok(InitArgs {
@@ -232,7 +261,7 @@ fn parse_init_args(args: &[OsString]) -> Result<InitArgs, String> {
         status_fd,
         rw_paths,
         envp,
-        argv,
+        stages,
     })
 }
 
@@ -340,26 +369,45 @@ fn add_landlock_path_rule(
     Ok(())
 }
 
+struct PreparedStage {
+    argv_c: Vec<CString>,
+    exec_candidates: Vec<CString>,
+    is_direct_path: bool,
+}
+
 fn run_foreground(parsed: InitArgs) -> ! {
-    // 预先在 fork 之前构造 CString 与指针数组，确保子进程只执行 async-signal-safe 系统调用。
-    let argv_c = match to_cstrings(&parsed.argv) {
-        Ok(v) => v,
-        Err(msg) => report_init_error(parsed.status_fd, &format!("构造 argv 失败：{msg}")),
-    };
+    // 预先在 fork 之前构造全部阶段的 CString 与候选路径，确保子进程只执行 async-signal-safe 系统调用。
     let envp_c = match to_cstrings(&parsed.envp) {
         Ok(v) => v,
         Err(msg) => report_init_error(parsed.status_fd, &format!("构造 envp 失败：{msg}")),
     };
-    let (exec_candidates, is_direct_path) =
-        match build_exec_candidates(&parsed.argv[0], &parsed.envp) {
-            Ok(v) => v,
-            Err(msg) => report_init_error(parsed.status_fd, &format!("构造可执行路径失败：{msg}")),
-        };
-
-    let mut argv_ptrs: Vec<*const libc::c_char> = argv_c.iter().map(|s| s.as_ptr()).collect();
-    argv_ptrs.push(ptr::null());
     let mut envp_ptrs: Vec<*const libc::c_char> = envp_c.iter().map(|s| s.as_ptr()).collect();
     envp_ptrs.push(ptr::null());
+
+    let mut prepared_stages = Vec::with_capacity(parsed.stages.len());
+    for (idx, stage_argv) in parsed.stages.iter().enumerate() {
+        let stage_no = idx + 1;
+        let argv_c = match to_cstrings(stage_argv) {
+            Ok(v) => v,
+            Err(msg) => report_init_error(
+                parsed.status_fd,
+                &format!("构造第 {stage_no} 阶段 argv 失败：{msg}"),
+            ),
+        };
+        let (exec_candidates, is_direct_path) =
+            match build_exec_candidates(&stage_argv[0], &parsed.envp) {
+                Ok(v) => v,
+                Err(msg) => report_init_error(
+                    parsed.status_fd,
+                    &format!("构造第 {stage_no} 阶段可执行路径失败：{msg}"),
+                ),
+            };
+        prepared_stages.push(PreparedStage {
+            argv_c,
+            exec_candidates,
+            is_direct_path,
+        });
+    }
 
     // 阻塞 SIGCHLD 并建立 signalfd，避免 fork 后子进程秒退丢失信号。
     let mut sig_mask: libc::sigset_t = unsafe { std::mem::zeroed() };
@@ -385,130 +433,164 @@ fn run_foreground(parsed: InitArgs) -> ! {
         );
     }
 
-    let mut exec_pipe = [0 as RawFd; 2];
-    // SAFETY: 创建 CLOEXEC 内部管道用于子进程报告 execve 结果。
-    if unsafe { libc::pipe2(exec_pipe.as_mut_ptr(), libc::O_CLOEXEC) } != 0 {
-        report_init_error(
-            parsed.status_fd,
-            &format!("创建 exec 状态管道失败：{}", io::Error::last_os_error()),
-        );
-    }
-    let exec_r = exec_pipe[0];
-    let exec_w = exec_pipe[1];
+    let stage_count = prepared_stages.len();
+    let mut stage_pids = Vec::with_capacity(stage_count);
+    let mut prev_read_fd: Option<RawFd> = None;
+    let mut reported_started = false;
 
-    // SAFETY: 单线程 PID 1，子进程只调用 async-signal-safe 系统调用。
-    let child_pid = unsafe { libc::fork() };
-    if child_pid < 0 {
-        report_init_error(
-            parsed.status_fd,
-            &format!("fork 前台子进程失败：{}", io::Error::last_os_error()),
-        );
-    }
+    for (stage_idx, stage) in prepared_stages.iter().enumerate() {
+        let stage_no = stage_idx + 1;
+        let has_next = stage_idx + 1 < stage_count;
 
-    if child_pid == 0 {
-        // SAFETY: 子进程恢复信号掩码与 SIGPIPE，关闭 0、1、2 与 exec_w 以外的全部 fd 后 execve。
-        unsafe {
-            libc::sigprocmask(libc::SIG_SETMASK, &orig_mask, ptr::null_mut());
-            libc::signal(libc::SIGPIPE, libc::SIG_DFL);
-            if let Err(err_no) = close_all_fds_except(exec_w) {
-                let mut msg = [0u8; 5];
-                msg[0] = b'C';
-                msg[1..5].copy_from_slice(&err_no.to_le_bytes());
-                let _ = write_all_raw(exec_w, &msg);
-                libc::close(exec_w);
-                libc::_exit(126);
+        let mut argv_ptrs: Vec<*const libc::c_char> =
+            stage.argv_c.iter().map(|s| s.as_ptr()).collect();
+        argv_ptrs.push(ptr::null());
+
+        let (next_read_fd, next_write_fd) = if has_next {
+            let mut data_pipe = [0 as RawFd; 2];
+            // SAFETY: 相邻阶段间滚动建立带 O_CLOEXEC 的数据管道。
+            if unsafe { libc::pipe2(data_pipe.as_mut_ptr(), libc::O_CLOEXEC) } != 0 {
+                report_init_error(
+                    parsed.status_fd,
+                    &format!(
+                        "创建第 {stage_no} 阶段输出管道失败：{}",
+                        io::Error::last_os_error()
+                    ),
+                );
             }
-
-            let err_no = exec_candidates_now(
-                &exec_candidates,
-                is_direct_path,
-                argv_ptrs.as_ptr(),
-                envp_ptrs.as_ptr(),
-            );
-            let mut msg = [0u8; 5];
-            msg[0] = b'E';
-            msg[1..5].copy_from_slice(&err_no.to_le_bytes());
-            let _ = write_all_raw(exec_w, &msg);
-            libc::close(exec_w);
-            libc::_exit(127);
-        }
-    }
-
-    // 父进程（PID 1）：关闭写端并读取 exec 结果。
-    // SAFETY: 关闭不再使用的写端。
-    unsafe {
-        libc::close(exec_w);
-    }
-
-    let mut err_buf = [0u8; 5];
-    let mut read_len = 0usize;
-    while read_len < err_buf.len() {
-        // SAFETY: 从 exec_r 读取子进程可能写回的 5 字节错误消息（'E' + errno 或 'C' + errno）。
-        let n = unsafe {
-            libc::read(
-                exec_r,
-                err_buf[read_len..].as_mut_ptr().cast(),
-                err_buf.len() - read_len,
-            )
-        };
-        if n > 0 {
-            read_len += n as usize;
-        } else if n == 0 {
-            break;
+            (Some(data_pipe[0]), Some(data_pipe[1]))
         } else {
-            let err = io::Error::last_os_error();
-            if err.raw_os_error() == Some(libc::EINTR) {
-                continue;
-            }
-            break;
-        }
-    }
-    // SAFETY: 读完关闭 exec_r。
-    unsafe {
-        libc::close(exec_r);
-    }
+            (None, None)
+        };
 
-    if read_len > 0 {
-        let mut status: libc::c_int = 0;
-        // SAFETY: 回收启动失败的前台子进程。
-        unsafe {
-            loop {
-                if libc::waitpid(child_pid, &mut status, 0) >= 0 {
-                    break;
-                }
-                if io::Error::last_os_error().raw_os_error() != Some(libc::EINTR) {
-                    break;
-                }
-            }
-        }
-        if read_len == 5 && err_buf[0] == b'E' {
-            let _ = write_all_raw(parsed.status_fd, &err_buf);
-            // SAFETY: 关闭状态 fd 后退出。
-            unsafe {
-                libc::close(parsed.status_fd);
-            }
-            exit_now(127);
-        }
-        if read_len == 5 && err_buf[0] == b'C' {
-            let err_no = i32::from_le_bytes([err_buf[1], err_buf[2], err_buf[3], err_buf[4]]);
-            let os_err = io::Error::from_raw_os_error(err_no);
+        let mut exec_pipe = [0 as RawFd; 2];
+        // SAFETY: 创建 CLOEXEC 内部管道用于本阶段子进程报告启动结果。
+        if unsafe { libc::pipe2(exec_pipe.as_mut_ptr(), libc::O_CLOEXEC) } != 0 {
             report_init_error(
                 parsed.status_fd,
-                &format!("close_range 关闭多余文件描述符失败：{os_err}"),
+                &format!(
+                    "创建第 {stage_no} 阶段 exec 状态管道失败：{}",
+                    io::Error::last_os_error()
+                ),
             );
         }
-        report_init_error(parsed.status_fd, "读取前台子进程启动状态失败");
+        let exec_r = exec_pipe[0];
+        let exec_w = exec_pipe[1];
+
+        // SAFETY: 单线程 PID 1，子进程只调用 async-signal-safe 系统调用。
+        let child_pid = unsafe { libc::fork() };
+        if child_pid < 0 {
+            report_init_error(
+                parsed.status_fd,
+                &format!(
+                    "fork 第 {stage_no} 阶段子进程失败：{}",
+                    io::Error::last_os_error()
+                ),
+            );
+        }
+
+        if child_pid == 0 {
+            // SAFETY: 子进程恢复信号掩码与 SIGPIPE，接好标准流，关闭多余 fd 后直接 execve。
+            unsafe {
+                if libc::sigprocmask(libc::SIG_SETMASK, &orig_mask, ptr::null_mut()) != 0 {
+                    report_child_pipe_err(exec_w, b'C', last_errno(), 126);
+                }
+                if libc::signal(libc::SIGPIPE, libc::SIG_DFL) == libc::SIG_ERR {
+                    report_child_pipe_err(exec_w, b'C', last_errno(), 126);
+                }
+                if let Some(in_fd) = prev_read_fd
+                    && let Err(err_no) = dup2_retry(in_fd, 0)
+                {
+                    report_child_pipe_err(exec_w, b'C', err_no, 126);
+                }
+                if let Some(out_fd) = next_write_fd
+                    && let Err(err_no) = dup2_retry(out_fd, 1)
+                {
+                    report_child_pipe_err(exec_w, b'C', err_no, 126);
+                }
+                if let Err(err_no) = close_all_fds_except(exec_w) {
+                    report_child_pipe_err(exec_w, b'C', err_no, 126);
+                }
+
+                let err_no = exec_candidates_now(
+                    &stage.exec_candidates,
+                    stage.is_direct_path,
+                    argv_ptrs.as_ptr(),
+                    envp_ptrs.as_ptr(),
+                );
+                report_child_pipe_err(exec_w, b'E', err_no, 127);
+            }
+        }
+
+        // 父进程（PID 1）：立即关闭上一段读端、本段数据写端与报告写端，仅保留下一段读端。
+        // SAFETY: 这些 fd 均归当前进程持有且不再使用。
+        unsafe {
+            libc::close(exec_w);
+            if let Some(old_r) = prev_read_fd.take() {
+                libc::close(old_r);
+            }
+            if let Some(out_w) = next_write_fd {
+                libc::close(out_w);
+            }
+        }
+        prev_read_fd = next_read_fd;
+
+        let exec_res = wait_stage_exec(exec_r, parsed.ctrl_fd);
+        // SAFETY: 读完关闭本段 exec_r。
+        unsafe {
+            libc::close(exec_r);
+        }
+
+        let (err_buf, read_len) = match exec_res {
+            Ok(v) => v,
+            Err(err) => report_init_error(
+                parsed.status_fd,
+                &format!("等待第 {stage_no} 阶段启动结果失败：{err}"),
+            ),
+        };
+
+        if read_len > 0 {
+            if read_len == 5 && err_buf[0] == b'E' {
+                let mut msg = [0u8; 9];
+                msg[0] = b'E';
+                msg[1..5].copy_from_slice(&(stage_no as u32).to_le_bytes());
+                msg[5..9].copy_from_slice(&err_buf[1..5]);
+                let _ = write_all_raw(parsed.status_fd, &msg);
+                // SAFETY: 关闭状态 fd 后退出（内核随之终止命名空间内其余进程）。
+                unsafe {
+                    libc::close(parsed.status_fd);
+                }
+                exit_now(127);
+            }
+            if read_len == 5 && err_buf[0] == b'C' {
+                let err_no = i32::from_le_bytes([err_buf[1], err_buf[2], err_buf[3], err_buf[4]]);
+                let os_err = io::Error::from_raw_os_error(err_no);
+                report_init_error(
+                    parsed.status_fd,
+                    &format!(
+                        "第 {stage_no} 阶段子进程准备失败（信号、标准流或关闭多余 fd）：{os_err}"
+                    ),
+                );
+            }
+            report_init_error(
+                parsed.status_fd,
+                &format!("读取第 {stage_no} 阶段子进程启动状态失败"),
+            );
+        }
+
+        // 0 字节 EOF：本阶段已成功 execve；首段确认后立即向节点发送 O。
+        stage_pids.push(child_pid);
+        if !reported_started {
+            let _ = write_all_raw(parsed.status_fd, b"O");
+            reported_started = true;
+        }
     }
 
-    // 0 字节 EOF：目标进程已成功 execve，立即向节点报告“目标已启动”。
-    let _ = write_all_raw(parsed.status_fd, b"O");
-    // SAFETY: 关闭状态 fd。
-    unsafe {
-        libc::close(parsed.status_fd);
-    }
+    // 状态 fd 保持打开到 PID 1 退出，垫片自身在回收期间的故障仍以 `I` 报告。
+    let mut stage_codes = vec![None; stage_pids.len()];
 
-    // 先非阻塞检查一次，防止前台子进程已退出。
-    if let Some(code) = reap_children(child_pid) {
+    // 先非阻塞检查一次，防止已有前台阶段在启动后续阶段期间退出。
+    if let Some(code) = reap_children(&stage_pids, &mut stage_codes) {
         exit_now(code);
     }
 
@@ -531,15 +613,19 @@ fn run_foreground(parsed: InitArgs) -> ! {
         // SAFETY: 轮询控制管道与 signalfd。
         let rc = unsafe { libc::poll(pollfds.as_mut_ptr(), pollfds.len() as libc::nfds_t, -1) };
         if rc < 0 {
-            if io::Error::last_os_error().raw_os_error() == Some(libc::EINTR) {
+            let err = io::Error::last_os_error();
+            if err.raw_os_error() == Some(libc::EINTR) {
                 continue;
             }
-            exit_now(1);
+            report_init_error(
+                parsed.status_fd,
+                &format!("回收前台阶段时轮询控制管道与 signalfd 失败：{err}"),
+            );
         }
 
         if pollfds[1].revents != 0 {
             drain_signalfd(sig_fd);
-            if let Some(code) = reap_children(child_pid) {
+            if let Some(code) = reap_children(&stage_pids, &mut stage_codes) {
                 exit_now(code);
             }
         }
@@ -557,6 +643,110 @@ fn run_foreground(parsed: InitArgs) -> ! {
                 }
             }
         }
+    }
+}
+
+/// 在等待单阶段 `execve` 结果期间同时监听控制管道；控制管道 EOF 时立即退出 PID 1。
+fn wait_stage_exec(exec_r: RawFd, ctrl_fd: RawFd) -> io::Result<([u8; 5], usize)> {
+    let mut err_buf = [0u8; 5];
+    let mut read_len = 0usize;
+    let mut pollfds = [
+        libc::pollfd {
+            fd: ctrl_fd,
+            events: libc::POLLIN,
+            revents: 0,
+        },
+        libc::pollfd {
+            fd: exec_r,
+            events: libc::POLLIN,
+            revents: 0,
+        },
+    ];
+
+    while read_len < err_buf.len() {
+        pollfds[0].revents = 0;
+        pollfds[1].revents = 0;
+        // SAFETY: 轮询控制管道与本段启动报告管道。
+        let rc = unsafe { libc::poll(pollfds.as_mut_ptr(), pollfds.len() as libc::nfds_t, -1) };
+        if rc < 0 {
+            let err = io::Error::last_os_error();
+            if err.raw_os_error() == Some(libc::EINTR) {
+                continue;
+            }
+            return Err(err);
+        }
+
+        if pollfds[0].revents != 0 {
+            if (pollfds[0].revents & (libc::POLLHUP | libc::POLLERR | libc::POLLNVAL)) != 0 {
+                exit_now(1);
+            }
+            if (pollfds[0].revents & libc::POLLIN) != 0 {
+                let mut tmp = [0u8; 64];
+                // SAFETY: 读取控制管道检测 EOF。
+                let n = unsafe { libc::read(ctrl_fd, tmp.as_mut_ptr().cast(), tmp.len()) };
+                if n <= 0 {
+                    exit_now(1);
+                }
+            }
+        }
+
+        if pollfds[1].revents != 0 {
+            if (pollfds[1].revents & libc::POLLNVAL) != 0 {
+                return Err(io::Error::from_raw_os_error(libc::EBADF));
+            }
+            // SAFETY: 读取本段子进程可能写回的 5 字节错误消息（'E' + errno 或 'C' + errno）或 EOF。
+            let n = unsafe {
+                libc::read(
+                    exec_r,
+                    err_buf[read_len..].as_mut_ptr().cast(),
+                    err_buf.len() - read_len,
+                )
+            };
+            if n > 0 {
+                read_len += n as usize;
+            } else if n == 0 {
+                break;
+            } else {
+                let err = io::Error::last_os_error();
+                if err.raw_os_error() == Some(libc::EINTR) {
+                    continue;
+                }
+                return Err(err);
+            }
+        }
+    }
+
+    Ok((err_buf, read_len))
+}
+
+fn last_errno() -> i32 {
+    io::Error::last_os_error()
+        .raw_os_error()
+        .unwrap_or(libc::EINVAL)
+}
+
+unsafe fn dup2_retry(old_fd: RawFd, new_fd: RawFd) -> Result<(), i32> {
+    loop {
+        // SAFETY: dup2 为 async-signal-safe，old_fd >= 3 != new_fd(0/1) 时自动清除 CLOEXEC。
+        if unsafe { libc::dup2(old_fd, new_fd) } >= 0 {
+            return Ok(());
+        }
+        let err_no = last_errno();
+        if err_no != libc::EINTR {
+            return Err(err_no);
+        }
+    }
+}
+
+unsafe fn report_child_pipe_err(exec_w: RawFd, tag: u8, err_no: i32, exit_code: i32) -> ! {
+    let mut msg = [0u8; 5];
+    msg[0] = tag;
+    msg[1..5].copy_from_slice(&err_no.to_le_bytes());
+    let _ = write_all_raw(exec_w, &msg);
+    // SAFETY: 写完关闭启动报告写端并立即退出子进程。
+    unsafe {
+        libc::close(exec_w);
+        libc::_exit(exit_code);
     }
 }
 
@@ -637,9 +827,8 @@ fn drain_signalfd(sig_fd: RawFd) {
     }
 }
 
-/// 回收全部已退出子进程；若前台子进程已退出，返回其退出码。
-fn reap_children(foreground_pid: libc::pid_t) -> Option<i32> {
-    let mut foreground_code = None;
+/// 回收全部已退出子进程（含收养的后代）；当全部前台阶段都已退出时，返回 pipefail 退出码。
+fn reap_children(stage_pids: &[libc::pid_t], stage_codes: &mut [Option<i32>]) -> Option<i32> {
     loop {
         let mut status: libc::c_int = 0;
         // SAFETY: 非阻塞回收任意子进程。
@@ -647,11 +836,27 @@ fn reap_children(foreground_pid: libc::pid_t) -> Option<i32> {
         if pid <= 0 {
             break;
         }
-        if pid == foreground_pid {
-            foreground_code = Some(wait_status_to_exit_code(status));
+        if let Some(idx) = stage_pids.iter().position(|&p| p == pid)
+            && stage_codes[idx].is_none()
+        {
+            stage_codes[idx] = Some(wait_status_to_exit_code(status));
         }
     }
-    foreground_code
+    if stage_codes.iter().all(Option::is_some) {
+        Some(pipefail_exit_code(stage_codes))
+    } else {
+        None
+    }
+}
+
+/// pipefail 规则：从右向左取第一个非零码，全为 0 时取 0。
+fn pipefail_exit_code(stage_codes: &[Option<i32>]) -> i32 {
+    for code in stage_codes.iter().rev().flatten() {
+        if *code != 0 {
+            return *code;
+        }
+    }
+    0
 }
 
 fn wait_status_to_exit_code(status: libc::c_int) -> i32 {
@@ -760,5 +965,97 @@ fn exit_now(code: i32) -> ! {
     // SAFETY: 立即终止进程（PID 1 退出时内核终止同命名空间内全部剩余进程）。
     unsafe {
         libc::_exit(code);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn os_args(items: &[&str]) -> Vec<OsString> {
+        items.iter().map(OsString::from).collect()
+    }
+
+    #[test]
+    fn parse_init_args_decodes_single_and_multi_stage_preserving_special_tokens() {
+        let args = os_args(&[
+            "--ctrl-fd",
+            "3",
+            "--status-fd",
+            "4",
+            "--rw",
+            "/tmp",
+            "--env",
+            "PATH=/usr/bin",
+            "--",
+            "5",
+            "printf",
+            "%s",
+            "--",
+            "",
+            "2",
+            "1",
+            "cat",
+        ]);
+        let parsed = parse_init_args(&args).expect("合法多阶段参数应解析成功");
+        assert_eq!(parsed.ctrl_fd, 3);
+        assert_eq!(parsed.status_fd, 4);
+        assert_eq!(parsed.rw_paths, os_args(&["/tmp"]));
+        assert_eq!(parsed.envp, os_args(&["PATH=/usr/bin"]));
+        assert_eq!(
+            parsed.stages,
+            vec![os_args(&["printf", "%s", "--", "", "2"]), os_args(&["cat"]),]
+        );
+    }
+
+    #[test]
+    fn parse_init_args_rejects_empty_zero_and_truncated_stages() {
+        for (label, raw) in [
+            ("无阶段", &["--ctrl-fd", "3", "--status-fd", "4", "--"][..]),
+            ("缺少 --", &["--ctrl-fd", "3", "--status-fd", "4"][..]),
+            (
+                "零计数",
+                &["--ctrl-fd", "3", "--status-fd", "4", "--", "0"][..],
+            ),
+            (
+                "非数字计数",
+                &["--ctrl-fd", "3", "--status-fd", "4", "--", "+1", "true"][..],
+            ),
+            (
+                "首段不完整",
+                &["--ctrl-fd", "3", "--status-fd", "4", "--", "2", "echo"][..],
+            ),
+            (
+                "后段不完整",
+                &[
+                    "--ctrl-fd",
+                    "3",
+                    "--status-fd",
+                    "4",
+                    "--",
+                    "1",
+                    "true",
+                    "2",
+                    "cat",
+                ][..],
+            ),
+            (
+                "后段零计数",
+                &["--ctrl-fd", "3", "--status-fd", "4", "--", "1", "true", "0"][..],
+            ),
+        ] {
+            assert!(
+                parse_init_args(&os_args(raw)).is_err(),
+                "用例 `{label}` 应被拒绝"
+            );
+        }
+    }
+
+    #[test]
+    fn pipefail_picks_rightmost_nonzero_or_zero() {
+        assert_eq!(pipefail_exit_code(&[Some(0), Some(0), Some(0)]), 0);
+        assert_eq!(pipefail_exit_code(&[Some(7), Some(23), Some(0)]), 23);
+        assert_eq!(pipefail_exit_code(&[Some(141), Some(0)]), 141);
+        assert_eq!(pipefail_exit_code(&[Some(7), Some(0), Some(5)]), 5);
     }
 }

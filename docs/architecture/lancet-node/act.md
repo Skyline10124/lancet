@@ -104,7 +104,7 @@ act 结束时:
     elif 交回载荷超限:
         Failed(OutputLimitExceeded)
     elif 脚本 fail 或子调用报错:
-        Failed(ScriptOrToolError)     # 含解释器或 API 工具超内存、工具陷入、proc.run 沙箱 OOM 与启动失败
+        Failed(ScriptOrToolError)     # 含解释器或 API 工具超内存、工具陷入、proc.run / proc.pipe 沙箱 OOM 与启动失败
     elif 调用方 cancel 或连接断开:
         Cancelled
     elif remaining_ms 耗尽:
@@ -157,4 +157,4 @@ return {
 
 - `cargo xtask docs-check`：本合同的链接与锚点有效。
 - `cargo test -p lancet-node --test act`：解释器的组件级测试，覆盖包裹与顶层 `return`、静态检查、解析诊断与修复提示、全局环境、句柄方法的绑定与运行期校验、内存上限、截止与取消。
-- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及五个 `fs.*` API 工具与 `proc.run` 的调用、直接写入宿主、执行环境沙箱与回执。
+- `cargo test -p lancet-node --test node`：`act` 的协议级测试，覆盖受理、交回载荷与 `output_limit`、诊断、内存上限、截止、取消与断连，以及五个 `fs.*` API 工具与 `proc.run`、`proc.pipe` 的调用、直接写入宿主、执行环境沙箱与回执。

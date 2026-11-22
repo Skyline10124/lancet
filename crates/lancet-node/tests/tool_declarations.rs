@@ -789,6 +789,7 @@ fn product_read_tools_match_templates() {
             "fs.write",
             "fs.edit",
             "proc.run",
+            "proc.pipe",
         ]
     );
 
@@ -1008,6 +1009,38 @@ fn product_read_tools_match_templates() {
             EffectItem::EmitViaEgressOf(0),
         ]
     );
+
+    let proc_pipe = &tools[6];
+    assert_eq!(proc_pipe.wit_interface, "lancet:proc-pipe/proc@0.1.0");
+    assert_eq!(proc_pipe.wit_function, "pipe");
+    assert!(proc_pipe.docs.is_some(), "proc.pipe 应保留 WIT 注释");
+    assert_eq!(
+        proc_pipe.params,
+        vec![
+            ParamDecl {
+                name: "env".to_owned(),
+                ty: WitType::Handle {
+                    kind: HandleKind::ExecEnv,
+                    borrow: true,
+                },
+            },
+            ParamDecl {
+                name: "stages".to_owned(),
+                ty: WitType::List(Box::new(WitType::List(Box::new(WitType::String)))),
+            },
+            ParamDecl {
+                name: "cwd".to_owned(),
+                ty: WitType::Option(Box::new(WitType::String)),
+            },
+            ParamDecl {
+                name: "check".to_owned(),
+                ty: WitType::Option(Box::new(WitType::Bool)),
+            },
+        ]
+    );
+    assert_eq!(proc_pipe.result, proc_run.result);
+    assert_eq!(proc_pipe.records, proc_run.records);
+    assert_eq!(proc_pipe.templates, proc_run.templates);
 }
 
 fn make_tool_decl(

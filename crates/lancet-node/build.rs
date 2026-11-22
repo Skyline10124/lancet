@@ -61,6 +61,12 @@ const PRODUCT_TOOLS: &[ToolArtifactSpec] = &[
         rel_dir: "tools/proc-run",
         output_stem: "proc-run",
     },
+    ToolArtifactSpec {
+        package_name: "lancet-proc-pipe",
+        lib_stem: "lancet_proc_pipe",
+        rel_dir: "tools/proc-pipe",
+        output_stem: "proc-pipe",
+    },
 ];
 
 const TEST_PROBE: ToolArtifactSpec = ToolArtifactSpec {
@@ -143,6 +149,7 @@ fn emit_rerun_if_changed(workspace_root: &Path, manifest_dir: &Path, act_dir: &P
     for path in [
         workspace_root.join("Cargo.toml"),
         workspace_root.join("Cargo.lock"),
+        workspace_root.join("tools/proc_common.rs"),
         manifest_dir.join("src/act/engine.rs"),
         manifest_dir.join("build/tool.rs"),
         manifest_dir.join("build/declaration.rs"),

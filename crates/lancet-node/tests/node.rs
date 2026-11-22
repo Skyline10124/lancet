@@ -449,6 +449,12 @@ hosts = ["pypi.org"]
         exec_env_block.contains("def run("),
         "`class ExecEnv:` 应包含 `def run(`，实际为：\n{exec_env_block}"
     );
+    assert!(
+        exec_env_block.lines().any(|line| {
+            line == "    def pipe(self, stages: list[list[str]], cwd: str | None = None, check: bool | None = None) -> ProcOutput:"
+        }),
+        "`class ExecEnv:` 应包含完整的 `pipe` 存根签名，实际为：\n{exec_env_block}"
+    );
 
     let handles = environment_summary.handles();
     let names: Vec<&str> = handles.iter().map(|h| h.name.as_str()).collect();
